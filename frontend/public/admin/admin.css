@@ -1,0 +1,142 @@
+:root {
+  --bg: #0a0a09;
+  --bg-raised: #141412;
+  --fg: #f3f1ea;
+  --fg-dim: #8f8d85;
+  --border: rgba(243, 241, 234, 0.14);
+  --danger: #d98a7a;
+  --font: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+input, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ---------- login ---------- */
+.login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: min(280px, 90vw);
+}
+.login__label {
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--fg-dim);
+}
+.login input {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  padding: 0.65rem 0.75rem;
+}
+.login button {
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  padding: 0.65rem 0.75rem;
+  cursor: pointer;
+}
+.login__error {
+  color: var(--danger);
+  font-size: 0.8125rem;
+  min-height: 1.2em;
+  margin: 0;
+}
+
+/* ---------- shell ---------- */
+.app__header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.app__title { margin: 0; font-weight: bold; }
+.app__tabs { display: flex; gap: 0.5rem; flex: 1; }
+.app__tab, .app__signout, .panel__form-actions button, #exportBtn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+}
+.app__tab.is-active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.app__signout { color: var(--fg-dim); }
+
+main { padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
+
+.panel { display: none; }
+.panel.is-active { display: block; }
+
+.panel__heading {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--fg-dim);
+  margin: 0 0 1rem;
+}
+
+/* ---------- journal tab ---------- */
+.panel__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2.5rem;
+}
+@media (max-width: 800px) {
+  .panel__grid { grid-template-columns: 1fr; }
+}
+
+.entry-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.entry-list li {
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  cursor: pointer;
+}
+.entry-list li:hover { border-color: var(--fg-dim); }
+.entry-list li.is-selected { border-color: var(--fg); background: var(--bg-raised); }
+.entry-list .entry-list__title { display: block; }
+.entry-list .entry-list__date { display: block; color: var(--fg-dim); font-size: 0.75rem; margin-top: 0.25rem; }
+
+.panel__form form { display: flex; flex-direction: column; gap: 0.9rem; }
+.panel__form label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.75rem; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+.panel__form input, .panel__form textarea {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: 0.6rem 0.7rem;
+  font-size: 0.875rem;
+  text-transform: none;
+  letter-spacing: normal;
+  resize: vertical;
+}
+.panel__form-actions { display: flex; gap: 0.5rem; }
+.panel__form-actions .danger { color: var(--danger); border-color: var(--danger); margin-left: auto; }
+.panel__status { min-height: 1.2em; font-size: 0.8125rem; color: var(--fg-dim); margin: 0; }
+.panel__status.is-error { color: var(--danger); }
+.panel__status.is-success { color: var(--fg); }
+
+/* ---------- subscribers tab ---------- */
+.sub-list { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-direction: column; gap: 0.35rem; }
+.sub-list li { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding: 0.4rem 0; }
+.sub-list li span:last-child { color: var(--fg-dim); font-size: 0.75rem; }
