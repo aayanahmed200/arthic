@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# local env vars for `vercel dev` (POSTGRES_URL, ADMIN_USER, ADMIN_PASSWORD) —
+# never commit real credentials
+.env
+.env.local
+.vercel
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
