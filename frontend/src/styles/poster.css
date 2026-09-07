@@ -1,0 +1,12 @@
+.poster__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.poster__image {
+  width: auto;
+  max-width: min(90vw, 640px);
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+}
