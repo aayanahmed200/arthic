@@ -1,6 +1,6 @@
 # arthic — backend
 
-The API behind the journal and the email signup form, plus a small admin panel for writing journal entries without touching code. Express + Node's built-in `node:sqlite` — no native modules to compile, no separate database to run. See the [root README](../README.md) for the project as a whole.
+A self-host alternative to `frontend/api/`, the API that's actually deployed at arthic.tech. This is a complete, independent implementation of the journal and email-signup endpoints, plus a small admin panel for writing journal entries without touching code — Express + Node's built-in `node:sqlite`, no native modules to compile, no separate database to run. Use this instead of `frontend/api/` if you'd rather run a normal Node server (e.g. Render) than Vercel serverless functions + Postgres; the two are independent, don't share a database, and only one should be live per deployment. It doesn't cover pre-orders or job applications — those only exist in `frontend/api/`. See the [root README](../README.md) for the project as a whole and [`../DEPLOYMENT.md`](../DEPLOYMENT.md) for how each path actually gets deployed.
 
 ## Setup
 
