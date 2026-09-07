@@ -1,0 +1,27 @@
+.ai-note {
+  border-top: 1px solid var(--color-fg-hairline);
+  border-bottom: 1px solid var(--color-fg-hairline);
+}
+
+.ai-note__inner {
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ai-note__inner h2 {
+  font-size: var(--fs-h3);
+  font-weight: 460;
+  max-width: 22ch;
+}
+
+.ai-note__body {
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  max-width: 56ch;
+}

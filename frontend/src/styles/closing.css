@@ -1,0 +1,17 @@
+.closing {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--container-pad);
+  text-align: center;
+  background: var(--color-bg-deep);
+}
+
+.closing__headline {
+  font-size: var(--fs-closing);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-weight: 560;
+}
