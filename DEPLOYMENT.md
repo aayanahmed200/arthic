@@ -1,37 +1,38 @@
 # Deploying arthic
 
-Two independent deploys — the frontend (static) on Vercel, the backend (Node + SQLite) on Render — pointed at each other through one environment variable, with `arthic.tech`'s DNS pointed at Vercel.
+One deploy: the frontend and the `/api` serverless functions ship together as a single Vercel project, backed by a Postgres database (Supabase's free tier is the easy path, but nothing in the code is Supabase-specific — any Postgres connection string works), with `arthic.tech`'s DNS pointed at Vercel.
 
-Do the backend first; the frontend needs its URL.
+Do the database first; Vercel needs its connection string.
 
-## Backend — Render
+## 1. Database — Supabase (or any Postgres)
 
-**Fastest path:** New → Blueprint → point it at this repo. Render reads [`backend/render.yaml`](backend/render.yaml) and proposes the `arthic-backend` service. If Render's Blueprint UI ever rejects a field (its syntax has changed before), the manual settings below are exactly equivalent.
+1. Create a free project at [supabase.com](https://supabase.com) — pick a name, region, and database password (save that password, you'll need it in the next step).
+2. In the new project: **Project Settings → Database → Connection string**. Copy the **URI** under "Connection pooling" (transaction mode) — serverless functions open a lot of short-lived connections, and the pooled connection string is built for that; the direct (non-pooled) string will work too but can exhaust Postgres's connection limit under real traffic.
+3. Paste your real database password into the copied string in place of the `[YOUR-PASSWORD]` placeholder. That whole string is what `POSTGRES_URL` gets set to in the next step.
 
-Manual settings, if you're not using the blueprint:
+Already have a Postgres database somewhere else (Neon, RDS, your own instance)? Skip Supabase entirely and use that connection string instead — `@vercel/postgres` (what `frontend/api/_db.ts` uses) just expects a standard Postgres URI, nothing about it depends on Supabase specifically.
 
-- **Root directory:** `backend`
-- **Build command:** `npm install`
-- **Start command:** `npm start`
-- **Health check path:** `/api/health`
-- **Disk:** mount a persistent disk at `/var/data` (1 GB is plenty). This is the part that requires a paid instance type — Render's free tier doesn't keep disks, and without one `data/arthic.db` gets wiped on every restart. Check Render's current plans and pick whichever paid tier is cheapest; this app is small enough that the smallest one is enough.
-- **Environment variables:** `ADMIN_USER=admin`, `ADMIN_PASSWORD=<pick a real one>`, `ALLOWED_ORIGIN=https://arthic.tech`, `DATABASE_PATH=/var/data/arthic.db`
+Nothing to run by hand beyond this — the first request to any API route calls `ensureTables()` (`frontend/api/_db.ts`), which creates the `journal_entries`, `subscribers`, `preorders`, and `applications` tables if they don't already exist. There's no seed step either: the homepage ships with three journal entries baked into the static markup, so the site never looks empty even before you write a real entry through `/admin`.
 
-Once it's deployed, open a shell on the service (Render's dashboard has a Shell tab) and run `npm run seed` once to load the three starter journal entries. Copy the service's `https://something.onrender.com` URL — the frontend needs it next.
+## 2. Vercel
 
-## Frontend — Vercel
+1. Import this repo into Vercel. In the project's settings, set **Root Directory** to `frontend`. Vercel auto-detects the Vite build from [`frontend/vercel.json`](frontend/vercel.json) and picks up every file under `frontend/api/` as a serverless function automatically — no extra config needed for routing.
+2. Add these under Project Settings → Environment Variables:
 
-1. Import this repo into Vercel. In the project's settings, set **Root Directory** to `frontend`. Vercel then picks up [`frontend/vercel.json`](frontend/vercel.json) automatically.
-2. Add two environment variables (Project Settings → Environment Variables): `VITE_API_BASE` = the Render URL from above, and `VITE_DISCORD_URL` = your real Discord invite. Vite bakes both in at build time, so redeploy after setting them — changing them later always needs a redeploy, not just a restart.
-3. Add the domain: Project Settings → Domains → add `arthic.tech` (and `www.arthic.tech` if you want that to work too). Vercel will show the exact DNS records for those — typically an `A` record on the root and a `CNAME` on `www`. Add those records at whichever registrar you bought the domain through; Vercel's domain page confirms once they've propagated.
+   | Variable | Value |
+   | --- | --- |
+   | `POSTGRES_URL` | the connection string from step 1 |
+   | `ADMIN_USER` | whatever username you want for `/admin` |
+   | `ADMIN_PASSWORD` | a real password — pick one, don't leave it blank |
+
+   All three are read at request time by the serverless functions (not baked in by Vite), so a change takes effect on the next request — though Vercel does need at least one deployment to exist before project environment variables take effect on it at all.
+3. Add the domain: Project Settings → Domains → add `arthic.tech` (and `www.arthic.tech` if you want that to work too). Vercel shows the exact DNS records to set — typically an `A` record on the root and a `CNAME` on `www`. Add those at whichever registrar manages the domain; Vercel's domain page confirms once they've propagated.
 
 ## HTTPS — free and automatic, nothing to buy
 
-Vercel provisions a free SSL certificate (via Let's Encrypt) for every domain on a project automatically, `arthic.tech` included, as soon as its DNS is verified and propagated. There's no certificate to purchase and nothing to configure beyond adding the domain and its DNS records in step 3 above — Vercel requests it, proves control of the domain, and installs it without any further action.
+Vercel provisions a free SSL certificate (via Let's Encrypt) for every domain on a project automatically, as soon as its DNS is verified and propagated. Nothing to configure beyond adding the domain and its DNS records in step 3 above.
 
-**Current known issue (checked 2026-08-25):** `arthic.tech` and `www.arthic.tech` are both resolving to `185.199.108.153` / `.109.153` / `.110.153` / `.111.153` — those are GitHub Pages' apex IPs, not Vercel's. The domain isn't pointed at Vercel at all right now, which is almost certainly the actual cause of the insecure-connection warning: Vercel can't issue a certificate for a domain that isn't resolving to it yet, regardless of whether it's been added in the Vercel dashboard. Fix: at whichever registrar/DNS provider manages `arthic.tech`, replace the apex `A` record(s) with Vercel's (`76.76.21.21` as of this writing — Project Settings → Domains in Vercel shows the exact current value to use) and point the `www` `CNAME` at what that same page shows. Once that propagates, Vercel's certificate issues on its own.
-
-If the site is still loading over plain HTTP, or a browser is warning about the connection, after that DNS change has propagated, check these instead:
+If the site is loading over plain HTTP, or a browser is warning about the connection:
 
 - **DNS hasn't finished propagating.** Project Settings → Domains in Vercel shows "Valid Configuration" once the certificate is actually issued; propagation can take anywhere from a few minutes to ~48 hours depending on the registrar.
 - **The DNS records don't quite match.** Re-check the `A` record (root) and `CNAME` (`www`) against exactly what Vercel's Domains page shows for this project — a stale or slightly-off record is the most common cause of a stuck certificate.
@@ -39,10 +40,22 @@ If the site is still loading over plain HTTP, or a browser is warning about the 
 
 `frontend/vercel.json` also sets `Strict-Transport-Security: max-age=63072000; includeSubDomains` on every response — once a visitor has loaded the site over HTTPS once, their browser will refuse to try plain HTTP again for two years, without waiting on a redirect.
 
-## Last step back on the backend
+## Admin panel
 
-Once `arthic.tech` is actually resolving to the Vercel deployment, double check `ALLOWED_ORIGIN` on the Render service is `https://arthic.tech` exactly (no trailing slash) — that's what CORS uses to decide which frontend origin the API accepts requests from.
+`https://arthic.tech/admin` — same origin as the site itself, served as static files from `frontend/public/admin/`. Sign in with the `ADMIN_USER` / `ADMIN_PASSWORD` you set in step 2. Two tabs: journal (create/edit/delete entries) and subscribers (list + copy-all-emails for pasting into whatever you actually send mail through — the panel doesn't send email itself).
+
+## Known limitation — no rate limiting on the public write endpoints
+
+`/api/subscribe`, `/api/preorder`, and `/api/apply` all validate their input (real-looking email addresses, length limits, etc.) but none of them currently rate-limit repeated requests from the same visitor. That's a real gap, not an oversight to paper over: Vercel serverless functions are stateless between invocations, so the simple in-memory counter that would work in a normal long-running server (like the one in `backend/`, below) doesn't carry over as-is — it would need a shared store (e.g. Upstash Redis) to actually work across invocations.
+
+For a small, early-stage site this is a low-priority gap — worth knowing about, not urgent to fix. If it ever becomes a real problem (spammy signups, a form getting hammered), the lowest-effort fix is Vercel's own **Firewall** (Project → Firewall → add a rate limit rule) — no code changes needed. A shared Redis store is the option if you want limiting inside the app itself instead.
+
+## Self-hosting instead of Vercel + Postgres
+
+`backend/` is a complete, independent alternative: Express + `node:sqlite`, meant for Render specifically (see [`backend/render.yaml`](backend/render.yaml) and [`backend/README.md`](backend/README.md)). Use this path if you'd rather not use Vercel serverless functions or a hosted Postgres database — it covers the journal and subscribe endpoints (not pre-orders or job applications, which only exist in the Vercel API).
+
+If you go this route, point the frontend at it instead of same-origin: set `VITE_API_BASE` to the Render service's URL at build time (see `frontend/README.md`), and don't set `POSTGRES_URL` in Vercel — leaving it unset means `frontend/api/*` simply 503s instead of being used. Run one or the other for a given deployment, not both; nothing breaks if you do, it just means the journal/subscribe requests always go wherever `VITE_API_BASE` points, and the unused API becomes dead weight.
 
 ## After that
 
-Both platforms redeploy automatically on a push to `main`. The admin panel lives at `https://<your-render-url>/admin` — that's the one place journal entries actually get written; nothing about the deploy process above needs touching again for routine updates.
+The Vercel project redeploys automatically on every push to `main`. Nothing about the deploy process above needs touching again for routine updates — new journal entries go through `/admin`, not a redeploy.
