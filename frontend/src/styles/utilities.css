@@ -21,7 +21,7 @@
    page); pages that open with .hero or the full-bleed .featured art
    don't need it. */
 .section--first {
-  padding-top: calc(var(--nav-height) + clamp(2.5rem, 6vw, 5rem));
+  padding-top: calc(var(--nav-height) + var(--nav-float-gap) + clamp(2.5rem, 6vw, 5rem));
 }
 
 .visually-hidden {
