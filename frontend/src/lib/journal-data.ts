@@ -1,4 +1,4 @@
-import { API_BASE, hasApiBase } from "./config";
+import { API_BASE } from "./config";
 import { escapeHtml } from "./html";
 
 interface JournalEntry {
@@ -39,8 +39,6 @@ function renderRow(entry: JournalEntry): string {
  * the live list — same markup shape, just authoritative.
  */
 export async function initJournalData(): Promise<void> {
-  if (!hasApiBase) return;
-
   const list = document.querySelector<HTMLOListElement>("[data-journal-list]");
   if (!list) return;
 

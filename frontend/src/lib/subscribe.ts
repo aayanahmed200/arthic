@@ -1,4 +1,4 @@
-import { API_BASE, hasApiBase } from "./config";
+import { API_BASE } from "./config";
 
 /**
  * Email capture for "get the journal by email". Posts to the backend
@@ -23,11 +23,6 @@ export function initSubscribeForm(): void {
     event.preventDefault();
     if (!input || !input.value) return;
 
-    if (!hasApiBase) {
-      setStatus("signups open once the backend is deployed — see the README.", "error");
-      return;
-    }
-
     button?.setAttribute("disabled", "true");
     setStatus("sending…", "idle");
 
@@ -38,6 +33,10 @@ export function initSubscribeForm(): void {
         body: JSON.stringify({ email: input.value }),
       });
 
+      if (response.status === 503) {
+        setStatus("signups aren't connected to storage yet — check back soon.", "error");
+        return;
+      }
       if (!response.ok) throw new Error(`request failed (${response.status})`);
 
       setStatus("you're in — welcome.", "success");

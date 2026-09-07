@@ -1,15 +1,16 @@
 /**
  * Where the journal/subscribe API lives.
  *
- * Local dev talks to the backend on :3001 automatically. In production,
- * set VITE_API_BASE at build time (see frontend/README.md) to point at
- * your deployed backend. Until you do, the site still works perfectly —
- * every section that touches the API degrades to static content.
+ * Same-origin by default: the /api/* serverless functions in frontend/api
+ * ship alongside this site on Vercel, so a plain relative path just works
+ * there (and under `vercel dev` locally) — nothing to configure. Set
+ * VITE_API_BASE only if you're running the standalone Express server in
+ * backend/ instead (see backend/README.md), e.g. http://localhost:3001.
+ *
+ * Either way, if the API has no database connected yet it replies 503
+ * with an honest message rather than a fake success — every section that
+ * touches it already degrades to static content in that case.
  */
-const inferredDevBase = "http://localhost:3001";
+export const API_BASE: string = (import.meta.env.VITE_API_BASE as string | undefined)?.replace(/\/$/, "") || "";
 
-export const API_BASE: string =
-  (import.meta.env.VITE_API_BASE as string | undefined)?.replace(/\/$/, "") ||
-  (import.meta.env.DEV ? inferredDevBase : "");
-
-export const hasApiBase = API_BASE.length > 0;
+export const hasApiBase = true;
