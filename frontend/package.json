@@ -1,0 +1,24 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/decode-b64-assets.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/decode-b64-assets.mjs",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vercel/node": "^3.2.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2"
+  },
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@vercel/postgres": "^0.10.0",
+    "lenis": "^1.3.26"
+  }
+}
