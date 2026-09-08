@@ -50,7 +50,13 @@ Here the frontend talks to the backend at `http://localhost:3001` automatically 
 
 Two ink colors, not black-and-white but close to it (`#0a0a09` / `#f3f1ea` — true pure black reads cheap on screens; this reads closer to print), plus a single muted green accent (`#6fa080`) used sparingly for active states and the one place the product's own data needs a color — the dashboard preview. One display typeface (Bricolage Grotesque, self-hosted, variable weight) doing everything from the hero to body copy, plus IBM Plex Mono reserved for labels, dates, and numbers — the small editorial trick of using a second face only for metadata. Motion is `cubic-bezier(0.16, 1, 0.3, 1)` almost everywhere — scroll reveals, hovers, smooth-scroll easing — one curve, used consistently, rather than a different easing per component.
 
-The product-preview dashboard (`#preview` on the homepage) isn't a screenshot or a stock template — it's hand-built markup and CSS made to look like a real app, with a working tab switcher, and every number in it labeled as illustrative.
+Every section shares the same background except one deliberate exception: the concept centerpiece (`#concept`, between "why now" and "how it works") sits on the one shade darker in the token set, bordered by hairlines, so it reads as a single intentional beat rather than an accident. It's a hand-built visual, not stock art — a scattered pile of the messy inputs a real mid-sized company actually has (spreadsheets, utility bills, a supplier email thread) resolving into the frameworks that matter, using the type scale's largest, otherwise-unused size.
+
+The product-preview dashboard (`#preview` on the homepage) isn't a screenshot or a stock template — it's hand-built markup and CSS made to look like a real app: a working tab switcher, a CSS-only progress ring, a trend chart, a recent-activity feed, and every number in it labeled as illustrative.
+
+## Pricing
+
+`frontend/pricing.html` is a real page, not a placeholder — three tiers with actual numbers, an FAQ that answers the regulatory questions people are most likely to search for (does CSRD apply to me, what's the SB 253 deadline, is there a federal law), and a short, direct explanation of why the numbers are public at all: almost nothing else in this category publishes pricing. The figures are early-access pricing for a pre-launch product, anchored to what comparable mid-market compliance software actually costs — not a finalized rate card.
 
 ## Tech stack
 
@@ -71,7 +77,8 @@ arthic/
 │   │   └── lib/        nav, common page bootstrap, reveal system, smooth scroll, waitlist form
 │   ├── api/            deployed API — Vercel functions + Postgres (waitlist, job applications)
 │   ├── public/admin/    the waitlist admin panel, served same-origin at /admin
-│   ├── index.html      home — hero, why now, how it works, product preview, mission, hiring, waitlist
+│   ├── index.html      home — hero, why now, concept centerpiece, how it works, product preview, mission, hiring, waitlist
+│   ├── pricing.html    three tiers, real numbers, and an FAQ built around the regulatory questions people actually search for
 │   ├── careers.html    open roles
 │   ├── privacy.html     privacy policy
 │   ├── terms.html        terms of use
