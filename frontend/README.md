@@ -55,7 +55,8 @@ Ships configured for Vercel — [`vercel.json`](vercel.json) sets the build comm
 
 ```
 frontend/
-├── index.html            home — hero, why-now, how it works, product preview, mission, hiring, waitlist, closing
+├── index.html            home — hero, why-now, concept centerpiece, how it works, product preview, mission, hiring, waitlist, closing
+├── pricing.html           three tiers, real numbers, and a regulatory FAQ
 ├── careers.html           open roles + apply forms
 ├── privacy.html            plain-English privacy policy
 ├── terms.html               plain-English terms
@@ -69,13 +70,16 @@ frontend/
 ├── src/
 │   ├── main.ts            home entry point — also wires the product-preview dashboard's tab switcher
 │   ├── careers.ts         careers page entry point
+│   ├── pricing.ts         pricing page entry point (shared chrome only — no page-specific JS)
 │   ├── legal.ts            privacy/terms entry point
 │   ├── notfound.ts        404 page entry point
 │   ├── styles/
 │   │   ├── tokens.css     colors, type scale, spacing, motion — the whole design system
 │   │   ├── base.css       reset + reduced-motion handling
 │   │   ├── utilities.css  shared patterns (reveal, containers, buttons, links)
+│   │   ├── centerpiece.css the homepage's concept visual — the one section on a different background
 │   │   ├── preview.css    the product-preview dashboard mock
+│   │   ├── pricing.css    the pricing page's tiers, comparison, and FAQ
 │   │   ├── entry.css      shared long-form layout (privacy/terms/404)
 │   │   └── *.css          one file per section, reused across pages
 │   └── lib/
@@ -101,7 +105,11 @@ Every section is real, visible markup by default — nothing depends on JavaScri
 
 ## The product-preview dashboard
 
-`#preview` on the homepage is a hand-built UI mock (`.dash*` classes in `src/styles/preview.css`, markup in `index.html`, tab-switching in `src/main.ts`) — a browser-chrome frame around a compliance dashboard with illustrative stats, a framework checklist, and an "advisor view" with example recommendations. Every number in it is static and clearly labeled as a preview, not live data; nothing fetches anything.
+`#preview` on the homepage is a hand-built UI mock (`.dash*` classes in `src/styles/preview.css`, markup in `index.html`, tab-switching in `src/main.ts`) — a browser-chrome frame around a compliance dashboard with a CSS-only progress ring, an illustrative emissions trend chart, a framework checklist, a recent-activity feed, and an "advisor view" with example recommendations. Every number in it is static and clearly labeled as a preview, not live data; nothing fetches anything.
+
+## The concept centerpiece
+
+Between "why now" and "how it works," `#concept` is the one section that departs from the shared background — a hand-built visual (`.centerpiece*` classes in `src/styles/centerpiece.css`) showing a scattered pile of the messy inputs a real mid-sized company has (a spreadsheet, a supplier email thread, a utility bill export) resolving into the three frameworks arthic maps against. No image assets — it's CSS transforms and the type scale's largest size (`--fs-featured-title`, defined in `tokens.css` but otherwise unused).
 
 ## Fonts
 
