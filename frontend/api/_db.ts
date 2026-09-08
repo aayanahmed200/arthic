@@ -5,17 +5,30 @@
  * connection string in the Vercel project's environment variables and
  * every function below picks it up automatically.
  *
- * Deliberately uses @vercel/postgres's createClient() rather than its
- * default pool-based `sql` export. That default assumes it's managing
- * its own pool on top of a *direct* database connection — point it at an
- * already-pooled connection string (Supabase's "Transaction pooler",
- * PgBouncer under the hood) and it throws `invalid_connection_string`
- * ("this connection string is meant to be used with a direct
- * connection... use createClient() instead"). createClient() opens one
- * plain connection per warm function instance instead, which is exactly
- * right for a string that's already pooled upstream — and avoids
- * Supabase's direct-connection host, which needs IPv6 (or a paid add-on)
- * that Vercel's functions don't have.
+ * Two @vercel/postgres quirks made this less plug-and-play than the name
+ * suggests, both worth spelling out so nobody "fixes" this back to the
+ * obvious-looking version:
+ *
+ * 1. Deliberately uses createClient() rather than the default pool-based
+ *    `sql` export. That default assumes it's managing its own pool on
+ *    top of a *direct* database connection — point it at an
+ *    already-pooled connection string (Supabase's "Transaction pooler",
+ *    PgBouncer under the hood) and it throws `invalid_connection_string`.
+ *    createClient() opens one plain connection per warm function
+ *    instance instead, which is right for a string that's already pooled
+ *    upstream — and lets us avoid Supabase's direct-connection host,
+ *    which needs IPv6 (or a paid add-on) that Vercel's functions don't
+ *    have.
+ * 2. createClient() is passed `connectionString` explicitly rather than
+ *    being called bare (`createClient()`) and left to read an env var
+ *    itself — bare, it reads POSTGRES_URL_NON_POOLING, not POSTGRES_URL,
+ *    and it also *sniffs the hostname* to sanity-check what it's given:
+ *    anything without a literal "-pooler." (hyphen, not dot) substring
+ *    is treated as a direct connection. That heuristic is Neon-specific
+ *    naming (`...-pooler.<region>.aws.neon.tech`) — Supabase's pooler
+ *    host (`aws-0-<region>.pooler.supabase.com`) has a dot before
+ *    "pooler", not a hyphen, so the sniff misreads it. Passing the
+ *    string straight through sidesteps both mismatches.
  *
  * For Supabase specifically: Project Settings > Database > Connect >
  * "Transaction pooler" — not the direct connection string.
@@ -39,7 +52,11 @@ function resetClient() {
 
 async function getClient(): Promise<DbClient> {
   if (!connecting) {
-    const next = createClient();
+    const connectionString = process.env.POSTGRES_URL;
+    if (!connectionString) {
+      return Promise.reject(new Error("POSTGRES_URL is not set"));
+    }
+    const next = createClient({ connectionString });
     connecting = next
       .connect()
       .then(() => {
