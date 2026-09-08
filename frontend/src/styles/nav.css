@@ -19,7 +19,12 @@
   justify-content: space-between;
   gap: 1.5rem;
   border-radius: 999px;
-  background: var(--color-bg-raised);
+  /* translucent + blurred rather than a flat fill — the one glassmorphism
+     touch on the page, so the floating nav reads as "above" the content
+     scrolling under it instead of just another opaque bar */
+  background: rgba(17, 17, 16, 0.78);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   border: 1px solid var(--color-fg-hairline);
   box-shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.7);
   transition: box-shadow var(--dur-base) var(--ease-out-expo),
