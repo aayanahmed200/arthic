@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { sql, ensureTables } from "./_db";
-import { requireAdmin } from "./_auth";
+import { sql, ensureTables } from "./_db.js";
+import { requireAdmin } from "./_auth.js";
 
 // GET /api/subscribers — admin only
 export default async function handler(req: VercelRequest, res: VercelResponse) {
