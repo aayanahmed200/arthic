@@ -125,7 +125,15 @@
         </li>
         <li data-reveal data-reveal-delay="180">
           <span class="gallery__tag">system — day 51</span>
-          <p class="gallery__entry gallery__entry--mono">station network offline. backup to external drive? [ y / n ]</p>
+          <div class="gallery__prompt" data-log-prompt>
+            <p class="gallery__entry gallery__entry--mono">station network offline. backup to external drive?</p>
+            <div class="gallery__choices" data-log-choices>
+              <button type="button" class="gallery__choice" data-log-choice="y">y</button>
+              <span class="gallery__choice-sep">/</span>
+              <button type="button" class="gallery__choice" data-log-choice="n">n</button>
+            </div>
+            <p class="gallery__entry gallery__entry--mono gallery__result" data-log-result hidden></p>
+          </div>
         </li>
         <li data-reveal data-reveal-delay="240">
           <span class="gallery__tag">day 52 — last entry</span>
@@ -156,6 +164,10 @@
         <div class="preorder__row">
           <label for="preorderPhone" class="visually-hidden">phone number</label>
           <input class="field" type="tel" id="preorderPhone" name="phone" placeholder="phone number" required autocomplete="tel" inputmode="tel" />
+        </div>
+        <div class="visually-hidden" aria-hidden="true">
+          <label for="preorderWebsite">leave this field blank</label>
+          <input type="text" id="preorderWebsite" name="website" tabindex="-1" autocomplete="off" />
         </div>
         <button class="btn btn--solid" type="submit">
           <span>pre-order — $5.99</span>
@@ -225,8 +237,8 @@
     <p class="footer__tagline">games with ideas.</p>
 
     <nav class="footer__links" aria-label="footer">
-      <a href="/about.html" class="hover-underline">about</a>
-      <a href="/journal.html" class="hover-underline">journal</a>
+      <a href="/privacy.html" class="hover-underline">privacy</a>
+      <a href="/terms.html" class="hover-underline">terms</a>
       <a href="#top" class="hover-underline">back to top</a>
     </nav>
 

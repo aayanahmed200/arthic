@@ -68,6 +68,9 @@
         <img src="/logo.png" alt="arthic" width="800" height="272" />
       </h1>
       <p class="hero__tagline" data-reveal data-reveal-delay="140">games with ideas.</p>
+      <a class="btn hero__cta" data-reveal data-reveal-delay="220" href="/games.html">
+        <span>see the game in development</span>
+      </a>
     </div>
     <div class="hero__cue" data-scroll-cue aria-hidden="true">
       <span>scroll</span>
@@ -185,6 +188,10 @@
         <label for="subscribeEmail" class="subscribe__label">or get the journal by email</label>
         <div class="subscribe__row">
           <input class="field" type="email" id="subscribeEmail" name="email" placeholder="you@example.com" required autocomplete="email" />
+          <div class="visually-hidden" aria-hidden="true">
+            <label for="subscribeWebsite">leave this field blank</label>
+            <input type="text" id="subscribeWebsite" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <button class="btn" type="submit">
             <span>subscribe</span>
           </button>
@@ -209,8 +216,8 @@
     <p class="footer__tagline">games with ideas.</p>
 
     <nav class="footer__links" aria-label="footer">
-      <a href="/about.html" class="hover-underline">about</a>
-      <a href="/journal.html" class="hover-underline">journal</a>
+      <a href="/privacy.html" class="hover-underline">privacy</a>
+      <a href="/terms.html" class="hover-underline">terms</a>
       <a href="#top" class="hover-underline">back to top</a>
     </nav>
 

@@ -66,8 +66,15 @@
     </a>
 
     <div data-journal-content>
-      <!-- populated by src/journal.ts -->
-      <p class="eyebrow">loading</p>
+      <!-- populated by src/journal.ts; skeleton below is replaced once content loads -->
+      <div class="entry-skeleton" aria-hidden="true">
+        <div class="entry-skeleton__date"></div>
+        <div class="entry-skeleton__title"></div>
+        <div class="entry-skeleton__line"></div>
+        <div class="entry-skeleton__line"></div>
+        <div class="entry-skeleton__line entry-skeleton__line--short"></div>
+      </div>
+      <p class="visually-hidden" role="status">loading journal entry…</p>
     </div>
   </article>
 </main>
@@ -79,8 +86,8 @@
     </a>
     <p class="footer__tagline">games with ideas.</p>
     <nav class="footer__links" aria-label="footer">
-      <a href="/about.html" class="hover-underline">about</a>
-      <a href="/journal.html" class="hover-underline">journal</a>
+      <a href="/privacy.html" class="hover-underline">privacy</a>
+      <a href="/terms.html" class="hover-underline">terms</a>
       <a href="#top" class="hover-underline">back to top</a>
     </nav>
     <p class="footer__copy">© <span data-year>2026</span> arthic. All rights reserved.</p>
