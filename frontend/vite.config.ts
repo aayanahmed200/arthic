@@ -13,10 +13,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: fileURLToPath(new URL("./index.html", import.meta.url)),
-        about: fileURLToPath(new URL("./about.html", import.meta.url)),
-        games: fileURLToPath(new URL("./games.html", import.meta.url)),
         careers: fileURLToPath(new URL("./careers.html", import.meta.url)),
-        journal: fileURLToPath(new URL("./journal.html", import.meta.url)),
         privacy: fileURLToPath(new URL("./privacy.html", import.meta.url)),
         terms: fileURLToPath(new URL("./terms.html", import.meta.url)),
         notFound: fileURLToPath(new URL("./404.html", import.meta.url)),
