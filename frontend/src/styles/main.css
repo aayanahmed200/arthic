@@ -9,7 +9,7 @@
 @import "./nav.css";
 @import "./hero.css";
 @import "./intro.css";
-@import "./poster.css";
+@import "./centerpiece.css";
 @import "./application.css";
 @import "./philosophy.css";
 @import "./ai-note.css";
@@ -18,3 +18,4 @@
 @import "./footer.css";
 @import "./entry.css";
 @import "./preview.css";
+@import "./pricing.css";

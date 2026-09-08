@@ -1,0 +1,212 @@
+/* ---------- pricing page ---------- */
+
+.pricing-hero__headline {
+  font-size: var(--fs-h2-lg);
+  line-height: 1.05;
+  max-width: 20ch;
+  margin-top: 0.75rem;
+}
+
+.pricing-hero__lede {
+  margin-top: 1.25rem;
+  max-width: 54ch;
+  font-size: var(--fs-body-lg);
+  color: var(--color-fg-dim);
+  line-height: 1.55;
+}
+
+/* ---------- tiers ---------- */
+.pricing-tiers__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--color-fg-hairline);
+  border: 1px solid var(--color-fg-hairline);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pricing-tier {
+  position: relative;
+  background: var(--color-bg);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-tier--featured {
+  background: var(--color-bg-raised);
+  padding-top: clamp(3.25rem, 5vw, 4rem);
+}
+
+.pricing-tier__badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.55em 1em;
+  background: var(--color-accent-dim);
+  color: var(--color-accent-strong);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.pricing-tier__name {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-fg-mute);
+}
+
+.pricing-tier__for {
+  margin-top: 0.6rem;
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body-sm);
+  min-height: 2.6em;
+}
+
+.pricing-tier__price {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 560;
+  font-size: clamp(2rem, 1.5rem + 1.6vw, 2.75rem);
+  color: var(--color-fg);
+}
+
+.pricing-tier__price span {
+  font-size: 0.4em;
+  color: var(--color-fg-mute);
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
+
+.pricing-tier__billed {
+  color: var(--color-fg-mute);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  margin-top: 0.2rem;
+}
+
+.pricing-tier__list {
+  margin-top: 1.75rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex-grow: 1;
+}
+
+.pricing-tier__list li {
+  position: relative;
+  padding-left: 1.3em;
+  font-size: var(--fs-body-sm);
+  color: var(--color-fg-dim);
+  line-height: 1.5;
+}
+
+.pricing-tier__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.pricing-tier .btn {
+  margin-top: auto;
+  justify-content: center;
+}
+
+.pricing-tiers__note {
+  margin-top: 2rem;
+  max-width: 62ch;
+  color: var(--color-fg-mute);
+  font-size: 0.8125rem;
+  font-family: var(--font-mono);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .pricing-tiers__grid {
+    grid-template-columns: 1fr;
+  }
+  .pricing-tier--featured {
+    padding-top: clamp(1.75rem, 3vw, 2.5rem);
+  }
+  .pricing-tier__badge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    border-radius: 999px;
+  }
+}
+
+/* ---------- "why we publish this" ---------- */
+.pricing-compare__inner {
+  max-width: 46rem;
+}
+
+.pricing-compare h2 {
+  font-size: var(--fs-h3);
+  margin-top: 0.5rem;
+  max-width: 24ch;
+}
+
+.pricing-compare__body {
+  margin-top: 1.25rem;
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body-lg);
+  line-height: 1.6;
+}
+
+/* ---------- faq ---------- */
+.pricing-faq h2 {
+  font-size: var(--fs-h3);
+  margin-top: 0.5rem;
+}
+
+.pricing-faq__list {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-faq__item {
+  padding-block: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--color-fg-hairline);
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.pricing-faq__list .pricing-faq__item:last-child {
+  border-bottom: 1px solid var(--color-fg-hairline);
+}
+
+.pricing-faq__item dt {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-body-lg);
+  color: var(--color-fg);
+  line-height: 1.35;
+}
+
+.pricing-faq__item dd {
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+  .pricing-faq__item {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}

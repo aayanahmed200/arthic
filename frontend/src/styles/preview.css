@@ -150,6 +150,33 @@
   background: var(--color-bg-raised);
 }
 
+.dash__stat--ring {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* pure-CSS progress ring — no SVG/JS needed */
+.dash__ring {
+  --pct: 78;
+  width: clamp(2.5rem, 4vw, 3.25rem);
+  height: clamp(2.5rem, 4vw, 3.25rem);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: conic-gradient(var(--color-accent) calc(var(--pct) * 1%), var(--color-fg-ghost) 0);
+}
+
+.dash__ring::before {
+  content: "";
+  width: 72%;
+  height: 72%;
+  border-radius: 50%;
+  background: var(--color-bg-raised);
+}
+
 .dash__stat-label {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
@@ -169,6 +196,82 @@
   font-size: 0.6em;
   color: var(--color-fg-mute);
   margin-left: 0.1em;
+}
+
+/* ---------- trend chart (pure CSS bars) ---------- */
+.dash__trend {
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.dash__trend-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.03em;
+  color: var(--color-fg-mute);
+  text-transform: lowercase;
+  margin-bottom: 0.75rem;
+}
+
+.dash__trend-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4rem;
+  height: clamp(2.75rem, 5vw, 3.5rem);
+}
+
+.dash__trend-bar {
+  flex: 1;
+  height: var(--h, 50%);
+  background: var(--color-fg-ghost);
+  border-radius: 3px 3px 0 0;
+}
+
+.dash__trend-bar--current {
+  background: var(--color-accent);
+}
+
+/* ---------- recent activity ---------- */
+.dash__activity {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.dash__activity-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.03em;
+  color: var(--color-fg-mute);
+  text-transform: lowercase;
+  margin-bottom: 0.75rem;
+}
+
+.dash__activity ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dash__activity li {
+  display: flex;
+  gap: 0.85rem;
+  font-size: var(--fs-body-sm);
+  color: var(--color-fg-dim);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--color-fg-hairline);
+}
+
+.dash__activity li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.dash__activity-time {
+  flex-shrink: 0;
+  width: 3.75em;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-fg-mute);
 }
 
 /* ---------- framework checklist ---------- */
