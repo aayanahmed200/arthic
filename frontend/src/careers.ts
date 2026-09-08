@@ -18,8 +18,9 @@ document.querySelectorAll<HTMLFormElement>("[data-apply-form]").forEach((form) =
       const email = (f.querySelector<HTMLInputElement>("input[name='email']")?.value || "").trim();
       const link = (f.querySelector<HTMLInputElement>("input[name='link']")?.value || "").trim();
       const message = (f.querySelector<HTMLTextAreaElement>("textarea[name='message']")?.value || "").trim();
+      const website = (f.querySelector<HTMLInputElement>("input[name='website']")?.value || "").trim();
       if (!name || !EMAIL_RE.test(email)) return null;
-      return { role, name, email, link, message };
+      return { role, name, email, link, message, website };
     },
   });
 });
