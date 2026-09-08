@@ -15,6 +15,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const body = (req.body ?? {}) as Record<string, unknown>;
+
+  // honeypot — real visitors never fill this hidden field; bots posting
+  // straight to the API often do. Pretend success, skip the insert.
+  if (String(body.website ?? "").trim()) {
+    return res.status(201).json({ ok: true });
+  }
+
   const email = String(body.email ?? "").trim().toLowerCase();
 
   if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
