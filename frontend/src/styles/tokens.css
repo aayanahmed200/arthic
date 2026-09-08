@@ -1,7 +1,8 @@
 /*
   Design tokens — the entire visual system in one place.
-  Deliberately monochrome: two ink colors, no brand accent.
-  Restraint here is the point.
+  Mostly monochrome — restraint is still the point — plus exactly one
+  accent color, used sparingly (status/progress states, the primary CTA,
+  a handful of small marks) rather than splashed across the page.
 */
 
 :root {
@@ -18,6 +19,14 @@
   --color-fg-hairline: rgba(243, 241, 234, 0.09);
   --color-fg-ghost: rgba(243, 241, 234, 0.045);
   --color-focus: #f3f1ea;
+
+  /* one accent, one job: sustainability-adjacent without going neon-green
+     SaaS cliché. 6.6:1 against --color-bg and --color-bg-raised — passes
+     WCAG AA for body text too, not just large/UI use. */
+  --color-accent: #6fa080;
+  --color-accent-strong: #8fbf9e;
+  --color-accent-dim: rgba(111, 160, 128, 0.16);
+  --color-accent-hairline: rgba(111, 160, 128, 0.32);
 
   /* ---------- type families ---------- */
   --font-display: "Bricolage Grotesque Variable", system-ui, -apple-system, "Segoe UI", sans-serif;

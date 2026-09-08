@@ -67,6 +67,25 @@
   color: var(--color-fg);
 }
 
+.nav__cta {
+  padding: 0.55em 1.1em;
+  font-size: var(--fs-label);
+  flex-shrink: 0;
+}
+
+/* .nav__links a { color: inherit } outranks .btn--solid's color on
+   specificity alone (class+element beats a single class) — pin it back
+   explicitly so the CTA keeps readable text on its solid fill instead of
+   inheriting the dim nav-link gray. */
+.nav__links .nav__cta {
+  color: var(--color-bg);
+}
+
+.nav__links .nav__cta:hover,
+.nav__links .nav__cta:focus-visible {
+  color: var(--color-fg);
+}
+
 .nav__toggle {
   display: none;
   font-family: var(--font-mono);

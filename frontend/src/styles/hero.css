@@ -27,6 +27,29 @@
   letter-spacing: 0.01em;
 }
 
+.hero__headline {
+  font-size: var(--fs-h2-lg);
+  line-height: 1.05;
+  max-width: 16ch;
+}
+
+.hero__lede {
+  margin-top: 0.4rem;
+  max-width: 46ch;
+  font-size: var(--fs-body-lg);
+  color: var(--color-fg-dim);
+  line-height: 1.55;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  margin-top: clamp(0.75rem, 2vw, 1.25rem);
+}
+
 .hero__cta {
   margin-top: clamp(0.5rem, 1.5vw, 1rem);
 }

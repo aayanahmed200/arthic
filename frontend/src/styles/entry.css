@@ -1,0 +1,67 @@
+/* Shared "long-form document" layout — privacy, terms, and the 404's
+   missing-page message. Split out from the old journal-page.css (which
+   also held journal-detail-only loading-skeleton styles that no longer
+   apply now that the journal feature is gone). */
+
+.entry {
+  padding-top: calc(var(--nav-height) + clamp(3rem, 8vw, 6rem));
+  padding-bottom: var(--space-section-y);
+}
+
+.entry__back {
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.entry__head {
+  max-width: 46rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.entry__date {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--color-fg-mute);
+  margin-bottom: 1rem;
+}
+
+.entry__title {
+  font-size: var(--fs-h2-lg);
+  line-height: 1.05;
+}
+
+.entry__body {
+  max-width: 42rem;
+  font-size: var(--fs-body-lg);
+  color: var(--color-fg-dim);
+  line-height: 1.75;
+}
+
+.entry__body p {
+  margin-bottom: 1.4em;
+}
+
+.entry__body p:first-child::first-letter {
+  color: var(--color-fg);
+}
+
+.entry__foot {
+  max-width: 42rem;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--color-fg-hairline);
+}
+
+.entry__missing {
+  max-width: 40rem;
+}
+
+.entry__missing h1 {
+  font-size: var(--fs-h2);
+  margin-bottom: 1rem;
+}
+
+.entry__missing-body {
+  color: var(--color-fg-dim);
+  margin-bottom: 2rem;
+}
