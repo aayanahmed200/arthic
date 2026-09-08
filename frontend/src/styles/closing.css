@@ -5,7 +5,7 @@
   justify-content: center;
   padding-inline: var(--container-pad);
   text-align: center;
-  background: var(--color-bg-deep);
+  background: var(--color-bg);
 }
 
 .closing__headline {

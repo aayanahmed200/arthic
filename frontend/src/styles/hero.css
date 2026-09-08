@@ -27,6 +27,10 @@
   letter-spacing: 0.01em;
 }
 
+.hero__cta {
+  margin-top: clamp(0.5rem, 1.5vw, 1rem);
+}
+
 .hero__cue {
   position: absolute;
   bottom: clamp(1.5rem, 4vh, 3rem);

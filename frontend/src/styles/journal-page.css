@@ -60,3 +60,48 @@
   color: var(--color-fg-dim);
   margin-bottom: 2rem;
 }
+
+/* ---------- loading skeleton (shown until src/journal.ts swaps in real content) ---------- */
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.entry-skeleton {
+  max-width: 42rem;
+}
+
+.entry-skeleton > div {
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--color-fg-ghost) 25%, var(--color-fg-hairline) 50%, var(--color-fg-ghost) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+.entry-skeleton__date {
+  width: 6rem;
+  height: var(--fs-label);
+  margin-bottom: 1.25rem;
+}
+
+.entry-skeleton__title {
+  width: 80%;
+  height: clamp(2rem, 1.3rem + 3.1vw, 3.5rem);
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.entry-skeleton__line {
+  width: 100%;
+  height: 1.1rem;
+  margin-bottom: 0.9rem;
+}
+
+.entry-skeleton__line--short {
+  width: 60%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-skeleton > div {
+    animation: none;
+  }
+}

@@ -13,7 +13,7 @@
   --color-bg-raised: #111110;
   --color-fg: #f3f1ea;
   --color-fg-dim: #9c9a92;
-  --color-fg-mute: #6c6a63;
+  --color-fg-mute: #7c7a73; /* bumped from #6c6a63 — that measured ~3.66:1 on --color-bg, failing WCAG AA (4.5:1) for normal-size text; this hits ~4.5:1+ while keeping the same warm-gray hue */
   --color-fg-faint: rgba(243, 241, 234, 0.14);
   --color-fg-hairline: rgba(243, 241, 234, 0.09);
   --color-fg-ghost: rgba(243, 241, 234, 0.045);
