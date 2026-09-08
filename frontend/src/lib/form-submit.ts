@@ -13,6 +13,7 @@ interface SubmitOptions {
 export function initFormSubmit(form: HTMLFormElement, opts: SubmitOptions): void {
   const status = form.querySelector<HTMLElement>("[data-form-status]");
   const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
+  const honeypot = form.querySelector<HTMLInputElement>("input[name='website']");
 
   const setStatus = (message: string, state: "idle" | "error" | "success") => {
     if (!status) return;
@@ -22,6 +23,14 @@ export function initFormSubmit(form: HTMLFormElement, opts: SubmitOptions): void
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+
+    if (honeypot?.value) {
+      // Hidden field — real visitors never fill this in. Pretend success
+      // and skip the network call entirely rather than tipping off a bot.
+      setStatus(opts.successMessage, "success");
+      form.reset();
+      return;
+    }
 
     const payload = opts.buildPayload(form);
     if (!payload) {

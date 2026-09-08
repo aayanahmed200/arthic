@@ -11,6 +11,7 @@ export function initSubscribeForm(): void {
 
   const status = form.querySelector<HTMLElement>("[data-subscribe-status]");
   const input = form.querySelector<HTMLInputElement>("input[type='email']");
+  const honeypot = form.querySelector<HTMLInputElement>("input[name='website']");
   const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
 
   const setStatus = (message: string, state: "idle" | "error" | "success") => {
@@ -23,6 +24,14 @@ export function initSubscribeForm(): void {
     event.preventDefault();
     if (!input || !input.value) return;
 
+    if (honeypot?.value) {
+      // Hidden field — real visitors never fill this in. Pretend success
+      // and skip the network call entirely rather than tipping off a bot.
+      setStatus("you're in — welcome.", "success");
+      form.reset();
+      return;
+    }
+
     button?.setAttribute("disabled", "true");
     setStatus("sending…", "idle");
 
@@ -33,11 +42,19 @@ export function initSubscribeForm(): void {
         body: JSON.stringify({ email: input.value }),
       });
 
+      const data = await response.json().catch(() => ({}));
+
       if (response.status === 503) {
         setStatus("signups aren't connected to storage yet — check back soon.", "error");
         return;
       }
-      if (!response.ok) throw new Error(`request failed (${response.status})`);
+      if (!response.ok) {
+        setStatus(
+          typeof data?.error === "string" ? data.error : `couldn't reach the server — try again shortly.`,
+          "error",
+        );
+        return;
+      }
 
       setStatus("you're in — welcome.", "success");
       form.reset();
