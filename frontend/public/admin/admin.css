@@ -97,46 +97,7 @@ main { padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
   margin: 0 0 1rem;
 }
 
-/* ---------- journal tab ---------- */
-.panel__grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 2.5rem;
-}
-@media (max-width: 800px) {
-  .panel__grid { grid-template-columns: 1fr; }
-}
-
-.entry-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-.entry-list li {
-  border: 1px solid var(--border);
-  padding: 0.75rem;
-  cursor: pointer;
-}
-.entry-list li:hover { border-color: var(--fg-dim); }
-.entry-list li.is-selected { border-color: var(--fg); background: var(--bg-raised); }
-.entry-list .entry-list__title { display: block; }
-.entry-list .entry-list__date { display: block; color: var(--fg-dim); font-size: 0.75rem; margin-top: 0.25rem; }
-
-.panel__form form { display: flex; flex-direction: column; gap: 0.9rem; }
-.panel__form label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.75rem; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 0.06em; }
-.panel__form input, .panel__form textarea {
-  background: var(--bg-raised);
-  border: 1px solid var(--border);
-  color: var(--fg);
-  padding: 0.6rem 0.7rem;
-  font-size: 0.875rem;
-  text-transform: none;
-  letter-spacing: normal;
-  resize: vertical;
-}
-.panel__form-actions { display: flex; gap: 0.5rem; }
-.panel__form-actions .danger { color: var(--danger); border-color: var(--danger); margin-left: auto; }
-.panel__status { min-height: 1.2em; font-size: 0.8125rem; color: var(--fg-dim); margin: 0; }
-.panel__status.is-error { color: var(--danger); }
-.panel__status.is-success { color: var(--fg); }
-
-/* ---------- subscribers tab ---------- */
+/* ---------- waitlist tab ---------- */
 .sub-list { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-direction: column; gap: 0.35rem; }
 .sub-list li { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding: 0.4rem 0; }
 .sub-list li span:last-child { color: var(--fg-dim); font-size: 0.75rem; }
