@@ -12,7 +12,7 @@ Do the database first; Vercel needs its connection string.
 
 Already have a Postgres database somewhere else (Neon, RDS, your own instance)? Skip Supabase entirely and use that connection string instead — `@vercel/postgres` (what `frontend/api/_db.ts` uses) just expects a standard Postgres URI, nothing about it depends on Supabase specifically.
 
-Nothing to run by hand beyond this — the first request to any API route calls `ensureTables()` (`frontend/api/_db.ts`), which creates the `journal_entries`, `subscribers`, `preorders`, and `applications` tables if they don't already exist. There's no seed step either: the homepage ships with three journal entries baked into the static markup, so the site never looks empty even before you write a real entry through `/admin`.
+Nothing to run by hand beyond this — the first request to any API route calls `ensureTables()` (`frontend/api/_db.ts`), which creates the `subscribers` and `applications` tables if they don't already exist. No seed step needed.
 
 ## 2. Vercel
 
@@ -42,20 +42,20 @@ If the site is loading over plain HTTP, or a browser is warning about the connec
 
 ## Admin panel
 
-`https://arthic.tech/admin` — same origin as the site itself, served as static files from `frontend/public/admin/`. Sign in with the `ADMIN_USER` / `ADMIN_PASSWORD` you set in step 2. Two tabs: journal (create/edit/delete entries) and subscribers (list + copy-all-emails for pasting into whatever you actually send mail through — the panel doesn't send email itself).
+`https://arthic.tech/admin` — same origin as the site itself, served as static files from `frontend/public/admin/`. Sign in with the `ADMIN_USER` / `ADMIN_PASSWORD` you set in step 2. One tab: the waitlist (list + copy-all-emails for pasting into whatever you actually send mail through — the panel doesn't send email itself).
 
 ## Known limitation — no rate limiting on the public write endpoints
 
-`/api/subscribe`, `/api/preorder`, and `/api/apply` all validate their input (real-looking email addresses, length limits, etc.) but none of them currently rate-limit repeated requests from the same visitor. That's a real gap, not an oversight to paper over: Vercel serverless functions are stateless between invocations, so the simple in-memory counter that would work in a normal long-running server (like the one in `backend/`, below) doesn't carry over as-is — it would need a shared store (e.g. Upstash Redis) to actually work across invocations.
+`/api/subscribe` and `/api/apply` both validate their input (real-looking email addresses, length limits, etc.) but neither currently rate-limits repeated requests from the same visitor. That's a real gap, not an oversight to paper over: Vercel serverless functions are stateless between invocations, so the simple in-memory counter that would work in a normal long-running server (like the one in `backend/`, below) doesn't carry over as-is — it would need a shared store (e.g. Upstash Redis) to actually work across invocations.
 
 For a small, early-stage site this is a low-priority gap — worth knowing about, not urgent to fix. If it ever becomes a real problem (spammy signups, a form getting hammered), the lowest-effort fix is Vercel's own **Firewall** (Project → Firewall → add a rate limit rule) — no code changes needed. A shared Redis store is the option if you want limiting inside the app itself instead.
 
 ## Self-hosting instead of Vercel + Postgres
 
-`backend/` is a complete, independent alternative: Express + `node:sqlite`, meant for Render specifically (see [`backend/render.yaml`](backend/render.yaml) and [`backend/README.md`](backend/README.md)). Use this path if you'd rather not use Vercel serverless functions or a hosted Postgres database — it covers the journal and subscribe endpoints (not pre-orders or job applications, which only exist in the Vercel API).
+`backend/` is a complete, independent alternative: Express + `node:sqlite`, meant for Render specifically (see [`backend/render.yaml`](backend/render.yaml) and [`backend/README.md`](backend/README.md)). It predates arthic's pivot to a compliance-reporting product and still carries a `/api/journal` route from that earlier version — nothing in the current site calls it, so treat it as vestigial rather than something to wire up. Its `/api/subscribe` (and admin `/api/subscribers`) routes still match what the current waitlist form expects, so it remains a valid option if you'd rather run a normal Node server than Vercel serverless functions + Postgres for that one form. It doesn't cover job applications — those only exist in the Vercel API.
 
-If you go this route, point the frontend at it instead of same-origin: set `VITE_API_BASE` to the Render service's URL at build time (see `frontend/README.md`), and don't set `POSTGRES_URL` in Vercel — leaving it unset means `frontend/api/*` simply 503s instead of being used. Run one or the other for a given deployment, not both; nothing breaks if you do, it just means the journal/subscribe requests always go wherever `VITE_API_BASE` points, and the unused API becomes dead weight.
+If you go this route, point the frontend at it instead of same-origin: set `VITE_API_BASE` to the Render service's URL at build time (see `frontend/README.md`), and don't set `POSTGRES_URL` in Vercel — leaving it unset means `frontend/api/*` simply 503s instead of being used. Run one or the other for a given deployment, not both; nothing breaks if you do, it just means subscribe requests always go wherever `VITE_API_BASE` points, and the unused API becomes dead weight.
 
 ## After that
 
-The Vercel project redeploys automatically on every push to `main`. Nothing about the deploy process above needs touching again for routine updates — new journal entries go through `/admin`, not a redeploy.
+The Vercel project redeploys automatically on every push to `main`. Nothing about the deploy process above needs touching again for routine updates — checking the waitlist or reviewing applications goes through `/admin`, not a redeploy.
