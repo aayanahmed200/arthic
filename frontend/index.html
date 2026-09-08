@@ -39,7 +39,6 @@
     <nav class="nav__links" aria-label="primary">
       <a href="#product" class="hover-underline" data-nav-link>product</a>
       <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="#preview" class="hover-underline" data-nav-link>preview</a>
       <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
       <a href="#waitlist" class="btn btn--solid nav__cta"><span>join waitlist</span></a>
     </nav>
@@ -54,9 +53,8 @@
   <nav aria-label="mobile primary">
     <a href="#product" data-mobile-link>01 — product</a>
     <a href="/pricing.html" data-mobile-link>02 — pricing</a>
-    <a href="#preview" data-mobile-link>03 — preview</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="#waitlist" data-mobile-link>05 — join waitlist</a>
+    <a href="/careers.html" data-mobile-link>03 — careers</a>
+    <a href="#waitlist" data-mobile-link>04 — join waitlist</a>
   </nav>
   <p class="mobile-nav__foot">audit-ready sustainability reporting for mid-sized companies — built by a small team, early.</p>
 </div>
@@ -86,135 +84,14 @@
         </a>
       </div>
     </div>
-    <div class="hero__cue" data-scroll-cue aria-hidden="true">
-      <span>scroll</span>
-      <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4.5 0.5V13M4.5 13L0.5 9M4.5 13L8.5 9" stroke="currentColor" />
-      </svg>
-    </div>
-  </section>
 
-  <!-- ============ WHY NOW / REGULATORY LANDSCAPE ============ -->
-  <section class="intro section" id="landscape" data-section data-section-label="why now">
-    <div class="container intro__grid">
-      <div class="intro__lead">
-        <p class="eyebrow" data-reveal>why now</p>
-        <h2 class="intro__headline" data-reveal data-reveal-delay="80">
-          the rules didn't slow down.<br />most teams' spreadsheets did.
-        </h2>
-      </div>
-      <div class="intro__support">
-        <p class="intro__body" data-reveal data-reveal-delay="160">
-          CSRD just changed shape. The EU's 2026 Omnibus reform raised the threshold to more
-          than 1,000 employees and €450 million in revenue — so most mid-sized companies
-          aren't directly on the hook anymore. California's SB&nbsp;253 works differently: it
-          applies by revenue, not headcount, and the first companies have to report Scope 1
-          and 2 emissions by November 10, 2026. Neither rule has stayed still, and that's the
-          real problem — the version you plan around today isn't guaranteed to be the version
-          that applies next year.
-        </p>
-        <p class="intro__body" data-reveal data-reveal-delay="200">
-          Being out of direct scope doesn't mean being out of the conversation. Companies that
-          <em>are</em> required to report need Scope&nbsp;3 data from their own supply chain —
-          so a mid-sized supplier with no sustainability team can still end up with an
-          EcoVadis or CDP questionnaire on their desk and a customer waiting on an answer.
-          arthic tracks which frameworks actually apply to you today, maps your existing data
-          to whichever ones do, and stays current as the thresholds keep moving.
-        </p>
-        <ul class="intro__facts" data-reveal data-reveal-delay="240">
-          <li>CSRD (EU) — &gt;1,000 employees &amp; &gt;€450M revenue, post-Omnibus</li>
-          <li>SB 253 (California) — &gt;$1B revenue; Scope 1–2 due Nov 10, 2026</li>
-          <li>ISSB / IFRS S1 &amp; S2 — adopted or endorsed in 28+ jurisdictions, growing</li>
-          <li>plus whatever your largest customer's compliance team asks for next</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <div class="hero__preview" id="preview">
+      <p class="hero__preview-note" data-reveal data-reveal-delay="300">
+        arthic is still in development — this is a working preview of the dashboard, not
+        live data, so you can see where it's headed before it ships.
+      </p>
 
-  <!-- ============ CONCEPT CENTERPIECE ============ -->
-  <section class="centerpiece" id="concept" data-section data-section-label="one model">
-    <div class="container centerpiece__inner">
-      <div class="centerpiece__stack" aria-hidden="true" data-reveal>
-        <span class="centerpiece__chip" style="--r: -6deg">utility_bills.xlsx</span>
-        <span class="centerpiece__chip" style="--r: 4deg">erp_export.csv</span>
-        <span class="centerpiece__chip" style="--r: -3deg">supplier_thread.eml</span>
-        <span class="centerpiece__chip" style="--r: 8deg">facilities.xlsx</span>
-        <span class="centerpiece__chip" style="--r: -9deg">travel_receipts.pdf</span>
-        <span class="centerpiece__chip" style="--r: 5deg">payroll_export.csv</span>
-      </div>
-
-      <h2 class="centerpiece__headline" data-reveal data-reveal-delay="120">
-        scattered data.<br />one model.<br /><span class="centerpiece__accent">every framework.</span>
-      </h2>
-
-      <ul class="centerpiece__targets" data-reveal data-reveal-delay="240">
-        <li><span class="centerpiece__target-check" aria-hidden="true"></span><span class="centerpiece__target-name">CSRD</span></li>
-        <li><span class="centerpiece__target-check" aria-hidden="true"></span><span class="centerpiece__target-name">SB 253</span></li>
-        <li><span class="centerpiece__target-check" aria-hidden="true"></span><span class="centerpiece__target-name">ISSB</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="philosophy section" id="product" data-section data-section-label="how it works">
-    <div class="container">
-      <div class="philosophy__head">
-        <p class="eyebrow" data-reveal>how it works</p>
-        <h2 class="philosophy__headline" data-reveal data-reveal-delay="80">
-          four steps.<br />no spreadsheet archaeology.
-        </h2>
-      </div>
-
-      <ol class="philosophy__list">
-        <li class="philosophy__item" data-reveal>
-          <span class="philosophy__num">01</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag">connect</p>
-            <h3>bring your data as it already exists</h3>
-            <p class="philosophy__body">Plug in the spreadsheets, utility bills, and systems you already use. arthic doesn't require a clean data warehouse to start — most mid-sized companies don't have one, and we're not waiting for you to build one first.</p>
-          </div>
-        </li>
-        <li class="philosophy__item" data-reveal>
-          <span class="philosophy__num">02</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag">map</p>
-            <h3>map it to every framework that applies</h3>
-            <p class="philosophy__body">One import, mapped against CSRD's ESRS, SB 253, and ISSB at the same time — instead of re-entering the same numbers into three different templates for three different regulators.</p>
-          </div>
-        </li>
-        <li class="philosophy__item" data-reveal>
-          <span class="philosophy__num">03</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag">report</p>
-            <h3>generate an audit-ready report</h3>
-            <p class="philosophy__body">A structured, sourced report with every figure traceable back to where it came from — built for an auditor to read, not just a board deck to skim.</p>
-          </div>
-        </li>
-        <li class="philosophy__item" data-reveal>
-          <span class="philosophy__num">04</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag">improve</p>
-            <h3>get guidance, not just a grade</h3>
-            <p class="philosophy__body">arthic's AI reads your numbers and flags the highest-leverage places to invest next — the sustainable-finance layer sitting on top of the compliance layer, not a separate tool you have to reconcile by hand.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============ PRODUCT PREVIEW ============ -->
-  <section class="section--tight" id="preview" data-section data-section-label="product preview">
-    <div class="container">
-      <div class="preview-head">
-        <p class="eyebrow" data-reveal>product preview</p>
-        <h2 class="intro__headline" data-reveal data-reveal-delay="80">here's what we're building.</h2>
-        <p class="preview-head__note" data-reveal data-reveal-delay="140">
-          arthic is currently in development. What's below is a working preview of the
-          dashboard — not live data — so you can see where this is headed before it ships.
-        </p>
-      </div>
-
-      <div class="dash" data-reveal data-reveal-delay="200">
+      <div class="dash" data-reveal data-reveal-delay="360">
         <div class="dash__chrome" aria-hidden="true">
           <div class="dash__dots"><span></span><span></span><span></span></div>
           <div class="dash__url">app.arthic.tech/dashboard</div>
@@ -338,6 +215,114 @@
     </div>
   </section>
 
+  <!-- ============ WHY NOW / REGULATORY LANDSCAPE ============ -->
+  <section class="intro section" id="landscape" data-section data-section-label="why now">
+    <div class="container intro__grid">
+      <div class="intro__lead">
+        <p class="eyebrow" data-reveal>why now</p>
+        <h2 class="intro__headline" data-reveal data-reveal-delay="80">
+          the rules didn't slow down.<br />most teams' spreadsheets did.
+        </h2>
+      </div>
+      <div class="intro__support">
+        <p class="intro__body" data-reveal data-reveal-delay="160">
+          CSRD just changed shape. The EU's 2026 Omnibus reform raised the threshold to more
+          than 1,000 employees and €450 million in revenue — so most mid-sized companies
+          aren't directly on the hook anymore. California's SB&nbsp;253 works differently: it
+          applies by revenue, not headcount, and the first companies have to report Scope 1
+          and 2 emissions by November 10, 2026. Neither rule has stayed still, and that's the
+          real problem — the version you plan around today isn't guaranteed to be the version
+          that applies next year.
+        </p>
+        <p class="intro__body" data-reveal data-reveal-delay="200">
+          Being out of direct scope doesn't mean being out of the conversation. Companies that
+          <em>are</em> required to report need Scope&nbsp;3 data from their own supply chain —
+          so a mid-sized supplier with no sustainability team can still end up with an
+          EcoVadis or CDP questionnaire on their desk and a customer waiting on an answer.
+          arthic tracks which frameworks actually apply to you today, maps your existing data
+          to whichever ones do, and stays current as the thresholds keep moving.
+        </p>
+        <ul class="intro__facts" data-reveal data-reveal-delay="240">
+          <li>CSRD (EU) — &gt;1,000 employees &amp; &gt;€450M revenue, post-Omnibus</li>
+          <li>SB 253 (California) — &gt;$1B revenue; Scope 1–2 due Nov 10, 2026</li>
+          <li>ISSB / IFRS S1 &amp; S2 — adopted or endorsed in 28+ jurisdictions, growing</li>
+          <li>plus whatever your largest customer's compliance team asks for next</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONCEPT CENTERPIECE ============ -->
+  <section class="centerpiece" id="concept" data-section data-section-label="one model">
+    <div class="container centerpiece__inner">
+      <div class="centerpiece__stack" aria-hidden="true" data-reveal>
+        <span class="centerpiece__chip">utility_bills.xlsx</span>
+        <span class="centerpiece__chip">erp_export.csv</span>
+        <span class="centerpiece__chip">supplier_thread.eml</span>
+        <span class="centerpiece__chip">facilities.xlsx</span>
+        <span class="centerpiece__chip">travel_receipts.pdf</span>
+        <span class="centerpiece__chip">payroll_export.csv</span>
+      </div>
+
+      <h2 class="centerpiece__headline" data-reveal data-reveal-delay="120">
+        scattered data.<br />one model.<br /><span class="centerpiece__accent">every framework.</span>
+      </h2>
+
+      <ul class="centerpiece__targets" data-reveal data-reveal-delay="240">
+        <li><span class="centerpiece__target-check" aria-hidden="true"></span><span class="centerpiece__target-name">CSRD</span></li>
+        <li><span class="centerpiece__target-check" aria-hidden="true"></span><span class="centerpiece__target-name">SB 253</span></li>
+        <li><span class="centerpiece__target-check" aria-hidden="true"></span><span class="centerpiece__target-name">ISSB</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="philosophy section" id="product" data-section data-section-label="how it works">
+    <div class="container">
+      <div class="philosophy__head">
+        <p class="eyebrow" data-reveal>how it works</p>
+        <h2 class="philosophy__headline" data-reveal data-reveal-delay="80">
+          four steps.<br />no spreadsheet archaeology.
+        </h2>
+      </div>
+
+      <ol class="philosophy__list">
+        <li class="philosophy__item" data-reveal>
+          <span class="philosophy__num">01</span>
+          <div class="philosophy__copy">
+            <p class="philosophy__tag">connect</p>
+            <h3>bring your data as it already exists</h3>
+            <p class="philosophy__body">Plug in the spreadsheets, utility bills, and systems you already use. arthic doesn't require a clean data warehouse to start — most mid-sized companies don't have one, and we're not waiting for you to build one first.</p>
+          </div>
+        </li>
+        <li class="philosophy__item" data-reveal>
+          <span class="philosophy__num">02</span>
+          <div class="philosophy__copy">
+            <p class="philosophy__tag">map</p>
+            <h3>map it to every framework that applies</h3>
+            <p class="philosophy__body">One import, mapped against CSRD's ESRS, SB 253, and ISSB at the same time — instead of re-entering the same numbers into three different templates for three different regulators.</p>
+          </div>
+        </li>
+        <li class="philosophy__item" data-reveal>
+          <span class="philosophy__num">03</span>
+          <div class="philosophy__copy">
+            <p class="philosophy__tag">report</p>
+            <h3>generate an audit-ready report</h3>
+            <p class="philosophy__body">A structured, sourced report with every figure traceable back to where it came from — built for an auditor to read, not just a board deck to skim.</p>
+          </div>
+        </li>
+        <li class="philosophy__item" data-reveal>
+          <span class="philosophy__num">04</span>
+          <div class="philosophy__copy">
+            <p class="philosophy__tag">improve</p>
+            <h3>get guidance, not just a grade</h3>
+            <p class="philosophy__body">arthic's AI reads your numbers and flags the highest-leverage places to invest next — the sustainable-finance layer sitting on top of the compliance layer, not a separate tool you have to reconcile by hand.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ============ MISSION ============ -->
   <section class="ai-note section--tight" id="mission" data-section data-section-label="why arthic">
     <div class="container ai-note__inner">
@@ -404,6 +389,9 @@
   <!-- ============ CLOSING ============ -->
   <section class="closing" data-section data-section-label="—">
     <h2 class="closing__headline" data-reveal>know before<br />the deadline does.</h2>
+    <a class="btn btn--solid" data-reveal data-reveal-delay="120" href="#waitlist">
+      <span>join the waitlist</span>
+    </a>
   </section>
 
 </main>
@@ -422,7 +410,6 @@
         <span class="footer__col-label">product</span>
         <a href="#product" class="hover-underline">product</a>
         <a href="/pricing.html" class="hover-underline">pricing</a>
-        <a href="#preview" class="hover-underline">preview</a>
       </nav>
 
       <nav class="footer__col" aria-label="company">
