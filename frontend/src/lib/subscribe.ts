@@ -1,8 +1,8 @@
 import { API_BASE } from "./config";
 
 /**
- * Email capture for "get the journal by email". Posts to the backend
- * when one is configured; otherwise tells the reader honestly that
+ * Email capture for the early-access waitlist. Posts to the backend
+ * when one is configured; otherwise tells the visitor honestly that
  * signups aren't live yet rather than pretending to succeed.
  */
 export function initSubscribeForm(): void {

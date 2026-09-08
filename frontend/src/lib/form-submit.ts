@@ -1,7 +1,7 @@
 /**
- * Shared submit handler for the pre-order and job-application forms. Both
- * post JSON to a same-origin Vercel serverless function under /api — no
- * separate backend deploy required, unlike the journal/subscribe features.
+ * Shared submit handler for the job-application forms. Posts JSON to a
+ * same-origin Vercel serverless function under /api — no separate backend
+ * deploy required, unlike the waitlist/subscribe feature.
  */
 interface SubmitOptions {
   endpoint: string;

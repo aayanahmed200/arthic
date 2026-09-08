@@ -1,5 +1,5 @@
 /**
- * Where the journal/subscribe API lives.
+ * Where the waitlist/apply API lives.
  *
  * Same-origin by default: the /api/* serverless functions in frontend/api
  * ship alongside this site on Vercel, so a plain relative path just works

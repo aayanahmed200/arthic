@@ -1,9 +1,9 @@
 /**
- * Shared page bootstrap used by every entry point (home, about, games,
- * careers). Nav, smooth scroll, scroll-reveal, and the footer subscribe
- * form are chrome that lives on every page — anything page-specific (the
- * Orbital canvas, journal data) is initialized by that page's own entry
- * script instead.
+ * Shared page bootstrap used by every entry point (home, careers, legal
+ * pages). Nav, smooth scroll, scroll-reveal, and the footer waitlist form
+ * are chrome that lives on every page — anything page-specific (the
+ * dashboard-preview tabs, apply forms) is initialized by that page's own
+ * entry script instead.
  */
 import { initNav } from "./nav";
 import { initSmoothScroll } from "./smooth-scroll";
