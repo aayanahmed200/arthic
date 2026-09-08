@@ -3,8 +3,10 @@
    shares --color-bg exactly; this section sits on --color-bg-deep,
    bordered by hairlines, so it reads as a single intentional beat rather
    than an accident. Tells the "how it works" story in one image instead
-   of four steps: a scattered pile of the messy inputs a real mid-sized
-   company actually has, resolving into the frameworks that matter. */
+   of four steps: the messy, real inputs a mid-sized company already has,
+   lined up flat and in order against the frameworks that matter — no
+   scatter or rotation on the tags themselves, kept as plain and orderly
+   as everything else on the page. */
 
 .centerpiece {
   background: var(--color-bg-deep);
@@ -39,15 +41,11 @@
   border: 1px solid var(--color-fg-hairline);
   border-radius: 6px;
   background: var(--color-bg-raised);
-  transform: rotate(var(--r, 0deg));
-  transition: transform var(--dur-slow) var(--ease-out-expo),
-    border-color var(--dur-base) var(--ease-out-expo),
+  transition: border-color var(--dur-base) var(--ease-out-expo),
     color var(--dur-base) var(--ease-out-expo);
 }
 
-/* hovering the pile "settles" it flat — scattered data, put in order */
 .centerpiece__stack:hover .centerpiece__chip {
-  transform: rotate(0deg);
   border-color: var(--color-fg-faint);
   color: var(--color-fg-dim);
 }

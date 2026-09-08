@@ -1,30 +1,24 @@
+/* Left-aligned, content-height hero — headline, lede, and two actions
+   sit directly under the nav, then the product preview follows in the
+   same fold instead of a separate section further down the page. No
+   forced 100svh block and no centered logo mark: the nav already carries
+   the wordmark, so the hero's job is the pitch and the product, not a
+   repeat of the brand. */
 .hero {
   position: relative;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: calc(var(--nav-height) + clamp(2.5rem, 6vw, 4.5rem));
+  padding-bottom: clamp(3rem, 7vw, 5.5rem);
   padding-inline: var(--container-pad);
-  overflow: hidden;
 }
 
 .hero__inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   gap: clamp(0.9rem, 2vw, 1.4rem);
-}
-
-.hero__mark img {
-  width: min(58vw, 620px);
-  height: auto;
-}
-
-.hero__tagline {
-  font-size: var(--fs-tagline);
-  color: var(--color-fg-dim);
-  letter-spacing: 0.01em;
+  max-width: var(--container-max);
+  margin-inline: auto;
 }
 
 .hero__headline {
@@ -45,39 +39,23 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   gap: clamp(1rem, 2.5vw, 1.75rem);
   margin-top: clamp(0.75rem, 2vw, 1.25rem);
 }
 
-.hero__cta {
-  margin-top: clamp(0.5rem, 1.5vw, 1rem);
+/* the product preview sits full-width under the pitch, same fold,
+   no separate section eyebrow/headline needed to introduce it */
+.hero__preview {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
 }
 
-.hero__cue {
-  position: absolute;
-  bottom: clamp(1.5rem, 4vh, 3rem);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.18em;
+.hero__preview-note {
+  margin-bottom: clamp(0.85rem, 2vw, 1.25rem);
   color: var(--color-fg-mute);
-  text-transform: lowercase;
-  animation: cue-float 2.6s var(--ease-in-out) infinite;
-}
-
-@keyframes cue-float {
-  0%, 100% { transform: translate(-50%, 0); opacity: 0.55; }
-  50% { transform: translate(-50%, 6px); opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__cue {
-    animation: none;
-  }
+  font-size: var(--fs-label);
+  font-family: var(--font-mono);
+  max-width: 52ch;
 }

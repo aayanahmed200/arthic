@@ -50,7 +50,6 @@
   --space-section-y: clamp(6rem, 4rem + 8vw, 11.5rem);
   --space-section-y-sm: clamp(4rem, 3rem + 4vw, 7rem);
   --nav-height: clamp(58px, 7vw, 72px);
-  --nav-float-gap: clamp(0.85rem, 1.6vw, 1.5rem);
 
   /* ---------- motion ---------- */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

@@ -1,39 +1,27 @@
+/* Flat, full-width bar — solid fill that matches the page background
+   exactly (same idea as most plain SaaS nav bars: opaque, not glass, not
+   floating). A hairline only appears once the page has scrolled, so the
+   bar reads as part of the page until there's content sliding under it. */
 .nav {
   position: fixed;
   inset-inline: 0;
   top: 0;
   z-index: var(--z-nav);
-  padding: var(--nav-float-gap) clamp(1rem, 2.4vw, 2rem);
-  pointer-events: none;
+  background: var(--color-bg);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-base) var(--ease-out-expo);
+}
+
+.nav.is-scrolled {
+  border-bottom-color: var(--color-fg-hairline);
 }
 
 .nav__inner {
-  pointer-events: auto;
-  width: 100%;
-  max-width: var(--container-max);
   height: var(--nav-height);
-  margin-inline: auto;
-  padding-inline: clamp(1.25rem, 2.2vw, 2rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  border-radius: 999px;
-  /* translucent + blurred rather than a flat fill — the one glassmorphism
-     touch on the page, so the floating nav reads as "above" the content
-     scrolling under it instead of just another opaque bar */
-  background: rgba(17, 17, 16, 0.78);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--color-fg-hairline);
-  box-shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.7);
-  transition: box-shadow var(--dur-base) var(--ease-out-expo),
-    border-color var(--dur-base) var(--ease-out-expo);
-}
-
-.nav.is-scrolled .nav__inner {
-  border-color: var(--color-fg-faint);
-  box-shadow: 0 14px 38px -12px rgba(0, 0, 0, 0.85);
 }
 
 .nav__mark {
