@@ -4,25 +4,22 @@ import { initCommon } from "./lib/common-init";
 initCommon();
 
 /**
- * Product-preview dashboard mock. Everything inside is static,
- * clearly-labeled illustrative content (see the section copy above it) —
- * nothing here fetches real data. Four independent, all fail-safe
- * pieces of polish on top of that:
+ * Product-preview mock — an illustrative AI-mentor chat transcript in a
+ * browser-chrome frame. Everything inside is static, clearly-labeled
+ * illustrative content (see the section copy above it) — nothing here
+ * fetches real data or calls a real model. Three independent, all
+ * fail-safe pieces of polish on top of that:
  *
- * 1. Tab switching (compliance/advisor), same as before, plus an
- *    auto-advance every few seconds so the preview keeps demonstrating
- *    itself if a visitor lingers — a manual click always wins and
- *    permanently cancels the auto-advance, so it never fights a real
- *    choice.
- * 2. A one-shot "power on" moment: the stat ring, trend chart, and
- *    framework bars all start at zero and sweep in together the first
- *    time the mock scrolls into view, via the same IntersectionObserver
- *    pattern as reveal.ts (and the same reduced-motion / no-IO
- *    fallbacks — see that file's comment for the reasoning).
- * 3. A slow-rotating "recent activity" ticker so the feed reads as live
- *    rather than a frozen screenshot. Decorative only: its container is
- *    aria-hidden already, so screen readers never hear the churn.
- * 4. A "synced Xs ago" label in the chrome bar that just counts up from
+ * 1. Tab switching (one exam stream per tab), plus an auto-advance every
+ *    few seconds so the preview keeps demonstrating itself if a visitor
+ *    lingers — a manual click always wins and permanently cancels the
+ *    auto-advance, so it never fights a real choice.
+ * 2. A one-shot "power on" moment: the chat bubbles start hidden and
+ *    stagger in together the first time the mock scrolls into view, via
+ *    the same IntersectionObserver pattern as reveal.ts (and the same
+ *    reduced-motion / no-IO fallbacks — see that file's comment for the
+ *    reasoning).
+ * 3. A "started Xs ago" label in the chrome bar that just counts up from
  *    page load — the small detail that makes the mock read as a live
  *    session rather than a screenshot.
  */
@@ -67,7 +64,7 @@ if (dashTabs) {
     autoAdvanceId = window.setInterval(() => {
       const currentIndex = tabs.findIndex((t) => t.classList.contains("is-active"));
       activateTab(tabs[(currentIndex + 1) % tabs.length]);
-    }, 6000);
+    }, 6500);
   }
 }
 
@@ -94,42 +91,7 @@ if (dashMock) {
     window.setTimeout(powerOn, 4000);
   }
 
-  const activityList = dashMock.querySelector<HTMLUListElement>(".dash__activity ul");
-  if (activityList && !prefersReduced) {
-    const feed = [
-      { time: "just now", text: "fleet fuel logs synced — 12 vehicles" },
-      { time: "just now", text: "facility #3 energy meter reconnected" },
-      { time: "just now", text: "new CDP questionnaire draft started" },
-      { time: "just now", text: "supplier scorecard updated — 3 vendors" },
-      { time: "just now", text: "Q3 travel expense export reclassified" },
-    ];
-    let feedIndex = 0;
-
-    window.setInterval(() => {
-      const item = feed[feedIndex % feed.length];
-      feedIndex++;
-
-      const li = document.createElement("li");
-      const time = document.createElement("span");
-      time.className = "dash__activity-time";
-      time.textContent = item.time;
-      const label = document.createElement("span");
-      label.textContent = item.text;
-      li.append(time, label);
-      li.style.opacity = "0";
-      activityList.prepend(li);
-
-      requestAnimationFrame(() => {
-        li.style.opacity = "1";
-      });
-
-      while (activityList.children.length > 3) {
-        activityList.lastElementChild?.remove();
-      }
-    }, 7000);
-  }
-
-  // "synced Xs ago" ticker in the chrome bar — text only, no motion, so
+  // "started Xs ago" ticker in the chrome bar — text only, no motion, so
   // it runs regardless of prefers-reduced-motion (the pulsing dot next
   // to it is pure CSS and already gated by the reduced-motion media
   // query in preview.css).
@@ -138,7 +100,7 @@ if (dashMock) {
     const start = Date.now();
     window.setInterval(() => {
       const secs = Math.floor((Date.now() - start) / 1000);
-      syncText.textContent = secs < 5 ? "synced just now" : `synced ${secs}s ago`;
+      syncText.textContent = secs < 5 ? "started just now" : `started ${secs}s ago`;
     }, 1000);
   }
 }
