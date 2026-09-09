@@ -1,7 +1,10 @@
-.ai-note {
-  border-top: 1px solid var(--color-fg-hairline);
-  border-bottom: 1px solid var(--color-fg-hairline);
-}
+/* No section-level hairline here on purpose — .ai-note sits between two
+   other sections that also carry their own borders/list-dividers (the
+   philosophy list's last item, or the footer), and a hairline on both
+   edges of a short, tightly-padded section reads as two gray lines in
+   quick succession. The centered text alignment already sets this
+   section apart visually; generous section--tight padding does the
+   separating instead. */
 
 .ai-note__inner {
   max-width: 42rem;

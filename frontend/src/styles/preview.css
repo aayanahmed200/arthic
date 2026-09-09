@@ -98,11 +98,13 @@
 }
 
 .dash__side-mark {
-  font-family: var(--font-display);
-  font-weight: 520;
-  font-size: 0.95rem;
-  color: var(--color-fg);
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.dash__side-mark img {
+  height: 15px;
+  width: auto;
+  opacity: 0.92;
 }
 
 .dash__side-nav {
