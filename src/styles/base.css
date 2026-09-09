@@ -1,0 +1,161 @@
+/* ---------- reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html:focus-within {
+  scroll-behavior: auto;
+}
+
+body {
+  min-height: 100svh;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  font-weight: 380;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+img,
+picture,
+svg,
+canvas,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 520;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+/* ---------- reduced motion: the escape hatch every animation must respect ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- page-enter: pure-CSS entrance, on every full page load ----------
+   Deliberately NOT JS-driven (unlike reveal.ts / scroll-tilt.ts): a page
+   load is exactly the one moment where JS might not have run yet, so this
+   has to be a plain @keyframes animation that the browser starts on its
+   own the instant the element paints. Targets #main (not body) so the
+   fixed .nav bar — a sibling, not a descendant — is never repositioned by
+   a transform on an ancestor. .nav gets its own opacity-only fade (no
+   transform, so its `position: fixed` is never affected either). The
+   global reduced-motion block above already collapses any
+   animation-duration to 0.01ms, so this degrades to "instantly visible"
+   rather than being skipped outright — no flash of hidden content either
+   way. */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes page-enter-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#main {
+  animation: page-enter 0.7s var(--ease-out-expo) both;
+}
+
+.nav {
+  animation: page-enter-fade 0.5s var(--ease-out-expo) both;
+}
+
+/* ---------- lenis smooth-scroll plumbing ---------- */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}

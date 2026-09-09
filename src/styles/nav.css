@@ -1,0 +1,161 @@
+/* Flat, full-width bar — solid fill that matches the page background
+   exactly (same idea as most plain SaaS nav bars: opaque, not glass, not
+   floating). A hairline only appears once the page has scrolled, so the
+   bar reads as part of the page until there's content sliding under it. */
+.nav {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: var(--z-nav);
+  background: var(--color-bg);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-base) var(--ease-out-expo);
+}
+
+.nav.is-scrolled {
+  border-bottom-color: var(--color-fg-hairline);
+}
+
+.nav__inner {
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.nav__mark {
+  display: inline-flex;
+  align-items: center;
+  transition: opacity var(--dur-fast) var(--ease-out-expo);
+}
+
+.nav__mark:hover {
+  opacity: 0.72;
+}
+
+.nav__mark img {
+  height: clamp(16px, 2.1vw, 21px);
+  width: auto;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 2vw, 2.75rem);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.04em;
+  color: var(--color-fg-dim);
+}
+
+.nav__links a {
+  color: inherit;
+  transition: color var(--dur-fast) var(--ease-out-expo);
+}
+
+.nav__links a.is-active {
+  color: var(--color-fg);
+}
+
+/* same specificity as a.is-active above — reordered so this wins the tie,
+   since hovering a link should always give green feedback, even the
+   current-page link. */
+.nav__links a:hover,
+.nav__links a:focus-visible {
+  color: var(--color-accent-strong);
+}
+
+.nav__cta {
+  padding: 0.55em 1.1em;
+  font-size: var(--fs-label);
+  flex-shrink: 0;
+}
+
+/* .nav__links a { color: inherit } outranks .btn--solid's color on
+   specificity alone (class+element beats a single class) — pin it back
+   explicitly so the CTA keeps readable text on its solid fill instead of
+   inheriting the dim nav-link gray. */
+.nav__links .nav__cta {
+  color: var(--color-bg);
+}
+
+.nav__links .nav__cta:hover,
+.nav__links .nav__cta:focus-visible {
+  color: var(--color-fg);
+}
+
+.nav__toggle {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.06em;
+  color: var(--color-fg);
+}
+
+@media (max-width: 760px) {
+  .nav__links {
+    display: none;
+  }
+  .nav__toggle {
+    display: inline-flex;
+  }
+}
+
+/* ---------- mobile nav overlay ---------- */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-mobile-nav);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1rem, 4vh, 2rem);
+  padding: calc(var(--nav-height) + 2rem) var(--container-pad) 3rem;
+  background: var(--color-bg-deep);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--dur-base) var(--ease-out-expo), transform var(--dur-base) var(--ease-out-expo), visibility 0s linear var(--dur-base);
+}
+
+.mobile-nav.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity var(--dur-base) var(--ease-out-expo), transform var(--dur-base) var(--ease-out-expo), visibility 0s;
+}
+
+.mobile-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+}
+
+.mobile-nav a {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 460;
+  letter-spacing: -0.01em;
+  color: var(--color-fg);
+  padding-block: 0.15em;
+  transition: color var(--dur-fast) var(--ease-out-expo);
+}
+
+.mobile-nav a:hover,
+.mobile-nav a:focus-visible {
+  color: var(--color-accent-strong);
+}
+
+.mobile-nav__foot {
+  max-width: 32ch;
+  color: var(--color-fg-mute);
+  font-size: var(--fs-body-sm);
+}
+
+@media (min-width: 761px) {
+  .mobile-nav {
+    display: none;
+  }
+}
