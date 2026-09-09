@@ -7,6 +7,17 @@
   see the contrast note below. Variable names keep the --color-fg/-bg
   convention from the previous build (foreground/background reads fine
   in any theme) even though the palette itself is entirely new.
+
+  Dark theme: an explicit [data-theme="dark"] override block below,
+  toggled by src/lib/theme.ts (persisted to localStorage, applied
+  before paint by an inline head script on every page — see any
+  page's <head> for it). It's a straight ink/paper swap of the same
+  palette (light's --color-fg becomes dark's --color-bg, and back)
+  rather than a second, unrelated palette, so both themes read as the
+  same product. Every section uses --color-bg — there is no longer a
+  one-off "dark bookend" section; the theme toggle itself is the
+  site's one deliberate moment of real contrast, available to anyone,
+  not just baked into one section.
 */
 
 :root {
@@ -23,13 +34,6 @@
   --color-fg-hairline: rgba(21, 20, 15, 0.09);
   --color-fg-ghost: rgba(21, 20, 15, 0.045);
   --color-focus: #15140f;
-
-  /* dark "bookend" section (closing CTA) — its own small palette rather
-     than a full dark-mode flip */
-  --color-bg-deep: #100f0b;
-  --color-bg-deep-raised: #1a1912;
-  --color-paper-mute: #9c9a8e; /* 6.6:1 on --color-bg-deep */
-  --color-paper-hairline: rgba(252, 251, 248, 0.14);
 
   /* emerald — decorative/non-text use only (dots, rings, chart lines,
      checkmarks, thin tinted borders): 3.96:1 on --color-bg, which clears
@@ -49,9 +53,15 @@
   --color-gold-strong: #8f5f10;
   --color-gold-dim: rgba(200, 135, 30, 0.14);
 
+  /* flags / region strip (board-logos section) — plain sRGB, no
+     contrast math needed since they're only ever drawn on the fixed
+     white chip the board-logos section gives every mark */
+  --color-flag-chip: #ffffff;
+
   /* ---------- type families ---------- */
   --font-display: "Bricolage Grotesque Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-urdu: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Jameel Noori Nastaleeq", serif;
 
   /* ---------- fluid type scale ---------- */
   --fs-label: 0.8125rem;
@@ -95,4 +105,36 @@
     --fs-closing: clamp(4rem, 2rem + 5vw, 8rem);
     --fs-featured-title: clamp(6rem, 2rem + 7vw, 11rem);
   }
+}
+
+/* ==========================================================
+   Dark theme — set on <html data-theme="dark"> by theme.ts.
+   Same relationships as the light palette (dim ≥7:1, mute ≥4.5:1,
+   accent-strong ≥4.5:1 for text), recomputed against the new dark
+   background rather than reusing the light values verbatim.
+   ========================================================== */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #15140f;
+  --color-bg-raised: #1e1d16;
+  --color-bg-sunken: #0e0d09;
+  --color-fg: #fcfbf8;
+  --color-fg-dim: #c7c4b7; /* 10.5:1 on --color-bg */
+  --color-fg-mute: #9c9a8e; /* 6.5:1 on --color-bg */
+  --color-fg-faint: rgba(252, 251, 248, 0.14);
+  --color-fg-hairline: rgba(252, 251, 248, 0.1);
+  --color-fg-ghost: rgba(252, 251, 248, 0.05);
+  --color-focus: #fcfbf8;
+
+  --color-accent: #17a674;
+  --color-accent-strong: #34c48f; /* 8.3:1 on --color-bg */
+  --color-accent-dim: rgba(52, 196, 143, 0.16);
+  --color-accent-hairline: rgba(52, 196, 143, 0.32);
+
+  --color-gold: #d99f3c;
+  --color-gold-strong: #e8b563; /* 9.8:1 on --color-bg */
+  --color-gold-dim: rgba(217, 159, 60, 0.18);
+
+  --color-flag-chip: #f4f2ea;
 }

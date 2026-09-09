@@ -77,34 +77,3 @@
   color: var(--color-fg-mute);
   max-width: 18ch;
 }
-
-/* the product preview sits full-width under the pitch, same fold,
-   no separate section eyebrow/headline needed to introduce it */
-.hero__preview {
-  position: relative;
-  width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
-}
-
-/* a soft ambient glow behind the mock, the same accent used everywhere
-   else on the page rather than a new color — the closest thing on this
-   page to cursor.com's layered light-behind-dark-window product shots. */
-.hero__preview::before {
-  content: "";
-  position: absolute;
-  inset: -8% -6% -14%;
-  background: radial-gradient(60% 55% at 50% 22%, var(--color-accent-dim), transparent 72%);
-  filter: blur(48px);
-  z-index: -1;
-  pointer-events: none;
-}
-
-.hero__preview-note {
-  margin-bottom: clamp(0.85rem, 2vw, 1.25rem);
-  color: var(--color-fg-mute);
-  font-size: var(--fs-label);
-  font-family: var(--font-mono);
-  max-width: 52ch;
-}

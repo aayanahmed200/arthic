@@ -30,6 +30,18 @@
   line-height: 1.05;
 }
 
+/* one-line, page-specific hook under the title — every long-form page
+   (privacy, terms, careers) gets one so the headers are symmetrical in
+   structure (eyebrow/date, title, lede) even though each page's content
+   is its own. */
+.entry__lede {
+  margin-top: 0.85rem;
+  max-width: 46ch;
+  font-size: var(--fs-body-lg);
+  color: var(--color-fg-dim);
+  line-height: 1.55;
+}
+
 .entry__body {
   max-width: 42rem;
   font-size: var(--fs-body-lg);

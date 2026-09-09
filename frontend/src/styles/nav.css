@@ -102,12 +102,63 @@
   }
 }
 
+/* ---------- theme + language toggles ----------
+   Sit outside .nav__links so they never hide at the mobile breakpoint —
+   switching theme or language shouldn't require opening the menu first. */
+.nav__utility {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-shrink: 0;
+}
+
+.nav__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding-inline: 0.15em;
+  border-radius: 999px;
+  color: var(--color-fg-dim);
+  transition: color var(--dur-fast) var(--ease-out-expo), background var(--dur-fast) var(--ease-out-expo);
+}
+
+.nav__icon-btn:hover,
+.nav__icon-btn:focus-visible {
+  color: var(--color-fg);
+  background: var(--color-fg-ghost);
+}
+
+.nav__icon-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.theme-toggle__icon--sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--sun {
+  display: block;
+}
+
+.nav__lang-btn {
+  padding-inline: 0.7em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.02em;
+}
+
 /* ---------- mobile nav overlay ----------
-   Deliberately dark, unlike the rest of this light-theme site — a
-   full-screen takeover reads better with real contrast, and it gives
-   the palette's dark "bookend" (see .closing) a second appearance
-   instead of using it exactly once. Text flips to paper-on-ink here,
-   the only place in the nav that isn't --color-fg on --color-bg. */
+   Same --color-bg/--color-fg as every other surface on the page — no
+   section, including this full-screen takeover, departs from the
+   shared background. Anyone who wants real contrast gets it from the
+   theme toggle itself, not from one section being permanently dark. */
 .mobile-nav {
   position: fixed;
   inset: 0;
@@ -117,7 +168,7 @@
   justify-content: center;
   gap: clamp(1rem, 4vh, 2rem);
   padding: calc(var(--nav-height) + 2rem) var(--container-pad) 3rem;
-  background: var(--color-bg-deep);
+  background: var(--color-bg);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
@@ -143,19 +194,19 @@
   font-size: clamp(1.75rem, 6vw, 2.5rem);
   font-weight: 460;
   letter-spacing: -0.01em;
-  color: var(--color-bg);
+  color: var(--color-fg);
   padding-block: 0.15em;
   transition: color var(--dur-fast) var(--ease-out-expo);
 }
 
 .mobile-nav a:hover,
 .mobile-nav a:focus-visible {
-  color: var(--color-accent);
+  color: var(--color-accent-strong);
 }
 
 .mobile-nav__foot {
   max-width: 32ch;
-  color: var(--color-paper-mute);
+  color: var(--color-fg-mute);
   font-size: var(--fs-body-sm);
 }
 

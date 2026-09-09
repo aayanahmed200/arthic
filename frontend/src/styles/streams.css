@@ -1,10 +1,10 @@
 /* ---------- stream cards (under the concept centerpiece) ---------- */
 .centerpiece__streams {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
   width: 100%;
-  max-width: 58rem;
+  max-width: 72rem;
   text-align: left;
 }
 
@@ -55,14 +55,27 @@
   border-radius: 999px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
+  .centerpiece__streams {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
   .centerpiece__streams {
     grid-template-columns: 1fr;
   }
 }
 
-/* ---------- team / university strip ---------- */
-.team-strip {
+/* ---------- board logos (institutions arthic preps students for) ----------
+   Full authentic color, not the dimmed/monochrome treatment a "trust
+   strip" of logos usually gets — these are the actual seals of the
+   institutions whose entrance tests arthic teaches to, not a vague
+   credibility signal, so they're shown as themselves. Every mark sits
+   on a fixed white chip (--color-flag-chip) regardless of theme, since
+   these are official seals with their own fixed colors, not assets
+   that should reinterpret themselves for dark mode. */
+.boards {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,37 +83,90 @@
   text-align: center;
 }
 
-.team-strip__note {
-  max-width: 50ch;
+.boards__note {
+  max-width: 56ch;
   color: var(--color-fg-mute);
   font-family: var(--font-mono);
   font-size: var(--fs-label);
   line-height: 1.6;
 }
 
-.team-strip__logos {
+.boards__logos {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: clamp(2rem, 5vw, 3.75rem);
+  gap: clamp(0.85rem, 2.2vw, 1.35rem);
   width: 100%;
+  max-width: 56rem;
 }
 
-.team-strip__logos img {
-  height: clamp(26px, 3.4vw, 36px);
-  width: auto;
-  opacity: 0.58;
-  transition: opacity var(--dur-base) var(--ease-out-expo);
+.boards__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(62px, 6.6vw, 82px);
+  height: clamp(62px, 6.6vw, 82px);
+  border-radius: 16px;
+  background: var(--color-flag-chip);
+  border: 1px solid var(--color-fg-hairline);
+  padding: 0.55rem;
+  transition: transform var(--dur-base) var(--ease-out-expo), border-color var(--dur-base) var(--ease-out-expo);
 }
 
-.team-strip__logos img:hover {
-  opacity: 1;
+.boards__logo:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent-hairline);
+}
+
+.boards__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* current-coverage / expansion strip — the Pakistan flag marks what's
+   live today, the rest are named honestly as not built yet */
+.boards__region {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.6rem, 1.6vw, 1rem);
+  padding-top: 0.15rem;
+}
+
+.boards__region-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.02em;
+  padding: 0.4em 0.9em;
+  border-radius: 999px;
+}
+
+.boards__region-tag--live {
+  color: var(--color-accent-strong);
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-accent-hairline);
+}
+
+.boards__region-tag--soon {
+  color: var(--color-fg-mute);
+  background: var(--color-fg-ghost);
+  border: 1px dashed var(--color-fg-hairline);
+}
+
+.boards__flag {
+  font-size: 1.05em;
+  line-height: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .stream-card,
-  .team-strip__logos img {
+  .boards__logo {
     transition: none;
   }
 }

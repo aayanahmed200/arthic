@@ -309,3 +309,22 @@
   outline: none;
   border-color: var(--color-fg);
 }
+
+/* ---------- theme-aware wordmark ----------
+   Every logo placement (nav, footer, the closing CTA) renders two
+   stacked <img> tags — one pointing at the ink-colored logo.png, one at
+   the white logo-white.png — and only one is ever visible, picked by
+   [data-theme]. Simpler and more robust than swapping `src` in JS, and
+   it means the two-image markup below is the only thing any page needs
+   to add; no per-page CSS. */
+.brand-mark--dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .brand-mark--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .brand-mark--dark {
+  display: inline-block;
+}

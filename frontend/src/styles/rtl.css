@@ -1,0 +1,90 @@
+/*
+  RTL overrides — active whenever <html dir="rtl"> (Urdu mode, set by
+  lang.ts). Rather than rewriting every component to logical properties,
+  this flips the handful of things that actually read wrong in a
+  right-to-left layout: prose alignment, directional arrow glyphs, and
+  list/tag ordering. Brand chrome (logo position, nav layout, the
+  section-index folio) deliberately stays put in both languages — arthic
+  should look like the same site switched languages, not a mirrored
+  redesign, and Urdu script is legible left-anchored-container or not
+  since the browser's own bidi algorithm handles the actual text shaping.
+
+  Loaded last in main.css so it wins the cascade over the section files
+  it's overriding.
+*/
+
+[dir="rtl"] body {
+  font-family: var(--font-urdu), var(--font-display);
+}
+
+/* prose reads right-to-left */
+[dir="rtl"] .hero__lede,
+[dir="rtl"] .hero__fact-label,
+[dir="rtl"] .intro__body,
+[dir="rtl"] .intro__facts li,
+[dir="rtl"] .stream-card__body,
+[dir="rtl"] .philosophy__body,
+[dir="rtl"] .feature-preview__body,
+[dir="rtl"] .boards__note,
+[dir="rtl"] .ai-note__body,
+[dir="rtl"] .community__body,
+[dir="rtl"] .closing__lede,
+[dir="rtl"] .entry__body,
+[dir="rtl"] .entry__body p,
+[dir="rtl"] .entry__missing-body,
+[dir="rtl"] .subscribe__label,
+[dir="rtl"] .footer__tagline {
+  text-align: right;
+}
+
+/* headlines stay visually centered where the layout already centers them
+   (hero, centerpiece, closing, waitlist) — only the ones that were
+   left-aligned in English need flipping */
+[dir="rtl"] .intro__headline,
+[dir="rtl"] .philosophy__headline,
+[dir="rtl"] .stream-card__name {
+  text-align: right;
+}
+
+/* forward-pointing arrows read backwards once the sentence reverses */
+[dir="rtl"] .arrow-glyph {
+  transform: scaleX(-1);
+}
+
+/* the philosophy list's numbering column sits to the right of its copy
+   instead of the left, matching reading order */
+[dir="rtl"] .philosophy__item {
+  direction: rtl;
+}
+
+[dir="rtl"] .philosophy__item--media-right {
+  flex-direction: row-reverse;
+}
+
+/* nav links, tag rows, and the mobile panel read right-to-left as a
+   group, without moving the logo or the toggle buttons */
+[dir="rtl"] .nav__links,
+[dir="rtl"] .stream-card__exams,
+[dir="rtl"] .centerpiece__stack,
+[dir="rtl"] .boards__region {
+  direction: rtl;
+}
+
+[dir="rtl"] .mobile-nav nav {
+  text-align: right;
+}
+
+/* form rows and field labels */
+[dir="rtl"] .field {
+  text-align: right;
+}
+
+[dir="rtl"] .subscribe__row {
+  direction: rtl;
+}
+
+/* the lang toggle's own label needs the Urdu font even before the rest
+   of the page switches, since it always shows the *other* language's name */
+[data-lang-toggle-label] {
+  font-family: var(--font-urdu), var(--font-mono);
+}
