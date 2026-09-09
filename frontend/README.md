@@ -55,8 +55,8 @@ Ships configured for Vercel — [`vercel.json`](vercel.json) sets the build comm
 
 ```
 frontend/
-├── index.html            home — hero, why-now, concept centerpiece, how it works, product preview, mission, hiring, waitlist, closing
-├── pricing.html           three tiers, real numbers, and a regulatory FAQ
+├── index.html            home — hero + mentor-chat preview, why arthic, subjects, how it works (rule of three), team strip, hiring, waitlist, closing
+├── pricing.html           three tiers (free/plus/institutions) and an exam-prep FAQ
 ├── careers.html           open roles + apply forms
 ├── privacy.html            plain-English privacy policy
 ├── terms.html               plain-English terms
@@ -77,8 +77,9 @@ frontend/
 │   │   ├── tokens.css     colors, type scale, spacing, motion — the whole design system
 │   │   ├── base.css       reset + reduced-motion handling
 │   │   ├── utilities.css  shared patterns (reveal, containers, buttons, links)
-│   │   ├── centerpiece.css the homepage's concept visual — the one section on a different background
-│   │   ├── preview.css    the product-preview dashboard mock
+│   │   ├── centerpiece.css the homepage's "six exams, one mentor" visual
+│   │   ├── streams.css    subject stream cards + the university/team logo strip
+│   │   ├── preview.css    the product-preview AI-mentor chat mock
 │   │   ├── pricing.css    the pricing page's tiers, comparison, and FAQ
 │   │   ├── entry.css      shared long-form layout (privacy/terms/404)
 │   │   └── *.css          one file per section, reused across pages
