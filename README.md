@@ -7,18 +7,18 @@
 [![Node.js](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 
-compliance that keeps up with the rules. — the marketing site for arthic, an AI-assisted sustainability-compliance reporting product for mid-sized companies navigating CSRD, SB 253, and ISSB.
+ratta nahi, samajh — that's the whole idea. — the marketing site for arthic, a bilingual AI mentor for Pakistan's toughest competitive exams: MDCAT, ECAT, NUST NET, FAST, CSS, and PMS.
 
-This repo is the actual production site, not a mockup — clone it and `npm run build` produces the real thing. The homepage includes a working preview of the product dashboard (illustrative data, clearly labeled) so visitors can see what's shipping before it does.
+This repo is the actual production site, not a mockup — clone it and `npm run build` produces the real thing. The homepage includes a working preview of the AI-mentor chat (illustrative conversations, clearly labeled) so visitors can see how it teaches before it ships.
 
 ## Why this exists
 
-CSRD and SB 253 are landing on mid-sized companies that don't have a sustainability-reporting team, and the rules keep shifting under them. Most compliance software is priced and built for enterprises with a dedicated function to run it. arthic is a small, early-stage team building the alternative: software that tracks what's actually in force, maps a company's existing data to it, and keeps the report current when the rules move — instead of a consultant re-doing the same spreadsheet every quarter.
+Most exam prep for MDCAT, ECAT, NUST NET, FAST, CSS, and PMS still means the same thing: a stack of guides, a crowded academy, and an instructor who doesn't have time to explain a concept twice. If English isn't the language a student thinks fastest in, that gap gets wider, not smaller. arthic is a small, student-run team building an AI mentor that teaches in English and Roman Urdu in the same conversation, is built to notice when a student is pattern-matching instead of understanding, and slows down exactly there instead of moving on to the next chapter.
 
 ## Structure
 
-- **`frontend/`** — the marketing site *and* its live API. Vite + TypeScript, hand-written CSS (no UI framework, no Tailwind), and a scroll-reveal system that fails safe — content is real markup first, animation is a progressive enhancement on top of it, never a gate in front of it. Home, Careers, Privacy, and Terms are each real routes/pages. The waitlist form and job applications are backed by `frontend/api/` — Vercel serverless functions talking to Postgres — deployed same-origin alongside the site. Falls back to an honest "not configured yet" response when there's no database connected, rather than pretending to succeed. See `frontend/README.md`.
-- **`backend/`** — a self-hostable Express + SQLite alternative to `frontend/api/`, predating arthic's pivot to this product. Its `/api/subscribe` and `/api/subscribers` routes still match what the current waitlist form expects, so it remains usable for anyone who'd rather self-host that one form on a normal Node server (e.g. Render) than use Vercel + Postgres. It also still carries a `/api/journal` route from an earlier version of the site; nothing in the current frontend calls it — treat it as vestigial. See `backend/README.md`.
+- **`frontend/`** — the marketing site *and* its live API. Vite + TypeScript, hand-written CSS (no UI framework, no Tailwind), and a scroll-reveal system that fails safe — content is real markup first, animation is a progressive enhancement on top of it, never a gate in front of it. Home, Pricing, Careers, Privacy, and Terms are each real routes/pages. The waitlist form and job applications are backed by `frontend/api/` — Vercel serverless functions talking to Postgres — deployed same-origin alongside the site. Falls back to an honest "not configured yet" response when there's no database connected, rather than pretending to succeed. See `frontend/README.md`.
+- **`backend/`** — a self-hostable Express + SQLite alternative to `frontend/api/`, predating arthic's current product. Its `/api/subscribe` and `/api/subscribers` routes still match what the current waitlist form expects, so it remains usable for anyone who'd rather self-host that one form on a normal Node server (e.g. Render) than use Vercel + Postgres. It also still carries a `/api/journal` route from an earlier version of the site; nothing in the current frontend calls it — treat it as vestigial. See `backend/README.md`.
 
 Run one API or the other for a given deployment — see [DEPLOYMENT.md](DEPLOYMENT.md).
 
@@ -48,15 +48,15 @@ Here the frontend talks to the backend at `http://localhost:3001` automatically 
 
 ## Design system
 
-Two ink colors, not black-and-white but close to it (`#0a0a09` / `#f3f1ea` — true pure black reads cheap on screens; this reads closer to print), plus a single muted green accent (`#6fa080`) used sparingly for active states and the one place the product's own data needs a color — the dashboard preview. One display typeface (Bricolage Grotesque, self-hosted, variable weight) doing everything from the hero to body copy, plus IBM Plex Mono reserved for labels, dates, and numbers — the small editorial trick of using a second face only for metadata. Motion is `cubic-bezier(0.16, 1, 0.3, 1)` almost everywhere — scroll reveals, hovers, smooth-scroll easing — one curve, used consistently, rather than a different easing per component.
+A light "paper" background (`#fcfbf8`) and near-black ink (`#15140f`) rather than true black-on-white — closer to a printed page than a screen default — plus a single accent, emerald (`#0e8f63` decorative, `#0a6e4c` for text, chosen to clear WCAG AA at 4.5:1), used sparingly for links, active states, and the one place the product's own content needs a color — the mentor-chat preview. One display typeface (Bricolage Grotesque, self-hosted, variable weight) doing everything from the hero to body copy, plus IBM Plex Mono reserved for labels, tags, and the chat preview's UI chrome — the small editorial trick of using a second face only for metadata. Motion is `cubic-bezier(0.16, 1, 0.3, 1)` almost everywhere — scroll reveals, hovers, smooth-scroll easing — one curve, used consistently, rather than a different easing per component.
 
-Every section shares the same background except one deliberate exception: the concept centerpiece (`#concept`, between "why now" and "how it works") sits on the one shade darker in the token set, bordered by hairlines, so it reads as a single intentional beat rather than an accident. It's a hand-built visual, not stock art — a scattered pile of the messy inputs a real mid-sized company actually has (spreadsheets, utility bills, a supplier email thread) resolving into the frameworks that matter, using the type scale's largest, otherwise-unused size.
+Every section shares the same paper background except one deliberate exception: the closing call-to-action, which drops to a near-black bookend (`#100f0b`) so the site opens and closes on two different notes instead of fading out on the same tone it started on.
 
-The product-preview dashboard (`#preview` on the homepage) isn't a screenshot or a stock template — it's hand-built markup and CSS made to look like a real app: a working tab switcher, a CSS-only progress ring, a trend chart, a recent-activity feed, and every number in it labeled as illustrative.
+The product-preview mock (`#preview` on the homepage) isn't a screenshot or a stock template — it's hand-built markup and CSS made to look like a real app: a working subject-tab switcher, a browser-chrome frame, and three illustrative mentor conversations (an MDCAT chemistry mix-up, an ECAT physics concept, a CSS essay) that exist to show the teaching style, not to demo a real model — labeled as illustrative in both the visible copy and the code.
 
 ## Pricing
 
-`frontend/pricing.html` is a real page, not a placeholder — three tiers with actual numbers, an FAQ that answers the regulatory questions people are most likely to search for (does CSRD apply to me, what's the SB 253 deadline, is there a federal law), and a short, direct explanation of why the numbers are public at all: almost nothing else in this category publishes pricing. The figures are early-access pricing for a pre-launch product, anchored to what comparable mid-market compliance software actually costs — not a finalized rate card.
+`frontend/pricing.html` is a real page, not a placeholder — three tiers (free, a not-yet-priced "Plus," and custom institutional pricing) and an FAQ that answers the questions a prospective student would actually ask: which exams are covered, why it's free right now, whether it replaces an academy, why Roman Urdu specifically, and how pricing might change later. Nothing on the page invents a number it doesn't have yet — "Plus" pricing says plainly that it isn't set.
 
 ## Tech stack
 
@@ -73,12 +73,13 @@ The product-preview dashboard (`#preview` on the homepage) isn't a screenshot or
 arthic/
 ├── frontend/          marketing site (Vite + TypeScript) + its API
 │   ├── src/
-│   │   ├── styles/     design tokens + one CSS file per section, including the dashboard preview
+│   │   ├── styles/     design tokens + one CSS file per section, including the mentor-chat preview and the exam-stream/team-logo strip
 │   │   └── lib/        nav, common page bootstrap, reveal system, smooth scroll, waitlist form
 │   ├── api/            deployed API — Vercel functions + Postgres (waitlist, job applications)
 │   ├── public/admin/    the waitlist admin panel, served same-origin at /admin
-│   ├── index.html      home — hero, why now, concept centerpiece, how it works, product preview, mission, hiring, waitlist
-│   ├── pricing.html    three tiers, real numbers, and an FAQ built around the regulatory questions people actually search for
+│   ├── public/logos/    recolored university logos for the team-strip section
+│   ├── index.html      home — hero + mentor-chat preview, why arthic, subjects, how it works (rule of three), team strip, hiring, waitlist, closing
+│   ├── pricing.html    three tiers (free/plus/institutions) and an exam-prep FAQ
 │   ├── careers.html    open roles
 │   ├── privacy.html     privacy policy
 │   ├── terms.html        terms of use
