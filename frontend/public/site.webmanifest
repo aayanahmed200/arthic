@@ -1,11 +1,11 @@
 {
   "name": "arthic",
   "short_name": "arthic",
-  "description": "compliance that keeps up with the rules. audit-ready sustainability reporting for mid-sized companies.",
+  "description": "a bilingual AI mentor for MDCAT, ECAT, NUST NET, FAST, CSS, and PMS.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a09",
-  "theme_color": "#0a0a09",
+  "background_color": "#fcfbf8",
+  "theme_color": "#fcfbf8",
   "icons": [
     { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
     { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
