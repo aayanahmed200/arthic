@@ -18,16 +18,23 @@ export function initNav(): void {
 }
 
 /**
- * Every page is now a real route (/, /about, /games, /careers) rather than
- * an anchor into one long page, so "which nav link is active" is a
- * one-time pathname match on load, not something scroll position decides.
+ * Most nav links are real routes (/, /pricing.html, /careers.html), so
+ * "which nav link is active" is a one-time pathname match on load. A few
+ * links (Subjects, Method) are in-page anchors into the homepage instead
+ * (/#subjects) — those must never be marked active by a pathname-only
+ * comparison, since "/#subjects" and "/" share the same pathname and
+ * every anchor link would light up together the instant you're on the
+ * homepage, regardless of scroll position. Skipping any link with a
+ * hash is what keeps that from happening.
  */
 function initActiveNavByPath(): void {
   const current = normalizePath(window.location.pathname);
   const links = document.querySelectorAll<HTMLAnchorElement>("[data-nav-link], [data-mobile-link]");
   links.forEach((link) => {
-    const target = normalizePath(new URL(link.href, window.location.origin).pathname);
-    link.classList.toggle("is-active", target === current);
+    const url = new URL(link.href, window.location.origin);
+    const isAnchor = url.hash !== "";
+    const target = normalizePath(url.pathname);
+    link.classList.toggle("is-active", !isAnchor && target === current);
   });
 }
 
