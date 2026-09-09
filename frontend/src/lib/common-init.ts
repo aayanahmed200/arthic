@@ -8,11 +8,13 @@
 import { initNav } from "./nav";
 import { initSmoothScroll } from "./smooth-scroll";
 import { initReveal } from "./reveal";
+import { initScrollTilt } from "./scroll-tilt";
 import { initSubscribeForm } from "./subscribe";
 
 export function initCommon(): void {
   initNav();
   initSmoothScroll();
   initReveal();
+  initScrollTilt();
   initSubscribeForm();
 }
