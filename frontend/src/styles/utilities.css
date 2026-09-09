@@ -255,6 +255,18 @@
   color: var(--color-fg);
 }
 
+/* an arrow riding inside a .btn (paired secondary action next to a
+   .btn--solid, the way Cursor pairs a solid + outline pill in its hero)
+   nudges forward on hover/focus, same gesture as .link-arrow's glyph. */
+.btn .arrow-glyph {
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.btn:hover .arrow-glyph,
+.btn:focus-visible .arrow-glyph {
+  transform: translateX(0.25em);
+}
+
 /* ---------- shared field styling ---------- */
 .field {
   background: transparent;
