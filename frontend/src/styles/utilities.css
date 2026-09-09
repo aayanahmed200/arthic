@@ -184,6 +184,22 @@
   }
 }
 
+/* ---------- 3D scroll tilt (progressive enhancement) ----------
+   [data-tilt] wrapper elements sit flat by default — scroll-tilt.ts is
+   the only thing that ever applies a transform, via inline style, and
+   only on a dedicated wrapper that never also carries a data-reveal
+   transform (see that module's comment). This block is defense-in-depth
+   for the same prefers-reduced-motion gate scroll-tilt.ts already checks. */
+.tilt-3d {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-3d {
+    transform: none !important;
+  }
+}
+
 /* ---------- film grain overlay ---------- */
 .grain {
   position: fixed;

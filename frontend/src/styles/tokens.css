@@ -42,7 +42,7 @@
   --fs-h3: clamp(1.375rem, 1.1rem + 1.2vw, 1.75rem);
   --fs-tagline: clamp(1.0625rem, 0.95rem + 0.6vw, 1.375rem);
   --fs-featured-title: clamp(3.75rem, 1rem + 11.5vw, 9rem);
-  --fs-closing: clamp(3.25rem, 0.1rem + 13.5vw, 10.75rem);
+  --fs-closing: clamp(2.5rem, 0.5rem + 8vw, 6.5rem);
 
   /* ---------- spacing / layout ---------- */
   --container-max: 1440px;
@@ -71,7 +71,7 @@
    ever forcing horizontal scroll on narrow ones — see base.css. */
 @media (min-width: 1800px) {
   :root {
-    --fs-closing: clamp(6rem, 3rem + 9vw, 13rem);
+    --fs-closing: clamp(4rem, 2rem + 5vw, 8rem);
     --fs-featured-title: clamp(6rem, 2rem + 7vw, 11rem);
   }
 }
