@@ -102,7 +102,12 @@
   }
 }
 
-/* ---------- mobile nav overlay ---------- */
+/* ---------- mobile nav overlay ----------
+   Deliberately dark, unlike the rest of this light-theme site — a
+   full-screen takeover reads better with real contrast, and it gives
+   the palette's dark "bookend" (see .closing) a second appearance
+   instead of using it exactly once. Text flips to paper-on-ink here,
+   the only place in the nav that isn't --color-fg on --color-bg. */
 .mobile-nav {
   position: fixed;
   inset: 0;
@@ -138,19 +143,19 @@
   font-size: clamp(1.75rem, 6vw, 2.5rem);
   font-weight: 460;
   letter-spacing: -0.01em;
-  color: var(--color-fg);
+  color: var(--color-bg);
   padding-block: 0.15em;
   transition: color var(--dur-fast) var(--ease-out-expo);
 }
 
 .mobile-nav a:hover,
 .mobile-nav a:focus-visible {
-  color: var(--color-accent-strong);
+  color: var(--color-accent);
 }
 
 .mobile-nav__foot {
   max-width: 32ch;
-  color: var(--color-fg-mute);
+  color: var(--color-paper-mute);
   font-size: var(--fs-body-sm);
 }
 

@@ -1,19 +1,65 @@
+/* Dark bookend — the one section on the page that inverts the palette,
+   so the light theme gets a moment of real contrast right before the
+   footer instead of staying paper-on-paper for the whole scroll. Same
+   trick the mobile-nav overlay uses, so the dark tone shows up twice,
+   not once as a one-off. */
 .closing {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: clamp(1.25rem, 3vw, 2rem);
-  padding-block: clamp(3.5rem, 7vw, 6rem);
+  padding-block: clamp(4.5rem, 9vw, 7.5rem);
   padding-inline: var(--container-pad);
   text-align: center;
-  background: var(--color-bg);
+  background: var(--color-bg-deep);
+  color: var(--color-bg);
+  overflow: hidden;
+}
+
+.closing::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10%;
+  background: radial-gradient(50% 60% at 50% 30%, var(--color-accent-dim), transparent 70%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.closing__mark {
+  position: relative;
+  height: clamp(20px, 3vw, 26px);
+  width: auto;
+  opacity: 0.92;
 }
 
 .closing__headline {
+  position: relative;
   font-size: var(--fs-closing);
   line-height: 0.9;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   font-weight: 560;
+  max-width: 22ch;
+}
+
+.closing__lede {
+  position: relative;
+  max-width: 46ch;
+  color: var(--color-paper-mute);
+  font-size: var(--fs-body-lg);
+}
+
+.closing .btn--solid {
+  position: relative;
+  background: var(--color-bg);
+  color: var(--color-bg-deep);
+  border-color: var(--color-bg);
+}
+
+.closing .btn--solid:hover,
+.closing .btn--solid:focus-visible {
+  background: var(--color-bg-deep);
+  color: var(--color-bg);
 }

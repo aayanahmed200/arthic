@@ -1,0 +1,106 @@
+/* ---------- stream cards (under the concept centerpiece) ---------- */
+.centerpiece__streams {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 58rem;
+  text-align: left;
+}
+
+.stream-card {
+  border: 1px solid var(--color-fg-hairline);
+  border-radius: 14px;
+  background: var(--color-bg-raised);
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: border-color var(--dur-base) var(--ease-out-expo), transform var(--dur-base) var(--ease-out-expo);
+}
+
+.stream-card:hover {
+  border-color: var(--color-accent-hairline);
+  transform: translateY(-3px);
+}
+
+.stream-card__name {
+  font-family: var(--font-display);
+  font-weight: 560;
+  font-size: var(--fs-h3);
+  line-height: 1.15;
+}
+
+.stream-card__body {
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body-sm);
+  line-height: 1.55;
+}
+
+.stream-card__exams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.stream-card__exam-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  color: var(--color-accent-strong);
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-accent-hairline);
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+}
+
+@media (max-width: 760px) {
+  .centerpiece__streams {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- team / university strip ---------- */
+.team-strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.75rem, 3.5vw, 2.5rem);
+  text-align: center;
+}
+
+.team-strip__note {
+  max-width: 50ch;
+  color: var(--color-fg-mute);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  line-height: 1.6;
+}
+
+.team-strip__logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 3.75rem);
+  width: 100%;
+}
+
+.team-strip__logos img {
+  height: clamp(26px, 3.4vw, 36px);
+  width: auto;
+  opacity: 0.58;
+  transition: opacity var(--dur-base) var(--ease-out-expo);
+}
+
+.team-strip__logos img:hover {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stream-card,
+  .team-strip__logos img {
+    transition: none;
+  }
+}

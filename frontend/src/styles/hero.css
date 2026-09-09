@@ -43,6 +43,41 @@
   margin-top: clamp(0.75rem, 2vw, 1.25rem);
 }
 
+/* ---------- honest facts strip ----------
+   Sits where a lot of ed-tech sites put a big-number social-proof bar.
+   arthic is pre-launch, so this states what's actually true instead —
+   see the section comment in index.html. */
+.hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.75rem, 5vw, 3rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--color-fg-hairline);
+  max-width: var(--container-max);
+}
+
+.hero__fact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero__fact-value {
+  font-family: var(--font-display);
+  font-weight: 560;
+  font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem);
+  color: var(--color-fg);
+}
+
+.hero__fact-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--color-fg-mute);
+  max-width: 18ch;
+}
+
 /* the product preview sits full-width under the pitch, same fold,
    no separate section eyebrow/headline needed to introduce it */
 .hero__preview {
