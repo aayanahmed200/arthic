@@ -3,9 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light" />
+<meta name="color-scheme" content="light dark" />
+<script>
+(function () {
+  try {
+    var theme = localStorage.getItem("arthic-theme");
+    if (theme !== "light" && theme !== "dark") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+    if (localStorage.getItem("arthic-lang") === "ur") {
+      document.documentElement.setAttribute("lang", "ur");
+      document.documentElement.setAttribute("dir", "rtl");
+    }
+  } catch (e) {}
+})();
+</script>
 <title>careers — arthic</title>
-<meta name="description" content="arthic is a small, student-run team building a bilingual AI mentor for Pakistan's toughest exams — most roles are built around a student's schedule, not a 9-to-5." />
+<meta name="description" content="arthic is a small, student-run team building an all-in-one exam-prep platform for Pakistan's toughest exams — most roles are built around a student's schedule, not a 9-to-5." />
 <meta name="theme-color" content="#fcfbf8" />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -17,12 +32,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="arthic" />
 <meta property="og:title" content="careers — arthic" />
-<meta property="og:description" content="a small, student-run team building a bilingual AI mentor for Pakistan's toughest exams." />
+<meta property="og:description" content="a small, student-run team building an all-in-one exam-prep platform for Pakistan's toughest exams." />
 <meta property="og:image" content="https://arthic.tech/og-image.png" />
 <meta property="og:url" content="https://arthic.tech/careers.html" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="careers — arthic" />
-<meta name="twitter:description" content="a small, student-run team building a bilingual AI mentor for Pakistan's toughest exams." />
+<meta name="twitter:description" content="a small, student-run team building an all-in-one exam-prep platform for Pakistan's toughest exams." />
 <meta name="twitter:image" content="https://arthic.tech/og-image.png" />
 </head>
 <body>
@@ -33,16 +48,34 @@
 <header class="nav" data-nav>
   <div class="nav__inner container">
     <a href="/" class="nav__mark" aria-label="arthic — home">
-      <img src="/logo.png" alt="arthic" width="800" height="272" />
+      <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
+      <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="/#subjects" class="hover-underline" data-nav-link>subjects</a>
-      <a href="/#method" class="hover-underline" data-nav-link>method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
-      <a href="/#waitlist" class="btn btn--solid nav__cta"><span>join waitlist</span></a>
+      <a href="/#subjects" class="hover-underline" data-nav-link data-i18n="nav.subjects">subjects</a>
+      <a href="/#method" class="hover-underline" data-nav-link data-i18n="nav.method">method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n="nav.pricing">pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link data-i18n="nav.careers">careers</a>
+      <a href="/#waitlist" class="btn btn--solid nav__cta"><span data-i18n="nav.waitlist">join waitlist</span></a>
     </nav>
+
+    <div class="nav__utility">
+      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="switch to dark theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" />
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="3" fill="currentColor" />
+          <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+            <path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" />
+          </g>
+        </svg>
+      </button>
+      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="اردو میں دیکھیں">
+        <span data-lang-toggle-label>اردو</span>
+      </button>
+    </div>
 
     <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav">
       <span data-nav-toggle-label>menu</span>
@@ -52,13 +85,13 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="/#subjects" data-mobile-link>01 — subjects</a>
-    <a href="/#method" data-mobile-link>02 — method</a>
-    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="/#waitlist" data-mobile-link>05 — join waitlist</a>
+    <a href="/#subjects" data-mobile-link data-i18n="mobilenav.subjects">01 — subjects</a>
+    <a href="/#method" data-mobile-link data-i18n="mobilenav.method">02 — method</a>
+    <a href="/pricing.html" data-mobile-link data-i18n="mobilenav.pricing">03 — pricing</a>
+    <a href="/careers.html" data-mobile-link data-i18n="mobilenav.careers">04 — careers</a>
+    <a href="/#waitlist" data-mobile-link data-i18n="mobilenav.waitlist">05 — join waitlist</a>
   </nav>
-  <p class="mobile-nav__foot">a bilingual AI mentor for MDCAT, ECAT, NUST NET, FAST, CSS, and PMS — built by students, early.</p>
+  <p class="mobile-nav__foot" data-i18n="mobilenav.foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — in English and Urdu. built by students, early.</p>
 </div>
 
 <main id="main">
@@ -67,19 +100,23 @@
   <section class="philosophy section section--first" id="top" data-section data-section-label="careers">
     <div class="container">
       <div class="philosophy__head">
-        <p class="eyebrow" data-reveal>careers — mostly for students</p>
-        <h2 class="philosophy__headline" data-reveal data-reveal-delay="80">
+        <p class="eyebrow" data-reveal data-i18n="careers.eyebrow">careers — mostly for students</p>
+        <h2 class="philosophy__headline" data-reveal data-reveal-delay="80" data-i18n="careers.headline">
           built around your schedule.<br />not the other way around.
         </h2>
+        <p class="entry__lede" data-reveal data-reveal-delay="120" data-i18n="careers.lede">
+          four roles, all part-time, all built to fit around your own exam prep or your
+          semester — apply below, or use whichever's closest to what you'd rather be doing.
+        </p>
       </div>
 
       <ol class="philosophy__list">
         <li class="philosophy__item" data-reveal>
           <span class="philosophy__num">01</span>
           <div class="philosophy__copy">
-            <p class="philosophy__tag">content</p>
-            <h3>student content lead</h3>
-            <p class="philosophy__body">write the notes, MCQs, and past-paper breakdowns for one exam track — MDCAT, ECAT, NUST NET, FAST, CSS, or PMS. best suited to someone who took that exact exam recently enough to remember exactly where it got confusing.</p>
+            <p class="philosophy__tag" data-i18n="role1.tag">content</p>
+            <h3 data-i18n="role1.title">student content lead</h3>
+            <p class="philosophy__body" data-i18n="role1.body">write the notes, MCQs, and past-paper breakdowns for one exam track — MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS LNAT. best suited to someone who took that exact exam recently enough to remember exactly where it got confusing.</p>
 
             <details class="apply">
               <summary class="apply__summary">apply for this role</summary>
@@ -113,9 +150,9 @@
         <li class="philosophy__item" data-reveal>
           <span class="philosophy__num">02</span>
           <div class="philosophy__copy">
-            <p class="philosophy__tag">outreach</p>
-            <h3>campus ambassador</h3>
-            <p class="philosophy__body">bring arthic to your own university, college, or academy — a small demo, a mention in your batch's group chats, honest notes on what students actually ask for. flexible, part-time, and it looks good on a resume without pretending to be a full-time job.</p>
+            <p class="philosophy__tag" data-i18n="role2.tag">outreach</p>
+            <h3 data-i18n="role2.title">campus ambassador</h3>
+            <p class="philosophy__body" data-i18n="role2.body">bring arthic to your own university, college, or academy — a small demo, a mention in your batch's group chats, honest notes on what students actually ask for. flexible, part-time, and it looks good on a resume without pretending to be a full-time job.</p>
 
             <details class="apply">
               <summary class="apply__summary">apply for this role</summary>
@@ -149,9 +186,9 @@
         <li class="philosophy__item" data-reveal>
           <span class="philosophy__num">03</span>
           <div class="philosophy__copy">
-            <p class="philosophy__tag">engineering</p>
-            <h3>student engineer</h3>
-            <p class="philosophy__body">build the actual product alongside your own classes — frontend, backend, or the mentor's underlying prompting and evaluation. no legacy codebase, real ownership over what you ship, and hours built around your semester, not a 9-to-5.</p>
+            <p class="philosophy__tag" data-i18n="role3.tag">engineering</p>
+            <h3 data-i18n="role3.title">student engineer</h3>
+            <p class="philosophy__body" data-i18n="role3.body">build the actual product alongside your own classes — frontend, backend, or the mentor's underlying prompting and evaluation. no legacy codebase, real ownership over what you ship, and hours built around your semester, not a 9-to-5.</p>
 
             <details class="apply">
               <summary class="apply__summary">apply for this role</summary>
@@ -185,9 +222,9 @@
         <li class="philosophy__item" data-reveal>
           <span class="philosophy__num">04</span>
           <div class="philosophy__copy">
-            <p class="philosophy__tag">pedagogy</p>
-            <h3>mentor quality reviewer</h3>
-            <p class="philosophy__body">read real, anonymized mentor conversations and flag where an explanation was unclear, an analogy didn't land, or the tone was off. especially useful if you've tutored, taught, or TA'd before — no engineering background required.</p>
+            <p class="philosophy__tag" data-i18n="role4.tag">pedagogy</p>
+            <h3 data-i18n="role4.title">mentor quality reviewer</h3>
+            <p class="philosophy__body" data-i18n="role4.body">read real, anonymized mentor conversations and flag where an explanation was unclear, an analogy didn't land, or the tone was off. especially useful if you've tutored, taught, or TA'd before — no engineering background required.</p>
 
             <details class="apply">
               <summary class="apply__summary">apply for this role</summary>
@@ -225,9 +262,9 @@
   <!-- ============ GET IN TOUCH ============ -->
   <section class="ai-note section--tight" id="contact" data-section data-section-label="get in touch">
     <div class="container ai-note__inner">
-      <p class="eyebrow" data-reveal>not quite a fit?</p>
-      <h2 data-reveal data-reveal-delay="80">apply anyway.</h2>
-      <p class="ai-note__body" data-reveal data-reveal-delay="160">
+      <p class="eyebrow" data-reveal data-i18n="contact.eyebrow">not quite a fit?</p>
+      <h2 data-reveal data-reveal-delay="80" data-i18n="contact.headline">apply anyway.</h2>
+      <p class="ai-note__body" data-reveal data-reveal-delay="160" data-i18n="contact.body">
         if none of the four roles above are exactly right, use whichever one is closest and
         tell us what you'd rather be doing — we're small enough to figure it out from there.
       </p>
@@ -241,26 +278,27 @@
     <div class="footer__top">
       <div class="footer__brand">
         <a href="/" class="footer__mark" aria-label="arthic — home">
-          <img src="/logo.png" alt="arthic" width="800" height="272" />
+          <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
+          <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
         </a>
-        <p class="footer__tagline">a bilingual AI mentor for Pakistan's toughest exams.</p>
+        <p class="footer__tagline" data-i18n="footer.tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
       <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label">legal</span>
-        <a href="/privacy.html" class="hover-underline">privacy</a>
-        <a href="/terms.html" class="hover-underline">terms</a>
+        <span class="footer__col-label" data-i18n="footer.legal">legal</span>
+        <a href="/privacy.html" class="hover-underline" data-i18n="footer.privacy">privacy</a>
+        <a href="/terms.html" class="hover-underline" data-i18n="footer.terms">terms</a>
       </nav>
 
       <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label">contact</span>
+        <span class="footer__col-label" data-i18n="footer.contact">contact</span>
         <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. All rights reserved.</p>
-      <a href="#top" class="hover-underline">back to top</a>
+      <p>© <span data-year>2026</span> arthic. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <a href="#top" class="hover-underline" data-i18n="footer.backtotop">back to top</a>
     </div>
   </div>
 </footer>

@@ -3,7 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light" />
+<meta name="color-scheme" content="light dark" />
+<script>
+(function () {
+  try {
+    var theme = localStorage.getItem("arthic-theme");
+    if (theme !== "light" && theme !== "dark") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+    if (localStorage.getItem("arthic-lang") === "ur") {
+      document.documentElement.setAttribute("lang", "ur");
+      document.documentElement.setAttribute("dir", "rtl");
+    }
+  } catch (e) {}
+})();
+</script>
 <title>privacy — arthic</title>
 <meta name="description" content="What arthic collects, why, and how to ask us to delete it — in plain English, not legal filler." />
 <meta name="theme-color" content="#fcfbf8" />
@@ -33,16 +48,34 @@
 <header class="nav" data-nav>
   <div class="nav__inner container">
     <a href="/" class="nav__mark" aria-label="arthic — home">
-      <img src="/logo.png" alt="arthic" width="800" height="272" />
+      <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
+      <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="/#subjects" class="hover-underline" data-nav-link>subjects</a>
-      <a href="/#method" class="hover-underline" data-nav-link>method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
-      <a href="/#waitlist" class="btn btn--solid nav__cta"><span>join waitlist</span></a>
+      <a href="/#subjects" class="hover-underline" data-nav-link data-i18n="nav.subjects">subjects</a>
+      <a href="/#method" class="hover-underline" data-nav-link data-i18n="nav.method">method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n="nav.pricing">pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link data-i18n="nav.careers">careers</a>
+      <a href="/#waitlist" class="btn btn--solid nav__cta"><span data-i18n="nav.waitlist">join waitlist</span></a>
     </nav>
+
+    <div class="nav__utility">
+      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="switch to dark theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" />
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="3" fill="currentColor" />
+          <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+            <path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" />
+          </g>
+        </svg>
+      </button>
+      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="اردو میں دیکھیں">
+        <span data-lang-toggle-label>اردو</span>
+      </button>
+    </div>
 
     <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav">
       <span data-nav-toggle-label>menu</span>
@@ -52,42 +85,44 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="/#subjects" data-mobile-link>01 — subjects</a>
-    <a href="/#method" data-mobile-link>02 — method</a>
-    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="/#waitlist" data-mobile-link>05 — join waitlist</a>
+    <a href="/#subjects" data-mobile-link data-i18n="mobilenav.subjects">01 — subjects</a>
+    <a href="/#method" data-mobile-link data-i18n="mobilenav.method">02 — method</a>
+    <a href="/pricing.html" data-mobile-link data-i18n="mobilenav.pricing">03 — pricing</a>
+    <a href="/careers.html" data-mobile-link data-i18n="mobilenav.careers">04 — careers</a>
+    <a href="/#waitlist" data-mobile-link data-i18n="mobilenav.waitlist">05 — join waitlist</a>
   </nav>
-  <p class="mobile-nav__foot">a bilingual AI mentor for MDCAT, ECAT, NUST NET, FAST, CSS, and PMS — built by students, early.</p>
+  <p class="mobile-nav__foot" data-i18n="mobilenav.foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — in English and Urdu. built by students, early.</p>
 </div>
 
 <main id="main">
   <article class="entry container" id="top">
     <header class="entry__head" data-reveal>
+      <p class="eyebrow" data-i18n="legal.eyebrow">legal</p>
       <span class="entry__date">last updated september 2026</span>
       <h1 class="entry__title">privacy.</h1>
+      <p class="entry__lede" data-i18n="privacy.lede">what arthic collects, why, and how to ask us to delete it — in plain English, no legal filler.</p>
     </header>
 
     <div class="entry__body" data-reveal data-reveal-delay="100">
-      <p>
+      <p data-i18n="privacy.intro">
         arthic is a small, student-run team, not a data company. This page says exactly what
         we collect today, why, and what we do with it — no filler, no "may share with
         partners."
       </p>
 
-      <h3>what we collect</h3>
-      <p>
+      <h3 data-i18n="privacy.s1.h">what we collect</h3>
+      <p data-i18n="privacy.s1.p1">
         Only what you hand us directly, through one of two forms on this site:
       </p>
-      <p>
+      <p data-i18n="privacy.s1.p2">
         <strong>your email address</strong> — if you join the waitlist for early access.
         <strong>your name, links, and whatever you write</strong> — job applications only. We
         don't ask for anything else, and we don't buy or import data about you from anywhere
         else.
       </p>
 
-      <h3>once the mentor is live</h3>
-      <p>
+      <h3 data-i18n="privacy.s2.h">once the mentor is live</h3>
+      <p data-i18n="privacy.s2.p">
         arthic the AI mentor doesn't exist yet — this site is a waitlist. Once it launches, it
         will necessarily process what you type into it (your questions, your mistakes, which
         concepts you're stuck on) to actually teach you. We'll publish a full update to this
@@ -95,8 +130,8 @@
         and how to delete it.
       </p>
 
-      <h3>what we don't do</h3>
-      <p>
+      <h3 data-i18n="privacy.s3.h">what we don't do</h3>
+      <p data-i18n="privacy.s3.p">
         No advertising cookies, no third-party trackers, no analytics pixels from ad
         networks. The fonts on this site are shipped with the site itself rather than loaded
         from Google Fonts or similar, so your visit isn't logged by a font CDN either. If
@@ -105,8 +140,8 @@
         first.
       </p>
 
-      <h3>where it lives</h3>
-      <p>
+      <h3 data-i18n="privacy.s4.h">where it lives</h3>
+      <p data-i18n="privacy.s4.p">
         Form submissions are stored in a Postgres database we run on Vercel's
         infrastructure. Nobody outside arthic has access to it. It isn't sold, rented, or
         shared with advertisers, data brokers, or anyone else — the only reason we keep it
@@ -114,23 +149,23 @@
         to your application).
       </p>
 
-      <h3>how long we keep it</h3>
-      <p>
+      <h3 data-i18n="privacy.s5.h">how long we keep it</h3>
+      <p data-i18n="privacy.s5.p">
         Waitlist emails stay until you ask us to remove them or unsubscribe. Job
         applications are kept for as long as the role stays open, plus a short window
         afterward in case it reopens, then deleted.
       </p>
 
-      <h3>your choices</h3>
-      <p>
+      <h3 data-i18n="privacy.s6.h">your choices</h3>
+      <p data-i18n="privacy.s6.p">
         Email <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
         and ask us to show you what we have on file, correct it, or delete it outright — we'll
         handle it by hand, since we're small enough that "by hand" is still realistic. Every
         waitlist email we send also has a one-click unsubscribe.
       </p>
 
-      <h3>if you're a student under 18</h3>
-      <p>
+      <h3 data-i18n="privacy.s7.h">if you're a student under 18</h3>
+      <p data-i18n="privacy.s7.p">
         A lot of our users are in their final years of school, prepping for an exam like
         MDCAT or ECAT — which often means you're under 18. If that's you, please check with a
         parent or guardian before joining the waitlist. Don't include anyone else's personal
@@ -138,8 +173,8 @@
         information they shouldn't have, email us and we'll remove it.
       </p>
 
-      <h3>changes to this page</h3>
-      <p>
+      <h3 data-i18n="privacy.s8.h">changes to this page</h3>
+      <p data-i18n="privacy.s8.p">
         If how we handle data changes in a way that matters, we'll update this page and move
         the date at the top. We won't backdate a change to cover something we already did.
       </p>
@@ -147,7 +182,7 @@
 
     <div class="entry__foot" data-reveal data-reveal-delay="180">
       <a class="link-arrow link-arrow--large" href="/terms.html">
-        <span>terms &amp; conditions</span>
+        <span data-i18n="privacy.foot.terms">terms &amp; conditions</span>
         <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
         </svg>
@@ -161,26 +196,27 @@
     <div class="footer__top">
       <div class="footer__brand">
         <a href="/" class="footer__mark" aria-label="arthic — home">
-          <img src="/logo.png" alt="arthic" width="800" height="272" />
+          <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
+          <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
         </a>
-        <p class="footer__tagline">a bilingual AI mentor for Pakistan's toughest exams.</p>
+        <p class="footer__tagline" data-i18n="footer.tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
       <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label">legal</span>
-        <a href="/privacy.html" class="hover-underline">privacy</a>
-        <a href="/terms.html" class="hover-underline">terms</a>
+        <span class="footer__col-label" data-i18n="footer.legal">legal</span>
+        <a href="/privacy.html" class="hover-underline" data-i18n="footer.privacy">privacy</a>
+        <a href="/terms.html" class="hover-underline" data-i18n="footer.terms">terms</a>
       </nav>
 
       <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label">contact</span>
+        <span class="footer__col-label" data-i18n="footer.contact">contact</span>
         <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. All rights reserved.</p>
-      <a href="#top" class="hover-underline">back to top</a>
+      <p>© <span data-year>2026</span> arthic. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <a href="#top" class="hover-underline" data-i18n="footer.backtotop">back to top</a>
     </div>
   </div>
 </footer>

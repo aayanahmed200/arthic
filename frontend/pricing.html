@@ -3,9 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light" />
+<meta name="color-scheme" content="light dark" />
+<script>
+(function () {
+  try {
+    var theme = localStorage.getItem("arthic-theme");
+    if (theme !== "light" && theme !== "dark") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+    if (localStorage.getItem("arthic-lang") === "ur") {
+      document.documentElement.setAttribute("lang", "ur");
+      document.documentElement.setAttribute("dir", "rtl");
+    }
+  } catch (e) {}
+})();
+</script>
 <title>pricing — arthic</title>
-<meta name="description" content="arthic is free during early access — one exam track, full mentor access. Here's what's free today, what we're building toward, and why we're not charging for something that isn't finished yet." />
+<meta name="description" content="arthic is free during early access — one exam track, full platform access. Here's what's free today, what Plus is planned to cost, and why we're not charging for something that isn't finished yet." />
 <meta name="theme-color" content="#fcfbf8" />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -17,12 +32,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="arthic" />
 <meta property="og:title" content="pricing — arthic" />
-<meta property="og:description" content="free during early access — one exam track, full mentor access. what's free today, and what we're building toward." />
+<meta property="og:description" content="free during early access — one exam track, full platform access. what's free today, and what Plus is planned to cost after." />
 <meta property="og:image" content="https://arthic.tech/og-image.png" />
 <meta property="og:url" content="https://arthic.tech/pricing.html" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="pricing — arthic" />
-<meta name="twitter:description" content="free during early access — one exam track, full mentor access. what's free today, and what we're building toward." />
+<meta name="twitter:description" content="free during early access — one exam track, full platform access. what's free today, and what Plus is planned to cost after." />
 <meta name="twitter:image" content="https://arthic.tech/og-image.png" />
 </head>
 <body>
@@ -33,16 +48,34 @@
 <header class="nav" data-nav>
   <div class="nav__inner container">
     <a href="/" class="nav__mark" aria-label="arthic — home">
-      <img src="/logo.png" alt="arthic" width="800" height="272" />
+      <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
+      <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="/#subjects" class="hover-underline" data-nav-link>subjects</a>
-      <a href="/#method" class="hover-underline" data-nav-link>method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
-      <a href="/#waitlist" class="btn btn--solid nav__cta"><span>join waitlist</span></a>
+      <a href="/#subjects" class="hover-underline" data-nav-link data-i18n="nav.subjects">subjects</a>
+      <a href="/#method" class="hover-underline" data-nav-link data-i18n="nav.method">method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n="nav.pricing">pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link data-i18n="nav.careers">careers</a>
+      <a href="/#waitlist" class="btn btn--solid nav__cta"><span data-i18n="nav.waitlist">join waitlist</span></a>
     </nav>
+
+    <div class="nav__utility">
+      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="switch to dark theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" />
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="3" fill="currentColor" />
+          <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+            <path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" />
+          </g>
+        </svg>
+      </button>
+      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="اردو میں دیکھیں">
+        <span data-lang-toggle-label>اردو</span>
+      </button>
+    </div>
 
     <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav">
       <span data-nav-toggle-label>menu</span>
@@ -52,13 +85,13 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="/#subjects" data-mobile-link>01 — subjects</a>
-    <a href="/#method" data-mobile-link>02 — method</a>
-    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="/#waitlist" data-mobile-link>05 — join waitlist</a>
+    <a href="/#subjects" data-mobile-link data-i18n="mobilenav.subjects">01 — subjects</a>
+    <a href="/#method" data-mobile-link data-i18n="mobilenav.method">02 — method</a>
+    <a href="/pricing.html" data-mobile-link data-i18n="mobilenav.pricing">03 — pricing</a>
+    <a href="/careers.html" data-mobile-link data-i18n="mobilenav.careers">04 — careers</a>
+    <a href="/#waitlist" data-mobile-link data-i18n="mobilenav.waitlist">05 — join waitlist</a>
   </nav>
-  <p class="mobile-nav__foot">a bilingual AI mentor for MDCAT, ECAT, NUST NET, FAST, CSS, and PMS — built by students, early.</p>
+  <p class="mobile-nav__foot" data-i18n="mobilenav.foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — in English and Urdu. built by students, early.</p>
 </div>
 
 <main id="main">
@@ -66,11 +99,11 @@
   <!-- ============ PRICING HERO ============ -->
   <section class="section section--first" id="top" data-section data-section-label="pricing">
     <div class="container">
-      <p class="eyebrow" data-reveal>pricing</p>
-      <h1 class="pricing-hero__headline" data-reveal data-reveal-delay="80">
+      <p class="eyebrow" data-reveal data-i18n="pricing.eyebrow">pricing</p>
+      <h1 class="pricing-hero__headline" data-reveal data-reveal-delay="80" data-i18n="pricing.headline">
         free right now. honestly, not a trick.
       </h1>
-      <p class="pricing-hero__lede" data-reveal data-reveal-delay="160">
+      <p class="pricing-hero__lede" data-reveal data-reveal-delay="160" data-i18n="pricing.lede">
         arthic is pre-launch, so "pricing" mostly means what's free today and what we're
         building toward. no hidden trial clock, no card required to start — just the mentor,
         for one exam track, free while we're building it with you.
@@ -83,52 +116,54 @@
     <div class="container">
       <div class="pricing-tiers__grid">
         <article class="pricing-tier" data-reveal>
-          <p class="pricing-tier__name">free</p>
-          <p class="pricing-tier__for">any student, prepping for one exam track right now</p>
+          <p class="pricing-tier__name" data-i18n="tier.free.name">free</p>
+          <p class="pricing-tier__for" data-i18n="tier.free.for">any student, prepping for one exam track right now</p>
           <p class="pricing-tier__price">Rs. 0</p>
-          <p class="pricing-tier__billed">free during early access</p>
+          <p class="pricing-tier__billed" data-i18n="tier.free.billed">free during early access</p>
           <ul class="pricing-tier__list">
-            <li>full AI mentor access — English + Roman Urdu</li>
-            <li>MDCAT, ECAT, NUST NET, FAST, CSS, or PMS — pick one track</li>
-            <li>unlimited practice questions</li>
-            <li>the "rule of three" method on every concept</li>
+            <li data-i18n="tier.free.li1">full AI mentor access — English and Urdu</li>
+            <li data-i18n="tier.free.li2">MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS LNAT — pick one track</li>
+            <li data-i18n="tier.free.li3">past papers and a starter study plan for that track</li>
+            <li data-i18n="tier.free.li4">unlimited practice questions</li>
+            <li data-i18n="tier.free.li5">the "rule of three" method on every concept</li>
           </ul>
-          <a class="btn btn--solid" href="/#waitlist"><span>join the waitlist</span></a>
+          <a class="btn btn--solid" href="/#waitlist"><span data-i18n="tier.free.cta">join the waitlist</span></a>
         </article>
 
         <article class="pricing-tier pricing-tier--featured" data-reveal data-reveal-delay="80">
-          <p class="pricing-tier__badge">planned after early access</p>
-          <p class="pricing-tier__name">plus</p>
-          <p class="pricing-tier__for">students who want every track and the full past-paper library</p>
-          <p class="pricing-tier__price">not set yet</p>
-          <p class="pricing-tier__billed">we'll ask early users what's fair</p>
+          <p class="pricing-tier__badge" data-i18n="tier.plus.badge">planned after early access</p>
+          <p class="pricing-tier__name" data-i18n="tier.plus.name">plus</p>
+          <p class="pricing-tier__for" data-i18n="tier.plus.for">students who want every track and the full platform</p>
+          <p class="pricing-tier__price">Rs. 8,999</p>
+          <p class="pricing-tier__billed" data-i18n="tier.plus.billed">per month, after early access</p>
           <ul class="pricing-tier__list">
-            <li>everything in free</li>
-            <li>all six exams, switch tracks anytime</li>
-            <li>full past-paper library with mentor walkthroughs</li>
-            <li>progress tracking across subjects</li>
+            <li data-i18n="tier.plus.li1">everything in free</li>
+            <li data-i18n="tier.plus.li2">all seven exams, switch tracks anytime</li>
+            <li data-i18n="tier.plus.li3">full past-paper library with mentor walkthroughs</li>
+            <li data-i18n="tier.plus.li4">personalized study plan and exam calendar, every track</li>
+            <li data-i18n="tier.plus.li5">progress tracking across subjects</li>
           </ul>
-          <a class="btn" href="/#waitlist"><span>join the waitlist</span></a>
+          <a class="btn" href="/#waitlist"><span data-i18n="tier.plus.cta">join the waitlist</span></a>
         </article>
 
         <article class="pricing-tier" data-reveal data-reveal-delay="160">
-          <p class="pricing-tier__name">institutions</p>
-          <p class="pricing-tier__for">academies and schools prepping a whole batch</p>
+          <p class="pricing-tier__name" data-i18n="tier.inst.name">institutions</p>
+          <p class="pricing-tier__for" data-i18n="tier.inst.for">academies and schools prepping a whole batch</p>
           <p class="pricing-tier__price">custom</p>
-          <p class="pricing-tier__billed">talk to us</p>
+          <p class="pricing-tier__billed" data-i18n="tier.inst.billed">talk to us</p>
           <ul class="pricing-tier__list">
-            <li>everything in plus</li>
-            <li>a shared progress view for instructors</li>
-            <li>bulk seats for a batch or campus</li>
-            <li>onboarding for your team</li>
+            <li data-i18n="tier.inst.li1">everything in plus</li>
+            <li data-i18n="tier.inst.li2">a shared progress view for instructors</li>
+            <li data-i18n="tier.inst.li3">bulk seats for a batch or campus</li>
+            <li data-i18n="tier.inst.li4">onboarding for your team</li>
           </ul>
-          <a class="btn" href="mailto:hello@arthic.tech"><span>get in touch</span></a>
+          <a class="btn" href="mailto:hello@arthic.tech"><span data-i18n="tier.inst.cta">get in touch</span></a>
         </article>
       </div>
-      <p class="pricing-tiers__note" data-reveal data-reveal-delay="240">
-        arthic is pre-launch — the free tier is live today; Plus and Institutions are what
-        we're building toward. none of this is final, and early waitlist members get a real
-        say in what Plus ends up costing.
+      <p class="pricing-tiers__note" data-reveal data-reveal-delay="240" data-i18n="tiers.note">
+        arthic is pre-launch — the free tier is live today. Plus is priced at what we expect to
+        charge once early access ends, and Institutions pricing is custom — nothing is charged
+        until then, and early waitlist members get a real say before it does.
       </p>
     </div>
   </section>
@@ -136,9 +171,9 @@
   <!-- ============ WHY FREE RIGHT NOW ============ -->
   <section class="ai-note section--tight" data-section data-section-label="why free right now">
     <div class="container ai-note__inner pricing-compare__inner">
-      <p class="eyebrow" data-reveal>why free right now</p>
-      <h2 data-reveal data-reveal-delay="80">we're not charging for something that isn't finished.</h2>
-      <p class="ai-note__body pricing-compare__body" data-reveal data-reveal-delay="160">
+      <p class="eyebrow" data-reveal data-i18n="whyfree.eyebrow">why free right now</p>
+      <h2 data-reveal data-reveal-delay="80" data-i18n="whyfree.headline">we're not charging for something that isn't finished.</h2>
+      <p class="ai-note__body pricing-compare__body" data-reveal data-reveal-delay="160" data-i18n="whyfree.body">
         arthic is still early — new features ship every week, and the mentor gets better the
         more students actually use it and tell us where it's wrong. charging before it's ready
         would mean charging you to help us test it. early access stays free so the people
@@ -150,49 +185,49 @@
   <!-- ============ FAQ ============ -->
   <section class="pricing-faq section--tight" id="faq" data-section data-section-label="faq">
     <div class="container">
-      <p class="eyebrow" data-reveal>questions</p>
-      <h2 data-reveal data-reveal-delay="80">frequently asked</h2>
+      <p class="eyebrow" data-reveal data-i18n="faq.eyebrow">questions</p>
+      <h2 data-reveal data-reveal-delay="80" data-i18n="faq.headline">frequently asked</h2>
 
       <dl class="pricing-faq__list">
         <div class="pricing-faq__item" data-reveal>
-          <dt>which exams does arthic actually cover?</dt>
-          <dd>
-            MDCAT, ECAT, NUST NET, the FAST entry test, CSS, and PMS today. we're a small team
-            prioritizing depth over breadth — one track done properly beats six done halfway,
-            so we're expanding carefully rather than all at once.
+          <dt data-i18n="faq.q1">which exams does arthic actually cover?</dt>
+          <dd data-i18n="faq.a1">
+            MDCAT, ECAT, NUST NET, the FAST entry test, CSS, PMS, and LUMS LNAT today. we're a
+            small team prioritizing depth over breadth — one track done properly beats seven
+            done halfway, so we're expanding carefully rather than all at once.
           </dd>
         </div>
         <div class="pricing-faq__item" data-reveal>
-          <dt>is arthic free right now?</dt>
-          <dd>
+          <dt data-i18n="faq.q2">is arthic free right now?</dt>
+          <dd data-i18n="faq.a2">
             yes — full access to the mentor is free during early access, on one exam track at
             a time. that's not an introductory discount; it's genuinely free while we're
             building.
           </dd>
         </div>
         <div class="pricing-faq__item" data-reveal>
-          <dt>does arthic replace an academy or a tutor?</dt>
-          <dd>
+          <dt data-i18n="faq.q3">does arthic replace an academy or a tutor?</dt>
+          <dd data-i18n="faq.a3">
             not exactly. arthic is built to be there at 1am when your academy's closed and
             you're stuck on one question — most students use it alongside a coaching program,
             not instead of one.
           </dd>
         </div>
         <div class="pricing-faq__item" data-reveal>
-          <dt>why Roman Urdu instead of proper Urdu script?</dt>
-          <dd>
-            because that's how most of our own team actually types when we're texting each
-            other about a tricky concept — faster to read on a phone at 1am than switching
-            keyboards, and it's the register a lot of real tuition conversations already
-            happen in.
+          <dt data-i18n="faq.q4">why English and Urdu, not just one?</dt>
+          <dd data-i18n="faq.a4">
+            because the concept should click, not the vocabulary get in the way. arthic teaches
+            and reads in both — switch the whole site, and the mentor chat, between English and
+            Urdu any time, mid-sentence if you want. no transliteration shortcuts, real script
+            both ways.
           </dd>
         </div>
         <div class="pricing-faq__item" data-reveal>
-          <dt>what happens to the price after early access?</dt>
-          <dd>
-            we don't know yet, honestly — we'll figure out Plus pricing with feedback from the
-            students actually using it, not before. free access stays free for one exam track
-            either way.
+          <dt data-i18n="faq.q5">what happens to the price after early access?</dt>
+          <dd data-i18n="faq.a5">
+            Plus is planned at Rs. 8,999/month once early access ends — but that's today's plan,
+            not a locked-in number. we'll confirm it with feedback from the students actually
+            using it first. free access stays free for one exam track either way.
           </dd>
         </div>
       </dl>
@@ -203,16 +238,16 @@
   <section class="community section" id="waitlist" data-section data-section-label="get early access">
     <div class="container community__grid">
       <div class="community__lead">
-        <p class="eyebrow" data-reveal>get early access</p>
-        <h2 data-reveal data-reveal-delay="80">be first when it's ready.</h2>
-        <p class="community__body" data-reveal data-reveal-delay="160">
+        <p class="eyebrow" data-reveal data-i18n="waitlist.eyebrow">get early access</p>
+        <h2 data-reveal data-reveal-delay="80" data-i18n="waitlist.headline">be first when it's ready.</h2>
+        <p class="community__body" data-reveal data-reveal-delay="160" data-i18n="waitlist.body">
           no spam, no selling your email — just a note when arthic is ready, and the occasional
           update on how the mentor's coming along before then.
         </p>
       </div>
 
       <form class="subscribe" data-reveal data-reveal-delay="320" data-subscribe-form novalidate>
-        <label for="subscribeEmail" class="subscribe__label">email</label>
+        <label for="subscribeEmail" class="subscribe__label" data-i18n="waitlist.form.label">email</label>
         <div class="subscribe__row">
           <input class="field" type="email" id="subscribeEmail" name="email" placeholder="you@email.com" required autocomplete="email" />
           <div class="visually-hidden" aria-hidden="true">
@@ -220,7 +255,7 @@
             <input type="text" id="subscribeWebsite" name="website" tabindex="-1" autocomplete="off" />
           </div>
           <button class="btn" type="submit">
-            <span>join waitlist</span>
+            <span data-i18n="waitlist.form.submit">join waitlist</span>
           </button>
         </div>
         <p class="subscribe__status" data-subscribe-status role="status" aria-live="polite"></p>
@@ -235,26 +270,27 @@
     <div class="footer__top">
       <div class="footer__brand">
         <a href="/" class="footer__mark" aria-label="arthic — home">
-          <img src="/logo.png" alt="arthic" width="800" height="272" />
+          <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
+          <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
         </a>
-        <p class="footer__tagline">a bilingual AI mentor for Pakistan's toughest exams.</p>
+        <p class="footer__tagline" data-i18n="footer.tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
       <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label">legal</span>
-        <a href="/privacy.html" class="hover-underline">privacy</a>
-        <a href="/terms.html" class="hover-underline">terms</a>
+        <span class="footer__col-label" data-i18n="footer.legal">legal</span>
+        <a href="/privacy.html" class="hover-underline" data-i18n="footer.privacy">privacy</a>
+        <a href="/terms.html" class="hover-underline" data-i18n="footer.terms">terms</a>
       </nav>
 
       <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label">contact</span>
+        <span class="footer__col-label" data-i18n="footer.contact">contact</span>
         <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. All rights reserved.</p>
-      <a href="#top" class="hover-underline">back to top</a>
+      <p>© <span data-year>2026</span> arthic. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <a href="#top" class="hover-underline" data-i18n="footer.backtotop">back to top</a>
     </div>
   </div>
 </footer>
