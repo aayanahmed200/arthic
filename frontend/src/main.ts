@@ -6,7 +6,7 @@ initCommon();
 /**
  * Product-preview dashboard mock. Everything inside is static,
  * clearly-labeled illustrative content (see the section copy above it) —
- * nothing here fetches real data. Three independent, all fail-safe
+ * nothing here fetches real data. Four independent, all fail-safe
  * pieces of polish on top of that:
  *
  * 1. Tab switching (compliance/advisor), same as before, plus an
@@ -14,7 +14,7 @@ initCommon();
  *    itself if a visitor lingers — a manual click always wins and
  *    permanently cancels the auto-advance, so it never fights a real
  *    choice.
- * 2. A one-shot "power on" moment: the stat ring, trend bars, and
+ * 2. A one-shot "power on" moment: the stat ring, trend chart, and
  *    framework bars all start at zero and sweep in together the first
  *    time the mock scrolls into view, via the same IntersectionObserver
  *    pattern as reveal.ts (and the same reduced-motion / no-IO
@@ -22,6 +22,9 @@ initCommon();
  * 3. A slow-rotating "recent activity" ticker so the feed reads as live
  *    rather than a frozen screenshot. Decorative only: its container is
  *    aria-hidden already, so screen readers never hear the churn.
+ * 4. A "synced Xs ago" label in the chrome bar that just counts up from
+ *    page load — the small detail that makes the mock read as a live
+ *    session rather than a screenshot.
  */
 const dashTabs = document.querySelector<HTMLElement>("[data-dash-tabs]");
 if (dashTabs) {
@@ -124,5 +127,18 @@ if (dashMock) {
         activityList.lastElementChild?.remove();
       }
     }, 7000);
+  }
+
+  // "synced Xs ago" ticker in the chrome bar — text only, no motion, so
+  // it runs regardless of prefers-reduced-motion (the pulsing dot next
+  // to it is pure CSS and already gated by the reduced-motion media
+  // query in preview.css).
+  const syncText = dashMock.querySelector<HTMLElement>("[data-dash-sync-text]");
+  if (syncText) {
+    const start = Date.now();
+    window.setInterval(() => {
+      const secs = Math.floor((Date.now() - start) / 1000);
+      syncText.textContent = secs < 5 ? "synced just now" : `synced ${secs}s ago`;
+    }, 1000);
   }
 }
