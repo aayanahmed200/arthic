@@ -103,6 +103,46 @@ p {
   }
 }
 
+/* ---------- page-enter: pure-CSS entrance, on every full page load ----------
+   Deliberately NOT JS-driven (unlike reveal.ts / scroll-tilt.ts): a page
+   load is exactly the one moment where JS might not have run yet, so this
+   has to be a plain @keyframes animation that the browser starts on its
+   own the instant the element paints. Targets #main (not body) so the
+   fixed .nav bar — a sibling, not a descendant — is never repositioned by
+   a transform on an ancestor. .nav gets its own opacity-only fade (no
+   transform, so its `position: fixed` is never affected either). The
+   global reduced-motion block above already collapses any
+   animation-duration to 0.01ms, so this degrades to "instantly visible"
+   rather than being skipped outright — no flash of hidden content either
+   way. */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes page-enter-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#main {
+  animation: page-enter 0.7s var(--ease-out-expo) both;
+}
+
+.nav {
+  animation: page-enter-fade 0.5s var(--ease-out-expo) both;
+}
+
 /* ---------- lenis smooth-scroll plumbing ---------- */
 html.lenis {
   height: auto;

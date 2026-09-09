@@ -91,6 +91,12 @@
   letter-spacing: 0.02em;
   color: var(--color-fg);
   padding-block: 0.2em;
+  transition: color var(--dur-fast) var(--ease-out-expo);
+}
+
+.link-arrow:hover,
+.link-arrow:focus-visible {
+  color: var(--color-accent-strong);
 }
 
 .link-arrow span {

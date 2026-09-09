@@ -30,7 +30,7 @@
 
 .apply__summary:hover,
 .apply__summary:focus-visible {
-  color: var(--color-fg);
+  color: var(--color-accent-strong);
 }
 
 .apply__form {
