@@ -101,9 +101,16 @@ export function ensureTables(): Promise<void> {
           email TEXT NOT NULL,
           link TEXT,
           message TEXT,
+          availability TEXT,
+          start_window TEXT,
           created_at TIMESTAMPTZ NOT NULL DEFAULT now()
         );
       `;
+      // applications predates the availability/start_window columns —
+      // ADD COLUMN IF NOT EXISTS backfills them on a table that already
+      // exists, since CREATE TABLE IF NOT EXISTS above is a no-op there.
+      await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS availability TEXT;`;
+      await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS start_window TEXT;`;
       await sql`
         CREATE TABLE IF NOT EXISTS subscribers (
           id SERIAL PRIMARY KEY,

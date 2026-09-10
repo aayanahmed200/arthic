@@ -6,6 +6,8 @@ const MAX_ROLE = 80;
 const MAX_NAME = 120;
 const MAX_LINK = 300;
 const MAX_MESSAGE = 4000;
+const MAX_AVAILABILITY = 40;
+const MAX_START_WINDOW = 40;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -32,6 +34,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const email = String(body.email ?? "").trim().toLowerCase();
   const link = String(body.link ?? "").trim().slice(0, MAX_LINK);
   const message = String(body.message ?? "").trim().slice(0, MAX_MESSAGE);
+  const availability = String(body.availability ?? "").trim().slice(0, MAX_AVAILABILITY);
+  const startWindow = String(body.start ?? "").trim().slice(0, MAX_START_WINDOW);
 
   if (!name) {
     return res.status(400).json({ error: "please enter your name." });
@@ -43,8 +47,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     await ensureTables();
     await sql`
-      INSERT INTO applications (role, name, email, link, message)
-      VALUES (${role}, ${name}, ${email}, ${link || null}, ${message || null})
+      INSERT INTO applications (role, name, email, link, message, availability, start_window)
+      VALUES (${role}, ${name}, ${email}, ${link || null}, ${message || null}, ${availability || null}, ${startWindow || null})
     `;
     return res.status(201).json({ ok: true });
   } catch (err) {
