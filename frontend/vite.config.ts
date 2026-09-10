@@ -16,6 +16,7 @@ export default defineConfig({
         subjects: fileURLToPath(new URL("./subjects.html", import.meta.url)),
         method: fileURLToPath(new URL("./method.html", import.meta.url)),
         careers: fileURLToPath(new URL("./careers.html", import.meta.url)),
+        apply: fileURLToPath(new URL("./apply.html", import.meta.url)),
         pricing: fileURLToPath(new URL("./pricing.html", import.meta.url)),
         waitlist: fileURLToPath(new URL("./waitlist.html", import.meta.url)),
         privacy: fileURLToPath(new URL("./privacy.html", import.meta.url)),

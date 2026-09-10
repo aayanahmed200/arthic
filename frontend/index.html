@@ -12,15 +12,11 @@
       theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     document.documentElement.setAttribute("data-theme", theme);
-    if (localStorage.getItem("arthic-lang") === "ur") {
-      document.documentElement.setAttribute("lang", "ur");
-      document.documentElement.setAttribute("dir", "rtl");
-    }
   } catch (e) {}
 })();
 </script>
 <title>arthic — the all-in-one exam-prep platform for Pakistan's toughest tests</title>
-<meta name="description" content="arthic is an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — an AI mentor, past papers, a personalized study plan, and an exam calendar, in English and Urdu." />
+<meta name="description" content="arthic is an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — an AI mentor, past papers, a personalized study plan, and an exam calendar." />
 <meta name="theme-color" content="#fcfbf8" />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -50,7 +46,7 @@
       "name": "arthic",
       "url": "https://arthic.tech/",
       "logo": "https://arthic.tech/logo.png",
-      "description": "arthic is an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — an AI mentor, past papers, a personalized study plan, and an exam calendar, in English and Urdu.",
+      "description": "arthic is an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — an AI mentor, past papers, a personalized study plan, and an exam calendar.",
       "email": "hello@arthic.tech"
     },
     {
@@ -59,7 +55,7 @@
       "url": "https://arthic.tech/",
       "name": "arthic",
       "publisher": { "@id": "https://arthic.tech/#organization" },
-      "inLanguage": ["en", "ur"]
+      "inLanguage": "en"
     }
   ]
 }
@@ -78,11 +74,11 @@
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link data-i18n="nav.subjects">subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link data-i18n="nav.method">method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n="nav.pricing">pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link data-i18n="nav.careers">careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span data-i18n="nav.waitlist">waitlist</span></a>
+      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
+      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
+      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
     </nav>
 
     <div class="nav__utility">
@@ -97,8 +93,11 @@
           </g>
         </svg>
       </button>
-      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="اردو میں دیکھیں">
-        <span data-lang-toggle-label>اردو</span>
+      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="language — more coming soon">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
+          <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+        </svg>
       </button>
     </div>
 
@@ -110,13 +109,13 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link data-i18n="mobilenav.subjects">01 — subjects</a>
-    <a href="/method.html" data-mobile-link data-i18n="mobilenav.method">02 — method</a>
-    <a href="/pricing.html" data-mobile-link data-i18n="mobilenav.pricing">03 — pricing</a>
-    <a href="/careers.html" data-mobile-link data-i18n="mobilenav.careers">04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link data-i18n="mobilenav.waitlist">05 — join waitlist</a>
+    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
+    <a href="/method.html" data-mobile-link>02 — method</a>
+    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
+    <a href="/careers.html" data-mobile-link>04 — careers</a>
+    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
   </nav>
-  <p class="mobile-nav__foot" data-i18n="mobilenav.foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — in English and Urdu. built by students, early.</p>
+  <p class="mobile-nav__foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</p>
 </div>
 
 <main id="main">
@@ -124,45 +123,96 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="top" data-section data-section-label="arthic">
     <div class="hero__inner">
-      <p class="eyebrow" data-reveal data-i18n="hero.eyebrow">built by students, for students</p>
-      <h1 class="hero__headline" data-reveal data-reveal-delay="80" data-i18n="hero.headline">
-        ratta nahi, samajh — that's the whole idea.
-      </h1>
-      <p class="hero__lede" data-reveal data-reveal-delay="160" data-i18n="hero.lede">
-        arthic is an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — a
-        bilingual AI mentor, past papers, a personalized study plan, and an exam calendar, all in one place, in
-        English or Urdu.
-      </p>
-      <div class="hero__actions" data-reveal data-reveal-delay="240">
-        <a class="btn btn--solid" href="/waitlist.html">
-          <span data-i18n="hero.cta.waitlist">join the waitlist</span>
-        </a>
-        <a class="btn" href="/method.html">
-          <span data-i18n="hero.cta.method">see how it works</span>
-          <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
-          </svg>
-        </a>
+      <div class="hero__content">
+        <p class="eyebrow" data-reveal>built by students, for students</p>
+        <h1 class="hero__headline" data-reveal data-reveal-delay="80">
+          the concept sticks the first time — not the fifth time, at 1am, before the exam.
+        </h1>
+        <p class="hero__lede" data-reveal data-reveal-delay="160">
+          arthic is an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — an
+          AI mentor that actually explains instead of just marking you wrong, years of past papers organized by
+          topic, a study plan built around your real exam date, and a calendar that tracks every deadline so you
+          don't have to.
+        </p>
+        <div class="hero__actions" data-reveal data-reveal-delay="240">
+          <a class="btn btn--solid" href="/waitlist.html">
+            <span>join the waitlist</span>
+          </a>
+          <a class="btn" href="/method.html">
+            <span>see how it works</span>
+            <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
+            </svg>
+          </a>
+        </div>
+
+        <dl class="hero__facts" data-reveal data-reveal-delay="300">
+          <div class="hero__fact">
+            <dt class="hero__fact-value">7</dt>
+            <dd class="hero__fact-label">exams covered — MDCAT to LNAT</dd>
+          </div>
+          <div class="hero__fact">
+            <dt class="hero__fact-value">4-in-1</dt>
+            <dd class="hero__fact-label">AI mentor, papers, plan, calendar</dd>
+          </div>
+          <div class="hero__fact">
+            <dt class="hero__fact-value">24/7</dt>
+            <dd class="hero__fact-label">the mentor's awake even at 1am</dd>
+          </div>
+          <div class="hero__fact">
+            <dt class="hero__fact-value">free</dt>
+            <dd class="hero__fact-label">during early access</dd>
+          </div>
+        </dl>
       </div>
 
-      <dl class="hero__facts" data-reveal data-reveal-delay="300">
-        <div class="hero__fact">
-          <dt class="hero__fact-value">7</dt>
-          <dd class="hero__fact-label" data-i18n="hero.fact1.label">exams covered — MDCAT to LNAT</dd>
+      <div class="hero__preview" data-reveal data-reveal-delay="200">
+        <div class="dash" aria-hidden="true">
+          <div class="dash__chrome">
+            <div class="dash__dots"><span></span><span></span><span></span></div>
+            <span class="dash__chrome-label">arthic mentor — preview</span>
+          </div>
+          <div class="dash__body">
+            <nav class="dash__nav">
+              <span class="dash__nav-item is-active">mentor</span>
+              <span class="dash__nav-item">papers</span>
+              <span class="dash__nav-item">plan</span>
+              <span class="dash__nav-item">calendar</span>
+            </nav>
+            <div class="dash__main">
+              <div class="dash__chat">
+                <div class="dash__msg dash__msg--user">
+                  <p>why is this wrong? i used the right formula.</p>
+                </div>
+                <div class="dash__msg dash__msg--mentor">
+                  <p><strong>identify —</strong> you reached for v = u + at, but this question gives displacement, not time. that's the actual gap, not the formula.</p>
+                </div>
+                <div class="dash__msg dash__msg--mentor">
+                  <p><strong>explain —</strong> when time's missing, v² = u² + 2as is the one that fits — same idea, different lever. try it on the numbers again.</p>
+                </div>
+                <div class="dash__msg dash__msg--mentor dash__msg--typing">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+              <div class="dash__side">
+                <div class="dash__card">
+                  <p class="dash__card-label">MDCAT — 62 days left</p>
+                  <div class="dash__bars">
+                    <div class="dash__bar-row"><span>mechanics</span><div class="dash__bar"><i style="width:82%"></i></div></div>
+                    <div class="dash__bar-row"><span>organic chem</span><div class="dash__bar"><i style="width:54%"></i></div></div>
+                    <div class="dash__bar-row"><span>genetics</span><div class="dash__bar"><i style="width:38%"></i></div></div>
+                  </div>
+                </div>
+                <div class="dash__card dash__card--streak">
+                  <p class="dash__streak-num">11</p>
+                  <p class="dash__card-label">day streak</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="hero__fact">
-          <dt class="hero__fact-value">4-in-1</dt>
-          <dd class="hero__fact-label" data-i18n="hero.fact2.label">AI mentor, papers, plan, calendar</dd>
-        </div>
-        <div class="hero__fact">
-          <dt class="hero__fact-value">EN + UR</dt>
-          <dd class="hero__fact-label" data-i18n="hero.fact3.label">read the whole site in either</dd>
-        </div>
-        <div class="hero__fact">
-          <dt class="hero__fact-value" data-i18n="hero.fact4.value">free</dt>
-          <dd class="hero__fact-label" data-i18n="hero.fact4.label">during early access</dd>
-        </div>
-      </dl>
+        <p class="hero__preview-note">a preview of the mentor we're building — not a live product yet.</p>
+      </div>
     </div>
   </section>
 
@@ -170,9 +220,9 @@
   <section class="section" id="features" data-section data-section-label="what's included">
     <div class="container features">
       <div class="features__head">
-        <p class="eyebrow" data-reveal data-i18n="features.eyebrow">what's included</p>
-        <h2 data-reveal data-reveal-delay="80" data-i18n="features.headline">one platform, four tools.</h2>
-        <p class="features__note" data-reveal data-reveal-delay="140" data-i18n="features.note">
+        <p class="eyebrow" data-reveal>what's included</p>
+        <h2 data-reveal data-reveal-delay="80">one platform, four tools.</h2>
+        <p class="features__note" data-reveal data-reveal-delay="140">
           arthic is still in development — here's what the full platform includes when it ships.
         </p>
       </div>
@@ -182,29 +232,29 @@
           <span class="features__icon" aria-hidden="true">
             <svg viewBox="0 0 16 16" fill="none"><path d="M2 3.5h12v7H6.5L3.5 13V10.5H2v-7Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" /></svg>
           </span>
-          <h3 data-i18n="features.card1.title">AI mentor</h3>
-          <p data-i18n="features.card1.body">explains concepts in a conversation, in English or Urdu, until they actually click — then tests whether they stuck.</p>
+          <h3>AI mentor</h3>
+          <p>explains a concept in plain conversation, tries a different angle if the first one doesn't land, until it actually clicks — then tests whether it stuck.</p>
         </article>
         <article class="features__card">
           <span class="features__icon" aria-hidden="true">
             <svg viewBox="0 0 16 16" fill="none"><rect x="3.5" y="1.5" width="9" height="13" rx="1.2" stroke="currentColor" stroke-width="1.4" /><path d="M5.75 5.5h4.5M5.75 8h4.5M5.75 10.5h2.75" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" /></svg>
           </span>
-          <h3 data-i18n="features.card2.title">past papers</h3>
-          <p data-i18n="features.card2.body">years of real past papers for every exam, organized by topic and difficulty — not just a PDF dump to sort through yourself.</p>
+          <h3>past papers</h3>
+          <p>years of real past papers for every exam, organized by topic and difficulty — not just a PDF dump to sort through yourself.</p>
         </article>
         <article class="features__card">
           <span class="features__icon" aria-hidden="true">
             <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4" /><path d="M4.5 8l2 2 4-4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </span>
-          <h3 data-i18n="features.card3.title">study plan</h3>
-          <p data-i18n="features.card3.body">a plan personalized to your exam date and the topics you're actually struggling with, not a generic one-size-fits-all schedule.</p>
+          <h3>study plan</h3>
+          <p>a plan personalized to your exam date and the topics you're actually struggling with, not a generic one-size-fits-all schedule.</p>
         </article>
         <article class="features__card">
           <span class="features__icon" aria-hidden="true">
             <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4" /><path d="M2 6.25h12M5 1.5v3M11 1.5v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
           </span>
-          <h3 data-i18n="features.card4.title">exam calendar</h3>
-          <p data-i18n="features.card4.body">every exam date, registration deadline, and result date, for every board, in one calendar — so nothing sneaks up on you.</p>
+          <h3>exam calendar</h3>
+          <p>every exam date, registration deadline, and result date, for every board, in one calendar — so nothing sneaks up on you.</p>
         </article>
       </div>
     </div>
@@ -214,30 +264,30 @@
   <section class="intro section" id="why" data-section data-section-label="why arthic">
     <div class="container intro__grid">
       <div class="intro__lead">
-        <p class="eyebrow" data-reveal data-i18n="intro.eyebrow">why arthic</p>
-        <h2 class="intro__headline" data-reveal data-reveal-delay="80" data-i18n="intro.headline">
+        <p class="eyebrow" data-reveal>why arthic</p>
+        <h2 class="intro__headline" data-reveal data-reveal-delay="80">
           most exam prep here asks you to memorize.<br />arthic asks you to understand.
         </h2>
       </div>
       <div class="intro__support">
-        <p class="intro__body" data-reveal data-reveal-delay="160" data-i18n="intro.body1">
+        <p class="intro__body" data-reveal data-reveal-delay="160">
           MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT are some of the most competitive exams in the
           country, and most prep for them still means the same thing: a stack of guides, a crowded academy, and an
           instructor who doesn't have time to explain a concept twice. If English isn't the language you think
           fastest in, that gap gets wider, not smaller.
         </p>
-        <p class="intro__body" data-reveal data-reveal-delay="200" data-i18n="intro.body2">
-          arthic is an all-in-one platform that meets you where you actually are — an AI mentor that teaches in
-          English and Urdu in the same conversation, past papers organized by topic instead of dumped in one PDF, a
-          study plan personalized to your exam date, and an exam calendar so you never miss a deadline. built to
-          notice when you're pattern-matching instead of understanding, and to slow down exactly there instead of
-          moving on to the next chapter.
+        <p class="intro__body" data-reveal data-reveal-delay="200">
+          arthic is an all-in-one platform that meets you where you actually are — an AI mentor that keeps asking
+          follow-up questions until a concept actually clicks, past papers organized by topic instead of dumped in
+          one PDF, a study plan personalized to your exam date, and an exam calendar so you never miss a deadline.
+          built to notice when you're pattern-matching your way to the right answer instead of understanding it,
+          and to slow down exactly there instead of moving on to the next chapter.
         </p>
         <ul class="intro__facts" data-reveal data-reveal-delay="240">
-          <li data-i18n="intro.fact1">MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — seven exams, one platform</li>
-          <li data-i18n="intro.fact2">English and Urdu — the whole site, and the mentor chat, in either language</li>
-          <li data-i18n="intro.fact3">AI mentor, past papers, study plan, and exam calendar — one method: identify the mistake, explain the concept, test it</li>
-          <li data-i18n="intro.fact4">free while we're building — see pricing for what happens after</li>
+          <li>MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — seven exams, one platform</li>
+          <li>content written and reviewed by students who sat these exact exams recently, not an outsourced content mill</li>
+          <li>AI mentor, past papers, study plan, and exam calendar — one method: identify the mistake, explain the concept, test it</li>
+          <li>free while we're building — see pricing for what happens after</li>
         </ul>
       </div>
     </div>
@@ -246,8 +296,8 @@
   <!-- ============ EXAM BOARDS / INSTITUTIONS ============ -->
   <section class="section--tight" id="boards" data-section data-section-label="exam boards">
     <div class="container boards">
-      <p class="eyebrow" data-reveal data-i18n="boards.eyebrow">who we prep you for</p>
-      <p class="boards__note" data-reveal data-reveal-delay="80" data-i18n="boards.note1">arthic is built around the entrance tests these institutions run:</p>
+      <p class="eyebrow" data-reveal>who we prep you for</p>
+      <p class="boards__note" data-reveal data-reveal-delay="80">arthic is built around the entrance tests these institutions run:</p>
 
       <div class="boards__logos" data-reveal data-reveal-delay="160">
         <span class="boards__logo"><img src="/boards/nust.png" alt="National University of Sciences and Technology (NUST)" loading="lazy" /></span>
@@ -260,11 +310,11 @@
         <span class="boards__logo"><img src="/boards/pieas.png" alt="Pakistan Institute of Engineering and Applied Sciences (PIEAS)" loading="lazy" /></span>
       </div>
 
-      <p class="boards__note" data-reveal data-reveal-delay="220" data-i18n="boards.note2">shown here because arthic preps students for exams at these institutions — not an endorsement or partnership with any of them.</p>
+      <p class="boards__note" data-reveal data-reveal-delay="220">shown here because arthic preps students for exams at these institutions — not an endorsement or partnership with any of them.</p>
 
       <div class="boards__region" data-reveal data-reveal-delay="260">
-        <span class="boards__region-tag boards__region-tag--live"><img class="boards__flag" src="/flags/pk.svg" alt="" width="20" height="14" /><span data-i18n="boards.region.pk">Pakistani boards — live now</span></span>
-        <span class="boards__region-tag boards__region-tag--soon"><span class="boards__flag-group" aria-hidden="true"><img class="boards__flag" src="/flags/gb.svg" alt="" width="20" height="14" /><img class="boards__flag" src="/flags/us.svg" alt="" width="20" height="14" /><img class="boards__flag" src="/flags/in.svg" alt="" width="20" height="14" /></span><span data-i18n="boards.region.soon">UK · US · India — coming soon</span></span>
+        <span class="boards__region-tag boards__region-tag--live"><img class="boards__flag" src="/flags/pk.svg" alt="" width="20" height="14" /><span>Pakistani boards — live now</span></span>
+        <span class="boards__region-tag boards__region-tag--soon"><span class="boards__flag-group" aria-hidden="true"><img class="boards__flag" src="/flags/gb.svg" alt="" width="20" height="14" /><img class="boards__flag" src="/flags/us.svg" alt="" width="20" height="14" /><img class="boards__flag" src="/flags/in.svg" alt="" width="20" height="14" /></span><span>UK · US · India — coming soon</span></span>
       </div>
     </div>
   </section>
@@ -272,15 +322,15 @@
   <!-- ============ HIRING ============ -->
   <section class="ai-note section--tight" id="hiring" data-section data-section-label="we're hiring">
     <div class="container ai-note__inner">
-      <p class="eyebrow" data-reveal data-i18n="hiring.eyebrow">we're hiring — mostly for students</p>
-      <h2 data-reveal data-reveal-delay="80" data-i18n="hiring.headline">help us build the mentor you wished you had.</h2>
-      <p class="ai-note__body" data-reveal data-reveal-delay="160" data-i18n="hiring.body">
+      <p class="eyebrow" data-reveal>we're hiring — mostly for students</p>
+      <h2 data-reveal data-reveal-delay="80">help us build the mentor you wished you had.</h2>
+      <p class="ai-note__body" data-reveal data-reveal-delay="160">
         arthic is early enough that most of what we build next will be shaped by whoever joins now. most of the
         roles are built around a student's schedule, not a 9-to-5 — content, campus outreach, and code, alongside
         your own exam prep, not instead of it.
       </p>
       <a class="link-arrow link-arrow--large" data-reveal data-reveal-delay="240" href="/careers.html">
-        <span data-i18n="hiring.cta">see open roles</span>
+        <span>see open roles</span>
         <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
         </svg>
@@ -292,10 +342,10 @@
   <section class="closing" data-section data-section-label="—">
     <img class="closing__mark brand-mark--light" src="/logo.png" alt="" aria-hidden="true" data-reveal />
     <img class="closing__mark brand-mark--dark" src="/logo-white.png" alt="" aria-hidden="true" data-reveal />
-    <h2 class="closing__headline" data-reveal data-reveal-delay="80" data-i18n="closing.headline">stop memorizing.<br />start understanding.</h2>
-    <p class="closing__lede" data-reveal data-reveal-delay="140" data-i18n="closing.lede">join the waitlist — free during early access, seven exams, one platform, in the language you actually think in.</p>
+    <h2 class="closing__headline" data-reveal data-reveal-delay="80">stop memorizing.<br />start understanding.</h2>
+    <p class="closing__lede" data-reveal data-reveal-delay="140">join the waitlist — free during early access, seven exams, one platform, one mentor that actually explains.</p>
     <a class="btn btn--solid" data-reveal data-reveal-delay="200" href="/waitlist.html">
-      <span data-i18n="closing.cta">join the waitlist</span>
+      <span>join the waitlist</span>
     </a>
   </section>
 
@@ -309,24 +359,24 @@
           <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
           <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
         </a>
-        <p class="footer__tagline" data-i18n="footer.tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
       <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label" data-i18n="footer.legal">legal</span>
-        <a href="/privacy.html" class="hover-underline" data-i18n="footer.privacy">privacy</a>
-        <a href="/terms.html" class="hover-underline" data-i18n="footer.terms">terms</a>
+        <span class="footer__col-label">legal</span>
+        <a href="/privacy.html" class="hover-underline">privacy</a>
+        <a href="/terms.html" class="hover-underline">terms</a>
       </nav>
 
       <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label" data-i18n="footer.contact">contact</span>
+        <span class="footer__col-label">contact</span>
         <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span data-i18n="footer.rights">All rights reserved.</span></p>
-      <a href="#top" class="hover-underline" data-i18n="footer.backtotop">back to top</a>
+      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
+      <a href="#top" class="hover-underline">back to top</a>
     </div>
   </div>
 </footer>

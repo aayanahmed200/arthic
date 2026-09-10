@@ -12,10 +12,6 @@
       theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     document.documentElement.setAttribute("data-theme", theme);
-    if (localStorage.getItem("arthic-lang") === "ur") {
-      document.documentElement.setAttribute("lang", "ur");
-      document.documentElement.setAttribute("dir", "rtl");
-    }
   } catch (e) {}
 })();
 </script>
@@ -53,11 +49,11 @@
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link data-i18n="nav.subjects">subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link data-i18n="nav.method">method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n="nav.pricing">pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link data-i18n="nav.careers">careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span data-i18n="nav.waitlist">waitlist</span></a>
+      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
+      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
+      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
     </nav>
 
     <div class="nav__utility">
@@ -72,8 +68,11 @@
           </g>
         </svg>
       </button>
-      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="اردو میں دیکھیں">
-        <span data-lang-toggle-label>اردو</span>
+      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="language — more coming soon">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
+          <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+        </svg>
       </button>
     </div>
 
@@ -85,13 +84,13 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link data-i18n="mobilenav.subjects">01 — subjects</a>
-    <a href="/method.html" data-mobile-link data-i18n="mobilenav.method">02 — method</a>
-    <a href="/pricing.html" data-mobile-link data-i18n="mobilenav.pricing">03 — pricing</a>
-    <a href="/careers.html" data-mobile-link data-i18n="mobilenav.careers">04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link data-i18n="mobilenav.waitlist">05 — join waitlist</a>
+    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
+    <a href="/method.html" data-mobile-link>02 — method</a>
+    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
+    <a href="/careers.html" data-mobile-link>04 — careers</a>
+    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
   </nav>
-  <p class="mobile-nav__foot" data-i18n="mobilenav.foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — in English and Urdu. built by students, early.</p>
+  <p class="mobile-nav__foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</p>
 </div>
 
 <main id="main">
@@ -100,11 +99,11 @@
   <section class="philosophy section section--first" id="top" data-section data-section-label="careers">
     <div class="container">
       <div class="philosophy__head">
-        <p class="eyebrow" data-reveal data-i18n="careers.eyebrow">careers — mostly for students</p>
-        <h2 class="philosophy__headline" data-reveal data-reveal-delay="80" data-i18n="careers.headline">
+        <p class="eyebrow" data-reveal>careers — mostly for students</p>
+        <h2 class="philosophy__headline" data-reveal data-reveal-delay="80">
           built around your schedule.<br />not the other way around.
         </h2>
-        <p class="entry__lede" data-reveal data-reveal-delay="120" data-i18n="careers.lede">
+        <p class="entry__lede" data-reveal data-reveal-delay="120">
           four roles, all part-time, all built to fit around your own exam prep or your
           semester — apply below, or use whichever's closest to what you'd rather be doing.
         </p>
@@ -114,145 +113,41 @@
         <li class="philosophy__item" data-reveal>
           <span class="philosophy__num">01</span>
           <div class="philosophy__copy">
-            <p class="philosophy__tag" data-i18n="role1.tag">content</p>
-            <h3 data-i18n="role1.title">student content lead</h3>
-            <p class="philosophy__body" data-i18n="role1.body">write the notes, MCQs, and past-paper breakdowns for one exam track — MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS LNAT. best suited to someone who took that exact exam recently enough to remember exactly where it got confusing.</p>
+            <p class="philosophy__tag">content</p>
+            <h3>student content lead</h3>
+            <p class="philosophy__body">write the notes, MCQs, and past-paper breakdowns for one exam track — MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS LNAT. best suited to someone who took that exact exam recently enough to remember exactly where it got confusing.</p>
 
-            <details class="apply">
-              <summary class="apply__summary">apply for this role</summary>
-              <form class="apply__form" data-apply-form data-role="Student Content Lead" novalidate>
-                <div class="apply__row">
-                  <label for="scl-name" class="visually-hidden">name</label>
-                  <input class="field" type="text" id="scl-name" name="name" placeholder="name" required autocomplete="name" />
-                </div>
-                <div class="apply__row">
-                  <label for="scl-email" class="visually-hidden">email</label>
-                  <input class="field" type="email" id="scl-email" name="email" placeholder="email" required autocomplete="email" />
-                </div>
-                <div class="apply__row">
-                  <label for="scl-link" class="visually-hidden">link</label>
-                  <input class="field" type="url" id="scl-link" name="link" placeholder="portfolio / social link (optional)" autocomplete="url" />
-                </div>
-                <div class="apply__row">
-                  <label for="scl-message" class="visually-hidden">message</label>
-                  <textarea class="field" id="scl-message" name="message" rows="4" placeholder="which exam track, and when you took it"></textarea>
-                </div>
-                <div class="visually-hidden" aria-hidden="true">
-                  <label for="scl-website">leave this field blank</label>
-                  <input type="text" id="scl-website" name="website" tabindex="-1" autocomplete="off" />
-                </div>
-                <button class="btn btn--solid" type="submit"><span>send application</span></button>
-                <p class="apply__status" data-form-status role="status" aria-live="polite"></p>
-              </form>
-            </details>
+            <a class="btn btn--solid apply-cta" href="/apply.html?role=student-content-lead"><span>apply for this role</span></a>
           </div>
         </li>
         <li class="philosophy__item" data-reveal>
           <span class="philosophy__num">02</span>
           <div class="philosophy__copy">
-            <p class="philosophy__tag" data-i18n="role2.tag">outreach</p>
-            <h3 data-i18n="role2.title">campus ambassador</h3>
-            <p class="philosophy__body" data-i18n="role2.body">bring arthic to your own university, college, or academy — a small demo, a mention in your batch's group chats, honest notes on what students actually ask for. flexible, part-time, and it looks good on a resume without pretending to be a full-time job.</p>
+            <p class="philosophy__tag">outreach</p>
+            <h3>campus ambassador</h3>
+            <p class="philosophy__body">bring arthic to your own university, college, or academy — a small demo, a mention in your batch's group chats, honest notes on what students actually ask for. flexible, part-time, and it looks good on a resume without pretending to be a full-time job.</p>
 
-            <details class="apply">
-              <summary class="apply__summary">apply for this role</summary>
-              <form class="apply__form" data-apply-form data-role="Campus Ambassador" novalidate>
-                <div class="apply__row">
-                  <label for="amb-name" class="visually-hidden">name</label>
-                  <input class="field" type="text" id="amb-name" name="name" placeholder="name" required autocomplete="name" />
-                </div>
-                <div class="apply__row">
-                  <label for="amb-email" class="visually-hidden">email</label>
-                  <input class="field" type="email" id="amb-email" name="email" placeholder="email" required autocomplete="email" />
-                </div>
-                <div class="apply__row">
-                  <label for="amb-link" class="visually-hidden">link</label>
-                  <input class="field" type="url" id="amb-link" name="link" placeholder="Instagram / LinkedIn link (optional)" autocomplete="url" />
-                </div>
-                <div class="apply__row">
-                  <label for="amb-message" class="visually-hidden">message</label>
-                  <textarea class="field" id="amb-message" name="message" rows="4" placeholder="your college/university and current year"></textarea>
-                </div>
-                <div class="visually-hidden" aria-hidden="true">
-                  <label for="amb-website">leave this field blank</label>
-                  <input type="text" id="amb-website" name="website" tabindex="-1" autocomplete="off" />
-                </div>
-                <button class="btn btn--solid" type="submit"><span>send application</span></button>
-                <p class="apply__status" data-form-status role="status" aria-live="polite"></p>
-              </form>
-            </details>
+            <a class="btn btn--solid apply-cta" href="/apply.html?role=campus-ambassador"><span>apply for this role</span></a>
           </div>
         </li>
         <li class="philosophy__item" data-reveal>
           <span class="philosophy__num">03</span>
           <div class="philosophy__copy">
-            <p class="philosophy__tag" data-i18n="role3.tag">engineering</p>
-            <h3 data-i18n="role3.title">student engineer</h3>
-            <p class="philosophy__body" data-i18n="role3.body">build the actual product alongside your own classes — frontend, backend, or the mentor's underlying prompting and evaluation. no legacy codebase, real ownership over what you ship, and hours built around your semester, not a 9-to-5.</p>
+            <p class="philosophy__tag">engineering</p>
+            <h3>student engineer</h3>
+            <p class="philosophy__body">build the actual product alongside your own classes — frontend, backend, or the mentor's underlying prompting and evaluation. no legacy codebase, real ownership over what you ship, and hours built around your semester, not a 9-to-5.</p>
 
-            <details class="apply">
-              <summary class="apply__summary">apply for this role</summary>
-              <form class="apply__form" data-apply-form data-role="Student Engineer" novalidate>
-                <div class="apply__row">
-                  <label for="eng-name" class="visually-hidden">name</label>
-                  <input class="field" type="text" id="eng-name" name="name" placeholder="name" required autocomplete="name" />
-                </div>
-                <div class="apply__row">
-                  <label for="eng-email" class="visually-hidden">email</label>
-                  <input class="field" type="email" id="eng-email" name="email" placeholder="email" required autocomplete="email" />
-                </div>
-                <div class="apply__row">
-                  <label for="eng-link" class="visually-hidden">GitHub or portfolio link</label>
-                  <input class="field" type="url" id="eng-link" name="link" placeholder="GitHub / portfolio link (optional)" autocomplete="url" />
-                </div>
-                <div class="apply__row">
-                  <label for="eng-message" class="visually-hidden">message</label>
-                  <textarea class="field" id="eng-message" name="message" rows="4" placeholder="what you'd want to build first"></textarea>
-                </div>
-                <div class="visually-hidden" aria-hidden="true">
-                  <label for="eng-website">leave this field blank</label>
-                  <input type="text" id="eng-website" name="website" tabindex="-1" autocomplete="off" />
-                </div>
-                <button class="btn btn--solid" type="submit"><span>send application</span></button>
-                <p class="apply__status" data-form-status role="status" aria-live="polite"></p>
-              </form>
-            </details>
+            <a class="btn btn--solid apply-cta" href="/apply.html?role=student-engineer"><span>apply for this role</span></a>
           </div>
         </li>
         <li class="philosophy__item" data-reveal>
           <span class="philosophy__num">04</span>
           <div class="philosophy__copy">
-            <p class="philosophy__tag" data-i18n="role4.tag">pedagogy</p>
-            <h3 data-i18n="role4.title">mentor quality reviewer</h3>
-            <p class="philosophy__body" data-i18n="role4.body">read real, anonymized mentor conversations and flag where an explanation was unclear, an analogy didn't land, or the tone was off. especially useful if you've tutored, taught, or TA'd before — no engineering background required.</p>
+            <p class="philosophy__tag">pedagogy</p>
+            <h3>mentor quality reviewer</h3>
+            <p class="philosophy__body">read real, anonymized mentor conversations and flag where an explanation was unclear, an analogy didn't land, or the tone was off. especially useful if you've tutored, taught, or TA'd before — no engineering background required.</p>
 
-            <details class="apply">
-              <summary class="apply__summary">apply for this role</summary>
-              <form class="apply__form" data-apply-form data-role="Mentor Quality Reviewer" novalidate>
-                <div class="apply__row">
-                  <label for="mqr-name" class="visually-hidden">name</label>
-                  <input class="field" type="text" id="mqr-name" name="name" placeholder="name" required autocomplete="name" />
-                </div>
-                <div class="apply__row">
-                  <label for="mqr-email" class="visually-hidden">email</label>
-                  <input class="field" type="email" id="mqr-email" name="email" placeholder="email" required autocomplete="email" />
-                </div>
-                <div class="apply__row">
-                  <label for="mqr-link" class="visually-hidden">link</label>
-                  <input class="field" type="url" id="mqr-link" name="link" placeholder="portfolio / LinkedIn link (optional)" autocomplete="url" />
-                </div>
-                <div class="apply__row">
-                  <label for="mqr-message" class="visually-hidden">message</label>
-                  <textarea class="field" id="mqr-message" name="message" rows="4" placeholder="relevant tutoring / teaching background"></textarea>
-                </div>
-                <div class="visually-hidden" aria-hidden="true">
-                  <label for="mqr-website">leave this field blank</label>
-                  <input type="text" id="mqr-website" name="website" tabindex="-1" autocomplete="off" />
-                </div>
-                <button class="btn btn--solid" type="submit"><span>send application</span></button>
-                <p class="apply__status" data-form-status role="status" aria-live="polite"></p>
-              </form>
-            </details>
+            <a class="btn btn--solid apply-cta" href="/apply.html?role=mentor-quality-reviewer"><span>apply for this role</span></a>
           </div>
         </li>
       </ol>
@@ -262,12 +157,18 @@
   <!-- ============ GET IN TOUCH ============ -->
   <section class="ai-note section--tight" id="contact" data-section data-section-label="get in touch">
     <div class="container ai-note__inner">
-      <p class="eyebrow" data-reveal data-i18n="contact.eyebrow">not quite a fit?</p>
-      <h2 data-reveal data-reveal-delay="80" data-i18n="contact.headline">apply anyway.</h2>
-      <p class="ai-note__body" data-reveal data-reveal-delay="160" data-i18n="contact.body">
-        if none of the four roles above are exactly right, use whichever one is closest and
-        tell us what you'd rather be doing — we're small enough to figure it out from there.
+      <p class="eyebrow" data-reveal>not quite a fit?</p>
+      <h2 data-reveal data-reveal-delay="80">apply anyway.</h2>
+      <p class="ai-note__body" data-reveal data-reveal-delay="160">
+        if none of the four roles above are exactly right, tell us what you'd rather be doing —
+        we're small enough to figure it out from there.
       </p>
+      <a class="link-arrow link-arrow--large" data-reveal data-reveal-delay="220" href="/apply.html?role=general">
+        <span>apply anyway</span>
+        <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
+        </svg>
+      </a>
     </div>
   </section>
 
@@ -281,24 +182,24 @@
           <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
           <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
         </a>
-        <p class="footer__tagline" data-i18n="footer.tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
       <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label" data-i18n="footer.legal">legal</span>
-        <a href="/privacy.html" class="hover-underline" data-i18n="footer.privacy">privacy</a>
-        <a href="/terms.html" class="hover-underline" data-i18n="footer.terms">terms</a>
+        <span class="footer__col-label">legal</span>
+        <a href="/privacy.html" class="hover-underline">privacy</a>
+        <a href="/terms.html" class="hover-underline">terms</a>
       </nav>
 
       <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label" data-i18n="footer.contact">contact</span>
+        <span class="footer__col-label">contact</span>
         <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span data-i18n="footer.rights">All rights reserved.</span></p>
-      <a href="#top" class="hover-underline" data-i18n="footer.backtotop">back to top</a>
+      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
+      <a href="#top" class="hover-underline">back to top</a>
     </div>
   </div>
 </footer>

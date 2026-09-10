@@ -57,11 +57,12 @@ Ships configured for Vercel — [`vercel.json`](vercel.json) sets the build comm
 
 ```
 frontend/
-├── index.html            home — hero, features preview, why arthic, board strip, hiring, closing
+├── index.html            home — hero (+ a mentor-dashboard preview), features preview, why arthic, board strip, hiring, closing
 ├── subjects.html          all seven exams grouped into four streams, plus what each exam covers
 ├── method.html            the "rule of three" — identify, explain, test
 ├── pricing.html           three tiers (free/plus/institutions) and an exam-prep FAQ
-├── careers.html           open roles + apply forms
+├── careers.html           open roles, each "apply for this role" linking to apply.html?role=…
+├── apply.html             one shared, detailed application form, relabeled per-role by apply.ts
 ├── waitlist.html          early-access signup, its own dedicated page
 ├── privacy.html            detailed privacy policy
 ├── terms.html               detailed terms
@@ -76,7 +77,8 @@ frontend/
 ├── src/
 │   ├── main.ts            home entry point
 │   ├── subjects, method    share `legal.ts` as their entry point (chrome only, no page-specific JS)
-│   ├── careers.ts         careers page entry point — wires the four apply forms
+│   ├── careers.ts         careers page entry point (chrome only — apply links are plain hrefs)
+│   ├── apply.ts           apply page entry point — reads ?role=, relabels the form, submits it
 │   ├── pricing.ts         pricing page entry point (shared chrome only)
 │   ├── legal.ts            shared entry point for subjects/method/waitlist/privacy/terms
 │   ├── notfound.ts        404 page entry point
@@ -86,8 +88,9 @@ frontend/
 │   │   ├── utilities.css  shared patterns (reveal, containers, buttons, links)
 │   │   ├── streams.css    subject stream cards + the board-institution logo strip + flag icons
 │   │   ├── preview.css    the homepage features-preview cards (AI mentor, past papers, plan, calendar)
+│   │   ├── dashboard.css  the hero's mentor-dashboard preview (labeled a preview, not a live product)
+│   │   ├── apply.css      the shared apply-page form and its role-context card
 │   │   ├── entry.css      shared long-form layout (subjects/method/waitlist/privacy/terms/404)
-│   │   ├── rtl.css        Urdu-specific overrides — line-height, font-family, direction (loaded last)
 │   │   └── *.css          one file per section, reused across pages
 │   └── lib/
 │       ├── config.ts      API_BASE resolution
@@ -95,10 +98,10 @@ frontend/
 │       ├── reveal.ts      fail-safe scroll-reveal (see below)
 │       ├── nav.ts         header state, mobile menu, active-route highlighting
 │       ├── theme.ts       light/dark toggle, persisted to localStorage
-│       ├── lang.ts        English/Urdu toggle — see "Bilingual by construction" in the root README
+│       ├── lang-stub.ts   nav globe button → "more languages, coming soon" tooltip (no dictionary, no RTL — see Fonts below)
 │       ├── smooth-scroll.ts   Lenis setup + same-page anchor-link upgrade
 │       ├── subscribe.ts   waitlist email-capture form
-│       └── form-submit.ts shared submit handler for the apply forms
+│       └── form-submit.ts shared submit handler for the apply page's form
 └── public/
     ├── admin/              waitlist admin panel, served same-origin at /admin
     ├── boards/             real seals of the institutions arthic preps students for
@@ -108,7 +111,7 @@ frontend/
 
 ## Shared page bootstrap
 
-Every page's entry script calls `initCommon()` (`src/lib/common-init.ts`) first: it wires the nav, theme toggle, language toggle, smooth scroll, scroll-reveal, and the waitlist subscribe form (wherever one exists on the page) — the chrome that's identical everywhere. Anything page-specific (the apply forms on careers, the tab-switching that used to exist on an older homepage mock) is initialized afterward by that page's own script. Every page is a real route (`/`, `/subjects.html`, `/method.html`, `/pricing.html`, `/careers.html`, `/waitlist.html`, `/privacy.html`, `/terms.html`), so `initNav()`'s active-link highlighting (`src/lib/nav.ts`) is a one-time pathname match on load rather than something scroll position decides — it explicitly skips any link that's a same-page hash anchor (like the footer's "back to top"), so those never get falsely marked active.
+Every page's entry script calls `initCommon()` (`src/lib/common-init.ts`) first: it wires the nav, theme toggle, the language stub tooltip, smooth scroll, scroll-reveal, and the waitlist subscribe form (wherever one exists on the page) — the chrome that's identical everywhere. Anything page-specific (the detailed form on `apply.html`, the tab-switching that used to exist on an older homepage mock) is initialized afterward by that page's own script. Every page is a real route (`/`, `/subjects.html`, `/method.html`, `/pricing.html`, `/careers.html`, `/waitlist.html`, `/privacy.html`, `/terms.html`), so `initNav()`'s active-link highlighting (`src/lib/nav.ts`) is a one-time pathname match on load rather than something scroll position decides — it explicitly skips any link that's a same-page hash anchor (like the footer's "back to top"), so those never get falsely marked active.
 
 ## The reveal system
 
@@ -124,7 +127,7 @@ Every section is real, visible markup by default — nothing depends on JavaScri
 
 ## Fonts
 
-Bricolage Grotesque (display, variable weight) and IBM Plex Mono (labels/dates/numbers) are self-hosted via `@fontsource` for the Latin half of the site; Noto Nastaliq Urdu covers the Urdu half, with its own line-height tuning in `rtl.css` since Nastaliq's diagonal stacking needs far more vertical room than the Latin type scale assumes. No request ever goes to a third-party font host at runtime.
+Bricolage Grotesque (display, variable weight) and IBM Plex Mono (labels/dates/numbers) are self-hosted via `@fontsource`. No request ever goes to a third-party font host at runtime. arthic is English-only for now — the site previously shipped a full Urdu translation toggle (native script, RTL layout via a since-removed `rtl.css`); it's been pulled back to a "coming soon" tooltip (`lang-stub.ts`) rather than left half-working, and will get its own font (and this section updated) if/when it ships.
 
 ## The API
 
@@ -134,8 +137,8 @@ Vercel picks up every file under `api/` as its own serverless function; `_`-pref
 | --- | --- | --- | --- |
 | `POST` | `/api/subscribe` | — | Waitlist signup — email. Always returns success on a valid address, even if already subscribed — doesn't leak list membership |
 | `GET` | `/api/subscribers` | admin | List of `{ email, created_at }`, newest first |
-| `POST` | `/api/apply` | — | Job application — role, name, email, link, message |
+| `POST` | `/api/apply` | — | Job application — role, name, email, link, message, availability, start |
 
-Length limits: application role 80 characters / name 120 / link 300 / message 4,000. Neither public POST route is rate-limited yet — see the "Known limitation" note in [`../DEPLOYMENT.md`](../DEPLOYMENT.md).
+Length limits: application role 80 characters / name 120 / link 300 / message 4,000 / availability 40 / start 40. Neither public POST route is rate-limited yet — see the "Known limitation" note in [`../DEPLOYMENT.md`](../DEPLOYMENT.md).
 
 This is the deployed API. `backend/` is a separate, independent implementation (Express + SQLite) of a subscribe-style route only, for anyone who'd rather self-host — see `../backend/README.md`. The two don't share code or a database; use one or the other per deployment.

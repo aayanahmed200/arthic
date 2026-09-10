@@ -12,10 +12,6 @@
       theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     document.documentElement.setAttribute("data-theme", theme);
-    if (localStorage.getItem("arthic-lang") === "ur") {
-      document.documentElement.setAttribute("lang", "ur");
-      document.documentElement.setAttribute("dir", "rtl");
-    }
   } catch (e) {}
 })();
 </script>
@@ -53,11 +49,11 @@
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link data-i18n="nav.subjects">subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link data-i18n="nav.method">method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n="nav.pricing">pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link data-i18n="nav.careers">careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span data-i18n="nav.waitlist">waitlist</span></a>
+      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
+      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
+      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
     </nav>
 
     <div class="nav__utility">
@@ -72,8 +68,11 @@
           </g>
         </svg>
       </button>
-      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="اردو میں دیکھیں">
-        <span data-lang-toggle-label>اردو</span>
+      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="language — more coming soon">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
+          <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+        </svg>
       </button>
     </div>
 
@@ -85,21 +84,21 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link data-i18n="mobilenav.subjects">01 — subjects</a>
-    <a href="/method.html" data-mobile-link data-i18n="mobilenav.method">02 — method</a>
-    <a href="/pricing.html" data-mobile-link data-i18n="mobilenav.pricing">03 — pricing</a>
-    <a href="/careers.html" data-mobile-link data-i18n="mobilenav.careers">04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link data-i18n="mobilenav.waitlist">05 — join waitlist</a>
+    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
+    <a href="/method.html" data-mobile-link>02 — method</a>
+    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
+    <a href="/careers.html" data-mobile-link>04 — careers</a>
+    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
   </nav>
-  <p class="mobile-nav__foot" data-i18n="mobilenav.foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — in English and Urdu. built by students, early.</p>
+  <p class="mobile-nav__foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</p>
 </div>
 
 <main id="main">
   <article class="entry container" id="top">
     <header class="entry__head" data-reveal>
-      <p class="eyebrow" data-i18n="boards.eyebrow">subjects</p>
-      <h1 class="entry__title" data-i18n="subjectspage.title">subjects.</h1>
-      <p class="entry__lede" data-i18n="subjectspage.lede">seven exams, four streams, one mentor that knows which one you're prepping for.</p>
+      <p class="eyebrow">subjects</p>
+      <h1 class="entry__title">subjects.</h1>
+      <p class="entry__lede">seven exams, four streams, one mentor that knows which one you're prepping for.</p>
     </header>
 
     <div class="tilt-3d" data-tilt="5" data-reveal data-reveal-delay="100">
@@ -116,13 +115,13 @@
 
     <div class="centerpiece__streams" data-reveal data-reveal-delay="160" style="margin-top: clamp(2rem, 5vw, 3rem);">
       <article class="stream-card">
-        <h3 class="stream-card__name" data-i18n="stream.medical.name">medical</h3>
-        <p class="stream-card__body" data-i18n="stream.medical.body">biology, chemistry, physics, English, and logical reasoning — mapped to how MDCAT actually weighs them.</p>
+        <h3 class="stream-card__name">medical</h3>
+        <p class="stream-card__body">biology, chemistry, physics, English, and logical reasoning — mapped to how MDCAT actually weighs them.</p>
         <div class="stream-card__exams"><span class="stream-card__exam-tag">MDCAT</span></div>
       </article>
       <article class="stream-card">
-        <h3 class="stream-card__name" data-i18n="stream.engineering.name">engineering</h3>
-        <p class="stream-card__body" data-i18n="stream.engineering.body">three different entry tests, three different formats — one mentor that knows which one you're prepping for.</p>
+        <h3 class="stream-card__name">engineering</h3>
+        <p class="stream-card__body">three different entry tests, three different formats — one mentor that knows which one you're prepping for.</p>
         <div class="stream-card__exams">
           <span class="stream-card__exam-tag">ECAT</span>
           <span class="stream-card__exam-tag">NUST NET</span>
@@ -130,48 +129,48 @@
         </div>
       </article>
       <article class="stream-card">
-        <h3 class="stream-card__name" data-i18n="stream.civilservice.name">civil service</h3>
-        <p class="stream-card__body" data-i18n="stream.civilservice.body">from essay structure to current affairs — built for the exam that gives you one shot a year.</p>
+        <h3 class="stream-card__name">civil service</h3>
+        <p class="stream-card__body">from essay structure to current affairs — built for the exam that gives you one shot a year.</p>
         <div class="stream-card__exams">
           <span class="stream-card__exam-tag">CSS</span>
           <span class="stream-card__exam-tag">PMS</span>
         </div>
       </article>
       <article class="stream-card">
-        <h3 class="stream-card__name" data-i18n="stream.law.name">law</h3>
-        <p class="stream-card__body" data-i18n="stream.law.body">LUMS's own admission test for its law programme — different format, same mentor.</p>
+        <h3 class="stream-card__name">law</h3>
+        <p class="stream-card__body">LUMS's own admission test for its law programme — different format, same mentor.</p>
         <div class="stream-card__exams"><span class="stream-card__exam-tag">LNAT</span></div>
       </article>
     </div>
 
     <div class="entry__body" data-reveal data-reveal-delay="220" style="margin-top: clamp(3rem, 6vw, 4.5rem);">
-      <h3 data-i18n="subjectspage.detail.h">what each exam actually covers</h3>
-      <p data-i18n="subjectspage.mdcat">
+      <h3>what each exam actually covers</h3>
+      <p>
         <strong>MDCAT</strong> — the entry test for medical and dental college admissions in Pakistan. biology,
         chemistry, and physics carry most of the weight, alongside English and logical reasoning; arthic's mentor
         tracks which of those five areas is actually costing you marks, not just your overall score.
       </p>
-      <p data-i18n="subjectspage.ecat">
+      <p>
         <strong>ECAT</strong> — the entry test used for engineering admissions in Punjab, covering mathematics,
         physics, and chemistry at the intermediate level.
       </p>
-      <p data-i18n="subjectspage.nustnet">
+      <p>
         <strong>NUST NET</strong> — NUST's own entry test for its engineering, computer science, and business
         programmes, run separately from ECAT with its own format.
       </p>
-      <p data-i18n="subjectspage.fast">
+      <p>
         <strong>FAST</strong> — FAST-NUCES's own admission test for its computer science and engineering
         programmes, with a different structure again from ECAT and NUST NET.
       </p>
-      <p data-i18n="subjectspage.css">
+      <p>
         <strong>CSS</strong> — the Central Superior Services exam, the federal civil service exam that gives
         successful candidates one shot a year and covers compulsory and optional subjects plus an essay component.
       </p>
-      <p data-i18n="subjectspage.pms">
+      <p>
         <strong>PMS</strong> — the Provincial Management Service exam, the provincial equivalent of CSS, run by
         each province's own public service commission.
       </p>
-      <p data-i18n="subjectspage.lnat">
+      <p>
         <strong>LUMS LNAT</strong> — LUMS's own admission test for its law programme at the Shaikh Ahmad Hassan
         School of Law, testing reading comprehension and argument analysis rather than legal knowledge you're not
         expected to have yet.
@@ -180,7 +179,7 @@
 
     <div class="entry__foot" data-reveal data-reveal-delay="280">
       <a class="link-arrow link-arrow--large" href="/method.html">
-        <span data-i18n="subjectspage.foot.method">see how the mentor actually teaches</span>
+        <span>see how the mentor actually teaches</span>
         <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
         </svg>
@@ -197,24 +196,24 @@
           <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
           <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
         </a>
-        <p class="footer__tagline" data-i18n="footer.tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
       <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label" data-i18n="footer.legal">legal</span>
-        <a href="/privacy.html" class="hover-underline" data-i18n="footer.privacy">privacy</a>
-        <a href="/terms.html" class="hover-underline" data-i18n="footer.terms">terms</a>
+        <span class="footer__col-label">legal</span>
+        <a href="/privacy.html" class="hover-underline">privacy</a>
+        <a href="/terms.html" class="hover-underline">terms</a>
       </nav>
 
       <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label" data-i18n="footer.contact">contact</span>
+        <span class="footer__col-label">contact</span>
         <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span data-i18n="footer.rights">All rights reserved.</span></p>
-      <a href="#top" class="hover-underline" data-i18n="footer.backtotop">back to top</a>
+      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
+      <a href="#top" class="hover-underline">back to top</a>
     </div>
   </div>
 </footer>

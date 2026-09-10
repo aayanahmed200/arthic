@@ -15,26 +15,16 @@
   } catch (e) {}
 })();
 </script>
-<title>terms — arthic</title>
-<meta name="description" content="The plain-English terms for using arthic.tech, joining the waitlist, or applying for a role." />
+<title>apply — arthic</title>
+<meta name="description" content="Apply to one of arthic's student-built roles — a few details about you and the role, sent straight to a small team that reads every application itself." />
+<meta name="robots" content="noindex" />
 <meta name="theme-color" content="#fcfbf8" />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-<link rel="canonical" href="https://arthic.tech/terms.html" />
-
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="arthic" />
-<meta property="og:title" content="terms — arthic" />
-<meta property="og:description" content="The plain-English terms for using arthic.tech, joining the waitlist, or applying for a role." />
-<meta property="og:image" content="https://arthic.tech/og-image.png" />
-<meta property="og:url" content="https://arthic.tech/terms.html" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="terms — arthic" />
-<meta name="twitter:description" content="The plain-English terms for using arthic.tech, joining the waitlist, or applying for a role." />
-<meta name="twitter:image" content="https://arthic.tech/og-image.png" />
+<link rel="canonical" href="https://arthic.tech/apply.html" />
 </head>
 <body>
 
@@ -96,90 +86,70 @@
 <main id="main">
   <article class="entry container" id="top">
     <header class="entry__head" data-reveal>
-      <p class="eyebrow">legal</p>
-      <span class="entry__date">last updated september 2026</span>
-      <h1 class="entry__title">terms.</h1>
-      <p class="entry__lede">the plain-English rules for using arthic.tech, joining the waitlist, or applying for a role.</p>
+      <p class="eyebrow">careers</p>
+      <h1 class="entry__title" data-role-heading>apply.</h1>
+      <p class="entry__lede" data-role-blurb>a few details about you and the role — a real person on a small team reads every application.</p>
     </header>
 
-    <div class="entry__body" data-reveal data-reveal-delay="100">
-      <p>
-        Using arthic.tech, joining the waitlist, or applying for a role means you're agreeing
-        to the following. It's short on purpose.
-      </p>
-
-      <h3>the site</h3>
-      <p>
-        Everything here — the writing, the design, the arthic name and product concept —
-        belongs to arthic unless we say otherwise. You're welcome to link to it, quote it with
-        credit, or talk about it; you're not welcome to republish it as your own or scrape it
-        to train something else without asking first.
-      </p>
-
-      <h3>the waitlist</h3>
-      <p>
-        Joining the waitlist doesn't create a contract, a guaranteed price, or a promised
-        delivery date — arthic is still in development. It adds your email to a list we'll
-        use to tell you when early access opens and, occasionally, to share progress before
-        then.
-      </p>
-
-      <h3>job applications</h3>
-      <p>
-        Applying for a role doesn't create any kind of employment relationship, and we can't
-        promise a response time — we're a small team reading every application ourselves.
-        Anything you send us (portfolio links, writing samples, ideas) stays yours; sending it
-        to us doesn't transfer ownership of it to arthic.
-      </p>
-
-      <h3>about the exam information on this site</h3>
-      <p>
-        arthic references exam formats, weightages, and structures for MDCAT, ECAT, NUST NET,
-        FAST, CSS, PMS, and LUMS LNAT to explain how the platform is built. That's context, not
-        an official statement — the exam bodies and institutions themselves (PMDC, UET, NUST,
-        FAST-NUCES, FPSC, the provincial public service commissions, and LUMS) change formats
-        and dates from year to year, and their own announcements are always the authoritative
-        source, not this site.
-      </p>
-
-      <h3>about the mentor, once it exists</h3>
-      <p>
-        arthic the AI mentor is a study aid, not a substitute for your own coursework, an
-        academy, or a registered exam-prep provider — and not a guarantee of any particular
-        score or admission outcome. We'll be as accurate as we can, and we'll always tell you
-        when we're not sure, but what you submit on exam day is on you.
-      </p>
-
-      <h3>no warranty</h3>
-      <p>
-        The site, and arthic the product once it exists, are provided as-is. We're a small
-        team building something we care about, not a company that can promise zero bugs or
-        uninterrupted uptime. We'll fix what we can, as fast as a small team reasonably can.
-      </p>
-
-      <h3>acceptable use</h3>
-      <p>
-        Don't use the forms on this site to send spam, attempt to break into anything, or
-        submit information that isn't yours. We reserve the right to remove access for
-        anyone who does.
-      </p>
-
-      <h3>changes</h3>
-      <p>
-        If these terms change in a way that matters, we'll update this page and move the
-        date at the top, the same way we handle the privacy page.
-      </p>
-
-      <h3>questions</h3>
-      <p>
-        Email <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
-        — a real person on a small team will read it.
-      </p>
+    <div class="apply-role" data-reveal data-reveal-delay="100">
+      <p class="apply-role__tag" data-role-tag>role</p>
+      <p class="apply-role__body" data-role-body>loading role details…</p>
     </div>
 
-    <div class="entry__foot" data-reveal data-reveal-delay="180">
-      <a class="link-arrow link-arrow--large" href="/privacy.html">
-        <span>privacy policy</span>
+    <form class="apply-form" data-apply-form novalidate data-reveal data-reveal-delay="160">
+      <input type="hidden" name="role" data-role-field value="General" />
+
+      <div class="apply-form__grid">
+        <div class="apply-form__field">
+          <label for="ap-name">name</label>
+          <input class="field" type="text" id="ap-name" name="name" placeholder="your full name" required autocomplete="name" />
+        </div>
+        <div class="apply-form__field">
+          <label for="ap-email">email</label>
+          <input class="field" type="email" id="ap-email" name="email" placeholder="you@email.com" required autocomplete="email" />
+        </div>
+        <div class="apply-form__field">
+          <label for="ap-link" data-link-label>portfolio / social link</label>
+          <input class="field" type="url" id="ap-link" name="link" placeholder="optional" autocomplete="url" data-link-input />
+        </div>
+        <div class="apply-form__field">
+          <label for="ap-availability">hours you can realistically give, per week</label>
+          <select class="field" id="ap-availability" name="availability">
+            <option value="">prefer not to say</option>
+            <option value="5-10 hrs/week">5–10 hrs/week</option>
+            <option value="10-15 hrs/week">10–15 hrs/week</option>
+            <option value="15-20 hrs/week">15–20 hrs/week</option>
+            <option value="20+ hrs/week">20+ hrs/week</option>
+          </select>
+        </div>
+        <div class="apply-form__field">
+          <label for="ap-start">how soon could you start</label>
+          <select class="field" id="ap-start" name="start">
+            <option value="">not sure yet</option>
+            <option value="this week">this week</option>
+            <option value="in 2-4 weeks">in 2–4 weeks</option>
+            <option value="next semester">next semester</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="apply-form__field apply-form__field--wide">
+        <label for="ap-message" data-message-label>tell us more</label>
+        <textarea class="field" id="ap-message" name="message" rows="5" data-message-input></textarea>
+      </div>
+
+      <div class="visually-hidden" aria-hidden="true">
+        <label for="ap-website">leave this field blank</label>
+        <input type="text" id="ap-website" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <button class="btn btn--solid" type="submit"><span>send application</span></button>
+      <p class="apply-form__status" data-form-status role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="entry__foot" data-reveal data-reveal-delay="220">
+      <a class="link-arrow link-arrow--large" href="/careers.html">
+        <span>back to all roles</span>
         <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
         </svg>
@@ -222,6 +192,6 @@
   <span data-section-index-label>arthic</span>
 </div>
 
-<script type="module" src="/src/legal.ts"></script>
+<script type="module" src="/src/apply.ts"></script>
 </body>
 </html>

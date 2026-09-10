@@ -12,10 +12,6 @@
       theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     document.documentElement.setAttribute("data-theme", theme);
-    if (localStorage.getItem("arthic-lang") === "ur") {
-      document.documentElement.setAttribute("lang", "ur");
-      document.documentElement.setAttribute("dir", "rtl");
-    }
   } catch (e) {}
 })();
 </script>
@@ -42,11 +38,11 @@
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link data-i18n="nav.subjects">subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link data-i18n="nav.method">method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n="nav.pricing">pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link data-i18n="nav.careers">careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span data-i18n="nav.waitlist">waitlist</span></a>
+      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
+      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
+      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
     </nav>
 
     <div class="nav__utility">
@@ -61,8 +57,11 @@
           </g>
         </svg>
       </button>
-      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="اردو میں دیکھیں">
-        <span data-lang-toggle-label>اردو</span>
+      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="language — more coming soon">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
+          <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+        </svg>
       </button>
     </div>
 
@@ -74,23 +73,23 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link data-i18n="mobilenav.subjects">01 — subjects</a>
-    <a href="/method.html" data-mobile-link data-i18n="mobilenav.method">02 — method</a>
-    <a href="/pricing.html" data-mobile-link data-i18n="mobilenav.pricing">03 — pricing</a>
-    <a href="/careers.html" data-mobile-link data-i18n="mobilenav.careers">04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link data-i18n="mobilenav.waitlist">05 — join waitlist</a>
+    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
+    <a href="/method.html" data-mobile-link>02 — method</a>
+    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
+    <a href="/careers.html" data-mobile-link>04 — careers</a>
+    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
   </nav>
-  <p class="mobile-nav__foot" data-i18n="mobilenav.foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — in English and Urdu. built by students, early.</p>
+  <p class="mobile-nav__foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</p>
 </div>
 
 <main id="main">
   <div class="entry container" id="top">
     <div class="entry__missing" data-reveal>
       <p class="eyebrow">404</p>
-      <h1 data-i18n="notfound.headline">you found the edge of the site.</h1>
-      <p class="entry__missing-body" data-i18n="notfound.body">There's no page here — the link might be old, or it might just be wrong.</p>
+      <h1>you found the edge of the site.</h1>
+      <p class="entry__missing-body">There's no page here — the link might be old, or it might just be wrong.</p>
       <a class="link-arrow link-arrow--large" href="/">
-        <span data-i18n="notfound.cta">back to home</span>
+        <span>back to home</span>
         <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
         </svg>
@@ -107,24 +106,24 @@
           <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
           <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
         </a>
-        <p class="footer__tagline" data-i18n="footer.tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
       <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label" data-i18n="footer.legal">legal</span>
-        <a href="/privacy.html" class="hover-underline" data-i18n="footer.privacy">privacy</a>
-        <a href="/terms.html" class="hover-underline" data-i18n="footer.terms">terms</a>
+        <span class="footer__col-label">legal</span>
+        <a href="/privacy.html" class="hover-underline">privacy</a>
+        <a href="/terms.html" class="hover-underline">terms</a>
       </nav>
 
       <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label" data-i18n="footer.contact">contact</span>
+        <span class="footer__col-label">contact</span>
         <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span data-i18n="footer.rights">All rights reserved.</span></p>
-      <a href="#top" class="hover-underline" data-i18n="footer.backtotop">back to top</a>
+      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
+      <a href="#top" class="hover-underline">back to top</a>
     </div>
   </div>
 </footer>

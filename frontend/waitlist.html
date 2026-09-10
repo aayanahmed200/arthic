@@ -12,15 +12,11 @@
       theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     document.documentElement.setAttribute("data-theme", theme);
-    if (localStorage.getItem("arthic-lang") === "ur") {
-      document.documentElement.setAttribute("lang", "ur");
-      document.documentElement.setAttribute("dir", "rtl");
-    }
   } catch (e) {}
 })();
 </script>
 <title>waitlist — arthic</title>
-<meta name="description" content="Join arthic's early-access waitlist — free while in early access, across all seven exams (MDCAT, ECAT, NUST NET, FAST, CSS, PMS, LUMS LNAT), in English and Urdu." />
+<meta name="description" content="Join arthic's early-access waitlist — free while in early access, across all seven exams (MDCAT, ECAT, NUST NET, FAST, CSS, PMS, LUMS LNAT)." />
 <meta name="theme-color" content="#fcfbf8" />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -32,12 +28,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="arthic" />
 <meta property="og:title" content="waitlist — arthic" />
-<meta property="og:description" content="Join arthic's early-access waitlist — free while in early access, across all seven exams (MDCAT, ECAT, NUST NET, FAST, CSS, PMS, LUMS LNAT), in English and Urdu." />
+<meta property="og:description" content="Join arthic's early-access waitlist — free while in early access, across all seven exams (MDCAT, ECAT, NUST NET, FAST, CSS, PMS, LUMS LNAT)." />
 <meta property="og:image" content="https://arthic.tech/og-image.png" />
 <meta property="og:url" content="https://arthic.tech/waitlist.html" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="waitlist — arthic" />
-<meta name="twitter:description" content="Join arthic's early-access waitlist — free while in early access, across all seven exams (MDCAT, ECAT, NUST NET, FAST, CSS, PMS, LUMS LNAT), in English and Urdu." />
+<meta name="twitter:description" content="Join arthic's early-access waitlist — free while in early access, across all seven exams (MDCAT, ECAT, NUST NET, FAST, CSS, PMS, LUMS LNAT)." />
 <meta name="twitter:image" content="https://arthic.tech/og-image.png" />
 </head>
 <body>
@@ -53,11 +49,11 @@
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link data-i18n="nav.subjects">subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link data-i18n="nav.method">method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n="nav.pricing">pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link data-i18n="nav.careers">careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span data-i18n="nav.waitlist">waitlist</span></a>
+      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
+      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
+      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
     </nav>
 
     <div class="nav__utility">
@@ -72,8 +68,11 @@
           </g>
         </svg>
       </button>
-      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="اردو میں دیکھیں">
-        <span data-lang-toggle-label>اردو</span>
+      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="language — more coming soon">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
+          <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+        </svg>
       </button>
     </div>
 
@@ -85,38 +84,41 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link data-i18n="mobilenav.subjects">01 — subjects</a>
-    <a href="/method.html" data-mobile-link data-i18n="mobilenav.method">02 — method</a>
-    <a href="/pricing.html" data-mobile-link data-i18n="mobilenav.pricing">03 — pricing</a>
-    <a href="/careers.html" data-mobile-link data-i18n="mobilenav.careers">04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link data-i18n="mobilenav.waitlist">05 — join waitlist</a>
+    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
+    <a href="/method.html" data-mobile-link>02 — method</a>
+    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
+    <a href="/careers.html" data-mobile-link>04 — careers</a>
+    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
   </nav>
-  <p class="mobile-nav__foot" data-i18n="mobilenav.foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — in English and Urdu. built by students, early.</p>
+  <p class="mobile-nav__foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</p>
 </div>
 
 <main id="main">
-  <article class="entry container" id="top">
-    <header class="entry__head" data-reveal>
-      <p class="eyebrow" data-i18n="waitlist.eyebrow">get early access</p>
-      <h1 class="entry__title" data-i18n="waitlistpage.title">waitlist.</h1>
-      <p class="entry__lede" data-i18n="waitlistpage.lede">be first when it's ready — free during early access, across all seven exams, in the language you actually think in.</p>
-    </header>
+  <section class="section section--first" id="top" data-section data-section-label="waitlist">
+    <div class="container community__grid">
+      <div class="community__lead">
+        <p class="eyebrow" data-reveal>get early access</p>
+        <h1 class="entry__title" data-reveal data-reveal-delay="80">waitlist.</h1>
+        <p class="community__body" data-reveal data-reveal-delay="140">
+          be first when it's ready — free during early access, across all seven exams, from day one.
+        </p>
+        <p class="community__body" data-reveal data-reveal-delay="180">
+          arthic is still in early access. the AI mentor, past papers, personalized study plans, and the exam
+          calendar are being built and tested with an early group of students in Pakistan first, with MDCAT,
+          ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT all covered from day one. joining now isn't just
+          reserving a spot in line — early members are who most of the next few months of building actually gets
+          shaped around, since the only way to find out what's confusing or missing is watching real students hit
+          it.
+        </p>
+        <ul class="waitlist-facts" data-reveal data-reveal-delay="220">
+          <li>free while we're building — no card, no trial clock quietly ticking down</li>
+          <li>a heads-up the moment your exam track opens up, not a generic "we launched" blast</li>
+          <li>no spam, no selling your email — just progress notes and the one email that matters</li>
+        </ul>
+      </div>
 
-    <div class="entry__body" data-reveal data-reveal-delay="80">
-      <p data-i18n="waitlistpage.intro">
-        arthic is still in early access. the AI mentor, past papers, personalized study plans, and the exam
-        calendar are being built and tested with an early group of students in Pakistan first — with MDCAT, ECAT,
-        NUST NET, FAST, CSS, PMS, and LUMS LNAT all covered from day one.
-      </p>
-      <p class="community__body" data-i18n="waitlist.body">
-        no spam, no selling your email — just a note when arthic is ready, and the occasional update on how the
-        mentor's coming along before then.
-      </p>
-    </div>
-
-    <div class="entry__body" data-reveal data-reveal-delay="160">
-      <form class="subscribe" data-subscribe-form novalidate>
-        <label for="subscribeEmail" class="subscribe__label" data-i18n="waitlist.form.label">email</label>
+      <form class="subscribe" data-reveal data-reveal-delay="260" data-subscribe-form novalidate>
+        <label for="subscribeEmail" class="subscribe__label">email</label>
         <div class="subscribe__row">
           <input class="field" type="email" id="subscribeEmail" name="email" placeholder="you@email.com" required autocomplete="email" />
           <div class="visually-hidden" aria-hidden="true">
@@ -124,22 +126,19 @@
             <input type="text" id="subscribeWebsite" name="website" tabindex="-1" autocomplete="off" />
           </div>
           <button class="btn" type="submit">
-            <span data-i18n="waitlist.form.submit">join waitlist</span>
+            <span>join waitlist</span>
           </button>
         </div>
         <p class="subscribe__status" data-subscribe-status role="status" aria-live="polite"></p>
+        <a class="link-arrow" href="/pricing.html">
+          <span>see what it'll cost when it's ready</span>
+          <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
+          </svg>
+        </a>
       </form>
     </div>
-
-    <div class="entry__foot" data-reveal data-reveal-delay="220">
-      <a class="link-arrow link-arrow--large" href="/pricing.html">
-        <span data-i18n="waitlistpage.foot.pricing">see what it'll cost when it's ready</span>
-        <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
-        </svg>
-      </a>
-    </div>
-  </article>
+  </section>
 </main>
 
 <footer class="footer">
@@ -150,24 +149,24 @@
           <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
           <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
         </a>
-        <p class="footer__tagline" data-i18n="footer.tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
       <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label" data-i18n="footer.legal">legal</span>
-        <a href="/privacy.html" class="hover-underline" data-i18n="footer.privacy">privacy</a>
-        <a href="/terms.html" class="hover-underline" data-i18n="footer.terms">terms</a>
+        <span class="footer__col-label">legal</span>
+        <a href="/privacy.html" class="hover-underline">privacy</a>
+        <a href="/terms.html" class="hover-underline">terms</a>
       </nav>
 
       <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label" data-i18n="footer.contact">contact</span>
+        <span class="footer__col-label">contact</span>
         <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span data-i18n="footer.rights">All rights reserved.</span></p>
-      <a href="#top" class="hover-underline" data-i18n="footer.backtotop">back to top</a>
+      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
+      <a href="#top" class="hover-underline">back to top</a>
     </div>
   </div>
 </footer>
