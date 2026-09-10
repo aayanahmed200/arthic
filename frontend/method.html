@@ -19,15 +19,26 @@
   } catch (e) {}
 })();
 </script>
-<title>404 — arthic</title>
-<meta name="description" content="This page doesn't exist on arthic." />
-<meta name="robots" content="noindex, nofollow" />
+<title>method — arthic</title>
+<meta name="description" content="The rule of three: how arthic's AI mentor actually teaches — identify the real mistake, explain the concept like a friend would, then test whether it stuck." />
 <meta name="theme-color" content="#fcfbf8" />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
+<link rel="canonical" href="https://arthic.tech/method.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="arthic" />
+<meta property="og:title" content="method — arthic" />
+<meta property="og:description" content="The rule of three: how arthic's AI mentor actually teaches — identify the real mistake, explain the concept like a friend would, then test whether it stuck." />
+<meta property="og:image" content="https://arthic.tech/og-image.png" />
+<meta property="og:url" content="https://arthic.tech/method.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="method — arthic" />
+<meta name="twitter:description" content="The rule of three: how arthic's AI mentor actually teaches — identify the real mistake, explain the concept like a friend would, then test whether it stuck." />
+<meta name="twitter:image" content="https://arthic.tech/og-image.png" />
 </head>
 <body>
 
@@ -84,19 +95,66 @@
 </div>
 
 <main id="main">
-  <div class="entry container" id="top">
-    <div class="entry__missing" data-reveal>
-      <p class="eyebrow">404</p>
-      <h1 data-i18n="notfound.headline">you found the edge of the site.</h1>
-      <p class="entry__missing-body" data-i18n="notfound.body">There's no page here — the link might be old, or it might just be wrong.</p>
-      <a class="link-arrow link-arrow--large" href="/">
-        <span data-i18n="notfound.cta">back to home</span>
+  <article class="entry container" id="top">
+    <header class="entry__head" data-reveal>
+      <p class="eyebrow" data-i18n="method.eyebrow">how it works</p>
+      <h1 class="entry__title" data-i18n="methodpage.title">method.</h1>
+      <p class="entry__lede" data-i18n="methodpage.lede">the rule of three — no shortcuts, no wasted turns, the same three steps for every subject and both languages.</p>
+    </header>
+
+    <div class="entry__body" data-reveal data-reveal-delay="80">
+      <p data-i18n="methodpage.intro">
+        most tutoring, human or software, does one of two things when you get something wrong: it marks it incorrect
+        and moves on, or it re-shows you the same explanation you already didn't understand. arthic's mentor is built
+        to do neither. every wrong answer, every "I don't get this," runs through the same three-step loop before the
+        mentor moves anywhere else.
+      </p>
+    </div>
+
+    <ol class="philosophy__list" data-reveal data-reveal-delay="140">
+      <li class="philosophy__item">
+        <span class="philosophy__num">01</span>
+        <div class="philosophy__copy">
+          <p class="philosophy__tag" data-i18n="method.item1.tag">identify</p>
+          <h3 data-i18n="method.item1.title">find the actual mistake, not just the wrong answer</h3>
+          <p class="philosophy__body" data-i18n="method.item1.body">most students re-read the same explanation when they get something wrong. arthic starts by figuring out exactly where your understanding broke — a formula, a definition, a step in the logic — instead of just marking it incorrect.</p>
+        </div>
+      </li>
+      <li class="philosophy__item">
+        <span class="philosophy__num">02</span>
+        <div class="philosophy__copy">
+          <p class="philosophy__tag" data-i18n="method.item2.tag">explain</p>
+          <h3 data-i18n="method.item2.title">a concept explained the way a friend would</h3>
+          <p class="philosophy__body" data-i18n="method.item2.body">every concept gets a plain-language explanation and a local, relatable example — in English or Urdu, whichever you're mid-sentence in — until it actually clicks, not just until you nod along.</p>
+        </div>
+      </li>
+      <li class="philosophy__item">
+        <span class="philosophy__num">03</span>
+        <div class="philosophy__copy">
+          <p class="philosophy__tag" data-i18n="method.item3.tag">test</p>
+          <h3 data-i18n="method.item3.title">a next challenge, not just a pat on the back</h3>
+          <p class="philosophy__body" data-i18n="method.item3.body">once a concept clicks, arthic doesn't just move to the next topic — it gives you one more question built to test whether it actually stuck, calibrated to be just hard enough.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="entry__body" data-reveal data-reveal-delay="200">
+      <p data-i18n="methodpage.close">
+        the same loop runs whether you're stuck on a Physics numerical, an English comprehension passage, or a CSS
+        essay outline — and whether you asked in English or switched to Urdu halfway through. one method, applied
+        consistently, is the whole bet arthic is making against generic one-size-fits-all prep.
+      </p>
+    </div>
+
+    <div class="entry__foot" data-reveal data-reveal-delay="240">
+      <a class="link-arrow link-arrow--large" href="/subjects.html">
+        <span data-i18n="methodpage.foot.subjects">see which exams this applies to</span>
         <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
         </svg>
       </a>
     </div>
-  </div>
+  </article>
 </main>
 
 <footer class="footer">
@@ -133,6 +191,6 @@
   <span data-section-index-label>arthic</span>
 </div>
 
-<script type="module" src="/src/notfound.ts"></script>
+<script type="module" src="/src/legal.ts"></script>
 </body>
 </html>

@@ -39,6 +39,31 @@
 <meta name="twitter:title" content="arthic — the all-in-one exam-prep platform for Pakistan's toughest tests" />
 <meta name="twitter:description" content="an AI mentor, past papers, a personalized study plan, and an exam calendar for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — built by students, early enough that you can help shape it." />
 <meta name="twitter:image" content="https://arthic.tech/og-image.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://arthic.tech/#organization",
+      "name": "arthic",
+      "url": "https://arthic.tech/",
+      "logo": "https://arthic.tech/logo.png",
+      "description": "arthic is an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — an AI mentor, past papers, a personalized study plan, and an exam calendar, in English and Urdu.",
+      "email": "hello@arthic.tech"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://arthic.tech/#website",
+      "url": "https://arthic.tech/",
+      "name": "arthic",
+      "publisher": { "@id": "https://arthic.tech/#organization" },
+      "inLanguage": ["en", "ur"]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -53,11 +78,11 @@
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="#subjects" class="hover-underline" data-nav-link data-i18n="nav.subjects">subjects</a>
-      <a href="#method" class="hover-underline" data-nav-link data-i18n="nav.method">method</a>
+      <a href="/subjects.html" class="hover-underline" data-nav-link data-i18n="nav.subjects">subjects</a>
+      <a href="/method.html" class="hover-underline" data-nav-link data-i18n="nav.method">method</a>
       <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n="nav.pricing">pricing</a>
       <a href="/careers.html" class="hover-underline" data-nav-link data-i18n="nav.careers">careers</a>
-      <a href="#waitlist" class="btn btn--solid nav__cta"><span data-i18n="nav.waitlist">join waitlist</span></a>
+      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span data-i18n="nav.waitlist">waitlist</span></a>
     </nav>
 
     <div class="nav__utility">
@@ -85,11 +110,11 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="#subjects" data-mobile-link data-i18n="mobilenav.subjects">01 — subjects</a>
-    <a href="#method" data-mobile-link data-i18n="mobilenav.method">02 — method</a>
+    <a href="/subjects.html" data-mobile-link data-i18n="mobilenav.subjects">01 — subjects</a>
+    <a href="/method.html" data-mobile-link data-i18n="mobilenav.method">02 — method</a>
     <a href="/pricing.html" data-mobile-link data-i18n="mobilenav.pricing">03 — pricing</a>
     <a href="/careers.html" data-mobile-link data-i18n="mobilenav.careers">04 — careers</a>
-    <a href="#waitlist" data-mobile-link data-i18n="mobilenav.waitlist">05 — join waitlist</a>
+    <a href="/waitlist.html" data-mobile-link data-i18n="mobilenav.waitlist">05 — join waitlist</a>
   </nav>
   <p class="mobile-nav__foot" data-i18n="mobilenav.foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT — in English and Urdu. built by students, early.</p>
 </div>
@@ -109,10 +134,10 @@
         English or Urdu.
       </p>
       <div class="hero__actions" data-reveal data-reveal-delay="240">
-        <a class="btn btn--solid" href="#waitlist">
+        <a class="btn btn--solid" href="/waitlist.html">
           <span data-i18n="hero.cta.waitlist">join the waitlist</span>
         </a>
-        <a class="btn" href="#method">
+        <a class="btn" href="/method.html">
           <span data-i18n="hero.cta.method">see how it works</span>
           <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
@@ -218,105 +243,6 @@
     </div>
   </section>
 
-  <!-- ============ SUBJECTS / CONCEPT CENTERPIECE ============ -->
-  <section class="centerpiece" id="subjects" data-section data-section-label="subjects">
-    <div class="container centerpiece__inner">
-      <div class="tilt-3d" data-tilt="5">
-      <div class="centerpiece__stack" aria-hidden="true" data-reveal>
-        <span class="centerpiece__chip">MDCAT</span>
-        <span class="centerpiece__chip">ECAT</span>
-        <span class="centerpiece__chip">NUST NET</span>
-        <span class="centerpiece__chip">FAST</span>
-        <span class="centerpiece__chip">CSS</span>
-        <span class="centerpiece__chip">PMS</span>
-        <span class="centerpiece__chip">LNAT</span>
-      </div>
-      </div>
-
-      <h2 class="centerpiece__headline" data-reveal data-reveal-delay="120" data-i18n="centerpiece.headline">
-        seven exams.<br />one platform.<br /><span class="centerpiece__accent">zero ratta.</span>
-      </h2>
-
-      <div class="centerpiece__streams" data-reveal data-reveal-delay="240">
-        <article class="stream-card">
-          <h3 class="stream-card__name" data-i18n="stream.medical.name">medical</h3>
-          <p class="stream-card__body" data-i18n="stream.medical.body">biology, chemistry, physics, English, and logical reasoning — mapped to how MDCAT actually weighs them.</p>
-          <div class="stream-card__exams"><span class="stream-card__exam-tag">MDCAT</span></div>
-        </article>
-        <article class="stream-card">
-          <h3 class="stream-card__name" data-i18n="stream.engineering.name">engineering</h3>
-          <p class="stream-card__body" data-i18n="stream.engineering.body">three different entry tests, three different formats — one mentor that knows which one you're prepping for.</p>
-          <div class="stream-card__exams">
-            <span class="stream-card__exam-tag">ECAT</span>
-            <span class="stream-card__exam-tag">NUST NET</span>
-            <span class="stream-card__exam-tag">FAST</span>
-          </div>
-        </article>
-        <article class="stream-card">
-          <h3 class="stream-card__name" data-i18n="stream.civilservice.name">civil service</h3>
-          <p class="stream-card__body" data-i18n="stream.civilservice.body">from essay structure to current affairs — built for the exam that gives you one shot a year.</p>
-          <div class="stream-card__exams">
-            <span class="stream-card__exam-tag">CSS</span>
-            <span class="stream-card__exam-tag">PMS</span>
-          </div>
-        </article>
-        <article class="stream-card">
-          <h3 class="stream-card__name" data-i18n="stream.law.name">law</h3>
-          <p class="stream-card__body" data-i18n="stream.law.body">LUMS's own admission test for its law programme — different format, same mentor.</p>
-          <div class="stream-card__exams"><span class="stream-card__exam-tag">LNAT</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HOW IT WORKS — RULE OF THREE ============ -->
-  <section class="philosophy section" id="method" data-section data-section-label="how it works">
-    <div class="container">
-      <div class="philosophy__head">
-        <p class="eyebrow" data-reveal data-i18n="method.eyebrow">how it works</p>
-        <h2 class="philosophy__headline" data-reveal data-reveal-delay="80" data-i18n="method.headline">
-          the rule of three.<br />no shortcuts, no wasted turns.
-        </h2>
-      </div>
-
-      <ol class="philosophy__list">
-        <li class="philosophy__item" data-reveal>
-          <span class="philosophy__num">01</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag" data-i18n="method.item1.tag">identify</p>
-            <h3 data-i18n="method.item1.title">find the actual mistake, not just the wrong answer</h3>
-            <p class="philosophy__body" data-i18n="method.item1.body">most students re-read the same explanation when they get something wrong. arthic starts by figuring out exactly where your understanding broke — a formula, a definition, a step in the logic — instead of just marking it incorrect.</p>
-          </div>
-        </li>
-        <li class="philosophy__item philosophy__item--media philosophy__item--media-right" data-reveal>
-          <span class="philosophy__num">02</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag" data-i18n="method.item2.tag">explain</p>
-            <h3 data-i18n="method.item2.title">a concept explained the way a friend would</h3>
-            <p class="philosophy__body" data-i18n="method.item2.body">every concept gets a plain-language explanation and a local, relatable example — in English or Urdu, whichever you're mid-sentence in — until it actually clicks, not just until you nod along.</p>
-          </div>
-          <div class="philosophy__media feature-card tilt-3d" data-tilt="4" aria-hidden="true">
-            <span class="feature-card__file" data-i18n="method.card.file">SN2 → picked the wrong nucleophile</span>
-            <div class="feature-card__arrow" data-i18n="method.card.arrow">↓ explained with a local example</div>
-            <div class="feature-card__frameworks">
-              <div class="feature-card__fw"><span data-i18n="method.card.fw1">rickshaw = SN1</span><span class="feature-card__check"></span></div>
-              <div class="feature-card__fw"><span data-i18n="method.card.fw2">shared van = SN2</span><span class="feature-card__check"></span></div>
-              <div class="feature-card__fw"><span data-i18n="method.card.fw3">concept locked in</span><span class="feature-card__check"></span></div>
-            </div>
-          </div>
-        </li>
-        <li class="philosophy__item" data-reveal>
-          <span class="philosophy__num">03</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag" data-i18n="method.item3.tag">test</p>
-            <h3 data-i18n="method.item3.title">a next challenge, not just a pat on the back</h3>
-            <p class="philosophy__body" data-i18n="method.item3.body">once a concept clicks, arthic doesn't just move to the next topic — it gives you one more question built to test whether it actually stuck, calibrated to be just hard enough.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
   <!-- ============ EXAM BOARDS / INSTITUTIONS ============ -->
   <section class="section--tight" id="boards" data-section data-section-label="exam boards">
     <div class="container boards">
@@ -337,8 +263,8 @@
       <p class="boards__note" data-reveal data-reveal-delay="220" data-i18n="boards.note2">shown here because arthic preps students for exams at these institutions — not an endorsement or partnership with any of them.</p>
 
       <div class="boards__region" data-reveal data-reveal-delay="260">
-        <span class="boards__region-tag boards__region-tag--live"><span class="boards__flag" aria-hidden="true">🇵🇰</span><span data-i18n="boards.region.pk">Pakistani boards — live now</span></span>
-        <span class="boards__region-tag boards__region-tag--soon"><span class="boards__flag" aria-hidden="true">🇬🇧 🇺🇸 🇮🇳</span><span data-i18n="boards.region.soon">UK · US · India — coming soon</span></span>
+        <span class="boards__region-tag boards__region-tag--live"><img class="boards__flag" src="/flags/pk.svg" alt="" width="20" height="14" /><span data-i18n="boards.region.pk">Pakistani boards — live now</span></span>
+        <span class="boards__region-tag boards__region-tag--soon"><span class="boards__flag-group" aria-hidden="true"><img class="boards__flag" src="/flags/gb.svg" alt="" width="20" height="14" /><img class="boards__flag" src="/flags/us.svg" alt="" width="20" height="14" /><img class="boards__flag" src="/flags/in.svg" alt="" width="20" height="14" /></span><span data-i18n="boards.region.soon">UK · US · India — coming soon</span></span>
       </div>
     </div>
   </section>
@@ -362,42 +288,13 @@
     </div>
   </section>
 
-  <!-- ============ WAITLIST ============ -->
-  <section class="community section" id="waitlist" data-section data-section-label="get early access">
-    <div class="container community__grid">
-      <div class="community__lead">
-        <p class="eyebrow" data-reveal data-i18n="waitlist.eyebrow">get early access</p>
-        <h2 data-reveal data-reveal-delay="80" data-i18n="waitlist.headline">be first when it's ready.</h2>
-        <p class="community__body" data-reveal data-reveal-delay="160" data-i18n="waitlist.body">
-          no spam, no selling your email — just a note when arthic is ready, and the occasional update on how the
-          mentor's coming along before then.
-        </p>
-      </div>
-
-      <form class="subscribe" data-reveal data-reveal-delay="320" data-subscribe-form novalidate>
-        <label for="subscribeEmail" class="subscribe__label" data-i18n="waitlist.form.label">email</label>
-        <div class="subscribe__row">
-          <input class="field" type="email" id="subscribeEmail" name="email" placeholder="you@email.com" required autocomplete="email" />
-          <div class="visually-hidden" aria-hidden="true">
-            <label for="subscribeWebsite">leave this field blank</label>
-            <input type="text" id="subscribeWebsite" name="website" tabindex="-1" autocomplete="off" />
-          </div>
-          <button class="btn" type="submit">
-            <span data-i18n="waitlist.form.submit">join waitlist</span>
-          </button>
-        </div>
-        <p class="subscribe__status" data-subscribe-status role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
-
   <!-- ============ CLOSING ============ -->
   <section class="closing" data-section data-section-label="—">
     <img class="closing__mark brand-mark--light" src="/logo.png" alt="" aria-hidden="true" data-reveal />
     <img class="closing__mark brand-mark--dark" src="/logo-white.png" alt="" aria-hidden="true" data-reveal />
     <h2 class="closing__headline" data-reveal data-reveal-delay="80" data-i18n="closing.headline">stop memorizing.<br />start understanding.</h2>
     <p class="closing__lede" data-reveal data-reveal-delay="140" data-i18n="closing.lede">join the waitlist — free during early access, seven exams, one platform, in the language you actually think in.</p>
-    <a class="btn btn--solid" data-reveal data-reveal-delay="200" href="#waitlist">
+    <a class="btn btn--solid" data-reveal data-reveal-delay="200" href="/waitlist.html">
       <span data-i18n="closing.cta">join the waitlist</span>
     </a>
   </section>
