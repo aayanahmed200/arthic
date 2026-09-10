@@ -57,6 +57,32 @@
   color: #d98a7a;
 }
 
+.waitlist-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+}
+
+.waitlist-facts li {
+  position: relative;
+  padding-left: 1.3em;
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body-sm);
+  line-height: 1.5;
+}
+
+.waitlist-facts li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  background: var(--color-accent-strong);
+}
+
 @media (max-width: 820px) {
   .community__grid {
     grid-template-columns: 1fr;

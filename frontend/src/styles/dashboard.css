@@ -1,0 +1,269 @@
+/* ---------- hero product preview ----------
+   A static mockup of the mentor dashboard, sitting next to the hero copy
+   instead of a fourth paragraph describing what it'll eventually look
+   like. This is deliberately not a simulated live chat pretending to be
+   a real product — the chrome bar says "preview" and the caption under
+   it says so again in plain words. What it shows is real, though: the
+   same identify → explain → test loop described on /method, plus the
+   topic-mastery and streak tracking the study-plan feature is built
+   around, laid out the way the actual dashboard is planned to work. */
+.dash {
+  border: 1px solid var(--color-fg-hairline);
+  border-radius: 16px;
+  background: var(--color-bg-raised);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 16px 40px -16px rgba(0, 0, 0, 0.18);
+}
+
+.dash__chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--color-fg-hairline);
+}
+
+.dash__dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.dash__dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-fg-hairline);
+}
+
+.dash__chrome-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.03em;
+  color: var(--color-fg-mute);
+}
+
+.dash__body {
+  display: flex;
+  min-height: 0;
+}
+
+.dash__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 1rem 0.65rem;
+  border-right: 1px solid var(--color-fg-hairline);
+  flex-shrink: 0;
+}
+
+.dash__nav-item {
+  padding: 0.5em 0.75em;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  color: var(--color-fg-mute);
+  white-space: nowrap;
+}
+
+.dash__nav-item.is-active {
+  color: var(--color-fg);
+  background: var(--color-fg-ghost);
+}
+
+.dash__main {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.dash__chat {
+  flex: 1.3;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.dash__msg {
+  max-width: 94%;
+  padding: 0.6em 0.85em;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.dash__msg p {
+  margin: 0;
+}
+
+.dash__msg strong {
+  color: var(--color-accent-strong);
+  font-weight: 560;
+}
+
+.dash__msg--user {
+  align-self: flex-end;
+  background: var(--color-fg-ghost);
+  color: var(--color-fg);
+  border-bottom-right-radius: 4px;
+}
+
+.dash__msg--mentor {
+  align-self: flex-start;
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-accent-hairline);
+  color: var(--color-fg-dim);
+  border-bottom-left-radius: 4px;
+}
+
+.dash__msg--typing {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding-block: 0.75em;
+}
+
+.dash__msg--typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-fg-mute);
+  animation: dash-typing 1.2s ease-in-out infinite;
+}
+
+.dash__msg--typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.dash__msg--typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes dash-typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+.dash__side {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.dash__card {
+  border: 1px solid var(--color-fg-hairline);
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+  background: var(--color-bg);
+}
+
+.dash__card-label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.02em;
+  color: var(--color-fg-mute);
+  margin-bottom: 0.6rem;
+}
+
+.dash__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.dash__bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.625rem;
+  color: var(--color-fg-dim);
+}
+
+.dash__bar-row span {
+  flex-shrink: 0;
+  width: 5.2rem;
+}
+
+.dash__bar {
+  flex: 1;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--color-fg-ghost);
+  overflow: hidden;
+}
+
+.dash__bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-accent-strong);
+}
+
+.dash__card--streak {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.15rem;
+  padding-block: 1rem;
+}
+
+.dash__streak-num {
+  font-family: var(--font-display);
+  font-weight: 560;
+  font-size: 1.75rem;
+  color: var(--color-fg);
+}
+
+.dash__card--streak .dash__card-label {
+  margin-bottom: 0;
+}
+
+.hero__preview-note {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  color: var(--color-fg-mute);
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  /* .dash__body is a row by default (nav beside main) so a nav that only
+     switches its own children to a row still leaves it sitting in a
+     narrow column next to main, squeezing the chat text into one word
+     per line. Stack nav above main first, then let nav's own items lay
+     out horizontally as a proper tab bar across the full width. */
+  .dash__body {
+    flex-direction: column;
+  }
+  .dash__main {
+    flex-direction: column;
+  }
+  .dash__nav {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid var(--color-fg-hairline);
+    overflow-x: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dash__msg--typing span {
+    animation: none;
+    opacity: 0.6;
+  }
+}

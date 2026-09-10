@@ -153,10 +153,45 @@
 }
 
 .nav__lang-btn {
-  padding-inline: 0.7em;
+  position: relative;
+}
+
+.lang-stub__popover {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  z-index: var(--z-nav);
+  white-space: nowrap;
+  background: var(--color-fg);
+  color: var(--color-bg);
   font-family: var(--font-mono);
   font-size: var(--fs-label);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  padding: 0.55em 0.9em;
+  border-radius: 8px;
+  animation: lang-stub-in var(--dur-fast) var(--ease-out-expo);
+}
+
+.lang-stub__popover::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: 1.1rem;
+  width: 8px;
+  height: 8px;
+  background: var(--color-fg);
+  transform: rotate(45deg);
+}
+
+@keyframes lang-stub-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------- mobile nav overlay ----------

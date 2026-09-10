@@ -1,0 +1,97 @@
+/* ---------- apply page ----------
+   The four inline per-role forms that used to fold out under each role
+   on /careers now live here as one shared, detailed form. apply.ts reads
+   ?role= from the URL and relabels the role card, the link field, and
+   the message field to match — same /api/apply endpoint and honeypot as
+   before, just a page of its own instead of a <details> under each role. */
+.apply-role {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: baseline;
+  max-width: 42rem;
+  padding: 1.1rem 1.4rem;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  border: 1px solid var(--color-fg-hairline);
+  border-radius: 12px;
+  background: var(--color-bg-raised);
+}
+
+.apply-role__tag {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--color-accent-strong);
+}
+
+.apply-role__body {
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body-sm);
+  line-height: 1.55;
+}
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 42rem;
+}
+
+.apply-form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1.5rem;
+}
+
+.apply-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.apply-form__field--wide {
+  grid-column: 1 / -1;
+}
+
+.apply-form__field label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--color-fg-mute);
+  letter-spacing: 0.01em;
+}
+
+.apply-form textarea.field {
+  resize: vertical;
+  min-height: 7em;
+}
+
+.apply-form .btn {
+  align-self: flex-start;
+}
+
+.apply-form__status {
+  min-height: 1.4em;
+  margin-top: -0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--color-fg-dim);
+}
+
+.apply-form__status[data-state="error"] {
+  color: #d98a7a;
+}
+
+.apply-form__status[data-state="success"] {
+  color: var(--color-fg);
+}
+
+@media (max-width: 640px) {
+  .apply-form__grid {
+    grid-template-columns: 1fr;
+  }
+  .apply-role {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

@@ -125,6 +125,23 @@
   filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.55)) drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
 }
 
+/* Most of these seals are near-square crests that fill ~92% of their own
+   canvas, so a fixed square box treats them all the same. LUMS and KEMU
+   ship as wider-than-tall artwork (1.20 and 1.13 aspect), so object-fit:
+   contain letterboxes them shorter than the rest — measured against the
+   square seals, LUMS renders about 19% smaller and KEMU about 12% smaller
+   at the same box size. Scale each back up by that exact ratio so every
+   mark reads at the same visual weight; a uniform scale keeps their
+   proportions intact, and it's only ever a few pixels of overflow into
+   the gap between logos, never into a neighboring mark. */
+.boards__logo img[src$="lums.png"] {
+  transform: scale(1.24);
+}
+
+.boards__logo img[src$="kemu.png"] {
+  transform: scale(1.14);
+}
+
 /* current-coverage / expansion strip — the Pakistan flag marks what's
    live today, the rest are named honestly as not built yet */
 .boards__region {

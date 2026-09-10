@@ -72,6 +72,13 @@
   max-width: 52ch;
 }
 
+.apply-cta {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  margin-top: 1.5rem;
+  justify-self: start;
+}
+
 /* ---------- feature-preview steps (map / report) ----------
    Two of the four steps get a small schematic illustration alongside
    the copy — same honesty register as .centerpiece__stack and
@@ -240,6 +247,11 @@
   .philosophy__body {
     grid-row: 3;
     margin-top: 0.15em;
+  }
+
+  .apply-cta {
+    grid-column: 1;
+    grid-row: 4;
   }
 
   .philosophy__item--media {

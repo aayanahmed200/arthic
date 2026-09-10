@@ -1,8 +1,6 @@
 @import "@fontsource-variable/bricolage-grotesque/wght.css";
 @import "@fontsource/ibm-plex-mono/latin-400.css";
 @import "@fontsource/ibm-plex-mono/latin-500.css";
-@import "@fontsource/noto-nastaliq-urdu/arabic-400.css";
-@import "@fontsource/noto-nastaliq-urdu/arabic-700.css";
 
 @import "./tokens.css";
 @import "./base.css";
@@ -13,7 +11,6 @@
 @import "./intro.css";
 @import "./centerpiece.css";
 @import "./streams.css";
-@import "./application.css";
 @import "./philosophy.css";
 @import "./ai-note.css";
 @import "./community.css";
@@ -22,7 +19,5 @@
 @import "./entry.css";
 @import "./preview.css";
 @import "./pricing.css";
-
-/* rtl.css last — it overrides the section files above when
-   <html dir="rtl"> (Urdu mode), so it has to win the cascade. */
-@import "./rtl.css";
+@import "./dashboard.css";
+@import "./apply.css";

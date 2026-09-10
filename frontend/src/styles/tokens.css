@@ -61,7 +61,6 @@
   /* ---------- type families ---------- */
   --font-display: "Bricolage Grotesque Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --font-urdu: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Jameel Noori Nastaleeq", serif;
 
   /* ---------- fluid type scale ---------- */
   --fs-label: 0.8125rem;
