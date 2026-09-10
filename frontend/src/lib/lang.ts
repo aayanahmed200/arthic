@@ -110,7 +110,7 @@ const dictionary: Record<string, string> = {
   "nav.method": "طریقہ کار",
   "nav.pricing": "قیمت",
   "nav.careers": "ملازمتیں",
-  "nav.waitlist": "ویٹ لسٹ میں شامل ہوں",
+  "nav.waitlist": "ویٹ لسٹ",
   "mobilenav.subjects": "۰۱ — مضامین",
   "mobilenav.method": "۰۲ — طریقہ کار",
   "mobilenav.pricing": "۰۳ — قیمت",
@@ -179,6 +179,26 @@ const dictionary: Record<string, string> = {
   "stream.law.name": "قانون",
   "stream.law.body": "LUMS کا اپنا داخلہ ٹیسٹ اس کے قانون کے پروگرام کے لیے — فارمیٹ مختلف، مینٹر وہی۔",
 
+  // subjects.html — dedicated page
+  "subjectspage.title": "مضامین۔",
+  "subjectspage.lede": "سات امتحان، چار شعبے، ایک مینٹر جو جانتا ہے آپ کس کی تیاری کر رہے ہیں۔",
+  "subjectspage.detail.h": "ہر امتحان میں اصل میں کیا شامل ہے",
+  "subjectspage.mdcat":
+    "<strong>MDCAT</strong> — پاکستان میں میڈیکل اور ڈینٹل کالج داخلوں کے لیے انٹری ٹیسٹ۔ بائیالوجی، کیمسٹری، اور فزکس سب سے زیادہ وزن رکھتے ہیں، ساتھ میں انگریزی اور منطقی استدلال؛ arthic کا مینٹر ٹریک کرتا ہے کہ ان پانچ شعبوں میں سے کون سا اصل میں آپ کے نمبر کاٹ رہا ہے، نہ کہ صرف آپ کا مجموعی اسکور۔",
+  "subjectspage.ecat":
+    "<strong>ECAT</strong> — پنجاب میں انجینئرنگ داخلوں کے لیے استعمال ہونے والا انٹری ٹیسٹ، جو انٹرمیڈیٹ سطح پر ریاضی، فزکس، اور کیمسٹری کا احاطہ کرتا ہے۔",
+  "subjectspage.nustnet":
+    "<strong>NUST NET</strong> — NUST کا اپنا انٹری ٹیسٹ اپنے انجینئرنگ، کمپیوٹر سائنس، اور بزنس پروگراموں کے لیے، جو ECAT سے الگ اور اپنے مخصوص فارمیٹ کے ساتھ منعقد ہوتا ہے۔",
+  "subjectspage.fast":
+    "<strong>FAST</strong> — FAST-NUCES کا اپنا داخلہ ٹیسٹ اپنے کمپیوٹر سائنس اور انجینئرنگ پروگراموں کے لیے، جس کی ساخت ECAT اور NUST NET دونوں سے مختلف ہے۔",
+  "subjectspage.css":
+    "<strong>CSS</strong> — سنٹرل سپیریئر سروسز کا امتحان، وفاقی سول سروس کا امتحان جو کامیاب امیدواروں کو سال میں صرف ایک موقع دیتا ہے اور لازمی و اختیاری مضامین کے ساتھ ایک essay کا حصہ بھی شامل ہے۔",
+  "subjectspage.pms":
+    "<strong>PMS</strong> — پراونشل مینجمنٹ سروس کا امتحان، CSS کے مساوی صوبائی امتحان، جو ہر صوبے کا اپنا پبلک سروس کمیشن منعقد کرتا ہے۔",
+  "subjectspage.lnat":
+    "<strong>LUMS LNAT</strong> — LUMS کا اپنا داخلہ ٹیسٹ اپنے Shaikh Ahmad Hassan School of Law کے قانون کے پروگرام کے لیے، جو قانونی معلومات کی بجائے (جن کی آپ سے ابھی توقع نہیں رکھی جاتی) reading comprehension اور argument analysis کو جانچتا ہے۔",
+  "subjectspage.foot.method": "دیکھیں مینٹر اصل میں کیسے سکھاتا ہے",
+
   // home — how it works / rule of three
   "method.eyebrow": "یہ کیسے کام کرتا ہے",
   "method.headline": "تین کا اصول۔<br />نہ کوئی شارٹ کٹ، نہ وقت کا ضیاع۔",
@@ -199,6 +219,15 @@ const dictionary: Record<string, string> = {
   "method.card.fw1": "رکشہ = SN1",
   "method.card.fw2": "شیئرڈ وین = SN2",
   "method.card.fw3": "concept ذہن نشین",
+
+  // method.html — dedicated page
+  "methodpage.title": "طریقہ کار۔",
+  "methodpage.lede": "تین کا اصول — نہ کوئی شارٹ کٹ، نہ وقت کا ضیاع، ہر مضمون اور دونوں زبانوں کے لیے وہی تین قدم۔",
+  "methodpage.intro":
+    "زیادہ تر تدریس، چاہے انسان ہو یا سافٹ ویئر، غلطی ہونے پر دو میں سے ایک کام کرتی ہے: اسے غلط قرار دے کر آگے بڑھ جاتی ہے، یا وہی وضاحت دوبارہ دکھا دیتی ہے جو آپ پہلے ہی نہیں سمجھ پائے تھے۔ arthic کا مینٹر ان میں سے کوئی کام نہیں کرتا۔ ہر غلط جواب پر، ہر \"مجھے یہ سمجھ نہیں آیا\" پر، مینٹر آگے بڑھنے سے پہلے اسی تین قدمی سلسلے سے گزرتا ہے۔",
+  "methodpage.close":
+    "یہی سلسلہ چلتا ہے چاہے آپ فزکس کے کسی numerical میں اٹکے ہوں، انگریزی کے کسی comprehension پیراگراف میں، یا CSS کے کسی essay کے خاکے میں — اور چاہے آپ نے سوال انگریزی میں پوچھا ہو یا بیچ میں اردو پر آ گئے ہوں۔ ایک طریقہ، مستقل طور پر لاگو، وہی اصل شرط ہے جو arthic ایک عام، سب کے لیے یکساں تیاری کے خلاف لگا رہا ہے۔",
+  "methodpage.foot.subjects": "دیکھیں یہ کن امتحانات پر لاگو ہوتا ہے",
 
   // home — board logos
   "boards.eyebrow": "ہم کن کے لیے تیاری کرواتے ہیں",
@@ -222,6 +251,14 @@ const dictionary: Record<string, string> = {
     "کوئی سپیم نہیں، آپ کا ای میل کہیں فروخت نہیں ہوگا — بس arthic تیار ہونے پر ایک اطلاع، اور اس سے پہلے کبھی کبھار پیش رفت کی خبر۔",
   "waitlist.form.label": "ای میل",
   "waitlist.form.submit": "ویٹ لسٹ میں شامل ہوں",
+
+  // waitlist.html — dedicated page
+  "waitlistpage.title": "ویٹ لسٹ۔",
+  "waitlistpage.lede":
+    "تیار ہوتے ہی سب سے پہلے جانیں — ابتدائی رسائی کے دوران مفت، تمام سات امتحانات کے لیے، اسی زبان میں جس میں آپ واقعی سوچتے ہیں۔",
+  "waitlistpage.intro":
+    "arthic ابھی ابتدائی رسائی کے مرحلے میں ہے۔ AI مینٹر، پرانے پیپرز، ذاتی نوعیت کے اسٹڈی پلانز، اور امتحانی کیلنڈر — یہ سب پاکستان میں طلبہ کے ایک ابتدائی گروپ کے ساتھ مل کر بنائے اور آزمائے جا رہے ہیں — پہلے دن سے MDCAT، ECAT، NUST NET، FAST، CSS، PMS، اور LUMS LNAT سب شامل ہیں۔",
+  "waitlistpage.foot.pricing": "دیکھیں تیار ہونے پر اس کی قیمت کیا ہوگی",
 
   // home — closing
   "closing.headline": "رٹا لگانا چھوڑیں۔<br />سمجھنا شروع کریں۔",
