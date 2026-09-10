@@ -26,8 +26,10 @@ Either way, no database configured is fine: the waitlist and apply forms say hon
 | --- | --- |
 | `npm run dev` | Vite dev server only, hot module reload, no `api/` |
 | `npx vercel dev` | Site + `api/` serverless functions together, via the Vercel CLI (no separate install — `npx` fetches it) |
-| `npm run build` | Type-checks (`tsc`) then builds `dist/` |
+| `npm run build` | Type-checks (`tsc`) then builds `dist/` — every page in `vite.config.ts`'s `rollupOptions.input` |
 | `npm run preview` | Serves the built `dist/` locally, to sanity-check a production build |
+
+Adding a new top-level page means adding both the `.html` file and an entry in `vite.config.ts`'s `build.rollupOptions.input` — Vite's multi-page build only bundles HTML files it's told about explicitly; a page missing from that list won't make it into `dist/` even though it builds and runs fine in `npm run dev`.
 
 ## Environment variables
 
@@ -55,12 +57,16 @@ Ships configured for Vercel — [`vercel.json`](vercel.json) sets the build comm
 
 ```
 frontend/
-├── index.html            home — hero + mentor-chat preview, why arthic, subjects, how it works (rule of three), team strip, hiring, waitlist, closing
+├── index.html            home — hero, features preview, why arthic, board strip, hiring, closing
+├── subjects.html          all seven exams grouped into four streams, plus what each exam covers
+├── method.html            the "rule of three" — identify, explain, test
 ├── pricing.html           three tiers (free/plus/institutions) and an exam-prep FAQ
 ├── careers.html           open roles + apply forms
-├── privacy.html            plain-English privacy policy
-├── terms.html               plain-English terms
-├── 404.html                custom not-found page — a real route, not a static drop-in
+├── waitlist.html          early-access signup, its own dedicated page
+├── privacy.html            detailed privacy policy
+├── terms.html               detailed terms
+├── 404.html                 custom not-found page — a real route, not a static drop-in
+├── vite.config.ts          multi-page build config — every HTML entry point is listed explicitly here
 ├── api/                   serverless functions — see "The API" below
 │   ├── _db.ts              shared Postgres client + ensureTables()
 │   ├── _auth.ts             timing-safe admin Basic-auth check
@@ -68,53 +74,57 @@ frontend/
 │   ├── subscribers.ts       GET (admin) — waitlist list
 │   └── apply.ts             POST — job application
 ├── src/
-│   ├── main.ts            home entry point — also wires the product-preview dashboard's tab switcher
-│   ├── careers.ts         careers page entry point
-│   ├── pricing.ts         pricing page entry point (shared chrome only — no page-specific JS)
-│   ├── legal.ts            privacy/terms entry point
+│   ├── main.ts            home entry point
+│   ├── subjects, method    share `legal.ts` as their entry point (chrome only, no page-specific JS)
+│   ├── careers.ts         careers page entry point — wires the four apply forms
+│   ├── pricing.ts         pricing page entry point (shared chrome only)
+│   ├── legal.ts            shared entry point for subjects/method/waitlist/privacy/terms
 │   ├── notfound.ts        404 page entry point
 │   ├── styles/
-│   │   ├── tokens.css     colors, type scale, spacing, motion — the whole design system
+│   │   ├── tokens.css     colors (incl. light/dark theme pairs), type scale, spacing, motion
 │   │   ├── base.css       reset + reduced-motion handling
 │   │   ├── utilities.css  shared patterns (reveal, containers, buttons, links)
-│   │   ├── centerpiece.css the homepage's "six exams, one mentor" visual
-│   │   ├── streams.css    subject stream cards + the university/team logo strip
-│   │   ├── preview.css    the product-preview AI-mentor chat mock
-│   │   ├── pricing.css    the pricing page's tiers, comparison, and FAQ
-│   │   ├── entry.css      shared long-form layout (privacy/terms/404)
+│   │   ├── streams.css    subject stream cards + the board-institution logo strip + flag icons
+│   │   ├── preview.css    the homepage features-preview cards (AI mentor, past papers, plan, calendar)
+│   │   ├── entry.css      shared long-form layout (subjects/method/waitlist/privacy/terms/404)
+│   │   ├── rtl.css        Urdu-specific overrides — line-height, font-family, direction (loaded last)
 │   │   └── *.css          one file per section, reused across pages
 │   └── lib/
 │       ├── config.ts      API_BASE resolution
 │       ├── common-init.ts shared page bootstrap — see below
 │       ├── reveal.ts      fail-safe scroll-reveal (see below)
 │       ├── nav.ts         header state, mobile menu, active-route highlighting
-│       ├── smooth-scroll.ts   Lenis setup + anchor-link upgrade
+│       ├── theme.ts       light/dark toggle, persisted to localStorage
+│       ├── lang.ts        English/Urdu toggle — see "Bilingual by construction" in the root README
+│       ├── smooth-scroll.ts   Lenis setup + same-page anchor-link upgrade
 │       ├── subscribe.ts   waitlist email-capture form
 │       └── form-submit.ts shared submit handler for the apply forms
 └── public/
     ├── admin/              waitlist admin panel, served same-origin at /admin
+    ├── boards/             real seals of the institutions arthic preps students for
+    ├── flags/              self-hosted SVG flag icons (Pakistan live, UK/US/India coming soon)
     └── ...                 logo, favicons, og-image, robots.txt, sitemap.xml
 ```
 
 ## Shared page bootstrap
 
-Every page's entry script calls `initCommon()` (`src/lib/common-init.ts`) first: it wires the nav, smooth scroll, scroll-reveal, and the footer waitlist form — the chrome that's identical everywhere. Anything page-specific (the dashboard-preview tabs on the homepage, the apply forms on careers) is initialized afterward by that page's own script. Every page is a real route (`/`, `/careers.html`, `/privacy.html`, `/terms.html`), so `initNav()`'s active-link highlighting (`src/lib/nav.ts`) is a one-time pathname match on load instead of something scroll position decides; the homepage's in-page anchors (`#product`, `#preview`, `#waitlist`) aren't separately highlighted, which is expected for anchor nav.
+Every page's entry script calls `initCommon()` (`src/lib/common-init.ts`) first: it wires the nav, theme toggle, language toggle, smooth scroll, scroll-reveal, and the waitlist subscribe form (wherever one exists on the page) — the chrome that's identical everywhere. Anything page-specific (the apply forms on careers, the tab-switching that used to exist on an older homepage mock) is initialized afterward by that page's own script. Every page is a real route (`/`, `/subjects.html`, `/method.html`, `/pricing.html`, `/careers.html`, `/waitlist.html`, `/privacy.html`, `/terms.html`), so `initNav()`'s active-link highlighting (`src/lib/nav.ts`) is a one-time pathname match on load rather than something scroll position decides — it explicitly skips any link that's a same-page hash anchor (like the footer's "back to top"), so those never get falsely marked active.
 
 ## The reveal system
 
 Every section is real, visible markup by default — nothing depends on JavaScript to appear. `initReveal()` (`src/lib/reveal.ts`) progressively adds a `.reveal` class (opacity 0, translated slightly) and then, per-element, `.is-in` once an `IntersectionObserver` sees it enter the viewport. Three separate safety nets keep content from ever getting stuck invisible: `prefers-reduced-motion` skips the whole system, missing `IntersectionObserver` support skips it, and a 4-second timeout force-reveals everything regardless. Content is the fallback, not the effect. (Worth remembering when testing headlessly — a screenshot taken well under 4 seconds after load, without scrolling, will show mostly-empty sections; that's the timeout not having fired yet, not a bug.)
 
-## The product-preview dashboard
+## The features preview
 
-`#preview` on the homepage is a hand-built UI mock (`.dash*` classes in `src/styles/preview.css`, markup in `index.html`, tab-switching in `src/main.ts`) — a browser-chrome frame around a compliance dashboard with a CSS-only progress ring, an illustrative emissions trend chart, a framework checklist, a recent-activity feed, and an "advisor view" with example recommendations. Every number in it is static and clearly labeled as a preview, not live data; nothing fetches anything.
+`#preview` on the homepage (`.features*` classes in `src/styles/preview.css`) is an honest look at what's shipping, not a product demo — four cards (AI mentor, past papers, study plan, exam calendar), each with a one-line description of what it'll actually do, and an explicit note that arthic is still in development. No simulated chat transcript, no invented dashboard screenshot standing in for a mentor that doesn't fully exist yet.
 
-## The concept centerpiece
+## Subjects and the board strip
 
-Between "why now" and "how it works," `#concept` is the one section that departs from the shared background — a hand-built visual (`.centerpiece*` classes in `src/styles/centerpiece.css`) showing a scattered pile of the messy inputs a real mid-sized company has (a spreadsheet, a supplier email thread, a utility bill export) resolving into the three frameworks arthic maps against. No image assets — it's CSS transforms and the type scale's largest size (`--fs-featured-title`, defined in `tokens.css` but otherwise unused).
+`subjects.html` groups all seven exams (MDCAT, ECAT, NUST NET, FAST, CSS, PMS, LUMS LNAT) into four streams (medical, engineering, civil service, law), each described honestly without inventing precise weightages or dates the team hasn't verified. The homepage's board strip (`.boards*` classes, also in `streams.css`) shows the real seals of the institutions whose entrance tests map to those exams, captioned as exactly that — not an endorsement or partnership claim.
 
 ## Fonts
 
-Bricolage Grotesque (display, variable weight) and IBM Plex Mono (labels/dates/numbers) are self-hosted via `@fontsource` — no request ever goes to a third-party font host at runtime.
+Bricolage Grotesque (display, variable weight) and IBM Plex Mono (labels/dates/numbers) are self-hosted via `@fontsource` for the Latin half of the site; Noto Nastaliq Urdu covers the Urdu half, with its own line-height tuning in `rtl.css` since Nastaliq's diagonal stacking needs far more vertical room than the Latin type scale assumes. No request ever goes to a third-party font host at runtime.
 
 ## The API
 
