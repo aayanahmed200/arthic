@@ -12,16 +12,6 @@
   margin-inline: auto;
 }
 
-.features::before {
-  content: "";
-  position: absolute;
-  inset: -10% -6% -18%;
-  background: radial-gradient(60% 55% at 50% 22%, var(--color-accent-dim), transparent 72%);
-  filter: blur(48px);
-  z-index: -1;
-  pointer-events: none;
-}
-
 .features__head {
   max-width: 42rem;
   margin-bottom: clamp(2rem, 4vw, 3rem);

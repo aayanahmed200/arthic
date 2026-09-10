@@ -16,12 +16,17 @@
   border-bottom-color: var(--color-fg-hairline);
 }
 
+/* The nav bar reads as chrome, not page content, so it earns a wider
+   stage than --container-max: on large/ultra-wide screens the shared
+   1440px content cap would leave the whole bar looking stranded in a
+   narrow strip with dead space on both sides. */
 .nav__inner {
   height: var(--nav-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
+  max-width: 1920px;
 }
 
 .nav__mark {

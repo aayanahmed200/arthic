@@ -16,16 +16,6 @@
   text-align: center;
   background: var(--color-bg);
   color: var(--color-fg);
-  overflow: hidden;
-}
-
-.closing::before {
-  content: "";
-  position: absolute;
-  inset: -20% -10%;
-  background: radial-gradient(50% 60% at 50% 30%, var(--color-accent-dim), transparent 70%);
-  opacity: 0.55;
-  pointer-events: none;
 }
 
 .closing__mark {

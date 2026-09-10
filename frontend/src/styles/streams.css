@@ -71,10 +71,10 @@
    Full authentic color, not the dimmed/monochrome treatment a "trust
    strip" of logos usually gets — these are the actual seals of the
    institutions whose entrance tests arthic teaches to, not a vague
-   credibility signal, so they're shown as themselves. Every mark sits
-   on a fixed white chip (--color-flag-chip) regardless of theme, since
-   these are official seals with their own fixed colors, not assets
-   that should reinterpret themselves for dark mode. */
+   credibility signal, so they're shown as themselves. No card/box behind
+   each mark — they sit directly on the section background, like a plain
+   logo strip, with just enough drop-shadow to keep a pale ring readable
+   against a same-toned background in either theme. */
 .boards {
   display: flex;
   flex-direction: column;
@@ -96,33 +96,33 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.85rem, 2.2vw, 1.35rem);
+  gap: clamp(1.5rem, 3.5vw, 2.75rem);
   width: 100%;
-  max-width: 56rem;
+  max-width: 60rem;
 }
 
 .boards__logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(62px, 6.6vw, 82px);
-  height: clamp(62px, 6.6vw, 82px);
-  border-radius: 16px;
-  background: var(--color-flag-chip);
-  border: 1px solid var(--color-fg-hairline);
-  padding: 0.55rem;
-  transition: transform var(--dur-base) var(--ease-out-expo), border-color var(--dur-base) var(--ease-out-expo);
+  width: clamp(56px, 6vw, 76px);
+  height: clamp(56px, 6vw, 76px);
+  transition: transform var(--dur-base) var(--ease-out-expo), opacity var(--dur-base) var(--ease-out-expo);
 }
 
 .boards__logo:hover {
   transform: translateY(-3px);
-  border-color: var(--color-accent-hairline);
 }
 
 .boards__logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.18)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.12));
+}
+
+:root[data-theme="dark"] .boards__logo img {
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.55)) drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
 }
 
 /* current-coverage / expansion strip — the Pakistan flag marks what's
@@ -159,9 +159,21 @@
   border: 1px dashed var(--color-fg-hairline);
 }
 
+/* real flag images (not emoji characters) — plenty of systems fall back
+   to plain two-letter region-code text for flag emoji, so a small
+   self-hosted svg per flag renders identically everywhere. */
 .boards__flag {
-  font-size: 1.05em;
-  line-height: 1;
+  display: inline-block;
+  width: 1.15em;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.boards__flag-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
 }
 
 @media (prefers-reduced-motion: reduce) {

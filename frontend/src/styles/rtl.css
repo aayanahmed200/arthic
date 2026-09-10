@@ -88,3 +88,37 @@
 [data-lang-toggle-label] {
   font-family: var(--font-urdu), var(--font-mono);
 }
+
+/* Nastaliq needs far more vertical room than the tight 0.9–1.1 line-heights
+   tuned for the bold Latin display face — its diagonal stacking and long
+   connecting strokes reach well above and below the nominal line box, so
+   at the same tight spacing consecutive lines visually collide. Bumping
+   line-height (and clearing the Latin-tuned letter-spacing/uppercase/
+   hardcoded font-family some of these carry) fixes that without touching
+   the English styling at all. */
+[dir="rtl"] .hero__headline,
+[dir="rtl"] .intro__headline,
+[dir="rtl"] .philosophy__headline,
+[dir="rtl"] .centerpiece__headline,
+[dir="rtl"] .closing__headline,
+[dir="rtl"] .entry__title,
+[dir="rtl"] .entry__missing h1 {
+  font-family: var(--font-urdu);
+  line-height: 2;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* smaller headings and page ledes are Latin-tuned too, just with less
+   room to lose — a lighter touch keeps them from feeling cramped */
+[dir="rtl"] .features__head h2,
+[dir="rtl"] .stream-card__name,
+[dir="rtl"] .features__card h3,
+[dir="rtl"] h3 {
+  line-height: 1.5;
+}
+
+[dir="rtl"] .entry__lede,
+[dir="rtl"] .hero__lede {
+  line-height: 1.9;
+}
