@@ -7,7 +7,7 @@
  */
 import { initNav } from "./nav";
 import { initTheme } from "./theme";
-import { initLangStub } from "./lang-stub";
+import { initI18n } from "./i18n";
 import { initSmoothScroll } from "./smooth-scroll";
 import { initReveal } from "./reveal";
 import { initScrollTilt } from "./scroll-tilt";
@@ -16,7 +16,7 @@ import { initSubscribeForm } from "./subscribe";
 export function initCommon(): void {
   initNav();
   initTheme();
-  initLangStub();
+  initI18n();
   initSmoothScroll();
   initReveal();
   initScrollTilt();

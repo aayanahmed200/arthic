@@ -1,6 +1,8 @@
 @import "@fontsource-variable/bricolage-grotesque/wght.css";
 @import "@fontsource/ibm-plex-mono/latin-400.css";
 @import "@fontsource/ibm-plex-mono/latin-500.css";
+@import "@fontsource/noto-nastaliq-urdu/arabic-400.css";
+@import "@fontsource/noto-nastaliq-urdu/arabic-600.css";
 
 @import "./tokens.css";
 @import "./base.css";
@@ -21,3 +23,4 @@
 @import "./pricing.css";
 @import "./dashboard.css";
 @import "./apply.css";
+@import "./i18n.css";

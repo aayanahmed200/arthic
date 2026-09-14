@@ -15,6 +15,17 @@
   } catch (e) {}
 })();
 </script>
+<script>
+(function () {
+  try {
+    var lang = localStorage.getItem("arthic-lang");
+    if (lang !== "en" && lang !== "ur") { lang = "en"; }
+    document.documentElement.setAttribute("data-lang", lang);
+    document.documentElement.lang = lang === "ur" ? "ur" : "en";
+    if (lang === "ur") { document.documentElement.classList.add("lang-ur"); }
+  } catch (e) {}
+})();
+</script>
 <title>apply — arthic</title>
 <meta name="description" content="Apply to one of arthic's student-built roles — a few details about you and the role, sent straight to a small team that reads every application itself." />
 <meta name="robots" content="noindex" />
@@ -39,11 +50,11 @@
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
+      <a href="/subjects.html" class="hover-underline" data-nav-link data-i18n-ur="مضامین">subjects</a>
+      <a href="/method.html" class="hover-underline" data-nav-link data-i18n-ur="طریقہ کار">method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n-ur="قیمتیں">pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link data-i18n-ur="کیریئر">careers</a>
+      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span data-i18n-ur="ویٹ لسٹ">waitlist</span></a>
     </nav>
 
     <div class="nav__utility">
@@ -58,11 +69,12 @@
           </g>
         </svg>
       </button>
-      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="language — more coming soon">
+      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="دیکھیں اردو میں — switch to Urdu">
         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
           <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
         </svg>
+        <span data-lang-label>اردو</span>
       </button>
     </div>
 
@@ -74,13 +86,13 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
-    <a href="/method.html" data-mobile-link>02 — method</a>
-    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
+    <a href="/subjects.html" data-mobile-link data-i18n-ur="01 — مضامین">01 — subjects</a>
+    <a href="/method.html" data-mobile-link data-i18n-ur="02 — طریقہ کار">02 — method</a>
+    <a href="/pricing.html" data-mobile-link data-i18n-ur="03 — قیمتیں">03 — pricing</a>
+    <a href="/careers.html" data-mobile-link data-i18n-ur="04 — کیریئر">04 — careers</a>
+    <a href="/waitlist.html" data-mobile-link data-i18n-ur="05 — ویٹ لسٹ میں شامل ہوں">05 — join waitlist</a>
   </nav>
-  <p class="mobile-nav__foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</p>
+  <p class="mobile-nav__foot" data-i18n-ur="MDCAT، ECAT، NUST NET، FAST، CSS، PMS اور LUMS LNAT کے لیے ایک مکمل امتحانی تیاری کا پلیٹ فارم — طلبہ کے بنائے ہوئے، ابتدائی مرحلے میں۔">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</p>
 </div>
 
 <main id="main">
@@ -166,24 +178,24 @@
           <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
           <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
         </a>
-        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+        <p class="footer__tagline" data-i18n-ur="پاکستان کے مشکل ترین امتحانات کے لیے ایک مکمل امتحانی تیاری کا پلیٹ فارم۔">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
       <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label">legal</span>
-        <a href="/privacy.html" class="hover-underline">privacy</a>
-        <a href="/terms.html" class="hover-underline">terms</a>
+        <span class="footer__col-label" data-i18n-ur="قانونی">legal</span>
+        <a href="/privacy.html" class="hover-underline" data-i18n-ur="رازداری">privacy</a>
+        <a href="/terms.html" class="hover-underline" data-i18n-ur="شرائط">terms</a>
       </nav>
 
       <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label">contact</span>
+        <span class="footer__col-label" data-i18n-ur="رابطہ">contact</span>
         <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
-      <a href="#top" class="hover-underline">back to top</a>
+      <p>© <span data-year>2026</span> arthic. <span data-i18n-ur="جملہ حقوق محفوظ ہیں۔">All rights reserved.</span></p>
+      <a href="#top" class="hover-underline" data-i18n-ur="اوپر جائیں">back to top</a>
     </div>
   </div>
 </footer>

@@ -15,6 +15,17 @@
   } catch (e) {}
 })();
 </script>
+<script>
+(function () {
+  try {
+    var lang = localStorage.getItem("arthic-lang");
+    if (lang !== "en" && lang !== "ur") { lang = "en"; }
+    document.documentElement.setAttribute("data-lang", lang);
+    document.documentElement.lang = lang === "ur" ? "ur" : "en";
+    if (lang === "ur") { document.documentElement.classList.add("lang-ur"); }
+  } catch (e) {}
+})();
+</script>
 <title>pricing — arthic</title>
 <meta name="description" content="arthic is free during early access — one exam track, full platform access. Here's what's free today, what Plus is planned to cost, and why we're not charging for something that isn't finished yet." />
 <meta name="theme-color" content="#fcfbf8" />
@@ -49,11 +60,11 @@
     </a>
 
     <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
+      <a href="/subjects.html" class="hover-underline" data-nav-link data-i18n-ur="مضامین">subjects</a>
+      <a href="/method.html" class="hover-underline" data-nav-link data-i18n-ur="طریقہ کار">method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link data-i18n-ur="قیمتیں">pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link data-i18n-ur="کیریئر">careers</a>
+      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span data-i18n-ur="ویٹ لسٹ">waitlist</span></a>
     </nav>
 
     <div class="nav__utility">
@@ -68,11 +79,12 @@
           </g>
         </svg>
       </button>
-      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="language — more coming soon">
+      <button class="nav__icon-btn nav__lang-btn" type="button" data-lang-toggle aria-label="دیکھیں اردو میں — switch to Urdu">
         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
           <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
         </svg>
+        <span data-lang-label>اردو</span>
       </button>
     </div>
 
@@ -84,13 +96,13 @@
 
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
-    <a href="/method.html" data-mobile-link>02 — method</a>
-    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
+    <a href="/subjects.html" data-mobile-link data-i18n-ur="01 — مضامین">01 — subjects</a>
+    <a href="/method.html" data-mobile-link data-i18n-ur="02 — طریقہ کار">02 — method</a>
+    <a href="/pricing.html" data-mobile-link data-i18n-ur="03 — قیمتیں">03 — pricing</a>
+    <a href="/careers.html" data-mobile-link data-i18n-ur="04 — کیریئر">04 — careers</a>
+    <a href="/waitlist.html" data-mobile-link data-i18n-ur="05 — ویٹ لسٹ میں شامل ہوں">05 — join waitlist</a>
   </nav>
-  <p class="mobile-nav__foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</p>
+  <p class="mobile-nav__foot" data-i18n-ur="MDCAT، ECAT، NUST NET، FAST، CSS، PMS اور LUMS LNAT کے لیے ایک مکمل امتحانی تیاری کا پلیٹ فارم — طلبہ کے بنائے ہوئے، ابتدائی مرحلے میں۔">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</p>
 </div>
 
 <main id="main">
@@ -98,11 +110,11 @@
   <!-- ============ PRICING HERO ============ -->
   <section class="section section--first" id="top" data-section data-section-label="pricing">
     <div class="container">
-      <p class="eyebrow" data-reveal>pricing</p>
-      <h1 class="pricing-hero__headline" data-reveal data-reveal-delay="80">
+      <p class="eyebrow" data-reveal data-i18n-ur="قیمتیں">pricing</p>
+      <h1 class="pricing-hero__headline" data-reveal data-reveal-delay="80" data-i18n-ur="ابھی مفت۔ سچ میں، کوئی چال نہیں۔">
         free right now. honestly, not a trick.
       </h1>
-      <p class="pricing-hero__lede" data-reveal data-reveal-delay="160">
+      <p class="pricing-hero__lede" data-reveal data-reveal-delay="160" data-i18n-ur="arthic ابھی لانچ سے پہلے کے مرحلے میں ہے، تو 'قیمت' کا زیادہ تر مطلب یہی ہے کہ آج کیا مفت ہے اور ہم کس طرف بڑھ رہے ہیں۔ نہ کوئی چھپی ہوئی ٹرائل مدت، نہ شروع کرنے کے لیے کارڈ کی ضرورت — بس مینٹر، ایک امتحانی ٹریک کے لیے، مفت جب تک ہم اسے آپ کے ساتھ مل کر بنا رہے ہیں۔">
         arthic is pre-launch, so "pricing" mostly means what's free today and what we're
         building toward. no hidden trial clock, no card required to start — just the mentor,
         for one exam track, free while we're building it with you.
@@ -115,51 +127,51 @@
     <div class="container">
       <div class="pricing-tiers__grid">
         <article class="pricing-tier" data-reveal>
-          <p class="pricing-tier__name">free</p>
-          <p class="pricing-tier__for">any student, prepping for one exam track right now</p>
+          <p class="pricing-tier__name" data-i18n-ur="فری">free</p>
+          <p class="pricing-tier__for" data-i18n-ur="کوئی بھی طالب علم، جو ابھی ایک امتحانی ٹریک کی تیاری کر رہا ہے">any student, prepping for one exam track right now</p>
           <p class="pricing-tier__price">Rs. 0</p>
-          <p class="pricing-tier__billed">free during early access</p>
+          <p class="pricing-tier__billed" data-i18n-ur="ابتدائی رسائی کے دوران مفت">free during early access</p>
           <ul class="pricing-tier__list">
-            <li>full AI mentor access, no feature gating</li>
-            <li>MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS LNAT — pick one track</li>
-            <li>past papers and a starter study plan for that track</li>
-            <li>unlimited practice questions</li>
-            <li>the "rule of three" method on every concept</li>
+            <li data-i18n-ur="مکمل AI مینٹر تک رسائی، کسی فیچر کی پابندی کے بغیر">full AI mentor access, no feature gating</li>
+            <li data-i18n-ur="MDCAT، ECAT، NUST NET، FAST، CSS، PMS، یا LUMS LNAT — ایک ٹریک منتخب کریں">MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS LNAT — pick one track</li>
+            <li data-i18n-ur="اس ٹریک کے لیے پرانے پرچے اور ایک ابتدائی اسٹڈی پلان">past papers and a starter study plan for that track</li>
+            <li data-i18n-ur="لامحدود پریکٹس سوالات">unlimited practice questions</li>
+            <li data-i18n-ur="ہر تصور پر 'رول آف تھری' طریقہ">the "rule of three" method on every concept</li>
           </ul>
-          <a class="btn btn--solid" href="/waitlist.html"><span>join the waitlist</span></a>
+          <a class="btn btn--solid" href="/waitlist.html"><span data-i18n-ur="ویٹ لسٹ میں شامل ہوں">join the waitlist</span></a>
         </article>
 
         <article class="pricing-tier pricing-tier--featured" data-reveal data-reveal-delay="80">
-          <p class="pricing-tier__badge">planned after early access</p>
-          <p class="pricing-tier__name">plus</p>
-          <p class="pricing-tier__for">students who want every track and the full platform</p>
+          <p class="pricing-tier__badge" data-i18n-ur="ابتدائی رسائی کے بعد کا منصوبہ">planned after early access</p>
+          <p class="pricing-tier__name" data-i18n-ur="پلس">plus</p>
+          <p class="pricing-tier__for" data-i18n-ur="وہ طلبہ جو ہر ٹریک اور مکمل پلیٹ فارم چاہتے ہیں">students who want every track and the full platform</p>
           <p class="pricing-tier__price">Rs. 8,999</p>
-          <p class="pricing-tier__billed">per month, after early access</p>
+          <p class="pricing-tier__billed" data-i18n-ur="ماہانہ، ابتدائی رسائی کے بعد">per month, after early access</p>
           <ul class="pricing-tier__list">
-            <li>everything in free</li>
-            <li>all seven exams, switch tracks anytime</li>
-            <li>full past-paper library with mentor walkthroughs</li>
-            <li>personalized study plan and exam calendar, every track</li>
-            <li>progress tracking across subjects</li>
+            <li data-i18n-ur="فری میں شامل سب کچھ">everything in free</li>
+            <li data-i18n-ur="تمام سات امتحانات، کسی بھی وقت ٹریک تبدیل کریں">all seven exams, switch tracks anytime</li>
+            <li data-i18n-ur="مینٹر واک تھرو کے ساتھ مکمل پرانے پرچوں کی لائبریری">full past-paper library with mentor walkthroughs</li>
+            <li data-i18n-ur="ذاتی نوعیت کا اسٹڈی پلان اور امتحانی کیلنڈر، ہر ٹریک کے لیے">personalized study plan and exam calendar, every track</li>
+            <li data-i18n-ur="مضامین کے حساب سے پیش رفت کی نگرانی">progress tracking across subjects</li>
           </ul>
-          <a class="btn" href="/waitlist.html"><span>join the waitlist</span></a>
+          <a class="btn" href="/waitlist.html"><span data-i18n-ur="ویٹ لسٹ میں شامل ہوں">join the waitlist</span></a>
         </article>
 
         <article class="pricing-tier" data-reveal data-reveal-delay="160">
-          <p class="pricing-tier__name">institutions</p>
-          <p class="pricing-tier__for">academies and schools prepping a whole batch</p>
-          <p class="pricing-tier__price">custom</p>
-          <p class="pricing-tier__billed">talk to us</p>
+          <p class="pricing-tier__name" data-i18n-ur="ادارے">institutions</p>
+          <p class="pricing-tier__for" data-i18n-ur="اکیڈمیاں اور اسکول جو پورے بیچ کی تیاری کروا رہے ہیں">academies and schools prepping a whole batch</p>
+          <p class="pricing-tier__price" data-i18n-ur="حسبِ ضرورت">custom</p>
+          <p class="pricing-tier__billed" data-i18n-ur="ہم سے بات کریں">talk to us</p>
           <ul class="pricing-tier__list">
-            <li>everything in plus</li>
-            <li>a shared progress view for instructors</li>
-            <li>bulk seats for a batch or campus</li>
-            <li>onboarding for your team</li>
+            <li data-i18n-ur="پلس میں شامل سب کچھ">everything in plus</li>
+            <li data-i18n-ur="اساتذہ کے لیے مشترکہ پیش رفت کا منظر">a shared progress view for instructors</li>
+            <li data-i18n-ur="ایک بیچ یا کیمپس کے لیے بلک نشستیں">bulk seats for a batch or campus</li>
+            <li data-i18n-ur="آپ کی ٹیم کے لیے آن بورڈنگ">onboarding for your team</li>
           </ul>
-          <a class="btn" href="mailto:hello@arthic.tech"><span>get in touch</span></a>
+          <a class="btn" href="mailto:hello@arthic.tech"><span data-i18n-ur="ہم سے رابطہ کریں">get in touch</span></a>
         </article>
       </div>
-      <p class="pricing-tiers__note" data-reveal data-reveal-delay="240">
+      <p class="pricing-tiers__note" data-reveal data-reveal-delay="240" data-i18n-ur="arthic ابھی لانچ سے پہلے کے مرحلے میں ہے — فری ٹیئر آج ہی فعال ہے۔ پلس کی قیمت وہی ہے جو ہم ابتدائی رسائی ختم ہونے کے بعد وصول کرنے کی توقع رکھتے ہیں، اور ادارے کی قیمت حسبِ ضرورت ہے — تب تک کچھ بھی چارج نہیں ہوگا، اور ابتدائی ویٹ لسٹ ممبران کو اس سے پہلے حقیقی رائے دینے کا موقع ملے گا۔">
         arthic is pre-launch — the free tier is live today. Plus is priced at what we expect to
         charge once early access ends, and Institutions pricing is custom — nothing is charged
         until then, and early waitlist members get a real say before it does.
@@ -170,9 +182,9 @@
   <!-- ============ WHY FREE RIGHT NOW ============ -->
   <section class="ai-note section--tight" data-section data-section-label="why free right now">
     <div class="container ai-note__inner pricing-compare__inner">
-      <p class="eyebrow" data-reveal>why free right now</p>
-      <h2 data-reveal data-reveal-delay="80">we're not charging for something that isn't finished.</h2>
-      <p class="ai-note__body pricing-compare__body" data-reveal data-reveal-delay="160">
+      <p class="eyebrow" data-reveal data-i18n-ur="ابھی مفت کیوں">why free right now</p>
+      <h2 data-reveal data-reveal-delay="80" data-i18n-ur="ہم کسی ایسی چیز کی قیمت نہیں لے رہے جو ابھی مکمل نہیں ہوئی۔">we're not charging for something that isn't finished.</h2>
+      <p class="ai-note__body pricing-compare__body" data-reveal data-reveal-delay="160" data-i18n-ur="arthic ابھی بھی ابتدائی مرحلے میں ہے — ہر ہفتے نئے فیچرز شامل ہوتے ہیں، اور مینٹر اتنا ہی بہتر ہوتا ہے جتنا زیادہ طلبہ واقعی اسے استعمال کر کے بتاتے ہیں کہ کہاں غلطی ہے۔ تیار ہونے سے پہلے قیمت لینے کا مطلب ہوگا کہ ہم آپ سے ہمیں ٹیسٹ کرنے کے پیسے لے رہے ہیں۔ ابتدائی رسائی مفت رہتی ہے تاکہ جو لوگ اسے بنانے میں مدد کر رہے ہیں انہیں سب سے زیادہ فائدہ ملے، سب سے کم نہیں۔">
         arthic is still early — new features ship every week, and the mentor gets better the
         more students actually use it and tell us where it's wrong. charging before it's ready
         would mean charging you to help us test it. early access stays free so the people
@@ -184,46 +196,45 @@
   <!-- ============ FAQ ============ -->
   <section class="pricing-faq section--tight" id="faq" data-section data-section-label="faq">
     <div class="container">
-      <p class="eyebrow" data-reveal>questions</p>
-      <h2 data-reveal data-reveal-delay="80">frequently asked</h2>
+      <p class="eyebrow" data-reveal data-i18n-ur="سوالات">questions</p>
+      <h2 data-reveal data-reveal-delay="80" data-i18n-ur="اکثر پوچھے جانے والے سوالات">frequently asked</h2>
 
       <dl class="pricing-faq__list">
         <div class="pricing-faq__item" data-reveal>
-          <dt>which exams does arthic actually cover?</dt>
-          <dd>
+          <dt data-i18n-ur="arthic اصل میں کن امتحانات کا احاطہ کرتا ہے؟">which exams does arthic actually cover?</dt>
+          <dd data-i18n-ur="آج کے دن MDCAT، ECAT، NUST NET، FAST انٹری ٹیسٹ، CSS، PMS، اور LUMS LNAT۔ ہم ایک چھوٹی ٹیم ہیں جو وسعت کے بجائے گہرائی کو ترجیح دیتی ہے — ایک ٹریک صحیح طریقے سے مکمل کرنا سات کو آدھا ادھورا کرنے سے بہتر ہے، اس لیے ہم ایک ساتھ سب کچھ کرنے کے بجائے احتیاط سے پھیل رہے ہیں۔">
             MDCAT, ECAT, NUST NET, the FAST entry test, CSS, PMS, and LUMS LNAT today. we're a
             small team prioritizing depth over breadth — one track done properly beats seven
             done halfway, so we're expanding carefully rather than all at once.
           </dd>
         </div>
         <div class="pricing-faq__item" data-reveal>
-          <dt>is arthic free right now?</dt>
-          <dd>
+          <dt data-i18n-ur="کیا arthic ابھی مفت ہے؟">is arthic free right now?</dt>
+          <dd data-i18n-ur="جی ہاں — ابتدائی رسائی کے دوران مینٹر تک مکمل رسائی مفت ہے، ایک وقت میں ایک امتحانی ٹریک پر۔ یہ کوئی تعارفی رعایت نہیں ہے؛ یہ واقعی مفت ہے جب تک ہم اسے بنا رہے ہیں۔">
             yes — full access to the mentor is free during early access, on one exam track at
             a time. that's not an introductory discount; it's genuinely free while we're
             building.
           </dd>
         </div>
         <div class="pricing-faq__item" data-reveal>
-          <dt>does arthic replace an academy or a tutor?</dt>
-          <dd>
+          <dt data-i18n-ur="کیا arthic کسی اکیڈمی یا ٹیوٹر کی جگہ لیتا ہے؟">does arthic replace an academy or a tutor?</dt>
+          <dd data-i18n-ur="بالکل نہیں۔ arthic اس لیے بنایا گیا ہے کہ رات ایک بجے، جب آپ کی اکیڈمی بند ہو اور آپ ایک سوال پر اٹکے ہوں، تب بھی موجود رہے — زیادہ تر طلبہ اسے کسی کوچنگ پروگرام کے ساتھ استعمال کرتے ہیں، اس کی جگہ نہیں۔">
             not exactly. arthic is built to be there at 1am when your academy's closed and
             you're stuck on one question — most students use it alongside a coaching program,
             not instead of one.
           </dd>
         </div>
         <div class="pricing-faq__item" data-reveal>
-          <dt>do you support Urdu?</dt>
-          <dd>
-            not yet. arthic is English-only while we're early, so the mentor and the rest of the
-            product get our full attention before we split focus. full Urdu support — real
-            script, not a transliteration shortcut — is on the roadmap; join the waitlist and
-            we'll tell you the moment it ships.
+          <dt data-i18n-ur="کیا آپ اردو کو سپورٹ کرتے ہیں؟">do you support Urdu?</dt>
+          <dd data-i18n-ur="جی ہاں — ہوم پیج، قیمتوں کا صفحہ، اور ہر صفحے کا نیویگیشن اور فوٹر اب حقیقی اردو رسم الخط میں دستیاب ہیں (رومن اردو نہیں)۔ ہم باقی سائٹ کو صفحہ بہ صفحہ ترجمہ کر رہے ہیں — کسی بھی وقت نیویگیشن میں موجود بٹن سے زبان تبدیل کریں۔">
+            yes — the homepage, pricing, and every page's navigation and footer are now
+            available in real Urdu script, not a transliteration shortcut. we're translating
+            the rest of the site page by page — use the button in the nav to switch anytime.
           </dd>
         </div>
         <div class="pricing-faq__item" data-reveal>
-          <dt>what happens to the price after early access?</dt>
-          <dd>
+          <dt data-i18n-ur="ابتدائی رسائی کے بعد قیمت کا کیا ہوگا؟">what happens to the price after early access?</dt>
+          <dd data-i18n-ur="ابتدائی رسائی ختم ہونے کے بعد پلس کی منصوبہ بند قیمت 8,999 روپے ماہانہ ہے — لیکن یہ آج کا منصوبہ ہے، کوئی طے شدہ نمبر نہیں۔ ہم اسے واقعی استعمال کرنے والے طلبہ کی رائے سے پہلے تصدیق کریں گے۔ فری رسائی بہرحال ایک امتحانی ٹریک کے لیے مفت ہی رہے گی۔">
             Plus is planned at Rs. 8,999/month once early access ends — but that's today's plan,
             not a locked-in number. we'll confirm it with feedback from the students actually
             using it first. free access stays free for one exam track either way.
@@ -237,16 +248,16 @@
   <section class="community section" id="waitlist" data-section data-section-label="get early access">
     <div class="container community__grid">
       <div class="community__lead">
-        <p class="eyebrow" data-reveal>get early access</p>
-        <h2 data-reveal data-reveal-delay="80">be first when it's ready.</h2>
-        <p class="community__body" data-reveal data-reveal-delay="160">
+        <p class="eyebrow" data-reveal data-i18n-ur="ابتدائی رسائی حاصل کریں">get early access</p>
+        <h2 data-reveal data-reveal-delay="80" data-i18n-ur="تیار ہونے پر سب سے پہلے جانیں۔">be first when it's ready.</h2>
+        <p class="community__body" data-reveal data-reveal-delay="160" data-i18n-ur="نہ کوئی اسپیم، نہ آپ کا ای میل کسی کو بیچا جائے گا — بس ایک پیغام جب arthic تیار ہو جائے، اور اس سے پہلے مینٹر کیسا بن رہا ہے اس پر کبھی کبھار اپڈیٹ۔">
           no spam, no selling your email — just a note when arthic is ready, and the occasional
           update on how the mentor's coming along before then.
         </p>
       </div>
 
       <form class="subscribe" data-reveal data-reveal-delay="320" data-subscribe-form novalidate>
-        <label for="subscribeEmail" class="subscribe__label">email</label>
+        <label for="subscribeEmail" class="subscribe__label" data-i18n-ur="ای میل">email</label>
         <div class="subscribe__row">
           <input class="field" type="email" id="subscribeEmail" name="email" placeholder="you@email.com" required autocomplete="email" />
           <div class="visually-hidden" aria-hidden="true">
@@ -254,7 +265,7 @@
             <input type="text" id="subscribeWebsite" name="website" tabindex="-1" autocomplete="off" />
           </div>
           <button class="btn" type="submit">
-            <span>join waitlist</span>
+            <span data-i18n-ur="ویٹ لسٹ میں شامل ہوں">join waitlist</span>
           </button>
         </div>
         <p class="subscribe__status" data-subscribe-status role="status" aria-live="polite"></p>
@@ -272,24 +283,24 @@
           <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
           <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
         </a>
-        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+        <p class="footer__tagline" data-i18n-ur="پاکستان کے مشکل ترین امتحانات کے لیے ایک مکمل امتحانی تیاری کا پلیٹ فارم۔">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
       <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label">legal</span>
-        <a href="/privacy.html" class="hover-underline">privacy</a>
-        <a href="/terms.html" class="hover-underline">terms</a>
+        <span class="footer__col-label" data-i18n-ur="قانونی">legal</span>
+        <a href="/privacy.html" class="hover-underline" data-i18n-ur="رازداری">privacy</a>
+        <a href="/terms.html" class="hover-underline" data-i18n-ur="شرائط">terms</a>
       </nav>
 
       <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label">contact</span>
+        <span class="footer__col-label" data-i18n-ur="رابطہ">contact</span>
         <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
       </nav>
     </div>
 
     <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
-      <a href="#top" class="hover-underline">back to top</a>
+      <p>© <span data-year>2026</span> arthic. <span data-i18n-ur="جملہ حقوق محفوظ ہیں۔">All rights reserved.</span></p>
+      <a href="#top" class="hover-underline" data-i18n-ur="اوپر جائیں">back to top</a>
     </div>
   </div>
 </footer>

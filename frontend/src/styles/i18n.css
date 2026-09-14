@@ -1,0 +1,68 @@
+/* ----------------------------------------------------------------
+   Urdu language mode.
+
+   Nastaliq needs real breathing room — it's a calligraphic script
+   with tall ascenders/descenders, so line-height and paragraph
+   spacing get more generous whenever it's on screen.
+
+   Layout stays left-to-right site-wide (nav order, card grids,
+   button rows don't mirror) — only prose-level elements switch to
+   right-to-left reading order, which is what actually makes Urdu
+   sentences read correctly. Short labels (nav links, buttons,
+   badges) are left as-is; a two-word label reads fine regardless of
+   the `direction` property.
+   ---------------------------------------------------------------- */
+
+html.lang-ur body {
+  font-family: var(--font-urdu);
+}
+
+html.lang-ur h1,
+html.lang-ur h2,
+html.lang-ur h3,
+html.lang-ur p,
+html.lang-ur li,
+html.lang-ur dt,
+html.lang-ur dd,
+html.lang-ur blockquote,
+html.lang-ur figcaption {
+  direction: rtl;
+  text-align: right;
+  line-height: 2;
+}
+
+/* numerals and English proper nouns (MDCAT, LUMS LNAT, arthic) stay
+   readable left-to-right even inside an RTL paragraph */
+html.lang-ur [data-i18n-preserve-ltr] {
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline-block;
+}
+
+/* the nav/footer/CTA link rows are structural, not prose — keep them LTR
+   so the layout doesn't reflow, even though their labels are Urdu words */
+html.lang-ur .nav__links,
+html.lang-ur .footer__col,
+html.lang-ur .hero__actions,
+html.lang-ur .hero__facts,
+html.lang-ur .mobile-nav nav {
+  direction: ltr;
+}
+html.lang-ur .nav__links a,
+html.lang-ur .footer__col a,
+html.lang-ur .hero__actions span,
+html.lang-ur dl.hero__facts dd {
+  text-align: inherit;
+  line-height: inherit;
+}
+
+.nav__lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+[data-lang-label] {
+  font: 600 0.75rem/1 var(--font-mono);
+  letter-spacing: 0.02em;
+}
