@@ -67,10 +67,10 @@
         </button>
         <div class="region-popover" id="regionPopover" data-region-popover role="menu" hidden>
           <p class="region-popover__label">where we cover</p>
-          <span class="boards__region-tag boards__region-tag--live" role="menuitem"><img class="boards__flag" src="/flags/pk.svg" alt="" width="18" height="13" /><span>Pakistan — live</span></span>
-          <span class="boards__region-tag boards__region-tag--soon" role="menuitem"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK — coming soon</span></span>
-          <span class="boards__region-tag boards__region-tag--soon" role="menuitem"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA — coming soon</span></span>
-          <span class="boards__region-tag boards__region-tag--soon" role="menuitem"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India — coming soon</span></span>
+          <span class="boards__region-tag boards__region-tag--live" role="menuitem"><img class="boards__flag" src="/flags/pk.svg" alt="" width="18" height="13" /><span>Pakistan</span></span>
+          <span class="boards__region-tag boards__region-tag--soon" role="menuitem"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></span>
+          <span class="boards__region-tag boards__region-tag--soon" role="menuitem"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></span>
+          <span class="boards__region-tag boards__region-tag--soon" role="menuitem"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></span>
         </div>
       </div>
     </div>
@@ -108,43 +108,55 @@
     <form class="apply-form" data-apply-form novalidate data-reveal data-reveal-delay="160">
       <input type="hidden" name="role" data-role-field value="General" />
 
-      <div class="apply-form__grid">
-        <div class="apply-form__field">
-          <label for="ap-name">name</label>
-          <input class="field" type="text" id="ap-name" name="name" placeholder="your full name" required autocomplete="name" />
-        </div>
-        <div class="apply-form__field">
-          <label for="ap-email">email</label>
-          <input class="field" type="email" id="ap-email" name="email" placeholder="you@email.com" required autocomplete="email" />
-        </div>
-        <div class="apply-form__field">
-          <label for="ap-link" data-link-label>portfolio / social link</label>
-          <input class="field" type="url" id="ap-link" name="link" placeholder="optional" autocomplete="url" data-link-input />
-        </div>
-        <div class="apply-form__field">
-          <label for="ap-availability">hours you can realistically give, per week</label>
-          <select class="field" id="ap-availability" name="availability">
-            <option value="">prefer not to say</option>
-            <option value="5-10 hrs/week">5–10 hrs/week</option>
-            <option value="10-15 hrs/week">10–15 hrs/week</option>
-            <option value="15-20 hrs/week">15–20 hrs/week</option>
-            <option value="20+ hrs/week">20+ hrs/week</option>
-          </select>
-        </div>
-        <div class="apply-form__field">
-          <label for="ap-start">how soon could you start</label>
-          <select class="field" id="ap-start" name="start">
-            <option value="">not sure yet</option>
-            <option value="this week">this week</option>
-            <option value="in 2-4 weeks">in 2–4 weeks</option>
-            <option value="next semester">next semester</option>
-          </select>
+      <div class="apply-form__section">
+        <p class="apply-form__section-label">01 — about you</p>
+        <div class="apply-form__grid">
+          <div class="apply-form__field">
+            <label for="ap-name">name</label>
+            <input class="field" type="text" id="ap-name" name="name" placeholder="your full name" required autocomplete="name" />
+          </div>
+          <div class="apply-form__field">
+            <label for="ap-email">email</label>
+            <input class="field" type="email" id="ap-email" name="email" placeholder="you@email.com" required autocomplete="email" />
+          </div>
+          <div class="apply-form__field apply-form__field--wide">
+            <label for="ap-link" data-link-label>portfolio / social link</label>
+            <input class="field" type="url" id="ap-link" name="link" placeholder="optional" autocomplete="url" data-link-input />
+          </div>
         </div>
       </div>
 
-      <div class="apply-form__field apply-form__field--wide">
-        <label for="ap-message" data-message-label>tell us more</label>
-        <textarea class="field" id="ap-message" name="message" rows="5" data-message-input></textarea>
+      <div class="apply-form__section">
+        <p class="apply-form__section-label">02 — availability</p>
+        <div class="apply-form__grid">
+          <div class="apply-form__field">
+            <label for="ap-availability">hours you can realistically give, per week</label>
+            <select class="field" id="ap-availability" name="availability">
+              <option value="">prefer not to say</option>
+              <option value="5-10 hrs/week">5–10 hrs/week</option>
+              <option value="10-15 hrs/week">10–15 hrs/week</option>
+              <option value="15-20 hrs/week">15–20 hrs/week</option>
+              <option value="20+ hrs/week">20+ hrs/week</option>
+            </select>
+          </div>
+          <div class="apply-form__field">
+            <label for="ap-start">how soon could you start</label>
+            <select class="field" id="ap-start" name="start">
+              <option value="">not sure yet</option>
+              <option value="this week">this week</option>
+              <option value="in 2-4 weeks">in 2–4 weeks</option>
+              <option value="next semester">next semester</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="apply-form__section">
+        <p class="apply-form__section-label">03 — tell us more</p>
+        <div class="apply-form__field apply-form__field--wide">
+          <label for="ap-message" data-message-label>tell us more</label>
+          <textarea class="field" id="ap-message" name="message" rows="5" data-message-input></textarea>
+        </div>
       </div>
 
       <div class="visually-hidden" aria-hidden="true">
@@ -152,7 +164,10 @@
         <input type="text" id="ap-website" name="website" tabindex="-1" autocomplete="off" />
       </div>
 
-      <button class="btn btn--solid" type="submit"><span>send application</span></button>
+      <div class="apply-form__submit">
+        <button class="btn btn--solid" type="submit"><span>send application</span></button>
+        <p class="apply-form__note">a real person on a small team reads every application — we'll follow up if it looks like a fit.</p>
+      </div>
       <p class="apply-form__status" data-form-status role="status" aria-live="polite"></p>
     </form>
 
