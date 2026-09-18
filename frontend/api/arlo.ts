@@ -2,12 +2,16 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 // POST /api/arlo — the floating support chat widget on every page.
 //
-// Needs an ANTHROPIC_API_KEY in the project's environment variables to
-// actually respond (Vercel → Settings → Environment Variables, same place
-// as POSTGRES_URL). Without it, this returns an honest 503 and the widget
-// shows a fallback message instead of pretending to be broken silently —
-// same pattern as the waitlist/apply forms when the database isn't wired
-// up yet.
+// Two providers, tried in order:
+//   1. Anthropic (ANTHROPIC_API_KEY) — used first if set.
+//   2. Gemini (GEMINI_API_KEY) — used if Anthropic isn't configured, or as
+//      a fallback if Anthropic's call fails (most usefully: if its credit
+//      balance runs out, this keeps Arlo answering instead of going dark).
+// Either one alone is enough to make Arlo work; you don't need both.
+// Neither configured → the same honest 503 as before. Both configured and
+// both failing on a credits/quota problem → a distinct "arlo's out of
+// credit" message instead of the generic "having trouble" one, so it's
+// obvious what's actually wrong instead of looking broken.
 
 const SYSTEM_PROMPT = `You are Arlo, the support chat widget on arthic.tech — a small, honest, pre-launch exam-prep startup's website. You are NOT the arthic AI mentor product itself; you're a separate assistant here to answer questions about arthic as a company/product and to help visitors find what they need. If someone starts asking you exam questions as if you were their study mentor, gently clarify that's a different (not-yet-launched) part of the product and answer what you can about arthic itself instead.
 
@@ -48,14 +52,97 @@ interface ChatMessage {
   content: string;
 }
 
+type ProviderResult = { ok: true; reply: string } | { ok: false; creditsExhausted: boolean; detail: string };
+
+/** Anthropic and Gemini both describe an exhausted balance/quota in the
+ * error text rather than a single dedicated status code — Anthropic
+ * mentions "credit balance", Gemini's quota errors mention "quota" or
+ * "RESOURCE_EXHAUSTED". Matching on the message is more reliable across
+ * both than trying to memorize every status code each one might use. */
+function looksLikeCreditsExhausted(status: number, bodyText: string): boolean {
+  const text = bodyText.toLowerCase();
+  return (
+    text.includes("credit balance") ||
+    text.includes("insufficient_quota") ||
+    text.includes("resource_exhausted") ||
+    text.includes("quota") ||
+    status === 402
+  );
+}
+
+async function callAnthropic(apiKey: string, messages: ChatMessage[]): Promise<ProviderResult> {
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: "claude-haiku-4-5-20251001",
+      max_tokens: 400,
+      system: SYSTEM_PROMPT,
+      messages,
+    }),
+  });
+
+  if (!response.ok) {
+    const detail = await response.text().catch(() => "");
+    console.error("arlo: anthropic api error", response.status, detail);
+    return { ok: false, creditsExhausted: looksLikeCreditsExhausted(response.status, detail), detail };
+  }
+
+  const data = (await response.json()) as { content?: Array<{ type: string; text?: string }> };
+  const reply = data.content?.find((block) => block.type === "text")?.text;
+  if (!reply) return { ok: false, creditsExhausted: false, detail: "no text block in response" };
+  return { ok: true, reply };
+}
+
+async function callGemini(apiKey: string, messages: ChatMessage[]): Promise<ProviderResult> {
+  // Gemini's chat turns use "model" where our internal schema (and
+  // Anthropic's) uses "assistant" — everything else maps over directly.
+  const contents = messages.map((m) => ({
+    role: m.role === "assistant" ? "model" : "user",
+    parts: [{ text: m.content }],
+  }));
+
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${apiKey}`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        contents,
+        generationConfig: { maxOutputTokens: 400 },
+      }),
+    },
+  );
+
+  if (!response.ok) {
+    const detail = await response.text().catch(() => "");
+    console.error("arlo: gemini api error", response.status, detail);
+    return { ok: false, creditsExhausted: looksLikeCreditsExhausted(response.status, detail), detail };
+  }
+
+  const data = (await response.json()) as {
+    candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
+  };
+  const reply = data.candidates?.[0]?.content?.parts?.find((p) => p.text)?.text;
+  if (!reply) return { ok: false, creditsExhausted: false, detail: "no text part in response" };
+  return { ok: true, reply };
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "method not allowed" });
   }
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
+  const anthropicKey = process.env.ANTHROPIC_API_KEY;
+  const geminiKey = process.env.GEMINI_API_KEY;
+
+  if (!anthropicKey && !geminiKey) {
     return res.status(503).json({
       error: "arlo isn't fully wired up yet — email hello@arthic.tech and a real person will help.",
     });
@@ -65,7 +152,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!Array.isArray(body?.messages) || body.messages.length === 0) {
     return res.status(400).json({ error: "no messages provided" });
   }
-
   if (body.messages.length > MAX_MESSAGES) {
     return res.status(400).json({ error: "conversation is too long — try refreshing the chat." });
   }
@@ -82,37 +168,33 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     messages.push({ role: m.role, content: m.content.trim() });
   }
 
-  try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-5",
-        max_tokens: 400,
-        system: SYSTEM_PROMPT,
-        messages,
-      }),
-    });
+  let anyCreditsExhausted = false;
 
-    if (!response.ok) {
-      const detail = await response.text().catch(() => "");
-      console.error("arlo: anthropic api error", response.status, detail);
-      return res.status(502).json({ error: "arlo's having trouble right now — try again in a moment." });
+  if (anthropicKey) {
+    try {
+      const result = await callAnthropic(anthropicKey, messages);
+      if (result.ok) return res.status(200).json({ reply: result.reply });
+      anyCreditsExhausted ||= result.creditsExhausted;
+    } catch (err) {
+      console.error("arlo: anthropic request failed", err);
     }
-
-    const data = (await response.json()) as { content?: Array<{ type: string; text?: string }> };
-    const reply = data.content?.find((block) => block.type === "text")?.text;
-    if (!reply) {
-      return res.status(502).json({ error: "arlo's having trouble right now — try again in a moment." });
-    }
-
-    return res.status(200).json({ reply });
-  } catch (err) {
-    console.error("arlo request failed", err);
-    return res.status(502).json({ error: "arlo's having trouble right now — try again in a moment." });
   }
+
+  if (geminiKey) {
+    try {
+      const result = await callGemini(geminiKey, messages);
+      if (result.ok) return res.status(200).json({ reply: result.reply });
+      anyCreditsExhausted ||= result.creditsExhausted;
+    } catch (err) {
+      console.error("arlo: gemini request failed", err);
+    }
+  }
+
+  // every configured provider failed
+  if (anyCreditsExhausted) {
+    return res.status(402).json({
+      error: "arlo's out of credit right now — email hello@arthic.tech and a real person will help.",
+    });
+  }
+  return res.status(502).json({ error: "arlo's having trouble right now — try again in a moment." });
 }
