@@ -95,6 +95,7 @@
   --z-section-index: 40;
   --z-nav: 100;
   --z-mobile-nav: 90;
+  --z-arlo: 110;
 }
 
 /* Fluid type opts into larger jumps on very wide canvases without

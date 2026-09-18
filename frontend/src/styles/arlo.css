@@ -1,0 +1,278 @@
+/* ----------------------------------------------------------------
+   Arlo — the floating support chat widget, bottom-right on every page.
+   Everything here is built from the same design tokens the rest of
+   the site uses, so it follows light/dark theme automatically —
+   nothing Arlo-specific to keep in sync when the palette changes.
+   ---------------------------------------------------------------- */
+
+.arlo {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.75rem);
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  z-index: var(--z-arlo);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.arlo__launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.85em 1.1em;
+  border: 1px solid var(--color-fg-faint);
+  border-radius: 999px;
+  background: var(--color-bg-raised);
+  color: var(--color-fg);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+  font-family: var(--font-mono);
+  font-size: var(--fs-body-sm);
+  letter-spacing: 0.01em;
+  transition: border-color var(--dur-fast) var(--ease-out-expo), transform var(--dur-fast) var(--ease-out-expo);
+}
+
+.arlo__launcher:hover,
+.arlo__launcher:focus-visible {
+  border-color: var(--color-fg);
+  transform: translateY(-2px);
+}
+
+.arlo__launcher-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-accent-strong);
+  flex-shrink: 0;
+}
+
+.arlo__launcher svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* the unread/greeting dot on the launcher, before it's ever been opened */
+.arlo__launcher-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--color-accent-strong);
+  border: 2px solid var(--color-bg);
+}
+
+.arlo__panel {
+  display: flex;
+  flex-direction: column;
+  width: min(23rem, calc(100vw - 2rem));
+  height: min(32rem, calc(100vh - 8rem));
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-fg-faint);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  transform-origin: bottom right;
+  animation: arlo-panel-in var(--dur-base) var(--ease-out-expo);
+}
+
+.arlo__panel[hidden] {
+  display: none;
+}
+
+@keyframes arlo-panel-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.arlo__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--color-fg-hairline);
+  flex-shrink: 0;
+}
+
+.arlo__head-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.arlo__avatar {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  background: var(--color-fg);
+  color: var(--color-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.arlo__head-name {
+  font-weight: 600;
+  font-size: var(--fs-body-sm);
+}
+
+.arlo__head-sub {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-fg-mute);
+  letter-spacing: 0.01em;
+}
+
+.arlo__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  color: var(--color-fg-dim);
+  flex-shrink: 0;
+}
+
+.arlo__close:hover,
+.arlo__close:focus-visible {
+  color: var(--color-fg);
+  background: var(--color-fg-ghost);
+}
+
+.arlo__close svg {
+  width: 15px;
+  height: 15px;
+}
+
+.arlo__log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  scrollbar-width: thin;
+}
+
+.arlo__msg {
+  max-width: 85%;
+  padding: 0.6em 0.85em;
+  border-radius: 12px;
+  font-size: var(--fs-body-sm);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.arlo__msg--assistant {
+  align-self: flex-start;
+  background: var(--color-fg-ghost);
+  color: var(--color-fg);
+  border-bottom-left-radius: 4px;
+}
+
+.arlo__msg--user {
+  align-self: flex-end;
+  background: var(--color-fg);
+  color: var(--color-bg);
+  border-bottom-right-radius: 4px;
+}
+
+.arlo__msg--error {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px dashed var(--color-fg-faint);
+  color: var(--color-fg-mute);
+}
+
+.arlo__msg--thinking {
+  align-self: flex-start;
+  background: var(--color-fg-ghost);
+  width: 4.5rem;
+  padding-block: 0.9em;
+}
+
+.arlo__foot {
+  flex-shrink: 0;
+  border-top: 1px solid var(--color-fg-hairline);
+  padding: 0.7rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.arlo__input {
+  flex: 1;
+  resize: none;
+  max-height: 6rem;
+  padding: 0.6em 0.75em;
+  border: 1px solid var(--color-fg-faint);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-fg);
+  font-family: inherit;
+  font-size: var(--fs-body-sm);
+  line-height: 1.4;
+}
+
+.arlo__input:focus-visible {
+  outline: none;
+  border-color: var(--color-fg);
+}
+
+.arlo__send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--color-fg);
+  color: var(--color-bg);
+  transition: opacity var(--dur-fast) var(--ease-out-expo);
+}
+
+.arlo__send:disabled {
+  opacity: 0.4;
+}
+
+.arlo__send svg {
+  width: 15px;
+  height: 15px;
+}
+
+@media (max-width: 560px) {
+  .arlo {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    align-items: stretch;
+  }
+
+  .arlo__launcher {
+    align-self: flex-end;
+  }
+
+  .arlo__panel {
+    width: 100%;
+    height: min(30rem, calc(100vh - 7rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arlo__panel {
+    animation: none;
+  }
+}
