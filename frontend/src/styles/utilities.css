@@ -402,3 +402,41 @@ select.field option {
 :root[data-theme="dark"] .brand-mark--dark {
   display: inline-block;
 }
+
+/* ---------- headline pill-highlight ----------
+   Wraps a single word in a colored pill inline with the surrounding
+   text, the way Notion's own headline highlights "Ship" — a small,
+   cheap way to give an otherwise plain headline a focal point without
+   touching layout or type scale. */
+.pill-highlight {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.02em 0.45em 0.08em;
+  border-radius: 999px;
+  background: var(--color-accent-dim);
+  color: var(--color-accent-strong);
+  white-space: nowrap;
+}
+
+/* ---------- Arlo mascot doodle ----------
+   A loose, decorative placement of Arlo's face floating near a
+   section — not interactive, just personality. Uses the same mascot
+   markup as the chat widget, sized up and rotated slightly so it
+   reads as a hand-placed sticker rather than a UI element. */
+.mascot-doodle {
+  position: absolute;
+  color: var(--color-accent-strong);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.mascot-doodle svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 700px) {
+  .mascot-doodle {
+    display: none;
+  }
+}

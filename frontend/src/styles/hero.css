@@ -30,6 +30,7 @@
 }
 
 .hero__preview {
+  position: relative;
   min-width: 0;
   width: 100%;
 }

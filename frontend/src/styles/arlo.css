@@ -38,12 +38,15 @@
   transform: translateY(-2px);
 }
 
-.arlo__launcher-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: var(--color-accent-strong);
+.arlo__launcher-mark {
+  display: inline-flex;
+  color: var(--color-accent-strong);
   flex-shrink: 0;
+}
+
+.arlo__launcher-mark svg {
+  width: 20px;
+  height: 20px;
 }
 
 .arlo__launcher svg {
@@ -110,16 +113,16 @@
 .arlo__avatar {
   width: 1.9rem;
   height: 1.9rem;
-  border-radius: 999px;
-  background: var(--color-fg);
-  color: var(--color-bg);
+  color: var(--color-accent-strong);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 0.8rem;
   flex-shrink: 0;
+}
+
+.arlo__avatar svg {
+  width: 100%;
+  height: 100%;
 }
 
 .arlo__head-name {

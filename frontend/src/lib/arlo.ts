@@ -22,11 +22,18 @@ export function initArlo(): void {
   const root = document.createElement("div");
   root.className = "arlo";
   root.setAttribute("data-arlo-root", "");
+  const mascot = `
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16 2.5C24.5 2.5 29.5 8.7 29.5 16.3C29.5 23.8 23.6 29.5 15.7 29.5C8 29.5 2.5 23.9 2.5 16.1C2.5 8.3 8.2 2.5 16 2.5Z" fill="currentColor" />
+      <circle cx="11.8" cy="15.5" r="1.7" fill="var(--color-bg)" />
+      <circle cx="20.2" cy="15.5" r="1.7" fill="var(--color-bg)" />
+      <path d="M12 19.8C13.6 21.6 18.4 21.6 20 19.8" stroke="var(--color-bg)" stroke-width="1.7" stroke-linecap="round" fill="none" />
+    </svg>`;
   root.innerHTML = `
     <div class="arlo__panel" data-arlo-panel hidden role="dialog" aria-label="Arlo, arthic support chat" aria-modal="false">
       <div class="arlo__head">
         <div class="arlo__head-identity">
-          <span class="arlo__avatar" aria-hidden="true">A</span>
+          <span class="arlo__avatar" aria-hidden="true">${mascot}</span>
           <div>
             <p class="arlo__head-name">Arlo</p>
             <p class="arlo__head-sub">arthic support</p>
@@ -45,7 +52,7 @@ export function initArlo(): void {
       </form>
     </div>
     <button class="arlo__launcher" type="button" data-arlo-launcher aria-haspopup="dialog" aria-expanded="false">
-      <span class="arlo__launcher-dot" aria-hidden="true"></span>
+      <span class="arlo__launcher-mark" aria-hidden="true">${mascot}</span>
       <span>ask arlo</span>
     </button>
   `;
