@@ -51,9 +51,8 @@ export function initArlo(): void {
         </button>
       </form>
     </div>
-    <button class="arlo__launcher" type="button" data-arlo-launcher aria-haspopup="dialog" aria-expanded="false">
+    <button class="arlo__launcher" type="button" data-arlo-launcher aria-haspopup="dialog" aria-expanded="false" aria-label="chat with Arlo, arthic support">
       <span class="arlo__launcher-mark" aria-hidden="true">${mascot}</span>
-      <span>ask arlo</span>
     </button>
   `;
   document.body.appendChild(root);

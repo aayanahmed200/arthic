@@ -59,11 +59,20 @@
 .dash__nav-item {
   padding: 0.5em 0.75em;
   border-radius: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   letter-spacing: 0.02em;
   color: var(--color-fg-mute);
   white-space: nowrap;
+  text-align: left;
+  transition: color var(--dur-fast) var(--ease-out-expo), background-color var(--dur-fast) var(--ease-out-expo);
+}
+
+.dash__nav-item:hover {
+  color: var(--color-fg);
 }
 
 .dash__nav-item.is-active {
@@ -230,6 +239,114 @@
 
 .dash__card--streak .dash__card-label {
   margin-bottom: 0;
+}
+
+/* the four dash__* panels (mentor/papers/plan/calendar) share this —
+   [data-dash-panel][hidden] has higher specificity than any single
+   class rule below that sets display, so toggling the `hidden`
+   attribute in JS reliably wins regardless of those rules' own order. */
+[data-dash-panel][hidden] {
+  display: none;
+}
+
+.dash__papers,
+.dash__plan,
+.dash__calendar {
+  flex: 1;
+  min-width: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dash__paper-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0.15rem;
+  border-top: 1px solid var(--color-fg-hairline);
+}
+
+.dash__paper-row:first-of-type {
+  border-top: none;
+}
+
+.dash__paper-title {
+  font-size: 0.75rem;
+  color: var(--color-fg);
+}
+
+.dash__paper-meta {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-fg-mute);
+  margin-top: 0.2rem;
+}
+
+.dash__paper-tag {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-accent-strong);
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-accent-hairline);
+  padding: 0.3em 0.65em;
+  border-radius: 999px;
+}
+
+.dash__bars--wide .dash__bar-row {
+  gap: 0.65rem;
+}
+
+.dash__bars--wide .dash__bar-row span {
+  width: 6rem;
+}
+
+.dash__bars--wide .dash__bar-row em {
+  flex-shrink: 0;
+  width: 2.4rem;
+  text-align: right;
+  font-style: normal;
+  font-family: var(--font-mono);
+  color: var(--color-fg-mute);
+}
+
+.dash__plan-next {
+  margin-top: 0.3rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--color-fg-hairline);
+  font-size: 0.75rem;
+  color: var(--color-fg-dim);
+  line-height: 1.5;
+}
+
+.dash__plan-next strong {
+  color: var(--color-accent-strong);
+  font-weight: 560;
+}
+
+.dash__cal-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.55rem 0.15rem;
+  border-top: 1px solid var(--color-fg-hairline);
+  font-size: 0.75rem;
+  color: var(--color-fg-dim);
+}
+
+.dash__cal-row:first-of-type {
+  border-top: none;
+}
+
+.dash__cal-date {
+  flex-shrink: 0;
+  width: 3.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-fg-mute);
 }
 
 .hero__preview-note {

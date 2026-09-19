@@ -140,7 +140,8 @@
 }
 
 .entry__missing h1 {
-  font-size: var(--fs-h2);
+  font-size: var(--fs-h2-lg);
+  line-height: 1.05;
   margin-bottom: 1rem;
 }
 

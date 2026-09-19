@@ -183,25 +183,26 @@
             <path d="M12 19.8C13.6 21.6 18.4 21.6 20 19.8" stroke="var(--color-bg)" stroke-width="1.7" stroke-linecap="round" fill="none" />
           </svg>
         </span>
-        <div class="dash" aria-hidden="true">
+        <div class="dash" data-dash>
           <div class="dash__chrome">
             <div class="dash__dots"><span></span><span></span><span></span></div>
             <span class="dash__chrome-label">arthic mentor — preview</span>
           </div>
           <div class="dash__body">
-            <nav class="dash__nav">
-              <span class="dash__nav-item is-active">mentor</span>
-              <span class="dash__nav-item">papers</span>
-              <span class="dash__nav-item">plan</span>
-              <span class="dash__nav-item">calendar</span>
+            <nav class="dash__nav" role="tablist" aria-label="dashboard preview sections">
+              <button type="button" class="dash__nav-item is-active" data-dash-tab="mentor" role="tab" aria-selected="true">mentor</button>
+              <button type="button" class="dash__nav-item" data-dash-tab="papers" role="tab" aria-selected="false">papers</button>
+              <button type="button" class="dash__nav-item" data-dash-tab="plan" role="tab" aria-selected="false">plan</button>
+              <button type="button" class="dash__nav-item" data-dash-tab="calendar" role="tab" aria-selected="false">calendar</button>
             </nav>
-            <div class="dash__main">
+
+            <div class="dash__main" data-dash-panel="mentor" role="tabpanel">
               <div class="dash__chat">
                 <div class="dash__msg dash__msg--user">
                   <p>why is this wrong? i used the right formula.</p>
                 </div>
                 <div class="dash__msg dash__msg--mentor">
-                  <p><strong>identify —</strong> you reached for v = u + at, but this question gives displacement, not time. that's the actual gap, not the formula.</p>
+                  <p><strong>identify —</strong> you reached for v = u + at, but this question gives displacement, not time. that's the gap, not the formula.</p>
                 </div>
                 <div class="dash__msg dash__msg--mentor">
                   <p><strong>explain —</strong> when time's missing, v² = u² + 2as is the one that fits — same idea, different lever. try it on the numbers again.</p>
@@ -224,6 +225,58 @@
                   <p class="dash__card-label">day streak</p>
                 </div>
               </div>
+            </div>
+
+            <div class="dash__papers" data-dash-panel="papers" role="tabpanel" hidden>
+              <p class="dash__card-label">MDCAT — past papers by topic</p>
+              <div class="dash__paper-row">
+                <div>
+                  <p class="dash__paper-title">2025 — Biology</p>
+                  <p class="dash__paper-meta">88 questions · full paper</p>
+                </div>
+                <span class="dash__paper-tag">practice</span>
+              </div>
+              <div class="dash__paper-row">
+                <div>
+                  <p class="dash__paper-title">2024 — Chemistry</p>
+                  <p class="dash__paper-meta">75 questions · by topic</p>
+                </div>
+                <span class="dash__paper-tag">practice</span>
+              </div>
+              <div class="dash__paper-row">
+                <div>
+                  <p class="dash__paper-title">2024 — Physics</p>
+                  <p class="dash__paper-meta">60 questions · weak areas first</p>
+                </div>
+                <span class="dash__paper-tag">practice</span>
+              </div>
+              <div class="dash__paper-row">
+                <div>
+                  <p class="dash__paper-title">2023 — Biology</p>
+                  <p class="dash__paper-meta">88 questions · full paper</p>
+                </div>
+                <span class="dash__paper-tag">practice</span>
+              </div>
+            </div>
+
+            <div class="dash__plan" data-dash-panel="plan" role="tabpanel" hidden>
+              <p class="dash__card-label">MDCAT — 62 days left, by topic</p>
+              <div class="dash__bars dash__bars--wide">
+                <div class="dash__bar-row"><span>mechanics</span><div class="dash__bar"><i style="width:82%"></i></div><em>82%</em></div>
+                <div class="dash__bar-row"><span>organic chem</span><div class="dash__bar"><i style="width:54%"></i></div><em>54%</em></div>
+                <div class="dash__bar-row"><span>genetics</span><div class="dash__bar"><i style="width:38%"></i></div><em>38%</em></div>
+                <div class="dash__bar-row"><span>cell biology</span><div class="dash__bar"><i style="width:71%"></i></div><em>71%</em></div>
+                <div class="dash__bar-row"><span>english</span><div class="dash__bar"><i style="width:90%"></i></div><em>90%</em></div>
+              </div>
+              <p class="dash__plan-next"><strong>next up —</strong> genetics, your weakest topic, gets today's session.</p>
+            </div>
+
+            <div class="dash__calendar" data-dash-panel="calendar" role="tabpanel" hidden>
+              <p class="dash__card-label">all seven exams, one calendar</p>
+              <div class="dash__cal-row"><span class="dash__cal-date">oct 12</span><span>MDCAT registration closes</span></div>
+              <div class="dash__cal-row"><span class="dash__cal-date">nov 03</span><span>ECAT exam day</span></div>
+              <div class="dash__cal-row"><span class="dash__cal-date">nov 21</span><span>NUST NET result day</span></div>
+              <div class="dash__cal-row"><span class="dash__cal-date">dec 15</span><span>LUMS LNAT registration opens</span></div>
             </div>
           </div>
         </div>
@@ -287,16 +340,12 @@
       </div>
       <div class="intro__support">
         <p class="intro__body" data-reveal data-reveal-delay="160">
-          most prep for these exams still means the same thing: a stack of guides, a crowded
-          academy, and an instructor with no time to explain a concept twice. if English isn't
-          the language you think fastest in, that gap gets wider, not smaller — and arthic is
-          built to close it: a mentor that keeps asking follow-up questions until something
-          actually clicks, instead of moving on once you've guessed the right answer.
+          most prep for these exams means a stack of guides, a crowded academy, and an
+          instructor with no time to explain a concept twice — and if English isn't the
+          language you think fastest in, that gap gets wider, not smaller.
         </p>
         <ul class="intro__facts" data-reveal data-reveal-delay="240">
           <li>content written and reviewed by students who sat these exact exams recently, not an outsourced content mill</li>
-          <li>one method across every tool: identify the mistake, explain the concept, test it</li>
-          <li>free while we're building — see pricing for what happens after</li>
         </ul>
       </div>
     </div>
@@ -319,7 +368,7 @@
         <span class="boards__logo"><img src="/boards/pieas.png" alt="Pakistan Institute of Engineering and Applied Sciences (PIEAS)" loading="lazy" /></span>
       </div>
 
-      <p class="boards__note" data-reveal data-reveal-delay="220">shown here because arthic preps students for exams at these institutions — not an endorsement or partnership with any of them.</p>
+      <p class="boards__note" data-reveal data-reveal-delay="220">shown for context, not as an endorsement or partnership.</p>
 
       <div class="boards__region" data-reveal data-reveal-delay="260">
         <span class="boards__region-tag boards__region-tag--live"><img class="boards__flag" src="/flags/pk.svg" alt="" width="20" height="14" /><span>Pakistan</span></span>
@@ -351,7 +400,7 @@
     <img class="closing__mark brand-mark--light" src="/logo.png" alt="" aria-hidden="true" data-reveal />
     <img class="closing__mark brand-mark--dark" src="/logo-white.png" alt="" aria-hidden="true" data-reveal />
     <h2 class="closing__headline" data-reveal data-reveal-delay="80">stop memorizing.<br />start understanding.</h2>
-    <p class="closing__lede" data-reveal data-reveal-delay="140">join the waitlist — free during early access, seven exams, one platform, one mentor that actually explains.</p>
+    <p class="closing__lede" data-reveal data-reveal-delay="140">free during early access — seven exams, one platform.</p>
     <a class="btn btn--solid" data-reveal data-reveal-delay="200" href="/waitlist.html">
       <span>join the waitlist</span>
     </a>
