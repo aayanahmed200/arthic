@@ -23,16 +23,16 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 999px;
-  border: 1px solid var(--color-fg-faint);
-  background: var(--color-bg-raised);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
-  transition: border-color var(--dur-fast) var(--ease-out-expo), transform var(--dur-fast) var(--ease-out-expo);
+  border: none;
+  background: var(--color-accent-strong);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+  transition: transform var(--dur-fast) var(--ease-out-expo), box-shadow var(--dur-fast) var(--ease-out-expo);
 }
 
 .arlo__launcher:hover,
 .arlo__launcher:focus-visible {
-  border-color: var(--color-fg);
   transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.26);
 }
 
 .arlo__launcher-mark {
@@ -42,8 +42,8 @@
 }
 
 .arlo__launcher-mark svg {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
 }
 
 .arlo__panel {
@@ -93,11 +93,14 @@
 .arlo__avatar {
   width: 1.9rem;
   height: 1.9rem;
+  border-radius: 999px;
+  background: var(--color-accent-strong);
   color: var(--color-accent-strong);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  padding: 0.3rem;
 }
 
 .arlo__avatar svg {
@@ -150,7 +153,7 @@
 }
 
 .arlo__msg {
-  max-width: 85%;
+  max-width: 100%;
   padding: 0.6em 0.85em;
   border-radius: 12px;
   font-size: var(--fs-body-sm);
@@ -158,8 +161,37 @@
   text-wrap: pretty;
 }
 
-.arlo__msg--assistant {
+.arlo__row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
   align-self: flex-start;
+  max-width: 90%;
+}
+
+.arlo__row-avatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  background: var(--color-accent-strong);
+  color: var(--color-accent-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0.22rem;
+}
+
+.arlo__row-avatar svg {
+  width: 100%;
+  height: 100%;
+}
+
+.arlo__row .arlo__msg {
+  min-width: 0;
+}
+
+.arlo__msg--assistant {
   background: var(--color-fg-ghost);
   color: var(--color-fg);
   border-bottom-left-radius: 4px;
@@ -167,20 +199,19 @@
 
 .arlo__msg--user {
   align-self: flex-end;
+  max-width: 85%;
   background: var(--color-fg);
   color: var(--color-bg);
   border-bottom-right-radius: 4px;
 }
 
 .arlo__msg--error {
-  align-self: flex-start;
   background: transparent;
   border: 1px dashed var(--color-fg-faint);
   color: var(--color-fg-mute);
 }
 
 .arlo__msg--thinking {
-  align-self: flex-start;
   background: var(--color-fg-ghost);
   width: 4.5rem;
   padding-block: 0.9em;

@@ -127,3 +127,107 @@
     gap: 0.5rem;
   }
 }
+
+/* ---------- custom select ----------
+   Replaces the native <select> popup (which can't be styled reliably
+   across browsers — no rounded corners, no theme colors) with a
+   themed button + listbox. The real <select> stays in the DOM,
+   visually hidden, holding the actual value. */
+.custom-select {
+  position: relative;
+}
+
+.custom-select__native {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-select__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.65em 0.85em;
+  background: var(--color-bg-raised);
+  color: var(--color-fg);
+  border: 1px solid var(--color-fg-faint);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: var(--fs-body-sm);
+  text-align: left;
+  transition: border-color var(--dur-fast) var(--ease-out-expo);
+}
+
+.custom-select__trigger:hover,
+.custom-select__trigger:focus-visible {
+  border-color: var(--color-fg);
+}
+
+.custom-select__trigger svg {
+  width: 11px;
+  height: 8px;
+  flex-shrink: 0;
+  color: var(--color-fg-mute);
+  transition: transform var(--dur-fast) var(--ease-out-expo);
+}
+
+.custom-select__trigger[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.custom-select__listbox {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.35rem;
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-fg-faint);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+  animation: custom-select-in var(--dur-fast) var(--ease-out-expo);
+}
+
+.custom-select__listbox[hidden] {
+  display: none;
+}
+
+.custom-select__option {
+  width: 100%;
+  padding: 0.55em 0.7em;
+  border-radius: 7px;
+  text-align: left;
+  font-size: var(--fs-body-sm);
+  color: var(--color-fg-dim);
+}
+
+.custom-select__option:hover,
+.custom-select__option:focus-visible {
+  background: var(--color-fg-ghost);
+  color: var(--color-fg);
+}
+
+.custom-select__option[aria-selected="true"] {
+  color: var(--color-accent-strong);
+  background: var(--color-accent-dim);
+}
+
+@keyframes custom-select-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

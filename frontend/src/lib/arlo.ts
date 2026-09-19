@@ -16,24 +16,24 @@ interface ChatMessage {
 
 const GREETING = "hey, I'm Arlo — ask me anything about arthic: what it does, pricing, exams covered, or how to apply for a role.";
 
+const ARLO_MASCOT_SVG = `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M16 2.5C24.5 2.5 29.5 8.7 29.5 16.3C29.5 23.8 23.6 29.5 15.7 29.5C8 29.5 2.5 23.9 2.5 16.1C2.5 8.3 8.2 2.5 16 2.5Z" fill="currentColor" />
+  <circle cx="11.8" cy="15.5" r="1.7" fill="var(--color-bg)" />
+  <circle cx="20.2" cy="15.5" r="1.7" fill="var(--color-bg)" />
+  <path d="M12 19.8C13.6 21.6 18.4 21.6 20 19.8" stroke="var(--color-bg)" stroke-width="1.7" stroke-linecap="round" fill="none" />
+</svg>`;
+
 export function initArlo(): void {
   if (document.querySelector("[data-arlo-root]")) return; // guard against double-init
 
   const root = document.createElement("div");
   root.className = "arlo";
   root.setAttribute("data-arlo-root", "");
-  const mascot = `
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M16 2.5C24.5 2.5 29.5 8.7 29.5 16.3C29.5 23.8 23.6 29.5 15.7 29.5C8 29.5 2.5 23.9 2.5 16.1C2.5 8.3 8.2 2.5 16 2.5Z" fill="currentColor" />
-      <circle cx="11.8" cy="15.5" r="1.7" fill="var(--color-bg)" />
-      <circle cx="20.2" cy="15.5" r="1.7" fill="var(--color-bg)" />
-      <path d="M12 19.8C13.6 21.6 18.4 21.6 20 19.8" stroke="var(--color-bg)" stroke-width="1.7" stroke-linecap="round" fill="none" />
-    </svg>`;
   root.innerHTML = `
     <div class="arlo__panel" data-arlo-panel hidden role="dialog" aria-label="Arlo, arthic support chat" aria-modal="false">
       <div class="arlo__head">
         <div class="arlo__head-identity">
-          <span class="arlo__avatar" aria-hidden="true">${mascot}</span>
+          <span class="arlo__avatar" aria-hidden="true">${ARLO_MASCOT_SVG}</span>
           <div>
             <p class="arlo__head-name">Arlo</p>
             <p class="arlo__head-sub">arthic support</p>
@@ -52,7 +52,7 @@ export function initArlo(): void {
       </form>
     </div>
     <button class="arlo__launcher" type="button" data-arlo-launcher aria-haspopup="dialog" aria-expanded="false" aria-label="chat with Arlo, arthic support">
-      <span class="arlo__launcher-mark" aria-hidden="true">${mascot}</span>
+      <span class="arlo__launcher-mark" aria-hidden="true">${ARLO_MASCOT_SVG}</span>
     </button>
   `;
   document.body.appendChild(root);
@@ -70,21 +70,38 @@ export function initArlo(): void {
   let sending = false;
 
   function appendMessage(role: Role | "error", text: string): HTMLElement {
+    if (role === "user") {
+      const bubble = document.createElement("p");
+      bubble.className = "arlo__msg arlo__msg--user";
+      bubble.textContent = text;
+      log.appendChild(bubble);
+      log.scrollTop = log.scrollHeight;
+      return bubble;
+    }
+
+    // assistant + error replies both come "from Arlo's side" visually — avatar alongside the bubble
+    const row = document.createElement("div");
+    row.className = "arlo__row";
+    row.innerHTML = `<span class="arlo__row-avatar" aria-hidden="true">${ARLO_MASCOT_SVG}</span>`;
     const bubble = document.createElement("p");
     bubble.className = `arlo__msg arlo__msg--${role}`;
     bubble.textContent = text;
-    log.appendChild(bubble);
+    row.appendChild(bubble);
+    log.appendChild(row);
     log.scrollTop = log.scrollHeight;
     return bubble;
   }
 
   function appendThinking(): HTMLElement {
-    const bubble = document.createElement("div");
-    bubble.className = "arlo__msg arlo__msg--thinking";
-    bubble.innerHTML = `<div class="loading-bar"></div>`;
-    log.appendChild(bubble);
+    const row = document.createElement("div");
+    row.className = "arlo__row";
+    row.innerHTML = `
+      <span class="arlo__row-avatar" aria-hidden="true">${ARLO_MASCOT_SVG}</span>
+      <div class="arlo__msg arlo__msg--thinking"><div class="loading-bar"></div></div>
+    `;
+    log.appendChild(row);
     log.scrollTop = log.scrollHeight;
-    return bubble;
+    return row;
   }
 
   function open() {

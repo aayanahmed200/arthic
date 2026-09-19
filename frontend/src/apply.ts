@@ -1,8 +1,10 @@
 import "./styles/main.css";
 import { initCommon } from "./lib/common-init";
 import { initFormSubmit } from "./lib/form-submit";
+import { initCustomSelects } from "./lib/custom-select";
 
 initCommon();
+initCustomSelects();
 
 /**
  * One shared application form, relabeled by ?role= in the URL instead of
