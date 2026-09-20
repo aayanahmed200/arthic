@@ -19,10 +19,10 @@ const GREETING = "hey, I'm Arlo — ask me anything about arthic: what it does, 
 const ARLO_MASCOT_SVG = `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <path d="M16 2.5C24.5 2.5 29.5 8.7 29.5 16.3C29.5 23.8 23.6 29.5 15.7 29.5C8 29.5 2.5 23.9 2.5 16.1C2.5 8.3 8.2 2.5 16 2.5Z" fill="currentColor" />
   <g class="arlo-eyes">
-    <circle class="arlo-eye" cx="11.8" cy="15.5" r="1.7" fill="var(--color-bg)" />
-    <circle class="arlo-eye" cx="20.2" cy="15.5" r="1.7" fill="var(--color-bg)" />
+    <circle class="arlo-eye" cx="11.8" cy="15.3" r="2.3" fill="var(--color-bg)" />
+    <circle class="arlo-eye" cx="20.2" cy="15.3" r="2.3" fill="var(--color-bg)" />
   </g>
-  <path d="M12 19.8C13.6 21.6 18.4 21.6 20 19.8" stroke="var(--color-bg)" stroke-width="1.7" stroke-linecap="round" fill="none" />
+  <path d="M11.2 19.8C13 22.6 19 22.6 20.8 19.8" stroke="var(--color-bg)" stroke-width="2.2" stroke-linecap="round" fill="none" />
 </svg>`;
 
 export function initArlo(): void {
@@ -137,22 +137,30 @@ export function initArlo(): void {
   const eyes = launcher.querySelectorAll<SVGCircleElement>(".arlo-eye");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduceMotion) {
-    const EYE_MAX = 1.1; // svg viewBox units
-    const TILT_MAX = 10; // degrees
+    // Proportional to actual cursor offset, clamped to a max — not
+    // normalized to a unit direction vector, which snaps to full
+    // deflection instantly in any direction and gets numerically
+    // unstable (glitchy) as the cursor passes near dead-center, since
+    // dividing by a near-zero distance amplifies tiny position changes
+    // into wild angle swings. Proportional + clamped scales smoothly
+    // and consistently in every direction instead.
+    const EYE_MAX = 2.2; // svg viewBox units
+    const TILT_MAX = 12; // degrees
+    const REACH = 260; // px of cursor offset to hit the max
+    const clamp = (n: number, max: number) => Math.max(-max, Math.min(max, n));
     window.addEventListener("mousemove", (event) => {
       const rect = launcher.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
       const dx = event.clientX - cx;
       const dy = event.clientY - cy;
-      const dist = Math.hypot(dx, dy) || 1;
-      const ex = (dx / dist) * EYE_MAX;
-      const ey = (dy / dist) * EYE_MAX;
+
+      const ex = clamp((dx / REACH) * EYE_MAX, EYE_MAX);
+      const ey = clamp((dy / REACH) * EYE_MAX, EYE_MAX);
       eyes.forEach((eye) => eye.setAttribute("transform", `translate(${ex.toFixed(2)} ${ey.toFixed(2)})`));
 
-      const norm = Math.min(dist / 400, 1); // fades out with distance instead of a hard cutoff
-      const tiltX = (-dy / dist) * TILT_MAX * norm;
-      const tiltY = (dx / dist) * TILT_MAX * norm;
+      const tiltX = clamp((-dy / REACH) * TILT_MAX, TILT_MAX);
+      const tiltY = clamp((dx / REACH) * TILT_MAX, TILT_MAX);
       launcher.style.transform = `perspective(300px) rotateX(${tiltX.toFixed(1)}deg) rotateY(${tiltY.toFixed(1)}deg)`;
     });
   }
