@@ -63,7 +63,7 @@
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: lowercase;
-  color: var(--color-fg-dim);
+  color: var(--color-accent-strong);
 }
 
 .eyebrow::before {

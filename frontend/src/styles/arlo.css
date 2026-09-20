@@ -20,18 +20,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 999px;
   border: none;
   background: var(--color-accent-strong);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
-  transition: transform var(--dur-fast) var(--ease-out-expo), box-shadow var(--dur-fast) var(--ease-out-expo);
+  transition: box-shadow var(--dur-fast) var(--ease-out-expo);
+  will-change: transform;
 }
 
 .arlo__launcher:hover,
 .arlo__launcher:focus-visible {
-  transform: translateY(-2px);
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.26);
 }
 
@@ -42,8 +42,12 @@
 }
 
 .arlo__launcher-mark svg {
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
+}
+
+.arlo-eye {
+  transition: transform 0.1s ease-out;
 }
 
 .arlo__panel {

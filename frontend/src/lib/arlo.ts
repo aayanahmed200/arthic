@@ -18,8 +18,10 @@ const GREETING = "hey, I'm Arlo — ask me anything about arthic: what it does, 
 
 const ARLO_MASCOT_SVG = `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <path d="M16 2.5C24.5 2.5 29.5 8.7 29.5 16.3C29.5 23.8 23.6 29.5 15.7 29.5C8 29.5 2.5 23.9 2.5 16.1C2.5 8.3 8.2 2.5 16 2.5Z" fill="currentColor" />
-  <circle cx="11.8" cy="15.5" r="1.7" fill="var(--color-bg)" />
-  <circle cx="20.2" cy="15.5" r="1.7" fill="var(--color-bg)" />
+  <g class="arlo-eyes">
+    <circle class="arlo-eye" cx="11.8" cy="15.5" r="1.7" fill="var(--color-bg)" />
+    <circle class="arlo-eye" cx="20.2" cy="15.5" r="1.7" fill="var(--color-bg)" />
+  </g>
   <path d="M12 19.8C13.6 21.6 18.4 21.6 20 19.8" stroke="var(--color-bg)" stroke-width="1.7" stroke-linecap="round" fill="none" />
 </svg>`;
 
@@ -66,6 +68,7 @@ export function initArlo(): void {
   const sendBtn = root.querySelector<HTMLButtonElement>("[data-arlo-send]")!;
 
   const history: ChatMessage[] = [];
+  let greeted = false;
   let opened = false;
   let sending = false;
 
@@ -108,7 +111,8 @@ export function initArlo(): void {
     panel.hidden = false;
     launcher.setAttribute("aria-expanded", "true");
     opened = true;
-    if (history.length === 0) {
+    if (!greeted) {
+      greeted = true;
       appendMessage("assistant", GREETING);
     }
     window.requestAnimationFrame(() => input.focus());
@@ -124,6 +128,34 @@ export function initArlo(): void {
     if (panel.hidden) open();
     else close();
   });
+
+  // the eyes track the cursor anywhere on the page, and the whole button
+  // tilts slightly toward it — small, clamped movements, just enough for
+  // the launcher to feel like it's watching rather than a flat icon.
+  // Skipped entirely for prefers-reduced-motion rather than just toned
+  // down, since it's a continuous effect, not a one-off transition.
+  const eyes = launcher.querySelectorAll<SVGCircleElement>(".arlo-eye");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) {
+    const EYE_MAX = 1.1; // svg viewBox units
+    const TILT_MAX = 10; // degrees
+    window.addEventListener("mousemove", (event) => {
+      const rect = launcher.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = event.clientX - cx;
+      const dy = event.clientY - cy;
+      const dist = Math.hypot(dx, dy) || 1;
+      const ex = (dx / dist) * EYE_MAX;
+      const ey = (dy / dist) * EYE_MAX;
+      eyes.forEach((eye) => eye.setAttribute("transform", `translate(${ex.toFixed(2)} ${ey.toFixed(2)})`));
+
+      const norm = Math.min(dist / 400, 1); // fades out with distance instead of a hard cutoff
+      const tiltX = (-dy / dist) * TILT_MAX * norm;
+      const tiltY = (dx / dist) * TILT_MAX * norm;
+      launcher.style.transform = `perspective(300px) rotateX(${tiltX.toFixed(1)}deg) rotateY(${tiltY.toFixed(1)}deg)`;
+    });
+  }
 
   closeBtn.addEventListener("click", close);
 

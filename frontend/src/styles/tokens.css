@@ -43,7 +43,7 @@
      this file follows everywhere below. */
   --color-accent: #0e8f63;
   --color-accent-strong: #0a6e4c; /* 6.1:1 on --color-bg — safe for text */
-  --color-accent-dim: rgba(14, 143, 99, 0.1);
+  --color-accent-dim: rgba(14, 143, 99, 0.14);
   --color-accent-hairline: rgba(14, 143, 99, 0.28);
 
   /* gold — rarer still than emerald: a badge fill, a rating mark, one
