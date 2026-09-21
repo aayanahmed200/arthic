@@ -134,7 +134,6 @@ export function initArlo(): void {
   // the launcher to feel like it's watching rather than a flat icon.
   // Skipped entirely for prefers-reduced-motion rather than just toned
   // down, since it's a continuous effect, not a one-off transition.
-  const eyes = launcher.querySelectorAll<SVGCircleElement>(".arlo-eye");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduceMotion) {
     // Based on cursor position across the whole viewport, not distance
@@ -142,9 +141,17 @@ export function initArlo(): void {
     // "distance from button" mostly just saturates at its max for
     // almost the entire page and barely varies as you move around.
     // Viewport-relative means it responds everywhere, continuously.
-    // rAF-batched so the transform only updates once per paint instead
-    // of on every raw mousemove firing, which is what makes it feel
-    // fluid instead of stepped.
+    //
+    // Applies to every pair of eyes currently on the page — the
+    // launcher, the panel header avatar, and each message bubble's
+    // avatar — not just the launcher, so whichever one you're actually
+    // looking at tracks the cursor. Re-queried each frame since new
+    // message avatars get added to the log as the conversation goes on.
+    //
+    // Moves cx/cy directly instead of an SVG transform attribute —
+    // more bulletproof than transform here, no ambiguity about
+    // whether a CSS transition applies to an SVG presentation
+    // attribute the way it does to a CSS property.
     const EYE_MAX = 2.2; // svg viewBox units
     const TILT_MAX = 16; // degrees
     let pendingX = 0;
@@ -155,7 +162,17 @@ export function initArlo(): void {
       rafQueued = false;
       const ex = pendingX * EYE_MAX;
       const ey = pendingY * EYE_MAX;
-      eyes.forEach((eye) => eye.setAttribute("transform", `translate(${ex.toFixed(2)} ${ey.toFixed(2)})`));
+
+      document.querySelectorAll<SVGCircleElement>(".arlo-eye").forEach((eye) => {
+        if (!eye.dataset.baseCx) {
+          eye.dataset.baseCx = eye.getAttribute("cx") ?? "0";
+          eye.dataset.baseCy = eye.getAttribute("cy") ?? "0";
+        }
+        const baseCx = parseFloat(eye.dataset.baseCx ?? "0");
+        const baseCy = parseFloat(eye.dataset.baseCy ?? "0");
+        eye.setAttribute("cx", (baseCx + ex).toFixed(2));
+        eye.setAttribute("cy", (baseCy + ey).toFixed(2));
+      });
 
       const tiltX = -pendingY * TILT_MAX;
       const tiltY = pendingX * TILT_MAX;

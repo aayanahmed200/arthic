@@ -47,7 +47,7 @@
 }
 
 .arlo-eye {
-  transition: transform 0.1s ease-out;
+  transition: cx 0.12s ease-out, cy 0.12s ease-out;
 }
 
 .arlo__panel {
