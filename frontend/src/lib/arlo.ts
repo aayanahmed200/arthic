@@ -137,31 +137,39 @@ export function initArlo(): void {
   const eyes = launcher.querySelectorAll<SVGCircleElement>(".arlo-eye");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduceMotion) {
-    // Proportional to actual cursor offset, clamped to a max — not
-    // normalized to a unit direction vector, which snaps to full
-    // deflection instantly in any direction and gets numerically
-    // unstable (glitchy) as the cursor passes near dead-center, since
-    // dividing by a near-zero distance amplifies tiny position changes
-    // into wild angle swings. Proportional + clamped scales smoothly
-    // and consistently in every direction instead.
+    // Based on cursor position across the whole viewport, not distance
+    // from the button — the button sits fixed in a corner, so
+    // "distance from button" mostly just saturates at its max for
+    // almost the entire page and barely varies as you move around.
+    // Viewport-relative means it responds everywhere, continuously.
+    // rAF-batched so the transform only updates once per paint instead
+    // of on every raw mousemove firing, which is what makes it feel
+    // fluid instead of stepped.
     const EYE_MAX = 2.2; // svg viewBox units
-    const TILT_MAX = 12; // degrees
-    const REACH = 260; // px of cursor offset to hit the max
-    const clamp = (n: number, max: number) => Math.max(-max, Math.min(max, n));
-    window.addEventListener("mousemove", (event) => {
-      const rect = launcher.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = event.clientX - cx;
-      const dy = event.clientY - cy;
+    const TILT_MAX = 16; // degrees
+    let pendingX = 0;
+    let pendingY = 0;
+    let rafQueued = false;
 
-      const ex = clamp((dx / REACH) * EYE_MAX, EYE_MAX);
-      const ey = clamp((dy / REACH) * EYE_MAX, EYE_MAX);
+    function applyTracking() {
+      rafQueued = false;
+      const ex = pendingX * EYE_MAX;
+      const ey = pendingY * EYE_MAX;
       eyes.forEach((eye) => eye.setAttribute("transform", `translate(${ex.toFixed(2)} ${ey.toFixed(2)})`));
 
-      const tiltX = clamp((-dy / REACH) * TILT_MAX, TILT_MAX);
-      const tiltY = clamp((dx / REACH) * TILT_MAX, TILT_MAX);
-      launcher.style.transform = `perspective(300px) rotateX(${tiltX.toFixed(1)}deg) rotateY(${tiltY.toFixed(1)}deg)`;
+      const tiltX = -pendingY * TILT_MAX;
+      const tiltY = pendingX * TILT_MAX;
+      launcher.style.transform = `perspective(400px) rotateX(${tiltX.toFixed(1)}deg) rotateY(${tiltY.toFixed(1)}deg)`;
+    }
+
+    window.addEventListener("mousemove", (event) => {
+      // -1 (left/top edge) to 1 (right/bottom edge) across the viewport
+      pendingX = (event.clientX / window.innerWidth) * 2 - 1;
+      pendingY = (event.clientY / window.innerHeight) * 2 - 1;
+      if (!rafQueued) {
+        rafQueued = true;
+        requestAnimationFrame(applyTracking);
+      }
     });
   }
 
