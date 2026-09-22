@@ -50,7 +50,7 @@
 }
 
 .entry__body p {
-  margin-bottom: 1.4em;
+  margin-bottom: 1.7em;
 }
 
 .entry__body p:first-child::first-letter {
@@ -59,7 +59,7 @@
 
 .entry__body ul,
 .entry__body ol {
-  margin: 0 0 1.4em;
+  margin: 0 0 1.7em;
   display: flex;
   flex-direction: column;
   gap: 0.6em;
@@ -107,7 +107,7 @@
 .entry__body h2 {
   font-size: var(--fs-h3);
   color: var(--color-fg);
-  margin: 2.2em 0 0.9em;
+  margin: 2.8em 0 1em;
 }
 
 .entry__body h2:first-child {
@@ -117,7 +117,7 @@
 .entry__body h3 {
   font-size: var(--fs-body-lg);
   color: var(--color-fg);
-  margin: 2em 0 0.7em;
+  margin: 2.4em 0 0.8em;
 }
 
 .entry__note {

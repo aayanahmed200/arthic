@@ -77,8 +77,8 @@
   /* ---------- spacing / layout ---------- */
   --container-max: 1440px;
   --container-pad: clamp(1.25rem, 1rem + 2.4vw, 4rem);
-  --space-section-y: clamp(6rem, 4rem + 8vw, 11.5rem);
-  --space-section-y-sm: clamp(4rem, 3rem + 4vw, 7rem);
+  --space-section-y: clamp(7rem, 4.5rem + 9vw, 13rem);
+  --space-section-y-sm: clamp(4.5rem, 3.25rem + 4.5vw, 8rem);
   --nav-height: clamp(58px, 7vw, 72px);
 
   /* ---------- motion ---------- */

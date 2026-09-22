@@ -17,12 +17,12 @@ interface ChatMessage {
 const GREETING = "hey, I'm Arlo — ask me anything about arthic: what it does, pricing, exams covered, or how to apply for a role.";
 
 const ARLO_MASCOT_SVG = `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M16 2.5C24.5 2.5 29.5 8.7 29.5 16.3C29.5 23.8 23.6 29.5 15.7 29.5C8 29.5 2.5 23.9 2.5 16.1C2.5 8.3 8.2 2.5 16 2.5Z" fill="currentColor" />
+  <circle class="arlo-blob" cx="16" cy="16" r="14.2" fill="currentColor" />
   <g class="arlo-eyes">
-    <circle class="arlo-eye" cx="11.8" cy="15.3" r="2.3" fill="var(--color-bg)" />
-    <circle class="arlo-eye" cx="20.2" cy="15.3" r="2.3" fill="var(--color-bg)" />
+    <circle class="arlo-eye" cx="10.8" cy="14.6" r="3.5" fill="var(--color-bg)" />
+    <circle class="arlo-eye" cx="21.2" cy="14.6" r="3.5" fill="var(--color-bg)" />
   </g>
-  <path d="M11.2 19.8C13 22.6 19 22.6 20.8 19.8" stroke="var(--color-bg)" stroke-width="2.2" stroke-linecap="round" fill="none" />
+  <ellipse class="arlo-mouth" cx="16" cy="22.2" rx="5.6" ry="2.6" fill="var(--color-bg)" />
 </svg>`;
 
 export function initArlo(): void {

@@ -39,15 +39,89 @@
   display: inline-flex;
   color: var(--color-accent-strong);
   flex-shrink: 0;
+  animation: arlo-idle-look 9s ease-in-out infinite;
 }
 
 .arlo__launcher-mark svg {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
+}
+
+/* the idle "look around" cycle — runs continuously on the inner face
+   wrapper, independent of the mouse-tracking tilt (which JS applies to
+   the outer .arlo__launcher button instead) so the two 3D effects
+   layer instead of fighting over the same transform. */
+@keyframes arlo-idle-look {
+  0%,
+  100% {
+    transform: perspective(200px) rotateY(0deg) rotateX(0deg);
+  }
+  15% {
+    transform: perspective(200px) rotateY(-22deg) rotateX(4deg);
+  }
+  30% {
+    transform: perspective(200px) rotateY(-22deg) rotateX(4deg);
+  }
+  45% {
+    transform: perspective(200px) rotateY(24deg) rotateX(-3deg);
+  }
+  60% {
+    transform: perspective(200px) rotateY(24deg) rotateX(-3deg);
+  }
+  75% {
+    transform: perspective(200px) rotateY(0deg) rotateX(-6deg);
+  }
+  85% {
+    transform: perspective(200px) rotateY(0deg) rotateX(-6deg);
+  }
+}
+
+.arlo-eye,
+.arlo-mouth {
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 .arlo-eye {
   transition: cx 0.12s ease-out, cy 0.12s ease-out;
+  animation: arlo-blink 5.5s ease-in-out infinite;
+}
+
+.arlo-eye:nth-of-type(2) {
+  animation-delay: 0.03s;
+}
+
+@keyframes arlo-blink {
+  0%,
+  93%,
+  100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.12);
+  }
+}
+
+.arlo-mouth {
+  animation: arlo-talk 3.2s ease-in-out infinite;
+}
+
+@keyframes arlo-talk {
+  0%,
+  100% {
+    transform: scaleY(0.55);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arlo__launcher-mark,
+  .arlo-eye,
+  .arlo-mouth {
+    animation: none;
+  }
 }
 
 .arlo__panel {

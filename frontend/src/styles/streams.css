@@ -102,6 +102,7 @@
 }
 
 .boards__logo {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -112,6 +113,35 @@
 
 .boards__logo:hover {
   transform: translateY(-3px);
+}
+
+/* themed hover/focus tooltip built from the img's own title attribute —
+   the browser's native title tooltip is slow to appear and unstyled,
+   this shows immediately and matches the site. */
+.boards__logo::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(2px);
+  white-space: nowrap;
+  background: var(--color-fg);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.01em;
+  padding: 0.4em 0.7em;
+  border-radius: 7px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease-out-expo), transform var(--dur-fast) var(--ease-out-expo);
+  z-index: 5;
+}
+
+.boards__logo:hover::after,
+.boards__logo:focus-within::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .boards__logo img {
