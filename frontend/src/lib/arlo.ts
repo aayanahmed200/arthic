@@ -19,10 +19,15 @@ const GREETING = "hey, I'm Arlo — ask me anything about arthic: what it does, 
 const ARLO_MASCOT_SVG = `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <circle class="arlo-blob" cx="16" cy="16" r="14.2" fill="currentColor" />
   <g class="arlo-eyes">
-    <circle class="arlo-eye" cx="10.8" cy="14.6" r="3.5" fill="var(--color-bg)" />
-    <circle class="arlo-eye" cx="21.2" cy="14.6" r="3.5" fill="var(--color-bg)" />
+    <g class="arlo-eye">
+      <circle cx="10.8" cy="15.5" r="4" fill="#ffffff" />
+      <circle cx="10.8" cy="15.5" r="1.9" fill="#0a0a0a" />
+    </g>
+    <g class="arlo-eye">
+      <circle cx="21.2" cy="15.5" r="4" fill="#ffffff" />
+      <circle cx="21.2" cy="15.5" r="1.9" fill="#0a0a0a" />
+    </g>
   </g>
-  <ellipse class="arlo-mouth" cx="16" cy="22.2" rx="5.6" ry="2.6" fill="var(--color-bg)" />
 </svg>`;
 
 export function initArlo(): void {
@@ -163,15 +168,11 @@ export function initArlo(): void {
       const ex = pendingX * EYE_MAX;
       const ey = pendingY * EYE_MAX;
 
-      document.querySelectorAll<SVGCircleElement>(".arlo-eye").forEach((eye) => {
-        if (!eye.dataset.baseCx) {
-          eye.dataset.baseCx = eye.getAttribute("cx") ?? "0";
-          eye.dataset.baseCy = eye.getAttribute("cy") ?? "0";
-        }
-        const baseCx = parseFloat(eye.dataset.baseCx ?? "0");
-        const baseCy = parseFloat(eye.dataset.baseCy ?? "0");
-        eye.setAttribute("cx", (baseCx + ex).toFixed(2));
-        eye.setAttribute("cy", (baseCy + ey).toFixed(2));
+      // scoped to the launcher only — the header avatar and message
+      // avatars stay static, matching every other instance of the
+      // character on the page.
+      launcher.querySelectorAll<SVGGElement>(".arlo-eye").forEach((eye) => {
+        eye.setAttribute("transform", `translate(${ex.toFixed(2)} ${ey.toFixed(2)})`);
       });
 
       const tiltX = -pendingY * TILT_MAX;

@@ -99,10 +99,3 @@
   }
 }
 
-/* standalone waitlist page only — a soft green wash to mark it as the
-   site's conversion page, distinct from the more neutral content
-   pages. kept as a gradient (not a solid fill) so it stays subtle and
-   still reads as "arthic" rather than a different product. */
-.waitlist-hero {
-  background: radial-gradient(ellipse 90% 70% at 15% 0%, var(--color-accent-dim), transparent 60%);
-}

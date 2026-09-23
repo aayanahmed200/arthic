@@ -39,7 +39,7 @@
   display: inline-flex;
   color: var(--color-accent-strong);
   flex-shrink: 0;
-  animation: arlo-idle-look 9s ease-in-out infinite;
+  animation: arlo-idle-look 8s ease-in-out infinite;
 }
 
 .arlo__launcher-mark svg {
@@ -50,44 +50,39 @@
 /* the idle "look around" cycle — runs continuously on the inner face
    wrapper, independent of the mouse-tracking tilt (which JS applies to
    the outer .arlo__launcher button instead) so the two 3D effects
-   layer instead of fighting over the same transform. */
+   layer instead of fighting over the same transform. One continuous
+   loop with no repeated/held values, so it reads as motion the whole
+   time rather than snapping between a few fixed poses. */
 @keyframes arlo-idle-look {
-  0%,
-  100% {
-    transform: perspective(200px) rotateY(0deg) rotateX(0deg);
+  0% {
+    transform: perspective(220px) rotateY(0deg) rotateX(0deg);
   }
-  15% {
-    transform: perspective(200px) rotateY(-22deg) rotateX(4deg);
+  25% {
+    transform: perspective(220px) rotateY(-26deg) rotateX(6deg);
   }
-  30% {
-    transform: perspective(200px) rotateY(-22deg) rotateX(4deg);
-  }
-  45% {
-    transform: perspective(200px) rotateY(24deg) rotateX(-3deg);
-  }
-  60% {
-    transform: perspective(200px) rotateY(24deg) rotateX(-3deg);
+  50% {
+    transform: perspective(220px) rotateY(0deg) rotateX(-8deg);
   }
   75% {
-    transform: perspective(200px) rotateY(0deg) rotateX(-6deg);
+    transform: perspective(220px) rotateY(26deg) rotateX(6deg);
   }
-  85% {
-    transform: perspective(200px) rotateY(0deg) rotateX(-6deg);
+  100% {
+    transform: perspective(220px) rotateY(0deg) rotateX(0deg);
   }
 }
 
-.arlo-eye,
-.arlo-mouth {
+/* only the launcher's own eyes get the idle blink — the header avatar
+   and every message-bubble avatar use the exact same character
+   markup, but stay still, so there's one clearly "alive" instance
+   or the page instead of every small avatar animating at once. */
+.arlo__launcher-mark .arlo-eye {
   transform-box: fill-box;
   transform-origin: center;
-}
-
-.arlo-eye {
-  transition: cx 0.12s ease-out, cy 0.12s ease-out;
+  transition: transform 0.12s ease-out;
   animation: arlo-blink 5.5s ease-in-out infinite;
 }
 
-.arlo-eye:nth-of-type(2) {
+.arlo__launcher-mark .arlo-eye:nth-of-type(2) {
   animation-delay: 0.03s;
 }
 
@@ -102,24 +97,9 @@
   }
 }
 
-.arlo-mouth {
-  animation: arlo-talk 3.2s ease-in-out infinite;
-}
-
-@keyframes arlo-talk {
-  0%,
-  100% {
-    transform: scaleY(0.55);
-  }
-  50% {
-    transform: scaleY(1);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .arlo__launcher-mark,
-  .arlo-eye,
-  .arlo-mouth {
+  .arlo__launcher-mark .arlo-eye {
     animation: none;
   }
 }
