@@ -59,10 +59,26 @@ export function initArlo(): void {
       </form>
     </div>
     <button class="arlo__launcher" type="button" data-arlo-launcher aria-haspopup="dialog" aria-expanded="false" aria-label="chat with Arlo, arthic support">
-      <span class="arlo__launcher-mark" aria-hidden="true">${ARLO_MASCOT_SVG}</span>
+      <span class="arlo__launcher-mark" data-arlo-sphere-mount aria-hidden="true"></span>
     </button>
   `;
   document.body.appendChild(root);
+
+  // Three.js is a genuinely heavy dependency for a decorative floating
+  // button — code-split and loaded on idle instead of bundled into the
+  // main script every page pays for upfront, so it starts downloading
+  // once the rest of the page is actually interactive, not before.
+  const sphereMount = root.querySelector<HTMLElement>("[data-arlo-sphere-mount]")!;
+  const loadSphere = () => {
+    import("./arlo-sphere").then(({ initArloSphere }) => initArloSphere(sphereMount));
+  };
+  const idle = (window as typeof window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => void })
+    .requestIdleCallback;
+  if (idle) {
+    idle(loadSphere, { timeout: 2000 });
+  } else {
+    window.setTimeout(loadSphere, 300);
+  }
 
   const panel = root.querySelector<HTMLElement>("[data-arlo-panel]")!;
   const launcher = root.querySelector<HTMLButtonElement>("[data-arlo-launcher]")!;
@@ -133,63 +149,6 @@ export function initArlo(): void {
     if (panel.hidden) open();
     else close();
   });
-
-  // the eyes track the cursor anywhere on the page, and the whole button
-  // tilts slightly toward it — small, clamped movements, just enough for
-  // the launcher to feel like it's watching rather than a flat icon.
-  // Skipped entirely for prefers-reduced-motion rather than just toned
-  // down, since it's a continuous effect, not a one-off transition.
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduceMotion) {
-    // Based on cursor position across the whole viewport, not distance
-    // from the button — the button sits fixed in a corner, so
-    // "distance from button" mostly just saturates at its max for
-    // almost the entire page and barely varies as you move around.
-    // Viewport-relative means it responds everywhere, continuously.
-    //
-    // Applies to every pair of eyes currently on the page — the
-    // launcher, the panel header avatar, and each message bubble's
-    // avatar — not just the launcher, so whichever one you're actually
-    // looking at tracks the cursor. Re-queried each frame since new
-    // message avatars get added to the log as the conversation goes on.
-    //
-    // Moves cx/cy directly instead of an SVG transform attribute —
-    // more bulletproof than transform here, no ambiguity about
-    // whether a CSS transition applies to an SVG presentation
-    // attribute the way it does to a CSS property.
-    const EYE_MAX = 2.2; // svg viewBox units
-    const TILT_MAX = 16; // degrees
-    let pendingX = 0;
-    let pendingY = 0;
-    let rafQueued = false;
-
-    function applyTracking() {
-      rafQueued = false;
-      const ex = pendingX * EYE_MAX;
-      const ey = pendingY * EYE_MAX;
-
-      // scoped to the launcher only — the header avatar and message
-      // avatars stay static, matching every other instance of the
-      // character on the page.
-      launcher.querySelectorAll<SVGGElement>(".arlo-eye").forEach((eye) => {
-        eye.setAttribute("transform", `translate(${ex.toFixed(2)} ${ey.toFixed(2)})`);
-      });
-
-      const tiltX = -pendingY * TILT_MAX;
-      const tiltY = pendingX * TILT_MAX;
-      launcher.style.transform = `perspective(400px) rotateX(${tiltX.toFixed(1)}deg) rotateY(${tiltY.toFixed(1)}deg)`;
-    }
-
-    window.addEventListener("mousemove", (event) => {
-      // -1 (left/top edge) to 1 (right/bottom edge) across the viewport
-      pendingX = (event.clientX / window.innerWidth) * 2 - 1;
-      pendingY = (event.clientY / window.innerHeight) * 2 - 1;
-      if (!rafQueued) {
-        rafQueued = true;
-        requestAnimationFrame(applyTracking);
-      }
-    });
-  }
 
   closeBtn.addEventListener("click", close);
 
