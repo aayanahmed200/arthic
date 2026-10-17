@@ -16,17 +16,16 @@ interface ChatMessage {
 
 const GREETING = "hey, I'm Arlo — ask me anything about arthic: what it does, pricing, exams covered, or how to apply for a role.";
 
+// Rounded-square eyes, not circles — the shape itself is the whole
+// expressive element, same idea as Grok's bot character. One shared
+// constant used everywhere the character appears (launcher, panel
+// header, every message-bubble avatar), so it's identical by
+// construction, not by convention.
 const ARLO_MASCOT_SVG = `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <circle class="arlo-blob" cx="16" cy="16" r="14.2" fill="currentColor" />
   <g class="arlo-eyes">
-    <g class="arlo-eye">
-      <circle cx="10.8" cy="15.5" r="4" fill="#ffffff" />
-      <circle cx="10.8" cy="15.5" r="1.9" fill="#0a0a0a" />
-    </g>
-    <g class="arlo-eye">
-      <circle cx="21.2" cy="15.5" r="4" fill="#ffffff" />
-      <circle cx="21.2" cy="15.5" r="1.9" fill="#0a0a0a" />
-    </g>
+    <rect class="arlo-eye" x="8.4" y="11.6" width="5.6" height="7.8" rx="2.5" fill="#ffffff" />
+    <rect class="arlo-eye" x="18" y="11.6" width="5.6" height="7.8" rx="2.5" fill="#ffffff" />
   </g>
 </svg>`;
 
@@ -59,26 +58,10 @@ export function initArlo(): void {
       </form>
     </div>
     <button class="arlo__launcher" type="button" data-arlo-launcher aria-haspopup="dialog" aria-expanded="false" aria-label="chat with Arlo, arthic support">
-      <span class="arlo__launcher-mark" data-arlo-sphere-mount aria-hidden="true"></span>
+      <span class="arlo__launcher-mark" aria-hidden="true">${ARLO_MASCOT_SVG}</span>
     </button>
   `;
   document.body.appendChild(root);
-
-  // Three.js is a genuinely heavy dependency for a decorative floating
-  // button — code-split and loaded on idle instead of bundled into the
-  // main script every page pays for upfront, so it starts downloading
-  // once the rest of the page is actually interactive, not before.
-  const sphereMount = root.querySelector<HTMLElement>("[data-arlo-sphere-mount]")!;
-  const loadSphere = () => {
-    import("./arlo-sphere").then(({ initArloSphere }) => initArloSphere(sphereMount));
-  };
-  const idle = (window as typeof window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => void })
-    .requestIdleCallback;
-  if (idle) {
-    idle(loadSphere, { timeout: 2000 });
-  } else {
-    window.setTimeout(loadSphere, 300);
-  }
 
   const panel = root.querySelector<HTMLElement>("[data-arlo-panel]")!;
   const launcher = root.querySelector<HTMLButtonElement>("[data-arlo-launcher]")!;
@@ -89,9 +72,9 @@ export function initArlo(): void {
   const sendBtn = root.querySelector<HTMLButtonElement>("[data-arlo-send]")!;
 
   const history: ChatMessage[] = [];
-  let greeted = false;
   let opened = false;
   let sending = false;
+  let greeted = false;
 
   function appendMessage(role: Role | "error", text: string): HTMLElement {
     if (role === "user") {
@@ -214,4 +197,59 @@ export function initArlo(): void {
       sendBtn.disabled = false;
     }
   });
+
+  initLauncherTracking(launcher);
+}
+
+/**
+ * Smooth cursor tracking for the launcher's own eyes only — the header
+ * avatar and every message-bubble avatar render the same character
+ * markup but stay completely still, matching every other instance on
+ * the page.
+ *
+ * Two things that make this read as smooth instead of jumpy, both
+ * learned the hard way from earlier passes at this:
+ *  1. The target is viewport-relative (cursor position across the
+ *     whole window), not distance-from-the-button — the launcher sits
+ *     fixed in a corner, so "distance from it" saturates at its max
+ *     for nearly the entire page and barely changes as the cursor
+ *     moves around. Viewport-relative responds continuously, everywhere.
+ *  2. The eyes don't jump straight to that target each frame — they
+ *     ease toward it a fraction at a time (the 0.12 below), which is
+ *     what actually produces a gliding motion instead of a snap. rAF
+ *     drives this continuously, not an event-triggered one-off.
+ */
+function initLauncherTracking(launcher: HTMLButtonElement): void {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+
+  const eyes = launcher.querySelectorAll<SVGRectElement>(".arlo-eye");
+  if (eyes.length === 0) return;
+
+  const EYE_MAX = 2.4; // svg viewBox units
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let raf = 0;
+
+  window.addEventListener("mousemove", (event) => {
+    // -1 (left/top edge) to 1 (right/bottom edge) across the viewport
+    targetX = (event.clientX / window.innerWidth) * 2 - 1;
+    targetY = (event.clientY / window.innerHeight) * 2 - 1;
+  });
+
+  function tick() {
+    currentX += (targetX - currentX) * 0.12;
+    currentY += (targetY - currentY) * 0.12;
+    const ex = currentX * EYE_MAX;
+    const ey = currentY * EYE_MAX;
+    eyes.forEach((eye) => eye.setAttribute("transform", `translate(${ex.toFixed(2)} ${ey.toFixed(2)})`));
+    raf = requestAnimationFrame(tick);
+  }
+  tick();
+
+  // not strictly necessary today (the launcher persists for the whole
+  // session) but cheap insurance if that ever changes.
+  window.addEventListener("beforeunload", () => cancelAnimationFrame(raf), { once: true });
 }

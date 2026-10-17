@@ -36,19 +36,21 @@
 
 .arlo__launcher-mark {
   display: inline-flex;
+  color: var(--color-accent-strong);
   flex-shrink: 0;
 }
 
-/* the launcher's face is a real WebGL canvas now (src/lib/arlo-sphere.ts) —
-   an actual rotating 3D sphere, not a flat SVG with a CSS transform
-   approximating depth. All of its animation (idle rotation, cursor
-   tracking) happens inside that canvas in Three.js, not here — this is
-   just sizing the element. The header avatar and every message-bubble
-   avatar stay the plain, static, flat SVG (ARLO_MASCOT_SVG in arlo.ts). */
-.arlo__launcher-mark canvas {
-  display: block;
+.arlo__launcher-mark svg {
   width: 42px;
   height: 42px;
+}
+
+/* only the launcher's own eyes move (src/lib/arlo.ts sets a transform
+   attribute on each one, smoothly eased toward the cursor every
+   frame) — the header avatar and every message-bubble avatar render
+   the identical character markup but stay completely still. */
+.arlo__launcher-mark .arlo-eye {
+  transition: transform 0.05s linear;
 }
 
 .arlo__panel {
