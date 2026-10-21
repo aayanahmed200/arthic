@@ -24,8 +24,8 @@ const GREETING = "hey, I'm Arlo — ask me anything about arthic: what it does, 
 const ARLO_MASCOT_SVG = `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <circle class="arlo-blob" cx="16" cy="16" r="14.2" fill="currentColor" />
   <g class="arlo-eyes">
-    <rect class="arlo-eye" x="8.4" y="11.6" width="5.6" height="7.8" rx="2.5" fill="#ffffff" />
-    <rect class="arlo-eye" x="18" y="11.6" width="5.6" height="7.8" rx="2.5" fill="#ffffff" />
+    <rect class="arlo-eye" x="8.4" y="11.6" width="5.6" height="7.8" rx="2.5" fill="#0a0a0a" />
+    <rect class="arlo-eye" x="18" y="11.6" width="5.6" height="7.8" rx="2.5" fill="#0a0a0a" />
   </g>
 </svg>`;
 
