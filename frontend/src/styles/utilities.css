@@ -418,6 +418,24 @@ select.field option {
   white-space: nowrap;
 }
 
+/* the bolder version used inline within oversized headline text — a
+   solid fill instead of a tint, so it reads as a distinct chip
+   breaking up the text rather than a subtle underline-style
+   highlight. font-size set in its own unit (not em) so it doesn't
+   compound with the huge parent headline's size the way padding
+   (still in em, intentionally, so it scales with whatever heading
+   size it's dropped into) does. */
+.pill-highlight--inline {
+  background: var(--color-accent-strong);
+  color: var(--color-bg);
+  font-size: 0.42em;
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
+  padding: 0.3em 0.65em 0.35em;
+  vertical-align: 0.14em;
+  margin-inline: 0.06em;
+}
+
 /* ---------- Arlo mascot doodle ----------
    A loose, decorative placement of Arlo's face floating near a
    section — not interactive, just personality. Uses the same mascot

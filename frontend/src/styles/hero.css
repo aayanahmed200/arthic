@@ -51,6 +51,20 @@
   max-width: 16ch;
 }
 
+/* a dedicated, deliberately oversized size just for the homepage hero
+   — bigger than the shared --fs-h2-lg token used by every other page's
+   title, since a hero headline is meant to be the single largest thing
+   on the site, not matched to the same scale as a standalone page's
+   <h1>. Sized for this specific context: the hero keeps its existing
+   two-column layout (text beside the product preview), not a full-
+   width stacked one, so this goes meaningfully bigger than before
+   without being sized for a column twice as wide as it actually has
+   to work with. */
+.hero__headline--xl {
+  font-size: clamp(2.25rem, 0.9rem + 5.2vw, 4.85rem);
+  max-width: 16ch;
+}
+
 .hero__lede {
   margin-top: 0.4rem;
   max-width: 46ch;
