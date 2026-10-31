@@ -1,6 +1,45 @@
+/* the colored "frame" visible around the footer card — always arthic's
+   green regardless of site theme, since the footer itself is always
+   styled dark (below), the same way the reference footer keeps its
+   dark card and colored canvas fixed independent of anything else on
+   the page. */
+.footer-frame {
+  background: var(--color-accent-strong);
+  padding: 0.85rem 0.85rem 0;
+}
+
 .footer {
-  padding-block: clamp(3rem, 8vw, 5rem) clamp(2rem, 5vw, 3rem);
-  border-top: 1px solid var(--color-fg-hairline);
+  /* the footer is always dark, on purpose, independent of the site's
+     own light/dark theme toggle — same idea as the reference, where
+     the footer card's own color never changes. Re-pointing the shared
+     --color-fg and --color-bg variables to the dark theme's values here
+     means every rule below that already uses them (links, headings,
+     hairlines) is correct automatically, with nothing to override
+     per-selector. */
+  --color-bg: #15140f;
+  --color-fg: #fcfbf8;
+  --color-fg-dim: #c7c4b7;
+  --color-fg-mute: #9c9a8e;
+  --color-fg-hairline: rgba(252, 251, 248, 0.1);
+  --color-accent-strong: #34c48f;
+  --color-accent-dim: rgba(52, 196, 143, 0.16);
+
+  background: var(--color-bg);
+  color: var(--color-fg);
+  border-radius: 28px 28px 0 0;
+  padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3rem);
+}
+
+/* within the footer specifically, always show the white logo variant —
+   the footer's background is always dark regardless of site theme, so
+   it needs the light-on-dark logo regardless of which one the rest of
+   the page is currently showing. */
+.footer .brand-mark--light {
+  display: none;
+}
+
+.footer .brand-mark--dark {
+  display: inline-block;
 }
 
 .footer__top {
