@@ -50,7 +50,17 @@
    frame) — the header avatar and every message-bubble avatar render
    the identical character markup but stay completely still. */
 .arlo__launcher-mark .arlo-eye {
-  transition: transform 0.05s linear;
+  transition: transform 0.05s linear, height 0.22s var(--ease-out-expo), y 0.22s var(--ease-out-expo);
+}
+
+/* a different expression once the chat is open — squints into a happy,
+   friendly line instead of the neutral default rounded square. Changes
+   the rect's own height/y (not transform), since transform is already
+   owned by the cursor-tracking JS above and setting it here would
+   silently override that every frame instead of combining with it. */
+.arlo__launcher[aria-expanded="true"] .arlo-eye {
+  height: 3.2px;
+  y: 14px;
 }
 
 .arlo__panel {
