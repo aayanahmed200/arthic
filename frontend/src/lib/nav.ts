@@ -1,19 +1,15 @@
 /**
- * Nav chrome: background-on-scroll, mobile menu, active-section tracking,
- * and the fixed "current section" folio label at the bottom of the screen.
+ * Nav chrome: background-on-scroll, mobile menu, active-section tracking.
  */
 export function initNav(): void {
   const header = document.querySelector<HTMLElement>("[data-nav]");
   const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
   const toggleLabel = document.querySelector<HTMLElement>("[data-nav-toggle-label]");
   const mobileNav = document.querySelector<HTMLElement>("[data-mobile-nav]");
-  const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-section]"));
-  const indexLabel = document.querySelector<HTMLElement>("[data-section-index-label]");
 
   initScrollState(header);
   initMobileMenu(toggle, toggleLabel, mobileNav);
   initActiveNavByPath();
-  initSectionTracking(sections, indexLabel);
   initYear();
 }
 
@@ -99,30 +95,6 @@ function initMobileMenu(
   window.addEventListener("resize", () => {
     if (window.innerWidth > 760) close();
   });
-}
-
-function initSectionTracking(sections: HTMLElement[], indexLabel: HTMLElement | null): void {
-  if (sections.length === 0 || !indexLabel) return;
-
-  const setActive = (label: string) => {
-    indexLabel.textContent = label;
-  };
-
-  if (!("IntersectionObserver" in window)) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      const el = visible.target as HTMLElement;
-      setActive(el.dataset.sectionLabel || el.id);
-    },
-    { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
-  );
-
-  sections.forEach((section) => observer.observe(section));
 }
 
 function initYear(): void {

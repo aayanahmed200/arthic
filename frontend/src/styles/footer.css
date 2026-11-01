@@ -4,25 +4,25 @@
    dark card and colored canvas fixed independent of anything else on
    the page. */
 .footer-frame {
-  background: var(--color-accent-strong);
+  background: #2b2a26; /* dark gray, not full black */
   padding: 0.85rem 0.85rem 0;
 }
 
 .footer {
-  /* the footer is always dark, on purpose, independent of the site's
-     own light/dark theme toggle — same idea as the reference, where
-     the footer card's own color never changes. Re-pointing the shared
-     --color-fg and --color-bg variables to the dark theme's values here
-     means every rule below that already uses them (links, headings,
-     hairlines) is correct automatically, with nothing to override
-     per-selector. */
-  --color-bg: #15140f;
+  /* the footer card itself is a rich green now (swapped from the
+     previous dark-card/green-frame arrangement) — re-pointing the
+     shared --color-fg/--color-bg variables here means every rule below
+     that already uses them (links, headings, hairlines) gets correct,
+     verified-contrast colors automatically, with nothing to override
+     per-selector. White text at 6.35:1 against this green, well clear
+     of AA. */
+  --color-bg: #0f6b3f;
   --color-fg: #fcfbf8;
-  --color-fg-dim: #c7c4b7;
-  --color-fg-mute: #9c9a8e;
-  --color-fg-hairline: rgba(252, 251, 248, 0.1);
-  --color-accent-strong: #34c48f;
-  --color-accent-dim: rgba(52, 196, 143, 0.16);
+  --color-fg-dim: rgba(252, 251, 248, 0.78);
+  --color-fg-mute: rgba(252, 251, 248, 0.58);
+  --color-fg-hairline: rgba(252, 251, 248, 0.16);
+  --color-accent-strong: #fcfbf8;
+  --color-accent-dim: rgba(252, 251, 248, 0.14);
 
   background: var(--color-bg);
   color: var(--color-fg);

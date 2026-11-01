@@ -218,32 +218,6 @@
   background-size: 180px 180px;
 }
 
-/* ---------- fixed running "folio" label showing the current section ---------- */
-.section-index {
-  position: fixed;
-  left: var(--container-pad);
-  bottom: 1.5rem;
-  z-index: var(--z-section-index);
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.14em;
-  color: var(--color-fg-mute);
-  text-transform: lowercase;
-  pointer-events: none;
-  mix-blend-mode: difference;
-}
-
-.section-index span {
-  display: inline-block;
-  transition: opacity var(--dur-fast) var(--ease-out-expo);
-}
-
-@media (max-width: 720px) {
-  .section-index {
-    display: none;
-  }
-}
-
 /* ---------- buttons ---------- */
 .btn {
   position: relative;

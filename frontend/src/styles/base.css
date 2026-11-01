@@ -22,7 +22,7 @@ body {
   min-height: 100svh;
   background: var(--color-bg);
   color: var(--color-fg);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: 1.5;
   font-weight: 380;
@@ -69,6 +69,7 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--font-display);
   font-weight: 520;
   letter-spacing: -0.01em;
   text-wrap: balance;
