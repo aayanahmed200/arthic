@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<script>
+(function () {
+  try {
+    var theme = localStorage.getItem("arthic-theme");
+    if (theme !== "light" && theme !== "dark") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) {}
+})();
+</script>
+<title>cookie policy — arthic</title>
+<meta name="description" content="What arthic.tech actually stores in your browser, in plain language — and it's less than you'd think." />
+<meta name="theme-color" content="#fcfbf8" />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="canonical" href="https://arthic.tech/cookies.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="arthic" />
+<meta property="og:title" content="cookie policy — arthic" />
+<meta property="og:description" content="What arthic.tech actually stores in your browser, in plain language — and it's less than you'd think." />
+<meta property="og:image" content="https://arthic.tech/og-image.png" />
+<meta property="og:url" content="https://arthic.tech/cookies.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="cookie policy — arthic" />
+<meta name="twitter:description" content="What arthic.tech actually stores in your browser, in plain language — and it's less than you'd think." />
+<meta name="twitter:image" content="https://arthic.tech/og-image.png" />
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<a class="skip-link" href="#main">skip to content</a>
+
+<header class="nav" data-nav>
+  <div class="nav__inner container">
+    <a href="/" class="nav__mark" aria-label="arthic — home">
+      <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
+      <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
+    </a>
+
+    <nav class="nav__links" aria-label="primary">
+      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
+      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
+      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
+      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
+      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
+    </nav>
+
+    <div class="nav__utility">
+      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="switch to dark theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" />
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="3" fill="currentColor" />
+          <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+            <path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" />
+          </g>
+        </svg>
+      </button>
+      <div class="nav__region">
+        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="where arthic covers exams, by region">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
+            <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="region-popover" id="regionPopover" data-region-popover role="menu" hidden>
+          <p class="region-popover__label">where we cover</p>
+          <a class="boards__region-tag boards__region-tag--live" role="menuitem" href="/subjects.html"><img class="boards__flag" src="/flags/pk.svg" alt="" width="18" height="13" /><span>Pakistan</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener" title="arthic doesn't cover Cambridge yet — this links to Cambridge International's own site"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener" title="arthic doesn't cover the SAT/AP yet — this links to College Board's own site"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener" title="arthic doesn't cover CBSE yet — this links to CBSE's own site"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
+        </div>
+      </div>
+    </div>
+
+    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav">
+      <span data-nav-toggle-label>menu</span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" data-mobile-nav>
+  <nav aria-label="mobile primary">
+    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
+    <a href="/method.html" data-mobile-link>02 — method</a>
+    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
+    <a href="/careers.html" data-mobile-link>04 — careers</a>
+    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
+  </nav>
+  <p class="mobile-nav__foot">an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</p>
+</div>
+
+<main id="main">
+  <article class="entry container" id="top">
+    <header class="entry__head" data-reveal>
+      <p class="eyebrow">legal</p>
+      <span class="entry__date">last updated november 2026</span>
+      <h1 class="entry__title">cookie policy.</h1>
+      <p class="entry__lede">shorter than most, because there's genuinely less to disclose: arthic doesn't use tracking or advertising cookies at all.</p>
+    </header>
+
+    <div class="entry__body" data-reveal data-reveal-delay="100">
+      <p>
+        Most cookie policies are long because most sites use a lot of cookies — analytics,
+        advertising, third-party trackers, session management across a dozen services. arthic
+        doesn't do any of that today, so this page says exactly what's true and stops there
+        rather than padding it out to look more official.
+      </p>
+
+      <h2>1. what arthic actually stores</h2>
+      <p>
+        arthic.tech stores exactly one thing in your browser: your light/dark theme preference,
+        saved via <code>localStorage</code> under the key <code>arthic-theme</code>. That's it.
+        It's not a cookie in the technical sense — it isn't sent to our servers with every
+        request the way a cookie is — and it exists purely so the site remembers which theme
+        you picked instead of resetting every time you visit.
+      </p>
+      <p>
+        If your browser has <code>localStorage</code> disabled (private browsing modes sometimes
+        do this), the site still works fine — it just falls back to matching your device's own
+        light/dark setting each time instead of remembering a manual choice.
+      </p>
+
+      <h2>2. what arthic does not use</h2>
+      <p>
+        No analytics cookies. No advertising or retargeting pixels. No third-party trackers. No
+        session cookies for logged-in accounts, because there's no account system live yet. If
+        and when arthic ships features that genuinely need cookies — a real login system, for
+        instance — this page will be updated to say so plainly, and if that ever includes
+        anything beyond strictly-necessary cookies, we'll ask first rather than assume.
+      </p>
+
+      <h2>3. Arlo, the support chat</h2>
+      <p>
+        The chat widget on this site keeps your conversation in memory for the current page
+        visit only. Refreshing the page starts a new conversation. Nothing from that chat is
+        written to <code>localStorage</code>, a cookie, or anywhere else in your browser.
+      </p>
+
+      <h2>4. the waitlist and job applications</h2>
+      <p>
+        Submitting the waitlist form or a job application sends that information to arthic's own
+        servers to act on it (see the <a href="/privacy.html" class="hover-underline">privacy
+        policy</a> for what happens to it there) — that's a direct request you make by submitting
+        a form, not a cookie or browser-storage mechanism, so it isn't covered by this page.
+      </p>
+
+      <h2>5. questions</h2>
+      <p>
+        If something on this page stops being accurate — because arthic adds a feature that
+        changes any of this — we'll update it rather than leave a stale policy up. In the
+        meantime, if anything here is unclear, email
+        <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>.
+      </p>
+    </div>
+  </article>
+</main>
+
+<div class="footer-frame">
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__mark" aria-label="arthic — home">
+          <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
+          <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
+        </a>
+        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="legal">
+        <span class="footer__col-label">legal</span>
+        <a href="/privacy.html" class="hover-underline">privacy</a>
+        <a href="/terms.html" class="hover-underline">terms</a>
+        <a href="/cookies.html" class="hover-underline">cookies</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="contact">
+        <span class="footer__col-label">contact</span>
+        <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
+      <a href="#top" class="hover-underline">back to top</a>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script type="module" src="/src/legal.ts"></script>
+</body>
+</html>
