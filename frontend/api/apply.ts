@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { sql, ensureTables } from "./_db.js";
+import { checkRateLimit } from "./_rate_limit.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_ROLE = 80;
@@ -14,6 +15,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "method not allowed" });
   }
+
+  if (!(await checkRateLimit(req, res, "apply", 6, 60))) return;
 
   if (!process.env.POSTGRES_URL) {
     return res

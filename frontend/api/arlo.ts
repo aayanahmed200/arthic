@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { checkRateLimit } from "./_rate_limit.js";
 
 // POST /api/arlo — the floating support chat widget on every page.
 //
@@ -138,6 +139,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "method not allowed" });
   }
+
+  // this is the one endpoint that costs real money per call (Anthropic/
+  // Gemini), so it gets the tightest limit of the three: 12 messages
+  // per 5 minutes per IP is generous for an actual back-and-forth
+  // conversation but shuts down a spam loop or an abandoned-tab retry
+  // bug fast.
+  if (!(await checkRateLimit(req, res, "arlo", 12, 300))) return;
 
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
   const geminiKey = process.env.GEMINI_API_KEY;
