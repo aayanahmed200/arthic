@@ -292,16 +292,21 @@
   animation: loading-sweep 1.1s ease-in-out infinite;
 }
 
+/* bold green fill instead of ink-on-paper — green is the site's actual
+   primary color now, not a decorative accent reserved for small dots
+   and hairlines. #ffffff on --color-accent-strong verified at 4.81:1,
+   clears AA. */
 .btn--solid {
-  background: var(--color-fg);
-  color: var(--color-bg);
-  border-color: var(--color-fg);
+  background: var(--color-accent-strong);
+  color: #ffffff;
+  border-color: var(--color-accent-strong);
 }
 
 .btn--solid:hover,
 .btn--solid:focus-visible {
-  background: var(--color-bg);
-  color: var(--color-fg);
+  background: var(--color-fg);
+  border-color: var(--color-fg);
+  color: var(--color-bg);
 }
 
 /* an arrow riding inside a .btn (paired secondary action next to a

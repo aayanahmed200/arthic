@@ -24,7 +24,7 @@
   color-scheme: light;
 
   /* ---------- color ---------- */
-  --color-bg: #fcfbf8;
+  --color-bg: #fafaf9; /* crisper, cooler than the old warm cream — reads as product, not editorial */
   --color-bg-raised: #ffffff;
   --color-bg-sunken: #f3f1ea;
   --color-fg: #15140f;
