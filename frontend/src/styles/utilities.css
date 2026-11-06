@@ -437,3 +437,21 @@ select.field option {
     display: none;
   }
 }
+
+/* alternating section background — breaks up the monotony of every
+   section on the page sharing the exact same flat background, which
+   reads as visually repetitive scrolled top to bottom. Used on
+   "compare" and "hiring" specifically so the page has real rhythm as
+   you scroll instead of one unbroken flat canvas. */
+.section--tinted {
+  background: var(--color-accent-dim);
+  border-radius: 28px;
+  margin-inline: 0.85rem;
+}
+
+@media (max-width: 700px) {
+  .section--tinted {
+    margin-inline: 0.5rem;
+    border-radius: 20px;
+  }
+}
