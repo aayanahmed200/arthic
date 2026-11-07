@@ -24,7 +24,7 @@
   color-scheme: light;
 
   /* ---------- color ---------- */
-  --color-bg: #fafaf9; /* crisper, cooler than the old warm cream — reads as product, not editorial */
+  --color-bg: #ffffff; /* pure white */
   --color-bg-raised: #ffffff;
   --color-bg-sunken: #f3f1ea;
   --color-fg: #15140f;
@@ -42,8 +42,8 @@
      for ANY hover/active state on text or a link, same rule the rest of
      this file follows everywhere below. */
   --color-accent: #0e8f63;
-  --color-accent-strong: #0b8433; /* 4.65:1 on --color-bg — clean true-green instead of the old muddy teal, still clears AA for text */
-  --color-accent-dim: rgba(11, 132, 51, 0.14);
+  --color-accent-strong: #0a8f3a; /* lightened as far as white-text-on-button contrast allows (4.59:1) — can't go much lighter without white text on buttons failing AA */
+  --color-accent-dim: rgba(26, 184, 85, 0.16); /* a lighter, more visible green tint for section backgrounds/pills — not just a near-invisible wash */
   --color-accent-hairline: rgba(14, 143, 99, 0.28);
 
   /* gold — rarer still than emerald: a badge fill, a rating mark, one
