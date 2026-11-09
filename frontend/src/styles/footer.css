@@ -3,43 +3,18 @@
    styled dark (below), the same way the reference footer keeps its
    dark card and colored canvas fixed independent of anything else on
    the page. */
+/* plain now — same background as every other element on the page, no
+   special card/frame treatment. Reverted after direct feedback that
+   the dark-frame/green-card version didn't match the rest of the site. */
 .footer-frame {
-  background: #2b2a26; /* dark gray, not full black */
-  padding: 0.85rem 0.85rem 0;
+  background: var(--color-bg);
 }
 
 .footer {
-  /* the footer card itself is a rich green now (swapped from the
-     previous dark-card/green-frame arrangement) — re-pointing the
-     shared --color-fg/--color-bg variables here means every rule below
-     that already uses them (links, headings, hairlines) gets correct,
-     verified-contrast colors automatically, with nothing to override
-     per-selector. White text at 6.35:1 against this green, well clear
-     of AA. */
-  --color-bg: #0f6b3f;
-  --color-fg: #fcfbf8;
-  --color-fg-dim: rgba(252, 251, 248, 0.78);
-  --color-fg-mute: rgba(252, 251, 248, 0.58);
-  --color-fg-hairline: rgba(252, 251, 248, 0.16);
-  --color-accent-strong: #fcfbf8;
-  --color-accent-dim: rgba(252, 251, 248, 0.14);
-
   background: var(--color-bg);
   color: var(--color-fg);
-  border-radius: 28px 28px 0 0;
   padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3rem);
-}
-
-/* within the footer specifically, always show the white logo variant —
-   the footer's background is always dark regardless of site theme, so
-   it needs the light-on-dark logo regardless of which one the rest of
-   the page is currently showing. */
-.footer .brand-mark--light {
-  display: none;
-}
-
-.footer .brand-mark--dark {
-  display: inline-block;
+  border-top: 1px solid var(--color-fg-hairline);
 }
 
 .footer__top {
