@@ -43,6 +43,7 @@
      this file follows everywhere below. */
   --color-accent: #0e8f63;
   --color-accent-strong: #0a8f3a; /* lightened as far as white-text-on-button contrast allows (4.59:1) — can't go much lighter without white text on buttons failing AA */
+  --color-accent-fill: #34e07a; /* bright fill: always carries dark ink text (10.9:1) */
   --color-accent-dim: rgba(26, 184, 85, 0.16); /* a lighter, more visible green tint for section backgrounds/pills — not just a near-invisible wash */
   --color-accent-hairline: rgba(14, 143, 99, 0.28);
 
@@ -130,6 +131,7 @@
 
   --color-accent: #17a674;
   --color-accent-strong: #34c48f; /* 8.3:1 on --color-bg */
+  --color-accent-fill: #34e07a;
   --color-accent-dim: rgba(52, 196, 143, 0.16);
   --color-accent-hairline: rgba(52, 196, 143, 0.32);
 

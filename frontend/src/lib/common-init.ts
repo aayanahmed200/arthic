@@ -12,6 +12,7 @@ import { initSmoothScroll } from "./smooth-scroll";
 import { initReveal } from "./reveal";
 import { initScrollTilt } from "./scroll-tilt";
 import { initSubscribeForm } from "./subscribe";
+import { initButtons } from "./buttons";
 import { initArlo } from "./arlo";
 
 export function initCommon(): void {
@@ -22,5 +23,6 @@ export function initCommon(): void {
   initReveal();
   initScrollTilt();
   initSubscribeForm();
+  initButtons();
   initArlo();
 }

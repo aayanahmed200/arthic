@@ -92,9 +92,6 @@ function initMobileMenu(
     if (event.key === "Escape" && panel.classList.contains("is-open")) close();
   });
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 760) close();
-  });
 }
 
 function initYear(): void {

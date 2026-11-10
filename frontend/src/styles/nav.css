@@ -91,7 +91,7 @@
 }
 
 .nav__toggle {
-  display: none;
+  display: inline-flex;
   font-family: var(--font-mono);
   font-size: var(--fs-label);
   letter-spacing: 0.06em;
@@ -101,9 +101,6 @@
 @media (max-width: 760px) {
   .nav__links {
     display: none;
-  }
-  .nav__toggle {
-    display: inline-flex;
   }
 }
 
@@ -205,64 +202,115 @@
   }
 }
 
-/* ---------- mobile nav overlay ----------
-   Same --color-bg/--color-fg as every other surface on the page — no
-   section, including this full-screen takeover, departs from the
-   shared background. Anyone who wants real contrast gets it from the
-   theme toggle itself, not from one section being permanently dark. */
+/* ---------- full-screen menu takeover ----------
+   One menu overlay for every screen size (it used to be mobile-only).
+   Huge stacked links that slide up one after another when it opens,
+   plus the contact line. The inline desktop links stay in the bar for
+   anyone who just wants to click straight through. */
 .mobile-nav {
   position: fixed;
   inset: 0;
   z-index: var(--z-mobile-nav);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: clamp(1rem, 4vh, 2rem);
-  padding: calc(var(--nav-height) + 2rem) var(--container-pad) 3rem;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: calc(var(--nav-height) + 1.5rem) var(--container-pad) 2.5rem;
   background: var(--color-bg);
-  opacity: 0;
+  clip-path: inset(0 0 100% 0);
   visibility: hidden;
-  transform: translateY(-8px);
-  transition: opacity var(--dur-base) var(--ease-out-expo), transform var(--dur-base) var(--ease-out-expo), visibility 0s linear var(--dur-base);
+  transition: clip-path 0.7s var(--ease-out-expo), visibility 0s linear 0.7s;
 }
 
 .mobile-nav.is-open {
-  opacity: 1;
+  clip-path: inset(0 0 0 0);
   visibility: visible;
-  transform: none;
-  transition: opacity var(--dur-base) var(--ease-out-expo), transform var(--dur-base) var(--ease-out-expo), visibility 0s;
+  transition: clip-path 0.7s var(--ease-out-expo), visibility 0s;
 }
 
 .mobile-nav nav {
   display: flex;
   flex-direction: column;
-  gap: 0.35em;
+  margin-block: auto;
 }
 
-.mobile-nav a {
-  display: inline-block;
+.mobile-nav nav a {
+  display: block;
+  overflow: hidden;
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 6vw, 2.5rem);
-  font-weight: 460;
-  letter-spacing: -0.01em;
+  font-size: clamp(2.6rem, 10vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
   color: var(--color-fg);
-  padding-block: 0.15em;
-  transition: color var(--dur-fast) var(--ease-out-expo);
+  padding-block: 0.12em;
+  border-bottom: 1px solid var(--color-fg-hairline);
+  transform: translateY(40px);
+  opacity: 0;
+  transition: transform 0.7s var(--ease-out-expo), opacity 0.5s var(--ease-out-expo), padding-left 0.35s var(--ease-out-expo), color 0.2s;
 }
 
-.mobile-nav a:hover,
-.mobile-nav a:focus-visible {
+.mobile-nav.is-open nav a {
+  transform: none;
+  opacity: 1;
+}
+
+.mobile-nav.is-open nav a:nth-child(1) { transition-delay: 0.18s, 0.18s, 0s, 0s; }
+.mobile-nav.is-open nav a:nth-child(2) { transition-delay: 0.24s, 0.24s, 0s, 0s; }
+.mobile-nav.is-open nav a:nth-child(3) { transition-delay: 0.30s, 0.30s, 0s, 0s; }
+.mobile-nav.is-open nav a:nth-child(4) { transition-delay: 0.36s, 0.36s, 0s, 0s; }
+.mobile-nav.is-open nav a:nth-child(5) { transition-delay: 0.42s, 0.42s, 0s, 0s; }
+
+.mobile-nav nav a:hover,
+.mobile-nav nav a:focus-visible {
+  padding-left: 0.35em;
   color: var(--color-accent-strong);
+  transition-delay: 0s;
 }
 
 .mobile-nav__foot {
-  max-width: 32ch;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2rem;
   color: var(--color-fg-mute);
   font-size: var(--fs-body-sm);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out-expo);
 }
 
-@media (min-width: 761px) {
-  .mobile-nav {
-    display: none;
+.mobile-nav.is-open .mobile-nav__foot {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+.mobile-nav__foot span {
+  max-width: 34ch;
+}
+
+.mobile-nav__mail {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  font-weight: 600;
+  color: var(--color-fg);
+  border-bottom: 2px solid var(--color-accent-fill);
+  transition: background-color 0.2s;
+}
+
+.mobile-nav__mail:hover,
+.mobile-nav__mail:focus-visible {
+  background: var(--color-accent-fill);
+  color: #111111;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav,
+  .mobile-nav.is-open,
+  .mobile-nav nav a,
+  .mobile-nav__foot {
+    transition-duration: 0.01s;
+    transition-delay: 0s;
   }
 }
