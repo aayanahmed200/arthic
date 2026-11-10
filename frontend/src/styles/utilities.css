@@ -480,7 +480,7 @@ select.field option {
    reads as a hand-placed sticker rather than a UI element. */
 .mascot-doodle {
   position: absolute;
-  color: var(--color-accent-strong);
+  color: var(--color-accent-fill);
   opacity: 0.9;
   pointer-events: none;
 }

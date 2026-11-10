@@ -298,3 +298,115 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ---------- page-load sequence (homepage) ----------
+   Ink screen, wordmark rises in, then the whole screen lifts away to
+   reveal the page while the hero text reveals underneath. Pure CSS and
+   pointer-events: none, so it can never block a click, and it's gone
+   entirely for prefers-reduced-motion. */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  background: var(--color-fg);
+  color: var(--color-bg);
+  pointer-events: none;
+  animation: loader-lift 0.9s var(--ease-out-expo) 1.15s forwards;
+}
+
+.loader__word {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 12vw, 9rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  overflow: hidden;
+  animation: loader-word 0.9s var(--ease-out-expo) 0.1s both;
+}
+
+.loader__dot {
+  color: var(--color-accent-fill);
+}
+
+@keyframes loader-word {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+@keyframes loader-lift {
+  to { transform: translateY(-100%); visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader { display: none; }
+}
+
+/* ---------- ticker band ---------- */
+.marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--color-fg-hairline);
+  padding-block: clamp(0.9rem, 2vw, 1.4rem);
+  background: var(--color-bg);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.marquee__item {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee__star {
+  padding-inline: clamp(1rem, 3vw, 2.2rem);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--color-accent-fill);
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+}
+
+/* ---------- display type: big, heavy, uppercase ---------- */
+.hero__headline--xl,
+main > section h2,
+.entry__title {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.hero__headline--xl {
+  font-size: clamp(2.4rem, 0.8rem + 5.6vw, 5.4rem);
+  max-width: 14ch;
+}
+
+.hero__headline--xl .pill-highlight--inline {
+  letter-spacing: 0;
+}
