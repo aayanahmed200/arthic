@@ -13,6 +13,7 @@ import { initReveal } from "./reveal";
 import { initScrollTilt } from "./scroll-tilt";
 import { initSubscribeForm } from "./subscribe";
 import { initButtons } from "./buttons";
+import { initFaq } from "./faq";
 import { initArlo } from "./arlo";
 
 export function initCommon(): void {
@@ -24,5 +25,6 @@ export function initCommon(): void {
   initScrollTilt();
   initSubscribeForm();
   initButtons();
+  initFaq();
   initArlo();
 }
