@@ -21,6 +21,7 @@ export default defineConfig({
         waitlist: fileURLToPath(new URL("./waitlist.html", import.meta.url)),
         privacy: fileURLToPath(new URL("./privacy.html", import.meta.url)),
         terms: fileURLToPath(new URL("./terms.html", import.meta.url)),
+        cookies: fileURLToPath(new URL("./cookies.html", import.meta.url)),
         notFound: fileURLToPath(new URL("./404.html", import.meta.url)),
       },
     },

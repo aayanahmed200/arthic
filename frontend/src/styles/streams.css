@@ -403,8 +403,8 @@ main > section h2,
 }
 
 .hero__headline--xl {
-  font-size: clamp(2.4rem, 0.8rem + 5.6vw, 5.4rem);
-  max-width: 14ch;
+  font-size: clamp(2.2rem, 0.7rem + 4vw, 4.2rem);
+  max-width: 16ch;
 }
 
 .hero__headline--xl .pill-highlight--inline {

@@ -41,8 +41,8 @@
 }
 
 .arlo__launcher-mark svg {
-  width: 42px;
-  height: 42px;
+  width: 58px;
+  height: 58px;
 }
 
 /* only the launcher's own eyes move (src/lib/arlo.ts sets a transform
