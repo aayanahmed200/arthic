@@ -4,226 +4,121 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
-<script>
-(function () {
-  try {
-    var theme = localStorage.getItem("arthic-theme");
-    if (theme !== "light" && theme !== "dark") {
-      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {}
-})();
-</script>
-<title>careers — arthic</title>
-<meta name="description" content="arthic is a small, student-run team building an all-in-one exam-prep platform for Pakistan's toughest exams — most roles are built around a student's schedule, not a 9-to-5." />
-<meta name="theme-color" content="#fcfbf8" />
-
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-<link rel="canonical" href="https://arthic.tech/careers.html" />
-
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="arthic" />
-<meta property="og:title" content="careers — arthic" />
-<meta property="og:description" content="a small, student-run team building an all-in-one exam-prep platform for Pakistan's toughest exams." />
-<meta property="og:image" content="https://arthic.tech/og-image.png" />
-<meta property="og:url" content="https://arthic.tech/careers.html" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="careers — arthic" />
-<meta name="twitter:description" content="a small, student-run team building an all-in-one exam-prep platform for Pakistan's toughest exams." />
-<meta name="twitter:image" content="https://arthic.tech/og-image.png" />
+<script>(function(){try{var theme=localStorage.getItem("arthic-theme");if(theme!=="light"&&theme!=="dark"){theme=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",theme);}catch(e){}})();</script>
+<title>Careers | Build Arthic with us</title>
+<meta name="description" content="Explore flexible, student-focused roles with Arthic, a team building an exam-preparation platform for Pakistan." />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" /><link rel="manifest" href="/site.webmanifest" /><link rel="canonical" href="https://arthic.tech/careers.html" />
+<meta property="og:type" content="website" /><meta property="og:site_name" content="Arthic" /><meta property="og:title" content="Careers | Build Arthic with us" /><meta property="og:description" content="Explore flexible, student-focused roles with Arthic, a team building an exam-preparation platform for Pakistan." /><meta property="og:image" content="https://arthic.tech/og-image.png" /><meta property="og:url" content="https://arthic.tech/careers.html" />
+<meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="Careers | Build Arthic with us" /><meta name="twitter:description" content="Explore flexible, student-focused roles with Arthic, a team building an exam-preparation platform for Pakistan." /><meta name="twitter:image" content="https://arthic.tech/og-image.png" />
 </head>
-<body>
-
-<div class="grain" aria-hidden="true"></div>
-<a class="skip-link" href="#main">skip to content</a>
-
+<body class="content-page">
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="nav" data-nav>
   <div class="nav__inner container">
-    <a href="/" class="nav__mark" aria-label="arthic — home">
-      <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
-      <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
+    <a href="/" class="nav__mark" aria-label="Arthic home">
+      <img class="brand-mark--light" src="/logo.png" alt="Arthic" width="800" height="272" />
+      <img class="brand-mark--dark" src="/logo-white.png" alt="Arthic" width="800" height="272" />
     </a>
-
-    <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="/subjects.html" data-nav-link>Exams</a>
+      <a href="/method.html" data-nav-link>How it works</a>
+      <a href="/pricing.html" data-nav-link>Pricing</a>
+      <a href="/careers.html" data-nav-link>Careers</a>
     </nav>
-
     <div class="nav__utility">
-      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="switch to dark theme">
-        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" />
-        </svg>
-        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <circle cx="8" cy="8" r="3" fill="currentColor" />
-          <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-            <path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" />
-          </g>
-        </svg>
+      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" /></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="currentColor" /><g stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" /></g></svg>
       </button>
       <div class="nav__region">
-        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="where arthic covers exams, by region">
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
-            <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
-          </svg>
+        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="Region coverage">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" /><path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></svg>
         </button>
         <div class="region-popover" id="regionPopover" data-region-popover role="menu" hidden>
-          <p class="region-popover__label">where we cover</p>
+          <p class="region-popover__label">Where we cover</p>
           <a class="boards__region-tag boards__region-tag--live" role="menuitem" href="/subjects.html"><img class="boards__flag" src="/flags/pk.svg" alt="" width="18" height="13" /><span>Pakistan</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener" title="arthic doesn't cover Cambridge yet — this links to Cambridge International's own site"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener" title="arthic doesn't cover the SAT/AP yet — this links to College Board's own site"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener" title="arthic doesn't cover CBSE yet — this links to CBSE's own site"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
         </div>
       </div>
     </div>
-
-    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav">
-      <span data-nav-toggle-label>menu</span>
-    </button>
+    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav"><span data-nav-toggle-label>Menu</span></button>
   </div>
 </header>
-
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
-  <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
-    <a href="/method.html" data-mobile-link>02 — method</a>
-    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
+  <nav aria-label="Mobile navigation">
+    <a href="/subjects.html" data-mobile-link>Exams</a>
+    <a href="/method.html" data-mobile-link>How it works</a>
+    <a href="/pricing.html" data-mobile-link>Pricing</a>
+    <a href="/careers.html" data-mobile-link>Careers</a>
+    <a href="/waitlist.html" data-mobile-link>Join early access</a>
   </nav>
-  <p class="mobile-nav__foot"><span>an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</span><a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
+  <p class="mobile-nav__foot">A focused preparation platform for Pakistan's entrance and competitive exams. <a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
 </div>
-
-<main id="main">
-
-  <!-- ============ ROLES ============ -->
-  <section class="philosophy section section--first" id="top" data-section data-section-label="careers">
-    <div class="container">
-      <div class="philosophy__head">
-        <p class="eyebrow" data-reveal>careers — mostly for students</p>
-        <h1 class="philosophy__headline" data-reveal data-reveal-delay="80">
-          built around your schedule.<br />not the other way around.
-        </h1>
-        <p class="entry__lede" data-reveal data-reveal-delay="120">
-          four roles, all part-time, all built to fit around your own exam prep or your
-          semester — apply below, or use whichever's closest to what you'd rather be doing.
-        </p>
-      </div>
-
-      <ol class="philosophy__list">
-        <li class="philosophy__item" data-reveal>
-          <span class="philosophy__num">01</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag">content</p>
-            <h3>student content lead</h3>
-            <p class="philosophy__body">write the notes, MCQs, and past-paper breakdowns for one exam track — MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS LNAT. best suited to someone who took that exact exam recently.</p>
-
-            <a class="btn btn--solid apply-cta" href="/apply.html?role=student-content-lead"><span>apply for this role</span></a>
-          </div>
-        </li>
-        <li class="philosophy__item" data-reveal>
-          <span class="philosophy__num">02</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag">outreach</p>
-            <h3>campus ambassador</h3>
-            <p class="philosophy__body">bring arthic to your own university, college, or academy — a demo, a mention in your batch's group chats, honest notes on what students actually ask for. flexible and part-time.</p>
-
-            <a class="btn btn--solid apply-cta" href="/apply.html?role=campus-ambassador"><span>apply for this role</span></a>
-          </div>
-        </li>
-        <li class="philosophy__item" data-reveal>
-          <span class="philosophy__num">03</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag">engineering</p>
-            <h3>student engineer</h3>
-            <p class="philosophy__body">build the actual product alongside your own classes — frontend, backend, or the mentor's prompting and evaluation. real ownership, hours built around your semester, not a 9-to-5.</p>
-
-            <a class="btn btn--solid apply-cta" href="/apply.html?role=student-engineer"><span>apply for this role</span></a>
-          </div>
-        </li>
-        <li class="philosophy__item" data-reveal>
-          <span class="philosophy__num">04</span>
-          <div class="philosophy__copy">
-            <p class="philosophy__tag">pedagogy</p>
-            <h3>mentor quality reviewer</h3>
-            <p class="philosophy__body">read real, anonymized mentor conversations and flag where an explanation was unclear or the tone was off. useful if you've tutored or TA'd — no engineering background required.</p>
-
-            <a class="btn btn--solid apply-cta" href="/apply.html?role=mentor-quality-reviewer"><span>apply for this role</span></a>
-          </div>
-        </li>
-      </ol>
-    </div>
+<main id="main" class="content-main">
+  <section class="content-hero content-container career-intro" id="top">
+    <div class="content-hero__topline" data-reveal><span>Careers</span><span>Work with Arthic</span></div>
+    <h1 data-reveal data-reveal-delay="80">Help make exam preparation less scattered.</h1>
+    <p class="content-hero__lede" data-reveal data-reveal-delay="140">We're building an education product around the questions students actually ask. The roles below are designed to make room for studies and other commitments, with scope discussed directly.</p>
+    <p class="content-hero__note" data-reveal data-reveal-delay="180">Choose the role closest to your experience. You can also send a general application if your strengths don't fit one title.</p>
   </section>
 
-  <!-- ============ GET IN TOUCH ============ -->
-  <section class="ai-note section--tight" id="contact" data-section data-section-label="get in touch">
-    <div class="container ai-note__inner">
-      <p class="eyebrow" data-reveal>not quite a fit?</p>
-      <h2 data-reveal data-reveal-delay="80">apply anyway.</h2>
-      <p class="ai-note__body" data-reveal data-reveal-delay="160">
-        if none of the four roles above are exactly right, tell us what you'd rather be doing —
-        we're small enough to figure it out from there.
-      </p>
-      <a class="link-arrow link-arrow--large" data-reveal data-reveal-delay="220" href="/apply.html?role=general">
-        <span>apply anyway</span>
-        <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
-        </svg>
-      </a>
+  <section class="content-container">
+    <div class="content-hero__topline" data-reveal><span>Open roles</span><span>Student-first team</span></div>
+    <div class="career-list">
+      <article class="career-role" data-reveal>
+        <span class="career-role__number">01</span>
+        <div><span class="career-role__type">Content and exam insight</span><h2>Student content lead</h2><p class="career-role__body">Help create clear notes, practice questions and past-paper breakdowns for an exam track you know well. Recent experience with the relevant exam is especially useful.</p></div>
+        <a class="career-role__link" href="/apply.html?role=student-content-lead">Apply ↗</a>
+      </article>
+      <article class="career-role" data-reveal>
+        <span class="career-role__number">02</span>
+        <div><span class="career-role__type">Campus outreach</span><h2>Campus ambassador</h2><p class="career-role__body">Introduce Arthic to students at your college, university or academy, help organise small demos, and share honest feedback about what learners need.</p></div>
+        <a class="career-role__link" href="/apply.html?role=campus-ambassador">Apply ↗</a>
+      </article>
+      <article class="career-role" data-reveal>
+        <span class="career-role__number">03</span>
+        <div><span class="career-role__type">Product and engineering</span><h2>Student engineer</h2><p class="career-role__body">Help build the product across frontend, backend or mentor evaluation. Share a GitHub or portfolio link and tell us what you'd be interested in owning.</p></div>
+        <a class="career-role__link" href="/apply.html?role=student-engineer">Apply ↗</a>
+      </article>
+      <article class="career-role" data-reveal>
+        <span class="career-role__number">04</span>
+        <div><span class="career-role__type">Learning quality</span><h2>Mentor quality reviewer</h2><p class="career-role__body">Help evaluate mentor explanations for clarity, accuracy and tone. Teaching, tutoring or subject-specific experience is useful; an engineering background isn't required.</p></div>
+        <a class="career-role__link" href="/apply.html?role=mentor-quality-reviewer">Apply ↗</a>
+      </article>
+    </div>
+    <div class="careers-note" data-reveal>
+      <p>Not sure which role fits? Tell us what you'd like to contribute. We'll review general applications too; role scope and arrangements are discussed individually.</p>
+      <a class="career-role__link" href="/apply.html?role=general">Send a general application ↗</a>
     </div>
   </section>
-
+  <section class="content-cta">
+    <div class="content-container content-cta__inner"><div class="content-cta__copy"><div class="content-hero__topline"><span>Questions</span></div><h2>Want to know more first?</h2><p>Write to us before applying and we'll help you understand the role.</p></div><a class="home-button" href="mailto:hello@arthic.tech">Email the team <span aria-hidden="true">↗</span></a></div>
+  </section>
 </main>
 
 <div class="footer-frame">
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <a href="/" class="footer__mark" aria-label="arthic — home">
-          <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
-          <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
-        </a>
-        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="/" class="footer__mark" aria-label="Arthic home"><img class="brand-mark--light" src="/logo.png" alt="Arthic" width="800" height="272" /><img class="brand-mark--dark" src="/logo-white.png" alt="Arthic" width="800" height="272" /></a>
+          <p class="footer__tagline">A focused preparation platform for Pakistan's entrance and competitive exams.</p>
+        </div>
+        <nav class="footer__col" aria-label="Explore">
+          <span class="footer__col-label">Explore</span><a href="/subjects.html">Exams</a><a href="/method.html">How it works</a><a href="/pricing.html">Pricing</a>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <span class="footer__col-label">Company</span><a href="/careers.html">Careers</a><a href="/waitlist.html">Early access</a><a href="mailto:hello@arthic.tech">Contact</a>
+        </nav>
+        <nav class="footer__col" aria-label="Legal">
+          <span class="footer__col-label">Legal</span><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/cookies.html">Cookies</a>
+        </nav>
       </div>
-
-      <nav class="footer__col" aria-label="resources">
-        <span class="footer__col-label">resources</span>
-        <a href="/subjects.html" class="hover-underline">subjects</a>
-        <a href="/method.html" class="hover-underline">method</a>
-        <a href="/careers.html" class="hover-underline">careers</a>
-      </nav>
-
-      <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label">legal</span>
-        <a href="/privacy.html" class="hover-underline">privacy</a>
-        <a href="/terms.html" class="hover-underline">terms</a>
-        <a href="/cookies.html" class="hover-underline">cookies</a>
-      </nav>
-
-      <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label">contact</span>
-        <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
-      </nav>
+      <div class="footer__bottom"><p>© <span data-year>2026</span> Arthic. All rights reserved.</p><a href="#top">Back to top ↑</a></div>
     </div>
-
-    <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
-      <a href="#top" class="hover-underline">back to top</a>
-    </div>
-  </div>
-</footer>
-</div>
-
-
-<script type="module" src="/src/careers.ts"></script>
-</body>
-</html>
+  </footer>
+</div><script type="module" src="/src/careers.ts"></script>
+</body></html>
