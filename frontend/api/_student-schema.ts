@@ -1,4 +1,5 @@
 import { sql } from "./_db.js";
+import { SAMPLE_QUESTIONS } from "./study/_sample-content.js";
 
 let schemaPromise: Promise<void> | null = null;
 
@@ -51,6 +52,7 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
           subject_code TEXT NOT NULL,
           topic TEXT NOT NULL,
           prompt TEXT NOT NULL,
+          instruction TEXT NOT NULL DEFAULT 'Choose one answer.',
           options JSONB NOT NULL CHECK (jsonb_typeof(options) = 'array'),
           answer_key TEXT NOT NULL,
           explanation TEXT NOT NULL,
@@ -59,6 +61,7 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
           source_note TEXT,
           version INTEGER NOT NULL DEFAULT 1 CHECK (version > 0),
           is_published BOOLEAN NOT NULL DEFAULT false,
+          is_archived BOOLEAN NOT NULL DEFAULT false,
           created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
           updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
         );
@@ -68,6 +71,30 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
         CREATE INDEX IF NOT EXISTS question_bank_exam_subject_idx
         ON question_bank (exam_code, subject_code, is_published);
       `;
+
+      await sql`ALTER TABLE question_bank ADD COLUMN IF NOT EXISTS instruction TEXT NOT NULL DEFAULT 'Choose one answer.';`;
+      await sql`ALTER TABLE question_bank ADD COLUMN IF NOT EXISTS is_archived BOOLEAN NOT NULL DEFAULT false;`;
+
+      // Seed original demonstration questions as drafts, without overwriting
+      // content that an administrator has already edited.
+      for (const question of SAMPLE_QUESTIONS) {
+        await sql`
+          INSERT INTO question_bank (
+            id, exam_code, subject_code, topic, prompt, instruction, options,
+            answer_key, explanation, takeaway, source_kind, source_note,
+            version, is_published, is_archived
+          )
+          VALUES (
+            ${question.id}, ${question.examCode}, ${question.subjectCode},
+            ${question.topic}, ${question.prompt}, ${question.instruction},
+            ${JSON.stringify(question.options)}::jsonb, ${question.answer},
+            ${question.explanation}, ${question.takeaway}, ${question.sourceKind},
+            'Original Arthic sample question; not an official past paper.',
+            1, false, false
+          )
+          ON CONFLICT (id) DO NOTHING
+        `;
+      }
 
       await sql`
         CREATE TABLE IF NOT EXISTS study_sessions (
@@ -139,7 +166,7 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
 
       await sql`
         INSERT INTO app_schema_migrations (version, name)
-        VALUES (1, 'student-workspace-foundation')
+        VALUES (1, 'student-workspace-foundation'), (2, 'question-bank-authoring')
         ON CONFLICT (version) DO NOTHING;
       `;
     })().catch((error) => {
