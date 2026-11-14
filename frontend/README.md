@@ -12,6 +12,7 @@ The frontend is a multi-page site for Arthic's Pakistani entrance-test preparati
 - Waitlist and job-application forms backed by serverless endpoints.
 - Responsive pages with progressive enhancement and reduced-motion support.
 - Preview features are labelled as previews rather than presented as finished functionality.
+- The AI mentor is in development and the current product is English-only.
 
 ## Technology
 
@@ -33,7 +34,7 @@ npm install
 npm run dev
 ```
 
-The Vite server uses `http://localhost:5173`. The standalone Express backend can be reached at `http://localhost:3001` when configured.
+The Vite server uses `http://localhost:5173`. The standalone Express backend can be reached at `http://localhost:3001` when configured. For Vercel deployment, set the Root Directory to `frontend`, add the server environment variables, and use `vercel.json` for build and output settings.
 
 ## Configuration
 
@@ -46,6 +47,3 @@ See `.env.example` for all settings:
 
 Without `POSTGRES_URL`, the site still loads; routes that need storage return a clear not-configured response.
 
-## Notes and limitations
-
-Set the Vercel Root Directory to `frontend` for deployment. Add the server environment variables and use `vercel.json` for build and output settings. The homepage feature cards are previews; the AI mentor is not presented as a completed feature. The app is English-only for now.
