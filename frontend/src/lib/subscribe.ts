@@ -22,13 +22,20 @@ export function initSubscribeForm(): void {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (!input || !input.value) return;
+    if (!input) return;
 
     if (honeypot?.value) {
       // Hidden field — real visitors never fill this in. Pretend success
       // and skip the network call entirely rather than tipping off a bot.
       setStatus("you're in — welcome.", "success");
       form.reset();
+      return;
+    }
+
+    input.value = input.value.trim();
+    if (!input.checkValidity()) {
+      input.reportValidity();
+      setStatus("Enter a valid email address to join the list.", "error");
       return;
     }
 
