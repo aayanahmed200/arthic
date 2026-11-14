@@ -60,6 +60,17 @@ try {
   assert.equal(notConfigured.res.code, 503);
   assert.equal(notConfigured.res.body.code, "not-configured");
 
+  process.env.SUPABASE_URL = "http://not-a-provider.example";
+  process.env.SUPABASE_PUBLISHABLE_KEY = "sb_publishable_test_key";
+  const invalidConfig = mockRequest("GET", "Bearer demo.access.token");
+  await me(invalidConfig.req, invalidConfig.res);
+  assert.equal(invalidConfig.res.code, 503);
+  assert.equal(invalidConfig.res.body.code, "not-configured");
+
+  const invalidConfigStatus = mockRequest("GET");
+  status(invalidConfigStatus.req, invalidConfigStatus.res);
+  assert.equal(invalidConfigStatus.res.body.identityVerificationConfigured, false);
+
   process.env.SUPABASE_URL = "https://arthic-test.supabase.co";
   process.env.SUPABASE_PUBLISHABLE_KEY = "sb_publishable_test_key";
 
@@ -133,7 +144,7 @@ try {
 
   console.log("Student identity tests passed:");
   console.log("- missing bearer token is rejected");
-  console.log("- missing provider configuration fails closed");
+  console.log("- missing and invalid provider configuration fail closed");
   console.log("- verified email returns only the authenticated identity");
   console.log("- unverified email, expired token and provider outage are rejected");
   console.log("- wrong HTTP methods are rejected");
