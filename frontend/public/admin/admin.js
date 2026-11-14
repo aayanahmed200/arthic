@@ -113,8 +113,12 @@
   }
 
   function setBusy(value) {
-    busy=value;
-    ["saveQuestionBtn","publishQuestionBtn","unpublishQuestionBtn","archiveQuestionBtn","newQuestionBtn"].forEach((id)=>$(id).disabled=value);
+    busy = value;
+    $("saveQuestionBtn").disabled = value || Boolean(selected?.is_archived);
+    $("publishQuestionBtn").disabled = value || !selected || Boolean(selected.is_archived) || dirty;
+    $("unpublishQuestionBtn").disabled = value || !selected || !selected.is_published || dirty;
+    $("archiveQuestionBtn").disabled = value || !selected || Boolean(selected.is_archived) || dirty;
+    $("newQuestionBtn").disabled = value;
   }
   async function save(event) {
     event?.preventDefault(); if(busy) return;
