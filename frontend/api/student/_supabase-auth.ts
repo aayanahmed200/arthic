@@ -46,6 +46,10 @@ function providerBaseUrl(): URL | null {
   }
 }
 
+export function isSupabaseAuthConfigured(): boolean {
+  return Boolean(providerBaseUrl() && process.env.SUPABASE_PUBLISHABLE_KEY?.trim());
+}
+
 function displayName(metadata: unknown): string {
   if (!metadata || typeof metadata !== "object" || Array.isArray(metadata)) return "";
   const data = metadata as Record<string, unknown>;
