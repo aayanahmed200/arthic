@@ -7,9 +7,10 @@
     "predev": "node scripts/decode-b64-assets.mjs",
     "dev": "vite",
     "prebuild": "node scripts/decode-b64-assets.mjs",
-    "build": "tsc && tsc --noEmit -p tsconfig.api.json && vite build",
+    "build": "tsc && tsc --noEmit -p tsconfig.api.json && npm run test:api && vite build",
     "preview": "vite preview",
-    "check:api": "tsc --noEmit -p tsconfig.api.json"
+    "check:api": "tsc --noEmit -p tsconfig.api.json",
+    "test:api": "node scripts/test-student-auth.mjs"
   },
   "devDependencies": {
     "@types/pg": "^8.23.1",
