@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<script>
+(function () {
+  try {
+    var theme = localStorage.getItem("arthic-theme");
+    if (theme !== "light" && theme !== "dark") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) {}
+})();
+</script>
+<title>Study session preview | Arthic</title>
+<meta name="description" content="Try an illustrative Arthic study session. Answer sample biology questions, see explanations and review your progress in this browser-only preview." />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Arthic" />
+<meta property="og:title" content="Study session preview | Arthic" />
+<meta property="og:description" content="A sample practice session with questions, explanations and a session review." />
+<meta property="og:image" content="https://arthic.tech/og-image.png" />
+<meta property="og:url" content="https://arthic.tech/study-preview.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Study session preview | Arthic" />
+<meta name="twitter:description" content="Try a sample study session with Arthic." />
+<meta name="twitter:image" content="https://arthic.tech/og-image.png" />
+</head>
+<body class="content-page study-preview-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="nav" data-nav>
+  <div class="nav__inner container">
+    <a href="/" class="nav__mark" aria-label="Arthic home">
+      <img class="brand-mark--light" src="/logo.png" alt="Arthic" width="800" height="272" />
+      <img class="brand-mark--dark" src="/logo-white.png" alt="Arthic" width="800" height="272" />
+    </a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="/subjects.html" data-nav-link>Exams</a>
+      <a href="/method.html" data-nav-link>How it works</a>
+      <a href="/pricing.html" data-nav-link>Pricing</a>
+      <a href="/careers.html" data-nav-link>Careers</a>
+    </nav>
+    <div class="nav__utility">
+      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" /></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="currentColor" /><g stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" /></g></svg>
+      </button>
+      <div class="nav__region">
+        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="Region coverage">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" /><path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="region-popover" id="regionPopover" data-region-popover role="menu" hidden>
+          <p class="region-popover__label">Where we cover</p>
+          <a class="boards__region-tag boards__region-tag--live" role="menuitem" href="/subjects.html"><img class="boards__flag" src="/flags/pk.svg" alt="" width="18" height="13" /><span>Pakistan</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
+        </div>
+      </div>
+    </div>
+    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav"><span data-nav-toggle-label>Menu</span></button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav" data-mobile-nav>
+  <nav aria-label="Mobile navigation">
+    <a href="/subjects.html" data-mobile-link>Exams</a>
+    <a href="/method.html" data-mobile-link>How it works</a>
+    <a href="/pricing.html" data-mobile-link>Pricing</a>
+    <a href="/careers.html" data-mobile-link>Careers</a>
+    <a href="/waitlist.html" data-mobile-link>Join early access</a>
+  </nav>
+  <p class="mobile-nav__foot">A focused preparation platform for Pakistan's entrance and competitive exams. <a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
+</div>
+
+<main id="main" class="content-main" data-study-preview>
+  <section class="study-intro content-container" id="top">
+    <div class="content-hero__topline"><span>Student workspace</span><span>Biology</span><span>MDCAT sample</span></div>
+    <h1>Make a little progress, one question at a time.</h1>
+    <p class="study-intro__lede">This is an interactive preview of a short practice session. Choose an answer, check your reasoning and review the explanations before you finish.</p>
+  </section>
+
+  <section class="study-workspace content-container" aria-label="Sample study workspace">
+    <aside class="study-rail">
+      <div>
+        <p class="study-rail__eyebrow">Your space</p>
+        <p class="study-rail__name">Study session</p>
+        <nav class="study-rail__nav" aria-label="Study preview sections">
+          <a class="study-rail__link is-active" href="#practice" aria-current="page">Practice</a>
+          <a class="study-rail__link" href="#session-progress">Progress</a>
+          <a class="study-rail__link" href="#topic-note">Topic note</a>
+        </nav>
+      </div>
+      <p class="study-rail__foot"><strong>Preview workspace</strong>Session progress is temporary and stays in this page only. Nothing is sent or saved.</p>
+    </aside>
+
+    <section class="study-session" id="practice" aria-labelledby="study-session-heading">
+      <div class="study-session__top">
+        <div>
+          <p class="study-session__eyebrow">MDCAT / Biology / Cell structure</p>
+          <h2 class="study-session__heading" id="study-session-heading">Cell biology foundations</h2>
+          <p class="study-session__subhead">A short, three-question set to explore how practice and explanations could work together.</p>
+        </div>
+        <span class="study-session__type">Sample set</span>
+      </div>
+
+      <div class="study-progress" aria-label="Session progress">
+        <div class="study-progress__labels">
+          <span data-session-progress-label>0 of 3 answered</span>
+          <span>3 questions</span>
+        </div>
+        <div class="study-progress__track" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-session-progress-fill>
+          <div class="study-progress__fill"></div>
+        </div>
+      </div>
+
+      <section class="study-question study-screen" data-study-question-screen aria-labelledby="question-prompt">
+        <div class="study-question__meta">
+          <span data-question-number>Question 1 / 3</span>
+          <span data-question-topic>Cell organelles</span>
+        </div>
+        <h3 class="study-question__text" id="question-prompt" tabindex="-1" data-question-prompt>Loading question…</h3>
+        <p class="study-question__instruction" data-question-instruction>Choose one answer.</p>
+        <div class="study-options" role="group" aria-label="Answer choices" data-question-options></div>
+
+        <div class="study-question__actions">
+          <button class="study-action" type="button" data-check-answer disabled>Check answer</button>
+          <button class="study-action study-action--secondary" type="button" data-next-question hidden>Next question</button>
+        </div>
+
+        <div class="study-feedback" data-question-feedback role="status" aria-live="polite" hidden>
+          <h4 class="study-feedback__title" data-feedback-title></h4>
+          <p class="study-feedback__body" data-feedback-body></p>
+          <p class="study-feedback__takeaway" data-feedback-takeaway></p>
+        </div>
+      </section>
+
+      <section class="study-complete study-screen" data-study-complete aria-labelledby="complete-heading" hidden>
+        <p class="study-complete__eyebrow">Session review</p>
+        <h3 class="study-complete__heading" id="complete-heading" tabindex="-1" data-complete-heading>Session complete.</h3>
+        <p class="study-complete__lede" data-complete-lede></p>
+        <div class="study-complete__stats" data-complete-stats></div>
+        <p class="study-session__eyebrow">Your answers</p>
+        <div class="study-review-list" data-review-list></div>
+        <div class="study-complete__actions">
+          <button class="study-action" type="button" data-reset-session>Try the set again</button>
+          <a class="study-action study-action--secondary" href="/method.html">Back to how it works</a>
+        </div>
+      </section>
+    </section>
+
+    <aside class="study-sidebar" aria-label="Session details">
+      <section class="study-sidebar__section" id="session-progress">
+        <p class="study-sidebar__eyebrow">Session overview</p>
+        <h3 class="study-sidebar__heading">Your progress</h3>
+        <div class="study-sidebar__stat"><span>Answered</span><strong data-completed-count>0 / 3</strong></div>
+        <div class="study-sidebar__stat"><span>Correct</span><strong data-correct-count>0</strong></div>
+        <div class="study-sidebar__stat"><span>Accuracy</span><strong data-accuracy-value>—</strong></div>
+        <div class="study-progress__track study-sidebar__progress" aria-hidden="true"><div class="study-progress__fill" data-sidebar-progress-fill></div></div>
+      </section>
+
+      <section class="study-sidebar__section" id="topic-note">
+        <p class="study-sidebar__eyebrow">Topic note</p>
+        <h3 class="study-sidebar__heading">Cell biology</h3>
+        <p class="study-sidebar__text">This sample set revisits three foundations: organelle functions, the cell cycle and movement across cell membranes.</p>
+        <p class="study-sidebar__text"><strong>Study tip:</strong> explain why each option is right or wrong, not only which letter is correct.</p>
+      </section>
+
+      <div class="study-sidebar__boundary">
+        <strong>What this preview includes</strong>
+        Sample questions, answer checking and written explanations. It is not connected to a live question bank, student account or AI mentor.
+      </div>
+    </aside>
+  </section>
+
+  <section class="study-preview-invite content-container">
+    <p>These are original sample questions for demonstrating the interface. They are not official MDCAT questions or past-paper content. Session progress resets when the page reloads.</p>
+    <a href="/waitlist.html">Get early-access updates ↗</a>
+  </section>
+</main>
+
+<div class="footer-frame">
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="/" class="footer__mark" aria-label="Arthic home"><img class="brand-mark--light" src="/logo.png" alt="Arthic" width="800" height="272" /><img class="brand-mark--dark" src="/logo-white.png" alt="Arthic" width="800" height="272" /></a>
+          <p class="footer__tagline">A focused preparation platform for Pakistan's entrance and competitive exams.</p>
+        </div>
+        <nav class="footer__col" aria-label="Explore">
+          <span class="footer__col-label">Explore</span><a href="/subjects.html">Exams</a><a href="/method.html">How it works</a><a href="/pricing.html">Pricing</a>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <span class="footer__col-label">Company</span><a href="/careers.html">Careers</a><a href="/waitlist.html">Early access</a><a href="mailto:hello@arthic.tech">Contact</a>
+        </nav>
+        <nav class="footer__col" aria-label="Legal">
+          <span class="footer__col-label">Legal</span><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/cookies.html">Cookies</a>
+        </nav>
+      </div>
+      <div class="footer__bottom"><p>© <span data-year>2026</span> Arthic. All rights reserved.</p><a href="#top">Back to top ↑</a></div>
+    </div>
+  </footer>
+</div>
+<script type="module" src="/src/study-preview.ts"></script>
+</body>
+</html>
