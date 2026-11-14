@@ -88,7 +88,9 @@ if (root) {
   const takeaway = root.querySelector<HTMLElement>("[data-feedback-takeaway]");
   const checkButton = root.querySelector<HTMLButtonElement>("[data-check-answer]");
   const nextButton = root.querySelector<HTMLButtonElement>("[data-next-question]");
+  const progressTrack = root.querySelector<HTMLElement>("[data-session-progress-track]");
   const progressFill = root.querySelector<HTMLElement>("[data-session-progress-fill]");
+  const sidebarProgressFill = root.querySelector<HTMLElement>("[data-sidebar-progress-fill]");
   const progressLabel = root.querySelector<HTMLElement>("[data-session-progress-label]");
   const completedValue = root.querySelector<HTMLElement>("[data-completed-count]");
   const correctValue = root.querySelector<HTMLElement>("[data-correct-count]");
@@ -119,7 +121,8 @@ if (root) {
       const percent = Math.round((completed / QUESTIONS.length) * 100);
 
       progressFill!.style.width = percent + "%";
-      progressFill!.setAttribute("aria-valuenow", String(percent));
+      sidebarProgressFill!.style.width = percent + "%";
+      progressTrack!.setAttribute("aria-valuenow", String(percent));
       progressLabel!.textContent = completed + " of " + QUESTIONS.length + " answered";
       completedValue!.textContent = completed + " / " + QUESTIONS.length;
       correctValue!.textContent = String(correct);
