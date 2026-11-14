@@ -18,7 +18,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await ensureStudentWorkspaceSchema();
     return res.status(200).json({
       ok: true,
-      schemaVersion: 2,
+      schemaVersion: 1,
       message: "Student workspace tables are ready. Student account access remains closed.",
     });
   } catch (error) {
