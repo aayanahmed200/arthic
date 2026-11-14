@@ -20,7 +20,9 @@ After the redesigned branch is deployed to a review environment with `POSTGRES_U
 curl -X POST "https://YOUR-DEPLOYMENT/api/admin/student-schema" -u "$ADMIN_USER:$ADMIN_PASSWORD"
 ```
 
-This creates the student account, provider-session, question-bank, study-session, answer and data-request tables. It does not create accounts, accept student information or open sign-up.
+This creates the student account, provider-session, question-bank, study-session, answer and data-request tables. It also adds question instruction/archive fields and seeds the three original demo questions as drafts; it never overwrites existing edits. It does not create student accounts, accept student information or open sign-up.
+
+The question-bank editor is available at `/admin` → **question bank**. It uses the existing server-side admin credentials. New questions are drafts. Publishing requires an answer, explanation and takeaway; licensed or public-domain entries also require a source/permission note. Only published, non-archived records are returned by the database-backed student feed. The public practice preview falls back to the original sample questions until there are published records.
 
 ## 2. Vercel
 
