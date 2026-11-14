@@ -5,22 +5,19 @@ import { requireAdmin } from "../_auth.js";
 import { checkRateLimit } from "../_rate_limit.js";
 import { parseQuestionDraft } from "../_question-bank-validation.js";
 
-const ID_RE = /^q_[0-9a-f-]{36}$/i;
+const ID_RE = /^(?:q_[0-9a-f-]{36}|[a-z0-9]+(?:-[a-z0-9]+)*)$/i;
 const ALLOWED_ACTIONS = new Set(["save", "publish", "unpublish", "archive"]);
 
 function unavailable(res: VercelResponse) {
   return res.status(503).json({ error: "The question bank is not prepared yet. Run the admin student-schema setup first." });
 }
 
-const RETURNING = `id, exam_code, subject_code, topic, prompt, instruction, options,
-  answer_key, explanation, takeaway, source_kind, source_note,
-  version, is_published, is_archived, created_at, updated_at`;
-
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!["GET", "POST", "PATCH"].includes(req.method ?? "")) {
     res.setHeader("Allow", "GET, POST, PATCH");
     return res.status(405).json({ error: "method not allowed" });
   }
+  res.setHeader("Cache-Control", "no-store");
   if (!requireAdmin(req, res)) return;
   if (!process.env.POSTGRES_URL) return res.status(503).json({ error: "Postgres is not configured on the server." });
   if (!(await checkRateLimit(req, res, "admin-question-bank", 180, 60))) return;
