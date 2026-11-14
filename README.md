@@ -6,24 +6,22 @@ Arthic is an exam-preparation platform for Pakistani entrance tests, bringing st
 
 ## Overview
 
-The platform is designed around topic-organised past papers, personalised study plans, an exam calendar, and guided explanations that help learners understand concepts rather than only check answers.
+The platform is organised around topic-based past papers, personalised study plans, an exam calendar, and guided explanations.
 
 ## Highlights
 
 - Covers MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT.
 - Includes subject, method, pricing, careers, waitlist, privacy, and terms pages.
-- The AI mentor and several learning features are still in development; the site labels previews as previews rather than presenting them as live functionality.
-- The current product is English-only. Additional regions and language support are marked as future work.
+- The AI mentor and several learning features are still in development; previews are labelled as previews.
+- The current product is English-only. Additional regions and language support are planned.
 
 ## Technology
 
-- Frontend: TypeScript, Vite, and hand-written CSS.
-- Deployed API: Vercel serverless functions with Postgres for waitlist signups and job applications.
-- Optional self-hosted alternative: Express and SQLite in `backend/`. It supports the waitlist API, not job applications.
+TypeScript, Vite, hand-written CSS, Vercel serverless functions, PostgreSQL, and an optional Express/SQLite backend.
 
 ## Run locally
 
-To run the deployed frontend and API together:
+To run the frontend and deployed API together:
 
 ```bash
 cd frontend
@@ -32,15 +30,11 @@ cp .env.example .env
 npx vercel dev
 ```
 
-Set `POSTGRES_URL` for database-backed routes and configure `ADMIN_USER` and `ADMIN_PASSWORD` for admin access. Without a database, the site remains viewable and the forms report that storage is not configured.
-
-To run the standalone Express alternative, follow `backend/README.md`. Do not run both API implementations for the same deployment.
+The optional standalone Express backend is documented in `backend/README.md`. Do not run both API implementations for the same deployment.
 
 ## Notes and limitations
 
-- The mentor is in development; the site does not claim that the preview is a live AI tutor.
-- The backend in `backend/` is an independent SQLite implementation and does not share data with the deployed Postgres API.
-- See `DEPLOYMENT.md` for Vercel configuration and the self-hosting option.
+The AI mentor is in development, not a live tutor. The self-hosted SQLite backend is independent of the deployed Postgres API and does not share its data. See `DEPLOYMENT.md` for deployment configuration.
 
 ## License
 
