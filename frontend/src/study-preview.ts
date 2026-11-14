@@ -104,7 +104,7 @@ if (root) {
       accuracyValue!.textContent = accuracy() === null ? "—" : accuracy() + "%";
     }
 
-    function renderOptions(question: StudyQuestion): void {
+    function renderOptions(question: StudyQuestionPrompt): void {
       optionList!.replaceChildren();
 
       question.options.forEach((option) => {
