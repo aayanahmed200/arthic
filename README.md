@@ -6,23 +6,24 @@
 [![PostgreSQL](https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Node.js](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+**Repository:** [arthic](https://github.com/aayanahmed200/arthic)
 
 the concept should stick the first time, not the fifth time, at 1am, before the exam. arthic is an all-in-one exam-prep platform for Pakistan's toughest entrance tests: MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. Not just a chatbot — an AI mentor, organized past papers, a personalized study plan, and an exam calendar, all in one place.
 
 This repo is the actual production site, not a mockup — clone it and `npm run build` produces the real thing. arthic is currently in early access: the mentor itself is still being built, and the site says so honestly rather than pretending otherwise. Live today for Pakistani boards; UK, US, and India are marked "coming soon," not silently implied.
 
-## Why this exists
+## Overview
 
 Most exam prep for these seven exams still means the same thing: a stack of guides, a crowded academy, and an instructor who doesn't have time to explain a concept twice. arthic is a small, student-run team building a platform that meets students where they actually are — an AI mentor that keeps asking follow-up questions until a concept actually clicks instead of just marking an answer wrong, past papers organized by topic instead of a dumped PDF pile, a study plan personalized to an exam date, and an exam calendar so no deadline sneaks up. The mentor is built to notice when a student is pattern-matching instead of understanding, and to slow down exactly there instead of moving on to the next chapter.
 
-## Structure
+## Architecture
 
 - **`frontend/`** — the marketing site *and* its live API. Vite + TypeScript, hand-written CSS (no UI framework, no Tailwind), and a scroll-reveal system that fails safe — content is real markup first, animation is a progressive enhancement on top of it, never a gate in front of it. Nine real routes/pages: home, subjects, method, pricing, careers, waitlist, privacy, terms, and a custom 404. The waitlist form and job applications are backed by `frontend/api/` — Vercel serverless functions talking to Postgres — deployed same-origin alongside the site. Falls back to an honest "not configured yet" response when there's no database connected, rather than pretending to succeed. See `frontend/README.md`.
 - **`backend/`** — a self-hostable Express + SQLite alternative to `frontend/api/`, predating arthic's current product. Its `/api/subscribe` and `/api/subscribers` routes still match what the current waitlist form expects, so it remains usable for anyone who'd rather self-host that one form on a normal Node server (e.g. Render) than use Vercel + Postgres. It also still carries a `/api/journal` route from an earlier version of the site; nothing in the current frontend calls it — treat it as vestigial. See `backend/README.md`.
 
 Run one API or the other for a given deployment — see [DEPLOYMENT.md](DEPLOYMENT.md).
 
-## Running the whole thing locally
+## Run locally
 
 Two ways to run it, depending on which API you want:
 
@@ -60,7 +61,7 @@ The homepage's features section (`#preview`) is an honest look at what's shippin
 
 arthic is English-only for now. An earlier build shipped a full English/Urdu toggle (native script, RTL layout, a `[data-i18n]`-driven dictionary) — it's been pulled back out rather than left shipping half-working. The nav's globe button (`src/lib/lang-stub.ts`) is an honest stand-in: it opens a small "more languages — coming soon" tooltip instead of switching anything, no `localStorage`, no dictionary, no `dir="rtl"`. If full Urdu support ships later, this is the file (and this section) that gets replaced.
 
-## Who arthic preps students for
+## Exam coverage
 
 The homepage's board strip (`streams.css`) shows the real seals of the institutions whose entrance tests arthic teaches to — full color, no card box, sitting directly on the section background — captioned plainly as "shown here because arthic preps students for exams at these institutions, not an endorsement or partnership with any of them." A small set of self-hosted SVG flag icons (`public/flags/`, hand-authored rather than pulled from a font or CDN) mark Pakistan as live today and the UK, US, and India as coming soon.
 
@@ -68,7 +69,7 @@ The homepage's board strip (`streams.css`) shows the real seals of the instituti
 
 `frontend/pricing.html` is a real page, not a placeholder — three tiers (free, Plus at Rs. 8,999/month once early access ends, and custom institutional pricing) and an FAQ that answers the questions a prospective student would actually ask: which exams are covered, why it's free right now, whether it replaces an academy, whether Urdu is supported, and how pricing might change later. The Plus number is labeled as today's plan, not a locked-in final price.
 
-## Tech stack
+## Technology
 
 - TypeScript, Vite (frontend build + dev server), multi-page build (`vite.config.ts` lists every `.html` entry explicitly)
 - Hand-written CSS — custom properties for design tokens, fluid type via `clamp()`, CSS Grid for every layout
@@ -77,7 +78,7 @@ The homepage's board strip (`streams.css`) shows the real seals of the instituti
 - Node.js, Express, `node:sqlite` for `backend/`, the self-host alternative
 - Self-hosted variable fonts via `@fontsource` (Bricolage Grotesque, IBM Plex Mono) — no third-party font requests at runtime
 
-## Project structure
+## Repository structure
 
 ```
 arthic/
