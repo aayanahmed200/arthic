@@ -11,6 +11,7 @@ The frontend is a multi-page site for Arthic's Pakistani entrance-test preparati
 - Multi-page Vite site with shared navigation and styles.
 - Waitlist and job-application forms backed by serverless endpoints.
 - Responsive pages with progressive enhancement and reduced-motion support.
+- The `/study-preview.html` route contains an interactive browser-only practice session using original sample questions. It has no student sign-in, live question bank, AI mentor connection, or server-side progress storage.
 - Preview features are labelled as previews rather than presented as finished functionality.
 - The AI mentor is in development and the current product is English-only.
 
