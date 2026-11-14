@@ -16,7 +16,9 @@ The frontend is a multi-page site for Arthic's Pakistani entrance-test preparati
 - The AI mentor is in development and the current product is English-only.
 - `api/study/questions.ts` serves the same versioned original sample set used by the preview. It is not an official past-paper feed.
 - `api/admin/student-schema.ts` prepares the additive PostgreSQL schema for student accounts, sessions, question content, study sessions, answers and data requests. It is admin-protected and does not open student accounts.
-- Student sign-in remains unavailable until a managed auth provider, verified email and recovery, age-appropriate consent, privacy terms and deletion/support procedures are ready.
+- `api/student/me.ts` verifies a Supabase access token against the Auth service and requires `email_confirmed_at`; it never trusts client-supplied profile data. It does not create a local profile or open the workspace.
+- Set `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` only in server environment settings to enable the verification check. Do not add a Supabase secret key to frontend variables.
+- Student sign-in remains unavailable until sign-up UI, verified email and recovery, age-appropriate consent, privacy terms and deletion/support procedures are ready.
 - `npm run build` also type-checks the Vercel API files via `tsconfig.api.json`.
 
 ## Technology
