@@ -30,11 +30,8 @@ cp .env.example .env
 npx vercel dev
 ```
 
-The optional standalone Express backend is documented in `backend/README.md`. Do not run both API implementations for the same deployment.
+The optional standalone Express/SQLite backend is documented in `backend/README.md` and is independent of the deployed Vercel/Postgres API. Use one backend per deployment.
 
-## Notes and limitations
-
-The AI mentor is in development, not a live tutor. The self-hosted SQLite backend is independent of the deployed Postgres API and does not share its data. See `DEPLOYMENT.md` for deployment configuration.
 
 ## License
 
