@@ -164,7 +164,7 @@ if (root) {
       prompt!.textContent = question.prompt;
       instruction!.textContent = question.instruction;
       feedback!.hidden = true;
-      feedback.removeAttribute("data-result");
+      feedback!.removeAttribute("data-result");
       checkButton!.hidden = false;
       checkButton!.disabled = true;
       nextButton!.hidden = true;
