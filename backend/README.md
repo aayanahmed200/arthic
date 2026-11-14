@@ -4,7 +4,7 @@ An optional self-hosted Express API using Node.js and SQLite. It is separate fro
 
 ## Overview
 
-The backend provides journal and subscription endpoints for a self-hosted Arthic deployment. Data is stored in a local SQLite database.
+The backend provides journal and subscription endpoints for a self-hosted Arthic deployment. Data is stored in a local SQLite database, separately from the deployed Vercel/Postgres API. The `/admin` panel manages journal entries and subscribers using the same Basic-auth credentials as the API.
 
 ## Highlights
 
@@ -51,9 +51,6 @@ All responses are JSON. Admin-only endpoints use HTTP Basic authentication.
 - `POST /api/subscribe` — subscribe an email address.
 - `GET /api/subscribers` — list subscribers; admin only.
 
-## Notes and limitations
-
-The `/admin` panel manages journal entries and subscribers using the same Basic-auth credentials as the API. Persist the `data/` directory on hosts with ephemeral filesystems. The deployed Vercel/Postgres API is independent of this SQLite backend.
 
 ## License
 
