@@ -139,7 +139,7 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
 
       await sql`
         INSERT INTO app_schema_migrations (version, name)
-        VALUES (2, 'student-workspace-foundation')
+        VALUES (1, 'student-workspace-foundation')
         ON CONFLICT (version) DO NOTHING;
       `;
     })().catch((error) => {
