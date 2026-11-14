@@ -7,10 +7,17 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   res.setHeader("Cache-Control", "no-store");
+  const authConfigured = Boolean(
+    process.env.SUPABASE_URL?.trim() && process.env.SUPABASE_PUBLISHABLE_KEY?.trim()
+  );
+
   return res.status(200).json({
     available: false,
-    phase: "foundation",
+    phase: "identity-foundation",
+    identityProvider: "supabase",
+    identityVerificationConfigured: authConfigured,
     accountsOpen: false,
-    reason: "Student accounts are not open yet. Sign-in, email verification, account recovery and student privacy controls are still being prepared.",
+    signInEnabled: false,
+    reason: "Student accounts remain closed while sign-up, account recovery, age-appropriate consent and student privacy controls are prepared.",
   });
 }
