@@ -1,7 +1,7 @@
 import "./styles/main.css";
 import "./styles/study-preview.css";
 import { initCommon } from "./lib/common-init";
-import { SAMPLE_QUESTIONS, type StudyQuestion } from "./data/sample-questions";
+import { SAMPLE_QUESTIONS, type StudyQuestionPrompt } from "./data/sample-questions";
 
 initCommon();
 
@@ -11,13 +11,9 @@ interface StudyAnswer {
   isCorrect: boolean;
 }
 
-let QUESTIONS: StudyQuestion[] = [...SAMPLE_QUESTIONS];
+let QUESTIONS: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS];
 
 async function loadQuestionFeed(): Promise<void> {
-  // Local Vite development stays self-contained; deployed builds use the
-  // versioned serverless endpoint and retain the bundled copy as a fallback.
-  if (import.meta.env.DEV) return;
-
   try {
     const response = await fetch("/api/study/questions", {
       headers: { Accept: "application/json" },
@@ -30,22 +26,19 @@ async function loadQuestionFeed(): Promise<void> {
     const questions = (payload as { questions?: unknown }).questions;
     if (!Array.isArray(questions) || questions.length === 0) return;
 
-    const valid = questions.every((question): question is StudyQuestion => {
+    const valid = questions.every((question): question is StudyQuestionPrompt => {
       if (!question || typeof question !== "object") return false;
-      const item = question as Partial<StudyQuestion>;
+      const item = question as Partial<StudyQuestionPrompt>;
       return (
         typeof item.id === "string" &&
         typeof item.topic === "string" &&
         typeof item.prompt === "string" &&
-        typeof item.answer === "string" &&
-        typeof item.explanation === "string" &&
-        typeof item.takeaway === "string" &&
         Array.isArray(item.options) &&
         item.options.length > 1 &&
         item.options.every((option) =>
           option && typeof option.key === "string" && typeof option.text === "string"
         ) &&
-        item.options.some((option) => option.key === item.answer)
+        item.options.every((option) => option.key.length > 0)
       );
     });
 
@@ -156,28 +149,78 @@ if (root) {
       prompt!.focus();
     }
 
-    function checkAnswer(): void {
+    async function checkAnswer(): Promise<void> {
       if (selectedKey === null || answers[questionIndex]) return;
       const question = QUESTIONS[questionIndex];
-      const isCorrect = selectedKey === question.answer;
+      checkButton!.disabled = true;
 
-      answers.push({ selected: selectedKey, correct: question.answer, isCorrect });
-      feedback!.dataset.result = isCorrect ? "correct" : "incorrect";
-      feedbackTitle!.textContent = isCorrect ? "That's correct." : "Not quite — let's unpack it.";
-      feedbackBody!.textContent = question.explanation;
-      takeaway!.textContent = question.takeaway;
-      feedback!.hidden = false;
+      try {
+        const response = await fetch("/api/study/check", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "same-origin",
+          body: JSON.stringify({
+            questionId: question.id,
+            selectedOption: selectedKey,
+          }),
+        });
 
-      optionList!.querySelectorAll<HTMLButtonElement>(".study-option").forEach((button) => {
-        const key = button.querySelector<HTMLElement>(".study-option__key")?.textContent ?? "";
-        button.disabled = true;
-        if (key === question.answer) button.classList.add("is-correct");
-        else if (key === selectedKey && !isCorrect) button.classList.add("is-incorrect");
-      });
+        if (!response.ok) {
+          throw new Error("The answer checker returned " + response.status);
+        }
 
-      checkButton!.hidden = true;
-      nextButton!.hidden = false;
-      updateProgress();
+        const result = await response.json() as {
+          questionId?: unknown;
+          selectedOption?: unknown;
+          correctOption?: unknown;
+          isCorrect?: unknown;
+          explanation?: unknown;
+          takeaway?: unknown;
+        };
+
+        if (
+          result.questionId !== question.id ||
+          result.selectedOption !== selectedKey ||
+          typeof result.correctOption !== "string" ||
+          typeof result.isCorrect !== "boolean" ||
+          typeof result.explanation !== "string" ||
+          typeof result.takeaway !== "string" ||
+          !question.options.some((option) => option.key === result.correctOption)
+        ) {
+          throw new Error("The answer checker returned an invalid response");
+        }
+
+        const correctOption = result.correctOption;
+        const isCorrect = result.isCorrect;
+        answers.push({ selected: selectedKey, correct: correctOption, isCorrect });
+        feedback!.dataset.result = isCorrect ? "correct" : "incorrect";
+        feedbackTitle!.textContent = isCorrect ? "That's correct." : "Not quite — let's unpack it.";
+        feedbackBody!.textContent = result.explanation;
+        takeaway!.textContent = result.takeaway;
+        feedback!.hidden = false;
+
+        optionList!.querySelectorAll<HTMLButtonElement>(".study-option").forEach((button) => {
+          const key = button.querySelector<HTMLElement>(".study-option__key")?.textContent ?? "";
+          button.disabled = true;
+          if (key === correctOption) button.classList.add("is-correct");
+          else if (key === selectedKey && !isCorrect) button.classList.add("is-incorrect");
+        });
+
+        checkButton!.hidden = true;
+        nextButton!.hidden = false;
+        updateProgress();
+      } catch {
+        feedback!.removeAttribute("data-result");
+        feedbackTitle!.textContent = "Answer checking is unavailable.";
+        feedbackBody!.textContent =
+          "The question is still here, but the answer service could not be reached. Please try again shortly.";
+        takeaway!.textContent = "";
+        feedback!.hidden = false;
+        checkButton!.disabled = false;
+      }
     }
 
     function showComplete(): void {
@@ -211,7 +254,7 @@ if (root) {
         const text = document.createElement("p");
         text.className = "study-review-row__text";
         const selected = question.options.find((option) => option.key === answer.selected)?.text ?? answer.selected;
-        const correct = question.options.find((option) => option.key === question.answer)?.text ?? question.answer;
+        const correct = question.options.find((option) => option.key === answer.correct)?.text ?? answer.correct;
         text.textContent = question.topic + ": your answer — " + selected + "; correct answer — " + correct + ".";
         row.append(qIndex, text, result);
         reviewList!.append(row);
@@ -220,7 +263,7 @@ if (root) {
       completeHeading!.focus();
     }
 
-    checkButton.addEventListener("click", checkAnswer);
+    checkButton.addEventListener("click", () => { void checkAnswer(); });
     nextButton.addEventListener("click", () => {
       if (answers.length !== questionIndex + 1) return;
       if (questionIndex < QUESTIONS.length - 1) {
