@@ -11,7 +11,49 @@ interface StudyAnswer {
   isCorrect: boolean;
 }
 
-const QUESTIONS: StudyQuestion[] = SAMPLE_QUESTIONS;
+let QUESTIONS: StudyQuestion[] = [...SAMPLE_QUESTIONS];
+
+async function loadQuestionFeed(): Promise<void> {
+  // Local Vite development stays self-contained; deployed builds use the
+  // versioned serverless endpoint and retain the bundled copy as a fallback.
+  if (import.meta.env.DEV) return;
+
+  try {
+    const response = await fetch("/api/study/questions", {
+      headers: { Accept: "application/json" },
+      credentials: "same-origin",
+    });
+    if (!response.ok) return;
+
+    const payload: unknown = await response.json();
+    if (!payload || typeof payload !== "object" || !("questions" in payload)) return;
+    const questions = (payload as { questions?: unknown }).questions;
+    if (!Array.isArray(questions) || questions.length === 0) return;
+
+    const valid = questions.every((question): question is StudyQuestion => {
+      if (!question || typeof question !== "object") return false;
+      const item = question as Partial<StudyQuestion>;
+      return (
+        typeof item.id === "string" &&
+        typeof item.topic === "string" &&
+        typeof item.prompt === "string" &&
+        typeof item.answer === "string" &&
+        typeof item.explanation === "string" &&
+        typeof item.takeaway === "string" &&
+        Array.isArray(item.options) &&
+        item.options.length > 1 &&
+        item.options.every((option) =>
+          option && typeof option.key === "string" && typeof option.text === "string"
+        ) &&
+        item.options.some((option) => option.key === item.answer)
+      );
+    });
+
+    if (valid) QUESTIONS = questions;
+  } catch {
+    // Keep the bundled sample set available if the API is temporarily offline.
+  }
+}
 
 const root = document.querySelector<HTMLElement>("[data-study-preview]");
 if (root) {
@@ -200,6 +242,6 @@ if (root) {
       });
     });
 
-    renderQuestion();
+    void loadQuestionFeed().then(renderQuestion);
   }
 }
