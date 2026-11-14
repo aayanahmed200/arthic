@@ -19,7 +19,8 @@ The frontend is a multi-page site for Arthic's Pakistani entrance-test preparati
 - `api/student/me.ts` verifies a Supabase access token against the Auth service and requires `email_confirmed_at`; it never trusts client-supplied profile data. It does not create a local profile or open the workspace.
 - Set `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` only in server environment settings to enable the verification check. Do not add a Supabase secret key to frontend variables.
 - Student sign-in remains unavailable until sign-up UI, verified email and recovery, age-appropriate consent, privacy terms and deletion/support procedures are ready.
-- `npm run build` also type-checks the Vercel API files via `tsconfig.api.json`.
+- `npm run build` type-checks the frontend and Vercel API files, runs the student identity API tests, and then builds the site.
+- Run `npm run test:api` alone to test verified, unverified, expired, missing-configuration and provider-outage responses without contacting a live Supabase project.
 
 ## Technology
 
