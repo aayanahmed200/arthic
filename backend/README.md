@@ -1,10 +1,23 @@
 # Arthic Backend
 
-An optional self-hosted Express API using Node.js and SQLite. It is separate from the Vercel/Postgres API in `frontend/api/`; choose one backend for a deployment.
+An optional self-hosted Express API using Node.js and SQLite. It is separate from the deployed Vercel/Postgres API; choose one backend for a deployment.
 
-## Requirements and setup
+## Overview
 
-Requires Node.js 22.5 or later for `node:sqlite`.
+The backend provides journal and subscription endpoints for a self-hosted Arthic deployment. Data is stored in a local SQLite database.
+
+## Highlights
+
+- JSON API for journal entries and subscriptions.
+- Basic-auth protection for admin endpoints.
+- Starter journal data can be seeded from the command line.
+- SQLite database files are kept out of version control.
+
+## Technology
+
+Node.js 22.5 or later, Express, and SQLite (`node:sqlite`).
+
+## Run locally
 
 ```bash
 npm install
@@ -15,18 +28,12 @@ npm start
 
 Set `ADMIN_PASSWORD` before using any admin route. There is no default password.
 
-## Scripts
-
-- `npm start` — start the server.
-- `npm run dev` — start with Node's `--watch` mode.
-- `npm run seed` — insert the starter journal entries; safe to run more than once.
-
 ## Configuration
 
-See `.env.example` for the full list. Main settings:
+See `.env.example` for all settings:
 
 - `PORT` — server port; defaults to `3001`.
-- `ALLOWED_ORIGIN` — allowed frontend origin. Set the production frontend URL; `*` is for local development only.
+- `ALLOWED_ORIGIN` — allowed frontend origin. Use `*` only for local development.
 - `ADMIN_USER` — admin username; defaults to `admin`.
 - `ADMIN_PASSWORD` — required admin password.
 - `DATABASE_PATH` — SQLite file path; defaults to `./data/arthic.db`.
@@ -44,15 +51,9 @@ All responses are JSON. Admin-only endpoints use HTTP Basic authentication.
 - `POST /api/subscribe` — subscribe an email address.
 - `GET /api/subscribers` — list subscribers; admin only.
 
-Journal field limits: title 200 characters, excerpt 400, and body 20,000.
+## Notes and limitations
 
-## Data and admin panel
-
-Data is stored in `data/arthic.db`, which is gitignored. The `/admin` panel manages journal entries and lists subscribers. It uses the same Basic-auth credentials as the API; signing out or receiving a 401 clears the browser session.
-
-## Deployment
-
-Runs as a single Node process. Set `ADMIN_PASSWORD` and the production `ALLOWED_ORIGIN`, persist the `data/` directory on hosts with ephemeral filesystems, and point the frontend's `VITE_API_BASE` at this service. Render configuration is in `render.yaml`.
+The `/admin` panel manages journal entries and subscribers using the same Basic-auth credentials as the API. Persist the `data/` directory on hosts with ephemeral filesystems. The deployed Vercel/Postgres API is independent of this SQLite backend.
 
 ## License
 
