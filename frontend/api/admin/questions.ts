@@ -80,7 +80,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             options = ${JSON.stringify(q.options)}::jsonb, answer_key = ${q.answerKey},
             explanation = ${q.explanation}, takeaway = ${q.takeaway},
             source_kind = ${q.sourceKind}, source_note = ${q.sourceNote},
-            version = version + 1, updated_at = now()
+            is_published = false, version = version + 1, updated_at = now()
         WHERE id = ${id} AND version = ${expectedVersion} AND is_archived = false
         RETURNING id, exam_code, subject_code, topic, prompt, instruction, options,
                   answer_key, explanation, takeaway, source_kind, source_note,
