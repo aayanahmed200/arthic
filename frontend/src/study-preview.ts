@@ -1,23 +1,9 @@
 import "./styles/main.css";
 import "./styles/study-preview.css";
 import { initCommon } from "./lib/common-init";
+import { SAMPLE_QUESTIONS, type StudyQuestion } from "./data/sample-questions";
 
 initCommon();
-
-interface StudyOption {
-  key: string;
-  text: string;
-}
-
-interface StudyQuestion {
-  topic: string;
-  prompt: string;
-  instruction: string;
-  options: StudyOption[];
-  answer: string;
-  explanation: string;
-  takeaway: string;
-}
 
 interface StudyAnswer {
   selected: string;
@@ -25,53 +11,7 @@ interface StudyAnswer {
   isCorrect: boolean;
 }
 
-const QUESTIONS: StudyQuestion[] = [
-  {
-    topic: "Cell organelles",
-    prompt: "Which organelle is the main site of aerobic respiration and produces most of a cell's ATP?",
-    instruction: "Choose one answer.",
-    options: [
-      { key: "A", text: "Ribosome" },
-      { key: "B", text: "Mitochondrion" },
-      { key: "C", text: "Golgi apparatus" },
-      { key: "D", text: "Lysosome" },
-    ],
-    answer: "B",
-    explanation:
-      "Mitochondria are the main site of aerobic respiration in eukaryotic cells. The reactions of cellular respiration transfer energy from nutrients into ATP, which cells use to power many processes.",
-    takeaway: "Remember: mitochondria are the main ATP-producing site during aerobic respiration.",
-  },
-  {
-    topic: "Cell cycle",
-    prompt: "During which phase of the cell cycle is the cell's DNA replicated?",
-    instruction: "Choose one answer.",
-    options: [
-      { key: "A", text: "G₁ phase" },
-      { key: "B", text: "G₂ phase" },
-      { key: "C", text: "S phase" },
-      { key: "D", text: "M phase" },
-    ],
-    answer: "C",
-    explanation:
-      "DNA replication takes place during the synthesis (S) phase of interphase. By the end of S phase, each chromosome has been copied into two sister chromatids.",
-    takeaway: "Remember: S stands for synthesis—the phase in which DNA is synthesised.",
-  },
-  {
-    topic: "Movement across membranes",
-    prompt: "Which statement best describes osmosis?",
-    instruction: "Choose one answer.",
-    options: [
-      { key: "A", text: "The movement of solute particles from high to low concentration." },
-      { key: "B", text: "The movement of water through a selectively permeable membrane down its water-potential gradient." },
-      { key: "C", text: "The movement of any particle using cellular energy." },
-      { key: "D", text: "The breakdown of glucose to release energy." },
-    ],
-    answer: "B",
-    explanation:
-      "Osmosis is the net movement of water across a selectively permeable membrane from a region of higher water potential to a region of lower water potential.",
-    takeaway: "Remember: osmosis describes water movement, and it does not directly require ATP.",
-  },
-];
+const QUESTIONS: StudyQuestion[] = SAMPLE_QUESTIONS;
 
 const root = document.querySelector<HTMLElement>("[data-study-preview]");
 if (root) {
