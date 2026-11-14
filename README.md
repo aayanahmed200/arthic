@@ -10,9 +10,9 @@ The platform is organised around topic-based past papers, personalised study pla
 
 ## Highlights
 
-- Covers MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT.
+- Focuses on MDCAT, ECAT, NUST NET, FAST, LUMS BA-LL.B admission, CSS, and PMS.
 - Includes subject, method, pricing, careers, waitlist, privacy, and terms pages.
-- Provides an early-access English-language product.
+- Includes an interactive, browser-only study-session preview with original sample questions and written explanations.
 
 ## Technology
 
@@ -33,7 +33,7 @@ The optional standalone Express/SQLite backend is documented in `backend/README.
 
 ## Notes and limitations
 
-The AI mentor and several learning features are still in development. The current product is English-only. The optional Express/SQLite backend is independent of the deployed Vercel/PostgreSQL API; use one backend per deployment.
+The AI mentor, student accounts, synced learner progress, question-bank services, and several learning features are still in development. The study-session preview is illustrative only: progress exists for the current page view, no data is saved or sent, and its questions are not official past-paper content. The current product is English-only. The optional Express/SQLite backend is independent of the deployed Vercel/PostgreSQL API; use one backend per deployment.
 
 ## License
 
