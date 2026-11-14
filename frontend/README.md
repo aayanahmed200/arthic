@@ -19,9 +19,11 @@ The frontend is a multi-page site for Arthic's Pakistani entrance-test preparati
 - `api/student/me.ts` verifies a Supabase access token against the Auth service and requires `email_confirmed_at`; it never trusts client-supplied profile data. It does not create a local profile or open the workspace.
 - Set `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` only in server environment settings to enable the verification check. Do not add a Supabase secret key to frontend variables.
 - Student sign-in remains unavailable until sign-up UI, verified email and recovery, age-appropriate consent, privacy terms and deletion/support procedures are ready.
-- `api/study/questions.ts` returns question prompts without answer keys. `api/study/check.ts` scores a submitted option and returns the explanation only after submission.
-- `npm run build` type-checks the frontend and Vercel API files, runs the identity and study API tests, and then builds the site.
-- Run `npm run test:api` alone to test identity verification and server-side question scoring without contacting a live Supabase project.
+- `api/study/questions.ts` returns published question prompts without answer keys; `api/study/check.ts` scores a submitted option and returns the explanation only after submission. The original demo set remains the fallback until the database has published content.
+- `api/admin/questions.ts` is protected by the existing admin credentials. The `/admin` question-bank tab supports creating, editing, previewing, publishing, unpublishing and archiving. Editing a published item returns it to draft for review.
+- The admin schema setup adds authoring fields and seeds the three original sample questions as drafts. It never overwrites later edits.
+- `npm run build` type-checks the frontend and Vercel API files, runs identity, practice and question-bank validation/access tests, and then builds the site.
+- Run `npm run test:api` alone to test identity verification, server-side question scoring and question-bank validation without contacting a live Supabase project or writing to the database.
 
 ## Technology
 
