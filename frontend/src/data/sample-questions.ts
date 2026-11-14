@@ -11,7 +11,7 @@ export interface StudyQuestionPrompt {
   prompt: string;
   instruction: string;
   options: StudyOption[];
-  sourceKind: "original-sample";
+  sourceKind: "original-sample" | "licensed" | "public-domain";
 }
 
 /**
