@@ -17,8 +17,7 @@ The waitlist and application endpoints create their own `subscribers` and `appli
 After the redesigned branch is deployed to a review environment with `POSTGRES_URL` and the admin credentials configured, an administrator can prepare the additive student tables once:
 
 ```bash
-curl -X POST "https://YOUR-DEPLOYMENT/api/admin/student-schema" \\\
-  -u "$ADMIN_USER:$ADMIN_PASSWORD"
+curl -X POST "https://YOUR-DEPLOYMENT/api/admin/student-schema" -u "$ADMIN_USER:$ADMIN_PASSWORD"
 ```
 
 This creates the student account, provider-session, question-bank, study-session, answer and data-request tables. It does not create accounts, accept student information or open sign-up.
