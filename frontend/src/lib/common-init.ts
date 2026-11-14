@@ -27,5 +27,5 @@ export function initCommon(): void {
   initButtons();
   initFaq();
   // Keep the marketing homepage focused; support chat remains available on inner pages.
-  if (!document.body.classList.contains("home-page")) initArlo();
+  if (!document.body.classList.contains("home-page") && !document.body.classList.contains("study-preview-page")) initArlo();
 }
