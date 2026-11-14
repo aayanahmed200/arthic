@@ -4,310 +4,133 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
-<script>
-(function () {
-  try {
-    var theme = localStorage.getItem("arthic-theme");
-    if (theme !== "light" && theme !== "dark") {
-      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {}
-})();
-</script>
-<title>pricing — arthic</title>
-<meta name="description" content="arthic is free during early access — one exam track, full platform access. Here's what's free today, what Plus is planned to cost, and why we're not charging for something that isn't finished yet." />
-<meta name="theme-color" content="#fcfbf8" />
-
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-<link rel="canonical" href="https://arthic.tech/pricing.html" />
-
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="arthic" />
-<meta property="og:title" content="pricing — arthic" />
-<meta property="og:description" content="free during early access — one exam track, full platform access. what's free today, and what Plus is planned to cost after." />
-<meta property="og:image" content="https://arthic.tech/og-image.png" />
-<meta property="og:url" content="https://arthic.tech/pricing.html" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="pricing — arthic" />
-<meta name="twitter:description" content="free during early access — one exam track, full platform access. what's free today, and what Plus is planned to cost after." />
-<meta name="twitter:image" content="https://arthic.tech/og-image.png" />
+<script>(function(){try{var theme=localStorage.getItem("arthic-theme");if(theme!=="light"&&theme!=="dark"){theme=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",theme);}catch(e){}})();</script>
+<title>Pricing | Arthic</title>
+<meta name="description" content="Arthic is in development. See the proposed early-access and future pricing structure, with no subscription or payment required today." />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" /><link rel="manifest" href="/site.webmanifest" /><link rel="canonical" href="https://arthic.tech/pricing.html" />
+<meta property="og:type" content="website" /><meta property="og:site_name" content="Arthic" /><meta property="og:title" content="Pricing | Arthic" /><meta property="og:description" content="Arthic is in development. See the proposed early-access and future pricing structure, with no subscription or payment required today." /><meta property="og:image" content="https://arthic.tech/og-image.png" /><meta property="og:url" content="https://arthic.tech/pricing.html" />
+<meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="Pricing | Arthic" /><meta name="twitter:description" content="Arthic is in development. See the proposed early-access and future pricing structure, with no subscription or payment required today." /><meta name="twitter:image" content="https://arthic.tech/og-image.png" />
 </head>
-<body>
-
-<div class="grain" aria-hidden="true"></div>
-<a class="skip-link" href="#main">skip to content</a>
-
+<body class="content-page">
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="nav" data-nav>
   <div class="nav__inner container">
-    <a href="/" class="nav__mark" aria-label="arthic — home">
-      <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
-      <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
+    <a href="/" class="nav__mark" aria-label="Arthic home">
+      <img class="brand-mark--light" src="/logo.png" alt="Arthic" width="800" height="272" />
+      <img class="brand-mark--dark" src="/logo-white.png" alt="Arthic" width="800" height="272" />
     </a>
-
-    <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="/subjects.html" data-nav-link>Exams</a>
+      <a href="/method.html" data-nav-link>How it works</a>
+      <a href="/pricing.html" data-nav-link>Pricing</a>
+      <a href="/careers.html" data-nav-link>Careers</a>
     </nav>
-
     <div class="nav__utility">
-      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="switch to dark theme">
-        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" />
-        </svg>
-        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <circle cx="8" cy="8" r="3" fill="currentColor" />
-          <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-            <path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" />
-          </g>
-        </svg>
+      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" /></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="currentColor" /><g stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" /></g></svg>
       </button>
       <div class="nav__region">
-        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="where arthic covers exams, by region">
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
-            <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
-          </svg>
+        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="Region coverage">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" /><path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></svg>
         </button>
         <div class="region-popover" id="regionPopover" data-region-popover role="menu" hidden>
-          <p class="region-popover__label">where we cover</p>
+          <p class="region-popover__label">Where we cover</p>
           <a class="boards__region-tag boards__region-tag--live" role="menuitem" href="/subjects.html"><img class="boards__flag" src="/flags/pk.svg" alt="" width="18" height="13" /><span>Pakistan</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener" title="arthic doesn't cover Cambridge yet — this links to Cambridge International's own site"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener" title="arthic doesn't cover the SAT/AP yet — this links to College Board's own site"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener" title="arthic doesn't cover CBSE yet — this links to CBSE's own site"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
         </div>
       </div>
     </div>
-
-    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav">
-      <span data-nav-toggle-label>menu</span>
-    </button>
+    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav"><span data-nav-toggle-label>Menu</span></button>
   </div>
 </header>
-
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
-  <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
-    <a href="/method.html" data-mobile-link>02 — method</a>
-    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
+  <nav aria-label="Mobile navigation">
+    <a href="/subjects.html" data-mobile-link>Exams</a>
+    <a href="/method.html" data-mobile-link>How it works</a>
+    <a href="/pricing.html" data-mobile-link>Pricing</a>
+    <a href="/careers.html" data-mobile-link>Careers</a>
+    <a href="/waitlist.html" data-mobile-link>Join early access</a>
   </nav>
-  <p class="mobile-nav__foot"><span>an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</span><a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
+  <p class="mobile-nav__foot">A focused preparation platform for Pakistan's entrance and competitive exams. <a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
 </div>
-
-<main id="main">
-
-  <!-- ============ PRICING HERO ============ -->
-  <section class="section section--first" id="top" data-section data-section-label="pricing">
-    <div class="container">
-      <p class="eyebrow" data-reveal>pricing</p>
-      <h1 class="pricing-hero__headline" data-reveal data-reveal-delay="80">
-        free right now — no catch.
-      </h1>
-      <p class="pricing-hero__lede" data-reveal data-reveal-delay="160">
-        arthic is pre-launch, so "pricing" mostly means what's free today and what we're
-        building toward. no hidden trial clock, no card required to start — just the mentor,
-        for one exam track, free while we're building it with you.
-      </p>
-    </div>
+<main id="main" class="content-main">
+  <section class="content-hero content-container" id="top">
+    <div class="content-hero__topline" data-reveal><span>Pricing</span><span>Clear before checkout</span></div>
+    <h1 data-reveal data-reveal-delay="80">Know what it costs before you commit.</h1>
+    <p class="content-hero__lede" data-reveal data-reveal-delay="140">Arthic is still in development. We are not taking subscriptions or payment details today. This page explains the pricing direction we're considering, not plans you can purchase now.</p>
+    <p class="content-hero__note" data-reveal data-reveal-delay="180">The early-access terms and any future prices will be confirmed before access or payment is requested.</p>
   </section>
 
-  <!-- ============ TIERS ============ -->
-  <section class="section--tight" data-section data-section-label="tiers">
-    <div class="container">
-      <div class="pricing-tiers__grid">
-        <article class="pricing-tier" data-reveal>
-          <p class="pricing-tier__name">free</p>
-          <p class="pricing-tier__for">any student, prepping for one exam track right now</p>
-          <p class="pricing-tier__price">Rs. 0</p>
-          <p class="pricing-tier__billed">free during early access</p>
-          <ul class="pricing-tier__list">
-            <li>full AI mentor access, no feature gating</li>
-            <li>MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS LNAT — pick one track</li>
-            <li>past papers and a starter study plan for that track</li>
-            <li>unlimited practice questions</li>
-            <li>the "rule of three" method on every concept</li>
-          </ul>
-          <a class="btn btn--solid" href="/waitlist.html"><span>join the waitlist</span></a>
-        </article>
-
-        <article class="pricing-tier pricing-tier--featured" data-reveal data-reveal-delay="80">
-          <p class="pricing-tier__badge">planned after early access</p>
-          <p class="pricing-tier__name">plus</p>
-          <p class="pricing-tier__for">students who want every track and the full platform</p>
-          <p class="pricing-tier__price">Rs. 8,999</p>
-          <p class="pricing-tier__billed">per month, after early access</p>
-          <ul class="pricing-tier__list">
-            <li>everything in free</li>
-            <li>all seven exams, switch tracks anytime</li>
-            <li>full past-paper library with mentor walkthroughs</li>
-            <li>personalized study plan and exam calendar, every track</li>
-            <li>progress tracking across subjects</li>
-          </ul>
-          <a class="btn" href="/waitlist.html"><span>join the waitlist</span></a>
-        </article>
-
-        <article class="pricing-tier" data-reveal data-reveal-delay="160">
-          <p class="pricing-tier__name">institutions</p>
-          <p class="pricing-tier__for">academies and schools prepping a whole batch</p>
-          <p class="pricing-tier__price">custom</p>
-          <p class="pricing-tier__billed">talk to us</p>
-          <ul class="pricing-tier__list">
-            <li>everything in plus</li>
-            <li>a shared progress view for instructors</li>
-            <li>bulk seats for a batch or campus</li>
-            <li>onboarding for your team</li>
-          </ul>
-          <a class="btn" href="mailto:hello@arthic.tech"><span>get in touch</span></a>
-        </article>
-      </div>
-      <p class="pricing-tiers__note" data-reveal data-reveal-delay="240">
-        arthic is pre-launch — the free tier is live today. Plus is priced at what we expect to
-        charge once early access ends, and Institutions pricing is custom — nothing is charged
-        until then, and early waitlist members get a real say before it does.
-      </p>
+  <section class="content-container" aria-label="Pricing outline">
+    <div class="content-hero__topline"><span>Current and planned access</span><span>Pakistan</span></div>
+    <div class="pricing-table" data-reveal>
+      <article class="pricing-line">
+        <h2 class="pricing-line__name">Early access</h2>
+        <p class="pricing-line__price">Free<small>planned early-access offer</small></p>
+        <div class="pricing-line__detail">
+          <p>Students invited to try Arthic during early access will not be charged for that access. The exact features, exam tracks and invitation process will be explained before anyone joins.</p>
+        </div>
+      </article>
+      <article class="pricing-line">
+        <h2 class="pricing-line__name">Plus</h2>
+        <p class="pricing-line__price">Rs. 8,999<small>proposed per month · not final</small></p>
+        <div class="pricing-line__detail">
+          <p>This is the current proposed price for a future paid plan, not an available subscription. The amount and included features may change after student feedback and before launch.</p>
+          <p>No recurring payment is being collected at this stage.</p>
+        </div>
+      </article>
+      <article class="pricing-line">
+        <h2 class="pricing-line__name">Institutions</h2>
+        <p class="pricing-line__price">Custom<small>discussed individually</small></p>
+        <div class="pricing-line__detail">
+          <p>For schools, academies and other learning organisations interested in exploring a group arrangement. Availability and scope have not been finalised.</p>
+          <p><a href="mailto:hello@arthic.tech">Contact the team ↗</a></p>
+        </div>
+      </article>
     </div>
+    <p class="pricing-footnote">All prices and plan details above are provisional. Features shown elsewhere on this website may be planned previews rather than live functionality. Joining the interest list does not start a subscription, reserve a paid plan or require a card.</p>
   </section>
 
-  <!-- ============ WHY FREE RIGHT NOW ============ -->
-  <section class="ai-note section--tight" data-section data-section-label="why free right now">
-    <div class="container ai-note__inner pricing-compare__inner">
-      <p class="eyebrow" data-reveal>why free right now</p>
-      <h2 data-reveal data-reveal-delay="80">we're not charging for something that isn't finished.</h2>
-      <p class="ai-note__body pricing-compare__body" data-reveal data-reveal-delay="160">
-        arthic is still early — new features ship every week, and the mentor gets better the
-        more students actually use it and tell us where it's wrong. charging before it's ready
-        would mean charging you to help us test it. early access stays free so the people
-        helping us build this get the most out of it, not the least.
-      </p>
-    </div>
+  <section class="pricing-faq content-container" id="faq">
+    <div class="content-hero__topline" data-reveal><span>Questions</span><span>Pricing and access</span></div>
+    <h2 class="pricing-faq__heading" data-reveal data-reveal-delay="80">A few things worth knowing.</h2>
+    <dl class="pricing-faq__list">
+      <div class="pricing-faq__item" data-reveal><dt>Can I buy a subscription now?</dt><dd>No. Arthic is in development and paid subscriptions are not open. We will announce availability before requesting payment.</dd></div>
+      <div class="pricing-faq__item" data-reveal><dt>Will early access be free?</dt><dd>The current plan is to offer invited early-access students access without charge. The invitation details and included features will be stated clearly before you accept.</dd></div>
+      <div class="pricing-faq__item" data-reveal><dt>Is Rs. 8,999 the final Plus price?</dt><dd>No. It is a proposed monthly price, not a final or purchasable offer. We will confirm any paid plan and its terms before launch.</dd></div>
+      <div class="pricing-faq__item" data-reveal><dt>Does joining the list create an account?</dt><dd>No. The early-access form is an email interest list. It does not create a product account or activate a paid service.</dd></div>
+    </dl>
   </section>
 
-  <!-- ============ FAQ ============ -->
-  <section class="pricing-faq section--tight" id="faq" data-section data-section-label="faq">
-    <div class="container">
-      <p class="eyebrow" data-reveal>questions</p>
-      <h2 data-reveal data-reveal-delay="80">frequently asked</h2>
-
-      <dl class="pricing-faq__list">
-        <div class="pricing-faq__item" data-reveal>
-          <dt>which exams does arthic actually cover?</dt>
-          <dd>
-            MDCAT, ECAT, NUST NET, the FAST entry test, CSS, PMS, and LUMS LNAT today —
-            expanding carefully rather than all at once.
-          </dd>
-        </div>
-        <div class="pricing-faq__item" data-reveal>
-          <dt>is arthic free right now?</dt>
-          <dd>
-            yes, genuinely — full mentor access on one exam track, free during early access.
-          </dd>
-        </div>
-        <div class="pricing-faq__item" data-reveal>
-          <dt>does arthic replace an academy or a tutor?</dt>
-          <dd>
-            not exactly — it's there at 1am when your academy's closed. most students use it
-            alongside coaching, not instead of it.
-          </dd>
-        </div>
-        <div class="pricing-faq__item" data-reveal>
-          <dt>do you support Urdu?</dt>
-          <dd>
-            not right now — the site is English-only while we focus on the mentor itself.
-            it's something we'd revisit properly later, not a half-measure we'd ship early.
-          </dd>
-        </div>
-        <div class="pricing-faq__item" data-reveal>
-          <dt>what happens to the price after early access?</dt>
-          <dd>
-            Plus is planned at Rs. 8,999/month once early access ends — but that's today's plan,
-            not a locked-in number. we'll confirm it with feedback from the students actually
-            using it first. free access stays free for one exam track either way.
-          </dd>
-        </div>
-      </dl>
-    </div>
+  <section class="content-cta">
+    <div class="content-container content-cta__inner"><div class="content-cta__copy"><div class="content-hero__topline"><span>Early access</span></div><h2>Get the update when it's ready.</h2><p>Join the email list to hear when Arthic is ready to invite students and explain the terms.</p></div><a class="home-button" href="/waitlist.html">Join the interest list <span aria-hidden="true">↗</span></a></div>
   </section>
-
-  <!-- ============ CLOSING CTA ============ -->
-  <section class="community section" id="waitlist" data-section data-section-label="get early access">
-    <div class="container community__grid">
-      <div class="community__lead">
-        <p class="eyebrow" data-reveal>get early access</p>
-        <h2 data-reveal data-reveal-delay="80">be first when it's ready.</h2>
-        <p class="community__body" data-reveal data-reveal-delay="160">
-          no spam, no selling your email — just a note when arthic is ready, and the occasional
-          update on how the mentor's coming along before then.
-        </p>
-      </div>
-
-      <form class="subscribe" data-reveal data-reveal-delay="320" data-subscribe-form novalidate>
-        <label for="subscribeEmail" class="subscribe__label">email</label>
-        <div class="subscribe__row">
-          <input class="field" type="email" id="subscribeEmail" name="email" placeholder="you@email.com" required autocomplete="email" />
-          <div class="visually-hidden" aria-hidden="true">
-            <label for="subscribeWebsite">leave this field blank</label>
-            <input type="text" id="subscribeWebsite" name="website" tabindex="-1" autocomplete="off" />
-          </div>
-          <button class="btn" type="submit">
-            <span>join waitlist</span>
-          </button>
-        </div>
-        <p class="subscribe__status" data-subscribe-status role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
-
 </main>
 
 <div class="footer-frame">
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <a href="/" class="footer__mark" aria-label="arthic — home">
-          <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
-          <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
-        </a>
-        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="/" class="footer__mark" aria-label="Arthic home"><img class="brand-mark--light" src="/logo.png" alt="Arthic" width="800" height="272" /><img class="brand-mark--dark" src="/logo-white.png" alt="Arthic" width="800" height="272" /></a>
+          <p class="footer__tagline">A focused preparation platform for Pakistan's entrance and competitive exams.</p>
+        </div>
+        <nav class="footer__col" aria-label="Explore">
+          <span class="footer__col-label">Explore</span><a href="/subjects.html">Exams</a><a href="/method.html">How it works</a><a href="/pricing.html">Pricing</a>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <span class="footer__col-label">Company</span><a href="/careers.html">Careers</a><a href="/waitlist.html">Early access</a><a href="mailto:hello@arthic.tech">Contact</a>
+        </nav>
+        <nav class="footer__col" aria-label="Legal">
+          <span class="footer__col-label">Legal</span><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/cookies.html">Cookies</a>
+        </nav>
       </div>
-
-      <nav class="footer__col" aria-label="resources">
-        <span class="footer__col-label">resources</span>
-        <a href="/subjects.html" class="hover-underline">subjects</a>
-        <a href="/method.html" class="hover-underline">method</a>
-        <a href="/careers.html" class="hover-underline">careers</a>
-      </nav>
-
-      <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label">legal</span>
-        <a href="/privacy.html" class="hover-underline">privacy</a>
-        <a href="/terms.html" class="hover-underline">terms</a>
-        <a href="/cookies.html" class="hover-underline">cookies</a>
-      </nav>
-
-      <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label">contact</span>
-        <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
-      </nav>
+      <div class="footer__bottom"><p>© <span data-year>2026</span> Arthic. All rights reserved.</p><a href="#top">Back to top ↑</a></div>
     </div>
-
-    <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
-      <a href="#top" class="hover-underline">back to top</a>
-    </div>
-  </div>
-</footer>
-</div>
-
-
-<script type="module" src="/src/pricing.ts"></script>
-</body>
-</html>
+  </footer>
+</div><script type="module" src="/src/pricing.ts"></script>
+</body></html>
