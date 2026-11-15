@@ -10,28 +10,49 @@ import Lenis from "lenis";
  */
 export function initSmoothScroll(): Lenis | null {
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReduced) return null;
+  const lenis = prefersReduced
+    ? null
+    : new Lenis({
+        duration: 1.05,
+        easing: (t: number) => 1 - Math.pow(1 - t, 3),
+        smoothWheel: true,
+      });
 
-  const lenis = new Lenis({
-    duration: 1.05,
-    easing: (t: number) => 1 - Math.pow(1 - t, 3),
-    smoothWheel: true,
-  });
-
-  function raf(time: number) {
-    lenis.raf(time);
+  const activeLenis = lenis;
+  if (activeLenis) {
+    function raf(time: number) {
+      activeLenis!.raf(time);
+      requestAnimationFrame(raf);
+    }
     requestAnimationFrame(raf);
   }
-  requestAnimationFrame(raf);
 
   document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (event) => {
       const hash = link.getAttribute("href");
       if (!hash || hash === "#") return;
-      const target = document.querySelector(hash);
+      const target = document.querySelector<HTMLElement>(hash);
       if (!target) return;
+
+      // Skip links must move keyboard and assistive-technology focus, not just the URL.
+      // Do this even when smooth motion is disabled and native scrolling takes over.
+      if (link.classList.contains("skip-link")) {
+        event.preventDefault();
+        if (lenis) lenis.scrollTo(target, { offset: -96, duration: 0.65 });
+        else target.scrollIntoView({ behavior: "auto", block: "start" });
+        if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+        target.focus({ preventScroll: true });
+        history.pushState(null, "", hash);
+        return;
+      }
+
+      if (!lenis) {
+        if (target.hasAttribute("tabindex")) target.focus({ preventScroll: true });
+        return;
+      }
       event.preventDefault();
-      lenis.scrollTo(target as HTMLElement, { offset: -8, duration: 1.1 });
+      lenis.scrollTo(target, { offset: -8, duration: 1.1 });
+      if (target.hasAttribute("tabindex")) target.focus({ preventScroll: true });
       history.pushState(null, "", hash);
     });
   });

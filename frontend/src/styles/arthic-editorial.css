@@ -1112,3 +1112,12 @@ body,.home-page,.content-page {
   transform: none !important;
   filter: none !important;
 }
+
+
+/* Give skip-link and back-to-top targets a clear landing below the fixed navigation. */
+.home-page #main,
+.content-page #main,
+.pathways-page #top,
+.method-page #top {
+  scroll-margin-top: 96px;
+}
