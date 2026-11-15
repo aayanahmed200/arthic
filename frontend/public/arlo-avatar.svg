@@ -1,12 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-labelledby="title">
-  <title id="title">Arlo the owl</title>
-  <circle cx="36" cy="36" r="34" fill="#E8F0E2"/>
-  <path d="M15 30 10 14c10 2 17 8 21 16M57 30l5-16c-10 2-17 8-21 16" fill="#BBD6AE" stroke="#315B3F" stroke-width="2.5" stroke-linejoin="round"/>
-  <path d="M13 33c0-17 10-27 23-27s23 10 23 27v17c0 13-10 20-23 20S13 63 13 50V33Z" fill="#CDE3C2" stroke="#315B3F" stroke-width="2.8"/>
-  <path d="M31 9c-2-4 0-7 3-9M33 5C23 6 18 1 19-5c9-1 15 3 17 9M36 4c2-8 8-11 15-8-1 8-7 12-15 12" fill="#A5C894" stroke="#315B3F" stroke-width="1.5" stroke-linejoin="round"/>
-  <ellipse cx="26" cy="37" rx="9" ry="11" fill="#FFFCF4" stroke="#315B3F" stroke-width="1.8"/>
-  <ellipse cx="46" cy="37" rx="9" ry="11" fill="#FFFCF4" stroke="#315B3F" stroke-width="1.8"/>
-  <circle cx="27" cy="38" r="4" fill="#20372A"/><circle cx="47" cy="38" r="4" fill="#20372A"/>
-  <circle cx="28" cy="36" r="1.4" fill="#FFFFFF"/><circle cx="48" cy="36" r="1.4" fill="#FFFFFF"/>
-  <path d="m32 50 4 4 4-4-4-3-4 3Z" fill="#D5A064" stroke="#315B3F" stroke-width="1.5"/>
+  <title id="title">Arlo</title>
+  <circle cx="36" cy="36" r="35" fill="#EAF2E5"/>
+  <path d="M35 10c-4-8-1-13 6-17 8 9 7 17-1 23" fill="#A9CD9D" stroke="#557D50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="13" y="16" width="46" height="48" rx="21" fill="#B9D9AE" stroke="#557D50" stroke-width="2.3"/>
+  <circle cx="27" cy="37" r="2.8" fill="#29412D"/>
+  <circle cx="45" cy="37" r="2.8" fill="#29412D"/>
+  <path d="M29 47c4 4 10 4 14 0" fill="none" stroke="#456F43" stroke-width="2.4" stroke-linecap="round"/>
 </svg>
