@@ -4,225 +4,119 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
-<script>
-(function () {
-  try {
-    var theme = localStorage.getItem("arthic-theme");
-    if (theme !== "light" && theme !== "dark") {
-      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {}
-})();
-</script>
-<title>apply — arthic</title>
-<meta name="description" content="Apply to one of arthic's student-built roles — a few details about you and the role, sent straight to a small team that reads every application itself." />
-<meta name="robots" content="noindex" />
-<meta name="theme-color" content="#fcfbf8" />
-
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-<link rel="canonical" href="https://arthic.tech/apply.html" />
+<script>(function(){try{var theme=localStorage.getItem("arthic-theme");if(theme!=="light"&&theme!=="dark"){theme=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",theme);}catch(e){}})();</script>
+<title>Careers application | Arthic</title>
+<meta name="description" content="Apply to join the Arthic team. Share your contact details, availability and how you'd like to contribute." />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" /><link rel="manifest" href="/site.webmanifest" /><link rel="canonical" href="https://arthic.tech/apply.html" />
+<meta property="og:type" content="website" /><meta property="og:site_name" content="Arthic" /><meta property="og:title" content="Careers application | Arthic" /><meta property="og:description" content="Apply to join the Arthic team. Share your contact details, availability and how you'd like to contribute." /><meta property="og:image" content="https://arthic.tech/og-image.png" /><meta property="og:url" content="https://arthic.tech/apply.html" />
+<meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="Careers application | Arthic" /><meta name="twitter:description" content="Apply to join the Arthic team. Share your contact details, availability and how you'd like to contribute." /><meta name="twitter:image" content="https://arthic.tech/og-image.png" />
 </head>
-<body>
-
-<div class="grain" aria-hidden="true"></div>
-<a class="skip-link" href="#main">skip to content</a>
-
+<body class="content-page">
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="nav" data-nav>
   <div class="nav__inner container">
-    <a href="/" class="nav__mark" aria-label="arthic — home">
-      <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
-      <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
+    <a href="/" class="nav__mark" aria-label="Arthic home">
+      <img class="brand-mark--light" src="/logo.png" alt="Arthic" width="800" height="272" />
+      <img class="brand-mark--dark" src="/logo-white.png" alt="Arthic" width="800" height="272" />
     </a>
-
-    <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="/subjects.html" data-nav-link>Exams</a>
+      <a href="/method.html" data-nav-link>How it works</a>
+      <a href="/pricing.html" data-nav-link>Pricing</a>
+      <a href="/careers.html" data-nav-link>Careers</a>
     </nav>
-
     <div class="nav__utility">
-      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="switch to dark theme">
-        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" />
-        </svg>
-        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <circle cx="8" cy="8" r="3" fill="currentColor" />
-          <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-            <path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" />
-          </g>
-        </svg>
+      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" /></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="currentColor" /><g stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M8 1.5v1.6M8 12.9v1.6M14.5 8h-1.6M3.1 8H1.5M12.5 3.5l-1.1 1.1M4.6 11.4l-1.1 1.1M12.5 12.5l-1.1-1.1M4.6 4.6 3.5 3.5" /></g></svg>
       </button>
       <div class="nav__region">
-        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="where arthic covers exams, by region">
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
-            <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
-          </svg>
+        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="Region coverage">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" /><path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></svg>
         </button>
         <div class="region-popover" id="regionPopover" data-region-popover role="menu" hidden>
-          <p class="region-popover__label">where we cover</p>
+          <p class="region-popover__label">Where we cover</p>
           <a class="boards__region-tag boards__region-tag--live" role="menuitem" href="/subjects.html"><img class="boards__flag" src="/flags/pk.svg" alt="" width="18" height="13" /><span>Pakistan</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener" title="arthic doesn't cover Cambridge yet — this links to Cambridge International's own site"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener" title="arthic doesn't cover the SAT/AP yet — this links to College Board's own site"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener" title="arthic doesn't cover CBSE yet — this links to CBSE's own site"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
         </div>
       </div>
     </div>
-
-    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav">
-      <span data-nav-toggle-label>menu</span>
-    </button>
+    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav"><span data-nav-toggle-label>Menu</span></button>
   </div>
 </header>
-
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
-  <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
-    <a href="/method.html" data-mobile-link>02 — method</a>
-    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
+  <nav aria-label="Mobile navigation">
+    <a href="/subjects.html" data-mobile-link>Exams</a>
+    <a href="/method.html" data-mobile-link>How it works</a>
+    <a href="/pricing.html" data-mobile-link>Pricing</a>
+    <a href="/careers.html" data-mobile-link>Careers</a>
+    <a href="/waitlist.html" data-mobile-link>Join early access</a>
   </nav>
-  <p class="mobile-nav__foot"><span>an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</span><a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
+  <p class="mobile-nav__foot">A focused preparation platform for Pakistan's entrance and competitive exams. <a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
 </div>
-
-<main id="main">
-  <article class="entry container" id="top">
-    <header class="entry__head" data-reveal>
-      <p class="eyebrow">careers</p>
-      <h1 class="entry__title" data-role-heading>apply.</h1>
-      <p class="entry__lede" data-role-blurb>a few details about you and the role — a real person on a small team reads every application.</p>
-    </header>
-
-    <div class="apply-role" data-reveal data-reveal-delay="100">
-      <p class="apply-role__tag" data-role-tag>role</p>
-      <p class="apply-role__body" data-role-body>loading role details…</p>
+<main id="main" class="content-main">
+  <section class="content-hero content-container" id="top">
+    <div class="content-hero__topline" data-reveal><span>Careers</span><span>Application</span></div>
+    <h1 data-reveal data-reveal-delay="80" data-role-heading>Send an application.</h1>
+    <p class="content-hero__lede" data-reveal data-reveal-delay="140" data-role-blurb>Tell us a little about yourself and the role you're interested in. The team reviews applications directly.</p>
+  </section>
+  <section class="content-container apply-layout">
+    <div class="apply-role" data-reveal>
+      <p class="apply-role__tag" data-role-tag>Role</p>
+      <p class="apply-role__body" data-role-body>Loading role details…</p>
     </div>
-
-    <form class="apply-form" data-apply-form novalidate data-reveal data-reveal-delay="160">
+    <form class="apply-form" data-apply-form novalidate data-reveal data-reveal-delay="100">
       <input type="hidden" name="role" data-role-field value="General" />
-
       <div class="apply-form__section">
-        <p class="apply-form__section-label">01 — about you</p>
+        <p class="apply-form__section-label">01 — About you</p>
         <div class="apply-form__grid">
-          <div class="apply-form__field">
-            <label for="ap-name">name</label>
-            <input class="field" type="text" id="ap-name" name="name" placeholder="your full name" required autocomplete="name" />
-          </div>
-          <div class="apply-form__field">
-            <label for="ap-email">email</label>
-            <input class="field" type="email" id="ap-email" name="email" placeholder="you@email.com" required autocomplete="email" />
-          </div>
-          <div class="apply-form__field apply-form__field--wide">
-            <label for="ap-link" data-link-label>portfolio / social link</label>
-            <input class="field" type="url" id="ap-link" name="link" placeholder="optional" autocomplete="url" data-link-input />
-          </div>
+          <div class="apply-form__field"><label for="ap-name">Name</label><input class="field" type="text" id="ap-name" name="name" placeholder="Your full name" required autocomplete="name" /></div>
+          <div class="apply-form__field"><label for="ap-email">Email</label><input class="field" type="email" id="ap-email" name="email" placeholder="you@example.com" required autocomplete="email" /></div>
+          <div class="apply-form__field apply-form__field--wide"><label for="ap-link" data-link-label>Portfolio or social link</label><input class="field" type="url" id="ap-link" name="link" placeholder="Optional" autocomplete="url" data-link-input /></div>
         </div>
       </div>
-
       <div class="apply-form__section">
-        <p class="apply-form__section-label">02 — availability</p>
+        <p class="apply-form__section-label">02 — Availability</p>
         <div class="apply-form__grid">
-          <div class="apply-form__field">
-            <label for="ap-availability">hours you can realistically give, per week</label>
-            <select class="field" id="ap-availability" name="availability" data-custom-select>
-              <option value="">prefer not to say</option>
-              <option value="5-10 hrs/week">5–10 hrs/week</option>
-              <option value="10-15 hrs/week">10–15 hrs/week</option>
-              <option value="15-20 hrs/week">15–20 hrs/week</option>
-              <option value="20+ hrs/week">20+ hrs/week</option>
-            </select>
-          </div>
-          <div class="apply-form__field">
-            <label for="ap-start">how soon could you start</label>
-            <select class="field" id="ap-start" name="start" data-custom-select>
-              <option value="">not sure yet</option>
-              <option value="this week">this week</option>
-              <option value="in 2-4 weeks">in 2–4 weeks</option>
-              <option value="next semester">next semester</option>
-            </select>
-          </div>
+          <div class="apply-form__field"><label for="ap-availability">Hours you can give per week</label><select class="field" id="ap-availability" name="availability" data-custom-select><option value="">Prefer not to say</option><option value="5-10 hrs/week">5–10 hours</option><option value="10-15 hrs/week">10–15 hours</option><option value="15-20 hrs/week">15–20 hours</option><option value="20+ hrs/week">20+ hours</option></select></div>
+          <div class="apply-form__field"><label for="ap-start">When could you start?</label><select class="field" id="ap-start" name="start" data-custom-select><option value="">Not sure yet</option><option value="this week">This week</option><option value="in 2-4 weeks">In 2–4 weeks</option><option value="next semester">Next semester</option></select></div>
         </div>
       </div>
-
       <div class="apply-form__section">
-        <p class="apply-form__section-label">03 — tell us more</p>
-        <div class="apply-form__field apply-form__field--wide">
-          <label for="ap-message" data-message-label>tell us more</label>
-          <textarea class="field" id="ap-message" name="message" rows="5" data-message-input></textarea>
-        </div>
+        <p class="apply-form__section-label">03 — Your note</p>
+        <div class="apply-form__field apply-form__field--wide"><label for="ap-message" data-message-label>What would you like us to know?</label><textarea class="field" id="ap-message" name="message" rows="5" data-message-input placeholder="A little about your experience and what you'd like to contribute."></textarea></div>
       </div>
-
-      <div class="visually-hidden" aria-hidden="true">
-        <label for="ap-website">leave this field blank</label>
-        <input type="text" id="ap-website" name="website" tabindex="-1" autocomplete="off" />
-      </div>
-
-      <div class="apply-form__submit">
-        <button class="btn btn--solid" type="submit"><span>send application</span></button>
-        <p class="apply-form__note">a real person on a small team reads every application — we'll follow up if it looks like a fit.</p>
-      </div>
+      <div class="visually-hidden" aria-hidden="true"><label for="ap-website">Leave this field blank</label><input type="text" id="ap-website" name="website" tabindex="-1" autocomplete="off" /></div>
+      <div class="apply-form__submit"><button class="home-button" type="submit">Send application <span aria-hidden="true">↗</span></button><p class="apply-form__note">Your details are used to review this application. See the <a href="/privacy.html">privacy policy</a> for more.</p></div>
       <p class="apply-form__status" data-form-status role="status" aria-live="polite"></p>
     </form>
-
-    <div class="entry__foot" data-reveal data-reveal-delay="220">
-      <a class="link-arrow link-arrow--large" href="/careers.html">
-        <span>back to all roles</span>
-        <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
-        </svg>
-      </a>
-    </div>
-  </article>
+  </section>
+  <div class="content-container" style="padding-bottom:4rem"><a class="career-role__link" href="/careers.html">← Back to careers</a></div>
 </main>
 
 <div class="footer-frame">
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <a href="/" class="footer__mark" aria-label="arthic — home">
-          <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
-          <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
-        </a>
-        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="/" class="footer__mark" aria-label="Arthic home"><img class="brand-mark--light" src="/logo.png" alt="Arthic" width="800" height="272" /><img class="brand-mark--dark" src="/logo-white.png" alt="Arthic" width="800" height="272" /></a>
+          <p class="footer__tagline">A focused preparation platform for Pakistan's entrance and competitive exams.</p>
+        </div>
+        <nav class="footer__col" aria-label="Explore">
+          <span class="footer__col-label">Explore</span><a href="/subjects.html">Exams</a><a href="/method.html">How it works</a><a href="/pricing.html">Pricing</a>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <span class="footer__col-label">Company</span><a href="/careers.html">Careers</a><a href="/waitlist.html">Early access</a><a href="mailto:hello@arthic.tech">Contact</a>
+        </nav>
+        <nav class="footer__col" aria-label="Legal">
+          <span class="footer__col-label">Legal</span><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/cookies.html">Cookies</a>
+        </nav>
       </div>
-
-      <nav class="footer__col" aria-label="resources">
-        <span class="footer__col-label">resources</span>
-        <a href="/subjects.html" class="hover-underline">subjects</a>
-        <a href="/method.html" class="hover-underline">method</a>
-        <a href="/careers.html" class="hover-underline">careers</a>
-      </nav>
-
-      <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label">legal</span>
-        <a href="/privacy.html" class="hover-underline">privacy</a>
-        <a href="/terms.html" class="hover-underline">terms</a>
-        <a href="/cookies.html" class="hover-underline">cookies</a>
-      </nav>
-
-      <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label">contact</span>
-        <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
-      </nav>
+      <div class="footer__bottom"><p>© <span data-year>2026</span> Arthic. All rights reserved.</p><a href="#top">Back to top ↑</a></div>
     </div>
-
-    <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
-      <a href="#top" class="hover-underline">back to top</a>
-    </div>
-  </div>
-</footer>
-</div>
-
-
-<script type="module" src="/src/apply.ts"></script>
-</body>
-</html>
+  </footer>
+</div><script type="module" src="/src/apply.ts"></script>
+</body></html>

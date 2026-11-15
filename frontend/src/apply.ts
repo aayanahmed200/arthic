@@ -30,7 +30,7 @@ const ROLES: Record<string, RoleConfig> = {
     title: "student content lead",
     tag: "content",
     blurb:
-      "write the notes, MCQs, and past-paper breakdowns for one exam track — MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS LNAT. best suited to someone who took that exact exam recently enough to remember exactly where it got confusing.",
+      "write the notes, MCQs, and past-paper breakdowns for one exam track — MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS BA-LL.B / LAT. best suited to someone who took that exact exam recently enough to remember exactly where it got confusing.",
     linkLabel: "portfolio / social link",
     linkPlaceholder: "a doc, blog, or anything you've written (optional)",
     messageLabel: "which exam track, and when you took it",

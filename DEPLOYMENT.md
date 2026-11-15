@@ -10,9 +10,19 @@ Do the database first; Vercel needs its connection string.
 2. In the new project: **Project Settings → Database → Connection string**. Copy the **URI** under "Connection pooling" (transaction mode) — serverless functions open a lot of short-lived connections, and the pooled connection string is built for that; the direct (non-pooled) string will work too but can exhaust Postgres's connection limit under real traffic.
 3. Paste your real database password into the copied string in place of the `[YOUR-PASSWORD]` placeholder. That whole string is what `POSTGRES_URL` gets set to in the next step.
 
-Already have a Postgres database somewhere else (Neon, RDS, your own instance)? Skip Supabase entirely and use that connection string instead — `@vercel/postgres` (what `frontend/api/_db.ts` uses) just expects a standard Postgres URI, nothing about it depends on Supabase specifically.
+Already have a Postgres database somewhere else (Neon, RDS, your own instance)? Skip Supabase entirely and use that connection string instead. The deployed functions use `pg` (node-postgres) and expect a standard Postgres URI. For Supabase, use the transaction pooler connection string described above.
 
-Nothing to run by hand beyond this — the first request to any API route calls `ensureTables()` (`frontend/api/_db.ts`), which creates the `subscribers` and `applications` tables if they don't already exist. No seed step needed.
+The waitlist and application endpoints create their own `subscribers` and `applications` tables on first use through `ensureTables()`. The student workspace schema is separate and is **not** created by public form traffic.
+
+After the redesigned branch is deployed to a review environment with `POSTGRES_URL` and the admin credentials configured, an administrator can prepare the additive student tables once:
+
+```bash
+curl -X POST "https://YOUR-DEPLOYMENT/api/admin/student-schema" -u "$ADMIN_USER:$ADMIN_PASSWORD"
+```
+
+This creates the student account, provider-session, question-bank, study-session, answer and data-request tables. It also adds question instruction/archive fields and seeds the three original demo questions as drafts; it never overwrites existing edits. It does not create student accounts, accept student information or open sign-up.
+
+The question-bank editor is available at `/admin` → **question bank**. It uses the existing server-side admin credentials. New questions are drafts. Publishing requires an answer, explanation and takeaway; licensed or public-domain entries also require a source/permission note. Only published, non-archived records are returned by the database-backed student feed. The public practice preview falls back to the original sample questions until there are published records.
 
 ## 2. Vercel
 
@@ -44,11 +54,9 @@ If the site is loading over plain HTTP, or a browser is warning about the connec
 
 `https://arthic.tech/admin` — same origin as the site itself, served as static files from `frontend/public/admin/`. Sign in with the `ADMIN_USER` / `ADMIN_PASSWORD` you set in step 2. One tab: the waitlist (list + copy-all-emails for pasting into whatever you actually send mail through — the panel doesn't send email itself).
 
-## Known limitation — no rate limiting on the public write endpoints
+## Rate limiting
 
-`/api/subscribe` and `/api/apply` both validate their input (real-looking email addresses, length limits, etc.) but neither currently rate-limits repeated requests from the same visitor. That's a real gap, not an oversight to paper over: Vercel serverless functions are stateless between invocations, so the simple in-memory counter that would work in a normal long-running server (like the one in `backend/`, below) doesn't carry over as-is — it would need a shared store (e.g. Upstash Redis) to actually work across invocations.
-
-For a small, early-stage site this is a low-priority gap — worth knowing about, not urgent to fix. If it ever becomes a real problem (spammy signups, a form getting hammered), the lowest-effort fix is Vercel's own **Firewall** (Project → Firewall → add a rate limit rule) — no code changes needed. A shared Redis store is the option if you want limiting inside the app itself instead.
+The public `/api/subscribe` and `/api/apply` endpoints use a Postgres-backed fixed-window limiter in `frontend/api/_rate_limit.ts`. It stores counters in the shared database so limits work across stateless Vercel function invocations. If the limiter's database operation fails, its current implementation fails open and logs the failure; Vercel Firewall rules can provide an additional edge-level control.
 
 ## Self-hosting instead of Vercel + Postgres
 
@@ -59,3 +67,10 @@ If you go this route, point the frontend at it instead of same-origin: set `VITE
 ## After that
 
 The Vercel project redeploys automatically on every push to `main`. Nothing about the deploy process above needs touching again for routine updates — checking the waitlist or reviewing applications goes through `/admin`, not a redeploy.
+
+
+## Student account readiness
+
+The student workspace tables are preparatory only. Student accounts are not open, and there is currently no sign-up, login, email-verification or account-recovery flow. Before collecting student information, choose and configure a managed identity provider, implement verified email and recovery, review the privacy notice and terms for the intended student age range, and define consent, support, export and deletion procedures. Do not turn on account creation before those pieces are in place.
+
+The schema stores an external identity-provider subject instead of a locally managed password. Server-side session records are designed to keep only a hash of the session token, not the raw token. The design keeps password management with a future identity provider and stores only session-token hashes, not raw session tokens. See the [OWASP Password Storage guidance](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) and [Session Management guidance](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).

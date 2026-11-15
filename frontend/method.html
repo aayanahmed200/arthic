@@ -3,61 +3,44 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light dark" />
-<script>
-(function () {
-  try {
-    var theme = localStorage.getItem("arthic-theme");
-    if (theme !== "light" && theme !== "dark") {
-      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {}
-})();
-</script>
-<title>method — arthic</title>
-<meta name="description" content="The rule of three: how arthic's AI mentor actually teaches — identify the real mistake, explain the concept like a friend would, then test whether it stuck." />
-<meta name="theme-color" content="#fcfbf8" />
-
+<meta name="color-scheme" content="light" />
+<script>document.documentElement.setAttribute("data-theme","light");</script>
+<title>How Arthic works | A more focused study routine</title>
+<meta name="description" content="See how Arthic is being designed to connect exam pathways, focused practice, AI-supported explanations and a clearer study plan." />
+<meta name="theme-color" content="#FAFBF7" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="canonical" href="https://arthic.tech/method.html" />
-
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="arthic" />
-<meta property="og:title" content="method — arthic" />
-<meta property="og:description" content="The rule of three: how arthic's AI mentor actually teaches — identify the real mistake, explain the concept like a friend would, then test whether it stuck." />
+<meta property="og:site_name" content="Arthic" />
+<meta property="og:title" content="How Arthic works | A more focused study routine" />
+<meta property="og:description" content="A clear route from choosing an exam to learning from each practice session." />
 <meta property="og:image" content="https://arthic.tech/og-image.png" />
 <meta property="og:url" content="https://arthic.tech/method.html" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="method — arthic" />
-<meta name="twitter:description" content="The rule of three: how arthic's AI mentor actually teaches — identify the real mistake, explain the concept like a friend would, then test whether it stuck." />
+<meta name="twitter:title" content="How Arthic works | A more focused study routine" />
+<meta name="twitter:description" content="A clear route from choosing an exam to learning from each practice session." />
 <meta name="twitter:image" content="https://arthic.tech/og-image.png" />
 </head>
-<body>
-
-<div class="grain" aria-hidden="true"></div>
-<a class="skip-link" href="#main">skip to content</a>
+<body class="content-page method-page">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="nav" data-nav>
   <div class="nav__inner container">
-    <a href="/" class="nav__mark" aria-label="arthic — home">
-      <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
-      <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
+    <a href="/" class="nav__mark" aria-label="Arthic home">
+      <img class="brand-mark--light" src="/logo.png" alt="Arthic" width="800" height="272" />
+      <img class="brand-mark--dark" src="/logo-white.png" alt="Arthic" width="800" height="272" />
     </a>
-
-    <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="/subjects.html" data-nav-link>Exams</a>
+      <a href="/method.html" data-nav-link>How it works</a>
+      <a href="/pricing.html" data-nav-link>Pricing</a>
+      <a href="/careers.html" data-nav-link>Careers</a>
     </nav>
-
     <div class="nav__utility">
-      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="switch to dark theme">
+      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
         <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M13 8.7A5.5 5.5 0 1 1 7.3 3a4.35 4.35 0 0 0 5.7 5.7Z" fill="currentColor" />
         </svg>
@@ -69,144 +52,181 @@
         </svg>
       </button>
       <div class="nav__region">
-        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="where arthic covers exams, by region">
+        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="Region coverage">
           <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
             <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
           </svg>
         </button>
         <div class="region-popover" id="regionPopover" data-region-popover role="menu" hidden>
-          <p class="region-popover__label">where we cover</p>
+          <p class="region-popover__label">Where we cover</p>
           <a class="boards__region-tag boards__region-tag--live" role="menuitem" href="/subjects.html"><img class="boards__flag" src="/flags/pk.svg" alt="" width="18" height="13" /><span>Pakistan</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener" title="arthic doesn't cover Cambridge yet — this links to Cambridge International's own site"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener" title="arthic doesn't cover the SAT/AP yet — this links to College Board's own site"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener" title="arthic doesn't cover CBSE yet — this links to CBSE's own site"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
+          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
         </div>
       </div>
     </div>
-
     <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav">
-      <span data-nav-toggle-label>menu</span>
+      <span data-nav-toggle-label>Menu</span>
     </button>
   </div>
 </header>
-
 <div class="mobile-nav" id="mobileNav" data-mobile-nav>
-  <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
-    <a href="/method.html" data-mobile-link>02 — method</a>
-    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
+  <nav aria-label="Mobile navigation">
+    <a href="/subjects.html" data-mobile-link>Exams</a>
+    <a href="/method.html" data-mobile-link>How it works</a>
+    <a href="/pricing.html" data-mobile-link>Pricing</a>
+    <a href="/careers.html" data-mobile-link>Careers</a>
+    <a href="/waitlist.html" data-mobile-link>Join early access</a>
   </nav>
-  <p class="mobile-nav__foot"><span>an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS LNAT. built by students, early.</span><a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
+  <p class="mobile-nav__foot">A focused preparation platform for Pakistan's entrance and competitive exams. <a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
 </div>
-
-<main id="main">
-  <article class="entry container" id="top">
-    <header class="entry__head" data-reveal>
-      <p class="eyebrow">how it works</p>
-      <h1 class="entry__title">method.</h1>
-      <p class="entry__lede">the rule of three — no shortcuts, no wasted turns, the same three steps for every subject, every time.</p>
-    </header>
-
-    <div class="entry__body" data-reveal data-reveal-delay="80">
-      <p>
-        most tutoring marks a wrong answer incorrect and moves on, or re-shows the exact
-        explanation you already didn't get. arthic runs every wrong answer through the same
-        three steps instead.
-      </p>
-    </div>
-
-    <ol class="philosophy__list" data-reveal data-reveal-delay="140">
-      <li class="philosophy__item">
-        <span class="philosophy__num">01</span>
-        <div class="philosophy__copy">
-          <p class="philosophy__tag">identify</p>
-          <h3>find the actual mistake, not just the wrong answer</h3>
-          <p class="philosophy__body">figures out exactly where your understanding broke — a formula, a definition, a step in the logic — instead of just marking it incorrect.</p>
-        </div>
-      </li>
-      <li class="philosophy__item">
-        <span class="philosophy__num">02</span>
-        <div class="philosophy__copy">
-          <p class="philosophy__tag">explain</p>
-          <h3>a concept explained the way a friend would</h3>
-          <p class="philosophy__body">a plain-language explanation with a local, relatable example — a circuit through load-shedding, probability through cricket stats — until it clicks.</p>
-        </div>
-      </li>
-      <li class="philosophy__item">
-        <span class="philosophy__num">03</span>
-        <div class="philosophy__copy">
-          <p class="philosophy__tag">test</p>
-          <h3>a next challenge, not just a pat on the back</h3>
-          <p class="philosophy__body">one more question, calibrated to be just hard enough, built to check the concept actually stuck before moving on.</p>
-        </div>
-      </li>
-    </ol>
-
-    <div class="entry__body" data-reveal data-reveal-delay="180">
-      <p>
-        an example: miss a projectile-motion numerical for the third time, and arthic works
-        backward through your last attempt instead of re-showing the formula — maybe you're
-        resolving the wrong velocity component, maybe you're misreading the angle. once it finds
-        which one, it explains that exact piece and hands you a new problem built to need the
-        same understanding, different numbers.
-      </p>
-    </div>
-
-    <div class="entry__foot" data-reveal data-reveal-delay="220">
-      <a class="link-arrow link-arrow--large" href="/subjects.html">
-        <span>see which exams this applies to</span>
-        <svg class="arrow-glyph" width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" />
+<main id="main" class="content-main method-page">
+  <section class="oneprep-subhero oneprep-subhero--method">
+    <div class="content-container">
+      <p class="oneprep-eyebrow"><span></span> HOW ARTHIC IS DESIGNED TO WORK</p>
+      <h1>A clearer way to move from<br><em>practice to progress.</em></h1>
+      <p class="oneprep-lede">Start with what you know. Make a plan for what you need. Practise, review and decide what to do next.</p>
+      <a href="/study-preview.html" class="oneprep-button oneprep-button--primary">Try a sample question <span aria-hidden="true">↗</span></a>
+      <p class="oneprep-status-note">The question session is an original demo. The diagnostic, planner and wider question bank are still in development.</p>
+      <div class="method-hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
+          <path d="M62 112C130 12 213 20 263 85s125 84 194 0" fill="none" stroke="#A9C79B" stroke-width="2.5" stroke-dasharray="4 9" stroke-linecap="round"/>
+          <circle cx="86" cy="108" r="42" fill="#E9F1E3" stroke="#B8D2AA"/>
+          <circle cx="265" cy="85" r="53" fill="#F2F6EE" stroke="#C4D8B8"/>
+          <circle cx="443" cy="106" r="42" fill="#F2EEDF" stroke="#E2D5B8"/>
+          <path d="M72 108h28m-14-14v28M250 85h30m-15-15v30M429 106l10 10 19-22" fill="none" stroke="#315B3F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M190 22l6 12 12 6-12 6-6 12-6-12-12-6 12-6 6-12Z" fill="#A6C98E"/>
+          <circle cx="355" cy="25" r="5" fill="#A6C98E"/>
         </svg>
-      </a>
+      </div>
+
     </div>
-  </article>
+  </section>
+
+  <section class="oneprep-three-steps content-container">
+    <div class="oneprep-section-head">
+      <p class="oneprep-eyebrow">THE PREPARATION LOOP</p>
+      <h2>Three steps. One clear direction.</h2>
+      <p>The goal is to connect each practice session to a useful next step—not to leave you guessing what to work on.</p>
+    </div>
+    <div class="oneprep-step-grid">
+      <article class="oneprep-step-card">
+        <span class="oneprep-step-card__number">01</span><span class="oneprep-step-card__tag">PLANNED</span><div class="oneprep-step-graphic oneprep-step-graphic--diagnostic" aria-hidden="true"><svg viewBox="0 0 120 90"><circle cx="60" cy="45" r="33"/><circle cx="60" cy="45" r="19"/><circle cx="60" cy="45" r="5"/><path d="M60 3v16M60 71v16M18 45h16M86 45h16M29 14l11 11M80 65l11 11"/></svg></div>
+        <h3>Understand your starting point</h3><p>A future diagnostic will help identify which subject areas deserve your attention first.</p>
+        <div class="oneprep-step-mini oneprep-step-mini--diagnostic"><div class="oneprep-mini-title"><span>BASELINE CHECK</span><b>CONCEPT</b></div><div class="oneprep-mini-line"><span>Biology</span><i style="--fill:72%"></i><b>Review</b></div><div class="oneprep-mini-line"><span>Chemistry</span><i style="--fill:54%"></i><b>Focus</b></div><div class="oneprep-mini-line"><span>Physics</span><i style="--fill:68%"></i><b>Review</b></div><div class="oneprep-mini-foot">Illustrative only · not a live score</div></div>
+      </article>
+      <article class="oneprep-step-card">
+        <span class="oneprep-step-card__number">02</span><span class="oneprep-step-card__tag">IN DEVELOPMENT</span><div class="oneprep-step-graphic oneprep-step-graphic--calendar" aria-hidden="true"><svg viewBox="0 0 120 90"><rect x="22" y="16" width="76" height="60" rx="8"/><path d="M22 34h76M40 9v15M80 9v15"/><path d="M39 48h10M58 48h10M77 48h10M39 62h10M58 62h10"/></svg></div>
+        <h3>Build a realistic study plan</h3><p>The planned schedule will organise your topics around the time you have before the exam.</p>
+        <div class="oneprep-step-mini oneprep-step-mini--calendar"><div class="oneprep-mini-title"><span>YOUR STUDY WEEK</span><b>EXAMPLE</b></div><div class="oneprep-mini-calendar"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><b>01</b><b>02</b><b>03</b><b>04</b><b>05</b><b>06</b><b>07</b></div><div class="oneprep-mini-task"><span></span><div><strong>Cell structure</strong><small>Biology · 25 min</small></div></div><div class="oneprep-mini-task"><span></span><div><strong>Motion and forces</strong><small>Physics · 30 min</small></div></div><div class="oneprep-mini-foot">Illustrative schedule · not a live plan</div></div>
+      </article>
+      <article class="oneprep-step-card">
+        <span class="oneprep-step-card__number">03</span><span class="oneprep-step-card__tag oneprep-step-card__tag--live">TRY IT NOW</span><div class="oneprep-step-graphic oneprep-step-graphic--practice" aria-hidden="true"><svg viewBox="0 0 120 90"><path d="M28 15h64v58H28z"/><path d="M42 32h35M42 45h18M42 58h25"/><circle cx="83" cy="59" r="15"/><path d="m76 59 5 5 9-11"/></svg></div>
+        <h3>Practise and learn from review</h3><p>Try the sample session, submit an answer and read the explanation after checking.</p>
+        <div class="oneprep-step-mini oneprep-step-mini--practice"><div class="oneprep-mini-title"><span>SAMPLE PRACTICE</span><b>01 / 03</b></div><strong>Which organelle is the main site of aerobic respiration?</strong><div class="oneprep-mini-option">A&nbsp; Ribosome</div><div class="oneprep-mini-option oneprep-mini-option--selected">B&nbsp; Mitochondrion</div><div class="oneprep-mini-option">C&nbsp; Golgi apparatus</div><div class="oneprep-mini-foot">Original demonstration question</div></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="oneprep-feature-band">
+    <div class="content-container oneprep-feature-band__inner">
+      <div class="oneprep-feature-copy">
+        <p class="oneprep-eyebrow">PRACTICE · AVAILABLE DEMO</p>
+        <h2>Understand the answer, not just the result.</h2>
+        <p>The sample session uses original Biology questions. Submit your choice to see the server-checked result and its explanation.</p>
+        <ul><li>One question at a time</li><li>Answer checking after submission</li><li>Explanations and key takeaways</li></ul>
+        <a class="oneprep-text-link" href="/study-preview.html">Open the sample study session ↗</a>
+      </div>
+      <div class="oneprep-feature-visual oneprep-feature-visual--review">
+        <div class="oneprep-review-top"><span>ANSWER REVIEW</span><b>DEMO</b></div>
+        <div class="oneprep-review-result"><span>✓</span><div><strong>Answer checked</strong><small>Explanation unlocked after submission</small></div></div>
+        <div class="oneprep-review-rule"></div>
+        <small class="oneprep-review-label">EXPLANATION</small>
+        <h3>Where ATP is produced</h3>
+        <p>Mitochondria contain the inner-membrane machinery used in aerobic respiration, where most ATP is produced in eukaryotic cells.</p>
+        <div class="oneprep-review-takeaway"><small>KEY TAKEAWAY</small><strong>Remember the role of the inner mitochondrial membrane.</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oneprep-analytics-band">
+    <div class="content-container oneprep-analytics-layout">
+      <div class="oneprep-feature-copy">
+        <p class="oneprep-eyebrow">PROGRESS · PLANNED</p>
+        <h2>See what needs another look.</h2>
+        <p>As the platform develops, the aim is to help students return to topics that need attention, understand their practice patterns and make a more informed next plan.</p>
+        <span class="oneprep-coming-label">Progress analytics · Planned</span>
+      </div>
+      <div class="oneprep-analytics-visual">
+        <div class="oneprep-review-top"><span>TOPIC OVERVIEW</span><b>CONCEPT ONLY</b></div>
+        <div class="oneprep-analytics-score"><strong>Practice overview</strong><small>Example data, not student results</small></div>
+        <div class="oneprep-bar-row"><span>Cell biology</span><i><b style="width:78%"></b></i><strong>78%</strong></div>
+        <div class="oneprep-bar-row"><span>Genetics</span><i><b style="width:56%"></b></i><strong>56%</strong></div>
+        <div class="oneprep-bar-row"><span>Plant physiology</span><i><b style="width:64%"></b></i><strong>64%</strong></div>
+        <div class="oneprep-analytics-footer"><span>TOPIC ACCURACY</span><span>ILLUSTRATIVE DATA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oneprep-method-faq content-container">
+    <div class="oneprep-section-head">
+      <p class="oneprep-eyebrow">QUESTIONS</p><h2>What is ready today?</h2>
+    </div>
+    <div class="oneprep-faq-list">
+      <details><summary>Can I use Arthic's practice session now?</summary><p>Yes. The sample session is available on this preview. It uses three original demonstration questions, not official past papers or a full question bank.</p></details>
+      <details><summary>Is the diagnostic live?</summary><p>No. The diagnostic is part of the planned experience and is not available yet.</p></details>
+      <details><summary>Can I save a study plan or progress?</summary><p>Not yet. The planner, student accounts and saved progress are still in development.</p></details>
+      <details><summary>Is the AI mentor available?</summary><p>No. AI-assisted explanations are planned for a later stage. The current demo uses written explanations for its original questions.</p></details>
+    </div>
+  </section>
+
+  <section class="oneprep-final-cta">
+    <div class="content-container oneprep-final-cta__inner">
+      <div><p class="oneprep-eyebrow">TAKE THE FIRST STEP</p><h2>Try the part that's ready.</h2><p>Go through a short sample session and see how the practice-and-review loop works.</p></div>
+      <a href="/study-preview.html" class="oneprep-button oneprep-button--light">Try sample practice ↗</a>
+    </div>
+  </section>
 </main>
 
 <div class="footer-frame">
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <a href="/" class="footer__mark" aria-label="arthic — home">
-          <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
-          <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
-        </a>
-        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="/" class="footer__mark" aria-label="Arthic home">
+            <img class="brand-mark--light" src="/logo.png" alt="Arthic" width="800" height="272" />
+            <img class="brand-mark--dark" src="/logo-white.png" alt="Arthic" width="800" height="272" />
+          </a>
+          <p class="footer__tagline">A focused preparation platform for Pakistan's entrance and competitive exams.</p>
+        </div>
+        <nav class="footer__col" aria-label="Explore">
+          <span class="footer__col-label">Explore</span>
+          <a href="/subjects.html">Exams</a>
+          <a href="/method.html">How it works</a>
+          <a href="/pricing.html">Pricing</a>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <span class="footer__col-label">Company</span>
+          <a href="/careers.html">Careers</a>
+          <a href="/waitlist.html">Early access</a>
+          <a href="mailto:hello@arthic.tech">Contact</a>
+        </nav>
+        <nav class="footer__col" aria-label="Legal">
+          <span class="footer__col-label">Legal</span>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/cookies.html">Cookies</a>
+        </nav>
       </div>
-
-      <nav class="footer__col" aria-label="resources">
-        <span class="footer__col-label">resources</span>
-        <a href="/subjects.html" class="hover-underline">subjects</a>
-        <a href="/method.html" class="hover-underline">method</a>
-        <a href="/careers.html" class="hover-underline">careers</a>
-      </nav>
-
-      <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label">legal</span>
-        <a href="/privacy.html" class="hover-underline">privacy</a>
-        <a href="/terms.html" class="hover-underline">terms</a>
-        <a href="/cookies.html" class="hover-underline">cookies</a>
-      </nav>
-
-      <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label">contact</span>
-        <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
-      </nav>
+      <div class="footer__bottom">
+        <p>© <span data-year>2026</span> Arthic. All rights reserved.</p>
+        <a href="#top">Back to top ↑</a>
+      </div>
     </div>
-
-    <div class="footer__bottom">
-      <p>© <span data-year>2026</span> arthic. <span>All rights reserved.</span></p>
-      <a href="#top" class="hover-underline">back to top</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 </div>
-
-
 <script type="module" src="/src/legal.ts"></script>
 </body>
 </html>

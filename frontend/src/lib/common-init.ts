@@ -9,22 +9,21 @@ import { initNav } from "./nav";
 import { initTheme } from "./theme";
 import { initRegionPopover } from "./regions";
 import { initSmoothScroll } from "./smooth-scroll";
-import { initReveal } from "./reveal";
-import { initScrollTilt } from "./scroll-tilt";
 import { initSubscribeForm } from "./subscribe";
 import { initButtons } from "./buttons";
 import { initFaq } from "./faq";
 import { initArlo } from "./arlo";
+import { initExamFinder } from "./exam-finder";
 
 export function initCommon(): void {
   initNav();
   initTheme();
   initRegionPopover();
   initSmoothScroll();
-  initReveal();
-  initScrollTilt();
   initSubscribeForm();
   initButtons();
   initFaq();
-  initArlo();
+  initExamFinder();
+  // Keep the marketing homepage focused; support chat remains available on inner pages.
+  if (!document.body.classList.contains("home-page") && !document.body.classList.contains("study-preview-page")) initArlo();
 }

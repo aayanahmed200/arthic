@@ -19,6 +19,7 @@ export default defineConfig({
         apply: fileURLToPath(new URL("./apply.html", import.meta.url)),
         pricing: fileURLToPath(new URL("./pricing.html", import.meta.url)),
         waitlist: fileURLToPath(new URL("./waitlist.html", import.meta.url)),
+        studyPreview: fileURLToPath(new URL("./study-preview.html", import.meta.url)),
         privacy: fileURLToPath(new URL("./privacy.html", import.meta.url)),
         terms: fileURLToPath(new URL("./terms.html", import.meta.url)),
         cookies: fileURLToPath(new URL("./cookies.html", import.meta.url)),
