@@ -1,16 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 440" role="img" aria-labelledby="title desc">
   <title id="title">Arlo, the Arthic study companion</title>
-  <desc id="desc">A simple, friendly green character with a small leaf and a gentle smile.</desc>
-  <circle cx="240" cy="220" r="194" fill="#EEF4E9"/>
-  <circle cx="240" cy="220" r="163" fill="#E3EFDE"/>
-  <path d="M239 114c-10-24-2-47 18-64 22 26 20 51-2 72" fill="#A9CD9D" stroke="#557D50" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M247 119c7-21 19-37 34-48" fill="none" stroke="#557D50" stroke-width="4" stroke-linecap="round"/>
-  <path d="M126 240c0-78 51-133 114-133s114 55 114 133v62c0 57-42 91-114 91s-114-34-114-91v-62Z" fill="#B9D9AE" stroke="#557D50" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M131 254c-18 8-27 23-26 42 2 16 12 27 29 31M349 254c18 8 27 23 26 42-2 16-12 27-29 31" fill="none" stroke="#557D50" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="199" cy="230" r="7.5" fill="#29412D"/>
-  <circle cx="281" cy="230" r="7.5" fill="#29412D"/>
-  <path d="M211 267c17 17 41 17 58 0" fill="none" stroke="#456F43" stroke-width="5" stroke-linecap="round"/>
-  <path d="M175 330c20 12 42 18 65 18s45-6 65-18" fill="none" stroke="#91BA87" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="164" cy="266" r="5" fill="#D2A08B" opacity=".7"/>
-  <circle cx="316" cy="266" r="5" fill="#D2A08B" opacity=".7"/>
+  <desc id="desc">A simple green rounded character with two small eyes and a calm smile.</desc>
+  <rect x="137" y="73" width="206" height="286" rx="96" fill="#B9D9AE" stroke="#557D50" stroke-width="5"/>
+  <circle cx="207" cy="205" r="6.5" fill="#29412D"/>
+  <circle cx="273" cy="205" r="6.5" fill="#29412D"/>
+  <path d="M216 246 Q240 264 264 246" fill="none" stroke="#456F43" stroke-width="5" stroke-linecap="round"/>
 </svg>
