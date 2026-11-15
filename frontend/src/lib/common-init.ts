@@ -13,6 +13,7 @@ import { initSubscribeForm } from "./subscribe";
 import { initButtons } from "./buttons";
 import { initFaq } from "./faq";
 import { initArlo } from "./arlo";
+import { initExamFinder } from "./exam-finder";
 
 export function initCommon(): void {
   initNav();
@@ -22,6 +23,7 @@ export function initCommon(): void {
   initSubscribeForm();
   initButtons();
   initFaq();
+  initExamFinder();
   // Keep the marketing homepage focused; support chat remains available on inner pages.
   if (!document.body.classList.contains("home-page") && !document.body.classList.contains("study-preview-page")) initArlo();
 }
