@@ -35,8 +35,17 @@
   transition: opacity var(--dur-fast) var(--ease-out-expo);
 }
 
-.nav__mark:hover {
-  opacity: 0.72;
+.nav__mark:hover,
+.nav__mark:focus-visible,
+.nav__mark:active {
+  opacity: 1;
+}
+
+.nav__mark:hover img,
+.nav__mark:focus-visible img,
+.nav__mark:active img,
+.nav__mark.is-active img {
+  filter: brightness(0) saturate(100%) invert(34%) sepia(17%) saturate(1180%) hue-rotate(75deg) brightness(91%) contrast(88%);
 }
 
 .nav__mark img {
@@ -60,7 +69,8 @@
 }
 
 .nav__links a.is-active {
-  color: var(--color-fg);
+  color: var(--color-accent-strong);
+  font-weight: 600;
 }
 
 /* same specificity as a.is-active above — reordered so this wins the tie,
@@ -313,4 +323,19 @@
     transition-duration: 0.01s;
     transition-delay: 0s;
   }
+}
+
+
+/* Keep selected navigation green on every page, including the expanded menu. */
+.nav__links a:active,
+.nav__links a.is-active,
+.mobile-nav nav a:active,
+.mobile-nav nav a.is-active {
+  color: var(--color-accent-strong) !important;
+}
+.mobile-nav nav a.is-active {
+  padding-left: 0.18em;
+}
+.nav__mark.is-active {
+  opacity: 1;
 }
