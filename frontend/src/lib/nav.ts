@@ -26,12 +26,23 @@ export function initNav(): void {
 function initActiveNavByPath(): void {
   const current = normalizePath(window.location.pathname);
   const links = document.querySelectorAll<HTMLAnchorElement>("[data-nav-link], [data-mobile-link]");
+
   links.forEach((link) => {
     const url = new URL(link.href, window.location.origin);
-    const isAnchor = url.hash !== "";
-    const target = normalizePath(url.pathname);
-    link.classList.toggle("is-active", !isAnchor && target === current);
+    const isCurrentPage = url.hash === "" && normalizePath(url.pathname) === current;
+    link.classList.toggle("is-active", isCurrentPage);
+
+    if (isCurrentPage) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
   });
+
+  const homeMark = document.querySelector<HTMLAnchorElement>(".nav__mark");
+  if (homeMark) {
+    const isHome = current === "/";
+    homeMark.classList.toggle("is-active", isHome);
+    if (isHome) homeMark.setAttribute("aria-current", "page");
+    else homeMark.removeAttribute("aria-current");
+  }
 }
 
 function normalizePath(pathname: string): string {
