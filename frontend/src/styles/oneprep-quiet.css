@@ -1505,3 +1505,12 @@ body :is(main,section,header,footer,nav,aside,article,.footer-frame,.container,.
 @media (prefers-reduced-motion:reduce) {
   .home-page .arthic-mascot { animation:none; }
 }
+
+/* Light theme is the only theme. Keep the correct brand mark even when an
+   older browser preference or saved setting still says dark. */
+.home-page .brand-mark--light,
+.content-page .brand-mark--light { display:inline-block !important; }
+.home-page .brand-mark--dark,
+.content-page .brand-mark--dark { display:none !important; }
+.home-page [data-theme-toggle],
+.content-page [data-theme-toggle] { display:none !important; }
