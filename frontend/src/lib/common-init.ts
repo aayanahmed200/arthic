@@ -9,8 +9,6 @@ import { initNav } from "./nav";
 import { initTheme } from "./theme";
 import { initRegionPopover } from "./regions";
 import { initSmoothScroll } from "./smooth-scroll";
-import { initReveal } from "./reveal";
-import { initScrollTilt } from "./scroll-tilt";
 import { initSubscribeForm } from "./subscribe";
 import { initButtons } from "./buttons";
 import { initFaq } from "./faq";
@@ -21,8 +19,6 @@ export function initCommon(): void {
   initTheme();
   initRegionPopover();
   initSmoothScroll();
-  initReveal();
-  initScrollTilt();
   initSubscribeForm();
   initButtons();
   initFaq();
