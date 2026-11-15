@@ -131,7 +131,7 @@ if (root) {
       });
     }
 
-    function renderQuestion(): void {
+    function renderQuestion(moveFocus = false): void {
       const question = QUESTIONS[questionIndex];
       selectedKey = null;
       number!.textContent = "Question " + (questionIndex + 1) + " / " + QUESTIONS.length;
@@ -146,7 +146,7 @@ if (root) {
       nextButton!.textContent = questionIndex === QUESTIONS.length - 1 ? "View session results" : "Next question";
       renderOptions(question);
       updateProgress();
-      prompt!.focus();
+      if (moveFocus) prompt!.focus();
     }
 
     async function checkAnswer(): Promise<void> {
@@ -268,7 +268,7 @@ if (root) {
       if (answers.length !== questionIndex + 1) return;
       if (questionIndex < QUESTIONS.length - 1) {
         questionIndex += 1;
-        renderQuestion();
+        renderQuestion(true);
       } else {
         showComplete();
       }
@@ -281,10 +281,10 @@ if (root) {
         answers.length = 0;
         completeScreen!.hidden = true;
         questionScreen!.hidden = false;
-        renderQuestion();
+        renderQuestion(true);
       });
     });
 
-    void loadQuestionFeed().then(renderQuestion);
+    void loadQuestionFeed().then(() => renderQuestion());
   }
 }
