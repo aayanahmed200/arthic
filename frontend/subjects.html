@@ -113,24 +113,34 @@
       <h2>What are you preparing for?</h2>
       <p>Choose a pathway to see the kind of preparation it involves. Always confirm the current admission requirements with the official examining body.</p>
     </div>
-    <div class="oneprep-route-grid">
-      <a class="oneprep-route-card oneprep-route-card--medical" href="#mdcat">
+    <div class="exam-finder" role="search" aria-label="Find an exam route">
+      <label class="exam-finder__label" for="examRouteSearch">Find your exam</label>
+      <div class="exam-finder__field">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
+        <input id="examRouteSearch" type="search" placeholder="Try MDCAT, FAST, CSS or biology…" autocomplete="off" aria-controls="examRoutes" data-exam-search />
+        <button type="button" data-exam-clear hidden>Clear</button>
+      </div>
+      <p class="exam-finder__status" data-exam-status aria-live="polite">Showing all four exam pathways.</p>
+    </div>
+    <div class="oneprep-route-grid" id="examRoutes">
+      <a class="oneprep-route-card oneprep-route-card--medical" href="#mdcat" data-exam-terms="mdcat medical medicine dental biology chemistry physics english">
         <span class="oneprep-route-card__number">01</span><span class="oneprep-route-card__type">MEDICAL & DENTAL</span>
         <strong>MDCAT</strong><span class="oneprep-route-card__detail">Biology · Chemistry · Physics · English</span><span class="oneprep-route-card__arrow">Explore route ↗</span>
       </a>
-      <a class="oneprep-route-card oneprep-route-card--stem" href="#engineering">
+      <a class="oneprep-route-card oneprep-route-card--stem" href="#engineering" data-exam-terms="ecat nust net fast engineering computing mathematics maths math physics chemistry stem">
         <span class="oneprep-route-card__number">02</span><span class="oneprep-route-card__type">ENGINEERING & COMPUTING</span>
         <strong>ECAT · NET · FAST</strong><span class="oneprep-route-card__detail">Mathematics · Science · Analytical thinking</span><span class="oneprep-route-card__arrow">Explore routes ↗</span>
       </a>
-      <a class="oneprep-route-card oneprep-route-card--law" href="#law">
+      <a class="oneprep-route-card oneprep-route-card--law" href="#law" data-exam-terms="lums ba llb law university reading reasoning english">
         <span class="oneprep-route-card__number">03</span><span class="oneprep-route-card__type">LAW & UNIVERSITY</span>
         <strong>LUMS BA-LL.B</strong><span class="oneprep-route-card__detail">Admission tests · Reading · Reasoning</span><span class="oneprep-route-card__arrow">Explore route ↗</span>
       </a>
-      <a class="oneprep-route-card oneprep-route-card--service" href="#civil-service">
+      <a class="oneprep-route-card oneprep-route-card--service" href="#civil-service" data-exam-terms="css pms competitive civil service pakistan affairs current affairs writing">
         <span class="oneprep-route-card__number">04</span><span class="oneprep-route-card__type">COMPETITIVE EXAMS</span>
         <strong>CSS · PMS</strong><span class="oneprep-route-card__detail">Subject depth · Writing · Current affairs</span><span class="oneprep-route-card__arrow">Explore routes ↗</span>
       </a>
     </div>
+    <p class="exam-finder__empty" data-exam-empty hidden>No route matches that search. Try MDCAT, ECAT, FAST, LUMS, CSS or PMS.</p>
   </section>
 
   <section class="oneprep-pathway-section" id="mdcat">
