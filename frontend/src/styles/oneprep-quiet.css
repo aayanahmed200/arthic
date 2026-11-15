@@ -22,8 +22,13 @@ body.content-page {
 }
 
 body :is(main,section,header,footer,nav,aside,article,.footer-frame,.container,.content-container,.home-container) {
-  background-color:transparent;
-  background-image:none;
+  background-color:var(--color-bg) !important;
+  background-image:none !important;
+  box-shadow:none !important;
+}
+.home-page *,
+.content-page * {
+  box-shadow:none !important;
 }
 
 .home-page,
@@ -951,4 +956,16 @@ body :is(main,section,header,footer,nav,aside,article,.footer-frame,.container,.
     transition:none !important;
     animation:none !important;
   }
+}
+
+
+.home-page .home-feature__availability {
+  display:inline;
+  margin-top:18px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:var(--color-fg-mute);
+  font:500 .78rem var(--font-body);
 }
