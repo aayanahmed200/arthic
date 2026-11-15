@@ -13,7 +13,7 @@ export function initExamFinder(): void {
 
   const normalise = (value: string): string =>
     value.toLocaleLowerCase().normalize("NFKD")
-      .replace(/[^a-z0-9\\s-]/g, " ").replace(/\\s+/g, " ").trim();
+      .replace(/[^a-z0-9\s-]/g, " ").replace(/\s+/g, " ").trim();
 
   const update = (): void => {
     const query = normalise(input.value);
