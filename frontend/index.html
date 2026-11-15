@@ -3,18 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light dark" />
-<script>
-(function () {
-  try {
-    var theme = localStorage.getItem("arthic-theme");
-    if (theme !== "light" && theme !== "dark") {
-      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {}
-})();
-</script>
+<meta name="color-scheme" content="light" />
+<script>document.documentElement.setAttribute("data-theme", "light");</script>
 <title>Arthic — Entrance exam preparation for Pakistan</title>
 <meta name="description" content="A more focused way to prepare for MDCAT, ECAT, NUST NET, FAST, CSS, PMS and LUMS BA-LL.B. Join Arthic's early-access list." />
 <meta name="theme-color" content="#ffffff" />
@@ -115,55 +105,68 @@
 </div>
 
 <main id="main" class="oneprep-home">
-  <section class="home-hero" id="top">
-    <div class="home-container">
-      <p class="home-kicker"><span class="home-kicker__dot" aria-hidden="true"></span> Made for Pakistan's entrance exams</p>
-      <h1>Prepare with a plan. Practise with purpose.</h1>
-      <p class="home-hero__lede">
-        A clearer way to prepare for the exams that come next — with focused practice,
-        useful explanations and a study routine that makes sense.
-      </p>
-      <div class="home-hero__actions">
-        <a class="home-button home-button--primary" href="/waitlist.html">Get early access <span aria-hidden="true">↗</span></a>
-        <a class="home-button home-button--secondary" href="/study-preview.html">Try sample practice</a>
+  <section class="home-hero home-hero--signature" id="top">
+    <div class="home-container home-hero__layout">
+      <div class="home-hero__copy">
+        <p class="home-kicker">BUILT FOR PAKISTAN'S ENTRANCE EXAMS</p>
+        <h1>Make your next<br><em>move count.</em></h1>
+        <p class="home-hero__lede">Focused practice for MDCAT, ECAT, NET and the exams that come next.</p>
+        <div class="home-hero__actions">
+          <a class="home-button home-button--primary" href="/waitlist.html">Get early access <span aria-hidden="true">↗</span></a>
+          <a class="home-button home-button--secondary" href="/subjects.html">Explore exams</a>
+        </div>
+        <p class="home-hero__note">MDCAT · ECAT · NUST NET · FAST · CSS · PMS</p>
       </div>
-      <p class="home-hero__note">Arthic is in development. The sample practice session is available to try; the wider platform is still being built.</p>
 
-      <div class="home-hero__visual" aria-label="Preview of the Arthic sample practice interface">
-        <div class="home-appbar">
-          <div class="home-appbar__brand"><span class="home-appbar__symbol">a</span><span>arthic</span></div>
-          <div class="home-appbar__crumbs"><span>Practice</span><span>/</span><strong>MDCAT Biology</strong></div>
-          <span class="home-appbar__sample">SAMPLE SESSION</span>
-        </div>
-        <div class="home-hero__visual-main">
-          <div class="home-hero__visual-copy">
-            <span class="home-mini-label">A more focused way to revise</span>
-            <h2>One question at a time. One idea understood properly.</h2>
-            <p>Work through an original sample question, check your answer and read the explanation.</p>
-            <a href="/study-preview.html" class="home-inline-link">Open the sample session <span aria-hidden="true">↗</span></a>
-          </div>
-          <div class="home-question-card">
-            <div class="home-question-card__meta"><span>Biology · Cell biology</span><span>01 / 03</span></div>
-            <p class="home-question-card__prompt">Which organelle is the main site of aerobic respiration in a eukaryotic cell?</p>
-            <ol class="home-question-options">
-              <li><span>A</span> Ribosome</li>
-              <li class="is-highlighted"><span>B</span> Mitochondrion</li>
-              <li><span>C</span> Golgi apparatus</li>
-              <li><span>D</span> Lysosome</li>
-            </ol>
-            <div class="home-question-card__foot"><span><i></i> Original sample question</span><span>Not an official past paper</span></div>
-          </div>
-        </div>
+      <div class="home-hero__art" aria-label="Pip, Arthic's little study companion">
+        <svg class="arthic-mascot" viewBox="0 0 520 440" role="img" aria-labelledby="pip-title pip-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="pip-title">Pip, the Arthic study companion</title>
+          <desc id="pip-desc">A small friendly green owl with a sprout on its head, sitting behind an open book.</desc>
+          <path d="M74 274c-19-70 17-153 90-187 76-36 169-11 210 52 34 53 30 120-8 171" fill="none" stroke="#DCE8D8" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 10"/>
+          <path d="M103 132c20-34 56-55 95-62M400 291c-18 27-42 47-70 59" fill="none" stroke="#DCE8D8" stroke-width="2" stroke-linecap="round"/>
+          <path d="M108 90l7 17 17 7-17 7-7 17-7-17-17-7 17-7 7-17ZM418 166l5 12 12 5-12 5-5 12-5-12-12-5 12-5 5-12Z" fill="#A6C98E"/>
+          <circle cx="414" cy="85" r="5" fill="#A6C98E"/>
+          <circle cx="90" cy="210" r="4" fill="#A6C98E"/>
+
+          <!-- Pip's sprout -->
+          <path d="M261 95c0-16 1-28 9-40" fill="none" stroke="#315B3F" stroke-width="6" stroke-linecap="round"/>
+          <path d="M267 62c-29 2-43-13-39-34 24-1 43 10 45 29" fill="#9BCB78" stroke="#315B3F" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M270 56c1-25 16-39 37-37 3 23-10 39-33 43" fill="#B9DDA0" stroke="#315B3F" stroke-width="4" stroke-linejoin="round"/>
+
+          <!-- Ears and body -->
+          <path d="M166 149 143 83c27 7 48 23 62 47M354 149l23-66c-27 7-48 23-62 47" fill="#B9DDA0" stroke="#315B3F" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M165 153c10-51 53-84 111-84s101 33 111 84c21 22 34 54 34 91 0 78-63 135-145 135s-145-57-145-135c0-37 13-69 34-91Z" fill="#CDE7BD" stroke="#315B3F" stroke-width="6" stroke-linejoin="round"/>
+
+          <!-- Face -->
+          <path d="M177 196c0-31 20-54 45-54s45 23 45 54-20 52-45 52-45-21-45-52ZM253 196c0-31 20-54 45-54s45 23 45 54-20 52-45 52-45-21-45-52Z" fill="#FFFDF7" stroke="#315B3F" stroke-width="5"/>
+          <ellipse cx="229" cy="194" rx="13" ry="18" fill="#20362A"/>
+          <ellipse cx="294" cy="194" rx="13" ry="18" fill="#20362A"/>
+          <circle cx="233" cy="188" r="4" fill="#FFFFFF"/>
+          <circle cx="298" cy="188" r="4" fill="#FFFFFF"/>
+          <path d="m251 224 11 12 11-12-11-8-11 8Z" fill="#D99A56" stroke="#315B3F" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M241 253c12 10 27 10 39 0" fill="none" stroke="#315B3F" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="185" cy="231" rx="11" ry="6" fill="#E6A68B" opacity=".48"/>
+          <ellipse cx="337" cy="231" rx="11" ry="6" fill="#E6A68B" opacity=".48"/>
+
+          <!-- Wings and feet -->
+          <path d="M148 257c-25 7-35 29-27 51 8 21 29 28 49 16l21-19-43-48ZM372 257c25 7 35 29 27 51-8 21-29 28-49 16l-21-19 43-48Z" fill="#A8D18E" stroke="#315B3F" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M218 365v18m0 0-14 6m14-6 13 6M302 365v18m0 0-14 6m14-6 13 6" fill="none" stroke="#315B3F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- Open book -->
+          <path d="M109 344c53-16 103-12 151 15 48-27 98-31 151-15v53c-54-15-104-10-151 17-47-27-97-32-151-17v-53Z" fill="#FFFDF7" stroke="#315B3F" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M260 359v55M126 357c38-8 74-5 107 10M394 357c-38-8-74-5-107 10" fill="none" stroke="#9CBF8A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M260 359c-45-25-96-29-151-15v53c54-15 104-10 151 17M260 359c45-25 96-29 151-15v53c-54-15-104-10-151 17" fill="none" stroke="#315B3F" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+        <span class="home-hero__art-label"><span></span> Say hello to Pip</span>
       </div>
     </div>
   </section>
 
   <section class="home-exams" aria-label="Exam pathways">
-    <div class="home-container">
-      <p class="home-exams__label">One starting point for</p>
+    <div class="home-container home-exams__inner">
+      <span class="home-exams__label">MADE FOR THE ROAD AHEAD</span>
       <div class="home-exams__list">
-        <span>MDCAT</span><span>ECAT</span><span>NUST NET</span><span>FAST</span>
-        <span>LUMS BA-LL.B</span><span>CSS</span><span>PMS</span>
+        <span>MDCAT</span><span>ECAT</span><span>NUST NET</span><span>FAST</span><span>LUMS BA-LL.B</span><span>CSS</span><span>PMS</span>
       </div>
     </div>
   </section>
@@ -171,95 +174,29 @@
   <section class="home-section home-journey" id="how-it-works">
     <div class="home-container">
       <div class="home-section__heading">
-        <p class="home-section-kicker">A clearer study routine</p>
-        <h2>Know where you are. Know what comes next.</h2>
-        <p>Preparation feels more manageable when every session has a reason behind it.</p>
+        <p class="home-section-kicker">THE ARTHIC METHOD</p>
+        <h2>A little more direction.<br><em>A lot less guesswork.</em></h2>
       </div>
       <div class="home-steps">
         <article class="home-step">
           <span class="home-step__index">01</span>
-          <div><h3>Choose your exam</h3><p>Start with the test you're preparing for and the subjects it covers.</p></div>
+          <div><h3>Choose your exam</h3><p>Start with the path you're taking.</p></div>
         </article>
         <article class="home-step">
           <span class="home-step__index">02</span>
-          <div><h3>Practise by topic</h3><p>Focus on one concept at a time, then review the reasoning behind each answer.</p></div>
+          <div><h3>Practise by topic</h3><p>Work through one concept at a time.</p></div>
         </article>
         <article class="home-step">
           <span class="home-step__index">03</span>
-          <div><h3>Build your next steps</h3><p>Keep revision and the time left before your exam in view as you prepare.</p></div>
+          <div><h3>Understand the why</h3><p>Learn from every answer and review.</p></div>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="home-feature home-feature--practice" id="practice">
-    <div class="home-container home-feature__grid">
-      <div class="home-feature__copy">
-        <p class="home-section-kicker">01 / Practice</p>
-        <h2>Don't just pick an answer. Understand it.</h2>
-        <p>The sample session shows the intended learning loop: answer a question, check the result and read a short explanation that connects it back to the topic.</p>
-        <ul class="home-feature__points">
-          <li>Original sample questions</li>
-          <li>Answer checking after submission</li>
-          <li>Clear explanations and takeaways</li>
-        </ul>
-        <a class="home-button home-button--primary" href="/study-preview.html">Try the sample session <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="home-feature__visual home-feature__visual--review">
-        <div class="home-review__top"><span>ANSWER REVIEW</span><span class="home-review__status">SAMPLE</span></div>
-        <div class="home-review__result"><span class="home-review__check">✓</span><div><strong>Answer checked</strong><small>Learn why the answer works</small></div></div>
-        <div class="home-review__rule"></div>
-        <p class="home-review__label">EXPLANATION</p>
-        <h3>Mitochondria and ATP production</h3>
-        <p>Mitochondria contain the inner-membrane machinery used in aerobic respiration, where most ATP is produced in eukaryotic cells.</p>
-        <div class="home-review__takeaway"><span>KEY TAKEAWAY</span><strong>Remember the role of the inner mitochondrial membrane.</strong></div>
-        <p class="home-review__disclaimer">Illustrative view using Arthic's original demo material.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="home-feature home-feature--planner" id="planning">
-    <div class="home-container home-feature__grid home-feature__grid--reverse">
-      <div class="home-feature__visual home-feature__visual--planner">
-        <div class="home-planner__top"><div><span>STUDY PLANNER</span><strong>Your week at a glance</strong></div><span class="home-planner__concept">CONCEPT PREVIEW</span></div>
-        <div class="home-planner__date"><strong>Week 01</strong><span>Example MDCAT study week</span></div>
-        <div class="home-planner__day"><span class="home-planner__dayname">MON <b>01</b></span><div><strong>Cell structure</strong><small>Biology · Topic review</small></div><span class="home-planner__duration">25 min</span></div>
-        <div class="home-planner__day"><span class="home-planner__dayname">WED <b>03</b></span><div><strong>Chemical equilibrium</strong><small>Chemistry · Practice</small></div><span class="home-planner__duration">30 min</span></div>
-        <div class="home-planner__day"><span class="home-planner__dayname">FRI <b>05</b></span><div><strong>Motion and forces</strong><small>Physics · Review</small></div><span class="home-planner__duration">25 min</span></div>
-        <div class="home-planner__foot"><span>Illustrative schedule</span><span>Not a live student plan</span></div>
-      </div>
-      <div class="home-feature__copy">
-        <p class="home-section-kicker">02 / Planning</p>
-        <h2>Make room for the work that matters.</h2>
-        <p>The planned study planner will help students organise topics around their exam date, so revision feels less like a pile of tasks and more like a route forward.</p>
-        <ul class="home-feature__points">
-          <li>Study sessions organised by subject</li>
-          <li>Revision time around your exam date</li>
-          <li>A clearer view of the week ahead</li>
-        </ul>
-        <span class="home-feature__availability">Study planner · In development</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="home-tools" id="platform">
-    <div class="home-container">
-      <div class="home-section__heading home-section__heading--compact">
-        <p class="home-section-kicker">The platform</p>
-        <h2>Everything around your preparation.</h2>
-      </div>
-      <div class="home-tools__list">
-        <article class="home-tool"><span>03</span><div><h3>Exam-focused question banks</h3><p>Practise by subject and topic, with questions organised for the exam you're taking.</p></div><small>IN DEVELOPMENT</small></article>
-        <article class="home-tool"><span>04</span><div><h3>Full-length practice</h3><p>Prepare for the pace and structure of your exam with realistic practice sessions.</p></div><small>PLANNED</small></article>
-        <article class="home-tool"><span>05</span><div><h3>Progress and review</h3><p>See the topics you've covered and return to the concepts that need another look.</p></div><small>PLANNED</small></article>
-        <article class="home-tool"><span>06</span><div><h3>AI-assisted explanations</h3><p>Explore an AI study companion designed to help explain the reasoning behind an answer.</p></div><small>PLANNED</small></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="home-tracks">
+  <section class="home-tracks" id="exams">
     <div class="home-container home-tracks__inner">
-      <div><p class="home-section-kicker">Made for local pathways</p><h2>Whatever your next step looks like.</h2></div>
+      <div><p class="home-section-kicker">YOUR PATHWAY</p><h2>One place.<br>Many next steps.</h2></div>
       <div class="home-track-groups">
         <div><span>MEDICAL</span><strong>MDCAT</strong></div>
         <div><span>ENGINEERING & COMPUTING</span><strong>ECAT · NUST NET · FAST</strong></div>
@@ -269,24 +206,9 @@
     </div>
   </section>
 
-  <section class="home-faq" id="faq">
-    <div class="home-container home-faq__grid">
-      <div class="home-section__heading">
-        <p class="home-section-kicker">Good to know</p>
-        <h2>Questions, answered.</h2>
-      </div>
-      <div class="home-faq__list">
-        <details><summary>Can I use Arthic today?</summary><p>The sample practice session is available to try. The wider question banks, planner and student accounts are still in development.</p></details>
-        <details><summary>Which exams is Arthic being built for?</summary><p>The current focus is MDCAT, ECAT, NUST NET, FAST, LUMS BA-LL.B, CSS and PMS.</p></details>
-        <details><summary>Does joining the waitlist create an account?</summary><p>No. The waitlist records your interest in early access. It does not create a student account or unlock unfinished features.</p></details>
-        <details><summary>Will the sample questions be official past papers?</summary><p>The questions in the current preview are original demonstration questions, not released or official past-paper questions.</p></details>
-      </div>
-    </div>
-  </section>
-
   <section class="home-closing">
     <div class="home-container home-closing__inner">
-      <div><p class="home-section-kicker">Early access</p><h2>Make your preparation feel more organised.</h2><p>Join the list and follow Arthic as the platform takes shape.</p></div>
+      <div><p class="home-section-kicker">START HERE</p><h2>Your next step can be a better one.</h2></div>
       <a class="home-button home-button--primary" href="/waitlist.html">Join early access <span aria-hidden="true">↗</span></a>
     </div>
   </section>
