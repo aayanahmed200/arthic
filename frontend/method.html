@@ -3,21 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light dark" />
-<script>
-(function () {
-  try {
-    var theme = localStorage.getItem("arthic-theme");
-    if (theme !== "light" && theme !== "dark") {
-      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {}
-})();
-</script>
+<meta name="color-scheme" content="light" />
+<script>document.documentElement.setAttribute("data-theme","light");</script>
 <title>How Arthic works | A more focused study routine</title>
 <meta name="description" content="See how Arthic is being designed to connect exam pathways, focused practice, AI-supported explanations and a clearer study plan." />
-<meta name="theme-color" content="#ffffff" />
+<meta name="theme-color" content="#FAFBF7" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
