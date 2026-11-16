@@ -516,3 +516,38 @@ html {
   }
 }
 
+
+/* Arlo correction: keep the character itself as the only artwork.
+   No halo, orbit, ring, shadow blob or extra decoration behind it. */
+.home-page .home-hero__art {
+  isolation: auto !important;
+  background: transparent !important;
+}
+.home-page .home-hero__art::before,
+.home-page .home-hero__art::after {
+  content: none !important;
+  display: none !important;
+}
+.home-page .home-hero__art img {
+  width: min(100%, 390px) !important;
+  max-width: 390px !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+.home-page .home-hero__art-label::before {
+  display: none !important;
+  content: none !important;
+}
+.arlo__launcher-mark img,
+.arlo__avatar img,
+.arlo__row-avatar img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+@media (max-width: 760px) {
+  .home-page .home-hero__art::before,
+  .home-page .home-hero__art::after {
+    display: none !important;
+    content: none !important;
+  }
+}
