@@ -4,17 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light" />
-<script>
-(function () {
-  try {
-    var theme = localStorage.getItem("arthic-theme");
-    if (theme !== "light" && theme !== "dark") {
-      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {}
-})();
-</script>
+<script>document.documentElement.setAttribute("data-theme", "light");</script>
 <title>cookie policy — arthic</title>
 <meta name="description" content="What arthic.tech actually stores in your browser, in plain language — and it's less than you'd think." />
 <meta name="theme-color" content="#40B5AD" />
@@ -45,8 +35,7 @@
   <div class="nav__inner container">
     <a href="/" class="nav__mark" aria-label="arthic — home">
       <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
-      <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
-    </a>
+</a>
 
     <nav class="nav__links" aria-label="primary">
       <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
@@ -164,8 +153,7 @@
       <div class="footer__brand">
         <a href="/" class="footer__mark" aria-label="arthic — home">
           <img class="brand-mark--light" src="/logo.png" alt="arthic" width="800" height="272" />
-          <img class="brand-mark--dark" src="/logo-white.png" alt="arthic" width="800" height="272" />
-        </a>
+</a>
         <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
       </div>
 
