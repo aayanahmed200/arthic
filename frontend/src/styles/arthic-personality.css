@@ -1057,3 +1057,19 @@ button.is-loading { cursor: progress; }
   opacity: 0;
 }
 [data-theme-toggle] { display: none !important; }
+
+
+/* The same spinner treatment is used by every async submit button. */
+button.is-loading::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  margin-right: 8px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: arthic-spin .7s linear infinite;
+}
+button.is-loading { cursor: progress; }
