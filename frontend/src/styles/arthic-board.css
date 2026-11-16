@@ -922,3 +922,39 @@ button.is-loading::before {
   html { scroll-behavior: auto; }
   *,*::before,*::after { animation: none !important; transition: none !important; }
 }
+
+/* Readability pass: give supporting copy and controls more room to breathe. */
+.home-page .nav__links, .content-page .nav__links { font-size: 14px; }
+.home-page .home-kicker, .home-page .home-section-kicker,
+.home-page .home-feature__eyebrow { font-size: 11px; }
+.home-page .home-hero__note { font-size: 12px; }
+.home-page .home-stat span { font-size: 11px; }
+.home-page .home-stat small { font-size: 13px; line-height: 1.55; }
+.home-page .home-stats__note { font-size: 12px; }
+.home-page .home-section-intro > p:last-child,
+.home-page .home-feature p,
+.home-page .home-pathways__empty,
+.home-page .home-method__copy > p:last-of-type,
+.home-page .home-voices__copy p,
+.home-page .home-roadmap__head > p,
+.home-page .home-roadmap__item p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.home-page .home-feature a,
+.home-page .home-text-link,
+.home-page .home-roadmap__item a { font-size: 14px; }
+.home-page .home-pathway-list small { font-size: 11px; }
+.home-page .home-pathway-list > a > span { font-size: 12px; }
+.home-page .home-pathway-list strong { font-size: 17px; }
+.home-page .home-roadmap__status { font-size: 10px; }
+.home-page .home-roadmap__step { font-size: 12px; }
+.home-page .home-button,
+.content-page .btn,
+.content-page .oneprep-button,
+.content-page .nav__cta,
+.study-preview-page .study-action { font-size: 14px; }
+.content-page .content-jump a { font-size: 13px; }
+.legal-page p, .legal-page li { font-size: 16px; line-height: 1.75; }
+.study-preview-page .study-option { font-size: 16px; }
+.arlo__msg, .arlo__input { font-size: 16px !important; }
