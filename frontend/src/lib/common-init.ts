@@ -1,20 +1,19 @@
 /**
- * Shared page bootstrap used by every entry point (home, careers, legal
- * pages). Nav, theme toggle, smooth scroll, scroll-reveal, and the
- * footer waitlist form are chrome that lives on every page — anything
- * page-specific (the features-preview cards, apply forms) is
- * initialized by that page's own entry script instead.
+ * Shared page bootstrap for the standalone Arthic pages.
+ * Reference chrome is installed before nav handlers are attached, so the
+ * masthead and footer stay identical across routes.
  */
+import { initReferenceChrome } from "./reference-chrome";
 import { initNav } from "./nav";
 import { initRegionPopover } from "./regions";
 import { initSmoothScroll } from "./smooth-scroll";
 import { initSubscribeForm } from "./subscribe";
 import { initButtons } from "./buttons";
 import { initFaq } from "./faq";
-import { initArlo } from "./arlo";
 import { initExamFinder } from "./exam-finder";
 
 export function initCommon(): void {
+  initReferenceChrome();
   initNav();
   initRegionPopover();
   initSmoothScroll();
@@ -22,6 +21,4 @@ export function initCommon(): void {
   initButtons();
   initFaq();
   initExamFinder();
-  // Arlo stays small and out of the way as a floating preview across the site.
-  initArlo();
 }

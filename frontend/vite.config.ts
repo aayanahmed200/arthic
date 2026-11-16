@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import { fileURLToPath } from "node:url";
 
+const page = (name: string) => fileURLToPath(new URL(`./${name}.html`, import.meta.url));
+
 export default defineConfig({
   appType: "mpa",
   build: {
@@ -8,8 +10,18 @@ export default defineConfig({
     cssCodeSplit: false,
     rollupOptions: {
       input: {
-        main: fileURLToPath(new URL("./index.html", import.meta.url)),
-        notFound: fileURLToPath(new URL("./404.html", import.meta.url)),
+        main: page("index"),
+        apply: page("apply"),
+        careers: page("careers"),
+        cookies: page("cookies"),
+        method: page("method"),
+        privacy: page("privacy"),
+        pricing: page("pricing"),
+        studyPreview: page("study-preview"),
+        subjects: page("subjects"),
+        terms: page("terms"),
+        waitlist: page("waitlist"),
+        notFound: page("404"),
       },
     },
   },

@@ -1,0 +1,362 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lilita+One&display=swap");
+
+/* One visual language across Arthic's standalone pages. */
+:root{
+  color-scheme:light;
+  --arthic-sky:#d0ecfd;
+  --arthic-lime:#cceb80;
+  --arthic-pink:#c92f73;
+  --arthic-pink-hover:#a92360;
+  --arthic-green:#9fd986;
+  --arthic-ink:#111;
+  --color-bg:var(--arthic-lime);
+  --color-bg-raised:#fffef5;
+  --color-bg-sunken:var(--arthic-lime);
+  --color-fg:var(--arthic-ink);
+  --color-fg-dim:#34463a;
+  --color-fg-mute:#51674d;
+  --color-fg-hairline:rgba(17,17,17,.19);
+  --color-fg-faint:rgba(17,17,17,.14);
+  --color-fg-ghost:rgba(17,17,17,.06);
+  --color-accent:#438b53;
+  --color-accent-strong:#27743d;
+  --color-accent-fill:#cceb80;
+  --color-accent-dim:rgba(159,217,134,.35);
+  --color-accent-hairline:rgba(53,121,68,.36);
+  --font-display:"Lilita One",system-ui,sans-serif;
+  --font-body:"Inter",Arial,sans-serif;
+  --font-mono:"Inter",Arial,sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:78px;color-scheme:light}
+body.content-page,
+body.content-page main{
+  background:var(--arthic-lime)!important;color:var(--arthic-ink)!important;
+  font-family:Inter,Arial,sans-serif!important;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body.content-page :is(h1,h2,h3,h4){font-family:"Lilita One",system-ui,sans-serif!important;font-weight:400!important;letter-spacing:-.015em!important;color:var(--arthic-ink)!important}
+body.content-page :is(p,li,a,button,label,input,textarea,select){font-family:Inter,Arial,sans-serif}
+body.content-page .content-container,
+body.content-page .container{width:min(1180px,calc(100% - 48px));max-width:1180px}
+body.content-page .content-main{padding-top:64px!important;background:var(--arthic-lime)!important}
+body.content-page :is(a,button,input,textarea,select):focus-visible{outline:3px solid #287c43!important;outline-offset:3px!important}
+
+/* Shared fixed masthead. */
+body.content-page .nav{
+  position:fixed!important;inset:0 0 auto 0!important;z-index:500!important;
+  height:64px!important;background:rgba(208,236,253,.98)!important;
+  border:0!important;border-bottom:1px solid rgba(17,17,17,.09)!important;
+  box-shadow:none!important;backdrop-filter:none!important;
+}
+body.content-page .nav__inner{
+  position:relative;display:flex!important;align-items:center;justify-content:space-between;
+  width:100%!important;max-width:none!important;height:64px!important;margin:0!important;
+  padding:0 clamp(18px,2.2vw,36px)!important;gap:18px;
+}
+body.content-page .nav__mark{display:inline-flex!important;align-items:center;gap:5px;flex:0 0 auto;color:#111!important;text-decoration:none!important;opacity:1!important}
+body.content-page .nav__mark img{display:none!important}
+.nav__wordmark{font:400 27px/1 "Lilita One",sans-serif;letter-spacing:-.045em;color:#111}
+.nav__spark,.footer__spark{font-size:20px;line-height:1;color:#d34789;text-shadow:7px 0 #f2d46b,-5px 4px #82bc70}
+body.content-page .nav__links{
+  position:static!important;display:flex!important;align-items:center;justify-content:center;gap:clamp(2px,.55vw,10px);
+  margin:0 auto;white-space:nowrap;color:#45555b!important;font:500 13px/1.2 Inter,Arial,sans-serif!important;
+}
+body.content-page .nav__links a{
+  display:inline-flex;align-items:center;gap:4px;padding:9px 10px;border-radius:999px;
+  color:#45555b!important;text-decoration:none!important;transition:background-color .16s ease,color .16s ease;
+}
+body.content-page .nav__links a:hover,
+body.content-page .nav__links a:focus-visible,
+body.content-page .nav__links a.is-active{color:#28733d!important;background:rgba(159,217,134,.48)!important}
+body.content-page .nav__links a span{font-size:11px}
+body.content-page .nav__utility{display:flex!important;align-items:center;justify-content:flex-end;gap:6px;flex:0 0 auto;margin:0}
+body.content-page .nav__utility a{
+  display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:8px 13px;
+  border-radius:999px;font-size:12px;font-weight:600;text-decoration:none!important;white-space:nowrap;
+  transition:background-color .16s ease,color .16s ease;
+}
+body.content-page .nav__quote{color:#45555b!important;background:transparent!important}
+body.content-page .nav__preview{color:#31434a!important;background:rgba(28,79,115,.08)!important}
+body.content-page .nav__cta{
+  margin-left:2px;padding-inline:17px!important;background:var(--arthic-pink)!important;border:0!important;
+  border-radius:13px!important;color:#fff!important;font-weight:700!important;box-shadow:none!important;
+}
+body.content-page .nav__quote:hover,
+body.content-page .nav__preview:hover{background:rgba(159,217,134,.44)!important;color:#28733d!important}
+body.content-page .nav__cta:hover{background:var(--arthic-pink-hover)!important;color:#fff!important}
+body.content-page .nav__toggle{display:none!important}
+body.content-page .mobile-nav{display:none!important}
+body.content-page .mobile-nav.is-open{
+  display:block!important;position:fixed!important;inset:64px 0 0!important;z-index:499!important;
+  padding:28px 24px 32px!important;background:var(--arthic-sky)!important;color:#111!important;
+  overflow:auto;box-shadow:none!important;visibility:visible!important;opacity:1!important;
+}
+body.content-page .mobile-nav nav{display:flex!important;flex-direction:column;gap:0!important;width:min(100%,620px);margin:0 auto}
+body.content-page .mobile-nav nav a{
+  display:block;padding:13px 2px!important;border-bottom:1px solid rgba(17,17,17,.12);
+  color:#111!important;font:400 clamp(28px,7vw,42px)/1.12 "Lilita One",sans-serif!important;text-decoration:none!important;
+}
+body.content-page .mobile-nav nav a:hover{color:#28733d!important}
+body.content-page .mobile-nav__foot{width:min(100%,620px);margin:30px auto 0;color:#40515a!important;font-size:13px!important}
+body.content-page .mobile-nav__mail{color:#28733d!important;text-decoration:underline!important}
+
+/* Blue hero band, like the site's main reference. */
+body.content-page :is(.content-hero,.oneprep-subhero,.study-intro){
+  position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;width:100%!important;max-width:none!important;margin:0!important;
+  padding:clamp(58px,7vw,90px) 24px clamp(66px,8vw,100px)!important;
+  background:var(--arthic-sky)!important;overflow:hidden;
+}
+body.content-page :is(.content-hero,.oneprep-subhero,.study-intro)::after{
+  content:"";position:absolute;z-index:-1;left:0;right:0;bottom:-1px;height:27px;background:var(--arthic-lime);
+  clip-path:polygon(0 70%,5% 56%,10% 72%,15% 48%,20% 72%,25% 55%,30% 75%,35% 52%,40% 72%,45% 55%,50% 70%,55% 48%,60% 72%,65% 56%,70% 74%,75% 49%,80% 71%,85% 54%,90% 74%,95% 55%,100% 70%,100% 100%,0 100%);
+}
+body.content-page :is(.content-hero__topline,.oneprep-eyebrow){
+  display:flex;justify-content:center;align-items:center;gap:10px;color:#42545a!important;
+  font-size:11px!important;font-weight:700!important;letter-spacing:.1em!important;text-transform:uppercase;
+}
+body.content-page :is(.content-hero h1,.oneprep-subhero h1,.study-intro h1){
+  width:min(100%,1000px);max-width:16ch!important;margin:17px auto 15px!important;
+  color:#111!important;font:400 clamp(43px,5.9vw,78px)/.97 "Lilita One",sans-serif!important;
+  letter-spacing:-.02em!important;text-transform:uppercase!important;text-wrap:balance;
+}
+body.content-page .oneprep-subhero h1 em{color:#111!important;font-style:normal!important}
+body.content-page :is(.content-hero__lede,.oneprep-lede,.study-intro__lede){
+  max-width:720px!important;margin:0 auto!important;color:#1d3036!important;
+  font-size:clamp(16px,1.45vw,20px)!important;line-height:1.55!important;
+}
+body.content-page :is(.content-hero__note,.oneprep-status-note){
+  margin:14px auto 0!important;max-width:700px!important;color:#41545a!important;font-size:13px!important;line-height:1.6!important;
+}
+body.content-page :is(.content-hero .home-button,.content-hero .oneprep-button,.oneprep-subhero .oneprep-button){margin-top:24px}
+body.content-page :is(.content-hero .conversion-hero-art,.method-hero-art,.subjects-hero-art){margin:28px auto 0;max-width:580px}
+body.content-page .content-hero .conversion-hero-art svg,
+body.content-page .method-hero-art svg,
+body.content-page .subjects-hero-art svg{width:100%;max-height:190px}
+body.content-page .content-main>section:not(.content-hero):not(.oneprep-subhero):not(.study-intro){background:var(--arthic-lime)!important}
+
+/* Matching section type and generous spacing. */
+body.content-page :is(.oneprep-section-head,.section-heading){max-width:860px;margin:0 auto 38px;text-align:center}
+body.content-page :is(.oneprep-section-head h2,.section-heading h2,.pricing-faq__heading){
+  margin:0 0 12px;color:#111!important;font:400 clamp(30px,3.4vw,43px)/1.08 "Lilita One",sans-serif!important;letter-spacing:-.012em!important;
+}
+body.content-page :is(.oneprep-section-head>p:last-child,.section-heading>p:last-child){
+  max-width:700px;margin:0 auto;color:#334638!important;font:400 16px/1.65 Inter,Arial,sans-serif!important;
+}
+body.content-page :is(.oneprep-route-overview,.oneprep-three-steps,.oneprep-method-faq,.pricing-faq){padding-block:clamp(46px,6vw,78px)!important}
+body.content-page :is(.oneprep-pathway-section,.oneprep-feature-band,.oneprep-analytics-band,.oneprep-bottom-note){
+  padding-block:clamp(48px,6vw,82px)!important;background:transparent!important;
+}
+body.content-page .oneprep-pathway-section--tint{background:rgba(255,255,245,.2)!important}
+body.content-page :is(.pathway-section,.career-list,.pricing-table){border-color:rgba(17,17,17,.18)!important}
+body.content-page :is(.oneprep-route-card,.oneprep-step-card,.career-role){box-shadow:none!important;transition:none!important}
+body.content-page :is(.career-role h2,.oneprep-step-card h3,.method-step h3){font:400 clamp(22px,2.2vw,30px)/1.15 "Lilita One",sans-serif!important}
+body.content-page :is(.career-role__number,.oneprep-route-card__number,.oneprep-route-card__type,.oneprep-step-card__number){color:#397c46!important}
+body.content-page .oneprep-route-card__detail{color:#445747!important}
+body.content-page .oneprep-route-card__arrow{color:#28733d!important}
+body.content-page :is(.oneprep-route-card,.oneprep-step-card,.career-role):hover{transform:none!important;box-shadow:none!important}
+body.content-page .oneprep-final-cta{
+  margin-block:30px 0;padding:54px 24px!important;background:var(--arthic-green)!important;color:#111!important;
+}
+body.content-page .oneprep-final-cta__inner{width:min(1120px,100%);margin:0 auto}
+body.content-page .oneprep-final-cta :is(h2,p,.oneprep-eyebrow){color:#111!important}
+body.content-page .oneprep-final-cta h2{font:400 clamp(32px,4vw,48px)/1.06 "Lilita One",sans-serif!important}
+body.content-page .oneprep-final-cta__actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Clean work surfaces, rather than decorative card stacks. */
+body.content-page :is(.oneprep-route-card,.study-session,.study-sidebar,.study-feedback,.apply-role,.waitlist-form,.apply-form__section){
+  border-color:rgba(17,17,17,.14)!important;border-radius:18px!important;
+}
+body.content-page .oneprep-route-card{
+  background:rgba(255,255,245,.55)!important;padding:22px!important;
+  border:1px solid rgba(17,17,17,.12)!important;min-height:190px;
+}
+body.content-page .oneprep-route-card strong{font:400 24px/1.15 "Lilita One",sans-serif!important}
+body.content-page .oneprep-step-card{padding:19px 0!important;border-bottom:1px solid rgba(17,17,17,.16)!important}
+body.content-page .career-role{
+  grid-template-columns:3rem minmax(0,1fr) auto!important;padding-block:24px!important;
+  border-bottom:1px solid rgba(17,17,17,.18)!important;
+}
+body.content-page .career-role__body{color:#3f5143!important;line-height:1.65}
+body.content-page .content-cta{
+  max-width:1180px;margin:30px auto 64px!important;padding:45px clamp(24px,5vw,58px)!important;
+  border-radius:0!important;background:var(--arthic-green)!important;color:#111!important;
+}
+body.content-page .content-cta__inner{width:100%;max-width:none!important;align-items:center!important;flex-direction:row!important}
+body.content-page .content-cta h2{color:#111!important;font:400 clamp(32px,4vw,48px)/1.05 "Lilita One",sans-serif!important;letter-spacing:-.012em!important}
+body.content-page .content-cta p,
+body.content-page .content-cta .content-hero__topline{color:#2e4833!important}
+body.content-page .pricing-table{border-top:1px solid rgba(17,17,17,.2)!important}
+body.content-page .pricing-line{border-bottom:1px solid rgba(17,17,17,.2)!important;padding-block:24px!important}
+body.content-page .pricing-line__name{font:400 24px/1.15 "Lilita One",sans-serif!important;color:#111!important}
+body.content-page .pricing-line__price{font:400 30px/1.1 "Lilita One",sans-serif!important;color:#111!important}
+body.content-page .pricing-line__detail{color:#405343!important;line-height:1.65!important}
+
+/* Pink actions and a single interaction language. */
+body.content-page :is(.oneprep-button--primary,.home-button,.btn--solid,.btn--primary,.content-cta .home-button,.oneprep-final-cta .oneprep-button--primary,.study-action:not(.study-action--secondary),.apply-form button[type="submit"],.waitlist-form button[type="submit"]){
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;
+  border:0!important;border-radius:16px!important;background:var(--arthic-pink)!important;color:#fff!important;
+  font:700 15px/1.2 Inter,Arial,sans-serif!important;letter-spacing:0!important;box-shadow:none!important;
+  transition:background-color .16s ease,transform .16s ease;
+}
+body.content-page :is(.oneprep-button--primary,.home-button,.btn--solid,.btn--primary,.content-cta .home-button,.oneprep-final-cta .oneprep-button--primary,.study-action:not(.study-action--secondary),.apply-form button[type="submit"],.waitlist-form button[type="submit"]):hover{
+  background:var(--arthic-pink-hover)!important;color:#fff!important;transform:translateY(-1px);
+}
+body.content-page :is(.oneprep-button--light,.study-action--secondary,.btn--outline){
+  background:rgba(255,255,245,.72)!important;color:#17251b!important;border:1px solid rgba(17,17,17,.17)!important;
+  border-radius:16px!important;box-shadow:none!important;
+}
+body.content-page :is(.oneprep-button--light,.study-action--secondary,.btn--outline):hover{background:#fffef5!important;color:#28733d!important}
+body.content-page .nav__cta:hover{transform:none!important}
+
+/* Friendly, high-contrast form controls. */
+body.content-page :is(input.field,textarea.field,select.field,.custom-select__trigger){
+  min-height:48px;border:1px solid rgba(17,17,17,.2)!important;border-radius:12px!important;
+  background:#fffef5!important;color:#111!important;box-shadow:none!important;font:400 15px/1.45 Inter,Arial,sans-serif!important;
+}
+body.content-page :is(input.field,textarea.field,select.field):focus,
+body.content-page .custom-select__trigger:focus{
+  border-color:#2d7b42!important;outline:0!important;box-shadow:0 0 0 3px rgba(45,123,66,.14)!important;
+}
+body.content-page :is(.waitlist-form,.apply-form__section,.apply-role){
+  background:rgba(255,255,245,.45)!important;padding:24px!important;
+}
+body.content-page .apply-form__section{border:1px solid rgba(17,17,17,.12)!important}
+body.content-page :is(.waitlist-form__label,.apply-form__section-label,.apply-form__field label){color:#435744!important}
+body.content-page :is(.waitlist-form__status,.apply-form__status){color:#405343!important}
+body.content-page :is(.waitlist-form__status[data-state="error"],.apply-form__status[data-state="error"]){color:#9c2452!important}
+body.content-page :is(.waitlist-form__status[data-state="success"],.apply-form__status[data-state="success"]){color:#276d3c!important}
+
+/* The study preview keeps its working practice, progress and review controls. */
+body.content-page .study-workspace{
+  width:min(1320px,calc(100% - 48px))!important;max-width:1320px!important;
+  padding-block:34px 68px!important;border:0!important;gap:18px!important;
+}
+body.content-page .study-rail{padding:18px 16px 18px 0;border:0!important}
+body.content-page .study-rail__link.is-active{background:rgba(255,255,245,.72)!important;color:#28733d!important}
+body.content-page .study-session{
+  padding:clamp(22px,3vw,38px)!important;background:#fffef5!important;
+  border:1px solid rgba(17,17,17,.13)!important;border-radius:22px!important;
+}
+body.content-page :is(.study-session__heading,.study-question__text,.study-complete__heading){
+  font:400 clamp(28px,3vw,39px)/1.12 "Lilita One",sans-serif!important;
+}
+body.content-page :is(.study-option,.study-options button){
+  border-radius:13px!important;border-color:rgba(17,17,17,.18)!important;background:#fff!important;
+}
+body.content-page :is(.study-option,.study-options button):hover{border-color:#2f8047!important;background:#f5f9e8!important}
+body.content-page .study-sidebar{
+  padding:20px!important;border:1px solid rgba(17,17,17,.12)!important;
+  border-radius:18px!important;background:rgba(255,255,245,.44)!important;
+}
+body.content-page :is(.study-progress__fill,.study-sidebar__progress span){background:#3f9a57!important}
+body.content-page .study-preview-invite{padding-bottom:48px;color:#405343!important}
+
+/* Long-form legal pages use the same blue introduction and lime reading canvas. */
+body.content-page.legal-page main{padding-top:64px!important}
+body.content-page.legal-page .entry{
+  width:100%!important;max-width:none!important;margin:0!important;padding:0 0 72px!important;
+}
+body.content-page.legal-page .entry__head{
+  width:100%!important;max-width:none!important;margin:0!important;padding:74px 24px 64px!important;
+  background:var(--arthic-sky)!important;text-align:center;
+}
+body.content-page.legal-page .entry__head .eyebrow,
+body.content-page.legal-page .entry__date{color:#40545c!important}
+body.content-page.legal-page .entry__title{
+  max-width:1000px;margin:14px auto!important;color:#111!important;
+  font:400 clamp(43px,5.9vw,78px)/.98 "Lilita One",sans-serif!important;letter-spacing:-.02em!important;text-transform:uppercase;
+}
+body.content-page.legal-page .entry__lede{
+  max-width:720px;margin:0 auto!important;color:#203138!important;
+  font:400 clamp(16px,1.35vw,19px)/1.6 Inter,Arial,sans-serif!important;
+}
+body.content-page.legal-page .entry__body{
+  width:min(900px,calc(100% - 48px))!important;max-width:900px!important;
+  margin:0 auto!important;padding:48px 0 0!important;color:#293b2e!important;
+  font:400 16px/1.8 Inter,Arial,sans-serif!important;
+}
+body.content-page.legal-page .entry__body h2{
+  margin:34px 0 10px!important;color:#111!important;font:400 26px/1.18 "Lilita One",sans-serif!important;letter-spacing:0!important;
+}
+body.content-page.legal-page .entry__body p{margin-bottom:1.1em!important;color:#354a39!important}
+body.content-page.legal-page .entry__body li{color:#354a39!important}
+body.content-page.legal-page .entry__body a{color:#24763e!important;text-decoration:underline;text-underline-offset:3px}
+
+/* Shared foliage-edged footer in the same light green as the reference. */
+body.content-page .footer-frame{background:var(--arthic-lime)!important;margin-top:0!important}
+body.content-page .footer-frame::before{
+  content:"";display:block;height:78px;background:var(--arthic-green);
+  clip-path:polygon(0 100%,0 68%,2% 56%,4% 12%,6% 69%,8% 47%,10% 72%,12% 20%,14% 69%,16% 49%,18% 73%,20% 10%,22% 67%,24% 44%,26% 76%,28% 15%,30% 70%,32% 50%,34% 75%,36% 13%,38% 72%,40% 46%,42% 75%,44% 14%,46% 68%,48% 46%,50% 75%,52% 12%,54% 71%,56% 49%,58% 77%,60% 15%,62% 70%,64% 47%,66% 75%,68% 10%,70% 69%,72% 47%,74% 77%,76% 13%,78% 72%,80% 47%,82% 75%,84% 15%,86% 70%,88% 46%,90% 76%,92% 10%,94% 68%,96% 47%,98% 74%,100% 14%,100% 100%);
+}
+body.content-page .footer{
+  padding:20px 0 24px!important;background:var(--arthic-green)!important;color:#1d3325!important;border:0!important;
+}
+body.content-page .footer__top{
+  display:grid!important;grid-template-columns:minmax(180px,1.35fr) repeat(4,minmax(0,1fr))!important;
+  gap:clamp(18px,3vw,42px)!important;margin-bottom:30px!important;
+}
+body.content-page .footer__brand{gap:12px!important}
+body.content-page .footer__mark{display:inline-flex!important;align-items:center;gap:5px;color:#111!important;text-decoration:none!important}
+body.content-page .footer__wordmark{font:400 28px/1 "Lilita One",sans-serif;color:#111}
+body.content-page .footer__spark{font-size:19px}
+body.content-page .footer__tagline{max-width:25ch!important;color:#35543a!important;font:400 13px/1.55 Inter,Arial,sans-serif!important}
+body.content-page .footer__col{display:flex!important;flex-direction:column;gap:10px!important}
+body.content-page .footer__col-label{margin-bottom:2px!important;color:#172d20!important;font:700 14px/1.2 Inter,Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important}
+body.content-page .footer__col a{color:#3a5a3e!important;font:400 13px/1.4 Inter,Arial,sans-serif!important;text-decoration:none!important}
+body.content-page .footer__col a:hover{color:#1c6d3a!important;text-decoration:underline!important;text-underline-offset:3px}
+body.content-page .footer__bottom{
+  display:flex!important;justify-content:space-between;gap:14px;padding-top:15px!important;
+  border-top:1px solid rgba(30,55,34,.22)!important;color:#3e6346!important;font:400 11px/1.5 Inter,Arial,sans-serif!important;
+}
+body.content-page .footer__bottom a{color:#2e5638!important}
+
+/* Responsive hierarchy for tablet and mobile. */
+@media(max-width:1100px){
+  body.content-page .nav__inner{gap:8px;padding-inline:18px!important}
+  body.content-page .nav__links{gap:0}
+  body.content-page .nav__links a{padding-inline:7px;font-size:12px}
+  body.content-page .nav__utility a{padding-inline:10px;font-size:11px}
+  body.content-page .footer__top{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  body.content-page .footer__brand{grid-column:1/-1}
+}
+@media(max-width:760px){
+  body.content-page .nav__inner{height:62px!important}
+  body.content-page .nav{height:62px!important}
+  body.content-page .nav__links,body.content-page .nav__utility{display:none!important}
+  body.content-page .nav__toggle{
+    display:inline-flex!important;align-items:center;justify-content:center;min-height:36px;padding:8px 15px;
+    border-radius:999px;background:rgba(255,255,255,.4)!important;color:#18262c!important;
+    font:600 13px/1 Inter,Arial,sans-serif!important;letter-spacing:0!important;
+  }
+  body.content-page .mobile-nav.is-open{inset:62px 0 0!important}
+  body.content-page :is(.content-hero,.oneprep-subhero,.study-intro){padding:68px 20px 76px!important}
+  body.content-page :is(.content-hero h1,.oneprep-subhero h1,.study-intro h1){font-size:clamp(39px,9vw,58px)!important}
+  body.content-page .content-cta{width:calc(100% - 32px);margin:24px auto 44px!important;padding:32px 22px!important}
+  body.content-page .content-cta__inner{align-items:flex-start!important;flex-direction:column!important}
+  body.content-page .oneprep-final-cta__inner{align-items:flex-start!important;flex-direction:column!important}
+  body.content-page .career-role{grid-template-columns:30px minmax(0,1fr)!important}
+  body.content-page .career-role>a{grid-column:2}
+  body.content-page .study-workspace{grid-template-columns:1fr!important}
+  body.content-page .study-rail{padding:0!important}
+  body.content-page .study-rail__nav{flex-direction:row!important;flex-wrap:wrap}
+  body.content-page .study-sidebar{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  body.content-page .entry__head{padding:60px 20px 48px!important}
+  body.content-page .entry__body{width:calc(100% - 40px)!important;padding-top:34px!important}
+  body.content-page .footer__top{grid-template-columns:1fr 1fr!important;gap:28px 18px!important}
+  body.content-page .footer__brand{grid-column:1/-1}
+}
+@media(max-width:520px){
+  body.content-page .content-container,body.content-page .container{width:calc(100% - 36px)!important}
+  body.content-page :is(.content-hero,.oneprep-subhero,.study-intro){padding-inline:18px!important}
+  body.content-page :is(.content-hero__lede,.oneprep-lede,.study-intro__lede){font-size:15px!important}
+  body.content-page .content-cta h2{font-size:34px!important}
+  body.content-page .waitlist-layout{grid-template-columns:1fr!important;gap:26px!important}
+  body.content-page .waitlist-form__row{flex-direction:column!important}
+  body.content-page .waitlist-form__row button{width:100%}
+  body.content-page .apply-form__grid{grid-template-columns:1fr!important}
+  body.content-page .pricing-line{grid-template-columns:1fr!important;gap:8px!important}
+  body.content-page .study-sidebar{grid-template-columns:1fr!important}
+  body.content-page .footer__top{grid-template-columns:1fr 1fr!important}
+  body.content-page .footer__bottom{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){body.content-page *{scroll-behavior:auto!important;transition:none!important}}
