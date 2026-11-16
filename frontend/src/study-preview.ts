@@ -142,6 +142,9 @@ if (root) {
       feedback!.removeAttribute("data-result");
       checkButton!.hidden = false;
       checkButton!.disabled = true;
+      checkButton!.classList.remove("is-loading");
+      checkButton!.removeAttribute("aria-busy");
+      checkButton!.textContent = "Check answer";
       nextButton!.hidden = true;
       nextButton!.textContent = questionIndex === QUESTIONS.length - 1 ? "View session results" : "Next question";
       renderOptions(question);
@@ -153,6 +156,9 @@ if (root) {
       if (selectedKey === null || answers[questionIndex]) return;
       const question = QUESTIONS[questionIndex];
       checkButton!.disabled = true;
+      checkButton!.classList.add("is-loading");
+      checkButton!.setAttribute("aria-busy", "true");
+      checkButton!.textContent = "Checking…";
 
       try {
         const response = await fetch("/api/study/check", {
@@ -209,6 +215,9 @@ if (root) {
           else if (key === selectedKey && !isCorrect) button.classList.add("is-incorrect");
         });
 
+        checkButton!.classList.remove("is-loading");
+        checkButton!.removeAttribute("aria-busy");
+        checkButton!.textContent = "Check answer";
         checkButton!.hidden = true;
         nextButton!.hidden = false;
         updateProgress();
@@ -219,6 +228,9 @@ if (root) {
           "The question is still here, but the answer service could not be reached. Please try again shortly.";
         takeaway!.textContent = "";
         feedback!.hidden = false;
+        checkButton!.classList.remove("is-loading");
+        checkButton!.removeAttribute("aria-busy");
+        checkButton!.textContent = "Check answer";
         checkButton!.disabled = false;
       }
     }
