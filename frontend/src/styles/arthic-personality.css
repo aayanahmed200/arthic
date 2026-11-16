@@ -1,0 +1,442 @@
+/* ARTHIC PERSONALITY PASS
+   A little more editorial, a little less template: warm paper, expressive
+   type, open layouts and one quiet green character. */
+
+/* Warm the canvas and give display type a more recognisable voice. */
+:root {
+  --color-bg: #F8F8F1;
+  --color-bg-raised: #FFFDF8;
+  --color-bg-sunken: #F0F3EA;
+  --color-fg: #26372C;
+  --color-fg-dim: #58675D;
+  --color-fg-mute: #738075;
+  --color-fg-hairline: #DCE4D9;
+  --color-fg-faint: #CBD8C8;
+  --color-fg-ghost: #EEF2E9;
+  --color-accent: #4F7848;
+  --color-accent-strong: #37653D;
+  --color-accent-fill: #DCEBCF;
+  --color-accent-dim: #EAF2E5;
+  --color-accent-hairline: #C6D9BE;
+}
+
+/* Homepage hero: purposeful asymmetry and a soft, organic stage for Arlo. */
+.home-page .home-hero {
+  background: linear-gradient(112deg, #F8F8F1 0%, #F4F6EE 62%, #F8F8F1 100%) !important;
+  padding-top: 132px !important;
+  padding-bottom: 62px !important;
+}
+.home-page .home-hero__layout {
+  min-height: 460px !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr) !important;
+  gap: clamp(30px, 5vw, 76px) !important;
+}
+.home-page .home-kicker,
+.home-page .home-section-kicker {
+  color: var(--color-accent-strong) !important;
+}
+.home-page .home-hero h1 {
+  max-width: 12.5ch !important;
+  font-size: clamp(58px, 6.15vw, 84px) !important;
+  line-height: .96 !important;
+  letter-spacing: -.075em !important;
+}
+.home-page .home-hero h1 em,
+.home-page .home-section-intro h2 em,
+.home-page .home-method__copy h2 em,
+.home-page .home-voices h2 em,
+.home-page .home-pathways__head h2 em {
+  color: var(--color-accent-strong) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  letter-spacing: -.055em !important;
+}
+.home-page .home-hero__lede {
+  max-width: 45ch !important;
+  font-size: clamp(15px, 1.2vw, 17px) !important;
+  line-height: 1.75 !important;
+}
+.home-page .home-hero__actions { gap: 12px !important; }
+.home-page .home-button {
+  min-height: 48px !important;
+  padding: 0 19px !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+}
+.home-page .home-button--primary {
+  background: var(--color-accent-strong) !important;
+  border-color: var(--color-accent-strong) !important;
+  color: #fff !important;
+}
+.home-page .home-button--primary:hover {
+  background: #294E31 !important;
+  border-color: #294E31 !important;
+  color: #fff !important;
+}
+.home-page .home-button--secondary {
+  background: transparent !important;
+  border-color: #C8D5C4 !important;
+  color: var(--color-fg) !important;
+}
+.home-page .home-button--secondary:hover {
+  background: #EAF1E5 !important;
+  border-color: #AFC6A7 !important;
+}
+.home-page .home-hero__note {
+  font-size: 11px !important;
+  letter-spacing: .045em;
+}
+
+/* Arlo is a simple little character, not a product icon or 3D assistant. */
+.home-page .home-hero__art {
+  position: relative;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 390px !important;
+  width: 100%;
+  max-width: 470px;
+  margin-inline: auto;
+  isolation: isolate;
+}
+.home-page .home-hero__art::before {
+  content: "";
+  display: block !important;
+  position: absolute;
+  z-index: -1;
+  width: min(88%, 390px);
+  aspect-ratio: 1;
+  border-radius: 48% 52% 45% 55% / 52% 45% 55% 48%;
+  background: #E7F0E1;
+  transform: rotate(-8deg);
+}
+.home-page .home-hero__art::after {
+  content: "";
+  display: block !important;
+  position: absolute;
+  z-index: -1;
+  top: 9%;
+  right: 7%;
+  width: 46px;
+  aspect-ratio: 1;
+  border: 1px solid #BFD3B7;
+  border-radius: 50%;
+}
+.home-page .home-hero__art img {
+  width: min(100%, 385px) !important;
+  max-width: 385px !important;
+  filter: none !important;
+}
+.home-page .home-hero__art-label {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  color: #627563 !important;
+  font-size: 10px !important;
+  letter-spacing: .16em !important;
+}
+.home-page .home-hero__art-label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #78A66A;
+}
+
+/* A more open feature story: three editorial columns, not three app cards. */
+.home-page .home-features { padding: 86px 0 94px !important; }
+.home-page .home-section-intro { margin-bottom: 48px !important; }
+.home-page .home-section-intro h2 {
+  font-size: clamp(40px, 4.8vw, 62px) !important;
+  line-height: 1.02 !important;
+}
+.home-page .home-feature-grid {
+  gap: clamp(20px, 3vw, 42px) !important;
+}
+.home-page .home-feature {
+  display: flex !important;
+  flex-direction: column;
+  min-width: 0;
+  padding: 20px 6px 8px !important;
+  border: 0 !important;
+  border-top: 1px solid var(--color-fg-hairline) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+.home-page .home-feature__art {
+  height: 158px !important;
+  margin: 0 0 22px !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+.home-page .home-feature__art svg {
+  width: min(100%, 238px) !important;
+  height: 150px !important;
+}
+.home-page .home-feature__eyebrow {
+  font-size: 11px !important;
+  letter-spacing: .095em !important;
+}
+.home-page .home-feature h3 {
+  margin-top: 10px !important;
+  font-size: clamp(21px, 2vw, 25px) !important;
+  line-height: 1.12 !important;
+}
+.home-page .home-feature p {
+  margin-top: 11px !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+}
+.home-page .home-feature a {
+  padding-top: 19px !important;
+  font-size: 13px !important;
+}
+
+/* Exam pathways become a clean directory with room for the names to breathe. */
+.home-page .home-pathways {
+  padding: 76px 0 82px !important;
+  background: #F1F4EB !important;
+  border: 0 !important;
+}
+.home-page .home-pathways__head h2 {
+  font-size: clamp(36px, 4.2vw, 52px) !important;
+  letter-spacing: -.06em !important;
+}
+.home-page .home-pathway-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0 24px !important;
+  border-top: 1px solid #D4DFCF;
+}
+.home-page .home-pathway-list a {
+  min-height: 132px !important;
+  padding: 20px 4px 16px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #D4DFCF !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  transition: color .18s ease, border-color .18s ease, background .18s ease !important;
+}
+.home-page .home-pathway-list a:nth-child(n) { background: transparent !important; }
+.home-page .home-pathway-list a:hover {
+  background: #E7EFE1 !important;
+  border-color: #B7CCAE !important;
+}
+.home-page .home-pathway-list small {
+  font-size: 10px !important;
+  letter-spacing: .07em !important;
+}
+.home-page .home-pathway-list strong {
+  margin-top: 12px !important;
+  font-size: 17px !important;
+}
+
+/* Keep the learning loop light, with small details instead of extra panels. */
+.home-page .home-method { padding: 88px 0 !important; }
+.home-page .home-method__copy h2,
+.home-page .home-voices h2 {
+  font-size: clamp(39px, 4.6vw, 58px) !important;
+  line-height: 1.02 !important;
+}
+.home-page .home-method__step > span {
+  background: #E7EFE2 !important;
+}
+.home-page .home-voices {
+  padding: 76px 0 !important;
+  border-top: 1px solid var(--color-fg-hairline) !important;
+}
+.home-page .home-voices__line {
+  padding: 17px 0 !important;
+  border-radius: 0 !important;
+  border-block: 1px solid var(--color-fg-hairline);
+  background: transparent !important;
+}
+.home-page .home-roadmap { padding: 78px 0 86px !important; }
+.home-page .home-roadmap__item { padding-top: 24px !important; }
+.home-page .home-roadmap__item h3 { font-size: 21px !important; }
+
+/* End on forest green rather than a generic near-black banner. */
+.home-page .home-closing {
+  padding: 58px 0 64px !important;
+  background: #294632 !important;
+  color: #F8F8F1 !important;
+}
+.home-page .home-closing .home-section-kicker { color: #C5D8BE !important; }
+.home-page .home-closing h2 {
+  max-width: 16ch;
+  color: #FFFDF8 !important;
+  font-size: clamp(34px, 4.2vw, 52px) !important;
+  line-height: 1.03 !important;
+}
+.home-page .home-closing .home-button--primary {
+  background: #F4F6ED !important;
+  border-color: #F4F6ED !important;
+  color: #294632 !important;
+}
+.home-page .home-closing .home-button--primary:hover {
+  background: #DCEBCF !important;
+  border-color: #DCEBCF !important;
+  color: #294632 !important;
+}
+.home-page .home-closing .home-button--secondary {
+  border-color: rgba(255,255,255,.42) !important;
+  color: #FFFDF8 !important;
+}
+.home-page .home-closing .home-button--secondary:hover {
+  background: rgba(255,255,255,.1) !important;
+  border-color: rgba(255,255,255,.7) !important;
+}
+.home-page .footer,
+.content-page .footer {
+  background: #F8F8F1 !important;
+}
+
+/* Inner pages share the same botanical palette and calmer, more editorial controls. */
+.content-page .content-hero h1,
+.content-page .oneprep-subhero h1,
+.study-preview-page .study-intro h1 {
+  letter-spacing: -.065em !important;
+}
+.content-page .oneprep-eyebrow,
+.content-page .content-hero__topline {
+  color: var(--color-accent-strong) !important;
+}
+.content-page .oneprep-button,
+.content-page .home-button,
+.content-page .study-action {
+  border-radius: 10px !important;
+}
+.content-page .oneprep-route-card {
+  border: 0 !important;
+  border-top: 2px solid var(--color-fg-hairline) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding-inline: 10px !important;
+  transition: border-color .18s ease, background .18s ease !important;
+}
+.content-page .oneprep-route-card--medical,
+.content-page .oneprep-route-card--stem,
+.content-page .oneprep-route-card--law,
+.content-page .oneprep-route-card--service {
+  background: transparent !important;
+}
+.content-page .oneprep-route-card:hover {
+  border-top-color: #78A66A !important;
+  background: #F1F5ED !important;
+}
+.content-page .oneprep-pathway-visual,
+.content-page .oneprep-feature-visual,
+.content-page .oneprep-analytics-visual {
+  border-color: var(--color-fg-hairline) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 28px rgba(38,55,44,.035) !important;
+}
+.content-page .waitlist-form {
+  border-color: var(--color-fg-hairline) !important;
+  border-radius: 14px !important;
+  background: #FFFDF8 !important;
+}
+.content-page :is(input, textarea, select, .field) {
+  border-radius: 9px;
+}
+.content-page :is(a, button):focus-visible,
+.home-page :is(a, button):focus-visible {
+  outline: 2px solid #5C8953 !important;
+  outline-offset: 4px !important;
+}
+
+/* The small chat mark uses the same eyes as the main character. */
+.arlo__launcher {
+  width: 58px !important;
+  height: 58px !important;
+  border-radius: 19px !important;
+  border: 1px solid #C8D8C0 !important;
+  background: #E8F0E2 !important;
+  box-shadow: 0 4px 15px rgba(38,65,42,.1) !important;
+}
+.arlo__launcher-mark img {
+  width: 39px !important;
+  height: 39px !important;
+}
+.arlo__panel {
+  border: 1px solid #D5E0D0 !important;
+  border-radius: 17px !important;
+  background: #FFFDF8 !important;
+}
+.arlo__head {
+  background: #F4F6EF;
+}
+
+/* Keep the composition intact on smaller screens. */
+@media (max-width: 1050px) {
+  .home-page .home-feature-grid { gap: 22px !important; }
+  .home-page .home-pathway-list { gap: 0 14px !important; }
+}
+@media (max-width: 760px) {
+  .home-page .home-hero {
+    padding: 105px 0 40px !important;
+  }
+  .home-page .home-hero__layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 8px !important;
+  }
+  .home-page .home-hero h1 {
+    max-width: 13ch !important;
+    font-size: clamp(46px, 11.5vw, 66px) !important;
+  }
+  .home-page .home-hero__art {
+    width: min(100%, 310px);
+    min-height: 285px !important;
+    padding: 0 0 8px !important;
+  }
+  .home-page .home-hero__art img {
+    width: min(100%, 285px) !important;
+    max-width: 285px !important;
+  }
+  .home-page .home-hero__art::before { width: 86%; }
+  .home-page .home-hero__art::after { width: 34px; }
+  .home-page .home-feature-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+  }
+  .home-page .home-feature {
+    display: grid !important;
+    grid-template-columns: 78px minmax(0, 1fr);
+    column-gap: 16px;
+    padding: 18px 0 !important;
+  }
+  .home-page .home-feature__art {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    width: 78px !important;
+    height: 92px !important;
+    margin: 0 !important;
+  }
+  .home-page .home-feature__art svg { width: 88px !important; height: 88px !important; }
+  .home-page .home-feature__eyebrow,
+  .home-page .home-feature h3,
+  .home-page .home-feature p,
+  .home-page .home-feature a { grid-column: 2; }
+  .home-page .home-feature h3 { margin-top: 5px !important; font-size: 20px !important; }
+  .home-page .home-feature p { margin-top: 6px !important; }
+  .home-page .home-feature a { padding-top: 9px !important; }
+  .home-page .home-pathway-list { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .home-page .home-pathway-list a { min-height: 118px !important; }
+  .home-page .home-method,
+  .home-page .home-voices,
+  .home-page .home-roadmap { padding-block: 58px !important; }
+  .home-page .home-closing { padding-block: 44px !important; }
+}
+@media (max-width: 430px) {
+  .home-page .home-pathway-list { grid-template-columns: minmax(0, 1fr) !important; }
+  .home-page .home-pathway-list a { min-height: 98px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-page .home-pathway-list a,
+  .content-page .oneprep-route-card,
+  .arlo__launcher {
+    transition: none !important;
+  }
+}
