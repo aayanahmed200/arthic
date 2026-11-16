@@ -8,7 +8,6 @@ export function initNav(): void {
   const mobileNav = document.querySelector<HTMLElement>("[data-mobile-nav]");
 
   initScrollState(header);
-  initPageTransitions();
   initImagePlaceholders();
   initMobileMenu(toggle, toggleLabel, mobileNav);
   initActiveNavByPath();
@@ -167,44 +166,6 @@ function initMobileMenu(
 function initYear(): void {
   const el = document.querySelector("[data-year]");
   if (el) el.textContent = String(new Date().getFullYear());
-}
-
-
-/**
- * Short, same-origin route transition. Real navigation still happens;
- * modified clicks, downloads, external links and same-page anchors stay native.
- */
-function initPageTransitions(): void {
-  const overlay = document.createElement("div");
-  overlay.className = "route-transition";
-  overlay.setAttribute("aria-hidden", "true");
-  document.body.appendChild(overlay);
-
-  document.addEventListener("click", (event) => {
-    if (!(event.target instanceof Element)) return;
-    const link = event.target.closest<HTMLAnchorElement>("a[href]");
-    if (!link || event.defaultPrevented || event.button !== 0) return;
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    if (link.target && link.target !== "_self") return;
-    if (link.hasAttribute("download") || link.hasAttribute("data-no-transition")) return;
-
-    const destination = new URL(link.href, window.location.href);
-    if (destination.origin !== window.location.origin) return;
-    if (
-      destination.pathname === window.location.pathname &&
-      destination.search === window.location.search &&
-      (destination.hash || !window.location.hash)
-    ) return;
-
-    event.preventDefault();
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      window.location.assign(destination.href);
-      return;
-    }
-    document.body.classList.add("route-is-leaving");
-    overlay.classList.add("is-active");
-    window.setTimeout(() => window.location.assign(destination.href), 170);
-  });
 }
 
 
