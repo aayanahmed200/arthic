@@ -39,6 +39,8 @@ export function initFormSubmit(form: HTMLFormElement, opts: SubmitOptions): void
     }
 
     button?.setAttribute("disabled", "true");
+    button?.classList.add("is-loading");
+    button?.setAttribute("aria-busy", "true");
     setStatus("sending…", "idle");
 
     try {
@@ -64,6 +66,8 @@ export function initFormSubmit(form: HTMLFormElement, opts: SubmitOptions): void
       setStatus("couldn't reach the server — try again shortly.", "error");
     } finally {
       button?.removeAttribute("disabled");
+      button?.classList.remove("is-loading");
+      button?.removeAttribute("aria-busy");
     }
   });
 }
