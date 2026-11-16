@@ -86,6 +86,7 @@ if (root) {
     let questionIndex = 0;
     let selectedKey: string | null = null;
     const answers: StudyAnswer[] = [];
+    let hasInteracted = false;
 
     const correctCount = () => answers.filter((answer) => answer.isCorrect).length;
     const accuracy = () => answers.length ? Math.round((correctCount() / answers.length) * 100) : null;
@@ -120,6 +121,7 @@ if (root) {
 
         button.addEventListener("click", () => {
           if (selectedKey !== null || answers[questionIndex]) return;
+          hasInteracted = true;
           selectedKey = option.key;
           optionList!.querySelectorAll<HTMLButtonElement>(".study-option").forEach((choice) => {
             choice.setAttribute("aria-pressed", String(choice === button));
@@ -297,6 +299,11 @@ if (root) {
       });
     });
 
-    void loadQuestionFeed().then(() => renderQuestion());
+    // The bundled sample appears immediately; a slower feed may replace it
+    // only before the student has started answering.
+    renderQuestion();
+    void loadQuestionFeed().then(() => {
+      if (!hasInteracted && answers.length === 0 && questionIndex === 0) renderQuestion();
+    });
   }
 }
