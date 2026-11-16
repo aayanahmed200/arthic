@@ -40,6 +40,8 @@ export function initSubscribeForm(): void {
     }
 
     button?.setAttribute("disabled", "true");
+    button?.classList.add("is-loading");
+    button?.setAttribute("aria-busy", "true");
     setStatus("sending…", "idle");
 
     try {
@@ -69,6 +71,8 @@ export function initSubscribeForm(): void {
       setStatus("couldn't reach the server — try again shortly.", "error");
     } finally {
       button?.removeAttribute("disabled");
+      button?.classList.remove("is-loading");
+      button?.removeAttribute("aria-busy");
     }
   });
 }
