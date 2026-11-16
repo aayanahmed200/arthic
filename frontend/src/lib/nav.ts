@@ -9,6 +9,7 @@ export function initNav(): void {
 
   initScrollState(header);
   initPageTransitions();
+  initImagePlaceholders();
   initMobileMenu(toggle, toggleLabel, mobileNav);
   initActiveNavByPath();
   initYear();
@@ -199,5 +200,29 @@ function initPageTransitions(): void {
     document.body.classList.add("route-is-leaving");
     overlay.classList.add("is-active");
     window.setTimeout(() => window.location.assign(destination.href), 170);
+  });
+}
+
+
+/** Add a shimmer only while a framed remote image is still loading. */
+function initImagePlaceholders(): void {
+  document.querySelectorAll<HTMLImageElement>("img[data-image-frame]").forEach((img) => {
+    const frame = img.closest<HTMLElement>("[data-image-frame]");
+    if (!frame) return;
+
+    if (img.complete) {
+      frame.classList.add(img.naturalWidth > 0 ? "is-loaded" : "is-failed");
+      return;
+    }
+
+    frame.classList.add("is-loading");
+    img.addEventListener("load", () => {
+      frame.classList.remove("is-loading");
+      frame.classList.add("is-loaded");
+    }, { once: true });
+    img.addEventListener("error", () => {
+      frame.classList.remove("is-loading");
+      frame.classList.add("is-failed");
+    }, { once: true });
   });
 }
