@@ -47,3 +47,37 @@ document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
     history.replaceState(null, "", "#" + id);
   });
 });
+
+
+/* Keep the current page visibly selected in the fixed navigation. */
+const desktopNavLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".desktop-nav a[href^='#']"));
+const sectionTargets = desktopNavLinks
+  .map((link) => document.querySelector<HTMLElement>(link.getAttribute("href") || ""))
+  .filter((target): target is HTMLElement => Boolean(target));
+
+function setActiveSection(targetId: string): void {
+  desktopNavLinks.forEach((link) => {
+    const active = link.getAttribute("href") === "#" + targetId;
+    link.classList.toggle("is-active", active);
+    if (active) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+}
+
+desktopNavLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    const id = link.getAttribute("href")?.slice(1);
+    if (id) setActiveSection(id);
+  });
+});
+
+if ("IntersectionObserver" in window && sectionTargets.length) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible?.target instanceof HTMLElement) setActiveSection(visible.target.id);
+  }, { rootMargin: "-22% 0px -62% 0px", threshold: [0, 0.15, 0.35, 0.6] });
+
+  sectionTargets.forEach((target) => sectionObserver.observe(target));
+}
