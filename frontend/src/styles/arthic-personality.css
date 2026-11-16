@@ -1073,3 +1073,67 @@ button.is-loading::before {
   animation: arthic-spin .7s linear infinite;
 }
 button.is-loading { cursor: progress; }
+
+
+/* Keep legacy dark-mode attributes from reintroducing a second palette. */
+:root[data-theme="dark"] {
+  color-scheme: light !important;
+  --color-bg: #F7FAF9;
+  --color-bg-raised: #FFFFFF;
+  --color-bg-sunken: #F7FAF9;
+  --color-fg: #1D302E;
+  --color-fg-dim: #425B57;
+  --color-fg-mute: #637B77;
+  --color-fg-hairline: #DDE9E6;
+  --color-fg-faint: #C8DAD6;
+  --color-fg-ghost: #EDF4F2;
+  --color-accent: #40B5AD;
+  --color-accent-strong: #176A65;
+  --color-accent-fill: #40B5AD;
+  --color-accent-dim: #E6F5F3;
+  --color-accent-hairline: #A9DCD6;
+}
+
+/* Section backgrounds are unified; keep their text dark and readable too. */
+.home-page .home-closing,
+.home-page .home-closing h2,
+.home-page .home-closing p,
+.home-page .home-closing .home-section-kicker,
+.content-page .content-cta,
+.content-page .content-cta h2,
+.content-page .content-cta p,
+.content-page .content-cta__copy .content-hero__topline {
+  color: #1D302E !important;
+}
+.home-page .home-closing .home-section-kicker,
+.content-page .content-cta .content-hero__topline {
+  color: #176A65 !important;
+}
+.home-page .home-closing .home-button--primary,
+.content-page .content-cta .home-button {
+  background: #40B5AD !important;
+  border-color: #40B5AD !important;
+  color: #123F3B !important;
+}
+.home-page .home-closing .home-button--secondary {
+  background: transparent !important;
+  border-color: #B8D6D1 !important;
+  color: #1D302E !important;
+}
+.home-page .home-closing .home-button--secondary:hover {
+  background: #E6F5F3 !important;
+  border-color: #40B5AD !important;
+}
+.home-page .home-button,
+.content-page .home-button,
+.content-page .oneprep-button,
+.content-page .study-action,
+.study-preview-page .study-action {
+  font-size: 14px !important;
+}
+.home-page .home-kicker,
+.home-page .home-section-kicker,
+.content-page .oneprep-eyebrow,
+.content-page .content-hero__topline {
+  font-size: 11px !important;
+}
