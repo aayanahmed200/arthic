@@ -78,31 +78,88 @@ function initMobileMenu(
 ): void {
   if (!toggle || !panel) return;
 
-  const close = () => {
+  panel.setAttribute("role", "dialog");
+  panel.setAttribute("aria-modal", "true");
+  panel.setAttribute("aria-label", "Main menu");
+  panel.setAttribute("aria-hidden", "true");
+  panel.inert = true;
+
+  const getFocusableItems = (): HTMLElement[] =>
+    Array.from(
+      panel.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ),
+    ).filter((item) => !item.hasAttribute("hidden"));
+
+  const close = (restoreFocus = false) => {
     panel.classList.remove("is-open");
+    panel.inert = true;
+    panel.setAttribute("aria-hidden", "true");
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open main menu");
     if (label) label.textContent = "menu";
     document.body.style.removeProperty("overflow");
+    if (restoreFocus) toggle.focus();
   };
 
   const open = () => {
+    panel.inert = false;
+    panel.setAttribute("aria-hidden", "false");
     panel.classList.add("is-open");
     toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close main menu");
     if (label) label.textContent = "close";
     document.body.style.overflow = "hidden";
+
+    window.requestAnimationFrame(() => {
+      if (!panel.classList.contains("is-open")) return;
+      getFocusableItems()[0]?.focus();
+    });
   };
 
   toggle.addEventListener("click", () => {
-    if (panel.classList.contains("is-open")) close();
+    if (panel.classList.contains("is-open")) close(true);
     else open();
   });
 
-  panel.querySelectorAll("a").forEach((link) => link.addEventListener("click", close));
-
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && panel.classList.contains("is-open")) close();
+  panel.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => close(false));
   });
 
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && panel.classList.contains("is-open")) {
+      event.preventDefault();
+      close(true);
+    }
+  });
+
+  panel.addEventListener("keydown", (event) => {
+    if (event.key !== "Tab" || !panel.classList.contains("is-open")) return;
+
+    const items = getFocusableItems();
+    if (items.length === 0) {
+      event.preventDefault();
+      toggle.focus();
+      return;
+    }
+
+    const first = items[0];
+    const last = items[items.length - 1];
+    const active = document.activeElement;
+    const focusIsInside = active instanceof HTMLElement && panel.contains(active);
+
+    if (event.shiftKey && (!focusIsInside || active === first)) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (!focusIsInside || active === last)) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760 && panel.classList.contains("is-open")) close(false);
+  });
 }
 
 function initYear(): void {
