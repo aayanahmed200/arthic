@@ -1,13 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 360" role="img" aria-labelledby="title desc">
-  <title id="title">Arlo — Arthic study support</title>
-  <desc id="desc">A clean open-book symbol made from two softly curved pages.</desc>
-  <path d="M220 104C180 76 119 70 57 88V287C119 271 180 279 220 307V104Z"
-        fill="#EAF2E5" stroke="#35623A" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M220 104C260 76 321 70 383 88V287C321 271 260 279 220 307V104Z"
-        fill="#F2F5EE" stroke="#35623A" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M220 105V307" fill="none" stroke="#35623A" stroke-width="4" stroke-linecap="round"/>
-  <path d="M91 132C128 123 164 128 190 141M91 172C128 164 164 168 190 181"
-        fill="none" stroke="#91AD88" stroke-width="4" stroke-linecap="round"/>
-  <path d="M250 141C276 128 312 123 349 132M250 181C276 168 312 164 349 172"
-        fill="none" stroke="#91AD88" stroke-width="4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440" role="img" aria-labelledby="title desc">
+  <title id="title">Arlo — Arthic study companion</title>
+  <desc id="desc">A bright green organic shape holding a simple white open book.</desc>
+  <defs>
+    <linearGradient id="arlo-green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#21C85B"/>
+      <stop offset=".55" stop-color="#65D83A"/>
+      <stop offset="1" stop-color="#BDE52D"/>
+    </linearGradient>
+  </defs>
+  <path d="M220 24
+    C171 24 151 49 133 80
+    C115 111 83 121 54 143
+    C21 169 16 205 31 239
+    C47 273 82 287 111 306
+    C133 321 149 358 174 383
+    C187 397 202 405 220 405
+    C238 405 253 397 266 383
+    C291 358 307 321 329 306
+    C358 287 393 273 409 239
+    C424 205 419 169 386 143
+    C357 121 325 111 307 80
+    C289 49 269 24 220 24Z"
+    fill="url(#arlo-green)"/>
+  <path d="M135 160
+    C135 143 148 130 165 130H212
+    C224 130 232 136 237 145
+    C242 136 250 130 262 130H309
+    C326 130 339 143 339 160V267
+    C307 255 270 256 237 277
+    C204 256 167 255 135 267Z"
+    fill="#FFFFFF"/>
+  <path d="M237 145V276" fill="none" stroke="#DDEADB" stroke-width="4" stroke-linecap="round"/>
+  <path d="M221 130H253V195L237 183L221 195Z" fill="#29412D"/>
+  <path d="M161 207C181 201 201 203 217 210M257 210C273 203 293 201 313 207"
+    fill="none" stroke="#C9DEC5" stroke-width="4" stroke-linecap="round"/>
 </svg>
