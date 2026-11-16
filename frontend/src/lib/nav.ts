@@ -206,9 +206,9 @@ function initPageTransitions(): void {
 
 /** Add a shimmer only while a framed remote image is still loading. */
 function initImagePlaceholders(): void {
-  document.querySelectorAll<HTMLImageElement>("img[data-image-frame]").forEach((img) => {
-    const frame = img.closest<HTMLElement>("[data-image-frame]");
-    if (!frame) return;
+  document.querySelectorAll<HTMLElement>("[data-image-frame]").forEach((frame) => {
+    const img = frame.querySelector<HTMLImageElement>("img");
+    if (!img) return;
 
     if (img.complete) {
       frame.classList.add(img.naturalWidth > 0 ? "is-loaded" : "is-failed");
