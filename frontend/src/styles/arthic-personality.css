@@ -1015,3 +1015,45 @@ button.is-loading { cursor: progress; }
   }
   .route-transition { display: none; }
 }
+
+
+/* Make the chosen brand teal visible on the main actions, with dark text for contrast. */
+.home-page .home-button--primary,
+.content-page .oneprep-button--primary,
+.content-page .study-action:not(.study-action--secondary),
+.study-preview-page .study-action:not(.study-action--secondary),
+.home-page .nav__cta,
+.content-page .nav__cta {
+  background: #40B5AD !important;
+  border-color: #40B5AD !important;
+  color: #123F3B !important;
+}
+.home-page .home-button--primary:hover,
+.content-page .oneprep-button--primary:hover,
+.content-page .study-action:not(.study-action--secondary):hover:not(:disabled),
+.study-preview-page .study-action:not(.study-action--secondary):hover:not(:disabled),
+.home-page .nav__cta:hover,
+.content-page .nav__cta:hover {
+  background: #2FA39B !important;
+  border-color: #2FA39B !important;
+  color: #102F2C !important;
+}
+.study-action.is-loading::before,
+.study-preview-page .study-action.is-loading::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: arthic-spin .7s linear infinite;
+}
+[data-image-frame].is-failed {
+  background: #E6F0ED;
+}
+[data-image-frame].is-failed img {
+  opacity: 0;
+}
+[data-theme-toggle] { display: none !important; }
