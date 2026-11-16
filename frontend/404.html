@@ -3,29 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light dark" />
-<script>
-(function () {
-  try {
-    var theme = localStorage.getItem("arthic-theme");
-    if (theme !== "light" && theme !== "dark") {
-      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {}
-})();
-</script>
+<meta name="color-scheme" content="light" />
+<script>document.documentElement.setAttribute("data-theme", "light");</script>
 <title>404 — arthic</title>
 <meta name="description" content="This page doesn't exist on arthic." />
 <meta name="robots" content="noindex, nofollow" />
-<meta name="theme-color" content="#fcfbf8" />
+<meta name="theme-color" content="#40B5AD" />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body>
+<body class="content-page error-page">
 
 <div class="grain" aria-hidden="true"></div>
 <a class="skip-link" href="#main">skip to content</a>
@@ -92,7 +82,7 @@
 </div>
 
 <main id="main">
-  <div class="entry container" id="top">
+  <div class="entry container entry--missing" id="top">
     <div class="entry__missing" data-reveal>
       <p class="eyebrow">404</p>
       <h1>you found the edge of the site.</h1>
@@ -104,6 +94,17 @@
         </svg>
       </a>
     </div>
+    <figure class="entry__missing-media" data-image-frame>
+      <img
+        src="https://images.unsplash.com/photo-1654356709115-3f68998bead4?auto=format&fit=crop&w=1000&h=1250&q=82"
+        alt="A quiet, sunlit study nook with books and plants"
+        width="1000"
+        height="1250"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption>FOCUS / RESTART / KEEP GOING</figcaption>
+    </figure>
   </div>
 </main>
 
