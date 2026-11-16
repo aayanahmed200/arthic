@@ -75,6 +75,24 @@ const FOOTER = `<div class="footer-frame">
   </footer>
 </div>`;
 
+function setReferenceBackground(selector: string, color: string): void {
+  document.querySelectorAll<HTMLElement>(selector).forEach((element) => {
+    element.style.setProperty("background", color, "important");
+    element.style.setProperty("background-image", "none", "important");
+  });
+}
+
+function applyReferenceSurfaces(): void {
+  document.documentElement.style.setProperty("background", "#cceb80", "important");
+  document.body.style.setProperty("background", "#cceb80", "important");
+  document.querySelector<HTMLElement>("main")?.style.setProperty("background", "#cceb80", "important");
+  setReferenceBackground("body.content-page main > section", "#cceb80");
+  setReferenceBackground("body.content-page .content-hero, body.content-page .oneprep-subhero, body.content-page .study-intro, body.content-page.legal-page .entry__head", "#d0ecfd");
+  setReferenceBackground("body.content-page .oneprep-final-cta, body.content-page .content-cta", "#9fd986");
+  setReferenceBackground("body.content-page .oneprep-pathway-section--tint", "#d9ef9f");
+  setReferenceBackground("body.content-page.legal-page .entry__body, body.content-page.legal-page .entry", "#cceb80");
+}
+
 export function initReferenceChrome(): void {
   const existingHeader = document.querySelector<HTMLElement>("[data-nav]");
   if (!existingHeader) return;
@@ -87,4 +105,5 @@ export function initReferenceChrome(): void {
   if (existingFooter) existingFooter.outerHTML = FOOTER;
 
   document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#d0ecfd");
+  applyReferenceSurfaces();
 }
