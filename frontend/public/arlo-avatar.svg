@@ -1,9 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-labelledby="title desc">
   <title id="title">Arlo mark</title>
-  <desc id="desc">A small open-book symbol.</desc>
-  <path d="M36 20C27 14 16 14 7 17V55C17 52 27 53 36 59V20Z"
-        fill="#EAF2E5" stroke="#35623A" stroke-width="2.8" stroke-linejoin="round"/>
-  <path d="M36 20C45 14 56 14 65 17V55C55 52 45 53 36 59V20Z"
-        fill="#F2F5EE" stroke="#35623A" stroke-width="2.8" stroke-linejoin="round"/>
-  <path d="M36 20V59" fill="none" stroke="#35623A" stroke-width="2.4" stroke-linecap="round"/>
+  <desc id="desc">A green organic shape with a white open-book symbol.</desc>
+  <defs>
+    <linearGradient id="arlo-green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#21C85B"/>
+      <stop offset=".55" stop-color="#65D83A"/>
+      <stop offset="1" stop-color="#BDE52D"/>
+    </linearGradient>
+  </defs>
+  <path d="M36 3.5
+    C28 3.5 24.5 8 21.5 13
+    C18.5 18.5 13 20.5 8 24
+    C2.5 28.5 1.5 34.5 4.5 40
+    C7 45 13 47.5 18 50.5
+    C22 53.5 24.5 60 29 64
+    C31 66 33.5 68 36 68
+    C38.5 68 41 66 43 64
+    C47.5 60 50 53.5 54 50.5
+    C59 47.5 65 45 67.5 40
+    C70.5 34.5 69.5 28.5 64 24
+    C59 20.5 53.5 18.5 50.5 13
+    C47.5 8 44 3.5 36 3.5Z"
+    fill="url(#arlo-green)"/>
+  <path d="M18 27C18 22.5 21.5 19 26 19H34
+    C35 19 35.7 19.3 36 20
+    C36.3 19.3 37 19 38 19H46
+    C50.5 19 54 22.5 54 27V47
+    C48 45 41.5 45.5 36 49
+    C30.5 45.5 24 45 18 47Z" fill="#FFFFFF"/>
+  <path d="M36 20V48" fill="none" stroke="#DDEADB" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M33 19H39V31L36 29L33 31Z" fill="#29412D"/>
 </svg>
