@@ -1,4 +1,2 @@
-import "./styles/main.css";
-import { initCommon } from "./lib/common-init";
-
-initCommon();
+import "./styles/arthic-share.css";
+import "./landing";
