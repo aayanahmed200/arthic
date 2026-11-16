@@ -1170,3 +1170,133 @@ body,.home-page,.content-page {
   height: 100%;
   object-fit: contain;
 }
+
+
+/* Readability pass: raise the small supporting copy without changing the
+   existing heading scale or the calm, open page layout. */
+body.home-page,
+body.content-page {
+  font-size: 16px;
+}
+
+.home-page main p:not(.home-kicker):not(.home-section-kicker):not(.home-hero__note):not(.home-stats__note):not(.home-hero__art-label):not([class*="eyebrow"]):not([class*="kicker"]):not([class*="note"]):not([class*="label"]):not([class*="status"]),
+.content-page main p:not([class*="eyebrow"]):not([class*="kicker"]):not([class*="note"]):not([class*="label"]):not([class*="status"]) {
+  font-size: max(15px, 1em) !important;
+  line-height: 1.65 !important;
+}
+
+.home-page main small,
+.content-page main small {
+  font-size: 12.5px !important;
+  line-height: 1.5 !important;
+}
+
+.home-page .nav__links,
+.content-page .nav__links {
+  font-size: 14px !important;
+}
+.home-page .nav__cta,
+.content-page .nav__cta,
+.home-page .home-button,
+.home-page .home-text-link,
+.content-page .oneprep-button,
+.content-page .career-role__link {
+  font-size: 14px !important;
+}
+
+.home-page .home-hero__note,
+.home-page .home-stats__note,
+.home-page .home-section-kicker,
+.home-page .home-kicker,
+.home-page .home-feature__eyebrow,
+.home-page .home-roadmap__status,
+.home-page .home-roadmap__step,
+.home-page .footer__col-label,
+.content-page .content-hero__note,
+.content-page .oneprep-eyebrow,
+.content-page .oneprep-status-note,
+.content-page .oneprep-step-card__tag,
+.content-page .oneprep-step-card__number,
+.content-page .oneprep-visual-status,
+.content-page .exam-finder__status,
+.content-page .career-role__type,
+.content-page .career-role__number,
+.content-page .waitlist-points__number,
+.content-page .study-rail__eyebrow,
+.content-page .study-session__eyebrow,
+.content-page .study-session__type {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.home-page .home-pathway-list small,
+.home-page .home-pathway-list span,
+.home-page .home-roadmap__body,
+.home-page .home-feature p,
+.content-page .oneprep-route-card__type,
+.content-page .oneprep-route-card__detail,
+.content-page .oneprep-step-card p,
+.content-page .career-role__body,
+.content-page .waitlist-points span,
+.content-page .study-session__subhead,
+.content-page .oneprep-route-card__arrow {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.pathways-page .oneprep-route-card__type {
+  font-size: 12px !important;
+  letter-spacing: .045em !important;
+}
+.pathways-page .oneprep-route-card__detail {
+  font-size: 13.5px !important;
+}
+
+.home-page .home-hero__art img {
+  width: min(100%, 370px) !important;
+  max-width: 370px !important;
+  aspect-ratio: 1;
+}
+
+@media (max-width: 760px) {
+  .home-page .nav__links,
+  .content-page .nav__links { font-size: 14px !important; }
+  .home-page .nav__cta,
+  .content-page .nav__cta,
+  .home-page .home-button,
+  .home-page .home-text-link,
+  .content-page .oneprep-button {
+    font-size: 14px !important;
+  }
+  .home-page .home-hero__note,
+  .home-page .home-stats__note,
+  .content-page .content-hero__note {
+    font-size: 12px !important;
+  }
+}
+
+/* Readable controls, navigation and small-print across all public pages. */
+.home-page .home-feature p,
+.home-page .home-pathway-list small,
+.home-page .home-roadmap__body,
+.content-page .career-role__body,
+.content-page .waitlist-points span {
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+.content-page .oneprep-route-strip > span,
+.content-page .exam-finder__label,
+.content-page .study-rail__link {
+  font-size: 14px !important;
+}
+.content-page .study-session__subhead {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+.footer__col-label {
+  font-size: 12px !important;
+}
+.footer__col a,
+.footer__bottom a {
+  font-size: 14px !important;
+}
