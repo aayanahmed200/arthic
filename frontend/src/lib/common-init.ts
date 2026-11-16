@@ -6,7 +6,6 @@
  * initialized by that page's own entry script instead.
  */
 import { initNav } from "./nav";
-import { initTheme } from "./theme";
 import { initRegionPopover } from "./regions";
 import { initSmoothScroll } from "./smooth-scroll";
 import { initSubscribeForm } from "./subscribe";
@@ -17,7 +16,6 @@ import { initExamFinder } from "./exam-finder";
 
 export function initCommon(): void {
   initNav();
-  initTheme();
   initRegionPopover();
   initSmoothScroll();
   initSubscribeForm();
