@@ -1,4 +1,4 @@
-const HEADER = String.raw\`<header class="nav reference-nav" data-nav>
+const HEADER = `<header class="nav reference-nav" data-nav>
   <div class="nav__inner container">
     <a href="/" class="nav__mark" aria-label="Arthic home"><span class="nav__wordmark">Arthic</span><span class="nav__spark" aria-hidden="true">✳</span></a>
     <nav class="nav__links" aria-label="Primary navigation">
@@ -18,9 +18,9 @@ const HEADER = String.raw\`<header class="nav reference-nav" data-nav>
       <span data-nav-toggle-label>Menu</span>
     </button>
   </div>
-</header>\`;
+</header>`;
 
-const MOBILE_MENU = String.raw\`<div class="mobile-nav" id="mobileNav" data-mobile-nav>
+const MOBILE_MENU = `<div class="mobile-nav" id="mobileNav" data-mobile-nav>
   <nav aria-label="Mobile navigation">
     <a href="/#boards" data-mobile-link>Board</a>
     <a href="/#sandboxes" data-mobile-link>Sandbox</a>
@@ -32,9 +32,9 @@ const MOBILE_MENU = String.raw\`<div class="mobile-nav" id="mobileNav" data-mobi
     <a href="/waitlist.html" data-mobile-link>Join early access</a>
   </nav>
   <p class="mobile-nav__foot">A shared space for learning, ideas and useful resources. <a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
-</div>\`;
+</div>`;
 
-const FOOTER = String.raw\`<div class="footer-frame">
+const FOOTER = `<div class="footer-frame">
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
@@ -73,7 +73,7 @@ const FOOTER = String.raw\`<div class="footer-frame">
       </div>
     </div>
   </footer>
-</div>\`;
+</div>`;
 
 export function initReferenceChrome(): void {
   const existingHeader = document.querySelector<HTMLElement>("[data-nav]");
