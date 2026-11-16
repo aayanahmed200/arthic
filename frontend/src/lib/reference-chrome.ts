@@ -1,79 +1,8 @@
-const HEADER = `<header class="nav reference-nav" data-nav>
-  <div class="nav__inner container">
-    <a href="/" class="nav__mark" aria-label="Arthic home"><span class="nav__wordmark">Arthic</span><span class="nav__spark" aria-hidden="true">✳</span></a>
-    <nav class="nav__links" aria-label="Primary navigation">
-      <a href="/#boards" data-nav-link>Board</a>
-      <a href="/#sandboxes" data-nav-link>Sandbox</a>
-      <a href="/#subscriptions" data-nav-link>Subscriptions</a>
-      <a href="/#templates" data-nav-link>Templates</a>
-      <a href="/#education" data-nav-link>Education</a>
-      <a href="/#arcade" data-nav-link>Arcade <span aria-hidden="true">↗</span></a>
-    </nav>
-    <div class="nav__utility">
-      <a class="nav__quote" href="mailto:hello@arthic.tech?subject=Arthic%20enquiry">Get a quote</a>
-      <a class="nav__preview" href="/study-preview.html">Try preview</a>
-      <a class="nav__cta" href="/waitlist.html">Join early access</a>
-    </div>
-    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav" aria-label="Open main menu">
-      <span data-nav-toggle-label>Menu</span>
-    </button>
-  </div>
-</header>`;
+const HEADER = `<header class="nav reference-nav" data-nav><div class="nav__inner container"><a href="/" class="nav__mark" aria-label="Arthic home"><span class="nav__wordmark">Arthic</span><svg class="nav__bookmark" viewBox="0 0 42 32" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M4 6.5C10 4.7 15.5 5.5 21 9.5V27C15.5 23.2 10 22.4 4 24V6.5Z" fill="#fff8dc" stroke="#1a2923" stroke-width="1.8"/><path d="M38 6.5C32 4.7 26.5 5.5 21 9.5V27C26.5 23.2 32 22.4 38 24V6.5Z" fill="#f7c3dc" stroke="#1a2923" stroke-width="1.8"/><path d="M21 9.5V27" stroke="#1a2923" stroke-width="1.8"/><path d="M29 4L34 2L39 13L34 16Z" fill="#f1d36e" stroke="#1a2923" stroke-width="1.5"/><path d="M34 16L39 13L40 19L35 20Z" fill="#c98ce0" stroke="#1a2923" stroke-width="1.5"/></svg></a><nav class="nav__links" aria-label="Primary navigation"><a href="/subjects.html" data-nav-link>Exams</a><a href="/method.html" data-nav-link>How it works</a><a href="/study-preview.html" data-nav-link>Practice</a><a href="/#subscriptions" data-nav-link>Study loop</a><a href="/pricing.html" data-nav-link>Pricing</a><a href="/careers.html" data-nav-link>Careers</a></nav><div class="nav__utility"><a class="nav__quote" href="mailto:hello@arthic.tech">Contact</a><a class="nav__preview" href="/study-preview.html">Try preview</a><a class="nav__cta" href="/waitlist.html">Join waitlist</a></div><button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav" aria-label="Open main menu"><span data-nav-toggle-label>Menu</span></button></div></header>`;
 
-const MOBILE_MENU = `<div class="mobile-nav" id="mobileNav" data-mobile-nav>
-  <nav aria-label="Mobile navigation">
-    <a href="/#boards" data-mobile-link>Board</a>
-    <a href="/#sandboxes" data-mobile-link>Sandbox</a>
-    <a href="/#subscriptions" data-mobile-link>Subscriptions</a>
-    <a href="/#templates" data-mobile-link>Templates</a>
-    <a href="/#education" data-mobile-link>Education</a>
-    <a href="/#arcade" data-mobile-link>Arcade</a>
-    <a href="/study-preview.html" data-mobile-link>Try preview</a>
-    <a href="/waitlist.html" data-mobile-link>Join early access</a>
-  </nav>
-  <p class="mobile-nav__foot">A shared space for learning, ideas and useful resources. <a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
-</div>`;
+const MOBILE_MENU = `<div class="mobile-nav" id="mobileNav" data-mobile-nav><nav aria-label="Mobile navigation"><a href="/subjects.html" data-mobile-link>Exam pathways</a><a href="/method.html" data-mobile-link>How it works</a><a href="/study-preview.html" data-mobile-link>Practice</a><a href="/#subscriptions" data-mobile-link>Study loop</a><a href="/pricing.html" data-mobile-link>Pricing</a><a href="/careers.html" data-mobile-link>Careers</a><a href="/waitlist.html" data-mobile-link>Join waitlist</a></nav><p class="mobile-nav__foot">Exam preparation for Pakistan's entrance and competitive exams. <a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p></div>`;
 
-const FOOTER = `<div class="footer-frame">
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <a href="/" class="footer__mark" aria-label="Arthic home"><span class="footer__wordmark">Arthic</span><span class="footer__spark" aria-hidden="true">✳</span></a>
-          <p class="footer__tagline">Make space for every idea.</p>
-        </div>
-        <nav class="footer__col" aria-label="Product">
-          <span class="footer__col-label">Product</span>
-          <a href="/#boards">Board</a>
-          <a href="/#sandboxes">Sandbox</a>
-          <a href="/#subscriptions">Features</a>
-        </nav>
-        <nav class="footer__col" aria-label="Explore">
-          <span class="footer__col-label">Explore</span>
-          <a href="/#templates">Templates</a>
-          <a href="/subjects.html">Exam pathways</a>
-          <a href="/method.html">How it works</a>
-        </nav>
-        <nav class="footer__col" aria-label="Support">
-          <span class="footer__col-label">Support</span>
-          <a href="/study-preview.html">Study preview</a>
-          <a href="/careers.html">Careers</a>
-          <a href="mailto:hello@arthic.tech">Contact us</a>
-        </nav>
-        <nav class="footer__col" aria-label="Legal">
-          <span class="footer__col-label">Legal</span>
-          <a href="/terms.html">Terms of use</a>
-          <a href="/privacy.html">Privacy policy</a>
-          <a href="/cookies.html">Cookie policy</a>
-        </nav>
-      </div>
-      <div class="footer__bottom">
-        <p>© <span data-year>2026</span> Arthic. All rights reserved.</p>
-        <a href="#top">Back to top ↑</a>
-      </div>
-    </div>
-  </footer>
-</div>`;
+const FOOTER = `<div class="footer-frame"><div class="footer-garden" aria-hidden="true"><svg viewBox="0 0 1600 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 150V106C55 76 105 94 148 112C204 68 260 79 303 111C355 80 420 83 468 115C520 79 582 82 630 113C680 70 741 76 787 114C846 73 907 80 954 115C1010 74 1070 79 1117 113C1167 71 1233 77 1278 112C1335 72 1399 84 1442 114C1497 83 1552 91 1600 105V150Z" fill="#7fc47b"/><g fill="#a9dc8e" stroke="#5eaa6f" stroke-width="2.1" stroke-linejoin="round"><path d="M60 150C48 112 33 84 8 70C36 61 63 81 70 117C79 80 104 57 130 64C116 91 95 114 70 132V150Z"/><path d="M181 150C178 112 164 80 139 56C169 55 194 79 196 113C209 79 232 67 258 72C244 99 219 120 196 132V150Z"/><path d="M390 150C371 112 368 77 382 38C410 70 422 101 409 132C430 99 459 86 481 96C461 123 434 139 409 145V150Z"/><path d="M618 150C602 113 600 75 618 42C643 78 653 109 639 136C661 101 687 93 709 105C689 129 664 143 639 149V150Z"/><path d="M855 150C841 114 843 77 861 39C887 77 896 109 881 137C902 104 928 93 950 105C931 129 906 143 881 149V150Z"/><path d="M1090 150C1074 111 1076 72 1097 35C1120 74 1130 109 1115 138C1138 101 1163 91 1186 105C1166 131 1140 145 1115 149V150Z"/><path d="M1324 150C1310 112 1313 77 1331 42C1355 79 1364 111 1349 138C1371 105 1395 96 1418 108C1398 132 1374 145 1349 149V150Z"/><path d="M1514 150C1502 112 1504 80 1521 49C1545 82 1553 112 1538 139C1559 111 1580 104 1600 116V150Z"/></g><g fill="none" stroke="#5eaa6f" stroke-width="2" stroke-linecap="round"><path d="M70 150V117M196 150V113M409 150V132M639 150V136M881 150V137M1115 150V138M1349 150V138M1538 150V139"/><path d="M70 124L42 92M70 130L109 87M196 128L164 89M196 130L239 101M409 135L388 82M409 139L454 112M639 139L621 86M639 141L682 117M881 140L867 84M881 142L924 116M1115 141L1099 82M1115 142L1158 115M1349 141L1334 90M1349 143L1390 116"/></g></svg></div><footer class="footer"><div class="container"><div class="footer__top"><div class="footer__brand"><a href="/" class="footer__mark" aria-label="Arthic home"><span class="footer__wordmark">Arthic</span><svg class="nav__bookmark" viewBox="0 0 42 32" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M4 6.5C10 4.7 15.5 5.5 21 9.5V27C15.5 23.2 10 22.4 4 24V6.5Z" fill="#fff8dc" stroke="#1a2923" stroke-width="1.8"/><path d="M38 6.5C32 4.7 26.5 5.5 21 9.5V27C26.5 23.2 32 22.4 38 24V6.5Z" fill="#f7c3dc" stroke="#1a2923" stroke-width="1.8"/><path d="M21 9.5V27" stroke="#1a2923" stroke-width="1.8"/><path d="M29 4L34 2L39 13L34 16Z" fill="#f1d36e" stroke="#1a2923" stroke-width="1.5"/><path d="M34 16L39 13L40 19L35 20Z" fill="#c98ce0" stroke="#1a2923" stroke-width="1.5"/></svg></a><p class="footer__tagline">A focused exam-preparation platform for students in Pakistan.</p><a class="footer__email" href="mailto:hello@arthic.tech">hello@arthic.tech</a></div><nav class="footer__col" aria-label="Platform"><span class="footer__col-label">Platform</span><a href="/subjects.html">Exam pathways</a><a href="/method.html">How it works</a><a href="/study-preview.html">Study preview</a></nav><nav class="footer__col" aria-label="Exam routes"><span class="footer__col-label">Exam routes</span><a href="/subjects.html#mdcat">MDCAT</a><a href="/subjects.html#engineering">ECAT · NET · FAST</a><a href="/subjects.html#law">LUMS BA-LL.B</a><a href="/subjects.html#civil-service">CSS · PMS</a></nav><nav class="footer__col" aria-label="Company"><span class="footer__col-label">Company</span><a href="/careers.html">Careers</a><a href="/waitlist.html">Early access</a><a href="mailto:hello@arthic.tech">Contact</a></nav><nav class="footer__col" aria-label="Legal"><span class="footer__col-label">Legal</span><a href="/terms.html">Terms of use</a><a href="/privacy.html">Privacy policy</a><a href="/cookies.html">Cookie policy</a></nav></div><div class="footer__bottom"><p>© <span data-year>2026</span> Arthic</p><span>Exam preparation, made clearer.</span><a href="#top">Back to top ↑</a></div></div></footer></div>`;
 
 function setReferenceBackground(selector: string, color: string): void {
   document.querySelectorAll<HTMLElement>(selector).forEach((element) => {

@@ -28,8 +28,8 @@ challengeButtons.forEach((button) => {
     button.setAttribute("aria-pressed", "true");
     if (!challengeFeedback) return;
     challengeFeedback.textContent = button.dataset.answer === "b"
-      ? "Exactly. Putting ideas somewhere visible makes them easier to organise and connect."
-      : "Not quite. Try writing the idea down and connecting its parts.";
+      ? "Correct. Mitochondria contain the inner-membrane machinery used in aerobic respiration."
+      : "Not quite. Review the roles of ribosomes, mitochondria and the Golgi apparatus, then try again.";
   });
 });
 
