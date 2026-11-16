@@ -197,6 +197,10 @@ function initPageTransitions(): void {
     ) return;
 
     event.preventDefault();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.location.assign(destination.href);
+      return;
+    }
     document.body.classList.add("route-is-leaving");
     overlay.classList.add("is-active");
     window.setTimeout(() => window.location.assign(destination.href), 170);
