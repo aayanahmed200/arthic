@@ -2,10 +2,11 @@ const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]
 const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
 
 if (menuToggle && mobileMenu) {
-  const closeMenu = () => {
+  const closeMenu = (restoreFocus = false) => {
     mobileMenu.hidden = true;
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-label", "Open navigation");
+    if (restoreFocus) menuToggle.focus();
   };
   menuToggle.addEventListener("click", () => {
     const willOpen = mobileMenu.hidden;
@@ -13,8 +14,10 @@ if (menuToggle && mobileMenu) {
     menuToggle.setAttribute("aria-expanded", String(willOpen));
     menuToggle.setAttribute("aria-label", willOpen ? "Close navigation" : "Open navigation");
   });
-  mobileMenu.querySelectorAll<HTMLAnchorElement>("a").forEach((link) => link.addEventListener("click", closeMenu));
-  document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMenu(); });
+  mobileMenu.querySelectorAll<HTMLAnchorElement>("a").forEach((link) => link.addEventListener("click", () => closeMenu(true)));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !mobileMenu.hidden) closeMenu(true);
+  });
 }
 
 const challengeButtons = document.querySelectorAll<HTMLButtonElement>("[data-answer]");
