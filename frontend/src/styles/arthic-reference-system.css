@@ -360,3 +360,48 @@ body.content-page .footer__bottom a{color:#2e5638!important}
   body.content-page .footer__bottom{flex-direction:column;align-items:flex-start}
 }
 @media(prefers-reduced-motion:reduce){body.content-page *{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* Final cascade guard: legacy page themes used important off-white section
+   backgrounds. Explicit page-level selectors keep the reference palette. */
+html body.content-page main > section.content-hero,
+html body.content-page main > section.oneprep-subhero,
+html body.content-page main > section.study-intro,
+html body.content-page.legal-page main > article.entry > header.entry__head{
+  background:#d0ecfd!important;
+  background-color:#d0ecfd!important;
+  background-image:none!important;
+  color:#111!important;
+}
+html body.content-page main > section.oneprep-route-overview,
+html body.content-page main > section.oneprep-pathway-section,
+html body.content-page main > section.oneprep-three-steps,
+html body.content-page main > section.oneprep-feature-band,
+html body.content-page main > section.oneprep-analytics-band,
+html body.content-page main > section.oneprep-method-faq,
+html body.content-page main > section.oneprep-bottom-note,
+html body.content-page main > section.pricing-faq,
+html body.content-page main > section.apply-layout,
+html body.content-page main > section.waitlist-layout,
+html body.content-page main > section.study-workspace,
+html body.content-page main > section.study-preview-invite{
+  background:#cceb80!important;
+  background-color:#cceb80!important;
+  background-image:none!important;
+  color:#111!important;
+}
+html body.content-page main > section.oneprep-final-cta,
+html body.content-page main > section.content-cta{
+  background:#9fd986!important;
+  background-color:#9fd986!important;
+  background-image:none!important;
+  color:#111!important;
+}
+html body.content-page main > section.oneprep-pathway-section--tint{
+  background:#d9ef9f!important;
+  background-color:#d9ef9f!important;
+}
+html body.content-page.legal-page main > article.entry{
+  background:#cceb80!important;
+  background-color:#cceb80!important;
+}
