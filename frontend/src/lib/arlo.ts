@@ -16,7 +16,7 @@ interface ChatMessage {
 
 const GREETING = "Hi, I'm Arlo. Ask me about Arthic, the exam routes, sample practice or early access.";
 
-// Use the same simple-eyed character in the launcher, panel header and
+// Use the same open-book study mark in the launcher, panel header and
 // message rows so Arlo stays recognisable throughout the site.
 const ARLO_MARKUP = '<img src="/arlo-avatar.svg" alt="" width="40" height="40" loading="lazy" />';
 
