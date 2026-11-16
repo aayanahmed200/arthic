@@ -16,12 +16,9 @@ interface ChatMessage {
 
 const GREETING = "Hi, I'm Arlo. Ask me about Arthic, the exam routes, sample practice or early access.";
 
-// Rounded-square eyes, not circles — the shape itself is the whole
-// expressive element, same idea as Grok's bot character. One shared
-// constant used everywhere the character appears (launcher, panel
-// header, every message-bubble avatar), so it's identical by
-// construction, not by convention.
-const ARLO_MASCOT_SVG = '<img src="/arlo-avatar.svg" alt="" width="40" height="40" loading="lazy" />';
+// Use the same small open-book mark in the launcher, panel header and
+// message rows. Arlo is a named support feature, not a cartoon character.
+const ARLO_MARKUP = '<img src="/arlo-avatar.svg" alt="" width="40" height="40" loading="lazy" />';
 
 export function initArlo(): void {
   if (document.querySelector("[data-arlo-root]")) return; // guard against double-init
@@ -33,7 +30,7 @@ export function initArlo(): void {
     <div class="arlo__panel" data-arlo-panel hidden role="dialog" aria-label="Arlo, arthic support chat" aria-modal="false">
       <div class="arlo__head">
         <div class="arlo__head-identity">
-          <span class="arlo__avatar" aria-hidden="true">${ARLO_MASCOT_SVG}</span>
+          <span class="arlo__avatar" aria-hidden="true">${ARLO_MARKUP}</span>
           <div>
             <p class="arlo__head-name">Arlo</p>
             <p class="arlo__head-sub">arthic support</p>
@@ -52,7 +49,7 @@ export function initArlo(): void {
       </form>
     </div>
     <button class="arlo__launcher" type="button" data-arlo-launcher aria-haspopup="dialog" aria-expanded="false" aria-label="chat with Arlo, arthic support">
-      <span class="arlo__launcher-mark" aria-hidden="true">${ARLO_MASCOT_SVG}</span>
+      <span class="arlo__launcher-mark" aria-hidden="true">${ARLO_MARKUP}</span>
     </button>
   `;
   document.body.appendChild(root);
@@ -83,7 +80,7 @@ export function initArlo(): void {
     // assistant + error replies both come "from Arlo's side" visually — avatar alongside the bubble
     const row = document.createElement("div");
     row.className = "arlo__row";
-    row.innerHTML = `<span class="arlo__row-avatar" aria-hidden="true">${ARLO_MASCOT_SVG}</span>`;
+    row.innerHTML = `<span class="arlo__row-avatar" aria-hidden="true">${ARLO_MARKUP}</span>`;
     const bubble = document.createElement("p");
     bubble.className = `arlo__msg arlo__msg--${role}`;
     bubble.textContent = text;
@@ -97,7 +94,7 @@ export function initArlo(): void {
     const row = document.createElement("div");
     row.className = "arlo__row";
     row.innerHTML = `
-      <span class="arlo__row-avatar" aria-hidden="true">${ARLO_MASCOT_SVG}</span>
+      <span class="arlo__row-avatar" aria-hidden="true">${ARLO_MARKUP}</span>
       <div class="arlo__msg arlo__msg--thinking"><div class="loading-bar"></div></div>
     `;
     log.appendChild(row);

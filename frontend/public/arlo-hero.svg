@@ -1,8 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 440" role="img" aria-labelledby="title desc">
-  <title id="title">Arlo, the Arthic study companion</title>
-  <desc id="desc">A simple green rounded character with two small eyes and a calm smile.</desc>
-  <rect x="137" y="73" width="206" height="286" rx="96" fill="#B9D9AE" stroke="#557D50" stroke-width="5"/>
-  <circle cx="207" cy="205" r="6.5" fill="#29412D"/>
-  <circle cx="273" cy="205" r="6.5" fill="#29412D"/>
-  <path d="M216 246 Q240 264 264 246" fill="none" stroke="#456F43" stroke-width="5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 360" role="img" aria-labelledby="title desc">
+  <title id="title">Arlo — Arthic study support</title>
+  <desc id="desc">A clean open-book symbol made from two softly curved pages.</desc>
+  <path d="M220 104C180 76 119 70 57 88V287C119 271 180 279 220 307V104Z"
+        fill="#EAF2E5" stroke="#35623A" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M220 104C260 76 321 70 383 88V287C321 271 260 279 220 307V104Z"
+        fill="#F2F5EE" stroke="#35623A" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M220 105V307" fill="none" stroke="#35623A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M91 132C128 123 164 128 190 141M91 172C128 164 164 168 190 181"
+        fill="none" stroke="#91AD88" stroke-width="4" stroke-linecap="round"/>
+  <path d="M250 141C276 128 312 123 349 132M250 181C276 168 312 164 349 172"
+        fill="none" stroke="#91AD88" stroke-width="4" stroke-linecap="round"/>
 </svg>

@@ -719,7 +719,6 @@ body,.home-page,.content-page {
   transition:none !important;
   box-shadow:0 12px 36px rgba(34,51,41,.10) !important;
 }
-.arlo__launcher-mark .arlo-eye { transition:none !important; }
 
 
 /* FINAL LAYOUT FIXES — override legacy hero constraints and normalise text. */
@@ -1120,4 +1119,54 @@ body,.home-page,.content-page {
 .pathways-page #top,
 .method-page #top {
   scroll-margin-top: 96px;
+}
+
+
+/* Arlo is a brand mark, not a chatbot face. Keep the open-book drawing quiet
+   and give it the same restrained treatment in the hero and support widget. */
+.home-page .home-hero__art {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.home-page .home-hero__art img {
+  display: block;
+  width: min(100%, 340px) !important;
+  max-width: 340px !important;
+  height: auto;
+  object-fit: contain;
+}
+.home-page .home-hero__art-label {
+  position: static !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--color-fg-mute) !important;
+  font: 600 9px/1.4 var(--font-body) !important;
+  letter-spacing: .15em;
+  text-align: center;
+}
+.arlo__launcher {
+  width: 54px !important;
+  height: 54px !important;
+  border-radius: 50% !important;
+  border: 1px solid #C8D9C2 !important;
+  background: #EAF2E5 !important;
+  box-shadow: 0 3px 10px rgba(36,68,38,.08) !important;
+}
+.arlo__launcher-mark img {
+  width: 34px !important;
+  height: 34px !important;
+  object-fit: contain;
+}
+.arlo__avatar img,
+.arlo__row-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-labelledby="title">
-  <title id="title">Arlo</title>
-  <rect x="11" y="6" width="50" height="60" rx="24" fill="#B9D9AE" stroke="#557D50" stroke-width="2.2"/>
-  <circle cx="28" cy="32" r="2.8" fill="#29412D"/>
-  <circle cx="44" cy="32" r="2.8" fill="#29412D"/>
-  <path d="M29 44 Q36 50 43 44" fill="none" stroke="#456F43" stroke-width="2.5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-labelledby="title desc">
+  <title id="title">Arlo mark</title>
+  <desc id="desc">A small open-book symbol.</desc>
+  <path d="M36 20C27 14 16 14 7 17V55C17 52 27 53 36 59V20Z"
+        fill="#EAF2E5" stroke="#35623A" stroke-width="2.8" stroke-linejoin="round"/>
+  <path d="M36 20C45 14 56 14 65 17V55C55 52 45 53 36 59V20Z"
+        fill="#F2F5EE" stroke="#35623A" stroke-width="2.8" stroke-linejoin="round"/>
+  <path d="M36 20V59" fill="none" stroke="#35623A" stroke-width="2.4" stroke-linecap="round"/>
 </svg>
