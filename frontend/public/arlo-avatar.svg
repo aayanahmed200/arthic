@@ -8,6 +8,12 @@
       <stop offset="1" stop-color="#BDE52D"/>
     </linearGradient>
   </defs>
+  <style>
+    @keyframes arlo-blink { 0%, 43%, 47%, 100% { transform: scaleY(1); } 45% { transform: scaleY(.08); } }
+    .arlo-eye { transform-box: fill-box; transform-origin: center; animation: arlo-blink 5.2s ease-in-out infinite; }
+    .arlo-eye:nth-of-type(2) { animation-delay: .06s; }
+    @media (prefers-reduced-motion: reduce) { .arlo-eye { animation: none; } }
+  </style>
   <path d="M36 3.5
     C28 3.5 24.5 8 21.5 13
     C18.5 18.5 13 20.5 8 24
@@ -22,8 +28,8 @@
     C59 20.5 53.5 18.5 50.5 13
     C47.5 8 44 3.5 36 3.5Z"
     fill="url(#arlo-green)"/>
-  <ellipse cx="27" cy="34" rx="3.2" ry="4.6" fill="#24432B"/>
-  <ellipse cx="45" cy="34" rx="3.2" ry="4.6" fill="#24432B"/>
+  <ellipse class="arlo-eye" cx="27" cy="34" rx="4.6" ry="4.6" fill="#24432B"/>
+  <ellipse class="arlo-eye" cx="45" cy="34" rx="3.2" ry="4.6" fill="#24432B"/>
   <circle cx="26" cy="32.5" r="1" fill="#FFFFFF" opacity=".9"/>
   <circle cx="44" cy="32.5" r="1" fill="#FFFFFF" opacity=".9"/>
 </svg>
