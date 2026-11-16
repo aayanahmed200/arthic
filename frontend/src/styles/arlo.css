@@ -289,3 +289,21 @@
     animation: none;
   }
 }
+
+
+/* Floating preview button: the character is small, animated and opens the chat. */
+.arlo__launcher-mark img { display:block; width:42px; height:42px; object-fit:contain; }
+.arlo__launcher:focus-visible { outline:2px solid #176A65; outline-offset:4px; }
+.arlo__panel { max-height: calc(100dvh - 112px); }
+.arlo__msg { font-size: 15px; line-height: 1.6; }
+.arlo__input { font-size: 15px; }
+@media (max-width: 560px) {
+  .arlo { left:auto !important; right:12px !important; bottom:12px !important; align-items:flex-end !important; }
+  .arlo__launcher { align-self:flex-end; }
+  .arlo__launcher::before { display:none; }
+  .arlo__launcher::after { display:none; }
+  .arlo__panel { width:min(25rem,calc(100vw - 24px)); height:min(32rem,calc(100dvh - 100px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arlo__launcher { animation:none !important; }
+}
