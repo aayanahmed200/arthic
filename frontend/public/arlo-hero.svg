@@ -1,37 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440" role="img" aria-labelledby="title desc">
-  <title id="title">Arlo — Arthic study companion</title>
-  <desc id="desc">A bright green organic shape holding a simple white open book.</desc>
-  <defs>
-    <linearGradient id="arlo-green" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#21C85B"/>
-      <stop offset=".55" stop-color="#65D83A"/>
-      <stop offset="1" stop-color="#BDE52D"/>
-    </linearGradient>
-  </defs>
-  <path d="M220 24
-    C171 24 151 49 133 80
-    C115 111 83 121 54 143
-    C21 169 16 205 31 239
-    C47 273 82 287 111 306
-    C133 321 149 358 174 383
-    C187 397 202 405 220 405
-    C238 405 253 397 266 383
-    C291 358 307 321 329 306
-    C358 287 393 273 409 239
-    C424 205 419 169 386 143
-    C357 121 325 111 307 80
-    C289 49 269 24 220 24Z"
-    fill="url(#arlo-green)"/>
-  <path d="M135 160
-    C135 143 148 130 165 130H212
-    C224 130 232 136 237 145
-    C242 136 250 130 262 130H309
-    C326 130 339 143 339 160V267
-    C307 255 270 256 237 277
-    C204 256 167 255 135 267Z"
-    fill="#FFFFFF"/>
-  <path d="M237 145V276" fill="none" stroke="#DDEADB" stroke-width="4" stroke-linecap="round"/>
-  <path d="M221 130H253V195L237 183L221 195Z" fill="#29412D"/>
-  <path d="M161 207C181 201 201 203 217 210M257 210C273 203 293 201 313 207"
-    fill="none" stroke="#C9DEC5" stroke-width="4" stroke-linecap="round"/>
+  <title id="title">Arlo, the Arthic companion</title>
+  <desc id="desc">A simple soft-green character with two friendly eyes.</desc>
+  <path d="M220 28
+    C180 24 157 46 137 75
+    C119 102 91 112 62 137
+    C30 164 21 197 32 229
+    C43 263 75 282 105 302
+    C131 320 146 355 169 380
+    C184 396 201 408 220 408
+    C242 408 258 395 273 379
+    C295 356 311 321 336 304
+    C366 283 398 263 408 229
+    C419 196 410 164 378 137
+    C349 112 321 102 303 75
+    C282 45 258 24 220 28Z"
+    fill="#8DBB79"/>
+  <path d="M220 35
+    C183 32 160 53 142 80
+    C122 109 96 120 69 143
+    C40 168 34 199 44 226
+    C55 256 84 275 113 294
+    C139 311 154 347 175 370
+    C188 384 203 395 220 395
+    C239 395 253 383 266 369
+    C288 346 302 312 327 295
+    C356 275 385 256 396 226
+    C406 198 400 168 371 143
+    C344 120 318 109 298 80
+    C280 53 257 32 220 35Z"
+    fill="#9BC887"/>
+  <ellipse cx="169" cy="207" rx="9" ry="13" fill="#263D2B"/>
+  <ellipse cx="271" cy="207" rx="9" ry="13" fill="#263D2B"/>
 </svg>
