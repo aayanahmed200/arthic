@@ -22,7 +22,7 @@
     C357 121 325 111 307 80
     C289 49 269 24 220 24Z"
     fill="url(#arlo-green)"/>
-  <ellipse cx="169" cy="207" rx="9" ry="13" fill="#24432B"/>
+  <ellipse cx="169" cy="207" rx="13" ry="13" fill="#24432B"/>
   <ellipse cx="271" cy="207" rx="9" ry="13" fill="#24432B"/>
   <circle cx="166" cy="203" r="2.5" fill="#FFFFFF" opacity=".9"/>
   <circle cx="268" cy="203" r="2.5" fill="#FFFFFF" opacity=".9"/>
