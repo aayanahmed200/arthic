@@ -440,3 +440,79 @@
     transition: none !important;
   }
 }
+
+/* FINISHING DETAILS — navigation, focus and safe-area behaviour. */
+html {
+  scroll-padding-top: 94px;
+}
+.home-page .nav__links a,
+.content-page .nav__links a {
+  position: relative;
+  padding-block: 8px;
+}
+.home-page .nav__links a::after,
+.content-page .nav__links a::after {
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+  height: 1.5px;
+  background: var(--color-accent-strong);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 180ms ease;
+}
+.home-page .nav__links a:hover::after,
+.content-page .nav__links a:hover::after,
+.home-page .nav__links a[aria-current="page"]::after,
+.content-page .nav__links a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+.home-page .nav__toggle,
+.content-page .nav__toggle {
+  min-height: 38px !important;
+  padding-inline: 15px !important;
+  border: 1px solid #D4E0D0 !important;
+  border-radius: 999px !important;
+  background: #F1F5ED !important;
+  color: var(--color-fg) !important;
+  font-size: 11px !important;
+  letter-spacing: .045em !important;
+  transition: background-color 160ms ease, border-color 160ms ease !important;
+}
+.home-page .nav__toggle:hover,
+.content-page .nav__toggle:hover,
+.home-page .nav__toggle[aria-expanded="true"],
+.content-page .nav__toggle[aria-expanded="true"] {
+  border-color: #AFC5A7 !important;
+  background: #E6EFE1 !important;
+}
+.home-page .mobile-nav,
+.content-page .mobile-nav {
+  min-height: 100svh;
+  min-height: 100dvh;
+  padding-top: calc(var(--nav-height) + max(1.5rem, env(safe-area-inset-top)));
+  padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
+}
+.home-page .mobile-nav nav a[aria-current="page"],
+.content-page .mobile-nav nav a[aria-current="page"] {
+  color: var(--color-accent-strong) !important;
+}
+.home-page .mobile-nav nav a:focus-visible,
+.content-page .mobile-nav nav a:focus-visible {
+  outline-offset: -2px;
+}
+.home-page :is(input, textarea, select):focus-visible,
+.content-page :is(input, textarea, select):focus-visible {
+  outline: 2px solid #5C8953 !important;
+  outline-offset: 2px !important;
+  border-color: #7FA374 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-page .nav__links a::after,
+  .content-page .nav__links a::after {
+    transition: none !important;
+  }
+}
+
