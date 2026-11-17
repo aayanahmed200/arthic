@@ -503,3 +503,13 @@ body{background:var(--grass);color:#111;font-family:Inter,sans-serif}
 .hero.hero--center {
   background: #cceb80 !important;
 }
+
+/* The global light-theme surface guard also targets footer elements. */
+#site-footer {
+  background: #9fd987 !important;
+  background-color: #9fd987 !important;
+  background-image: none !important;
+}
+#site-footer .footer-garden {
+  background: #cceb80 !important;
+}
