@@ -1938,4 +1938,966 @@ export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
     "takeaway": "Wave speed equals frequency multiplied by wavelength.",
     "sourceKind": "original-sample"
   }
+,
+
+  {
+    "id": "lcat-verbal-vocab-003",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Vocabulary in context",
+    "prompt": "The editor asked the writer to make the summary concise while preserving the main argument. What does “concise” mean?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Highly technical"
+      },
+      {
+        "key": "B",
+        "text": "Brief but clear"
+      },
+      {
+        "key": "C",
+        "text": "Emotionally persuasive"
+      },
+      {
+        "key": "D",
+        "text": "Unrelated to the source"
+      }
+    ],
+    "answer": "B",
+    "explanation": "A concise summary expresses important ideas in relatively few words.\nIt remains clear and complete enough to preserve the original meaning.",
+    "takeaway": "Concise means brief and clear, without unnecessary detail.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-verbal-inference-003",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Drawing supported inferences",
+    "prompt": "A campus survey found that students who used the quiet study room most often also reported fewer interruptions. Which statement is a reasonable inference?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Every student prefers to study in silence."
+      },
+      {
+        "key": "B",
+        "text": "The room guarantees higher examination scores."
+      },
+      {
+        "key": "C",
+        "text": "Students using the room may experience a more focused study environment."
+      },
+      {
+        "key": "D",
+        "text": "The survey proves interruptions are impossible elsewhere."
+      }
+    ],
+    "answer": "C",
+    "explanation": "The survey links frequent use of the room with fewer reported interruptions.\nIt supports a cautious inference about the study environment, but it does not prove universal preferences or improved scores.",
+    "takeaway": "A sound inference stays close to the evidence and avoids absolute claims.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-english-agreement-003",
+    "examCode": "LCAT",
+    "subjectCode": "ENGLISH",
+    "topic": "Subject–verb agreement",
+    "prompt": "Choose the correct verb: “Neither the applicants nor the supervisor ___ available for the meeting.”",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "are"
+      },
+      {
+        "key": "B",
+        "text": "is"
+      },
+      {
+        "key": "C",
+        "text": "have been"
+      },
+      {
+        "key": "D",
+        "text": "were"
+      }
+    ],
+    "answer": "B",
+    "explanation": "With “neither…nor”, the verb commonly agrees with the nearer subject.\nThe nearer subject is “supervisor”, which is singular, so “is” is correct.",
+    "takeaway": "With neither…nor, check the subject nearest to the verb.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-ratio-003",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Ratios",
+    "prompt": "A club has 3 first-year members for every 5 second-year members. If there are 64 members in total, how many are first-year members?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "24"
+      },
+      {
+        "key": "B",
+        "text": "32"
+      },
+      {
+        "key": "C",
+        "text": "36"
+      },
+      {
+        "key": "D",
+        "text": "40"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The ratio has 3 + 5 = 8 equal parts.\nEach part represents 64 ÷ 8 = 8 members, so first-year members total 3 × 8 = 24.",
+    "takeaway": "Add the ratio parts first, then find the value of one part.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-percent-003",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Percentages",
+    "prompt": "A college has 800 applicants for a programme. If 15% are shortlisted, how many applicants are shortlisted?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "80"
+      },
+      {
+        "key": "B",
+        "text": "100"
+      },
+      {
+        "key": "C",
+        "text": "120"
+      },
+      {
+        "key": "D",
+        "text": "150"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Convert 15% to 0.15 and multiply by 800.\n0.15 × 800 = 120 applicants.",
+    "takeaway": "To find a percentage of a quantity, convert the percentage to a decimal and multiply.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-sequence-003",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Number patterns",
+    "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, …?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "36"
+      },
+      {
+        "key": "B",
+        "text": "38"
+      },
+      {
+        "key": "C",
+        "text": "40"
+      },
+      {
+        "key": "D",
+        "text": "42"
+      }
+    ],
+    "answer": "D",
+    "explanation": "The differences are 4, 6, 8 and 10.\nThe next difference is 12, giving 30 + 12 = 42.",
+    "takeaway": "Compare consecutive differences to identify a changing pattern.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-logic-deduction-003",
+    "examCode": "LCAT",
+    "subjectCode": "LOGIC",
+    "topic": "Logical deduction",
+    "prompt": "Every student volunteer in a programme completes an orientation. Mariam is a student volunteer in that programme. What must be true?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mariam leads the programme."
+      },
+      {
+        "key": "B",
+        "text": "Mariam has completed the orientation."
+      },
+      {
+        "key": "C",
+        "text": "Mariam is the only volunteer."
+      },
+      {
+        "key": "D",
+        "text": "Mariam designed the orientation."
+      }
+    ],
+    "answer": "B",
+    "explanation": "The general rule applies to every student volunteer in the programme.\nSince Mariam is one of those volunteers, she must have completed the orientation.",
+    "takeaway": "Apply a universal rule to each case that satisfies its condition.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-geometry-003",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Area and geometry",
+    "prompt": "A rectangular noticeboard is 1.8 m long and 0.7 m wide. What is its area?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1.26 m²"
+      },
+      {
+        "key": "B",
+        "text": "2.5 m²"
+      },
+      {
+        "key": "C",
+        "text": "3.6 m²"
+      },
+      {
+        "key": "D",
+        "text": "5.0 m²"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The area of a rectangle is length multiplied by width.\n1.8 × 0.7 = 1.26 square metres.",
+    "takeaway": "Area of a rectangle = length × width, with squared units.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-math-quadratic-003",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Quadratic equations",
+    "prompt": "The equation x² − 5x + 6 = 0 has two roots. What is the product of the roots?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "−6"
+      },
+      {
+        "key": "B",
+        "text": "−5"
+      },
+      {
+        "key": "C",
+        "text": "5"
+      },
+      {
+        "key": "D",
+        "text": "6"
+      }
+    ],
+    "answer": "D",
+    "explanation": "For ax² + bx + c = 0, the product of the roots is c/a.\nHere a = 1 and c = 6, so the product is 6.",
+    "takeaway": "For a quadratic, the product of the roots is the constant term divided by the coefficient of x².",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-math-logarithms-003",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Logarithms",
+    "prompt": "What is log₂ 32?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "4"
+      },
+      {
+        "key": "B",
+        "text": "5"
+      },
+      {
+        "key": "C",
+        "text": "6"
+      },
+      {
+        "key": "D",
+        "text": "8"
+      }
+    ],
+    "answer": "B",
+    "explanation": "A logarithm asks which power gives the stated number.\nSince 2⁵ = 32, log₂ 32 = 5.",
+    "takeaway": "logᵦ a = x means bˣ = a.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-phy-vectors-003",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Vectors",
+    "prompt": "Two perpendicular forces of 3 N and 4 N act on an object. What is the magnitude of their resultant?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1 N"
+      },
+      {
+        "key": "B",
+        "text": "5 N"
+      },
+      {
+        "key": "C",
+        "text": "7 N"
+      },
+      {
+        "key": "D",
+        "text": "12 N"
+      }
+    ],
+    "answer": "B",
+    "explanation": "For perpendicular vectors, use the Pythagorean theorem.\nR = √(3² + 4²) = √25 = 5 N.",
+    "takeaway": "The magnitude of the resultant of perpendicular vectors follows the Pythagorean theorem.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-phy-ohms-law-003",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Electric circuits",
+    "prompt": "A 12 V battery is connected across a 4 Ω resistor. What current flows through the resistor?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "2 A"
+      },
+      {
+        "key": "B",
+        "text": "3 A"
+      },
+      {
+        "key": "C",
+        "text": "4 A"
+      },
+      {
+        "key": "D",
+        "text": "48 A"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Ohm’s law gives I = V/R.\nI = 12 ÷ 4 = 3 amperes.",
+    "takeaway": "Current equals voltage divided by resistance for an ohmic conductor.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-chem-oxidation-003",
+    "examCode": "NET",
+    "subjectCode": "CHEM",
+    "topic": "Oxidation numbers",
+    "prompt": "What is the oxidation number of oxygen in most ordinary compounds?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "−2"
+      },
+      {
+        "key": "B",
+        "text": "−1"
+      },
+      {
+        "key": "C",
+        "text": "+1"
+      },
+      {
+        "key": "D",
+        "text": "+2"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Oxygen commonly has an oxidation number of −2 in compounds.\nThere are exceptions, such as peroxides and compounds with fluorine, but none is specified here.",
+    "takeaway": "Oxygen is usually −2; remember the peroxide and fluorine exceptions.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-chem-gas-laws-003",
+    "examCode": "NET",
+    "subjectCode": "CHEM",
+    "topic": "Gas laws",
+    "prompt": "At constant temperature and amount of gas, a gas occupies 4 L at 2 atm. What volume will it occupy at 1 atm?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "2 L"
+      },
+      {
+        "key": "B",
+        "text": "4 L"
+      },
+      {
+        "key": "C",
+        "text": "8 L"
+      },
+      {
+        "key": "D",
+        "text": "16 L"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Boyle’s law states P₁V₁ = P₂V₂ at constant temperature.\n2 × 4 = 1 × V₂, so V₂ = 8 L.",
+    "takeaway": "At constant temperature, pressure and volume are inversely proportional.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-cs-binary-003",
+    "examCode": "NET",
+    "subjectCode": "CS",
+    "topic": "Number systems",
+    "prompt": "What is the decimal value of the binary number 1010₂?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "8"
+      },
+      {
+        "key": "B",
+        "text": "9"
+      },
+      {
+        "key": "C",
+        "text": "10"
+      },
+      {
+        "key": "D",
+        "text": "12"
+      }
+    ],
+    "answer": "C",
+    "explanation": "The binary digits represent 1×8 + 0×4 + 1×2 + 0×1.\nThe total is 10 in decimal.",
+    "takeaway": "Convert binary to decimal by summing each set bit multiplied by its power of two.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-math-matrices-003",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Determinants",
+    "prompt": "What is the determinant of the matrix [[2, 1], [3, 4]]?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "5"
+      },
+      {
+        "key": "B",
+        "text": "8"
+      },
+      {
+        "key": "C",
+        "text": "11"
+      },
+      {
+        "key": "D",
+        "text": "14"
+      }
+    ],
+    "answer": "A",
+    "explanation": "For a 2×2 matrix [[a,b],[c,d]], the determinant is ad − bc.\nHere it is 2×4 − 1×3 = 5.",
+    "takeaway": "A 2×2 determinant is the product of the main diagonal minus the product of the other diagonal.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-constitution-term-003",
+    "examCode": "CSS",
+    "subjectCode": "PAKISTAN",
+    "topic": "Constitutional structure",
+    "prompt": "Under Pakistan’s 1973 Constitution, what is the ordinary term of the National Assembly unless it is dissolved sooner?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Three years"
+      },
+      {
+        "key": "B",
+        "text": "Four years"
+      },
+      {
+        "key": "C",
+        "text": "Five years"
+      },
+      {
+        "key": "D",
+        "text": "Six years"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Article 52 provides that the National Assembly continues for five years from its first meeting unless sooner dissolved.\nThe question asks for the ordinary constitutional term, not the duration of a particular assembly.",
+    "takeaway": "The ordinary term of Pakistan’s National Assembly is five years, subject to earlier dissolution.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-economics-real-gdp-003",
+    "examCode": "CSS",
+    "subjectCode": "ECONOMICS",
+    "topic": "Macroeconomic indicators",
+    "prompt": "What does real GDP measure that nominal GDP does not directly adjust for?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Changes in the general price level"
+      },
+      {
+        "key": "B",
+        "text": "The number of provinces"
+      },
+      {
+        "key": "C",
+        "text": "The exchange rate only"
+      },
+      {
+        "key": "D",
+        "text": "The size of the labour force"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Real GDP adjusts the value of output for changes in prices, using a chosen base-year or chained-price method.\nNominal GDP measures output at current prices.",
+    "takeaway": "Real GDP removes the effect of price changes to better compare output across time.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-english-idiom-003",
+    "examCode": "CSS",
+    "subjectCode": "ENGLISH",
+    "topic": "Idioms and expressions",
+    "prompt": "What does the expression “once in a blue moon” mean?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "At exactly midnight"
+      },
+      {
+        "key": "B",
+        "text": "Very rarely"
+      },
+      {
+        "key": "C",
+        "text": "Every month"
+      },
+      {
+        "key": "D",
+        "text": "Without planning"
+      }
+    ],
+    "answer": "B",
+    "explanation": "“Once in a blue moon” is an idiom meaning something happens very rarely.\nIt is not a literal reference to a regular monthly event.",
+    "takeaway": "Interpret common idioms by their established figurative meaning.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-climate-adaptation-003",
+    "examCode": "CSS",
+    "subjectCode": "GENERAL",
+    "topic": "Climate adaptation",
+    "prompt": "Which is an example of climate adaptation rather than climate mitigation?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Replacing coal power with solar electricity"
+      },
+      {
+        "key": "B",
+        "text": "Improving energy efficiency in factories"
+      },
+      {
+        "key": "C",
+        "text": "Restoring forests to increase carbon storage"
+      },
+      {
+        "key": "D",
+        "text": "Building flood-resilient drainage and raised infrastructure"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Adaptation reduces vulnerability to climate impacts that are occurring or expected.\nFlood-resilient drainage and raised infrastructure help communities cope with flooding; the other options primarily reduce greenhouse-gas emissions or increase carbon storage.",
+    "takeaway": "Adaptation manages climate risks; mitigation limits the causes of climate change.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-foreign-policy-soft-power-003",
+    "examCode": "CSS",
+    "subjectCode": "INTERNATIONAL",
+    "topic": "International relations",
+    "prompt": "In international relations, what is meant by “soft power”?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Influence gained through attraction, culture and values"
+      },
+      {
+        "key": "B",
+        "text": "The use of military force to compel action"
+      },
+      {
+        "key": "C",
+        "text": "A country’s total volume of exports"
+      },
+      {
+        "key": "D",
+        "text": "A system of domestic taxation"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Soft power refers to the ability to shape preferences through attraction, culture, political values and perceived legitimacy.\nIt contrasts with coercive approaches such as military or economic pressure.",
+    "takeaway": "Soft power influences through attraction rather than direct coercion.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-geography-indus-003",
+    "examCode": "CSS",
+    "subjectCode": "PAKISTAN",
+    "topic": "Pakistan geography",
+    "prompt": "Into which sea does the Indus River ultimately flow?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Arabian Sea"
+      },
+      {
+        "key": "B",
+        "text": "Black Sea"
+      },
+      {
+        "key": "C",
+        "text": "Mediterranean Sea"
+      },
+      {
+        "key": "D",
+        "text": "Bay of Bengal"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The Indus flows south through Pakistan and reaches the Arabian Sea through its delta.\nIt is a major river system supporting agriculture and settlements in the country.",
+    "takeaway": "The Indus River empties into the Arabian Sea.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-english-voice-003",
+    "examCode": "CSS",
+    "subjectCode": "ENGLISH",
+    "topic": "Active and passive voice",
+    "prompt": "Choose the correct passive form of: “The committee approved the proposal.”",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The proposal approved the committee."
+      },
+      {
+        "key": "B",
+        "text": "The proposal was approved by the committee."
+      },
+      {
+        "key": "C",
+        "text": "The committee was approved by the proposal."
+      },
+      {
+        "key": "D",
+        "text": "The proposal has approve the committee."
+      }
+    ],
+    "answer": "B",
+    "explanation": "The object “the proposal” becomes the subject of the passive sentence.\nThe past simple passive uses “was” plus the past participle “approved”.",
+    "takeaway": "Form the past simple passive with was/were + past participle.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-analytical-correlation-003",
+    "examCode": "CSS",
+    "subjectCode": "ANALYTICAL",
+    "topic": "Evaluating claims",
+    "prompt": "A study finds that areas with more parks also report higher levels of physical activity. Which conclusion is most careful?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Parks are the only cause of physical activity."
+      },
+      {
+        "key": "B",
+        "text": "Every resident in those areas uses a park."
+      },
+      {
+        "key": "C",
+        "text": "The association is consistent with a possible link, but does not alone prove causation."
+      },
+      {
+        "key": "D",
+        "text": "The study proves parks have no effect."
+      }
+    ],
+    "answer": "C",
+    "explanation": "An observed association does not, by itself, establish that one factor causes the other.\nOther factors may explain part of the relationship, so the conclusion should remain cautious.",
+    "takeaway": "Correlation alone does not prove causation.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-nephron-003",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Kidney function",
+    "prompt": "In a nephron, where does ultrafiltration of blood normally begin?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Collecting duct"
+      },
+      {
+        "key": "B",
+        "text": "Glomerulus into Bowman’s capsule"
+      },
+      {
+        "key": "C",
+        "text": "Loop of Henle"
+      },
+      {
+        "key": "D",
+        "text": "Distal convoluted tubule"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Blood pressure forces water and small dissolved substances from the glomerular capillaries into Bowman’s capsule.\nBlood cells and most large plasma proteins remain in the bloodstream.",
+    "takeaway": "Ultrafiltration begins at the glomerulus and Bowman’s capsule.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-antibodies-003",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Immune response",
+    "prompt": "Which cells differentiate into antibody-secreting plasma cells after activation?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "B lymphocytes"
+      },
+      {
+        "key": "B",
+        "text": "Red blood cells"
+      },
+      {
+        "key": "C",
+        "text": "Platelets"
+      },
+      {
+        "key": "D",
+        "text": "Neutrophils"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Activated B lymphocytes can differentiate into plasma cells.\nPlasma cells produce antibodies that bind to specific antigens.",
+    "takeaway": "Plasma cells are differentiated B cells that secrete antibodies.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-transcription-003",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Gene expression",
+    "prompt": "During transcription in a eukaryotic cell, which molecule is produced from a DNA template?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Amino acid"
+      },
+      {
+        "key": "B",
+        "text": "Triglyceride"
+      },
+      {
+        "key": "C",
+        "text": "RNA, such as messenger RNA"
+      },
+      {
+        "key": "D",
+        "text": "A new ribosome"
+      }
+    ],
+    "answer": "C",
+    "explanation": "RNA polymerase uses a DNA strand as a template to synthesise RNA.\nFor a protein-coding gene, the initial transcript is processed to form mature messenger RNA.",
+    "takeaway": "Transcription copies genetic information from DNA into RNA.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-photosynthesis-003",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Photosynthesis",
+    "prompt": "In a plant cell, where do the light-dependent reactions of photosynthesis take place?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mitochondrial matrix"
+      },
+      {
+        "key": "B",
+        "text": "Thylakoid membranes of chloroplasts"
+      },
+      {
+        "key": "C",
+        "text": "Cytoplasm"
+      },
+      {
+        "key": "D",
+        "text": "Nuclear envelope"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Photosystems and the electron-transport components used in the light-dependent reactions are embedded in thylakoid membranes.\nThese reactions generate ATP and NADPH for carbon fixation.",
+    "takeaway": "The light-dependent reactions occur on chloroplast thylakoid membranes.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-chem-ph-003",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Acids and bases",
+    "prompt": "What is the pH of an ideal 0.1 mol dm⁻³ solution of a strong monoprotic acid at 25°C?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "0"
+      },
+      {
+        "key": "B",
+        "text": "1"
+      },
+      {
+        "key": "C",
+        "text": "2"
+      },
+      {
+        "key": "D",
+        "text": "13"
+      }
+    ],
+    "answer": "B",
+    "explanation": "A strong monoprotic acid dissociates essentially completely, so [H⁺] = 0.1 mol dm⁻³ = 10⁻¹.\npH = −log₁₀[H⁺] = 1.",
+    "takeaway": "For a strong monoprotic acid, use its concentration as [H⁺] before calculating pH.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-chem-functional-group-003",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Organic chemistry",
+    "prompt": "Which functional group is characteristic of alcohols?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "−OH"
+      },
+      {
+        "key": "B",
+        "text": "−COOH"
+      },
+      {
+        "key": "C",
+        "text": "−CHO"
+      },
+      {
+        "key": "D",
+        "text": "−NH₂"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Alcohols contain a hydroxyl group (−OH) attached to a carbon atom.\nThe other options represent carboxylic acid, aldehyde and amino groups.",
+    "takeaway": "The hydroxyl (−OH) group identifies an alcohol.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-phy-newton-003",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Newton’s laws",
+    "prompt": "A net force of 12 N acts on a 3 kg object. What is its acceleration?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "0.25 m/s²"
+      },
+      {
+        "key": "B",
+        "text": "3 m/s²"
+      },
+      {
+        "key": "C",
+        "text": "4 m/s²"
+      },
+      {
+        "key": "D",
+        "text": "36 m/s²"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Newton’s second law gives F = ma.\na = F/m = 12/3 = 4 m/s².",
+    "takeaway": "Acceleration equals net force divided by mass.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-phy-lens-003",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Geometrical optics",
+    "prompt": "An object is placed at twice the focal length of a converging lens. Where is the image formed, and what is its nature?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "At 2F on the opposite side; real, inverted and the same size"
+      },
+      {
+        "key": "B",
+        "text": "At F on the same side; virtual and enlarged"
+      },
+      {
+        "key": "C",
+        "text": "At infinity; virtual and upright"
+      },
+      {
+        "key": "D",
+        "text": "Between F and 2F; real and diminished"
+      }
+    ],
+    "answer": "A",
+    "explanation": "For a thin converging lens, an object at 2F forms an image at 2F on the opposite side.\nThe image is real, inverted and equal in size to the object.",
+    "takeaway": "For an object at 2F, a converging lens forms an equal-sized real image at 2F.",
+    "sourceKind": "original-sample"
+  }
 ];
