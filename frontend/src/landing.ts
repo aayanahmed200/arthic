@@ -70,7 +70,9 @@ const routeLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(
 ));
 
 function normalizePath(pathname: string): string {
-  const clean = pathname.replace(/\\/g, "/").replace(/\\.html$/, "").replace(/\\/$/, "");
+  let clean = pathname;
+  if (clean.toLowerCase().endsWith(".html")) clean = clean.slice(0, -5);
+  while (clean.length > 1 && clean.endsWith("/")) clean = clean.slice(0, -1);
   return clean || "/";
 }
 
