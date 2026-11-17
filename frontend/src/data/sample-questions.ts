@@ -1745,4 +1745,870 @@ export const SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     ],
     "sourceKind": "original-sample"
   }
+,
+
+  {
+    "id": "lcat-verbal-vocab-003",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Vocabulary in context",
+    "prompt": "The editor asked the writer to make the summary concise while preserving the main argument. What does “concise” mean?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Highly technical"
+      },
+      {
+        "key": "B",
+        "text": "Brief but clear"
+      },
+      {
+        "key": "C",
+        "text": "Emotionally persuasive"
+      },
+      {
+        "key": "D",
+        "text": "Unrelated to the source"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-verbal-inference-003",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Drawing supported inferences",
+    "prompt": "A campus survey found that students who used the quiet study room most often also reported fewer interruptions. Which statement is a reasonable inference?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Every student prefers to study in silence."
+      },
+      {
+        "key": "B",
+        "text": "The room guarantees higher examination scores."
+      },
+      {
+        "key": "C",
+        "text": "Students using the room may experience a more focused study environment."
+      },
+      {
+        "key": "D",
+        "text": "The survey proves interruptions are impossible elsewhere."
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-english-agreement-003",
+    "examCode": "LCAT",
+    "subjectCode": "ENGLISH",
+    "topic": "Subject–verb agreement",
+    "prompt": "Choose the correct verb: “Neither the applicants nor the supervisor ___ available for the meeting.”",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "are"
+      },
+      {
+        "key": "B",
+        "text": "is"
+      },
+      {
+        "key": "C",
+        "text": "have been"
+      },
+      {
+        "key": "D",
+        "text": "were"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-ratio-003",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Ratios",
+    "prompt": "A club has 3 first-year members for every 5 second-year members. If there are 64 members in total, how many are first-year members?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "24"
+      },
+      {
+        "key": "B",
+        "text": "32"
+      },
+      {
+        "key": "C",
+        "text": "36"
+      },
+      {
+        "key": "D",
+        "text": "40"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-percent-003",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Percentages",
+    "prompt": "A college has 800 applicants for a programme. If 15% are shortlisted, how many applicants are shortlisted?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "80"
+      },
+      {
+        "key": "B",
+        "text": "100"
+      },
+      {
+        "key": "C",
+        "text": "120"
+      },
+      {
+        "key": "D",
+        "text": "150"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-sequence-003",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Number patterns",
+    "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, …?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "36"
+      },
+      {
+        "key": "B",
+        "text": "38"
+      },
+      {
+        "key": "C",
+        "text": "40"
+      },
+      {
+        "key": "D",
+        "text": "42"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-logic-deduction-003",
+    "examCode": "LCAT",
+    "subjectCode": "LOGIC",
+    "topic": "Logical deduction",
+    "prompt": "Every student volunteer in a programme completes an orientation. Mariam is a student volunteer in that programme. What must be true?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mariam leads the programme."
+      },
+      {
+        "key": "B",
+        "text": "Mariam has completed the orientation."
+      },
+      {
+        "key": "C",
+        "text": "Mariam is the only volunteer."
+      },
+      {
+        "key": "D",
+        "text": "Mariam designed the orientation."
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-geometry-003",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Area and geometry",
+    "prompt": "A rectangular noticeboard is 1.8 m long and 0.7 m wide. What is its area?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1.26 m²"
+      },
+      {
+        "key": "B",
+        "text": "2.5 m²"
+      },
+      {
+        "key": "C",
+        "text": "3.6 m²"
+      },
+      {
+        "key": "D",
+        "text": "5.0 m²"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-math-quadratic-003",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Quadratic equations",
+    "prompt": "The equation x² − 5x + 6 = 0 has two roots. What is the product of the roots?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "−6"
+      },
+      {
+        "key": "B",
+        "text": "−5"
+      },
+      {
+        "key": "C",
+        "text": "5"
+      },
+      {
+        "key": "D",
+        "text": "6"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-math-logarithms-003",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Logarithms",
+    "prompt": "What is log₂ 32?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "4"
+      },
+      {
+        "key": "B",
+        "text": "5"
+      },
+      {
+        "key": "C",
+        "text": "6"
+      },
+      {
+        "key": "D",
+        "text": "8"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-phy-vectors-003",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Vectors",
+    "prompt": "Two perpendicular forces of 3 N and 4 N act on an object. What is the magnitude of their resultant?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1 N"
+      },
+      {
+        "key": "B",
+        "text": "5 N"
+      },
+      {
+        "key": "C",
+        "text": "7 N"
+      },
+      {
+        "key": "D",
+        "text": "12 N"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-phy-ohms-law-003",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Electric circuits",
+    "prompt": "A 12 V battery is connected across a 4 Ω resistor. What current flows through the resistor?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "2 A"
+      },
+      {
+        "key": "B",
+        "text": "3 A"
+      },
+      {
+        "key": "C",
+        "text": "4 A"
+      },
+      {
+        "key": "D",
+        "text": "48 A"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-chem-oxidation-003",
+    "examCode": "NET",
+    "subjectCode": "CHEM",
+    "topic": "Oxidation numbers",
+    "prompt": "What is the oxidation number of oxygen in most ordinary compounds?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "−2"
+      },
+      {
+        "key": "B",
+        "text": "−1"
+      },
+      {
+        "key": "C",
+        "text": "+1"
+      },
+      {
+        "key": "D",
+        "text": "+2"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-chem-gas-laws-003",
+    "examCode": "NET",
+    "subjectCode": "CHEM",
+    "topic": "Gas laws",
+    "prompt": "At constant temperature and amount of gas, a gas occupies 4 L at 2 atm. What volume will it occupy at 1 atm?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "2 L"
+      },
+      {
+        "key": "B",
+        "text": "4 L"
+      },
+      {
+        "key": "C",
+        "text": "8 L"
+      },
+      {
+        "key": "D",
+        "text": "16 L"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-cs-binary-003",
+    "examCode": "NET",
+    "subjectCode": "CS",
+    "topic": "Number systems",
+    "prompt": "What is the decimal value of the binary number 1010₂?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "8"
+      },
+      {
+        "key": "B",
+        "text": "9"
+      },
+      {
+        "key": "C",
+        "text": "10"
+      },
+      {
+        "key": "D",
+        "text": "12"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-math-matrices-003",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Determinants",
+    "prompt": "What is the determinant of the matrix [[2, 1], [3, 4]]?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "5"
+      },
+      {
+        "key": "B",
+        "text": "8"
+      },
+      {
+        "key": "C",
+        "text": "11"
+      },
+      {
+        "key": "D",
+        "text": "14"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-constitution-term-003",
+    "examCode": "CSS",
+    "subjectCode": "PAKISTAN",
+    "topic": "Constitutional structure",
+    "prompt": "Under Pakistan’s 1973 Constitution, what is the ordinary term of the National Assembly unless it is dissolved sooner?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Three years"
+      },
+      {
+        "key": "B",
+        "text": "Four years"
+      },
+      {
+        "key": "C",
+        "text": "Five years"
+      },
+      {
+        "key": "D",
+        "text": "Six years"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-economics-real-gdp-003",
+    "examCode": "CSS",
+    "subjectCode": "ECONOMICS",
+    "topic": "Macroeconomic indicators",
+    "prompt": "What does real GDP measure that nominal GDP does not directly adjust for?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Changes in the general price level"
+      },
+      {
+        "key": "B",
+        "text": "The number of provinces"
+      },
+      {
+        "key": "C",
+        "text": "The exchange rate only"
+      },
+      {
+        "key": "D",
+        "text": "The size of the labour force"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-english-idiom-003",
+    "examCode": "CSS",
+    "subjectCode": "ENGLISH",
+    "topic": "Idioms and expressions",
+    "prompt": "What does the expression “once in a blue moon” mean?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "At exactly midnight"
+      },
+      {
+        "key": "B",
+        "text": "Very rarely"
+      },
+      {
+        "key": "C",
+        "text": "Every month"
+      },
+      {
+        "key": "D",
+        "text": "Without planning"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-climate-adaptation-003",
+    "examCode": "CSS",
+    "subjectCode": "GENERAL",
+    "topic": "Climate adaptation",
+    "prompt": "Which is an example of climate adaptation rather than climate mitigation?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Replacing coal power with solar electricity"
+      },
+      {
+        "key": "B",
+        "text": "Improving energy efficiency in factories"
+      },
+      {
+        "key": "C",
+        "text": "Restoring forests to increase carbon storage"
+      },
+      {
+        "key": "D",
+        "text": "Building flood-resilient drainage and raised infrastructure"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-foreign-policy-soft-power-003",
+    "examCode": "CSS",
+    "subjectCode": "INTERNATIONAL",
+    "topic": "International relations",
+    "prompt": "In international relations, what is meant by “soft power”?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Influence gained through attraction, culture and values"
+      },
+      {
+        "key": "B",
+        "text": "The use of military force to compel action"
+      },
+      {
+        "key": "C",
+        "text": "A country’s total volume of exports"
+      },
+      {
+        "key": "D",
+        "text": "A system of domestic taxation"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-geography-indus-003",
+    "examCode": "CSS",
+    "subjectCode": "PAKISTAN",
+    "topic": "Pakistan geography",
+    "prompt": "Into which sea does the Indus River ultimately flow?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Arabian Sea"
+      },
+      {
+        "key": "B",
+        "text": "Black Sea"
+      },
+      {
+        "key": "C",
+        "text": "Mediterranean Sea"
+      },
+      {
+        "key": "D",
+        "text": "Bay of Bengal"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-english-voice-003",
+    "examCode": "CSS",
+    "subjectCode": "ENGLISH",
+    "topic": "Active and passive voice",
+    "prompt": "Choose the correct passive form of: “The committee approved the proposal.”",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The proposal approved the committee."
+      },
+      {
+        "key": "B",
+        "text": "The proposal was approved by the committee."
+      },
+      {
+        "key": "C",
+        "text": "The committee was approved by the proposal."
+      },
+      {
+        "key": "D",
+        "text": "The proposal has approve the committee."
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-analytical-correlation-003",
+    "examCode": "CSS",
+    "subjectCode": "ANALYTICAL",
+    "topic": "Evaluating claims",
+    "prompt": "A study finds that areas with more parks also report higher levels of physical activity. Which conclusion is most careful?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Parks are the only cause of physical activity."
+      },
+      {
+        "key": "B",
+        "text": "Every resident in those areas uses a park."
+      },
+      {
+        "key": "C",
+        "text": "The association is consistent with a possible link, but does not alone prove causation."
+      },
+      {
+        "key": "D",
+        "text": "The study proves parks have no effect."
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-nephron-003",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Kidney function",
+    "prompt": "In a nephron, where does ultrafiltration of blood normally begin?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Collecting duct"
+      },
+      {
+        "key": "B",
+        "text": "Glomerulus into Bowman’s capsule"
+      },
+      {
+        "key": "C",
+        "text": "Loop of Henle"
+      },
+      {
+        "key": "D",
+        "text": "Distal convoluted tubule"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-antibodies-003",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Immune response",
+    "prompt": "Which cells differentiate into antibody-secreting plasma cells after activation?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "B lymphocytes"
+      },
+      {
+        "key": "B",
+        "text": "Red blood cells"
+      },
+      {
+        "key": "C",
+        "text": "Platelets"
+      },
+      {
+        "key": "D",
+        "text": "Neutrophils"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-transcription-003",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Gene expression",
+    "prompt": "During transcription in a eukaryotic cell, which molecule is produced from a DNA template?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Amino acid"
+      },
+      {
+        "key": "B",
+        "text": "Triglyceride"
+      },
+      {
+        "key": "C",
+        "text": "RNA, such as messenger RNA"
+      },
+      {
+        "key": "D",
+        "text": "A new ribosome"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-photosynthesis-003",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Photosynthesis",
+    "prompt": "In a plant cell, where do the light-dependent reactions of photosynthesis take place?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Mitochondrial matrix"
+      },
+      {
+        "key": "B",
+        "text": "Thylakoid membranes of chloroplasts"
+      },
+      {
+        "key": "C",
+        "text": "Cytoplasm"
+      },
+      {
+        "key": "D",
+        "text": "Nuclear envelope"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-chem-ph-003",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Acids and bases",
+    "prompt": "What is the pH of an ideal 0.1 mol dm⁻³ solution of a strong monoprotic acid at 25°C?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "0"
+      },
+      {
+        "key": "B",
+        "text": "1"
+      },
+      {
+        "key": "C",
+        "text": "2"
+      },
+      {
+        "key": "D",
+        "text": "13"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-chem-functional-group-003",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Organic chemistry",
+    "prompt": "Which functional group is characteristic of alcohols?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "−OH"
+      },
+      {
+        "key": "B",
+        "text": "−COOH"
+      },
+      {
+        "key": "C",
+        "text": "−CHO"
+      },
+      {
+        "key": "D",
+        "text": "−NH₂"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-phy-newton-003",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Newton’s laws",
+    "prompt": "A net force of 12 N acts on a 3 kg object. What is its acceleration?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "0.25 m/s²"
+      },
+      {
+        "key": "B",
+        "text": "3 m/s²"
+      },
+      {
+        "key": "C",
+        "text": "4 m/s²"
+      },
+      {
+        "key": "D",
+        "text": "36 m/s²"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-phy-lens-003",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Geometrical optics",
+    "prompt": "An object is placed at twice the focal length of a converging lens. Where is the image formed, and what is its nature?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "At 2F on the opposite side; real, inverted and the same size"
+      },
+      {
+        "key": "B",
+        "text": "At F on the same side; virtual and enlarged"
+      },
+      {
+        "key": "C",
+        "text": "At infinity; virtual and upright"
+      },
+      {
+        "key": "D",
+        "text": "Between F and 2F; real and diminished"
+      }
+    ],
+    "sourceKind": "original-sample"
+  }
 ];
