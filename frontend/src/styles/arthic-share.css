@@ -410,3 +410,30 @@ body{background:var(--grass);color:#111;font-family:Inter,sans-serif}
  .footer-brand{grid-column:1/-1}
  .footer-bottom{align-items:flex-start;flex-direction:column}
 }
+
+
+/* Navigation state and focus treatment: clear without adding card-like chrome. */
+.desktop-nav a.is-active,
+.desktop-nav a[aria-current="page"] {
+  color: #28733d;
+  background: rgba(159, 217, 134, .48);
+}
+.desktop-nav a:focus-visible,
+.header-actions a:focus-visible,
+.menu-toggle:focus-visible,
+.mobile-menu a:focus-visible {
+  outline: 3px solid #287c43;
+  outline-offset: 3px;
+}
+.mobile-menu a[aria-current="page"] {
+  color: #28733d;
+  background: rgba(159, 217, 134, .48);
+}
+@media (prefers-reduced-motion: reduce) {
+  .desktop-nav a,
+  .header-actions a,
+  .button,
+  .mobile-menu a {
+    transition: none !important;
+  }
+}
