@@ -94,6 +94,6 @@ export function initReferenceChrome(): void {
   const existingFooter = document.querySelector<HTMLElement>(".footer-frame");
   if (existingFooter) existingFooter.outerHTML = FOOTER;
 
-  document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#d0ecfd");
+  document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#cceb80");
   applyReferenceSurfaces();
 }
