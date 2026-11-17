@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lilita+One&display=swap");
-
 /* One visual language across Arthic's standalone pages. */
 :root{
   color-scheme:light;
@@ -1572,4 +1570,64 @@ body.content-page .footer-frame .footer__bottom a {
   body.content-page .footer-frame .footer__top { grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:25px 18px !important; margin-bottom:20px !important; padding-bottom:24px !important; }
   body.content-page .footer-frame .footer__brand { grid-column:1/-1; }
   body.content-page .footer-frame .footer__bottom { align-items:flex-start !important; flex-direction:column !important; gap:8px !important; }
+}
+
+
+/* Display voice and controls for the interior pages. */
+:root {
+  --font-display:"Bricolage Grotesque Variable",system-ui,sans-serif;
+  --font-body:"Poppins",system-ui,sans-serif;
+  --font-mono:"Poppins",system-ui,sans-serif;
+}
+body.content-page :is(h1,h2,h3,h4,h5,h6) {
+  font-family:"Bricolage Grotesque Variable",system-ui,sans-serif !important;
+  font-weight:700 !important;
+  letter-spacing:-.045em !important;
+}
+body.content-page .nav__wordmark,
+body.content-page .footer__wordmark {
+  font-family:"Bricolage Grotesque Variable",system-ui,sans-serif !important;
+  font-weight:700 !important;
+  letter-spacing:-.045em !important;
+}
+/* Primary submit/actions share the rose action; answer choices remain neutral. */
+body.content-page .study-action:not(.study-action--secondary) {
+  min-height:48px !important;
+  padding:13px 21px !important;
+  border:1px solid #C92F73 !important;
+  border-radius:999px !important;
+  background:#C92F73 !important;
+  color:#fff !important;
+  font-family:"Poppins",sans-serif !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+  line-height:1.2 !important;
+  box-shadow:none !important;
+}
+body.content-page .study-action:not(.study-action--secondary):hover {
+  border-color:#A92360 !important;
+  background:#A92360 !important;
+  color:#fff !important;
+}
+body.content-page .study-action--secondary {
+  min-height:46px !important;
+  padding:12px 19px !important;
+  border:1px solid rgba(34,83,46,.32) !important;
+  border-radius:999px !important;
+  background:transparent !important;
+  color:#285C38 !important;
+  font-family:"Poppins",sans-serif !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+  box-shadow:none !important;
+}
+body.content-page .study-action--secondary:hover {
+  border-color:#347B49 !important;
+  background:rgba(255,255,255,.25) !important;
+  color:#1E6436 !important;
+}
+body.content-page .nav__toggle,
+body.content-page .nav__icon-btn {
+  font-family:"Poppins",sans-serif !important;
+  box-shadow:none !important;
 }
