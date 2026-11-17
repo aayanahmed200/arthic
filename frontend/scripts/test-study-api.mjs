@@ -45,11 +45,11 @@ try {
   const feed = mockRequest("GET");
   questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
-  assert.equal(feed.res.body.questions.length, 32);
+  assert.equal(feed.res.body.questions.length, 64);
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
   for (const examCode of examCodes) {
-    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 8);
+    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 16);
   }
   assert.equal(feed.res.body.isOfficialPastPaper, false);
   assert.ok(feed.res.body.dataVersion);
