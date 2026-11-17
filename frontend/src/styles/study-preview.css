@@ -789,3 +789,36 @@
   .practice-track-filters button:last-child{grid-column:1/-1;text-align:center}
   .study-feedback__points{font-size:13px}
 }
+
+
+/* Session review rows are interactive controls. */
+.study-review-row {
+  display:grid;
+  width:100%;
+  grid-template-columns:2rem minmax(0,1fr) auto;
+  gap:.75rem;
+  align-items:center;
+  padding:.9rem .65rem;
+  border:0;
+  border-bottom:1px solid var(--color-fg-hairline);
+  border-radius:0;
+  background:transparent;
+  color:inherit;
+  text-align:left;
+  cursor:pointer;
+  transition:background .16s ease,padding .16s ease;
+}
+.study-review-row:hover {
+  padding-inline:1rem;
+  background:rgba(159,217,135,.16);
+}
+.study-review-row:focus-visible {
+  outline:2px solid #347546;
+  outline-offset:2px;
+}
+.study-review-row__text { margin:0; }
+@media(max-width:600px) {
+  .study-review-row { grid-template-columns:1.7rem minmax(0,1fr); gap:.55rem; }
+  .study-review-row__result { grid-column:2; justify-self:start; }
+}
+@media(prefers-reduced-motion:reduce) { .study-review-row { transition:none; } }
