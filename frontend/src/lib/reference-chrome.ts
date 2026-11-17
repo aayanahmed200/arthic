@@ -1,6 +1,6 @@
 const HEADER = `<header class="nav reference-nav" data-nav>
   <div class="nav__inner container">
-    <a href="/" class="nav__mark" aria-label="Arthic home"><img class="nav__logo-mark" src="/arthic-mark.svg" width="34" height="34" alt="" /><span class="nav__wordmark">Arthic</span></a>
+    <a href="/" class="nav__mark" aria-label="Arthic home"><img class="nav__logo-mark" src="/arthic-mark.svg" width="44" height="44" alt="" /><span class="nav__wordmark">Arthic</span></a>
     <nav class="nav__links" aria-label="Primary navigation">
       <a href="/study-preview.html" data-nav-link>Practice</a>
       <a href="/pricing.html" data-nav-link>Pricing</a>
@@ -27,7 +27,7 @@ const FOOTER = `<div class="footer-frame">
     <div class="container">
       <div class="footer__top">
         <div class="footer__brand">
-          <a href="/" class="footer__mark" aria-label="Arthic home"><img class="footer__logo-mark" src="/arthic-mark.svg" width="34" height="34" alt="" /><span class="footer__wordmark">Arthic</span></a>
+          <a href="/" class="footer__mark" aria-label="Arthic home"><img class="footer__logo-mark" src="/arthic-mark.svg" width="44" height="44" alt="" /><span class="footer__wordmark">Arthic</span></a>
           <p class="footer__tagline">Focused practice and clear explanations for LCAT, NET, CSS and MDCAT.</p>
           <a class="footer__email" href="mailto:hello@arthic.tech">hello@arthic.tech</a>
         </div>
