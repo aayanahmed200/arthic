@@ -1297,3 +1297,33 @@ body.content-page .footer-frame .footer__col a:hover {
 @media (prefers-reduced-motion: reduce) {
   body.content-page .exam-track-card { transition: none !important; }
 }
+
+/* Method page: explain the real product in words, not simulated dashboards. */
+body.content-page.method-editorial .method-hero { padding:clamp(84px,10vw,132px) 0 clamp(56px,7vw,86px); background:#DCEBFA; text-align:center; }
+body.content-page.method-editorial .method-hero h1 { max-width:18ch; margin:16px auto 18px; color:#17231B; font-family:"Bricolage Grotesque",Inter,sans-serif; font-size:clamp(45px,6.2vw,76px); font-weight:800; letter-spacing:-.065em; line-height:.96; text-wrap:balance; }
+body.content-page.method-editorial .method-hero__lede { max-width:64ch; margin:0 auto 24px; color:#405744; font-size:16px; line-height:1.75; }
+body.content-page.method-editorial .method-hero .oneprep-button { margin-inline:auto; }
+body.content-page.method-editorial .method-steps,body.content-page.method-editorial .method-planned { padding-block:clamp(58px,7vw,88px); }
+body.content-page.method-editorial .method-section-head { max-width:700px; margin:0 0 32px; }
+body.content-page.method-editorial .method-section-head h2,body.content-page.method-editorial .method-current h2 { margin:7px 0 12px; color:#17231B; font-family:"Bricolage Grotesque",Inter,sans-serif; font-size:clamp(36px,4.5vw,56px); font-weight:800; letter-spacing:-.06em; line-height:.98; }
+body.content-page.method-editorial .method-section-head > p:last-child { margin:0; color:#536956; font-size:14px; line-height:1.7; }
+body.content-page.method-editorial .method-step-list,body.content-page.method-editorial .method-planned__list { margin:0; padding:0; border-top:1px solid rgba(23,48,30,.18); list-style:none; }
+body.content-page.method-editorial .method-step-list li,body.content-page.method-editorial .method-planned__list li { display:grid; grid-template-columns:56px minmax(0,1fr) 110px; align-items:start; gap:18px; padding:22px 0; border-bottom:1px solid rgba(23,48,30,.18); }
+body.content-page.method-editorial .method-step-list__number,body.content-page.method-editorial .method-planned__list li > span { padding-top:4px; color:#5E8062; font-size:11px; font-weight:800; letter-spacing:.08em; }
+body.content-page.method-editorial .method-step-list h3,body.content-page.method-editorial .method-planned__list h3 { margin:0 0 5px; color:#1C3022; font-family:"Bricolage Grotesque",Inter,sans-serif; font-size:21px; font-weight:750; letter-spacing:-.04em; }
+body.content-page.method-editorial .method-step-list p,body.content-page.method-editorial .method-planned__list p { max-width:67ch; margin:0; color:#536956; font-size:13px; line-height:1.7; }
+body.content-page.method-editorial .method-step-list__status { justify-self:end; padding-top:4px; color:#3D7949; font-size:9px; font-weight:800; letter-spacing:.1em; }
+body.content-page.method-editorial .method-current { padding:clamp(55px,7vw,85px) 0; background:#DCEBFA; }
+body.content-page.method-editorial .method-current__inner { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(30px,7vw,100px); align-items:start; }
+body.content-page.method-editorial .method-current__copy p { color:#405744; font-size:14px; line-height:1.75; }
+body.content-page.method-editorial .method-note { max-width:78ch; margin:20px 0 0; color:#718070; font-size:11px; line-height:1.65; }
+body.content-page.method-editorial .method-planned__list li { grid-template-columns:56px minmax(0,1fr); }
+body.content-page.method-editorial .method-planned__list h3 { font-size:19px; }
+body.content-page.method-editorial .oneprep-method-faq { padding-block:58px 76px; }
+body.content-page.method-editorial .oneprep-method-faq .oneprep-section-head h2 { font-family:"Bricolage Grotesque",Inter,sans-serif; font-size:clamp(36px,4.5vw,54px); font-weight:800; letter-spacing:-.06em; }
+@media(max-width:760px) {
+body.content-page.method-editorial .method-current__inner { grid-template-columns:1fr; gap:16px; }
+body.content-page.method-editorial .method-step-list li { grid-template-columns:36px minmax(0,1fr); gap:12px; }
+body.content-page.method-editorial .method-step-list__status { grid-column:2; justify-self:start; }
+body.content-page.method-editorial .method-planned__list li { grid-template-columns:36px minmax(0,1fr); gap:12px; }
+}
