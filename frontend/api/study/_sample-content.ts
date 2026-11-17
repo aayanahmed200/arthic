@@ -976,4 +976,966 @@ export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
     "takeaway": "Correlation alone does not prove causation.",
     "sourceKind": "original-sample"
   }
+,
+
+  {
+    "id": "lcat-verbal-inference-002",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Drawing supported inferences",
+    "prompt": "A city adds a second morning bus to a busy route. Four weeks later, a passenger survey reports a lower average waiting time. Which conclusion is best supported by the information?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Surveyed passengers reported shorter average waits after the additional service began."
+      },
+      {
+        "key": "B",
+        "text": "Every passenger reached work earlier than before."
+      },
+      {
+        "key": "C",
+        "text": "The extra bus was the only reason waiting times changed."
+      },
+      {
+        "key": "D",
+        "text": "The route no longer experiences delays."
+      }
+    ],
+    "answer": "A",
+    "explanation": "The survey directly reports a lower average waiting time after the service change.\nIt does not establish that every passenger benefited or that the extra bus was the only factor involved.",
+    "takeaway": "Choose the conclusion that the evidence supports, not a stronger claim than the evidence allows.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-verbal-vocab-002",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Vocabulary in context",
+    "prompt": "The new timetable is intended to mitigate delays during the morning rush. What does “mitigate” mean in this sentence?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Predict"
+      },
+      {
+        "key": "B",
+        "text": "Measure"
+      },
+      {
+        "key": "C",
+        "text": "Make less severe"
+      },
+      {
+        "key": "D",
+        "text": "Cause"
+      }
+    ],
+    "answer": "A",
+    "explanation": "To mitigate something is to reduce its seriousness, harmful effect or intensity.\nThe timetable is intended to make delays less severe, not to remove every possible delay.",
+    "takeaway": "Mitigate means to make a problem or its effects less severe.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-average-002",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Averages",
+    "prompt": "The mean of four numbers, 14, 18, 20 and x, is 18. What is the value of x?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "16"
+      },
+      {
+        "key": "B",
+        "text": "18"
+      },
+      {
+        "key": "C",
+        "text": "20"
+      },
+      {
+        "key": "D",
+        "text": "22"
+      }
+    ],
+    "answer": "A",
+    "explanation": "A mean of 18 across four numbers requires a total of 4 × 18 = 72.\nThe known numbers total 14 + 18 + 20 = 52, so x = 72 − 52 = 20.",
+    "takeaway": "Mean equals total divided by the number of values; reverse the formula to find a missing value.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-sequence-002",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Number patterns",
+    "prompt": "What is the next number in the sequence 5, 9, 17, 33, …?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "49"
+      },
+      {
+        "key": "B",
+        "text": "57"
+      },
+      {
+        "key": "C",
+        "text": "63"
+      },
+      {
+        "key": "D",
+        "text": "65"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The differences are 4, 8 and 16. Each difference doubles.\nThe next difference is 32, so the next term is 33 + 32 = 65.",
+    "takeaway": "Check the differences between consecutive terms when looking for a number pattern.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-math-probability-002",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Basic probability",
+    "prompt": "A bag contains 3 red counters, 2 blue counters and 1 yellow counter. One counter is selected at random. What is the probability that it is blue?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1/6"
+      },
+      {
+        "key": "B",
+        "text": "1/3"
+      },
+      {
+        "key": "C",
+        "text": "1/2"
+      },
+      {
+        "key": "D",
+        "text": "2/3"
+      }
+    ],
+    "answer": "A",
+    "explanation": "There are 3 + 2 + 1 = 6 counters in total, and 2 are blue.\nThe probability is 2/6, which simplifies to 1/3.",
+    "takeaway": "For equally likely outcomes, probability is favourable outcomes divided by total possible outcomes.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-logic-condition-002",
+    "examCode": "LCAT",
+    "subjectCode": "LOGIC",
+    "topic": "Conditional reasoning",
+    "prompt": "A school processes every application received before 5:00 pm on the same day. Application K was received at 4:30 pm. What follows from the rule?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Application K will be processed on the same day."
+      },
+      {
+        "key": "B",
+        "text": "Application K will be approved."
+      },
+      {
+        "key": "C",
+        "text": "Application K will be processed before 5:00 pm."
+      },
+      {
+        "key": "D",
+        "text": "All applications received after 5:00 pm will be rejected."
+      }
+    ],
+    "answer": "A",
+    "explanation": "The rule says every application received before 5:00 pm is processed on the same day.\nK arrived at 4:30 pm, so it meets the stated condition. Approval is not implied.",
+    "takeaway": "Apply the given rule exactly; do not add consequences that the rule does not state.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-grammar-agreement-002",
+    "examCode": "LCAT",
+    "subjectCode": "ENGLISH",
+    "topic": "Subject–verb agreement",
+    "prompt": "Choose the correct verb: “Each of the candidates ___ a separate time slot.”",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "were given"
+      },
+      {
+        "key": "B",
+        "text": "are given"
+      },
+      {
+        "key": "C",
+        "text": "was given"
+      },
+      {
+        "key": "D",
+        "text": "have given"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The subject is “each”, which is grammatically singular.\nThe correct singular passive form in this sentence is “was given”.",
+    "takeaway": "Words such as each, every and either usually take a singular verb.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-reading-purpose-002",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Identifying purpose",
+    "prompt": "A university publishes room-availability information and updates it throughout the day. Students can use the page to find a quieter place to study. What is the main purpose of the page?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "To replace the university library"
+      },
+      {
+        "key": "B",
+        "text": "To publish students’ examination results"
+      },
+      {
+        "key": "C",
+        "text": "To help students find suitable available study spaces"
+      },
+      {
+        "key": "D",
+        "text": "To reserve every room for staff"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The information is about which study rooms are available, and the stated use is finding a quieter place to work.\nThe other options introduce purposes that the passage does not mention.",
+    "takeaway": "For a purpose question, connect the information provided to the use explicitly described.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-math-differentiation-002",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Differentiation",
+    "prompt": "If f(x) = 2x³ − x, what is the value of f′(2)?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "19"
+      },
+      {
+        "key": "B",
+        "text": "21"
+      },
+      {
+        "key": "C",
+        "text": "23"
+      },
+      {
+        "key": "D",
+        "text": "25"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Differentiate term by term: f′(x) = 6x² − 1.\nAt x = 2, f′(2) = 6(4) − 1 = 23.",
+    "takeaway": "Use the power rule: the derivative of axⁿ is anxⁿ⁻¹.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-math-sequence-002",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Arithmetic progressions",
+    "prompt": "An arithmetic progression has first term 7 and common difference 4. What is its 12th term?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "43"
+      },
+      {
+        "key": "B",
+        "text": "47"
+      },
+      {
+        "key": "C",
+        "text": "51"
+      },
+      {
+        "key": "D",
+        "text": "55"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The nth term is aₙ = a₁ + (n − 1)d.\nSubstituting gives a₁₂ = 7 + 11 × 4 = 51.",
+    "takeaway": "For an arithmetic progression, add the common difference n − 1 times to reach term n.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-math-trigonometry-002",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Trigonometric ratios",
+    "prompt": "For an angle θ between 0° and 90°, inclusive, sin θ = 1/2. What is θ?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "15°"
+      },
+      {
+        "key": "B",
+        "text": "30°"
+      },
+      {
+        "key": "C",
+        "text": "45°"
+      },
+      {
+        "key": "D",
+        "text": "60°"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The standard sine value for 30° is 1/2.\nWithin the stated first-quadrant interval, 30° is the required angle.",
+    "takeaway": "Memorise the standard trigonometric values for 30°, 45° and 60°.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-phy-momentum-002",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Linear momentum",
+    "prompt": "A ball of mass 0.2 kg moves at 15 m/s. What is its momentum?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "0.75 kg m/s"
+      },
+      {
+        "key": "B",
+        "text": "1.5 kg m/s"
+      },
+      {
+        "key": "C",
+        "text": "3.0 kg m/s"
+      },
+      {
+        "key": "D",
+        "text": "7.5 kg m/s"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Linear momentum is p = mv.\nTherefore p = 0.2 × 15 = 3.0 kg m/s.",
+    "takeaway": "Momentum is the product of an object's mass and velocity.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-phy-work-002",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Work and energy",
+    "prompt": "A constant force of 12 N moves an object 5 m in the direction of the force. How much work is done?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "17 J"
+      },
+      {
+        "key": "B",
+        "text": "24 J"
+      },
+      {
+        "key": "C",
+        "text": "48 J"
+      },
+      {
+        "key": "D",
+        "text": "60 J"
+      }
+    ],
+    "answer": "A",
+    "explanation": "When force and displacement are in the same direction, work is W = Fd.\nW = 12 × 5 = 60 joules.",
+    "takeaway": "Work done by a constant force is force multiplied by displacement in the force's direction.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-chem-moles-002",
+    "examCode": "NET",
+    "subjectCode": "CHEM",
+    "topic": "The mole",
+    "prompt": "Water has a molar mass of 18 g mol⁻¹. How many moles are present in 36 g of water?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "0.5 mol"
+      },
+      {
+        "key": "B",
+        "text": "1 mol"
+      },
+      {
+        "key": "C",
+        "text": "2 mol"
+      },
+      {
+        "key": "D",
+        "text": "3 mol"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Amount in moles = mass ÷ molar mass.\n36 g ÷ 18 g mol⁻¹ = 2 mol.",
+    "takeaway": "Convert mass to amount in moles by dividing by molar mass.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-chem-atomic-number-002",
+    "examCode": "NET",
+    "subjectCode": "CHEM",
+    "topic": "Atomic structure",
+    "prompt": "An atom has atomic number 17. How many protons are present in its nucleus?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "8"
+      },
+      {
+        "key": "B",
+        "text": "16"
+      },
+      {
+        "key": "C",
+        "text": "18"
+      },
+      {
+        "key": "D",
+        "text": "17"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The atomic number is defined as the number of protons in the nucleus.\nAn atom with atomic number 17 therefore contains 17 protons.",
+    "takeaway": "Atomic number identifies an element by its number of protons.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-cs-boolean-002",
+    "examCode": "NET",
+    "subjectCode": "CS",
+    "topic": "Boolean logic",
+    "prompt": "In Boolean logic, what is the result of 1 AND 0?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "0"
+      },
+      {
+        "key": "B",
+        "text": "1"
+      },
+      {
+        "key": "C",
+        "text": "10"
+      },
+      {
+        "key": "D",
+        "text": "Undefined"
+      }
+    ],
+    "answer": "A",
+    "explanation": "AND returns 1 only when both inputs are 1.\nBecause one input is 0, the result is 0.",
+    "takeaway": "A Boolean AND operation is true only when every input is true.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-pakistan-constitution-senate-002",
+    "examCode": "CSS",
+    "subjectCode": "PAKISTAN",
+    "topic": "Constitutional institutions",
+    "prompt": "What is a central feature of Pakistan's Senate in the federal parliamentary structure?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "It provides equal representation to the provinces."
+      },
+      {
+        "key": "B",
+        "text": "It appoints all members of the National Assembly."
+      },
+      {
+        "key": "C",
+        "text": "It replaces provincial assemblies."
+      },
+      {
+        "key": "D",
+        "text": "It is responsible for conducting general elections."
+      }
+    ],
+    "answer": "A",
+    "explanation": "The Senate is the upper house and is designed to provide equal provincial representation.\nThis balances the population-based representation of the National Assembly.",
+    "takeaway": "In a bicameral federal legislature, the upper house can protect the voice of constituent units.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-economics-inflation-002",
+    "examCode": "CSS",
+    "subjectCode": "ECONOMICS",
+    "topic": "Inflation",
+    "prompt": "Which statement best describes inflation?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "A fall in the general price level over time"
+      },
+      {
+        "key": "B",
+        "text": "An increase in the price of one product only"
+      },
+      {
+        "key": "C",
+        "text": "A rise in the quantity of goods produced"
+      },
+      {
+        "key": "D",
+        "text": "A sustained increase in the general price level"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Inflation is a sustained increase in the overall price level of goods and services.\nIt is not simply a price rise in one isolated product.",
+    "takeaway": "Inflation concerns the general price level, not a single price change.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-general-greenhouse-002",
+    "examCode": "CSS",
+    "subjectCode": "GENERAL",
+    "topic": "Climate science",
+    "prompt": "How do major greenhouse gases contribute to warming in Earth's atmosphere?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "They prevent sunlight from reaching Earth's surface."
+      },
+      {
+        "key": "B",
+        "text": "They absorb and re-emit some outgoing infrared radiation."
+      },
+      {
+        "key": "C",
+        "text": "They stop all heat from leaving the oceans."
+      },
+      {
+        "key": "D",
+        "text": "They remove oxygen from the atmosphere."
+      }
+    ],
+    "answer": "A",
+    "explanation": "Greenhouse gases absorb some of the infrared radiation emitted by Earth's surface and re-emit it in different directions.\nThis process reduces the rate at which energy escapes to space and warms the lower atmosphere.",
+    "takeaway": "The greenhouse effect involves absorption and re-emission of outgoing infrared radiation.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-general-suez-002",
+    "examCode": "CSS",
+    "subjectCode": "GENERAL",
+    "topic": "World geography",
+    "prompt": "The Suez Canal provides a shipping route between which two bodies of water?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Black Sea and Caspian Sea"
+      },
+      {
+        "key": "B",
+        "text": "Arabian Sea and Red Sea"
+      },
+      {
+        "key": "C",
+        "text": "Mediterranean Sea and Red Sea"
+      },
+      {
+        "key": "D",
+        "text": "Baltic Sea and North Sea"
+      }
+    ],
+    "answer": "A",
+    "explanation": "The Suez Canal connects the Mediterranean Sea to the Red Sea.\nIt creates a shorter maritime route between Europe and the Indian Ocean region than travelling around southern Africa.",
+    "takeaway": "The Suez Canal links the Mediterranean Sea and the Red Sea.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-english-precis-002",
+    "examCode": "CSS",
+    "subjectCode": "ENGLISH",
+    "topic": "Précis writing",
+    "prompt": "Which is the strongest principle to follow when writing a précis of a passage?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Add personal examples to make the passage more persuasive."
+      },
+      {
+        "key": "B",
+        "text": "Preserve the central ideas concisely without adding new opinions."
+      },
+      {
+        "key": "C",
+        "text": "Copy every sentence in the original order."
+      },
+      {
+        "key": "D",
+        "text": "Remove the main claim and retain only minor details."
+      }
+    ],
+    "answer": "A",
+    "explanation": "A précis is a concise restatement of the source's central ideas.\nIt should preserve the meaning and emphasis while avoiding new arguments or personal commentary.",
+    "takeaway": "A good précis is shorter than the original but faithful to its central meaning.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-english-thesis-002",
+    "examCode": "CSS",
+    "subjectCode": "ENGLISH",
+    "topic": "Essay structure",
+    "prompt": "Which sentence is the clearest arguable thesis for an essay about public transport?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Public transport exists in many cities."
+      },
+      {
+        "key": "B",
+        "text": "This essay is about buses and trains."
+      },
+      {
+        "key": "C",
+        "text": "Transport is an important topic."
+      },
+      {
+        "key": "D",
+        "text": "Cities should prioritise reliable public transport because it improves access and can reduce dependence on private cars."
+      }
+    ],
+    "answer": "A",
+    "explanation": "The final option makes a specific, debatable claim and gives reasons that the essay can develop.\nThe other options introduce a topic but do not establish a clear position.",
+    "takeaway": "A thesis should state an arguable position that the rest of the essay can support.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-research-sampling-002",
+    "examCode": "CSS",
+    "subjectCode": "ANALYTICAL",
+    "topic": "Research methods and sampling",
+    "prompt": "A researcher wants to estimate the views of all university students but surveys only members of one debating society. What is the main concern?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The sample may not represent the wider student population."
+      },
+      {
+        "key": "B",
+        "text": "The survey necessarily contains too many questions."
+      },
+      {
+        "key": "C",
+        "text": "The results must be identical for every university."
+      },
+      {
+        "key": "D",
+        "text": "A survey cannot collect opinions."
+      }
+    ],
+    "answer": "A",
+    "explanation": "Members of one debating society may differ from other students in interests and experiences.\nA sample drawn only from that group may therefore give a biased estimate of the wider population.",
+    "takeaway": "A useful sample should reflect the population the researcher wants to describe.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-analytical-selection-bias-002",
+    "examCode": "CSS",
+    "subjectCode": "ANALYTICAL",
+    "topic": "Evaluating evidence",
+    "prompt": "A report finds that employees who attend a voluntary training course score higher on a skills test than employees who do not attend. What should an analyst check before concluding that the course caused the higher scores?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Whether the test used the same font for every participant"
+      },
+      {
+        "key": "B",
+        "text": "Whether the training room had enough chairs"
+      },
+      {
+        "key": "C",
+        "text": "Whether people who chose to attend already had different skill levels"
+      },
+      {
+        "key": "D",
+        "text": "Whether all employees have the same job title"
+      }
+    ],
+    "answer": "A",
+    "explanation": "People who volunteer for training may already be more experienced or motivated.\nThose pre-existing differences could help explain the score gap, so the comparison alone does not prove the course caused it.",
+    "takeaway": "When participation is voluntary, consider self-selection before making causal claims.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-enzymes-002",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Enzyme action",
+    "prompt": "What is the main effect of an enzyme on a chemical reaction?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "It increases the reaction's activation energy."
+      },
+      {
+        "key": "B",
+        "text": "It lowers the activation energy required."
+      },
+      {
+        "key": "C",
+        "text": "It changes the final equilibrium position in every reaction."
+      },
+      {
+        "key": "D",
+        "text": "It is permanently used up as a reactant."
+      }
+    ],
+    "answer": "A",
+    "explanation": "Enzymes are biological catalysts that provide an alternative reaction pathway with lower activation energy.\nThey are not permanently consumed by the reaction and do not change the reaction's equilibrium position.",
+    "takeaway": "Enzymes speed reactions by lowering activation energy.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-dna-pairing-002",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "DNA structure",
+    "prompt": "Which pair of nitrogenous bases normally forms complementary pairs in DNA?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Adenine with thymine, and cytosine with guanine"
+      },
+      {
+        "key": "B",
+        "text": "Adenine with cytosine, and thymine with guanine"
+      },
+      {
+        "key": "C",
+        "text": "Adenine with guanine, and cytosine with thymine"
+      },
+      {
+        "key": "D",
+        "text": "All four bases pair equally with one another"
+      }
+    ],
+    "answer": "A",
+    "explanation": "In DNA, adenine pairs with thymine and cytosine pairs with guanine.\nThese complementary base pairs help maintain the structure and accurate copying of DNA.",
+    "takeaway": "Remember the DNA base pairs: A–T and C–G.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-bio-meiosis-002",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Cell division",
+    "prompt": "What is the usual result of meiosis in a diploid cell that completes the process?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Two diploid cells identical to the parent cell"
+      },
+      {
+        "key": "B",
+        "text": "One diploid cell with twice the DNA"
+      },
+      {
+        "key": "C",
+        "text": "Two haploid cells with identical chromosome sets"
+      },
+      {
+        "key": "D",
+        "text": "Four haploid cells"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Meiosis consists of two successive cell divisions after one round of DNA replication.\nIt typically produces four haploid cells, each with half the original chromosome number.",
+    "takeaway": "Meiosis reduces chromosome number and typically produces four haploid cells.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-chem-covalent-002",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Chemical bonding",
+    "prompt": "What happens when a covalent bond forms between two atoms?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "One atom always loses all its electrons."
+      },
+      {
+        "key": "B",
+        "text": "The atoms share one or more pairs of electrons."
+      },
+      {
+        "key": "C",
+        "text": "The nuclei merge into one nucleus."
+      },
+      {
+        "key": "D",
+        "text": "The atoms exchange neutrons."
+      }
+    ],
+    "answer": "A",
+    "explanation": "A covalent bond forms when atoms share one or more pairs of electrons.\nThe shared electrons are attracted to both nuclei and help hold the atoms together.",
+    "takeaway": "Covalent bonding involves sharing electron pairs.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-chem-periodic-radius-002",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Periodic trends",
+    "prompt": "Across a period from left to right in the periodic table, what is the general trend in atomic radius for main-group elements?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "It generally increases."
+      },
+      {
+        "key": "B",
+        "text": "It stays exactly the same."
+      },
+      {
+        "key": "C",
+        "text": "It generally decreases."
+      },
+      {
+        "key": "D",
+        "text": "It first becomes zero."
+      }
+    ],
+    "answer": "A",
+    "explanation": "Across a period, nuclear charge increases while added electrons enter the same principal energy level.\nThe stronger effective attraction generally pulls the electron cloud closer to the nucleus, decreasing atomic radius.",
+    "takeaway": "Atomic radius generally decreases across a period because effective nuclear attraction increases.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-chem-equilibrium-002",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Chemical equilibrium",
+    "prompt": "For a reversible reaction at equilibrium, what is the expected effect of adding more reactant at constant temperature?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The equilibrium shifts in the direction that uses up some of the added reactant."
+      },
+      {
+        "key": "B",
+        "text": "The reaction stops permanently."
+      },
+      {
+        "key": "C",
+        "text": "The equilibrium constant must become zero."
+      },
+      {
+        "key": "D",
+        "text": "The equilibrium always shifts towards the reactants."
+      }
+    ],
+    "answer": "A",
+    "explanation": "By Le Chatelier's principle, a system responds to a concentration change in a way that opposes that change.\nAdding reactant generally shifts the equilibrium towards products, where some of the added reactant is consumed.",
+    "takeaway": "Adding a reactant generally shifts equilibrium towards the products.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-phy-parallel-resistors-002",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Electric circuits",
+    "prompt": "Two resistors of 2 Ω and 6 Ω are connected in parallel. What is their equivalent resistance?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1 Ω"
+      },
+      {
+        "key": "B",
+        "text": "2 Ω"
+      },
+      {
+        "key": "C",
+        "text": "3 Ω"
+      },
+      {
+        "key": "D",
+        "text": "1.5 Ω"
+      }
+    ],
+    "answer": "A",
+    "explanation": "For two resistors in parallel, 1/R = 1/2 + 1/6 = 4/6 = 2/3.\nTherefore R = 3/2 = 1.5 Ω.",
+    "takeaway": "For parallel resistors, add reciprocals; the equivalent resistance is lower than the smallest branch resistance.",
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-phy-wave-speed-002",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Wave properties",
+    "prompt": "A wave has frequency 5 Hz and wavelength 2 m. What is its speed?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "2.5 m/s"
+      },
+      {
+        "key": "B",
+        "text": "10 m/s"
+      },
+      {
+        "key": "C",
+        "text": "7 m/s"
+      },
+      {
+        "key": "D",
+        "text": "15 m/s"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Wave speed is v = fλ.\nSubstituting gives v = 5 × 2 = 10 m/s.",
+    "takeaway": "Wave speed equals frequency multiplied by wavelength.",
+    "sourceKind": "original-sample"
+  }
 ];
