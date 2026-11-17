@@ -1893,3 +1893,35 @@ body {
 .site-footer .footer-foliage { display:block!important;width:100%!important;height:auto!important;vertical-align:top!important; }
 .site-footer .footer-inner { background:#9FD987!important; }
 .site-footer .brand--footer .brand-mark { width:44px!important;height:44px!important;flex:0 0 44px!important; }
+
+/* Homepage practice preview: unmistakably interactive answer controls. */
+.home-sample-card{overflow:hidden}
+.home-sample-card__top{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.home-sample-track select{min-width:106px;height:36px;padding:0 30px 0 12px;border:1px solid rgba(25,58,34,.3);border-radius:999px;background:#fffef5;color:#245a34;font:600 11px "Poppins",sans-serif;cursor:pointer}
+.home-sample-track select:focus-visible{outline:2px solid #347546;outline-offset:2px}
+.home-sample-card__meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px;color:#4f7055;font:700 9px "Poppins",sans-serif;letter-spacing:.07em}
+.home-sample-card__instruction{margin:9px 0 12px;color:#58705a;font:400 11px "Poppins",sans-serif}
+.home-sample-options{display:grid;gap:8px;margin:0;padding:0}
+.home-sample-option{display:grid;width:100%;grid-template-columns:25px minmax(0,1fr);align-items:center;gap:11px;padding:10px 12px;border:1px solid rgba(25,58,34,.18);border-radius:7px;background:#fffef5;color:#304635;text-align:left;font:500 11px/1.5 "Poppins",sans-serif;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.home-sample-option>span:first-child{display:grid;place-items:center;width:23px;height:23px;border:1px solid rgba(35,84,48,.32);border-radius:50%;color:#316c40;font-size:10px;font-weight:700}
+.home-sample-option:hover:not(:disabled){border-color:#498d56;background:#f0f7df;color:#1d4e2e}
+.home-sample-option[aria-pressed="true"]{border-color:#347546;background:#e6f0ce;color:#1d4e2e;box-shadow:inset 0 0 0 1px #347546}
+.home-sample-option.is-correct{border-color:#347546;background:#e6f0ce;color:#1d4e2e}
+.home-sample-option.is-incorrect{border-color:#c92f73;background:#fff0f5;color:#7b2148}
+.home-sample-option:disabled{opacity:1;cursor:default}
+.home-sample-option:focus-visible{outline:2px solid #347546;outline-offset:2px}
+.home-sample-feedback{margin-top:14px;padding:14px 15px;border:1px solid rgba(53,117,70,.24);border-radius:7px;background:#eff6df;color:#314a35}
+.home-sample-feedback h3{margin:0 0 8px;color:#245c35;font:700 13px "Poppins",sans-serif}
+.home-sample-feedback ul{margin:0;padding-left:18px}
+.home-sample-feedback li{margin:4px 0;color:#405744;font:400 11px/1.6 "Poppins",sans-serif}
+.home-sample-feedback p{margin:10px 0 0;padding-top:9px;border-top:1px solid rgba(25,58,34,.14);color:#31583a;font:400 11px/1.6 "Poppins",sans-serif}
+.home-sample-card__bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid rgba(25,58,34,.18)}
+.home-sample-card__bottom>span{color:#536b56;font:500 10px/1.5 "Poppins",sans-serif}
+.home-sample-card__actions{display:flex;align-items:center;gap:8px}
+.home-sample-check,.home-sample-next{min-height:38px;padding:9px 14px;border:1px solid #c92f73;border-radius:999px;background:#c92f73;color:#fff;font:600 10px/1.2 "Poppins",sans-serif;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+.home-sample-check:hover:not(:disabled){border-color:#a92360;background:#a92360;transform:translateY(-1px)}
+.home-sample-check:disabled{opacity:.48;cursor:not-allowed}
+.home-sample-next{border-color:rgba(35,84,48,.28);background:transparent;color:#285c38}
+.home-sample-next:hover:not(:disabled){border-color:#347546;background:#eef6de;color:#1e6436}
+.home-sample-check:focus-visible,.home-sample-next:focus-visible{outline:2px solid #347546;outline-offset:3px}
+@media(max-width:600px){.home-sample-card__bottom{align-items:flex-start;flex-direction:column}.home-sample-card__actions{width:100%}.home-sample-check,.home-sample-next{flex:1}.home-sample-option{padding:9px 10px;font-size:10px}}
