@@ -1631,3 +1631,52 @@ body.content-page .nav__icon-btn {
   font-family:"Poppins",sans-serif !important;
   box-shadow:none !important;
 }
+
+/* Shared logo size, footer seam and action hierarchy across all interior pages. */
+body.content-page .nav__mark { gap:10px !important; }
+body.content-page .nav__mark img.nav__logo-mark {
+  display:block!important;width:44px!important;height:44px!important;max-width:44px!important;flex:0 0 44px!important;
+}
+body.content-page .footer__mark { display:inline-flex!important;align-items:center!important;gap:9px!important; }
+body.content-page .footer__mark img.footer__logo-mark {
+  display:block!important;width:44px!important;height:44px!important;max-width:44px!important;flex:0 0 44px!important;opacity:1!important;
+}
+body.content-page .footer-frame,
+body.content-page .footer-frame .footer {
+  margin:0!important;border:0!important;background:#9FD987!important;background-color:#9FD987!important;
+}
+body.content-page .footer-garden {
+  display:block!important;width:100%!important;height:auto!important;min-height:0!important;
+  margin:0 0 -1px!important;padding:0!important;overflow:hidden!important;
+  background:#CCEB80!important;line-height:0!important;font-size:0!important;
+}
+body.content-page .footer-garden .footer-foliage {
+  display:block!important;width:100%!important;height:auto!important;max-width:none!important;margin:0!important;vertical-align:top!important;
+}
+body.content-page .footer-frame .footer {
+  margin:0!important;border-top:0!important;padding-top:24px!important;background:#9FD987!important;
+}
+body.content-page :is(.oneprep-button,.home-button,.study-action,.nav__cta,.button,input[type="submit"],button[type="submit"]) {
+  font-family:"Poppins",sans-serif!important;font-size:13px!important;font-weight:600!important;line-height:1.2!important;
+  letter-spacing:-.01em!important;text-transform:none!important;box-shadow:none!important;border-radius:999px!important;
+}
+body.content-page :is(.oneprep-button--primary,.home-button--primary,.nav__cta,.button--primary,.study-action:not(.study-action--secondary),input[type="submit"],button[type="submit"]) {
+  min-height:48px!important;padding:13px 21px!important;border:1px solid #C92F73!important;background:#C92F73!important;color:#fff!important;
+}
+body.content-page :is(.oneprep-button--primary,.home-button--primary,.nav__cta,.button--primary,.study-action:not(.study-action--secondary),input[type="submit"],button[type="submit"]):hover:not(:disabled) {
+  border-color:#A92360!important;background:#A92360!important;color:#fff!important;transform:translateY(-1px);
+}
+body.content-page :is(.oneprep-button--secondary,.home-button--secondary,.button--outline,.study-action--secondary) {
+  min-height:46px!important;padding:12px 19px!important;border:1px solid rgba(34,83,46,.32)!important;
+  background:transparent!important;color:#285C38!important;
+}
+body.content-page :is(.oneprep-button--secondary,.home-button--secondary,.button--outline,.study-action--secondary):hover:not(:disabled) {
+  border-color:#347B49!important;background:rgba(255,255,255,.25)!important;color:#1E6436!important;
+}
+@media(max-width:760px) {
+ body.content-page .nav__mark img.nav__logo-mark,
+ body.content-page .footer__mark img.footer__logo-mark {width:40px!important;height:40px!important;max-width:40px!important;flex-basis:40px!important}
+}
+@media(prefers-reduced-motion:reduce) {
+ body.content-page :is(.oneprep-button,.home-button,.study-action,.nav__cta,.button){transition:none!important}
+}
