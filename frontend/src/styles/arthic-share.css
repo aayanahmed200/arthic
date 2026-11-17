@@ -1685,3 +1685,22 @@ body {
 @media(prefers-reduced-motion:reduce) {
   .home-primary,.site-footer .footer-column > a { transition:none !important; }
 }
+
+
+/* Display voice: Bricolage Grotesque for identity, Poppins for readability. */
+:root {
+  --font-display:"Bricolage Grotesque Variable",system-ui,sans-serif;
+  --font-body:"Poppins",system-ui,sans-serif;
+  --font-mono:"Poppins",system-ui,sans-serif;
+}
+.home-page :is(h1,h2,h3,h4,h5,h6) {
+  font-family:"Bricolage Grotesque Variable",system-ui,sans-serif !important;
+  font-weight:700 !important;
+  letter-spacing:-.045em !important;
+}
+.site-header .brand-name,
+.site-footer .brand-name {
+  font-family:"Bricolage Grotesque Variable",system-ui,sans-serif !important;
+  font-weight:700 !important;
+  letter-spacing:-.045em !important;
+}
