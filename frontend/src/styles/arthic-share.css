@@ -1704,3 +1704,179 @@ body {
   font-weight:700 !important;
   letter-spacing:-.045em !important;
 }
+
+
+/* Homepage opening: one oversized promise and one real question from the
+   authored LCAT sample bank. No diagrams, fake dashboards or dummy stats. */
+.home-hero--sample {
+  display:block !important;
+  min-height:0 !important;
+  padding:clamp(116px,13vw,164px) 0 clamp(62px,7vw,88px) !important;
+  background:#CCEB80 !important;
+  border:0 !important;
+}
+.home-hero--sample .home-shell { width:min(1240px,calc(100% - 64px)) !important; }
+.home-hero__sample-layout {
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(430px,.98fr);
+  align-items:center;
+  gap:clamp(36px,5.5vw,82px);
+  margin-top:24px;
+}
+.home-hero__sample-copy { min-width:0; }
+.home-hero__sample-copy h1 {
+  max-width:10.5ch;
+  margin:0;
+  color:#17291C;
+  font-family:"Bricolage Grotesque Variable",system-ui,sans-serif !important;
+  font-size:clamp(62px,7.4vw,104px) !important;
+  font-weight:750 !important;
+  letter-spacing:-.065em !important;
+  line-height:.91 !important;
+  text-wrap:balance;
+}
+.home-hero__sample-copy h1 em {
+  color:#347546;
+  font-style:normal;
+}
+.home-hero__sample-copy > p:not(.home-eyebrow):not(.home-hero__tracks) {
+  max-width:43ch;
+  margin:23px 0 0;
+  color:#354D3A;
+  font-family:"Poppins",sans-serif;
+  font-size:15px;
+  line-height:1.75;
+}
+.home-hero__sample-copy .home-actions {
+  align-items:center;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:25px;
+}
+.home-hero__sample-copy .home-hero__tracks {
+  margin-top:31px;
+}
+.home-sample-card {
+  min-width:0;
+  padding:clamp(22px,2.7vw,34px);
+  border:1px solid rgba(25,58,34,.22);
+  border-radius:10px;
+  background:#F8F8ED;
+  color:#1B2C20;
+  box-shadow:none;
+}
+.home-sample-card__top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding-bottom:13px;
+  border-bottom:1px solid rgba(25,58,34,.2);
+  color:#537258;
+  font-family:"Poppins",sans-serif;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.075em;
+  line-height:1.4;
+}
+.home-sample-card__label {
+  margin:20px 0 9px;
+  color:#397449;
+  font-family:"Poppins",sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.home-sample-card h2 {
+  margin:0;
+  color:#1C2D20;
+  font-family:"Poppins",sans-serif !important;
+  font-size:clamp(16px,1.35vw,19px) !important;
+  font-weight:600 !important;
+  letter-spacing:-.025em !important;
+  line-height:1.55 !important;
+  text-wrap:pretty;
+}
+.home-sample-options {
+  display:grid;
+  gap:0;
+  margin:18px 0 0;
+  padding:0;
+  list-style:none;
+}
+.home-sample-options li {
+  display:grid;
+  grid-template-columns:25px minmax(0,1fr);
+  align-items:start;
+  gap:10px;
+  padding:10px 0;
+  border-top:1px solid rgba(25,58,34,.12);
+}
+.home-sample-options li > span {
+  display:grid;
+  width:23px;
+  height:23px;
+  place-items:center;
+  border:1px solid rgba(35,84,48,.3);
+  border-radius:50%;
+  color:#316C40;
+  font-family:"Poppins",sans-serif;
+  font-size:10px;
+  font-weight:700;
+}
+.home-sample-options li p {
+  margin:1px 0 0;
+  color:#405744;
+  font-family:"Poppins",sans-serif;
+  font-size:11px;
+  line-height:1.55;
+}
+.home-sample-card__bottom {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:12px;
+  padding-top:15px;
+  border-top:1px solid rgba(25,58,34,.2);
+}
+.home-sample-card__bottom > span {
+  color:#718071;
+  font-family:"Poppins",sans-serif;
+  font-size:9px;
+  line-height:1.5;
+}
+.home-sample-card__bottom a {
+  color:#286C3C;
+  font-family:"Poppins",sans-serif;
+  font-size:11px;
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.home-sample-card__bottom a:hover { color:#174E2B; }
+@media(max-width:980px) {
+  .home-hero--sample { padding-top:112px !important; }
+  .home-hero__sample-layout {
+    grid-template-columns:1fr;
+    gap:36px;
+    margin-top:20px;
+  }
+  .home-hero__sample-copy h1 { max-width:12ch; font-size:clamp(62px,10vw,88px) !important; }
+  .home-sample-card { max-width:720px; }
+}
+@media(max-width:600px) {
+  .home-hero--sample { padding:104px 0 55px !important; }
+  .home-hero--sample .home-shell { width:calc(100% - 40px) !important; }
+  .home-hero__sample-layout { gap:29px; margin-top:18px; }
+  .home-hero__sample-copy h1 { font-size:clamp(54px,13vw,72px) !important; }
+  .home-hero__sample-copy > p:not(.home-eyebrow):not(.home-hero__tracks) { font-size:14px; }
+  .home-hero__sample-copy .home-actions { align-items:flex-start; flex-direction:column; gap:14px; }
+  .home-sample-card { padding:20px 17px; border-radius:8px; }
+  .home-sample-card__top { font-size:8px; }
+  .home-sample-card h2 { font-size:15px !important; }
+  .home-sample-options li p { font-size:10px; }
+  .home-sample-card__bottom { align-items:flex-start; flex-direction:column; }
+}
