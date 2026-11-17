@@ -8,8 +8,8 @@
   "theme_color": "#d0ecfd",
   "icons": [
     {
-      "src": "/favicon-32.png",
-      "sizes": "32x32",
+      "src": "/arthic-mark.png",
+      "sizes": "96x96",
       "type": "image/png"
     }
   ]
