@@ -8,14 +8,15 @@
   "theme_color": "#CCEB80",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/favicon.svg?v=4",
       "sizes": "any",
       "type": "image/svg+xml"
     },
     {
-      "src": "/arthic-mark.png",
-      "sizes": "96x96",
-      "type": "image/png"
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
