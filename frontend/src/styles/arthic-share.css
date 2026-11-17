@@ -495,3 +495,11 @@ body{background:var(--grass);color:#111;font-family:Inter,sans-serif}
     flex-basis: 34px;
   }
 }
+
+/* Keep the homepage masthead and hero on the reference lime surface. */
+.site-header {
+  background: rgba(204, 235, 128, .98) !important;
+}
+.hero.hero--center {
+  background: #cceb80 !important;
+}
