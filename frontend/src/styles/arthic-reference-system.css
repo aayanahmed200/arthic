@@ -758,3 +758,8 @@ body.content-page .footer__mark img.footer__logo-mark {
   flex: 0 0 34px;
   object-fit: contain;
 }
+
+/* Interior pages share the same lime fixed masthead as the reference. */
+body.content-page .nav {
+  background: rgba(204, 235, 128, .98) !important;
+}
