@@ -9,6 +9,8 @@ interface StudyAnswer {
   selected: string;
   correct: string;
   isCorrect: boolean;
+  explanation: string;
+  takeaway: string;
 }
 
 let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS];
@@ -153,37 +155,47 @@ if (root) {
       accuracyValue!.textContent = accuracy() === null ? "—" : accuracy() + "%";
     }
 
-    function renderOptions(question: StudyQuestionPrompt): void {
+    function renderOptions(question: StudyQuestionPrompt, reviewAnswer?: StudyAnswer): void {
       optionList!.replaceChildren();
 
       question.options.forEach((option) => {
         const button = document.createElement("button");
         button.type = "button";
         button.className = "study-option";
-        button.setAttribute("aria-pressed", "false");
+        button.setAttribute("aria-pressed", String(Boolean(reviewAnswer && option.key === reviewAnswer.selected)));
         button.innerHTML =
           '<span class="study-option__key" aria-hidden="true"></span>' +
           '<span class="study-option__text"></span>';
         button.querySelector<HTMLElement>(".study-option__key")!.textContent = option.key;
         button.querySelector<HTMLElement>(".study-option__text")!.textContent = option.text;
 
-        button.addEventListener("click", () => {
-          if (selectedKey !== null || answers[questionIndex]) return;
-          hasInteracted = true;
-          selectedKey = option.key;
-          optionList!.querySelectorAll<HTMLButtonElement>(".study-option").forEach((choice) => {
-            choice.setAttribute("aria-pressed", String(choice === button));
+        if (reviewAnswer) {
+          button.disabled = true;
+          if (option.key === reviewAnswer.correct) button.classList.add("is-correct");
+          else if (option.key === reviewAnswer.selected && !reviewAnswer.isCorrect) button.classList.add("is-incorrect");
+        } else {
+          button.addEventListener("click", () => {
+            if (selectedKey !== null || answers[questionIndex]) return;
+            hasInteracted = true;
+            selectedKey = option.key;
+            optionList!.querySelectorAll<HTMLButtonElement>(".study-option").forEach((choice) => {
+              choice.setAttribute("aria-pressed", String(choice === button));
+            });
+            checkButton!.disabled = false;
           });
-          checkButton!.disabled = false;
-        });
+        }
 
         optionList!.append(button);
       });
     }
 
-    function renderQuestion(moveFocus = false): void {
+    let isReviewingQuestion = false;
+
+    function renderQuestion(moveFocus = false, reviewOnly = false): void {
       const question = QUESTIONS[questionIndex];
-      selectedKey = null;
+      const savedAnswer = answers[questionIndex];
+      isReviewingQuestion = reviewOnly;
+      selectedKey = reviewOnly && savedAnswer ? savedAnswer.selected : null;
       number!.textContent = "Question " + (questionIndex + 1) + " / " + QUESTIONS.length;
       topic!.textContent = question.topic;
       prompt!.textContent = question.prompt;
@@ -191,14 +203,25 @@ if (root) {
       feedback!.hidden = true;
       feedback!.removeAttribute("data-result");
       feedbackPoints!.replaceChildren();
-      checkButton!.hidden = false;
+      checkButton!.hidden = reviewOnly;
       checkButton!.disabled = true;
       checkButton!.classList.remove("is-loading");
       checkButton!.removeAttribute("aria-busy");
       checkButton!.textContent = "Check answer";
-      nextButton!.hidden = true;
-      nextButton!.textContent = questionIndex === QUESTIONS.length - 1 ? "View session results" : "Next question";
-      renderOptions(question);
+      nextButton!.hidden = !reviewOnly;
+      nextButton!.textContent = reviewOnly ? "Back to session review" : (questionIndex === QUESTIONS.length - 1 ? "View session results" : "Next question");
+      renderOptions(question, reviewOnly && savedAnswer ? savedAnswer : undefined);
+      if (reviewOnly && savedAnswer) {
+        feedback!.dataset.result = savedAnswer.isCorrect ? "correct" : "incorrect";
+        feedbackTitle!.textContent = savedAnswer.isCorrect ? "That's correct." : "Not quite — let's unpack it.";
+        savedAnswer.explanation.split(/\\n+/).map((part) => part.trim()).filter(Boolean).forEach((part) => {
+          const item = document.createElement("li");
+          item.textContent = part;
+          feedbackPoints!.append(item);
+        });
+        takeaway!.textContent = savedAnswer.takeaway;
+        feedback!.hidden = false;
+      }
       updateProgress();
       if (moveFocus) prompt!.focus();
     }
@@ -252,7 +275,7 @@ if (root) {
 
         const correctOption = result.correctOption;
         const isCorrect = result.isCorrect;
-        answers.push({ selected: selectedKey, correct: correctOption, isCorrect });
+        answers.push({ selected: selectedKey, correct: correctOption, isCorrect, explanation: result.explanation, takeaway: result.takeaway });
         feedback!.dataset.result = isCorrect ? "correct" : "incorrect";
         feedbackTitle!.textContent = isCorrect ? "That's correct." : "Not quite — let's unpack it.";
         feedbackPoints!.replaceChildren();
@@ -301,9 +324,10 @@ if (root) {
       const total = QUESTIONS.length;
       const percent = accuracy() ?? 0;
 
+      isReviewingQuestion = false;
       completeHeading!.textContent = score === total ? "A clean sweep." : "Session complete.";
       completeLede!.textContent =
-        "You answered " + total + " sample questions. Review each response below, then reset the preview to try the set again.";
+        "You answered " + total + " original questions. Select any response below to reopen the question, see the correct answer and read its explanation.";
 
       completeStats!.innerHTML =
         '<div class="study-complete__stat"><span>Correct</span><strong>' + score + ' / ' + total + '</strong></div>' +
@@ -313,8 +337,10 @@ if (root) {
       reviewList!.replaceChildren();
       QUESTIONS.forEach((question, index) => {
         const answer = answers[index];
-        const row = document.createElement("div");
+        const row = document.createElement("button");
+        row.type = "button";
         row.className = "study-review-row";
+        row.setAttribute("aria-label", "Open review for question " + (index + 1) + ", " + question.topic + ". " + (answer.isCorrect ? "Correct." : "Needs review."));
         const result = document.createElement("span");
         result.className = "study-review-row__result" + (answer.isCorrect ? "" : " is-incorrect");
         result.textContent = answer.isCorrect ? "Correct" : "Review";
@@ -327,14 +353,27 @@ if (root) {
         const correct = question.options.find((option) => option.key === answer.correct)?.text ?? answer.correct;
         text.textContent = question.topic + ": your answer — " + selected + "; correct answer — " + correct + ".";
         row.append(qIndex, text, result);
+        row.addEventListener("click", () => showQuestionReview(index));
         reviewList!.append(row);
       });
       updateProgress();
       completeHeading!.focus();
     }
 
+    function showQuestionReview(index: number): void {
+      if (!answers[index]) return;
+      questionIndex = index;
+      questionScreen!.hidden = false;
+      completeScreen!.hidden = true;
+      renderQuestion(true, true);
+    }
+
     checkButton.addEventListener("click", () => { void checkAnswer(); });
     nextButton.addEventListener("click", () => {
+      if (isReviewingQuestion) {
+        showComplete();
+        return;
+      }
       if (answers.length !== questionIndex + 1) return;
       if (questionIndex < QUESTIONS.length - 1) {
         questionIndex += 1;
@@ -348,6 +387,7 @@ if (root) {
       button.addEventListener("click", () => {
         questionIndex = 0;
         selectedKey = null;
+        isReviewingQuestion = false;
         answers.length = 0;
         completeScreen!.hidden = true;
         questionScreen!.hidden = false;
