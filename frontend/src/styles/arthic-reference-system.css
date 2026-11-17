@@ -698,3 +698,63 @@ body.content-page .careers-application-note>p{
  body.content-page .career-role--detailed .career-role__link{grid-column:2;justify-self:start;margin-top:4px}
  body.content-page .career-role__detail-grid{grid-template-columns:1fr}
 }
+
+
+/* The supplied mark and foliage strip are shared by every content page. */
+:root {
+  --arthic-lime: #cceb80;
+  --arthic-green: #9fd987;
+}
+body.content-page .nav__mark {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+}
+body.content-page .nav__mark img.nav__logo-mark {
+  display: block !important;
+  width: 34px;
+  height: 34px;
+  max-width: 34px;
+  flex: 0 0 34px;
+  object-fit: contain;
+}
+body.content-page .footer-frame {
+  margin-top: 0 !important;
+  background: #9fd987 !important;
+}
+body.content-page .footer-frame::before {
+  content: none !important;
+  display: none !important;
+}
+body.content-page .footer-garden {
+  width: 100%;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0;
+  overflow: hidden;
+  line-height: 0;
+  background: #cceb80 !important;
+}
+body.content-page .footer-garden .footer-foliage {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+body.content-page .footer {
+  padding-top: 20px !important;
+  background: #9fd987 !important;
+}
+body.content-page .footer__mark {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+}
+body.content-page .footer__mark img.footer__logo-mark {
+  display: block !important;
+  width: 34px;
+  height: 34px;
+  max-width: 34px;
+  flex: 0 0 34px;
+  object-fit: contain;
+}
