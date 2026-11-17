@@ -214,7 +214,7 @@ if (root) {
       if (reviewOnly && savedAnswer) {
         feedback!.dataset.result = savedAnswer.isCorrect ? "correct" : "incorrect";
         feedbackTitle!.textContent = savedAnswer.isCorrect ? "That's correct." : "Not quite — let's unpack it.";
-        savedAnswer.explanation.split(/\\n+/).map((part) => part.trim()).filter(Boolean).forEach((part) => {
+        savedAnswer.explanation.split(/\n+/).map((part) => part.trim()).filter(Boolean).forEach((part) => {
           const item = document.createElement("li");
           item.textContent = part;
           feedbackPoints!.append(item);
