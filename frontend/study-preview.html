@@ -5,12 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light" />
 <script>document.documentElement.setAttribute("data-theme","light");</script>
-<title>Study session preview | Arthic</title>
-<meta name="description" content="Try an illustrative Arthic study session. Answer sample biology questions, see explanations and review your progress in this browser-only preview." />
-<meta name="theme-color" content="#40B5AD" />
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<title>Practice questions | Arthic</title>
+<meta name="description" content="Practise original Arthic questions for LCAT, NUST NET, CSS and MDCAT. Check answers and read clear explanations." />
+<meta name="theme-color" content="#d0ecfd" />
 <link rel="manifest" href="/site.webmanifest" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Arthic" />
@@ -22,6 +19,9 @@
 <meta name="twitter:title" content="Study session preview | Arthic" />
 <meta name="twitter:description" content="Try a sample study session with Arthic." />
 <meta name="twitter:image" content="https://arthic.tech/og-image.png" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/favicon-32.png" />
+<link rel="manifest" href="/site.webmanifest" />
 </head>
 <body class="content-page study-preview-page">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -66,39 +66,46 @@
 
 <main id="main" class="content-main" data-study-preview>
   <section class="study-intro content-container" id="top">
-    <div class="content-hero__topline"><span>Student workspace</span><span>Biology</span><span>MDCAT sample</span></div>
-    <h1>Practise one question. Understand the answer.</h1>
-    <p class="study-intro__lede">Try a short Arthic practice session. Choose an answer, check the reasoning and review the explanation before moving on to the next question.</p>
+    <div class="content-hero__topline"><span>Practice</span><span>Four exam tracks</span><span>Original Arthic questions</span></div>
+    <h1>Practice with focus. Understand every answer.</h1>
+    <p class="study-intro__lede">Choose LCAT, NET, CSS or MDCAT. Work through topic-based questions, get your answer checked and read the explanation in clear steps.</p>
   </section>
 
-  <section class="study-workspace content-container" aria-label="Sample study workspace">
+  <section class="study-workspace content-container" aria-label="Arthic practice workspace">
     <aside class="study-rail">
       <div>
-        <p class="study-rail__eyebrow">Your study space</p>
-        <p class="study-rail__name">MDCAT Biology</p>
-        <nav class="study-rail__nav" aria-label="Study preview sections">
-          <a class="study-rail__link is-active" href="#practice" aria-current="page">Practice</a>
+        <p class="study-rail__eyebrow">Choose a track</p>
+        <p class="study-rail__name" data-practice-track-label>MDCAT</p>
+        <div class="practice-track-filters" role="group" aria-label="Filter questions by exam">
+          <button type="button" data-exam-filter="MDCAT" aria-pressed="true">MDCAT</button>
+          <button type="button" data-exam-filter="LCAT" aria-pressed="false">LCAT</button>
+          <button type="button" data-exam-filter="NET" aria-pressed="false">NET</button>
+          <button type="button" data-exam-filter="CSS" aria-pressed="false">CSS</button>
+          <button type="button" data-exam-filter="ALL" aria-pressed="false">All tracks</button>
+        </div>
+        <nav class="study-rail__nav" aria-label="Practice sections">
+          <a class="study-rail__link is-active" href="#practice" aria-current="page">Questions</a>
           <a class="study-rail__link" href="#session-progress">Progress</a>
-          <a class="study-rail__link" href="#topic-note">Topic note</a>
+          <a class="study-rail__link" href="#topic-note">Study notes</a>
         </nav>
       </div>
-      <p class="study-rail__foot"><strong>Preview workspace</strong>Session progress is temporary and stays in this page only. Nothing is sent or saved.</p>
+      <p class="study-rail__foot"><strong>Original sample bank</strong>Answers are checked by Arthic. This preview does not save a student profile or session history.</p>
     </aside>
 
     <section class="study-session" id="practice" aria-labelledby="study-session-heading">
       <div class="study-session__top">
         <div>
-          <p class="study-session__eyebrow">MDCAT / Biology / Cell structure</p>
-          <h2 class="study-session__heading" id="study-session-heading">Cell biology foundations</h2>
-          <p class="study-session__subhead">A short, three-question set to explore how practice and explanations could work together.</p>
+          <p class="study-session__eyebrow">PRACTICE / <span data-practice-track-label>MDCAT</span></p>
+          <h2 class="study-session__heading" id="study-session-heading">Build your question rhythm.</h2>
+          <p class="study-session__subhead"><span data-question-bank-count>8 original questions in this set</span> · One question at a time, with a clear explanation after checking.</p>
         </div>
-        <span class="study-session__type">Sample set</span>
+        <span class="study-session__type">Original questions</span>
       </div>
 
       <div class="study-progress" aria-label="Session progress">
         <div class="study-progress__labels">
           <span data-session-progress-label>0 of 3 answered</span>
-          <span>3 questions</span>
+          <span data-question-total>8 questions</span>
         </div>
         <div class="study-progress__track" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-session-progress-track>
           <div class="study-progress__fill" data-session-progress-fill></div>
@@ -121,8 +128,8 @@
 
         <div class="study-feedback" data-question-feedback role="status" aria-live="polite" hidden>
           <h4 class="study-feedback__title" data-feedback-title></h4>
-          <p class="study-feedback__body" data-feedback-body></p>
-          <p class="study-feedback__takeaway" data-feedback-takeaway></p>
+          <ul class="study-feedback__points" data-feedback-points></ul>
+          <p class="study-feedback__takeaway"><strong>Key takeaway</strong><span data-feedback-takeaway></span></p>
         </div>
       </section>
 
@@ -152,20 +159,20 @@
 
       <section class="study-sidebar__section" id="topic-note">
         <p class="study-sidebar__eyebrow">Topic note</p>
-        <h3 class="study-sidebar__heading">Cell biology</h3>
-        <p class="study-sidebar__text">This sample set revisits three foundations: organelle functions, the cell cycle and movement across cell membranes.</p>
-        <p class="study-sidebar__text"><strong>Study tip:</strong> explain why each option is right or wrong, not only which letter is correct.</p>
+        <h3 class="study-sidebar__heading">Review the reasoning</h3>
+        <p class="study-sidebar__text">Each answer includes a short explanation and a key takeaway. Use both to understand the concept, not just memorise the selected option.</p>
+        <p class="study-sidebar__text"><strong>Study tip:</strong> explain why the right option fits and why the other choices do not.</p>
       </section>
 
       <div class="study-sidebar__boundary">
         <strong>What this preview includes</strong>
-        Sample questions, answer checking and written explanations. It is not connected to a live question bank, student account or AI mentor.
+        32 original Arthic-written questions across four exam tracks, server-checked answers, bullet-point explanations and a session review. It is not an official past-paper bank.
       </div>
     </aside>
   </section>
 
   <section class="study-preview-invite content-container">
-    <p>These are original sample questions for demonstrating the interface. They are not official MDCAT questions or past-paper content. Session progress resets when the page reloads.</p>
+    <p>These are original Arthic-written practice questions for demonstrating the interface. They are not official LCAT, NET, CSS or MDCAT past-paper questions. Progress resets when the page reloads.</p>
     <a href="/waitlist.html">Get early-access updates ↗</a>
   </section>
 </main>

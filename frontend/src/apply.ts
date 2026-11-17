@@ -25,60 +25,45 @@ interface RoleConfig {
 }
 
 const ROLES: Record<string, RoleConfig> = {
-  "student-content-lead": {
-    dbRole: "Student Content Lead",
-    title: "student content lead",
-    tag: "content",
-    blurb:
-      "write the notes, MCQs, and past-paper breakdowns for one exam track — MDCAT, ECAT, NUST NET, FAST, CSS, PMS, or LUMS BA-LL.B / LAT. best suited to someone who took that exact exam recently enough to remember exactly where it got confusing.",
-    linkLabel: "portfolio / social link",
-    linkPlaceholder: "a doc, blog, or anything you've written (optional)",
-    messageLabel: "which exam track, and when you took it",
-    messagePlaceholder: "e.g. MDCAT, took it in 2025 — strong on biology, shakier on physics",
+  "student-mentor": {
+    dbRole: "Student Mentor",
+    title: "Student Mentor",
+    tag: "Subject guidance",
+    blurb: "Help learners understand a difficult topic or practice question in LCAT, NET, CSS or MDCAT. Share your strongest subject areas, relevant exam experience and how you would explain a concept clearly. Mentor matching is planned and is not live yet.",
+    linkLabel: "Sample explanation or portfolio link",
+    linkPlaceholder: "An optional sample you created yourself",
+    messageLabel: "Which track and subjects could you support?",
+    messagePlaceholder: "Tell us about your subject strengths, relevant exam experience and how you approach explaining a difficult concept.",
   },
-  "campus-ambassador": {
-    dbRole: "Campus Ambassador",
-    title: "campus ambassador",
-    tag: "outreach",
-    blurb:
-      "bring arthic to your own university, college, or academy — a small demo, a mention in your batch's group chats, honest notes on what students actually ask for. flexible, part-time, and it looks good on a resume without pretending to be a full-time job.",
-    linkLabel: "Instagram / LinkedIn link",
-    linkPlaceholder: "Instagram / LinkedIn link (optional)",
-    messageLabel: "your college/university and current year",
-    messagePlaceholder: "e.g. second-year at LUMS, active in the pre-med society",
+  "student-contributor": {
+    dbRole: "Student Contributor",
+    title: "Student Contributor",
+    tag: "Learning content",
+    blurb: "Create original study notes, practice questions and worked explanations for LCAT, NET, CSS or MDCAT. Your sample should show accurate knowledge and clear reasoning. Do not submit copied paid questions, book extracts or past-paper material without permission.",
+    linkLabel: "Writing sample or portfolio link",
+    linkPlaceholder: "An optional document or sample you created yourself",
+    messageLabel: "Which exam track and subject would you contribute to?",
+    messagePlaceholder: "Share your strongest topics and the original material you could help create.",
   },
-  "student-engineer": {
-    dbRole: "Student Engineer",
-    title: "student engineer",
-    tag: "engineering",
-    blurb:
-      "build the actual product alongside your own classes — frontend, backend, or the mentor's underlying prompting and evaluation. no legacy codebase, real ownership over what you ship, and hours built around your semester, not a 9-to-5.",
-    linkLabel: "GitHub / portfolio link",
-    linkPlaceholder: "GitHub / portfolio link (optional)",
-    messageLabel: "what you'd want to build first",
-    messagePlaceholder: "e.g. the study-plan generator, or the mentor's evaluation loop",
-  },
-  "mentor-quality-reviewer": {
-    dbRole: "Mentor Quality Reviewer",
-    title: "mentor quality reviewer",
-    tag: "pedagogy",
-    blurb:
-      "read real, anonymized mentor conversations and flag where an explanation was unclear, an analogy didn't land, or the tone was off. especially useful if you've tutored, taught, or TA'd before — no engineering background required.",
-    linkLabel: "portfolio / LinkedIn link",
-    linkPlaceholder: "portfolio / LinkedIn link (optional)",
-    messageLabel: "relevant tutoring / teaching background",
-    messagePlaceholder: "e.g. TA'd intro physics for two semesters, tutored MDCAT students privately",
+  "student-ambassador": {
+    dbRole: "Student Ambassador",
+    title: "Student Ambassador",
+    tag: "Campus community",
+    blurb: "Help introduce Arthic to students in your school, college, university or study community. The planned programme may include sharing approved updates, supporting a small introduction session and passing back honest feedback from learners.",
+    linkLabel: "Campus society or public profile link",
+    linkPlaceholder: "An optional public society page or profile",
+    messageLabel: "Your student community and how you could contribute",
+    messagePlaceholder: "Tell us about your campus or student community and how you would introduce Arthic responsibly.",
   },
   general: {
-    dbRole: "General",
-    title: "general application",
-    tag: "open",
-    blurb:
-      "not quite one of the four listed roles? tell us what you'd rather be doing — we're small enough to figure it out from there.",
-    linkLabel: "portfolio / social link",
-    linkPlaceholder: "portfolio / social link (optional)",
-    messageLabel: "what you'd rather be doing",
-    messagePlaceholder: "tell us what role you want, or what you think we're missing",
+    dbRole: "General Student Interest",
+    title: "General Student Interest",
+    tag: "Open",
+    blurb: "Tell us which Arthic exam track you know best and how you would like to contribute. This is an expression of interest while the student programmes are being organised.",
+    linkLabel: "Portfolio or public profile link",
+    linkPlaceholder: "An optional link to work you have created",
+    messageLabel: "What would you like to contribute?",
+    messagePlaceholder: "Tell us about your interests and the exam track you know.",
   },
 };
 
@@ -87,10 +72,10 @@ const roleKey = params.get("role") || "general";
 const role = ROLES[roleKey] ?? ROLES.general;
 
 const heading = document.querySelector<HTMLElement>("[data-role-heading]");
-if (heading) heading.textContent = `apply — ${role.title}.`;
+if (heading) heading.textContent = `Apply — ${role.title}.`;
 
 const blurb = document.querySelector<HTMLElement>("[data-role-blurb]");
-if (blurb) blurb.textContent = `you're applying for ${role.title} — fill in a few details and we'll get back to you.`;
+if (blurb) blurb.textContent = `You are registering interest in the ${role.title} programme. Fill in a few details and the team will review your application.`;
 
 const tag = document.querySelector<HTMLElement>("[data-role-tag]");
 if (tag) tag.textContent = role.tag;

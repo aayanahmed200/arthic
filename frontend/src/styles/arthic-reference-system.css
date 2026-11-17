@@ -434,3 +434,267 @@ html body.content-page main :is(a.oneprep-button--primary,a.home-button,.oneprep
 html body.content-page main :is(a.oneprep-button--primary,a.home-button,.oneprep-final-cta a.oneprep-button,.content-cta a.home-button,.waitlist-form button[type="submit"],.apply-form button[type="submit"]):hover{background:#bf2c70!important;color:#fff!important}
 @media(max-width:1100px){body.content-page .footer__top{grid-template-columns:repeat(3,minmax(0,1fr))!important}body.content-page .footer__brand{grid-column:1/-1}}
 @media(max-width:760px){body.content-page .footer-garden{height:68px}body.content-page .footer__top{grid-template-columns:1fr 1fr!important;gap:25px 18px!important}body.content-page .footer__brand{grid-column:1/-1}body.content-page .footer__bottom{flex-direction:column;align-items:flex-start}}
+
+
+/* Shared Arthic chrome: Inter SemiBold wordmark and the same three destinations. */
+body.content-page .nav__mark{gap:0!important}
+body.content-page .nav__wordmark,
+body.content-page .footer__wordmark{
+  font-family:Inter,Arial,sans-serif!important;font-weight:600!important;
+  letter-spacing:-.035em!important;color:#111!important
+}
+body.content-page .nav__wordmark{font-size:25px!important;line-height:1!important}
+body.content-page .footer__wordmark{font-size:27px!important;line-height:1!important}
+body.content-page .nav__bookmark,.nav__spark,.footer__spark{display:none!important}
+body.content-page .nav__links{gap:clamp(18px,2.5vw,36px)!important}
+body.content-page .nav__links a{padding:9px 12px!important;font:600 13px/1.2 Inter,Arial,sans-serif!important}
+body.content-page .nav__utility{gap:4px!important}
+body.content-page .nav__cta{border-radius:999px!important}
+body.content-page .footer-frame{background:#cceb80!important;margin-top:0!important}
+body.content-page .footer-garden{display:block;height:132px;overflow:hidden;line-height:0;background:#cceb80}
+body.content-page .footer-garden svg{display:block;width:100%;height:100%}
+body.content-page .footer{background:#9fd986!important;color:#1d3325!important;padding:18px 0 24px!important;border:0!important}
+body.content-page .footer__top{
+ display:grid!important;grid-template-columns:minmax(220px,1.45fr) repeat(4,minmax(0,1fr))!important;
+ align-items:start;gap:clamp(18px,2.7vw,38px)!important;
+ margin:0 0 26px!important;padding:12px 0 24px!important;
+ border-bottom:1px solid rgba(30,55,34,.22)!important
+}
+body.content-page .footer__brand{display:flex!important;flex-direction:column;align-items:flex-start;gap:12px!important}
+body.content-page .footer__mark{display:inline-flex!important;align-items:center;gap:0!important;color:#111!important;text-decoration:none!important}
+body.content-page .footer__tagline{max-width:30ch!important;margin:0!important;color:#35543a!important;font:400 13px/1.55 Inter,Arial,sans-serif!important}
+body.content-page .footer__email{color:#2d6d3d!important;font:600 12px/1.4 Inter,Arial,sans-serif!important;text-decoration:none!important}
+body.content-page .footer__col{display:flex!important;flex-direction:column;gap:10px!important;align-items:flex-start}
+body.content-page .footer__col-label{margin:0 0 2px!important;color:#172d20!important;font:700 13px/1.2 Inter,Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important}
+body.content-page .footer__col a{color:#3a5a3e!important;font:400 12px/1.45 Inter,Arial,sans-serif!important;text-decoration:none!important}
+body.content-page .footer__col a:hover{color:#1c6d3a!important;text-decoration:underline!important;text-underline-offset:3px}
+body.content-page .footer__bottom{
+ display:flex!important;align-items:center;justify-content:space-between;gap:14px;
+ margin:0!important;padding-top:14px!important;border:0!important;
+ color:#3e6346!important;font:400 11px/1.5 Inter,Arial,sans-serif!important
+}
+body.content-page .footer__bottom p{margin:0!important;color:inherit!important}
+body.content-page .footer__bottom a{color:#2e5638!important;text-decoration:none!important}
+body.content-page .footer__bottom a:hover{text-decoration:underline!important;text-underline-offset:3px}
+@media(max-width:1100px){
+ body.content-page .footer__top{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ body.content-page .footer__brand{grid-column:1/-1}
+}
+@media(max-width:760px){
+ body.content-page .footer-garden{height:92px}
+ body.content-page .footer__top{grid-template-columns:1fr 1fr!important;gap:25px 18px!important}
+ body.content-page .footer__brand{grid-column:1/-1}
+ body.content-page .footer__bottom{flex-direction:column;align-items:flex-start}
+}
+
+/* Consistent, aligned layouts for the four exam pathways. */
+body.content-page .exam-track-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(16px,2.3vw,26px);margin-top:26px;align-items:stretch
+}
+body.content-page .exam-track-card{
+  min-width:0;display:flex;flex-direction:column;align-items:flex-start;
+  padding:clamp(22px,3vw,34px);border:1px solid rgba(31,53,38,.17);
+  border-radius:22px;background:rgba(255,255,255,.34);
+  box-shadow:0 8px 28px rgba(35,65,43,.035)
+}
+body.content-page .exam-track-card--lcat{background:rgba(243,213,229,.50)}
+body.content-page .exam-track-card--net{background:rgba(208,236,253,.7)}
+body.content-page .exam-track-card--css{background:rgba(241,211,109,.27)}
+body.content-page .exam-track-card--mdcat{background:rgba(204,235,128,.32)}
+body.content-page .exam-track-card__top{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  width:100%;margin-bottom:18px;color:#536a56
+}
+body.content-page .exam-track-card__number{
+  font:700 10px/1.3 Inter,Arial,sans-serif;letter-spacing:.10em;
+  text-transform:uppercase
+}
+body.content-page .exam-track-card__index{
+  display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;
+  border:1px solid rgba(29,52,35,.24);border-radius:50%;color:#273b2c;
+  font:600 12px/1 Inter,Arial,sans-serif
+}
+body.content-page .exam-track-card h2{
+  margin:0;color:#111;font:400 clamp(29px,3vw,38px)/1.05 "Lilita One",Inter,sans-serif;
+  letter-spacing:-.025em
+}
+body.content-page .exam-track-card__lede{
+  margin:8px 0 10px;color:#2b4732;font:600 13px/1.5 Inter,Arial,sans-serif
+}
+body.content-page .exam-track-card>p:not(.exam-track-card__lede){
+  max-width:58ch;margin:0 0 18px;color:#3f5744;font:400 13px/1.7 Inter,Arial,sans-serif
+}
+body.content-page .exam-track-card__tags{
+  display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:3px
+}
+body.content-page .exam-track-card__tags span{
+  display:inline-flex;align-items:center;min-height:27px;padding:5px 9px;
+  border:1px solid rgba(31,53,38,.16);border-radius:999px;background:rgba(255,255,255,.32);
+  color:#3e5944;font:500 10px/1.2 Inter,Arial,sans-serif
+}
+body.content-page .exam-track-card__link{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  width:100%;margin-top:20px;padding-top:14px;border-top:1px solid rgba(31,53,38,.16);
+  color:#236b3a;font:700 12px/1.4 Inter,Arial,sans-serif;text-decoration:none
+}
+body.content-page .exam-track-card__link span{font-size:15px}
+body.content-page .exam-track-card__link:hover{color:#b82e6d}
+body.content-page .exam-search__empty{margin:22px 0;color:#536653;font:500 13px/1.5 Inter,Arial,sans-serif}
+body.content-page .exam-prep-note{
+  display:grid;gap:14px;margin-block:clamp(45px,7vw,82px);
+  padding:clamp(24px,4vw,44px);border-top:1px solid rgba(31,53,38,.18);
+  border-bottom:1px solid rgba(31,53,38,.18)
+}
+body.content-page .exam-prep-note h2{
+  max-width:19ch;margin:0;color:#111;font:400 clamp(28px,4vw,42px)/1.1 "Lilita One",Inter,sans-serif
+}
+body.content-page .exam-prep-note>p:not(.content-hero__topline){
+  max-width:68ch;margin:0;color:#435a47;font:400 14px/1.75 Inter,Arial,sans-serif
+}
+
+/* Three distinct plan formats; prices are deliberately labelled as proposals. */
+body.content-page .pricing-plan-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(13px,1.8vw,22px);margin-top:26px;align-items:stretch
+}
+body.content-page .pricing-plan{
+  display:flex;flex-direction:column;align-items:flex-start;min-width:0;
+  padding:clamp(21px,2.4vw,30px);border:1px solid rgba(31,53,38,.17);
+  border-radius:20px;background:rgba(255,255,255,.33)
+}
+body.content-page .pricing-plan--individual{background:rgba(208,236,253,.56)}
+body.content-page .pricing-plan--group{background:rgba(204,235,128,.34)}
+body.content-page .pricing-plan--coaching{background:rgba(243,213,229,.48)}
+body.content-page .pricing-plan__eyebrow{
+  margin:0 0 14px;color:#536a56;font:700 10px/1.3 Inter,Arial,sans-serif;letter-spacing:.11em
+}
+body.content-page .pricing-plan h2{
+  margin:0;color:#111;font:400 clamp(27px,2.6vw,34px)/1.05 "Lilita One",Inter,sans-serif
+}
+body.content-page .pricing-plan__intro{
+  min-height:66px;margin:10px 0 15px;color:#435a47;font:400 13px/1.65 Inter,Arial,sans-serif
+}
+body.content-page .pricing-plan__price{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:5px;
+  margin:0;color:#1d3525;font:700 clamp(24px,2.5vw,32px)/1.15 Inter,Arial,sans-serif;
+  letter-spacing:-.045em
+}
+body.content-page .pricing-plan__price span{
+  color:#536a56;font:500 11px/1.4 Inter,Arial,sans-serif;letter-spacing:0
+}
+body.content-page .pricing-plan__status{
+  margin:8px 0 19px;color:#596c5c;font:500 10px/1.5 Inter,Arial,sans-serif
+}
+body.content-page .pricing-plan ul{
+  display:grid;gap:10px;width:100%;margin:0 0 22px;padding:17px 0 0;
+  border-top:1px solid rgba(31,53,38,.15);list-style:none
+}
+body.content-page .pricing-plan li{
+  position:relative;padding-left:20px;color:#3d5542;font:400 12px/1.6 Inter,Arial,sans-serif
+}
+body.content-page .pricing-plan li::before{
+  content:"";position:absolute;left:1px;top:.48em;width:8px;height:8px;
+  border:1.5px solid #6b9e77;border-radius:50%
+}
+body.content-page .pricing-plan .oneprep-button{margin-top:auto}
+body.content-page .pricing-footnote{
+  max-width:92ch;margin:17px 0 0;color:#647466;font:400 11px/1.65 Inter,Arial,sans-serif
+}
+body.content-page .pricing-benchmarks{padding-block:clamp(42px,7vw,76px)}
+body.content-page .pricing-benchmarks h2{
+  max-width:22ch;margin:15px 0 10px;color:#111;
+  font:400 clamp(28px,4vw,42px)/1.12 "Lilita One",Inter,sans-serif
+}
+body.content-page .pricing-benchmarks__lede,
+body.content-page .pricing-benchmarks__note{
+  max-width:78ch;color:#526756;font:400 13px/1.7 Inter,Arial,sans-serif
+}
+body.content-page .pricing-benchmark-list{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px
+}
+body.content-page .pricing-benchmark{
+  display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-content:start;
+  padding:20px 21px;border-top:1px solid rgba(31,53,38,.22);
+  background:rgba(255,255,255,.20)
+}
+body.content-page .pricing-benchmark>div{grid-column:1/-1}
+body.content-page .pricing-benchmark>div span{
+  color:#607762;font:700 9px/1.3 Inter,Arial,sans-serif;letter-spacing:.1em
+}
+body.content-page .pricing-benchmark h3{
+  margin:6px 0 0;color:#18251c;font:600 17px/1.25 Inter,Arial,sans-serif
+}
+body.content-page .pricing-benchmark p{
+  grid-column:1/-1;margin:0;color:#4a614e;font:400 12px/1.7 Inter,Arial,sans-serif
+}
+body.content-page .pricing-benchmark>a{
+  color:#2b7540;font:600 11px/1.4 Inter,Arial,sans-serif;text-decoration:underline;
+  text-decoration-color:rgba(43,117,64,.32);text-underline-offset:3px
+}
+body.content-page .pricing-benchmarks__note{margin-top:16px;font-size:11px}
+
+/* Student roles keep responsibilities and eligibility easy to scan. */
+body.content-page .career-list--detailed{display:grid;gap:0}
+body.content-page .career-role--detailed{
+  display:grid;grid-template-columns:38px minmax(0,1fr) auto;
+  gap:15px clamp(14px,2.5vw,32px);align-items:start;
+  padding:27px 0;border-bottom:1px solid rgba(31,53,38,.18)
+}
+body.content-page .career-role--detailed .career-role__number{
+  display:grid;place-items:center;width:32px;height:32px;
+  border:1px solid rgba(31,53,38,.23);border-radius:50%;
+  color:#405744;font:600 11px/1 Inter,Arial,sans-serif
+}
+body.content-page .career-role__content{min-width:0}
+body.content-page .career-role__type{
+  display:block;color:#55705b;font:700 10px/1.45 Inter,Arial,sans-serif;
+  letter-spacing:.09em;text-transform:uppercase
+}
+body.content-page .career-role__content h2{
+  margin:7px 0 10px;color:#111;font:400 clamp(24px,3vw,32px)/1.12 "Lilita One",Inter,sans-serif
+}
+body.content-page .career-role__body{
+  max-width:78ch;margin:0 0 16px;color:#435a47;font:400 13px/1.75 Inter,Arial,sans-serif
+}
+body.content-page .career-role__detail-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 26px;margin:0 0 14px
+}
+body.content-page .career-role__detail-grid>div{min-width:0;padding-top:12px;border-top:1px solid rgba(31,53,38,.15)}
+body.content-page .career-role__detail-grid strong{
+  color:#253b2b;font:700 11px/1.4 Inter,Arial,sans-serif
+}
+body.content-page .career-role__detail-grid ul{
+  display:grid;gap:7px;margin:9px 0 0;padding-left:17px;color:#536858;
+  font:400 11px/1.65 Inter,Arial,sans-serif
+}
+body.content-page .career-role__note{
+  max-width:78ch;margin:0;color:#68766a;font:500 10px/1.65 Inter,Arial,sans-serif
+}
+body.content-page .career-role--detailed .career-role__link{
+  align-self:start;white-space:nowrap;color:#28733d;font:700 11px/1.4 Inter,Arial,sans-serif
+}
+body.content-page .careers-application-note{
+  display:grid;gap:13px;padding-block:36px;border-top:1px solid rgba(31,53,38,.18)
+}
+body.content-page .careers-application-note h2{
+  margin:0;color:#111;font:400 clamp(28px,3.8vw,39px)/1.1 "Lilita One",Inter,sans-serif
+}
+body.content-page .careers-application-note>p{
+  max-width:85ch;margin:0;color:#526756;font:400 12px/1.75 Inter,Arial,sans-serif
+}
+@media(max-width:1000px){
+ body.content-page .pricing-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.content-page .pricing-plan--coaching{grid-column:1/-1}
+ body.content-page .pricing-plan--coaching .pricing-plan__intro{min-height:0}
+}
+@media(max-width:760px){
+ body.content-page .exam-track-grid{grid-template-columns:1fr}
+ body.content-page .pricing-plan-grid{grid-template-columns:1fr}
+ body.content-page .pricing-plan--coaching{grid-column:auto}
+ body.content-page .pricing-plan__intro{min-height:0}
+ body.content-page .pricing-benchmark-list{grid-template-columns:1fr}
+ body.content-page .career-role--detailed{grid-template-columns:34px minmax(0,1fr);gap:12px}
+ body.content-page .career-role--detailed .career-role__link{grid-column:2;justify-self:start;margin-top:4px}
+ body.content-page .career-role__detail-grid{grid-template-columns:1fr}
+}

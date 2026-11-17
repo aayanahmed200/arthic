@@ -1,5 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { SAMPLE_QUESTIONS } from "./_sample-content.js";
+
+const SUPPORTED_EXAMS = new Set(["LCAT", "NET", "CSS", "MDCAT"]);
 import { sql } from "../_db.js";
 
 function toPublicQuestion(row: Record<string, unknown>) {
@@ -33,19 +35,34 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         SELECT id, exam_code, subject_code, topic, prompt, instruction, options, source_kind
         FROM question_bank
         WHERE is_published = true AND is_archived = false
+          AND exam_code IN ('LCAT', 'NET', 'CSS', 'MDCAT')
         ORDER BY exam_code, subject_code, topic, id
         LIMIT 200
       `;
       const published = rows
         .map((row) => toPublicQuestion(row as Record<string, unknown>))
-        .filter((question) => question !== null);
-      if (published.length) {
+        .filter((question): question is NonNullable<ReturnType<typeof toPublicQuestion>> =>
+          question !== null && SUPPORTED_EXAMS.has(question.examCode)
+        );
+      const merged = new Map<string, NonNullable<ReturnType<typeof toPublicQuestion>>>();
+      SAMPLE_QUESTIONS.forEach((question) => merged.set(question.id, {
+        id: question.id,
+        examCode: question.examCode,
+        subjectCode: question.subjectCode,
+        topic: question.topic,
+        prompt: question.prompt,
+        instruction: question.instruction,
+        options: question.options,
+        sourceKind: question.sourceKind,
+      }));
+      published.forEach((question) => merged.set(question.id, question));
+      if (merged.size) {
         res.setHeader("Cache-Control", "public, max-age=30, s-maxage=60, stale-while-revalidate=300");
         return res.status(200).json({
-          dataVersion: "question-bank-v3",
-          sourceKind: "curated-question-bank",
-          isOfficialPastPaper: null,
-          questions: published,
+          dataVersion: "arthic-four-track-samples-v1",
+          sourceKind: "mixed-original-and-curated",
+          isOfficialPastPaper: false,
+          questions: Array.from(merged.values()),
         });
       }
     } catch (error) {
@@ -56,7 +73,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Keep a clearly labelled demo feed available until questions are published.
   res.setHeader("Cache-Control", "public, max-age=60, s-maxage=300, stale-while-revalidate=3600");
   return res.status(200).json({
-    dataVersion: "sample-mdcat-biology-v2",
+    dataVersion: "arthic-four-track-samples-v1",
     sourceKind: "original-sample",
     isOfficialPastPaper: false,
     questions: SAMPLE_QUESTIONS.map((question) => ({

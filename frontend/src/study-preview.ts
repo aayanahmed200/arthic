@@ -11,6 +11,7 @@ interface StudyAnswer {
   isCorrect: boolean;
 }
 
+let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS];
 let QUESTIONS: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS];
 
 async function loadQuestionFeed(): Promise<void> {
@@ -31,6 +32,7 @@ async function loadQuestionFeed(): Promise<void> {
       const item = question as Partial<StudyQuestionPrompt>;
       return (
         typeof item.id === "string" &&
+        ["LCAT", "NET", "CSS", "MDCAT"].includes(String(item.examCode)) &&
         typeof item.topic === "string" &&
         typeof item.prompt === "string" &&
         Array.isArray(item.options) &&
@@ -42,7 +44,7 @@ async function loadQuestionFeed(): Promise<void> {
       );
     });
 
-    if (valid) QUESTIONS = questions;
+    if (valid) QUESTION_FEED = questions;
   } catch {
     // Keep the bundled sample set available if the API is temporarily offline.
   }
@@ -59,7 +61,11 @@ if (root) {
   const optionList = root.querySelector<HTMLElement>("[data-question-options]");
   const feedback = root.querySelector<HTMLElement>("[data-question-feedback]");
   const feedbackTitle = root.querySelector<HTMLElement>("[data-feedback-title]");
-  const feedbackBody = root.querySelector<HTMLElement>("[data-feedback-body]");
+  const feedbackPoints = root.querySelector<HTMLUListElement>("[data-feedback-points]");
+  const trackFilters = Array.from(root.querySelectorAll<HTMLButtonElement>("[data-exam-filter]"));
+  const trackLabels = Array.from(root.querySelectorAll<HTMLElement>("[data-practice-track-label]"));
+  const questionBankCount = root.querySelector<HTMLElement>("[data-question-bank-count]");
+  const questionTotal = root.querySelector<HTMLElement>("[data-question-total]");
   const takeaway = root.querySelector<HTMLElement>("[data-feedback-takeaway]");
   const checkButton = root.querySelector<HTMLButtonElement>("[data-check-answer]");
   const nextButton = root.querySelector<HTMLButtonElement>("[data-next-question]");
@@ -78,7 +84,7 @@ if (root) {
 
   if (
     questionScreen && completeScreen && number && topic && prompt && instruction &&
-    optionList && feedback && feedbackTitle && feedbackBody && takeaway &&
+    optionList && feedback && feedbackTitle && feedbackPoints && takeaway &&
     checkButton && nextButton && progressFill && progressLabel &&
     completedValue && correctValue && accuracyValue && completeHeading &&
     completeLede && completeStats && reviewList
@@ -87,6 +93,48 @@ if (root) {
     let selectedKey: string | null = null;
     const answers: StudyAnswer[] = [];
     let hasInteracted = false;
+    let activeExam = new URLSearchParams(window.location.search).get("exam") || "MDCAT";
+    if (!["LCAT", "NET", "CSS", "MDCAT", "ALL"].includes(activeExam)) activeExam = "MDCAT";
+
+    function applyExamFilter(examCode: string, moveFocus = false): void {
+      activeExam = examCode;
+      QUESTIONS = QUESTION_FEED.filter((question) => examCode === "ALL" || question.examCode === examCode);
+      questionIndex = 0;
+      selectedKey = null;
+      answers.length = 0;
+      hasInteracted = false;
+      questionScreen!.hidden = false;
+      completeScreen!.hidden = true;
+      trackFilters.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.examFilter === examCode));
+      });
+      const label = examCode === "ALL" ? "All tracks" : examCode;
+      trackLabels.forEach((element) => { element.textContent = label; });
+      if (questionBankCount) questionBankCount.textContent = QUESTIONS.length + " original questions in this set";
+      if (questionTotal) questionTotal.textContent = QUESTIONS.length + " questions";
+      if (!QUESTIONS.length) {
+        prompt!.textContent = "No questions are available for this track yet.";
+        topic!.textContent = label;
+        number!.textContent = "Question bank";
+        optionList!.replaceChildren();
+        instruction!.textContent = "Choose another track to continue practising.";
+        checkButton!.hidden = true;
+        nextButton!.hidden = true;
+        feedback!.hidden = true;
+        progressFill!.style.width = "0%";
+        if (sidebarProgressFill) sidebarProgressFill.style.width = "0%";
+        progressLabel!.textContent = "0 of 0 answered";
+        completedValue!.textContent = "0 / 0";
+        correctValue!.textContent = "0";
+        accuracyValue!.textContent = "—";
+        return;
+      }
+      renderQuestion(moveFocus);
+    }
+
+    trackFilters.forEach((button) => {
+      button.addEventListener("click", () => applyExamFilter(button.dataset.examFilter || "ALL", true));
+    });
 
     const correctCount = () => answers.filter((answer) => answer.isCorrect).length;
     const accuracy = () => answers.length ? Math.round((correctCount() / answers.length) * 100) : null;
@@ -94,7 +142,7 @@ if (root) {
     function updateProgress(): void {
       const completed = answers.length;
       const correct = correctCount();
-      const percent = Math.round((completed / QUESTIONS.length) * 100);
+      const percent = QUESTIONS.length ? Math.round((completed / QUESTIONS.length) * 100) : 0;
 
       progressFill!.style.width = percent + "%";
       sidebarProgressFill!.style.width = percent + "%";
@@ -142,6 +190,7 @@ if (root) {
       instruction!.textContent = question.instruction;
       feedback!.hidden = true;
       feedback!.removeAttribute("data-result");
+      feedbackPoints!.replaceChildren();
       checkButton!.hidden = false;
       checkButton!.disabled = true;
       checkButton!.classList.remove("is-loading");
@@ -206,7 +255,12 @@ if (root) {
         answers.push({ selected: selectedKey, correct: correctOption, isCorrect });
         feedback!.dataset.result = isCorrect ? "correct" : "incorrect";
         feedbackTitle!.textContent = isCorrect ? "That's correct." : "Not quite — let's unpack it.";
-        feedbackBody!.textContent = result.explanation;
+        feedbackPoints!.replaceChildren();
+        result.explanation.split(/\n+/).map((part) => part.trim()).filter(Boolean).forEach((part) => {
+          const item = document.createElement("li");
+          item.textContent = part;
+          feedbackPoints!.append(item);
+        });
         takeaway!.textContent = result.takeaway;
         feedback!.hidden = false;
 
@@ -226,8 +280,10 @@ if (root) {
       } catch {
         feedback!.removeAttribute("data-result");
         feedbackTitle!.textContent = "Answer checking is unavailable.";
-        feedbackBody!.textContent =
-          "The question is still here, but the answer service could not be reached. Please try again shortly.";
+        feedbackPoints!.replaceChildren();
+        const errorPoint = document.createElement("li");
+        errorPoint.textContent = "The question is still here, but the answer service could not be reached. Please try again shortly.";
+        feedbackPoints!.append(errorPoint);
         takeaway!.textContent = "";
         feedback!.hidden = false;
         checkButton!.classList.remove("is-loading");
@@ -301,9 +357,15 @@ if (root) {
 
     // The bundled sample appears immediately; a slower feed may replace it
     // only before the student has started answering.
+    QUESTIONS = QUESTION_FEED.filter((question) => activeExam === "ALL" || question.examCode === activeExam);
+    trackFilters.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.examFilter === activeExam)));
+    const initialLabel = activeExam === "ALL" ? "All tracks" : activeExam;
+    trackLabels.forEach((element) => { element.textContent = initialLabel; });
+    if (questionBankCount) questionBankCount.textContent = QUESTIONS.length + " original questions in this set";
+    if (questionTotal) questionTotal.textContent = QUESTIONS.length + " questions";
     renderQuestion();
     void loadQuestionFeed().then(() => {
-      if (!hasInteracted && answers.length === 0 && questionIndex === 0) renderQuestion();
+      if (!hasInteracted && answers.length === 0 && questionIndex === 0) applyExamFilter(activeExam);
     });
   }
 }

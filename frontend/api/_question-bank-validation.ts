@@ -1,4 +1,4 @@
-export const EXAM_CODES = ["MDCAT", "ECAT", "NUST_NET", "FAST", "LUMS_BALLB", "CSS", "PMS"] as const;
+export const EXAM_CODES = ["LCAT", "NET", "CSS", "MDCAT"] as const;
 export type QuestionSourceKind = "original-sample" | "licensed" | "public-domain";
 
 export interface QuestionDraftInput {

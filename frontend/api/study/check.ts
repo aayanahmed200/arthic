@@ -37,6 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         SELECT id, answer_key, explanation, takeaway, options
         FROM question_bank
         WHERE id = ${questionId} AND is_published = true AND is_archived = false
+          AND exam_code IN ('LCAT', 'NET', 'CSS', 'MDCAT')
         LIMIT 1
       `;
       if (rows[0]) {

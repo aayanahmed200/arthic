@@ -18,6 +18,10 @@ try {
   const valid = parseQuestionDraft(base);
   assert.equal(valid.ok, true);
   assert.ok(EXAM_CODES.includes("MDCAT"));
+  assert.ok(EXAM_CODES.includes("LCAT"));
+  assert.ok(EXAM_CODES.includes("NET"));
+  assert.ok(EXAM_CODES.includes("CSS"));
+  assert.equal(EXAM_CODES.includes("ECAT"), false);
   assert.equal(valid.value.answerKey, "B");
   for (const [name, patch] of [
     ["unsupported exam", { examCode: "UNKNOWN" }],
