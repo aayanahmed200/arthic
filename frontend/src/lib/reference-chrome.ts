@@ -28,7 +28,6 @@ const FOOTER = `<div class="footer-frame">
       <div class="footer__top">
         <div class="footer__brand">
           <a href="/" class="footer__mark" aria-label="Arthic home"><img class="footer__logo-mark" src="/arthic-mark.svg" width="44" height="44" alt="" /><span class="footer__wordmark">Arthic</span></a>
-          <p class="footer__tagline">Focused practice and clear explanations for LCAT, NET, CSS and MDCAT.</p>
           <a class="footer__email" href="mailto:hello@arthic.tech">hello@arthic.tech</a>
         </div>
         <nav class="footer__col" aria-label="Practice">
@@ -55,11 +54,6 @@ const FOOTER = `<div class="footer-frame">
           <a href="/privacy.html">Privacy policy</a>
           <a href="/cookies.html">Cookie policy</a>
         </nav>
-      </div>
-      <div class="footer__bottom">
-        <p>© <span data-year>2026</span> Arthic</p>
-        <span>Practice with purpose.</span>
-        <a href="#top">Back to top ↑</a>
       </div>
     </div>
   </footer>
@@ -95,5 +89,6 @@ export function initReferenceChrome(): void {
   if (existingFooter) existingFooter.outerHTML = FOOTER;
 
   document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#cceb80");
+  document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/favicon.svg?v=4");
   applyReferenceSurfaces();
 }
