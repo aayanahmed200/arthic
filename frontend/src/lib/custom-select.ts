@@ -101,16 +101,37 @@ function enhanceSelect(select: HTMLSelectElement): void {
     if (restoreFocus) trigger.focus();
   };
 
-  const open = (direction: 1 | -1 = 1): void => {
-    if (select.disabled || !select.options.length) return;
+  const findEnabled = (start: number, direction: 1 | -1): number => {
+    if (!optionEls.length) return -1;
+    let index = Math.min(Math.max(start, 0), optionEls.length - 1);
+    for (let count = 0; count < optionEls.length; count += 1) {
+      if (!optionEls[index]?.disabled) return index;
+      index = (index + direction + optionEls.length) % optionEls.length;
+    }
+    return -1;
+  };
+
+  const focusOption = (index: number): void => {
+    const enabledIndex = findEnabled(index, 1);
+    if (enabledIndex < 0) {
+      trigger.focus();
+      return;
+    }
+    activeIndex = enabledIndex;
+    optionEls[activeIndex]?.focus();
+  };
+
+  const open = (direction: 1 | -1 | 0 = 0): void => {
+    if (select.disabled || !optionEls.length) return;
     listbox.hidden = false;
     trigger.setAttribute("aria-expanded", "true");
     const selected = select.selectedIndex >= 0 ? select.selectedIndex : 0;
-    activeIndex = Math.min(Math.max(selected, 0), optionEls.length - 1);
-    const candidate = optionEls[activeIndex];
-    candidate?.focus();
-    if (!candidate) trigger.focus();
-    if (direction === -1 && !candidate) activeIndex = optionEls.length - 1;
+    const startingIndex = direction === 0
+      ? selected
+      : direction === 1
+        ? selected + 1
+        : selected - 1;
+    focusOption((startingIndex + optionEls.length) % optionEls.length);
   };
 
   trigger.addEventListener("click", () => {
@@ -128,10 +149,20 @@ function enhanceSelect(select: HTMLSelectElement): void {
     if (event.key === "Tab") { close(false); return; }
     if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) return;
     event.preventDefault();
-    if (event.key === "Home") activeIndex = 0;
-    else if (event.key === "End") activeIndex = optionEls.length - 1;
-    else activeIndex = (activeIndex + (event.key === "ArrowDown" ? 1 : -1) + optionEls.length) % optionEls.length;
-    optionEls[activeIndex]?.focus();
+    if (event.key === "Home") {
+      focusOption(0);
+      return;
+    }
+    if (event.key === "End") {
+      const lastEnabled = findEnabled(optionEls.length - 1, -1);
+      if (lastEnabled >= 0) {
+        activeIndex = lastEnabled;
+        optionEls[activeIndex]?.focus();
+      }
+      return;
+    }
+    const direction: 1 | -1 = event.key === "ArrowDown" ? 1 : -1;
+    focusOption((activeIndex + direction + optionEls.length) % optionEls.length);
   });
 
   document.addEventListener("pointerdown", (event) => {
