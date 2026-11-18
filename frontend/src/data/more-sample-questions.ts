@@ -3,6 +3,7 @@ import type { StudyQuestionPrompt } from "./sample-questions";
 /** Public prompts only; answer keys and explanations remain on the server. */
 export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
   {
+    "id": "mdcat-more-001",
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "DNA base pairing",
@@ -29,6 +30,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-002",
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Gas exchange",
@@ -55,6 +57,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-003",
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Hormonal regulation",
@@ -81,6 +84,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-004",
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Enzyme activity",
@@ -107,6 +111,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-005",
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Plant transport",
@@ -133,6 +138,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-006",
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Meiosis",
@@ -159,6 +165,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-007",
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Cell membrane",
@@ -185,6 +192,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-008",
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Atomic structure",
@@ -211,6 +219,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-009",
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Neutralisation",
@@ -237,6 +246,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-010",
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Molar mass",
@@ -263,6 +273,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-011",
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Catalysts",
@@ -289,6 +300,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-012",
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Chemical bonding",
@@ -315,6 +327,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-013",
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Acidity and pH",
@@ -341,6 +354,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-014",
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Periodic trends",
@@ -367,6 +381,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-015",
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Speed",
@@ -393,6 +408,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-016",
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Parallel circuits",
@@ -419,6 +435,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-017",
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Frequency and period",
@@ -445,6 +462,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-018",
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Gravitational potential energy",
@@ -471,6 +489,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-019",
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Series circuits",
@@ -497,6 +516,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "mdcat-more-020",
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Converging lenses",
@@ -523,6 +543,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-001",
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Analogies",
@@ -549,6 +570,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-002",
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary in context",
@@ -575,6 +597,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-003",
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Reading inference",
@@ -601,6 +624,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-004",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Percentages",
@@ -627,6 +651,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-005",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Ratios",
@@ -653,6 +678,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-006",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Linear equations",
@@ -679,6 +705,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-007",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Averages",
@@ -705,6 +732,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-008",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Number sequences",
@@ -731,6 +759,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-009",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Work rates",
@@ -757,6 +786,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-010",
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Conditional reasoning",
@@ -783,6 +813,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-011",
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Logical implications",
@@ -809,6 +840,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-012",
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Subject–verb agreement",
@@ -835,6 +867,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-013",
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Parallel structure",
@@ -861,6 +894,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-014",
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Evaluating evidence",
@@ -887,6 +921,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-015",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Discounts",
@@ -913,6 +948,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-016",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Scale drawings",
@@ -939,6 +975,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-017",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Simultaneous equations",
@@ -965,6 +1002,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-018",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Probability",
@@ -991,6 +1029,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-019",
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Assumptions",
@@ -1017,6 +1056,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "lcat-more-020",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Median",
@@ -1043,6 +1083,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-001",
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Differentiation",
@@ -1069,6 +1110,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-002",
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Quadratic equations",
@@ -1095,6 +1137,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-003",
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Dot products",
@@ -1121,6 +1164,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-004",
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Arithmetic progressions",
@@ -1147,6 +1191,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-005",
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Logarithms",
@@ -1173,6 +1218,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-006",
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Acceleration",
@@ -1199,6 +1245,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-007",
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Work and energy",
@@ -1225,6 +1272,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-008",
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Wave speed",
@@ -1251,6 +1299,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-009",
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Pressure",
@@ -1277,6 +1326,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-010",
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Momentum",
@@ -1303,6 +1353,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-011",
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Stoichiometry",
@@ -1329,6 +1380,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-012",
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Oxidation and reduction",
@@ -1355,6 +1407,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-013",
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Molecular polarity",
@@ -1381,6 +1434,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-014",
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Gas laws",
@@ -1407,6 +1461,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-015",
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Molecular geometry",
@@ -1433,6 +1488,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-016",
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Data structures",
@@ -1459,6 +1515,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-017",
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Algorithms",
@@ -1485,6 +1542,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-018",
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Database keys",
@@ -1511,6 +1569,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-019",
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Boolean logic",
@@ -1537,6 +1596,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "net-more-020",
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Programming concepts",
@@ -1563,6 +1623,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-001",
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Constitutional framework",
@@ -1589,6 +1650,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-002",
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Physical geography",
@@ -1615,6 +1677,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-003",
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "River systems",
@@ -1641,6 +1704,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-004",
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Public institutions",
@@ -1667,6 +1731,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-005",
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Climate science",
@@ -1693,6 +1758,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-006",
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Biodiversity",
@@ -1719,6 +1785,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-007",
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Renewable energy",
@@ -1745,6 +1812,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-008",
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Research methods",
@@ -1771,6 +1839,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-009",
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Inflation",
@@ -1797,6 +1866,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-010",
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Fiscal policy",
@@ -1823,6 +1893,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-011",
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "International trade",
@@ -1849,6 +1920,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-012",
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "United Nations",
@@ -1875,6 +1947,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-013",
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "International relations",
@@ -1901,6 +1974,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-014",
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "Diplomacy",
@@ -1927,6 +2001,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-015",
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Syllogisms",
@@ -1953,6 +2028,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-016",
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Sampling bias",
@@ -1979,6 +2055,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-017",
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Correlation and causation",
@@ -2005,6 +2082,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-018",
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Subject–verb agreement",
@@ -2031,6 +2109,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-019",
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Vocabulary",
@@ -2057,6 +2136,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "sourceKind": "original-sample"
   },
   {
+    "id": "css-more-020",
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Reading comprehension",
