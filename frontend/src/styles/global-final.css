@@ -162,3 +162,51 @@ html body.study-preview-page .study-question__text {font-size:clamp(22px,1.65vw,
 html body.study-preview-page .study-option,
 html body.study-preview-page .study-option__text {font-size:15px!important;line-height:1.6!important;}
 html body.study-preview-page .study-option {min-height:60px!important;}
+
+
+/* Highest-priority page canvas override. The older page themes use several
+   compound selectors; this intentional non-matching ID raises specificity
+   without adding IDs or changing the page markup. Inner cards retain their
+   own ivory/white surfaces, while every page and major section shares blue. */
+html body:not(#arthic-blue-specificity),
+html body.content-page:not(#arthic-blue-specificity),
+html body.home-page:not(#arthic-blue-specificity),
+html body.study-preview-page:not(#arthic-blue-specificity),
+html body.legal-page:not(#arthic-blue-specificity),
+html body.not-found-document:not(#arthic-blue-specificity) {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+}
+html body:not(#arthic-blue-specificity) #main,
+html body:not(#arthic-blue-specificity) .content-main,
+html body:not(#arthic-blue-specificity) main#main,
+html body.content-page:not(#arthic-blue-specificity) #main,
+html body.content-page:not(#arthic-blue-specificity) .content-main,
+html body.home-page:not(#arthic-blue-specificity) #main,
+html body.study-preview-page:not(#arthic-blue-specificity) #main,
+html body.legal-page:not(#arthic-blue-specificity) #main,
+html body.not-found-document:not(#arthic-blue-specificity) #main {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+}
+html body:not(#arthic-blue-specificity) #main > section:not(#arthic-blue-specificity),
+html body:not(#arthic-blue-specificity) #main > article:not(#arthic-blue-specificity),
+html body.content-page:not(#arthic-blue-specificity) .content-main > section:not(#arthic-blue-specificity),
+html body.content-page:not(#arthic-blue-specificity) .content-main > article:not(#arthic-blue-specificity),
+html body.home-page:not(#arthic-blue-specificity) #main > section:not(#arthic-blue-specificity),
+html body.study-preview-page:not(#arthic-blue-specificity) #main > section:not(#arthic-blue-specificity),
+html body.legal-page:not(#arthic-blue-specificity) #main > section:not(#arthic-blue-specificity) {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+}
+html body.study-preview-page:not(#arthic-blue-specificity) .study-option,
+html body.study-preview-page:not(#arthic-blue-specificity) .study-option__text {
+  font-size:15px!important;
+  line-height:1.6!important;
+}
+html body.study-preview-page:not(#arthic-blue-specificity) .study-option {
+  min-height:60px!important;
+}
