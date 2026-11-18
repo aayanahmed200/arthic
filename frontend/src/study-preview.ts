@@ -68,6 +68,8 @@ if (root) {
   const optionList = root.querySelector<HTMLElement>("[data-question-options]");
   const feedback = root.querySelector<HTMLElement>("[data-question-feedback]");
   const feedbackTitle = root.querySelector<HTMLElement>("[data-feedback-title]");
+  const feedbackAnswer = root.querySelector<HTMLElement>("[data-feedback-answer]");
+  const feedbackIcon = root.querySelector<HTMLElement>("[data-feedback-icon]");
   const feedbackPoints = root.querySelector<HTMLUListElement>("[data-feedback-points]");
   const takeaway = root.querySelector<HTMLElement>("[data-feedback-takeaway]");
   const trackFilters = Array.from(root.querySelectorAll<HTMLButtonElement>("[data-exam-filter]"));
@@ -98,7 +100,7 @@ if (root) {
 
   if (
     questionScreen && completeScreen && number && topic && prompt && instruction &&
-    optionList && feedback && feedbackTitle && feedbackPoints && takeaway &&
+    optionList && feedback && feedbackTitle && feedbackAnswer && feedbackPoints && takeaway &&
     questionMap && subjectFilter && questionSearch && previousButton && nextButton &&
     finishButton && progressTrack && progressFill && sidebarProgressFill && progressLabel &&
     completedValue && correctValue && accuracyValue && completeHeading && completeLede &&
@@ -192,7 +194,11 @@ if (root) {
 
     function renderExplanation(answer: StudyAnswer): void {
       feedback!.dataset.result = answer.isCorrect ? "correct" : "incorrect";
-      feedbackTitle!.textContent = answer.isCorrect ? "Correct — well done." : "Not quite. Here's why.";
+      feedbackTitle!.textContent = answer.isCorrect ? "Correct answer" : "Not quite";
+      feedbackAnswer!.textContent = answer.isCorrect
+        ? "You chose " + answer.selected + " — that is correct."
+        : "You chose " + answer.selected + ". The correct answer is " + answer.correct + ".";
+      if (feedbackIcon) feedbackIcon.textContent = answer.isCorrect ? "✓" : "×";
       feedbackPoints!.replaceChildren();
       answer.explanation.split(/\n+/).map((part) => part.trim()).filter(Boolean).forEach((part) => {
         const item = document.createElement("li");
@@ -220,8 +226,19 @@ if (root) {
         button.setAttribute("aria-pressed", String(Boolean(savedAnswer && option.key === savedAnswer.selected)));
         if (savedAnswer) {
           button.disabled = true;
-          if (option.key === savedAnswer.correct) button.classList.add("is-correct");
-          else if (option.key === savedAnswer.selected && !savedAnswer.isCorrect) button.classList.add("is-incorrect");
+          const mark = document.createElement("span");
+          mark.className = "study-option__mark";
+          if (option.key === savedAnswer.correct) {
+            button.classList.add("is-correct");
+            mark.textContent = "✓ Correct";
+            mark.setAttribute("aria-label", "Correct answer");
+            button.append(mark);
+          } else if (option.key === savedAnswer.selected && !savedAnswer.isCorrect) {
+            button.classList.add("is-incorrect");
+            mark.textContent = "× Your answer";
+            mark.setAttribute("aria-label", "Your incorrect answer");
+            button.append(mark);
+          }
         } else {
           button.disabled = isSubmitting;
           if (isSubmitting && option.key === pendingOptionKey) button.classList.add("is-pending");
@@ -238,7 +255,9 @@ if (root) {
       number!.textContent = "QUESTION " + (questionIndex + 1) + " / " + questions.length;
       topic!.textContent = question.topic;
       prompt!.textContent = question.prompt;
-      instruction!.textContent = question.instruction;
+      instruction!.textContent = savedAnswer
+        ? "Answer checked. The correct choice is highlighted in green; an incorrect selection is marked red."
+        : question.instruction;
       const subject = root!.querySelector<HTMLElement>("[data-current-subject]");
       if (subject) subject.textContent = subjectLabel(question.subjectCode);
       const exam = root!.querySelector<HTMLElement>("[data-current-exam]");
@@ -262,6 +281,8 @@ if (root) {
       pendingOptionKey = optionKey;
       feedback!.dataset.result = "pending";
       feedbackTitle!.textContent = "Checking your answer…";
+      feedbackAnswer!.textContent = "Your selected option will be marked as soon as the check returns.";
+      if (feedbackIcon) feedbackIcon.textContent = "…";
       feedbackPoints!.replaceChildren();
       takeaway!.textContent = "";
       feedback!.hidden = false;
@@ -300,6 +321,8 @@ if (root) {
         pendingOptionKey = null;
         feedback!.dataset.result = "error";
         feedbackTitle!.textContent = "We couldn't check that answer.";
+        feedbackAnswer!.textContent = "No result was recorded. Try selecting an option again.";
+        if (feedbackIcon) feedbackIcon.textContent = "!";
         feedbackPoints!.replaceChildren();
         const item = document.createElement("li");
         item.textContent = "Your answer has not been recorded. Choose an option again to retry.";
