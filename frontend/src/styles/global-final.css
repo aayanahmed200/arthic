@@ -663,3 +663,35 @@ html body.content-page.study-preview-page:not(#arthic-blue-specificity) .study-r
 html body.content-page.study-preview-page:not(#arthic-blue-specificity) .study-session {
   position:static!important;top:auto!important;max-height:none!important;overflow:visible!important;
 }
+
+
+/* Legal and 404 reading cards need to sit above the blue page canvas. The
+   earlier legacy page reset had more ID-level specificity, so these exact
+   panel rules deliberately outrank it. */
+html body.content-page.legal-page:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main > article.entry:not(#arthic-blue-specificity-3) {
+  width:min(940px,calc(100% - 48px))!important;
+  max-width:940px!important;
+  margin:124px auto 68px!important;
+  padding:clamp(28px,5vw,64px)!important;
+  border:1px solid rgba(32,72,89,.14)!important;
+  border-radius:20px!important;
+  background:#F8FCFF!important;
+  background-color:#F8FCFF!important;
+  box-shadow:0 10px 30px rgba(31,65,79,.055)!important;
+}
+html body.content-page.not-found-document:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main > section.not-found-card:not(#arthic-blue-specificity-3) {
+  max-width:760px!important;
+  border:1px solid rgba(32,72,89,.14)!important;
+  border-radius:20px!important;
+  background:#F8FCFF!important;
+  background-color:#F8FCFF!important;
+  box-shadow:0 10px 30px rgba(31,65,79,.055)!important;
+}
+@media(max-width:620px) {
+  html body.content-page.legal-page:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main > article.entry:not(#arthic-blue-specificity-3) {
+    width:calc(100% - 28px)!important;
+    margin:92px auto 36px!important;
+    padding:24px 18px!important;
+    border-radius:16px!important;
+  }
+}
