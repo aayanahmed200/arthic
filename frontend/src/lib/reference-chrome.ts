@@ -64,10 +64,20 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
 </footer>`;
 
 function applyReferenceSurfaces(): void {
-  if (!document.body.classList.contains("content-page")) return;
-  // Every route shares the same light-blue page canvas.
-  document.documentElement.style.setProperty("background", "#D0ECFD");
-  document.body.style.setProperty("background", "#D0ECFD");
+  // Apply the same flat blue to every route and every section after its page
+  // markup is present. Inline important styles beat older page-specific fills.
+  const blue = "#D0ECFD";
+  document.documentElement.style.setProperty("background-color", blue, "important");
+  document.documentElement.style.setProperty("background-image", "none", "important");
+  document.body.style.setProperty("background-color", blue, "important");
+  document.body.style.setProperty("background-image", "none", "important");
+
+  document.querySelectorAll<HTMLElement>(
+    "main, section, .content-main, .home-page, .site-footer, .footer-inner, .footer-garden, .not-found-card, .entry"
+  ).forEach((surface) => {
+    surface.style.setProperty("background-color", blue, "important");
+    surface.style.setProperty("background-image", "none", "important");
+  });
 }
 
 export function initReferenceChrome(): void {
