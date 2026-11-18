@@ -187,4 +187,3 @@ if(homeCard){
  track?.addEventListener("change",()=>setTrack(track.value));
  fetch("/api/study/questions",{headers:{"Accept":"application/json"}}).then(r=>{if(!r.ok)throw new Error("Question feed unavailable.");return r.json() as Promise<{questions:HomeQuestion[]}>;}).then(data=>{bank=Array.isArray(data.questions)?data.questions:[];if(!bank.length)throw new Error("No questions available.");setTrack(track?.value||"LCAT");}).catch(e=>say(e instanceof Error?e.message:"Could not load questions."));
 }
-document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href","/favicon.svg");

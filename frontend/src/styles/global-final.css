@@ -860,7 +860,7 @@ html body:not(#arthic-polish):not(#arthic-polish-2) .site-header .menu-toggle sp
 /* Filled actions all use the same logo green with white lettering. */
 html body:not(#arthic-polish):not(#arthic-polish-2)
 :is(a.button,button.button,.button--small,.home-primary,.home-button,
-.oneprep-button,.home-secondary,.home-sample-check,.home-sample-next,.study-action,.career-role__link,.footer__cta,
+.oneprep-button,.home-sample-check,.home-sample-next,.study-action,.career-role__link,.footer__cta,
 button[type=submit],input[type=submit],.waitlist-form button,
 .apply-form button,.subscribe-form button,.form-submit) {
   background:#356512!important;
@@ -873,7 +873,7 @@ button[type=submit],input[type=submit],.waitlist-form button,
 }
 html body:not(#arthic-polish):not(#arthic-polish-2)
 :is(a.button,button.button,.button--small,.home-primary,.home-button,
-.oneprep-button,.home-secondary,.home-sample-check,.home-sample-next,.study-action,.career-role__link,.footer__cta,
+.oneprep-button,.home-sample-check,.home-sample-next,.study-action,.career-role__link,.footer__cta,
 button[type=submit],input[type=submit],.waitlist-form button,
 .apply-form button,.subscribe-form button,.form-submit):hover {
   background:#28520E!important;

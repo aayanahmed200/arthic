@@ -68,10 +68,7 @@ let surfaceObserver: MutationObserver | null = null;
 function applyReferenceSurfaces(): void {
   const blue = "#BFE7FF";
   const surfaceSelector = [
-    "main", "section", ".content-main", ".home-page", ".home-shell",
-    ".content-container", ".not-found-card", ".entry",
-    ".study-rail", ".study-session", ".study-sidebar",
-    ".study-sidebar__section", ".study-preview-invite",
+    "main", "section", ".content-main", ".home-page",
     "[data-page-surface]"
   ].join(",");
 
