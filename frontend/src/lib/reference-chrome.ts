@@ -65,23 +65,13 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
   </div>
 </footer>`;
 
-function setReferenceBackground(selector: string, color: string): void {
-  document.querySelectorAll<HTMLElement>(selector).forEach((element) => {
-    element.style.setProperty("background", color, "important");
-    element.style.setProperty("background-image", "none", "important");
-  });
-}
-
 function applyReferenceSurfaces(): void {
   if (!document.body.classList.contains("content-page")) return;
-  document.documentElement.style.setProperty("background", "#CCEB80", "important");
-  document.body.style.setProperty("background", "#CCEB80", "important");
-  document.querySelector<HTMLElement>("main")?.style.setProperty("background", "#CCEB80", "important");
-  setReferenceBackground("body.content-page main > section", "#CCEB80");
-  setReferenceBackground("body.content-page .content-hero, body.content-page .oneprep-subhero, body.content-page .study-intro, body.content-page.legal-page .entry__head", "#D0ECFD");
-  setReferenceBackground("body.content-page .oneprep-final-cta, body.content-page .content-cta", "#9FD987");
-  setReferenceBackground("body.content-page .oneprep-pathway-section--tint", "#E4F0BE");
-  setReferenceBackground("body.content-page.legal-page .entry__body, body.content-page.legal-page .entry", "#CCEB80");
+  // The body is the lime canvas; each page owns its own section surfaces.
+  // Do not paint every main section the same color here: page-specific CSS
+  // needs to control the practice, pricing, careers and pathway layouts.
+  document.documentElement.style.setProperty("background", "#CCEB80");
+  document.body.style.setProperty("background", "#CCEB80");
 }
 
 export function initReferenceChrome(): void {

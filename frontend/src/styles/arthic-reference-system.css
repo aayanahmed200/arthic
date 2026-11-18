@@ -130,7 +130,7 @@ body.content-page :is(.content-hero .conversion-hero-art,.method-hero-art,.subje
 body.content-page .content-hero .conversion-hero-art svg,
 body.content-page .method-hero-art svg,
 body.content-page .subjects-hero-art svg{width:100%;max-height:190px}
-body.content-page .content-main>section:not(.content-hero):not(.oneprep-subhero):not(.study-intro){background:var(--arthic-lime)!important}
+/* Section backgrounds are page-scoped below; do not flatten every route into lime. */
 
 /* Matching section type and generous spacing. */
 body.content-page :is(.oneprep-section-head,.section-heading){max-width:860px;margin:0 auto 38px;text-align:center}
@@ -371,23 +371,7 @@ html body.content-page.legal-page main > article.entry > header.entry__head{
   background-image:none!important;
   color:#111!important;
 }
-html body.content-page main > section.oneprep-route-overview,
-html body.content-page main > section.oneprep-pathway-section,
-html body.content-page main > section.oneprep-three-steps,
-html body.content-page main > section.oneprep-feature-band,
-html body.content-page main > section.oneprep-analytics-band,
-html body.content-page main > section.oneprep-method-faq,
-html body.content-page main > section.oneprep-bottom-note,
-html body.content-page main > section.pricing-faq,
-html body.content-page main > section.apply-layout,
-html body.content-page main > section.waitlist-layout,
-html body.content-page main > section.study-workspace,
-html body.content-page main > section.study-preview-invite{
-  background:#cceb80!important;
-  background-color:#cceb80!important;
-  background-image:none!important;
-  color:#111!important;
-}
+/* Page-specific section surfaces now live in arthic-shell.css. */
 html body.content-page main > section.oneprep-final-cta,
 html body.content-page main > section.content-cta{
   background:#9fd986!important;

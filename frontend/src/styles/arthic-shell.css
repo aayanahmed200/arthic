@@ -286,3 +286,703 @@ body.content-page .not-found-card p:not(.section-kicker) {
   .site-header *,.site-footer * {transition:none!important;}
   body.content-page * {scroll-behavior:auto!important;}
 }
+
+/* --------------------------------------------------------------------------
+   Page-specific compositions.
+   The header/footer are shared; each page gets its own visual rhythm.
+   -------------------------------------------------------------------------- */
+
+/* Practice: a calm study room with a clear hierarchy around the question. */
+body.study-preview-page .study-intro {
+  padding:112px 24px 48px!important;
+  background:#D0ECFD!important;
+  text-align:left!important;
+  overflow:visible!important;
+}
+body.study-preview-page .study-intro::after {display:none!important;content:none!important;}
+body.study-preview-page .study-intro__layout {
+  width:min(1280px,100%);margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1fr) 270px;
+  align-items:center;gap:clamp(34px,6vw,90px);
+}
+body.study-preview-page .study-intro__copy {min-width:0;max-width:790px;}
+body.study-preview-page .study-intro .content-hero__topline {
+  justify-content:flex-start!important;margin:0 0 16px!important;
+  color:#41614C!important;font-size:10px!important;letter-spacing:.12em!important;
+}
+body.study-preview-page .study-intro h1 {
+  max-width:13ch!important;margin:0 0 16px!important;
+  color:#111!important;font-family:"Bricolage Grotesque Variable",sans-serif!important;
+  font-size:clamp(48px,6vw,76px)!important;font-weight:800!important;
+  letter-spacing:-.065em!important;line-height:.96!important;text-align:left!important;
+  text-transform:none!important;
+}
+body.study-preview-page .study-intro__lede {
+  max-width:60ch!important;margin:0!important;color:#314A3A!important;
+  font-size:16px!important;line-height:1.7!important;text-align:left!important;
+}
+body.study-preview-page .study-intro__aside {
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+  min-height:210px;padding:23px 25px;border-left:3px solid #4F915D;
+  background:rgba(255,255,245,.55);color:#22392A;
+}
+body.study-preview-page .study-intro__aside-label {
+  color:#4D6D51;font:700 9px/1.4 "Poppins",sans-serif;letter-spacing:.12em;
+}
+body.study-preview-page .study-intro__aside strong {
+  display:block;margin:10px 0 0;color:#183A27;
+  font:800 clamp(52px,5vw,68px)/.9 "Bricolage Grotesque Variable",sans-serif;
+  letter-spacing:-.07em;
+}
+body.study-preview-page .study-intro__aside-caption {
+  margin-top:5px;color:#3E5B43;font:600 13px/1.4 "Poppins",sans-serif;
+}
+body.study-preview-page .study-intro__aside-meta {
+  display:grid;gap:5px;width:100%;margin-top:16px;padding-top:12px;
+  border-top:1px solid rgba(28,61,37,.17);
+  color:#526A53;font:500 10px/1.5 "Poppins",sans-serif;
+}
+body.study-preview-page .study-workspace {
+  width:min(1340px,calc(100% - 56px))!important;max-width:1340px!important;
+  display:grid!important;
+  grid-template-columns:190px minmax(0,1fr) 230px!important;
+  align-items:start;gap:22px!important;
+  margin:0 auto!important;padding:34px 0 58px!important;border:0!important;
+  background:transparent!important;
+}
+body.study-preview-page .study-rail {
+  position:sticky;top:92px;display:flex;flex-direction:column;justify-content:space-between;
+  min-height:520px;padding:19px 16px!important;border:1px solid rgba(31,66,39,.14)!important;
+  border-radius:14px;background:#E8F1CF;
+}
+body.study-preview-page .study-rail__eyebrow,
+body.study-preview-page .study-sidebar__eyebrow,
+body.study-preview-page .study-session__eyebrow,
+body.study-preview-page .study-question__meta,
+body.study-preview-page .study-complete__eyebrow {
+  color:#557258!important;font-family:"Poppins",sans-serif!important;
+  font-size:9px!important;font-weight:700!important;letter-spacing:.1em!important;
+}
+body.study-preview-page .study-rail__name {
+  margin:8px 0 0;color:#1B3A27!important;
+  font:750 24px/1.1 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.05em!important;
+}
+body.study-preview-page .practice-track-filters {
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:16px;
+}
+body.study-preview-page .practice-track-filters button {
+  min-width:0;min-height:35px;padding:7px 8px;border:1px solid rgba(29,66,39,.18)!important;
+  border-radius:7px!important;background:rgba(255,255,255,.38)!important;
+  color:#35543A!important;font:600 10px/1.2 "Poppins",sans-serif!important;text-align:center;
+}
+body.study-preview-page .practice-track-filters button[aria-pressed="true"] {
+  background:#2F7044!important;border-color:#2F7044!important;color:#fff!important;
+}
+body.study-preview-page .practice-track-filters button:last-child {grid-column:1/-1;}
+body.study-preview-page .study-rail__nav {
+  display:grid;gap:4px;margin-top:21px;
+}
+body.study-preview-page .study-rail__link {
+  padding:9px 10px!important;border-radius:7px!important;
+  color:#4B654D!important;font:500 11px/1.35 "Poppins",sans-serif!important;
+}
+body.study-preview-page .study-rail__link::before {width:5px;height:5px;background:#8FAE82!important;}
+body.study-preview-page .study-rail__link.is-active {
+  background:rgba(255,255,245,.72)!important;color:#204D31!important;
+}
+body.study-preview-page .study-rail__foot {
+  margin-top:20px;padding-top:13px;border-top:1px solid rgba(31,66,39,.16);
+  color:#5A715B!important;font:400 10px/1.6 "Poppins",sans-serif!important;
+}
+body.study-preview-page .study-rail__foot strong {color:#274E32!important;}
+body.study-preview-page .study-session {
+  min-width:0;padding:clamp(22px,2.6vw,34px)!important;
+  border:1px solid rgba(25,54,33,.13)!important;border-radius:14px!important;
+  background:#FFFEF6!important;box-shadow:0 8px 22px rgba(34,60,38,.04)!important;
+}
+body.study-preview-page .study-session__top {
+  display:flex;align-items:flex-start;justify-content:space-between;gap:18px;
+}
+body.study-preview-page .study-session__heading {
+  margin:7px 0 0!important;color:#152C1E!important;
+  font:800 clamp(25px,2.8vw,36px)/1.04 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.055em!important;
+}
+body.study-preview-page .study-session__subhead {
+  margin:9px 0 0;color:#627363!important;font:400 11px/1.6 "Poppins",sans-serif!important;
+}
+body.study-preview-page .study-session__type {
+  padding:6px 9px;border:1px solid rgba(31,76,42,.16);border-radius:999px;
+  color:#527056;font:600 8px/1.3 "Poppins",sans-serif;letter-spacing:.08em;
+}
+body.study-preview-page .study-progress {margin-top:22px;}
+body.study-preview-page .study-progress__labels {
+  margin-bottom:8px;color:#607261;font:600 9px/1.4 "Poppins",sans-serif;
+}
+body.study-preview-page .study-progress__track {
+  height:6px;border-radius:999px;background:#E6ECDD;
+}
+body.study-preview-page .study-progress__fill {background:#438A54!important;}
+body.study-preview-page .study-question {
+  margin-top:23px;padding:20px 0 0;border-top:1px solid rgba(34,62,38,.14);
+  border-bottom:0;
+}
+body.study-preview-page .study-question__meta {
+  display:flex;justify-content:space-between;gap:12px;
+  color:#5E765F!important;font-size:9px!important;
+}
+body.study-preview-page .study-question__text {
+  max-width:38ch;margin:15px 0 0;color:#172D1F!important;
+  font:750 clamp(21px,2.3vw,29px)/1.2 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.035em!important;
+}
+body.study-preview-page .study-question__instruction {
+  margin:9px 0 0;color:#728071;font:400 10px/1.55 "Poppins",sans-serif;
+}
+body.study-preview-page .study-options {
+  display:grid;grid-template-columns:1fr!important;gap:8px;margin-top:18px;
+}
+body.study-preview-page .study-option {
+  display:grid;grid-template-columns:34px minmax(0,1fr);align-items:center;gap:12px;
+  width:100%;min-height:55px;padding:10px 13px!important;
+  border:1px solid rgba(30,67,39,.14)!important;border-radius:9px!important;
+  background:#FAFAF2!important;color:#324A37!important;
+  text-align:left;font:500 12px/1.55 "Poppins",sans-serif!important;
+  transition:border-color .15s ease,background .15s ease;
+}
+body.study-preview-page .study-option__key {
+  display:grid;place-items:center;width:28px;height:28px;
+  border:1px solid rgba(31,73,43,.22);border-radius:50%;
+  background:#F0F5E5;color:#315C3A;font:700 10px/1 "Poppins",sans-serif;
+}
+body.study-preview-page .study-option:hover:not(:disabled) {
+  border-color:#6CA276!important;background:#F3F8E9!important;
+}
+body.study-preview-page .study-option[aria-pressed="true"] {
+  border-color:#448453!important;background:#EDF5E6!important;
+  box-shadow:inset 0 0 0 1px #448453;
+}
+body.study-preview-page .study-option.is-correct {
+  border-color:#438B55!important;background:#E8F3E4!important;
+}
+body.study-preview-page .study-option.is-incorrect {
+  border-color:#C92F73!important;background:#FBEAF1!important;
+}
+body.study-preview-page .study-option:disabled {opacity:1;cursor:default;}
+body.study-preview-page .study-question__actions {
+  display:flex;flex-wrap:wrap;gap:9px;margin-top:17px;
+}
+body.study-preview-page .study-action {
+  min-height:42px;padding:11px 17px;border:1px solid #C92F73!important;
+  border-radius:999px!important;background:#C92F73!important;color:#fff!important;
+  font:600 11px/1.2 "Poppins",sans-serif!important;box-shadow:none!important;
+}
+body.study-preview-page .study-action--secondary {
+  border-color:rgba(34,83,46,.28)!important;background:transparent!important;color:#285C38!important;
+}
+body.study-preview-page .study-feedback {
+  margin-top:17px;padding:16px 17px;border:1px solid rgba(63,128,77,.18)!important;
+  border-radius:9px!important;background:#EFF5E5!important;color:#314A36!important;
+}
+body.study-preview-page .study-feedback__title {
+  margin:0;color:#265A36;font:700 14px/1.35 "Bricolage Grotesque Variable",sans-serif;
+}
+body.study-preview-page .study-feedback__points {
+  display:grid;gap:8px;margin:11px 0 0;padding-left:19px;
+  color:#455C48;font:400 11px/1.65 "Poppins",sans-serif;
+}
+body.study-preview-page .study-feedback__takeaway {
+  margin-top:13px;padding:11px 13px;border-left:3px solid #6EA678;
+  background:rgba(204,235,128,.25);color:#34533A;font:400 11px/1.6 "Poppins",sans-serif;
+}
+body.study-preview-page .study-feedback__takeaway strong {
+  display:block;margin-bottom:4px;color:#234D30;font:700 9px/1.4 "Poppins",sans-serif;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+body.study-preview-page .study-complete {
+  padding-top:8px;
+}
+body.study-preview-page .study-complete__heading {
+  margin:9px 0 8px;color:#183A27!important;
+  font:800 clamp(29px,3.2vw,42px)/1 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.05em!important;
+}
+body.study-preview-page .study-complete__lede {max-width:60ch;color:#536957;font:400 12px/1.7 "Poppins",sans-serif;}
+body.study-preview-page .study-complete__stats {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:19px 0;}
+body.study-preview-page .study-complete__stat {padding:13px;background:#F0F4E5;border-radius:8px;}
+body.study-preview-page .study-complete__stat span {display:block;color:#627661;font:600 9px/1.4 "Poppins",sans-serif;}
+body.study-preview-page .study-complete__stat strong {display:block;margin-top:6px;color:#224C30;font:800 23px/1 "Bricolage Grotesque Variable",sans-serif;}
+body.study-preview-page .study-sidebar {
+  display:grid;align-content:start;gap:12px;min-width:0;padding:0!important;
+  border:0!important;background:transparent!important;
+}
+body.study-preview-page .study-sidebar__section {
+  padding:17px 16px;border:1px solid rgba(29,66,39,.12);border-radius:12px;background:#F3F6E9;
+}
+body.study-preview-page .study-sidebar__heading {
+  margin:7px 0 13px;color:#1D3C28!important;
+  font:750 20px/1.1 "Bricolage Grotesque Variable",sans-serif!important;
+}
+body.study-preview-page .study-sidebar__stat {
+  display:flex;justify-content:space-between;gap:8px;padding:7px 0;
+  border-bottom:1px solid rgba(31,67,39,.1);color:#617362!important;
+  font:400 10px/1.4 "Poppins",sans-serif!important;
+}
+body.study-preview-page .study-sidebar__stat strong {color:#214C30;font:700 11px/1.4 "Poppins",sans-serif;}
+body.study-preview-page .study-sidebar__progress {margin-top:13px;}
+body.study-preview-page .study-sidebar__text {
+  margin:8px 0 0;color:#5B705D!important;font:400 10px/1.65 "Poppins",sans-serif!important;
+}
+body.study-preview-page .study-sidebar__text strong {color:#30543A;}
+body.study-preview-page .study-sidebar__boundary {
+  padding:14px 15px;border-left:3px solid #7CAB7A;
+  background:#E7F0D4;color:#566D57;font:400 10px/1.65 "Poppins",sans-serif;
+}
+body.study-preview-page .study-sidebar__boundary strong {
+  display:block;margin-bottom:5px;color:#2A5335;font:700 10px/1.4 "Poppins",sans-serif;
+}
+body.study-preview-page .study-preview-invite {
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+  width:min(1280px,calc(100% - 56px));margin:0 auto 45px;padding:17px 0;
+  border-top:1px solid rgba(31,62,36,.17);color:#5C715D;
+  font:400 10px/1.65 "Poppins",sans-serif;
+}
+body.study-preview-page .study-preview-invite p {max-width:83ch;margin:0;}
+body.study-preview-page .study-preview-invite a {
+  flex:0 0 auto;color:#285E39;font:600 10px/1.5 "Poppins",sans-serif;
+  text-decoration:underline;text-underline-offset:3px;
+}
+
+/* Pricing: a decision page, not a generic landing-page card grid. */
+body.pricing-page .pricing-intro {
+  display:grid!important;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);
+  align-items:center;gap:clamp(36px,7vw,100px);
+  padding:126px max(24px,calc((100vw - 1180px)/2)) 72px!important;
+  background:#D0ECFD!important;text-align:left!important;
+}
+body.pricing-page .pricing-intro::after {display:none!important;content:none!important;}
+body.pricing-page .pricing-intro__copy {min-width:0;}
+body.pricing-page .pricing-intro .content-hero__topline {justify-content:flex-start!important;margin:0 0 17px!important;}
+body.pricing-page .pricing-intro h1 {
+  max-width:13ch!important;margin:0 0 16px!important;
+  font:800 clamp(44px,5.3vw,68px)/.96 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.065em!important;text-align:left!important;text-transform:none!important;
+}
+body.pricing-page .pricing-intro .content-hero__lede {
+  max-width:56ch!important;margin:0!important;text-align:left!important;
+}
+body.pricing-page .pricing-intro__aside {
+  padding:24px 25px;border:1px solid rgba(26,63,36,.13);
+  background:rgba(255,255,245,.62);color:#29442F;
+}
+body.pricing-page .pricing-intro__aside-label {
+  display:block;color:#58745A;font:700 9px/1.4 "Poppins",sans-serif;letter-spacing:.12em;
+}
+body.pricing-page .pricing-intro__aside strong {
+  display:block;margin:13px 0 8px;color:#1D3C28;
+  font:800 clamp(27px,3.3vw,39px)/1 "Bricolage Grotesque Variable",sans-serif;letter-spacing:-.06em;
+}
+body.pricing-page .pricing-intro__aside p {
+  margin:0;color:#536A54;font:400 11px/1.7 "Poppins",sans-serif;
+}
+body.pricing-page .pricing-intro__aside-foot {
+  display:block;margin-top:15px;padding-top:11px;border-top:1px solid rgba(31,66,39,.13);
+  color:#547056;font:600 9px/1.4 "Poppins",sans-serif;
+}
+body.pricing-page .pricing-plan-section {
+  width:min(1220px,calc(100% - 52px));margin:0 auto;
+  padding:56px 0 44px;background:transparent!important;
+}
+body.pricing-page .pricing-plan-section > .content-hero__topline {
+  display:flex;justify-content:space-between;gap:14px;margin-bottom:18px;
+  color:#486A4D;font:700 10px/1.4 "Poppins",sans-serif;letter-spacing:.09em;
+}
+body.pricing-page .pricing-plan-grid {
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0;
+}
+body.pricing-page .pricing-plan {
+  min-width:0;min-height:100%;padding:25px 24px 23px;
+  border:1px solid rgba(25,59,35,.14)!important;border-top:4px solid #74A97A!important;
+  border-radius:12px!important;background:#F9FAF1!important;
+  box-shadow:none!important;transition:transform .18s ease,border-color .18s ease;
+}
+body.pricing-page .pricing-plan:hover {transform:translateY(-3px);border-color:rgba(42,112,58,.32)!important;}
+body.pricing-page .pricing-plan--individual {background:#EEF5E7!important;border-top-color:#4E9061!important;}
+body.pricing-page .pricing-plan--group {background:#EFF5F7!important;border-top-color:#64A2B5!important;}
+body.pricing-page .pricing-plan--coaching {background:#F8EDF1!important;border-top-color:#C77B9C!important;}
+body.pricing-page .pricing-plan__eyebrow {color:#526B55!important;font-size:9px!important;letter-spacing:.12em!important;}
+body.pricing-page .pricing-plan h2 {margin:0;font:750 28px/1 "Bricolage Grotesque Variable",sans-serif!important;letter-spacing:-.05em!important;}
+body.pricing-page .pricing-plan__intro {min-height:78px;color:#536A54!important;font:400 11px/1.7 "Poppins",sans-serif!important;}
+body.pricing-page .pricing-plan__price {color:#1D3D28!important;font:800 clamp(27px,2.6vw,34px)/1.1 "Bricolage Grotesque Variable",sans-serif!important;letter-spacing:-.06em!important;}
+body.pricing-page .pricing-plan__price span {color:#5F745F!important;font:500 10px/1.4 "Poppins",sans-serif!important;letter-spacing:0!important;}
+body.pricing-page .pricing-plan__status {color:#647663!important;font:500 9px/1.5 "Poppins",sans-serif!important;}
+body.pricing-page .pricing-plan ul {
+  display:grid;gap:9px;width:100%;margin:14px 0 21px;padding:15px 0 0;
+  border-top:1px solid rgba(31,53,38,.14);list-style:none;
+}
+body.pricing-page .pricing-plan li {padding-left:17px;color:#405944;font:400 10px/1.65 "Poppins",sans-serif!important;}
+body.pricing-page .pricing-plan li::before {width:6px;height:6px;border:0;border-radius:50%;background:#72A47A;}
+body.pricing-page .pricing-plan .oneprep-button {margin-top:auto;}
+body.pricing-page .pricing-benchmarks {
+  width:100%;padding:55px max(24px,calc((100vw - 1180px)/2)) 58px;
+  background:#EAF1D8!important;border-top:1px solid rgba(28,67,38,.09);
+}
+body.pricing-page .pricing-benchmarks h2 {
+  max-width:20ch;margin:12px 0 12px;color:#173823;
+  font:800 clamp(34px,4vw,48px)/.98 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.06em!important;
+}
+body.pricing-page .pricing-benchmarks__lede {max-width:75ch;color:#546A54;font:400 12px/1.7 "Poppins",sans-serif;}
+body.pricing-page .pricing-benchmark-list {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:23px;}
+body.pricing-page .pricing-benchmark {
+  padding:21px 23px 21px 0;border-top:1px solid rgba(27,66,38,.16);
+  background:transparent!important;box-shadow:none!important;
+}
+body.pricing-page .pricing-benchmark:nth-child(odd) {margin-right:24px;}
+body.pricing-page .pricing-benchmark h3 {color:#1B3A26;font:700 16px/1.25 "Bricolage Grotesque Variable",sans-serif;}
+body.pricing-page .pricing-benchmark p {color:#526953;font:400 10px/1.7 "Poppins",sans-serif;}
+body.pricing-page .pricing-benchmark a {color:#2D7545;font:600 10px/1.45 "Poppins",sans-serif;}
+body.pricing-page .pricing-faq {
+  width:min(1180px,calc(100% - 52px));margin:0 auto;padding:60px 0 72px!important;
+  background:transparent!important;
+}
+body.pricing-page .pricing-faq__heading {font:800 38px/1 "Bricolage Grotesque Variable",sans-serif!important;letter-spacing:-.05em!important;}
+body.pricing-page .pricing-faq__item {
+  padding:16px 0!important;border-bottom:1px solid rgba(31,66,39,.15)!important;
+}
+body.pricing-page .pricing-faq__item dt {font:700 15px/1.4 "Bricolage Grotesque Variable",sans-serif!important;}
+body.pricing-page .pricing-faq__item dd {color:#526954;font:400 11px/1.7 "Poppins",sans-serif!important;}
+
+/* Careers: a considered editorial index, not a set of identical cards. */
+body.career-page .career-intro {
+  display:grid!important;grid-template-columns:minmax(0,1.15fr) minmax(255px,.65fr);
+  align-items:center;gap:clamp(34px,7vw,100px);
+  padding:126px max(24px,calc((100vw - 1180px)/2)) 72px!important;
+  background:#D0ECFD!important;text-align:left!important;
+}
+body.career-page .career-intro::after {display:none!important;content:none!important;}
+body.career-page .career-intro__copy {min-width:0;}
+body.career-page .career-intro .content-hero__topline {justify-content:flex-start!important;margin:0 0 17px!important;}
+body.career-page .career-intro h1 {
+  max-width:13ch!important;margin:0 0 16px!important;
+  font:800 clamp(44px,5.3vw,68px)/.96 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.065em!important;text-align:left!important;text-transform:none!important;
+}
+body.career-page .career-intro .content-hero__lede {
+  max-width:58ch!important;margin:0!important;text-align:left!important;
+}
+body.career-page .career-intro__aside {
+  padding:23px 24px 22px;border-left:3px solid #4F915D;background:rgba(255,255,245,.56);
+}
+body.career-page .career-intro__aside-label {
+  display:block;color:#527056;font:700 9px/1.4 "Poppins",sans-serif;letter-spacing:.12em;
+}
+body.career-page .career-intro__aside strong {
+  display:block;margin:12px 0 0;color:#1D3B27;
+  font:800 64px/.9 "Bricolage Grotesque Variable",sans-serif;letter-spacing:-.07em;
+}
+body.career-page .career-intro__aside-caption {display:block;margin-top:5px;color:#3E5C43;font:600 12px/1.45 "Poppins",sans-serif;}
+body.career-page .career-intro__aside p {margin:14px 0 0;color:#536B55;font:400 10px/1.7 "Poppins",sans-serif;}
+body.career-page .careers-roles {
+  width:min(1180px,calc(100% - 52px));margin:0 auto;padding:57px 0 45px;
+}
+body.career-page .careers-roles > .content-hero__topline {
+  display:flex;justify-content:space-between;gap:12px;margin:0 0 12px;
+  color:#557258;font:700 9px/1.4 "Poppins",sans-serif;letter-spacing:.1em;
+}
+body.career-page .career-role--detailed {
+  display:grid;grid-template-columns:50px minmax(0,1fr) auto;gap:16px 25px;
+  padding:29px 0!important;border-top:1px solid rgba(29,64,38,.15)!important;
+  border-bottom:0!important;background:transparent!important;border-radius:0!important;
+}
+body.career-page .career-role--detailed:last-child {border-bottom:1px solid rgba(29,64,38,.15)!important;}
+body.career-page .career-role--detailed .career-role__number {
+  display:block;width:auto;height:auto;padding-top:2px;border:0;border-radius:0;
+  color:#54835A;font:700 11px/1.5 "Poppins",sans-serif;
+}
+body.career-page .career-role__type {color:#59745B;font:700 9px/1.5 "Poppins",sans-serif;letter-spacing:.1em;}
+body.career-page .career-role__content h2 {
+  margin:8px 0 10px;color:#172E20;font:800 clamp(26px,3vw,34px)/1 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.055em!important;
+}
+body.career-page .career-role__body {max-width:70ch;color:#526854;font:400 11px/1.75 "Poppins",sans-serif!important;}
+body.career-page .career-role__detail-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 30px;margin:17px 0;}
+body.career-page .career-role__detail-grid>div {padding-top:12px;border-top:1px solid rgba(28,67,38,.13);}
+body.career-page .career-role__detail-grid strong {color:#2A4F34;font:700 10px/1.4 "Poppins",sans-serif;}
+body.career-page .career-role__detail-grid ul {display:grid;gap:6px;margin:8px 0 0;padding-left:17px;color:#5A705B;font:400 10px/1.65 "Poppins",sans-serif;}
+body.career-page .career-role__note {color:#788675;font:500 9px/1.6 "Poppins",sans-serif;}
+body.career-page .career-role--detailed .career-role__link {
+  align-self:start;margin-top:2px;padding:10px 14px;border:1px solid rgba(37,96,53,.26);
+  border-radius:999px;color:#285C38;font:600 10px/1.3 "Poppins",sans-serif;text-decoration:none;
+}
+body.career-page .career-role--detailed .career-role__link:hover {background:#E8F1D7;border-color:#4E8D5C;}
+body.career-page .careers-note {
+  display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:25px;
+  padding:19px 0;border-block:1px solid rgba(28,67,38,.14);
+}
+body.career-page .careers-note p {max-width:70ch;color:#536B55;font:400 10px/1.7 "Poppins",sans-serif;}
+body.career-page .careers-application-note {
+  display:grid;gap:12px;width:min(1180px,calc(100% - 52px));margin:0 auto 54px;
+  padding:26px 29px;background:#E7F0D3;
+}
+body.career-page .careers-application-note h2 {
+  margin:0;color:#1C3825;font:800 clamp(28px,3.6vw,39px)/1 "Bricolage Grotesque Variable",sans-serif!important;
+}
+body.career-page .careers-application-note>p {max-width:90ch;margin:0;color:#506A52;font:400 10px/1.75 "Poppins",sans-serif;}
+
+/* Pathways: a route selector with four clear, distinct destinations. */
+body.pathways-page .oneprep-subhero {
+  padding:126px 24px 66px!important;background:#D0ECFD!important;text-align:left!important;
+}
+body.pathways-page .oneprep-subhero::after {display:none!important;content:none!important;}
+body.pathways-page .pathways-intro__inner {
+  width:min(1220px,100%)!important;margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr);
+  align-items:center;gap:clamp(30px,6vw,80px);
+}
+body.pathways-page .pathways-intro__copy {min-width:0;}
+body.pathways-page .pathways-intro__copy .oneprep-eyebrow {justify-content:flex-start!important;margin:0 0 16px;}
+body.pathways-page .pathways-intro__copy h1 {
+  max-width:13ch!important;margin:0 0 16px!important;text-align:left!important;
+  text-transform:none!important;font:800 clamp(44px,5.3vw,69px)/.95 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.065em!important;
+}
+body.pathways-page .pathways-intro__copy h1 em {color:#225F3A!important;}
+body.pathways-page .pathways-intro__copy .oneprep-lede {
+  max-width:58ch!important;margin:0!important;text-align:left!important;
+  color:#344F3B!important;font-size:15px!important;line-height:1.7!important;
+}
+body.pathways-page .pathways-intro__copy .oneprep-subhero__note {
+  max-width:65ch!important;margin:13px 0 0!important;text-align:left!important;
+  color:#607561!important;font-size:10px!important;
+}
+body.pathways-page .oneprep-route-strip {
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;
+  width:100%;margin:0;padding:0;border:1px solid rgba(28,67,38,.14);background:rgba(255,255,245,.46);
+}
+body.pathways-page .oneprep-route-strip a {
+  display:grid;grid-template-columns:26px minmax(0,1fr);column-gap:9px;align-items:center;
+  min-height:76px;padding:13px 15px;border-bottom:1px solid rgba(28,67,38,.12);
+  color:#2B4B32;text-decoration:none;transition:background .15s ease;
+}
+body.pathways-page .oneprep-route-strip a:nth-child(odd) {border-right:1px solid rgba(28,67,38,.12);}
+body.pathways-page .oneprep-route-strip a:nth-child(3),body.pathways-page .oneprep-route-strip a:nth-child(4){border-bottom:0;}
+body.pathways-page .oneprep-route-strip a:hover {background:#F8FAEF;}
+body.pathways-page .oneprep-route-strip a>span {grid-row:1/3;color:#64846A;font:600 9px/1 "Poppins",sans-serif;}
+body.pathways-page .oneprep-route-strip a strong {color:#1B3E27;font:800 20px/1 "Bricolage Grotesque Variable",sans-serif;letter-spacing:-.04em;}
+body.pathways-page .oneprep-route-strip a small {margin-top:4px;color:#627863;font:500 8px/1.4 "Poppins",sans-serif;}
+body.pathways-page .oneprep-route-overview {
+  width:min(1220px,calc(100% - 52px));margin:0 auto;padding:58px 0 72px!important;
+  background:transparent!important;
+}
+body.pathways-page .oneprep-section-head {max-width:760px;margin:0 0 25px;text-align:left;}
+body.pathways-page .oneprep-section-head .oneprep-eyebrow {justify-content:flex-start;}
+body.pathways-page .oneprep-section-head h2 {
+  margin:8px 0 9px;color:#172E20;
+  font:800 clamp(31px,4vw,46px)/.98 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.06em!important;
+}
+body.pathways-page .oneprep-section-head>p:last-child {margin:0;color:#536B55;font:400 11px/1.7 "Poppins",sans-serif;}
+body.pathways-page .exam-finder {
+  display:grid;grid-template-columns:auto minmax(220px,420px) 1fr;align-items:center;gap:15px;
+  max-width:none;margin:25px 0 19px;padding:13px 15px;background:#EFF4E1;
+  border:1px solid rgba(26,68,38,.12);
+}
+body.pathways-page .exam-finder__label {color:#385A3D;font:700 9px/1.4 "Poppins",sans-serif;}
+body.pathways-page .exam-finder__field {min-height:41px;border:1px solid rgba(25,60,35,.15)!important;border-radius:7px!important;background:#FFFEF6!important;}
+body.pathways-page .exam-finder__field input {color:#24412B!important;font:400 11px/1.4 "Poppins",sans-serif;}
+body.pathways-page .exam-finder__status {margin:0;color:#668068;font:500 9px/1.45 "Poppins",sans-serif;}
+body.pathways-page .exam-track-grid {
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:0!important;
+}
+body.pathways-page .exam-track-card {
+  min-height:315px;padding:24px 24px 20px!important;
+  border:1px solid rgba(25,59,35,.12)!important;border-top:4px solid #6FA47A!important;
+  border-radius:11px!important;background:#F9FAF2!important;box-shadow:none!important;
+  transition:transform .18s ease,border-color .18s ease;
+}
+body.pathways-page .exam-track-card:hover {transform:translateY(-2px);border-color:rgba(42,112,58,.32)!important;box-shadow:none!important;}
+body.pathways-page .exam-track-card--lcat {border-top-color:#C77B9B!important;background:#F8EEF2!important;}
+body.pathways-page .exam-track-card--net {border-top-color:#5B9BB2!important;background:#EDF5F7!important;}
+body.pathways-page .exam-track-card--css {border-top-color:#C0A35B!important;background:#F7F3E4!important;}
+body.pathways-page .exam-track-card--mdcat {border-top-color:#5D9362!important;background:#EFF5E8!important;}
+body.pathways-page .exam-track-card__number {color:#5A735B!important;font:700 8px/1.4 "Poppins",sans-serif!important;letter-spacing:.1em!important;}
+body.pathways-page .exam-track-card__index {width:29px;height:29px;border-color:rgba(32,67,39,.2)!important;color:#32563A!important;font:600 10px/1 "Poppins",sans-serif!important;}
+body.pathways-page .exam-track-card h2 {
+  margin:18px 0 5px!important;color:#152F1E!important;
+  font:800 39px/1 "Bricolage Grotesque Variable",sans-serif!important;letter-spacing:-.06em!important;
+}
+body.pathways-page .exam-track-card__lede {margin:0 0 10px;color:#334F38!important;font:600 10px/1.5 "Poppins",sans-serif!important;}
+body.pathways-page .exam-track-card>p:not(.exam-track-card__lede) {max-width:65ch;color:#526A54!important;font:400 10px/1.7 "Poppins",sans-serif!important;}
+body.pathways-page .exam-track-card__tags {display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;}
+body.pathways-page .exam-track-card__tags span {
+  padding:5px 8px;border:1px solid rgba(38,75,44,.12);border-radius:999px;
+  background:rgba(255,255,255,.46);color:#4A684E;font:500 8px/1.25 "Poppins",sans-serif;
+}
+body.pathways-page .exam-track-card__link {
+  display:inline-flex;gap:9px;align-items:center;margin-top:auto;padding-top:17px;
+  color:#28663C!important;font:700 10px/1.4 "Poppins",sans-serif!important;text-decoration:none!important;
+}
+body.pathways-page .exam-track-card__link:hover {text-decoration:underline!important;text-underline-offset:3px;}
+body.pathways-page .exam-search__empty {color:#5D735F;font:500 11px/1.5 "Poppins",sans-serif;}
+body.pathways-page .exam-prep-note {
+  display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);
+  align-items:center;gap:20px;width:min(1220px,calc(100% - 52px));
+  margin:0 auto 58px;padding:25px 27px!important;
+  border-left:4px solid #4C8C58;background:#E8F0D6!important;
+}
+body.pathways-page .exam-prep-note .content-hero__topline {justify-content:flex-start;margin:0;color:#557257;font:700 9px/1.4 "Poppins",sans-serif;}
+body.pathways-page .exam-prep-note h2 {margin:5px 0;color:#1E3A28;font:800 25px/1.05 "Bricolage Grotesque Variable",sans-serif!important;letter-spacing:-.05em!important;}
+body.pathways-page .exam-prep-note>p:not(.content-hero__topline) {margin:0;color:#536B55;font:400 10px/1.7 "Poppins",sans-serif;}
+body.pathways-page .exam-prep-note>a {grid-column:2;justify-self:start;margin-top:5px;}
+body.waitlist-page .content-hero {
+  display:flex!important;align-items:flex-start!important;justify-content:center!important;
+  padding:124px max(24px,calc((100vw - 1180px)/2)) 57px!important;
+  background:#D0ECFD!important;text-align:left!important;
+}
+body.waitlist-page .content-hero::after {display:none!important;content:none!important;}
+body.waitlist-page .content-hero__topline {justify-content:flex-start!important;margin:0 0 16px;}
+body.waitlist-page .content-hero h1 {
+  max-width:14ch!important;margin:0 0 14px!important;text-align:left!important;text-transform:none!important;
+  font:800 clamp(43px,5vw,64px)/.96 "Bricolage Grotesque Variable",sans-serif!important;letter-spacing:-.065em!important;
+}
+body.waitlist-page .content-hero__lede {max-width:66ch!important;margin:0!important;text-align:left!important;color:#354F3B!important;}
+body.waitlist-page .waitlist-layout {
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);
+  align-items:start;gap:clamp(32px,6vw,84px);
+  width:min(1180px,calc(100% - 52px));margin:0 auto;padding:56px 0 65px;
+  background:transparent!important;
+}
+body.waitlist-page .waitlist-copy {padding:8px 0;}
+body.waitlist-page .waitlist-copy .content-hero__topline {justify-content:flex-start!important;margin:0 0 11px;color:#4B6B4F!important;}
+body.waitlist-page .waitlist-points {margin-top:20px;border-top:1px solid rgba(28,66,38,.16);}
+body.waitlist-page .waitlist-points li {grid-template-columns:34px 1fr;gap:13px;padding:17px 0;border-bottom:1px solid rgba(28,66,38,.13);color:#4E6651;font:400 11px/1.7 "Poppins",sans-serif;}
+body.waitlist-page .waitlist-points__number {color:#4F8959;font:700 10px/1.4 "Poppins",sans-serif;}
+body.waitlist-page .waitlist-form {
+  align-self:start;padding:26px 25px 23px!important;
+  border:1px solid rgba(28,67,38,.14)!important;border-top:4px solid #579365!important;
+  border-radius:12px!important;background:#FFFEF6!important;box-shadow:none!important;
+}
+body.waitlist-page .waitlist-form__label {color:#3E5C43!important;font:700 9px/1.4 "Poppins",sans-serif!important;letter-spacing:.1em;}
+body.waitlist-page .waitlist-form .field {min-height:46px;border:1px solid rgba(29,63,38,.18)!important;border-radius:7px!important;background:#FAFBF3!important;font:400 11px/1.4 "Poppins",sans-serif!important;}
+body.waitlist-page .waitlist-form__fineprint {margin-top:13px;color:#6B7D6A!important;font:400 9px/1.6 "Poppins",sans-serif!important;}
+body.waitlist-page .content-cta {width:min(1180px,calc(100% - 52px));margin:0 auto 56px!important;padding:27px 30px!important;border-radius:0!important;background:#9FD987!important;}
+body.waitlist-page .content-cta__inner {padding:0!important;}
+body.waitlist-page .content-cta h2 {font:800 29px/1.05 "Bricolage Grotesque Variable",sans-serif!important;letter-spacing:-.05em!important;}
+body.method-page.method-editorial .method-hero {
+  padding:126px max(24px,calc((100vw - 1180px)/2)) 68px!important;
+  background:#D0ECFD!important;text-align:left!important;
+}
+body.method-page.method-editorial .method-hero h1 {
+  max-width:15ch;margin:13px 0 16px;color:#172E20;
+  font:800 clamp(45px,5.3vw,70px)/.96 "Bricolage Grotesque Variable",sans-serif!important;
+  letter-spacing:-.065em!important;text-align:left!important;text-transform:none!important;
+}
+body.method-page.method-editorial .method-hero__lede {max-width:65ch;margin:0;color:#435C45;font:400 14px/1.75 "Poppins",sans-serif;}
+body.method-page.method-editorial .method-hero .oneprep-button {margin-top:20px;}
+body.method-page.method-editorial .method-steps,
+body.method-page.method-editorial .method-planned {width:min(1180px,calc(100% - 52px));margin:0 auto;padding:56px 0;}
+body.method-page.method-editorial .method-step-list li {grid-template-columns:56px minmax(0,1fr) 100px;gap:18px;padding:23px 0;}
+body.method-page.method-editorial .method-step-list__number {font:700 10px/1.4 "Poppins",sans-serif;color:#54835B;}
+body.method-page.method-editorial .method-step-list h3,
+body.method-page.method-editorial .method-planned__list h3 {font:700 19px/1.2 "Bricolage Grotesque Variable",sans-serif!important;letter-spacing:-.04em!important;}
+body.method-page.method-editorial .method-current {padding:54px 24px!important;background:#E8F0D6!important;}
+body.method-page.method-editorial .method-current__inner {width:min(1180px,100%);margin:0 auto;gap:clamp(22px,5vw,70px);}
+body.method-page.method-editorial .method-current h2 {font:800 clamp(32px,4vw,48px)/.98 "Bricolage Grotesque Variable",sans-serif!important;letter-spacing:-.06em!important;}
+body.method-page.method-editorial .method-current__copy p {color:#526B55;font:400 11px/1.75 "Poppins",sans-serif;}
+body.method-page.method-editorial .method-planned {padding-bottom:65px;}
+body.method-page.method-editorial .oneprep-method-faq {width:min(1180px,calc(100% - 52px));margin:0 auto;padding:58px 0 70px;background:transparent!important;}
+body.method-page.method-editorial .oneprep-method-faq .oneprep-section-head {text-align:left;max-width:none;margin:0 0 20px;}
+body.method-page.method-editorial .oneprep-method-faq .oneprep-section-head .oneprep-eyebrow {justify-content:flex-start;}
+body.method-page.method-editorial .oneprep-method-faq .oneprep-section-head h2 {font:800 34px/1 "Bricolage Grotesque Variable",sans-serif!important;}
+body.method-page.method-editorial .oneprep-faq-list {border-top:1px solid rgba(28,67,38,.16);}
+body.method-page.method-editorial .oneprep-faq-list details {padding:16px 0;border-bottom:1px solid rgba(28,67,38,.14);}
+body.method-page.method-editorial .oneprep-faq-list summary {color:#203B29;font:700 13px/1.4 "Poppins",sans-serif;cursor:pointer;}
+body.method-page.method-editorial .oneprep-faq-list details p {max-width:78ch;color:#587059;font:400 11px/1.7 "Poppins",sans-serif;}
+body.content-page .apply-layout {
+  width:min(1180px,calc(100% - 52px));margin:0 auto;padding:50px 0 66px;
+  background:transparent!important;
+}
+body.content-page .apply-role {
+  padding:23px 23px 21px!important;border:1px solid rgba(31,66,39,.12)!important;
+  border-left:4px solid #548F5D!important;border-radius:0!important;background:#E9F1D9!important;
+}
+body.content-page .apply-form {
+  padding:28px!important;border:1px solid rgba(31,66,39,.13)!important;border-radius:12px!important;
+  background:#FFFEF6!important;box-shadow:none!important;
+}
+body.content-page .apply-form__section {border:0!important;border-bottom:1px solid rgba(31,66,39,.12)!important;padding:0 0 18px!important;margin-bottom:20px!important;}
+body.content-page .apply-form__section-label {color:#54705A!important;font:700 9px/1.4 "Poppins",sans-serif!important;letter-spacing:.1em;}
+body.content-page .apply-form__field label {color:#39543F!important;font:600 10px/1.5 "Poppins",sans-serif!important;}
+body.content-page .apply-form .field {min-height:44px;border:1px solid rgba(29,63,38,.17)!important;border-radius:7px!important;background:#FAFBF3!important;font:400 11px/1.4 "Poppins",sans-serif!important;}
+body.content-page .apply-form textarea.field {min-height:112px;}
+@media(max-width:1050px) {
+  body.study-preview-page .study-workspace {grid-template-columns:168px minmax(0,1fr)!important;}
+  body.study-preview-page .study-sidebar {grid-column:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
+  body.study-preview-page .study-sidebar__boundary {grid-column:1/-1;}
+  body.pricing-page .pricing-plan-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  body.pricing-page .pricing-plan--coaching {grid-column:1/-1;}
+}
+@media(max-width:760px) {
+  body.study-preview-page .study-intro {padding:106px 20px 38px!important;}
+  body.study-preview-page .study-intro__layout {grid-template-columns:1fr;gap:22px;}
+  body.study-preview-page .study-intro__aside {min-height:0;padding:17px 19px;}
+  body.study-preview-page .study-intro__aside strong {font-size:48px;}
+  body.study-preview-page .study-workspace {grid-template-columns:1fr!important;width:calc(100% - 36px)!important;gap:14px!important;padding-top:22px!important;}
+  body.study-preview-page .study-rail {position:static;min-height:0;padding:16px!important;}
+  body.study-preview-page .practice-track-filters {grid-template-columns:repeat(5,minmax(0,1fr));}
+  body.study-preview-page .practice-track-filters button {font-size:9px!important;padding-inline:4px;}
+  body.study-preview-page .practice-track-filters button:last-child {grid-column:auto;}
+  body.study-preview-page .study-rail__nav {display:flex;flex-direction:row;flex-wrap:wrap;margin-top:12px;}
+  body.study-preview-page .study-rail__foot {display:none;}
+  body.study-preview-page .study-sidebar {grid-column:auto;grid-template-columns:repeat(2,minmax(0,1fr));}
+  body.pricing-page .pricing-intro,
+  body.career-page .career-intro {grid-template-columns:1fr;gap:23px;padding:108px 20px 48px!important;}
+  body.pricing-page .pricing-plan-section,
+  body.career-page .careers-roles {width:calc(100% - 40px);}
+  body.pricing-page .pricing-plan-grid {grid-template-columns:1fr;}
+  body.pricing-page .pricing-plan--coaching {grid-column:auto;}
+  body.pricing-page .pricing-plan__intro {min-height:0;}
+  body.pricing-page .pricing-benchmarks {padding:43px 20px!important;}
+  body.pricing-page .pricing-benchmark-list {grid-template-columns:1fr;}
+  body.career-page .career-role--detailed {grid-template-columns:30px minmax(0,1fr);gap:12px 13px;}
+  body.career-page .career-role--detailed .career-role__link {grid-column:2;justify-self:start;}
+  body.career-page .career-role__detail-grid {grid-template-columns:1fr;}
+  body.career-page .careers-application-note {width:calc(100% - 40px);padding:22px;}
+  body.pathways-page .pathways-intro__inner {grid-template-columns:1fr;gap:23px;}
+  body.pathways-page .oneprep-subhero {padding:108px 20px 45px!important;}
+  body.pathways-page .oneprep-route-overview {width:calc(100% - 40px);}
+  body.pathways-page .exam-finder {grid-template-columns:1fr;gap:8px;padding:13px;}
+  body.pathways-page .exam-track-grid {grid-template-columns:1fr;}
+  body.pathways-page .exam-track-card {min-height:0;}
+  body.pathways-page .exam-prep-note {grid-template-columns:1fr;width:calc(100% - 40px);padding:20px;margin-bottom:40px;}
+  body.pathways-page .exam-prep-note>a {grid-column:auto;}
+  body.waitlist-page .content-hero {padding:108px 20px 45px!important;}
+  body.waitlist-page .waitlist-layout {grid-template-columns:1fr;width:calc(100% - 40px);gap:20px;padding:35px 0 45px;}
+  body.waitlist-page .content-cta {width:calc(100% - 40px);padding:21px!important;}
+  body.method-page.method-editorial .method-hero {padding:108px 20px 47px!important;}
+  body.method-page.method-editorial .method-steps,
+  body.method-page.method-editorial .method-planned,
+  body.method-page.method-editorial .oneprep-method-faq {width:calc(100% - 40px);}
+  body.method-page.method-editorial .method-current {padding:36px 20px!important;}
+  body.method-page.method-editorial .method-step-list li {grid-template-columns:34px minmax(0,1fr);gap:10px;padding:18px 0;}
+  body.method-page.method-editorial .method-step-list__status {grid-column:2;justify-self:start;}
+}
+@media(max-width:520px) {
+  body.study-preview-page .study-session {padding:18px!important;}
+  body.study-preview-page .study-session__top {display:block;}
+  body.study-preview-page .study-session__type {display:inline-block;margin-top:11px;}
+  body.study-preview-page .study-sidebar {grid-template-columns:1fr;}
+  body.study-preview-page .study-complete__stats {grid-template-columns:1fr 1fr;}
+  body.study-preview-page .study-preview-invite {width:calc(100% - 40px);align-items:flex-start;flex-direction:column;gap:12px;}
+  body.pricing-page .pricing-intro__aside {padding:18px;}
+  body.career-page .career-intro__aside {padding:19px;}
+  body.pathways-page .oneprep-route-strip {grid-template-columns:1fr;}
+  body.pathways-page .oneprep-route-strip a {min-height:62px;}
+  body.pathways-page .oneprep-route-strip a:nth-child(odd) {border-right:0;}
+  body.pathways-page .oneprep-route-strip a:nth-child(3) {border-bottom:1px solid rgba(28,67,38,.12);}
+  body.pathways-page .exam-track-card {padding:21px!important;}
+  body.method-page.method-editorial .method-step-list li {grid-template-columns:30px minmax(0,1fr);gap:8px;}
+  body.method-page.method-editorial .method-step-list__status {grid-column:2;}
+}
