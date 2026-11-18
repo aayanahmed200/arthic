@@ -1577,3 +1577,10 @@ body.study-preview-page .footer img {
   }
 }
 
+
+/* Keep the practice route on the exact same page canvas as every other route. */
+html body.content-page.study-preview-page,
+html body.content-page.study-preview-page .content-main,
+html body.content-page.study-preview-page main {
+  background: #F3F6EE !important;
+}
