@@ -2549,7 +2549,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
         "text": "8"
       }
     ],
-    "answer": "D",
+    "answer": "C",
     "explanation": "Differentiate term by term: f′(x) = 2x + 3.\nAt x = 2, f′(2) = 4 + 3 = 7.",
     "takeaway": "Apply the power rule, then substitute the required x-value.",
     "sourceKind": "original-sample"
