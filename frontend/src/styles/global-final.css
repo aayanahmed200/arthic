@@ -752,11 +752,7 @@ html body.study-preview-page,html body.legal-page,html body.not-found-document {
   color:#111111!important;
 }
 html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
-:is(#main,main,section,.content-main,.home-page,.home-shell,.content-container,
-.site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,.footer-column,
-.footer-garden,.entry,.not-found-card,.study-rail,.study-session,
-.study-sidebar,.study-sidebar__section,.study-bank-nav,.study-preview-invite,
-[data-page-surface]) {
+:is(#main,main,section,.content-main,.home-page,[data-page-surface]) {
   background:#BFE7FF!important;
   background-color:#BFE7FF!important;
   background-image:none!important;
