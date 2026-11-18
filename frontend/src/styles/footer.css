@@ -117,11 +117,6 @@
   }
 }
 
-/* Flush foliage-to-footer join; the SVG silhouette reaches the footer edge. */
-.footer-frame { background:#9FD987 !important; }
-.footer-garden {
-  display:block;width:100%;height:auto !important;min-height:0;margin:0 0 -1px;
-  padding:0;overflow:hidden;background:#CCEB80 !important;line-height:0;font-size:0;
-}
-.footer-garden .footer-foliage { display:block;width:100%;height:auto;vertical-align:top; }
-.footer { border-top:0 !important;background:#9FD987 !important; }
+/* Plain white footer; no foliage image or coloured band. */
+.footer-frame,.footer,.footer-inner,.footer-grid,.footer-column {background:#FFFFFF!important;background-color:#FFFFFF!important;border:0!important;box-shadow:none!important;}
+.footer-garden,.footer-foliage {display:none!important;}
