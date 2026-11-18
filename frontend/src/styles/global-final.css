@@ -210,3 +210,383 @@ html body.study-preview-page:not(#arthic-blue-specificity) .study-option__text {
 html body.study-preview-page:not(#arthic-blue-specificity) .study-option {
   min-height:60px!important;
 }
+
+
+/* Refined global layout: a compact floating menu, calm section rhythm and
+   a non-sticky practice workspace. These rules intentionally override the
+   older page layers loaded earlier in the build. */
+:root {
+  --arthic-blue:#D0ECFD;
+  --arthic-paper:#F8FCFF;
+  --arthic-mint:#EAF3E7;
+  --arthic-soft-blue:#DCEFF8;
+  --arthic-ink:#203B44;
+  --arthic-line:rgba(32,72,89,.14);
+  --arthic-card-radius:16px;
+  --arthic-control-radius:10px;
+}
+html body,
+html body.content-page,
+html body.home-page,
+html body.study-preview-page,
+html body.legal-page,
+html body.not-found-document {
+  background:var(--arthic-blue)!important;
+  background-color:var(--arthic-blue)!important;
+  background-image:none!important;
+  color:var(--arthic-ink)!important;
+}
+html body #main,
+html body.content-page #main,
+html body.content-page .content-main,
+html body.home-page main.home-page,
+html body.study-preview-page #main,
+html body.legal-page #main,
+html body.not-found-document #main {
+  background:var(--arthic-blue)!important;
+  background-color:var(--arthic-blue)!important;
+  background-image:none!important;
+}
+
+/* Desktop nav now wraps its actual contents instead of occupying a wide bar. */
+html body .site-header {
+  top:14px!important;
+  left:50%!important;
+  right:auto!important;
+  width:max-content!important;
+  max-width:calc(100vw - 32px)!important;
+  height:56px!important;
+  min-height:56px!important;
+  padding:5px 9px!important;
+  gap:7px!important;
+  justify-content:center!important;
+  border-radius:999px!important;
+  border:1px solid rgba(32,72,89,.16)!important;
+  background:rgba(208,236,253,.95)!important;
+  box-shadow:0 9px 24px rgba(32,72,89,.12)!important;
+}
+html body .site-header .desktop-nav {
+  flex:0 0 auto!important;
+  gap:3px!important;
+  margin:0!important;
+}
+html body .site-header .desktop-nav a {
+  min-height:40px!important;
+  padding:8px 12px!important;
+  font-size:12px!important;
+  letter-spacing:-.01em!important;
+}
+html body .site-header .header-actions {
+  flex:0 0 auto!important;
+  margin:0 0 0 3px!important;
+}
+html body .site-header .header-actions .button,
+html body .site-header .button--small {
+  min-height:40px!important;
+  padding:8px 14px!important;
+  font-size:12px!important;
+}
+html body .mobile-menu {
+  top:78px!important;
+  width:max-content!important;
+  max-width:calc(100vw - 24px)!important;
+  padding:9px!important;
+  border-radius:17px!important;
+}
+html body .mobile-menu nav {
+  grid-template-columns:repeat(2,minmax(118px,1fr))!important;
+  gap:4px!important;
+}
+html body .mobile-menu a {
+  min-height:42px!important;
+  padding:9px 11px!important;
+  border-radius:10px!important;
+  font-size:13px!important;
+}
+html body.content-page .nav {
+  width:max-content!important;
+  max-width:calc(100vw - 32px)!important;
+  height:56px!important;
+  min-height:56px!important;
+  padding:5px 9px!important;
+  border-radius:999px!important;
+}
+html body.content-page .nav__inner {width:auto!important;padding:0 9px!important;}
+html body.content-page .nav__links {gap:4px!important;}
+html body.content-page .nav__links a {padding:8px 12px!important;font-size:12px!important;}
+html body.content-page .mobile-nav {width:max-content!important;max-width:calc(100vw - 24px)!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;border-radius:17px!important;}
+html body.content-page .mobile-nav nav a {padding:10px 12px!important;font-size:13px!important;}
+
+@media(max-width:760px) {
+  html body .site-header {
+    top:10px!important;
+    width:52px!important;
+    max-width:52px!important;
+    height:52px!important;
+    min-height:52px!important;
+    padding:4px!important;
+    justify-content:center!important;
+  }
+  html body .site-header .desktop-nav,
+  html body .site-header .header-actions {display:none!important;}
+  html body .site-header .menu-toggle {
+    display:flex!important;
+    width:42px!important;
+    height:42px!important;
+    margin:0!important;
+  }
+  html body .mobile-menu {top:72px!important;}
+  html body.content-page .nav {top:10px!important;width:52px!important;height:52px!important;min-height:52px!important;}
+  html body.content-page .nav__inner {justify-content:center!important;}
+  html body.content-page .nav__toggle {display:inline-flex!important;margin:0!important;}
+  html body.content-page .mobile-nav {top:72px!important;}
+}
+
+/* Real section rhythm: a blue canvas, ivory reading bands, and soft green
+   supporting bands. Unlike the previous flattening rule, cards remain intact. */
+html body.home-page main.home-page > section.home-approach,
+html body.home-page main.home-page > section.home-available,
+html body.content-page .content-main > section:nth-of-type(2n),
+html body.content-page .content-main > section:nth-of-type(4n) {
+  background:#F8FCFF!important;
+  background-color:#F8FCFF!important;
+  background-image:none!important;
+  box-shadow:0 0 0 100vmax #F8FCFF!important;
+  clip-path:inset(0 -100vmax);
+}
+html body.home-page main.home-page > section.home-routes,
+html body.home-page main.home-page > section.home-cta,
+html body.content-page .content-main > section:nth-of-type(3n):not(.content-cta),
+html body.content-page .content-main > section:nth-of-type(5n):not(.content-cta) {
+  background:#EAF3E7!important;
+  background-color:#EAF3E7!important;
+  background-image:none!important;
+  box-shadow:0 0 0 100vmax #EAF3E7!important;
+  clip-path:inset(0 -100vmax);
+}
+html body.content-page .content-main > section.content-hero,
+html body.content-page .content-main > section.oneprep-subhero,
+html body.content-page .content-main > section.study-intro,
+html body.home-page main.home-page > section.home-hero {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+}
+html body.content-page .content-main > section.content-cta,
+html body.content-page .content-main > section.oneprep-final-cta {
+  background:#DCEFF8!important;
+  background-color:#DCEFF8!important;
+  background-image:none!important;
+  box-shadow:0 0 0 100vmax #DCEFF8!important;
+  clip-path:inset(0 -100vmax);
+}
+html body.study-preview-page .content-main > section.study-workspace {
+  background:transparent!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+}
+html body.study-preview-page .content-main > section.study-preview-invite {
+  background:#EAF3E7!important;
+  box-shadow:0 0 0 100vmax #EAF3E7!important;
+  clip-path:inset(0 -100vmax);
+}
+
+/* Consistent surfaces and restrained corners replace the mixed rounded shapes. */
+html body :is(.pricing-plan,.exam-track-card,.oneprep-route-card,.career-role--detailed,
+  .method-step,.oneprep-step-card,.apply-form,.waitlist-form,.study-rail,.study-session,
+  .study-sidebar__section,.study-intro__aside,.home-sample-card,.home-feature__art,
+  .oneprep-pathway-visual,.oneprep-feature-visual,.oneprep-analytics-visual) {
+  border-radius:var(--arthic-card-radius)!important;
+}
+html body :is(.pricing-plan,.exam-track-card,.oneprep-route-card,.method-step,
+  .oneprep-step-card,.apply-form,.waitlist-form,.study-session,.study-sidebar__section,
+  .home-sample-card) {
+  border:1px solid var(--arthic-line)!important;
+  box-shadow:0 8px 24px rgba(31,65,79,.045)!important;
+}
+html body :is(.pricing-plan,.pricing-plan--individual,.pricing-plan--group,
+  .pricing-plan--coaching,.exam-track-card,.exam-track-card--lcat,.exam-track-card--net,
+  .exam-track-card--css,.exam-track-card--mdcat,.oneprep-route-card) {
+  background:#F8FCFF!important;
+}
+html body :is(input,select,textarea,.study-filter-select,.study-filter-search,
+  .apply-form .field,.waitlist-form .field) {
+  border-radius:var(--arthic-control-radius)!important;
+}
+html body :is(.study-option,.study-feedback,.study-bank-nav,.study-question-map) {
+  border-radius:12px!important;
+}
+
+/* Legal pages use a readable paper sheet rather than an edge-to-edge text column. */
+html body.legal-page #main .entry {
+  width:min(940px,calc(100% - 48px))!important;
+  max-width:940px!important;
+  margin:124px auto 68px!important;
+  padding:clamp(28px,5vw,64px)!important;
+  border:1px solid var(--arthic-line)!important;
+  border-radius:20px!important;
+  background:#F8FCFF!important;
+  box-shadow:0 10px 30px rgba(31,65,79,.055)!important;
+}
+html body.legal-page #main .entry__body {max-width:72ch!important;margin-inline:auto!important;}
+html body.legal-page #main .entry__head {max-width:72ch!important;margin-inline:auto!important;}
+html body.not-found-document .not-found-card {
+  max-width:760px!important;
+  border:1px solid var(--arthic-line)!important;
+  border-radius:20px!important;
+  background:#F8FCFF!important;
+  box-shadow:0 10px 30px rgba(31,65,79,.055)!important;
+}
+
+/* The grass artwork is transparent; the footer itself stays on the blue canvas. */
+html body .site-footer,
+html body .site-footer .footer-garden,
+html body.content-page .footer-frame,
+html body.content-page .footer {
+  background:var(--arthic-blue)!important;
+  background-color:var(--arthic-blue)!important;
+}
+html body .site-footer .footer-garden {overflow:visible!important;}
+html body .site-footer .footer-foliage {
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:160px!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+}
+
+/* Practice is a normal document flow: the rail must never pin itself to the viewport. */
+html body.study-preview-page .study-workspace {
+  display:grid!important;
+  width:min(1360px,calc(100% - 56px))!important;
+  max-width:1360px!important;
+  margin:0 auto!important;
+  padding-top:28px!important;
+  padding-bottom:44px!important;
+  grid-template-columns:260px minmax(0,1fr)!important;
+  gap:24px!important;
+  align-items:start!important;
+}
+html body.study-preview-page .study-rail {
+  position:static!important;
+  inset:auto!important;
+  top:auto!important;
+  grid-column:1!important;
+  grid-row:1!important;
+  align-self:start!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+  padding:18px!important;
+  border:1px solid var(--arthic-line)!important;
+  border-radius:16px!important;
+  background:#EAF3E7!important;
+  box-shadow:none!important;
+}
+html body.study-preview-page .study-rail > div {
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body.study-preview-page .study-bank-nav {
+  max-height:300px!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain;
+  padding:14px 10px 10px!important;
+  border:1px solid rgba(32,72,89,.1)!important;
+  border-radius:12px!important;
+  background:#F8FCFF!important;
+}
+html body.study-preview-page .study-question-map {
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  gap:6px!important;
+}
+html body.study-preview-page .study-question-map button {
+  min-height:31px!important;
+  border-radius:7px!important;
+  font-size:10px!important;
+}
+html body.study-preview-page .study-session {
+  grid-column:2!important;
+  grid-row:1!important;
+  min-width:0!important;
+  padding:clamp(24px,3vw,42px)!important;
+  border:1px solid var(--arthic-line)!important;
+  border-radius:18px!important;
+  background:#F8FCFF!important;
+  box-shadow:0 10px 28px rgba(31,65,79,.055)!important;
+}
+html body.study-preview-page .study-question__text {
+  max-width:48ch!important;
+  font-size:clamp(22px,1.9vw,29px)!important;
+  line-height:1.35!important;
+}
+html body.study-preview-page .study-option {
+  min-height:62px!important;
+  padding:14px 16px!important;
+  border-radius:12px!important;
+  font-size:15px!important;
+  line-height:1.55!important;
+}
+html body.study-preview-page .study-option__text {font-size:15px!important;line-height:1.55!important;}
+html body.study-preview-page .study-sidebar {
+  grid-column:2!important;
+  grid-row:2!important;
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+  margin-top:0!important;
+}
+html body.study-preview-page .study-sidebar__boundary {grid-column:1/-1!important;}
+html body.study-preview-page .study-sidebar__section {
+  border:1px solid var(--arthic-line)!important;
+  border-radius:14px!important;
+  background:#EAF3E7!important;
+}
+html body.study-preview-page .study-preview-invite {
+  width:min(1360px,calc(100% - 56px))!important;
+  max-width:1360px!important;
+  padding:24px 0!important;
+}
+@media(max-width:980px) {
+  html body.study-preview-page .study-workspace {
+    width:calc(100% - 40px)!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:16px!important;
+  }
+  html body.study-preview-page .study-rail,
+  html body.study-preview-page .study-session,
+  html body.study-preview-page .study-sidebar {
+    grid-column:1!important;
+    grid-row:auto!important;
+  }
+  html body.study-preview-page .study-rail {
+    display:grid!important;
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important;
+    align-items:start!important;
+    gap:16px!important;
+  }
+  html body.study-preview-page .study-bank-nav {max-height:245px!important;margin:0!important;}
+}
+@media(max-width:620px) {
+  html body .site-header {top:9px!important;}
+  html body .mobile-menu {top:68px!important;}
+  html body.study-preview-page .study-workspace {width:calc(100% - 28px)!important;}
+  html body.study-preview-page .study-rail {
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    padding:14px!important;
+  }
+  html body.study-preview-page .study-bank-nav {max-height:220px!important;}
+  html body.study-preview-page .study-question-map {grid-template-columns:repeat(8,minmax(0,1fr))!important;}
+  html body.study-preview-page .study-session {padding:19px!important;}
+  html body.study-preview-page .study-sidebar {grid-template-columns:1fr!important;}
+  html body.study-preview-page .study-sidebar__boundary {grid-column:1!important;}
+  html body.legal-page #main .entry {width:calc(100% - 28px)!important;margin:92px auto 36px!important;padding:24px 18px!important;border-radius:16px!important;}
+  html body.content-page .content-main > section.content-hero,
+  html body.content-page .content-main > section.oneprep-subhero {padding-top:104px!important;}
+}

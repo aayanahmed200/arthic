@@ -28,7 +28,7 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand brand--footer" href="/" aria-label="Arthic home">
-          <img class="brand-mark" src="/arthic-mark.svg" width="44" height="44" alt="" />
+          <img class="brand-mark" src="/favicon.svg" width="44" height="44" alt="" />
           <span class="brand-name">Arthic</span>
         </a>
         <a class="footer-email" href="mailto:hello@arthic.tech">hello@arthic.tech</a>
@@ -79,6 +79,6 @@ export function initReferenceChrome(): void {
   if (existingFooter) existingFooter.outerHTML = FOOTER;
 
   document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#D0ECFD");
-  document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/favicon.svg?v=6");
+  document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/favicon.svg");
   applyReferenceSurfaces();
 }

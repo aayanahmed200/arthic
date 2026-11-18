@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Arthic mark">
-  <rect width="512" height="512" rx="112" fill="#D0ECFD"/>
-  <path d="M64 438 204 77h104l140 361h-96L256 204 160 438H64Z" fill="#225B3C"/>
-  <path d="M256 77h52l140 361h-96L256 204Z" fill="#74A96D"/>
-  <path d="M169 298h174l28 70H141l28-70Z" fill="#C92F73"/>
-  <path d="m204 77 52 127-72 172h-24l96-234h-52Z" fill="#163F2C" opacity=".55"/>
+  <path d="M64 438 204 77 Q211 58 232 58 H280 Q301 58 308 77 L448 438 H355 L256 188 157 438Z" fill="#225B3C"/>
+  <path d="M256 188 308 77 Q301 58 280 58 H256Z" fill="#74A96D"/>
+  <path d="M164 300H348L375 368H137Z" fill="#C92F73"/>
+  <path d="M204 77 256 188 179 368H157L256 188H232Z" fill="#163F2C" opacity=".42"/>
 </svg>
