@@ -69,10 +69,9 @@ function applyReferenceSurfaces(): void {
   const blue = "#BFE7FF";
   const surfaceSelector = [
     "main", "section", ".content-main", ".home-page", ".home-shell",
-    ".content-container", ".site-footer", ".footer-frame", ".footer",
-    ".footer-inner", ".footer-grid", ".footer-column", ".footer-garden",
-    ".not-found-card", ".entry", ".study-rail", ".study-session",
-    ".study-sidebar", ".study-sidebar__section", ".study-preview-invite",
+    ".content-container", ".not-found-card", ".entry",
+    ".study-rail", ".study-session", ".study-sidebar",
+    ".study-sidebar__section", ".study-preview-invite",
     "[data-page-surface]"
   ].join(",");
 
@@ -100,6 +99,19 @@ function applyReferenceSurfaces(): void {
   }
 }
 
+
+function applyBrandFooter(): void {
+  const green = "#96D73C";
+  const footerSelector = ".site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,.footer-column,.footer-garden";
+  document.querySelectorAll<HTMLElement>(footerSelector).forEach((surface) => {
+    surface.style.setProperty("background-color", green, "important");
+    surface.style.setProperty("background-image", "none", "important");
+    surface.style.setProperty("border", "0", "important");
+    surface.style.setProperty("box-shadow", "none", "important");
+    surface.style.setProperty("color", "#111111", "important");
+  });
+}
+
 export function initReferenceChrome(): void {
   const existingHeader = document.querySelector<HTMLElement>("[data-nav], .site-header");
   if (existingHeader) existingHeader.outerHTML = HEADER;
@@ -114,4 +126,5 @@ export function initReferenceChrome(): void {
   document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/arthic-logo.png");
   document.querySelector<HTMLLinkElement>('link[rel="apple-touch-icon"]')?.setAttribute("href", "/arthic-logo.png");
   applyReferenceSurfaces();
+  applyBrandFooter();
 }

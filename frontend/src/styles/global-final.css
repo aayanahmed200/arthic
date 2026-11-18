@@ -826,3 +826,289 @@ html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2) ::sele
   background:#356512!important;
   color:#ffffff!important;
 }
+
+
+/* Final interaction and layout polish for the origami-green Arthic identity. */
+:root {
+  --arthic-footer:#96D73C;
+  --arthic-footer-leaf:#D7FA89;
+  --arthic-green:#356512;
+  --arthic-green-deep:#28520E;
+  --arthic-menu:#FFFFFF;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-header,.mobile-menu,body.content-page .nav,body.content-page .mobile-nav) {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+  border-color:rgba(22,55,14,.12)!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-header .desktop-nav a,body.content-page .nav__links a,.mobile-menu a,body.content-page .mobile-nav a) {
+  color:#28520E!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-header .desktop-nav a:hover,.site-header .desktop-nav a.is-active,.site-header .desktop-nav a[aria-current=page,.mobile-menu a:hover,.mobile-menu a[aria-current=page,body.content-page .nav__links a:hover,body.content-page .nav__links a[aria-current=page]) {
+  background:rgba(150,215,60,.20)!important;
+  color:#28520E!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-header .menu-toggle {
+  background:#FFFFFF!important;
+  border-color:rgba(53,101,18,.24)!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-header .menu-toggle span:not(.sr-only) {
+  background:#28520E!important;
+}
+
+/* Filled actions all use the same logo green with white lettering. */
+html body:not(#arthic-polish):not(#arthic-polish-2)
+:is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,.footer__cta,
+button[type=submit],input[type=submit],.waitlist-form button,
+.apply-form button,.subscribe-form button,.form-submit) {
+  background:#356512!important;
+  background-color:#356512!important;
+  border:1px solid #356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  box-shadow:none!important;
+  text-decoration:none!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2)
+:is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,.footer__cta,
+button[type=submit],input[type=submit],.waitlist-form button,
+.apply-form button,.subscribe-form button,.form-submit):hover {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2)
+:is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,
+button[type=submit],input[type=submit]):disabled {
+  opacity:.52!important;
+  cursor:not-allowed!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.study-option.is-correct,.study-option[data-result=correct]) {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.study-option.is-incorrect,.study-option[data-result=incorrect]) {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+
+/* A single green footer, with the illustrated foliage sharing its base
+   colour and overlapping the footer content slightly. There are no rules,
+   frames, borders or pseudo-element dividers at the join. */
+html body:not(#arthic-polish):not(#arthic-polish-2)
+:is(.site-footer,.footer-frame,.footer,.site-footer .footer-inner,
+.site-footer .footer-grid,.site-footer .footer-column,.site-footer .footer-garden) {
+  background:#96D73C!important;
+  background-color:#96D73C!important;
+  background-image:none!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-footer {
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0 0 28px!important;
+  overflow:clip!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-footer .footer-garden {
+  position:relative!important;
+  z-index:2!important;
+  display:block!important;
+  width:100%!important;
+  margin:0 0 -14px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  line-height:0!important;
+  font-size:0!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-footer .footer-foliage {
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  vertical-align:top!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-footer .footer-inner {
+  position:relative!important;
+  z-index:1!important;
+  width:min(1260px,calc(100% - 48px))!important;
+  margin:0 auto!important;
+  padding:32px 0 22px!important;
+  border:0!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer,.footer-frame,.footer) :is(a,p,span,strong,small) {
+  color:#111111!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer,.footer-frame,.footer) :is(a:hover,a:focus-visible) {
+  color:#28520E!important;
+  text-decoration:underline!important;
+  text-underline-offset:3px!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer,.footer-frame,.footer)::before,
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer,.footer-frame,.footer)::after,
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer .footer-inner,.site-footer .footer-grid,.site-footer .footer-column)::before,
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer .footer-inner,.site-footer .footer-grid,.site-footer .footer-column)::after {
+  content:none!important;
+  display:none!important;
+}
+
+/* Inner pages share a clear reading width, consistent top offset and
+   deliberate section rhythm rather than unrelated page-by-page spacing. */
+html body.content-page #main.content-main {
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:clamp(18px,2.6vw,30px)!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:112px 0 72px!important;
+  background:#BFE7FF!important;
+}
+html body.content-page #main.content-main > section,
+html body.content-page #main.content-main > article {
+  box-sizing:border-box!important;
+  width:min(1180px,calc(100% - 56px))!important;
+  max-width:1180px!important;
+  margin-inline:auto!important;
+}
+html body.content-page #main.content-main > section:not(.content-cta):not(.oneprep-final-cta):not(.study-workspace) {
+  padding-block:clamp(28px,4vw,54px)!important;
+}
+html body.content-page #main.content-main > :is(.content-hero,.oneprep-subhero,.study-intro,.method-hero,.pricing-intro,.career-intro) {
+  padding-top:clamp(42px,5vw,66px)!important;
+  padding-bottom:clamp(30px,4vw,48px)!important;
+}
+html body.content-page #main.content-main > .method-hero {
+  width:100%!important;
+  max-width:none!important;
+  padding:clamp(60px,8vw,96px) 0!important;
+}
+html body.content-page #main.content-main > .method-hero > .content-container {
+  width:min(1120px,calc(100% - 56px))!important;
+  max-width:1120px!important;
+  margin-inline:auto!important;
+}
+html body.content-page #main.content-main > .study-workspace {
+  width:min(1360px,calc(100% - 48px))!important;
+  max-width:1360px!important;
+  margin-inline:auto!important;
+  padding-block:20px 38px!important;
+}
+html body.content-page #main.content-main > .study-preview-invite {
+  width:min(1180px,calc(100% - 56px))!important;
+  max-width:1180px!important;
+  margin-inline:auto!important;
+}
+html body.content-page :is(.content-container,.content-hero__inner,.oneprep-section-head,.method-section-head) {
+  box-sizing:border-box!important;
+}
+html body.content-page :is(.content-hero__lede,.oneprep-subhero__note,.method-hero__lede,.study-intro__lede) {
+  max-width:68ch!important;
+  line-height:1.75!important;
+}
+html body.content-page :is(.waitlist-layout,.apply-layout,.career-intro,.method-current__inner) {
+  gap:clamp(28px,4vw,56px)!important;
+  align-items:start!important;
+}
+html body.content-page :is(.waitlist-form,.apply-form) {
+  width:100%!important;
+  max-width:100%!important;
+  padding:clamp(24px,3.2vw,40px)!important;
+  border:1px solid rgba(31,77,21,.16)!important;
+  border-radius:18px!important;
+  box-shadow:0 12px 28px rgba(28,73,14,.07)!important;
+}
+html body.content-page :is(.apply-role,.waitlist-copy,.exam-prep-note,.careers-application-note) {
+  min-width:0!important;
+}
+html body.content-page :is(.pricing-plan-grid,.exam-track-grid,.oneprep-route-grid,.method-step-grid) {
+  gap:clamp(16px,2vw,24px)!important;
+}
+html body.content-page :is(.pricing-plan,.exam-track-card,.oneprep-route-card,.method-step,.career-role--detailed) {
+  min-width:0!important;
+  height:auto!important;
+}
+
+/* Policy pages get a restrained reading column, generous line length and
+   consistent headings without changing the underlying wording. */
+html body.legal-page #main > .entry {
+  width:min(960px,calc(100% - 48px))!important;
+  max-width:960px!important;
+  margin:112px auto 72px!important;
+  padding:clamp(30px,5vw,62px)!important;
+  border:1px solid rgba(31,77,21,.14)!important;
+  border-radius:18px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 12px 32px rgba(28,73,14,.06)!important;
+}
+html body.legal-page #main > .entry :is(.entry__head,.entry__body) {
+  max-width:74ch!important;
+  margin-inline:auto!important;
+}
+html body.legal-page #main > .entry .entry__body {
+  line-height:1.8!important;
+}
+html body.legal-page #main > .entry .entry__body h2 {
+  margin:2.1em 0 .7em!important;
+  color:#356512!important;
+}
+html body.not-found-document #main .not-found-card {
+  background:#FFFFFF!important;
+  color:#111111!important;
+}
+
+/* Mobile spacing remains deliberate and avoids horizontal overflow. */
+@media(max-width:760px) {
+  html body.content-page #main.content-main {
+    gap:14px!important;
+    padding:86px 0 42px!important;
+  }
+  html body.content-page #main.content-main > section,
+  html body.content-page #main.content-main > article {
+    width:calc(100% - 32px)!important;
+  }
+  html body.content-page #main.content-main > .method-hero {
+    width:100%!important;
+    padding:46px 0 38px!important;
+  }
+  html body.content-page #main.content-main > .method-hero > .content-container {
+    width:calc(100% - 32px)!important;
+  }
+  html body.content-page #main.content-main > .study-workspace {
+    width:calc(100% - 24px)!important;
+    padding-block:8px 24px!important;
+  }
+  html body.content-page :is(.waitlist-layout,.apply-layout,.career-intro,.method-current__inner) {
+    grid-template-columns:1fr!important;
+  }
+  html body.content-page :is(.waitlist-form,.apply-form) {
+    padding:22px 18px!important;
+  }
+  html body.legal-page #main > .entry {
+    width:calc(100% - 28px)!important;
+    margin:88px auto 36px!important;
+    padding:24px 18px!important;
+    border-radius:14px!important;
+  }
+  html body .site-footer .footer-inner {
+    width:calc(100% - 36px)!important;
+    padding-top:26px!important;
+  }
+}
