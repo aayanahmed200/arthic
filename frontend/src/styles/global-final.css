@@ -1712,3 +1712,336 @@ html body .site-footer .footer-column>span {
     padding-top:24px!important;
   }
 }
+
+
+/* Final white-only canvas, with the existing green brand typography and
+   green/white actions retained. No tinted section bands or footer artwork. */
+:root {
+  --color-bg:#FFFFFF;
+  --color-bg-raised:#FFFFFF;
+  --color-bg-sunken:#FFFFFF;
+  --color-fg:#111111;
+  --color-fg-dim:#111111;
+  --color-fg-mute:#111111;
+  --color-fg-faint:rgba(17,17,17,.14);
+  --color-fg-hairline:rgba(17,17,17,.12);
+  --arthic-blue:#FFFFFF;
+  --arthic-page:#FFFFFF;
+  --arthic-sky:#FFFFFF;
+  --sky:#FFFFFF;
+  --arthic-footer:#FFFFFF;
+  --arthic-green:#356512;
+  --arthic-green-deep:#28520E;
+}
+html,body,body.home-page,body.content-page,body.study-preview-page,
+body.legal-page,body.not-found-document,#main,main,.content-main {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+  color:#111111!important;
+}
+/* Structural surfaces all stay white. Controls and buttons keep their
+   own intentional green states, while no section gets a tinted panel. */
+html body :is(header,footer,main,section,article,aside,nav,form,fieldset,
+.content-container,.home-page,.home-shell,.content-main,.site-header,
+.mobile-menu,.site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,
+.footer-column,.study-intro,.study-workspace,.study-rail,.study-session,
+.study-sidebar,.study-sidebar__section,.study-question,.study-preview-invite,
+.pricing-intro,.pricing-plan-section,.career-intro,.career-list,.waitlist-layout,
+.waitlist-copy,.waitlist-form,.apply-layout,.apply-role,.apply-form,
+.method-hero,.method-steps,.method-current,.method-planned,.exam-track-card,
+.pricing-tier,.pricing-compare,.pricing-faq,.entry,.not-found-card,
+.custom-select,.custom-select__listbox) {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+}
+html body .site-header {
+  border:0!important;
+  box-shadow:0 8px 28px rgba(17,17,17,.07)!important;
+}
+html body .site-header .desktop-nav,
+html body .site-header .desktop-nav a {
+  background:transparent!important;
+}
+html body .site-header .desktop-nav a {
+  color:#356512!important;
+}
+html body .site-header .desktop-nav a:hover,
+html body .site-header .desktop-nav a.is-active,
+html body .site-header .desktop-nav a[aria-current="page"],
+html body .mobile-menu a:hover,
+html body .mobile-menu a[aria-current="page"] {
+  background:#F0F6EA!important;
+  color:#28520E!important;
+}
+html body .mobile-menu {
+  border:0!important;
+  box-shadow:0 12px 24px rgba(17,17,17,.08)!important;
+}
+html body :is(h1,h2,h3,h4,.brand-name,.study-session__heading,
+.study-sidebar__heading,.content-hero__topline,.oneprep-eyebrow,
+.home-eyebrow,.footer-column>span,.footer__col-label) {
+  color:#356512!important;
+}
+html body :is(p,li,dd,small,figcaption,.content-hero__lede,
+.study-intro__lede,.study-sidebar__text,.study-session__subhead,
+.footer__tagline,.footer-column>a,.footer-email) {
+  color:#111111!important;
+}
+html body :is(.site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,.footer-column) {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body .footer-garden,
+html body .footer-foliage {
+  display:none!important;
+  content:none!important;
+}
+html body .site-footer {
+  margin:0!important;
+  padding:44px 0 28px!important;
+}
+html body .site-footer .footer-inner {
+  width:min(1200px,calc(100% - 48px))!important;
+  margin:0 auto!important;
+  padding:0!important;
+}
+html body .site-footer .footer-column>span {
+  color:#356512!important;
+}
+
+/* White custom dropdown, same on the homepage, practice and every form. */
+.custom-select {
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  z-index:5;
+}
+.custom-select:focus-within,
+.custom-select:has(.custom-select__trigger[aria-expanded="true"]) {
+  z-index:30;
+}
+.custom-select__native {
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  min-height:1px!important;
+  margin:-1px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+.custom-select__trigger {
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  width:100%!important;
+  min-height:46px!important;
+  padding:11px 14px!important;
+  border:1px solid rgba(17,17,17,.2)!important;
+  border-radius:10px!important;
+  background:#FFFFFF!important;
+  color:#111111!important;
+  font:500 14px/1.4 "Poppins",sans-serif!important;
+  text-align:left!important;
+  cursor:pointer!important;
+  box-shadow:none!important;
+}
+.custom-select__trigger:hover,
+.custom-select__trigger:focus-visible,
+.custom-select__trigger[aria-expanded="true"] {
+  border-color:#356512!important;
+  outline:none!important;
+  box-shadow:0 0 0 3px rgba(53,101,18,.1)!important;
+}
+.custom-select__trigger svg {
+  width:12px!important;
+  height:8px!important;
+  flex:0 0 auto!important;
+  color:#356512!important;
+  transition:transform .18s ease!important;
+}
+.custom-select__trigger[aria-expanded="true"] svg {
+  transform:rotate(180deg)!important;
+}
+.custom-select__listbox {
+  position:absolute!important;
+  top:calc(100% + 7px)!important;
+  left:0!important;
+  right:0!important;
+  z-index:1000!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:3px!important;
+  max-height:min(280px,45vh)!important;
+  overflow-y:auto!important;
+  padding:6px!important;
+  border:1px solid rgba(17,17,17,.12)!important;
+  border-radius:12px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 14px 36px rgba(17,17,17,.13)!important;
+}
+.custom-select__listbox[hidden] {
+  display:none!important;
+}
+.custom-select__option {
+  width:100%!important;
+  min-height:38px!important;
+  padding:9px 11px!important;
+  border:0!important;
+  border-radius:8px!important;
+  background:#FFFFFF!important;
+  color:#111111!important;
+  font:400 13px/1.4 "Poppins",sans-serif!important;
+  text-align:left!important;
+  cursor:pointer!important;
+}
+.custom-select__option:hover,
+.custom-select__option:focus-visible,
+.custom-select__option[aria-selected="true"] {
+  background:#F0F6EA!important;
+  color:#28520E!important;
+  outline:none!important;
+}
+.custom-select__option:disabled {
+  opacity:.45!important;
+  cursor:not-allowed!important;
+}
+
+/* Consistent page widths and comfortable vertical rhythm on all inner routes. */
+html body.content-page #main.content-main {
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:88px 0 64px!important;
+  background:#FFFFFF!important;
+}
+html body.content-page #main.content-main > section,
+html body.content-page #main.content-main > article {
+  box-sizing:border-box!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+html body.content-page #main.content-main > section.content-container {
+  width:min(1120px,calc(100% - 48px))!important;
+  max-width:1120px!important;
+  margin:0 auto!important;
+  padding:clamp(34px,5vw,58px) 0!important;
+}
+html body.content-page #main.content-main > section.content-hero.content-container,
+html body.content-page #main.content-main > section.pricing-intro {
+  width:min(1120px,calc(100% - 48px))!important;
+  max-width:1120px!important;
+  margin:0 auto!important;
+  padding:clamp(54px,7vw,86px) 0 clamp(32px,4vw,48px)!important;
+}
+html body.content-page #main.content-main > section:not(.content-container):not(.pricing-intro):not(.study-intro):not(.study-workspace) {
+  padding:clamp(34px,4.5vw,58px) max(24px,calc((100vw - 1120px)/2))!important;
+}
+html body.content-page #main.content-main :is(.content-hero__lede,.oneprep-subhero__note,
+.method-hero__lede,.study-intro__lede) {
+  max-width:68ch!important;
+  line-height:1.75!important;
+}
+html body.content-page #main.content-main :is(.content-hero h1,.oneprep-subhero h1,
+.method-hero h1,.pricing-intro h1,.career-intro h1) {
+  max-width:18ch!important;
+  line-height:1.02!important;
+  letter-spacing:-.045em!important;
+  color:#356512!important;
+}
+html body.content-page #main.content-main :is(.waitlist-layout,.apply-layout,.career-list,
+.method-current__inner) {
+  width:min(1120px,calc(100% - 48px))!important;
+  max-width:1120px!important;
+  margin-inline:auto!important;
+  gap:clamp(26px,4vw,48px)!important;
+}
+html body.content-page #main.content-main :is(.waitlist-form,.apply-role,.apply-form,
+.pricing-intro__aside,.study-intro__aside,.pricing-tier,.exam-track-card,.method-step) {
+  border:1px solid rgba(17,17,17,.12)!important;
+  border-radius:12px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 8px 22px rgba(17,17,17,.045)!important;
+}
+html body.content-page #main.content-main :is(.waitlist-form,.apply-form) {
+  padding:clamp(22px,3vw,34px)!important;
+}
+html body.content-page #main.content-main :is(input.field,textarea.field,.field) {
+  min-height:44px!important;
+  background:#FFFFFF!important;
+  color:#111111!important;
+}
+html body.legal-page #main > .entry {
+  width:min(940px,calc(100% - 48px))!important;
+  max-width:940px!important;
+  margin:104px auto 64px!important;
+  padding:clamp(26px,4.5vw,56px)!important;
+  border:1px solid rgba(17,17,17,.12)!important;
+  border-radius:12px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 8px 24px rgba(17,17,17,.045)!important;
+}
+html body.not-found-document #main .not-found-card {
+  background:#FFFFFF!important;
+  border:1px solid rgba(17,17,17,.12)!important;
+  border-radius:12px!important;
+}
+
+/* Keep filled actions legible and consistent. */
+html body :is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,button[type=submit],
+input[type=submit],.waitlist-form button,.apply-form button) {
+  background:#356512!important;
+  background-color:#356512!important;
+  border:1px solid #356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  box-shadow:none!important;
+}
+html body :is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,button[type=submit],
+input[type=submit],.waitlist-form button,.apply-form button):hover {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+
+@media(max-width:760px) {
+  html body.content-page #main.content-main {padding:76px 0 40px!important;}
+  html body.content-page #main.content-main > section.content-container,
+  html body.content-page #main.content-main > section.content-hero.content-container,
+  html body.content-page #main.content-main > section.pricing-intro {
+    width:calc(100% - 32px)!important;
+    padding:32px 0!important;
+  }
+  html body.content-page #main.content-main > section:not(.content-container):not(.pricing-intro):not(.study-intro):not(.study-workspace) {
+    padding:32px 16px!important;
+  }
+  html body.content-page #main.content-main :is(.waitlist-layout,.apply-layout,.career-list,.method-current__inner) {
+    width:calc(100% - 32px)!important;
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html body.legal-page #main > .entry {
+    width:calc(100% - 28px)!important;
+    margin:84px auto 36px!important;
+    padding:22px 18px!important;
+  }
+}

@@ -23,9 +23,6 @@ const MOBILE_MENU = `<div class="mobile-menu" id="mobile-menu" data-mobile-menu 
 </div>`;
 
 const FOOTER = `<footer class="site-footer" id="site-footer">
-  <div class="footer-garden" aria-hidden="true">
-    <img class="footer-foliage" src="/footer-foliage.svg" width="2048" height="166" alt="" />
-  </div>
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
@@ -66,7 +63,7 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
 let surfaceObserver: MutationObserver | null = null;
 
 function applyReferenceSurfaces(): void {
-  const blue = "#BFE7FF";
+  const white = "#FFFFFF";
   const surfaceSelector = [
     "main", ".content-main", ".home-page",
     "main > section:not(.not-found-card)",
@@ -75,13 +72,13 @@ function applyReferenceSurfaces(): void {
   ].join(",");
 
   const applySurface = (surface: HTMLElement): void => {
-    surface.style.setProperty("background-color", blue, "important");
+    surface.style.setProperty("background-color", white, "important");
     surface.style.setProperty("background-image", "none", "important");
   };
 
-  document.documentElement.style.setProperty("background-color", blue, "important");
+  document.documentElement.style.setProperty("background-color", white, "important");
   document.documentElement.style.setProperty("background-image", "none", "important");
-  document.body.style.setProperty("background-color", blue, "important");
+  document.body.style.setProperty("background-color", white, "important");
   document.body.style.setProperty("background-image", "none", "important");
   document.querySelectorAll<HTMLElement>(surfaceSelector).forEach(applySurface);
 
@@ -100,8 +97,8 @@ function applyReferenceSurfaces(): void {
 
 
 function applyBrandFooter(): void {
-  const green = "#96D73C";
-  const footerSelector = ".site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,.footer-column,.footer-garden";
+  const green = "#FFFFFF";
+  const footerSelector = ".site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,.footer-column";
   document.querySelectorAll<HTMLElement>(footerSelector).forEach((surface) => {
     surface.style.setProperty("background-color", green, "important");
     surface.style.setProperty("background-image", "none", "important");
@@ -121,7 +118,7 @@ export function initReferenceChrome(): void {
   const existingFooter = document.querySelector<HTMLElement>(".footer-frame, [data-footer-root], .site-footer");
   if (existingFooter) existingFooter.outerHTML = FOOTER;
 
-  document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#BFE7FF");
+  document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#FFFFFF");
   document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/arthic-logo.png");
   document.querySelector<HTMLLinkElement>('link[rel="apple-touch-icon"]')?.setAttribute("href", "/arthic-logo.png");
   applyReferenceSurfaces();

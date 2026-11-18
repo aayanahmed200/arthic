@@ -1,6 +1,8 @@
 import { initReferenceChrome } from "./lib/reference-chrome";
+import { initCustomSelects } from "./lib/custom-select";
 
 initReferenceChrome();
+initCustomSelects();
 
 const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
 const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");

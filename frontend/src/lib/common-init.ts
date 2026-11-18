@@ -11,6 +11,7 @@ import { initSubscribeForm } from "./subscribe";
 import { initButtons } from "./buttons";
 import { initFaq } from "./faq";
 import { initExamFinder } from "./exam-finder";
+import { initCustomSelects } from "./custom-select";
 
 export function initCommon(): void {
   initReferenceChrome();
@@ -21,4 +22,5 @@ export function initCommon(): void {
   initButtons();
   initFaq();
   initExamFinder();
+  initCustomSelects();
 }
