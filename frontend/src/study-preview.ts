@@ -7,6 +7,7 @@ import { SAMPLE_QUESTIONS, type StudyQuestionPrompt } from "./data/sample-questi
 import { EXPANDED_SAMPLE_QUESTIONS } from "./data/expanded-sample-questions";
 import { MORE_SAMPLE_QUESTIONS } from "./data/more-sample-questions";
 import { ADDITIONAL_SAMPLE_QUESTIONS } from "./data/additional-sample-questions";
+import { FRESH_SAMPLE_QUESTIONS } from "./data/fresh-sample-questions";
 
 initCommon();
 
@@ -27,7 +28,7 @@ const SUBJECT_LABELS: Record<string, string> = {
 };
 const EXAM_LABELS: Record<string, string> = { MDCAT: "MDCAT", LCAT: "LCAT", NET: "NUST NET", CSS: "CSS", ALL: "All tracks" };
 
-let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS, ...MORE_SAMPLE_QUESTIONS, ...ADDITIONAL_SAMPLE_QUESTIONS];
+let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS, ...MORE_SAMPLE_QUESTIONS, ...ADDITIONAL_SAMPLE_QUESTIONS, ...FRESH_SAMPLE_QUESTIONS];
 
 function subjectLabel(code: string): string {
   return SUBJECT_LABELS[code] ?? code;

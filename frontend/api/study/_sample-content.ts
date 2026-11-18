@@ -1,6 +1,7 @@
 import { EXPANDED_SAMPLE_QUESTIONS } from "./_expanded-content.js";
 import { MORE_SAMPLE_QUESTIONS } from "./_more-content.js";
 import { ADDITIONAL_PRIVATE_QUESTIONS } from "./_additional-content.js";
+import { FRESH_PRIVATE_QUESTIONS } from "./_fresh-content.js";
 
 export interface StudyOption { key: string; text: string; }
 
@@ -2911,4 +2912,5 @@ export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
   ...EXPANDED_SAMPLE_QUESTIONS,
   ...MORE_SAMPLE_QUESTIONS,
   ...ADDITIONAL_PRIVATE_QUESTIONS,
+  ...FRESH_PRIVATE_QUESTIONS,
 ];
