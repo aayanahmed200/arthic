@@ -45,13 +45,13 @@ try {
   const feed = mockRequest("GET");
   questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
-  assert.equal(feed.res.body.questions.length, 240);
+  assert.equal(feed.res.body.questions.length, 320);
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
   for (const examCode of examCodes) {
-    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 60);
+    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 80);
   }
-  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v5-240");
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v6-320");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
   assert.ok(feed.res.body.dataVersion);
   assert.ok(feed.res.body.questions.some((item) => item.id === "mdcat-extra-014"));
