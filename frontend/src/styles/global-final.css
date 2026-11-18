@@ -2045,3 +2045,66 @@ input[type=submit],.waitlist-form button,.apply-form button):hover {
     padding:22px 18px!important;
   }
 }
+
+
+/* Absolute white background policy: no tinted sections, cards, footer bands,
+   menus or selected rows. Green is reserved for headings and action buttons. */
+html,html body,html body * {
+  background-image:none!important;
+}
+html body :is(header,footer,main,section,article,aside,nav,div,form,fieldset,
+figure,ul,ol,li,dl,dt,dd,blockquote,pre,.content-container,.home-page,
+.home-shell,.content-main,.site-header,.desktop-nav,.mobile-menu,
+.mobile-menu nav,.site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,
+.footer-column,.study-intro,.study-workspace,.study-rail,.study-session,
+.study-sidebar,.study-sidebar__section,.study-question,.study-preview-invite,
+.pricing-intro,.pricing-plan-section,.career-intro,.career-list,.waitlist-layout,
+.waitlist-copy,.waitlist-form,.apply-layout,.apply-role,.apply-form,.method-hero,
+.method-steps,.method-current,.method-planned,.exam-track-card,.pricing-tier,
+.pricing-compare,.pricing-faq,.entry,.not-found-card,.custom-select,
+.custom-select__listbox) {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+}
+/* The nav remains a single white pill; active states use green text, not a
+   differently coloured block. */
+html body .site-header .desktop-nav a,
+html body .site-header .desktop-nav a:hover,
+html body .site-header .desktop-nav a.is-active,
+html body .site-header .desktop-nav a[aria-current="page"],
+html body .mobile-menu a,
+html body .mobile-menu a:hover,
+html body .mobile-menu a[aria-current="page"] {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  color:#356512!important;
+}
+html body .custom-select__option,
+html body .custom-select__option:hover,
+html body .custom-select__option:focus-visible,
+html body .custom-select__option[aria-selected="true"] {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+}
+html body .custom-select__option[aria-selected="true"] {
+  color:#356512!important;
+  box-shadow:inset 3px 0 #356512!important;
+}
+html body :is(a.button,a.button--large,a.button--primary,a.button--small,
+a.home-button,a.oneprep-button,a.study-action,a.career-role__link,
+a.footer__cta) {
+  background:#356512!important;
+  background-color:#356512!important;
+  border-color:#356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body :is(a.button,a.button--large,a.button--primary,a.button--small,
+a.home-button,a.oneprep-button,a.study-action,a.career-role__link,
+a.footer__cta):hover {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
