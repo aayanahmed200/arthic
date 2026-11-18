@@ -45,14 +45,15 @@ try {
   const feed = mockRequest("GET");
   questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
-  assert.equal(feed.res.body.questions.length, 96);
+  assert.equal(feed.res.body.questions.length, 160);
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
   for (const examCode of examCodes) {
-    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 24);
+    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 40);
   }
   assert.equal(feed.res.body.isOfficialPastPaper, false);
   assert.ok(feed.res.body.dataVersion);
+  assert.ok(feed.res.body.questions.some((item) => item.id === "mdcat-extra-014"));
   for (const item of feed.res.body.questions) {
     assert.equal("answer" in item, false);
     assert.equal("correctOption" in item, false);
@@ -84,6 +85,25 @@ try {
   assert.equal(incorrect.res.code, 200);
   assert.equal(incorrect.res.body.isCorrect, false);
   assert.equal(incorrect.res.body.correctOption, "B");
+
+
+  const expandedCorrect = mockRequest("POST", {
+    questionId: "mdcat-extra-014",
+    selectedOption: "C",
+  });
+  await checkHandler(expandedCorrect.req, expandedCorrect.res);
+  assert.equal(expandedCorrect.res.code, 200);
+  assert.equal(expandedCorrect.res.body.isCorrect, true);
+  assert.equal(expandedCorrect.res.body.correctOption, "C");
+
+  const expandedIncorrect = mockRequest("POST", {
+    questionId: "mdcat-extra-014",
+    selectedOption: "A",
+  });
+  await checkHandler(expandedIncorrect.req, expandedIncorrect.res);
+  assert.equal(expandedIncorrect.res.code, 200);
+  assert.equal(expandedIncorrect.res.body.isCorrect, false);
+  assert.equal(expandedIncorrect.res.body.correctOption, "C");
 
   const invalid = mockRequest("POST", {
     questionId: "mdcat-bio-cell-001",

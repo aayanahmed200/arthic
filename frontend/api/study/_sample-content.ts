@@ -1,3 +1,5 @@
+import { EXPANDED_SAMPLE_QUESTIONS } from "./_expanded-content.js";
+
 export interface StudyOption { key: string; text: string; }
 
 export interface PrivateStudyQuestion {
@@ -15,7 +17,7 @@ export interface PrivateStudyQuestion {
 }
 
 /** Original Arthic sample bank with answer keys retained on the server. */
-export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
+const BASE_SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
   {
     "id": "mdcat-bio-cell-001",
     "examCode": "MDCAT",
@@ -2900,4 +2902,9 @@ export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
     "takeaway": "For an object at 2F, a converging lens forms an equal-sized real image at 2F.",
     "sourceKind": "original-sample"
   }
+];
+
+export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
+  ...BASE_SAMPLE_QUESTIONS,
+  ...EXPANDED_SAMPLE_QUESTIONS,
 ];

@@ -81,3 +81,120 @@ html body.content-page.study-preview-page .study-sidebar__section {
     padding:16px!important;
   }
 }
+
+
+/* The practice page behaves like a focused mini learning platform. */
+body.study-preview-page .study-workspace {
+  width:min(1440px,calc(100% - 48px))!important;max-width:1440px!important;
+  grid-template-columns:244px minmax(0,1fr) 236px!important;gap:18px!important;align-items:start!important;
+}
+body.study-preview-page .study-rail {
+  position:sticky!important;top:88px!important;min-height:0!important;height:calc(100vh - 108px);
+  max-height:880px;overflow:auto;padding:17px!important;
+  border:1px solid rgba(31,66,39,.14)!important;border-radius:13px!important;background:#EAF2D8!important;
+}
+body.study-preview-page .study-rail__eyebrow {font-size:9px!important;letter-spacing:.13em!important;}
+body.study-preview-page .study-rail__name {margin:7px 0 13px!important;font-size:25px!important;}
+body.study-preview-page .practice-track-filters {display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0;}
+body.study-preview-page .practice-track-filters button {
+ display:flex;justify-content:space-between;align-items:center;gap:5px;min-height:40px;padding:8px 9px!important;
+ border:1px solid rgba(29,66,39,.15)!important;border-radius:7px!important;background:rgba(255,255,255,.47)!important;
+ color:#31533A!important;font:650 10px/1.2 "Poppins",sans-serif!important;
+}
+body.study-preview-page .practice-track-filters button[aria-pressed="true"] {border-color:#2E7548!important;background:#2E7548!important;color:#fff!important;}
+body.study-preview-page .practice-track-filters button small {opacity:.72;font:600 9px/1 "Poppins",sans-serif!important;}
+body.study-preview-page .study-filter-label {display:block;margin:17px 0 6px;color:#63775F;font:700 8px/1.4 "Poppins",sans-serif;letter-spacing:.12em;}
+body.study-preview-page .study-filter-select,body.study-preview-page .study-filter-search {
+ width:100%;min-height:39px;padding:9px 10px;border:1px solid rgba(29,66,39,.17)!important;border-radius:7px!important;
+ background:#FFFEF6!important;color:#294833!important;font:500 10px/1.3 "Poppins",sans-serif!important;
+}
+body.study-preview-page .study-rail__nav {display:flex;gap:4px;margin-top:14px!important;padding-top:12px;border-top:1px solid rgba(31,66,39,.12);}
+body.study-preview-page .study-rail__link {padding:7px 8px!important;font-size:9px!important;}
+body.study-preview-page .study-bank-nav {margin-top:17px;padding-top:14px;border-top:1px solid rgba(31,66,39,.13);}
+body.study-preview-page .study-bank-nav__top {display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;color:#536D55;font:700 8px/1.4 "Poppins",sans-serif;letter-spacing:.1em;}
+body.study-preview-page .study-bank-nav__top span {padding:3px 6px;border-radius:999px;background:rgba(255,255,255,.6);letter-spacing:0;}
+body.study-preview-page .study-question-map {display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;}
+body.study-preview-page .study-question-map button {
+ min-width:0;min-height:29px;padding:4px;border:1px solid rgba(32,74,42,.14);border-radius:5px;
+ background:#F9FAF0;color:#506951;font:600 9px/1 "Poppins",sans-serif;cursor:pointer;
+}
+body.study-preview-page .study-question-map button.is-current {outline:2px solid #315F3C;outline-offset:1px;background:#fff;}
+body.study-preview-page .study-question-map button.is-correct {border-color:#32834D;background:#DDF1E0;color:#23643A;}
+body.study-preview-page .study-question-map button.is-incorrect {border-color:#C8525A;background:#FCE4E4;color:#9E3039;}
+body.study-preview-page .study-question-map button:disabled {opacity:.6;cursor:wait;}
+body.study-preview-page .study-question-map button:hover:not(:disabled) {border-color:#3E8050;}
+body.study-preview-page .study-bank-nav__hint {margin:9px 0 0;color:#748170;font:400 8px/1.5 "Poppins",sans-serif;}
+body.study-preview-page .study-session {padding:clamp(23px,3vw,38px)!important;border-radius:13px!important;background:#FFFEF7!important;box-shadow:0 8px 24px rgba(34,60,38,.045)!important;}
+body.study-preview-page .study-session__heading {font-size:clamp(25px,2.6vw,34px)!important;}
+body.study-preview-page .study-session__type {padding:7px 10px;border-radius:6px;background:#EFF5E6;color:#486B4A;font-size:8px;}
+body.study-preview-page .study-question {margin-top:22px!important;border-top:1px solid rgba(34,62,38,.14)!important;padding-top:20px!important;}
+body.study-preview-page .study-question__meta {align-items:center;}
+body.study-preview-page .study-question__meta span:first-child {font-weight:700!important;}
+body.study-preview-page .study-question__meta span:last-child {padding:5px 8px;border-radius:999px;background:#EEF3E4;font-size:8px!important;letter-spacing:.03em;}
+body.study-preview-page .study-question__context {display:flex;gap:7px;flex-wrap:wrap;margin-top:12px;}
+body.study-preview-page .study-question__context span {padding:5px 8px;border-radius:999px;background:#EFF4E6;color:#526D54;font:700 8px/1.2 "Poppins",sans-serif;}
+body.study-preview-page .study-question__text {max-width:42ch!important;font-size:clamp(22px,2.35vw,30px)!important;line-height:1.2!important;}
+body.study-preview-page .study-question__instruction {margin-top:8px!important;font-size:10px!important;}
+body.study-preview-page .study-options {grid-template-columns:1fr 1fr!important;gap:9px!important;margin-top:19px!important;}
+body.study-preview-page .study-option {
+ position:relative;grid-template-columns:31px minmax(0,1fr)!important;min-height:62px!important;padding:12px!important;
+ border-radius:8px!important;background:#FBFCF6!important;color:#35503A!important;font:500 11px/1.55 "Poppins",sans-serif!important;
+}
+body.study-preview-page .study-option__key {width:25px;height:25px;border-radius:6px!important;background:#F0F3E9;font-size:9px!important;}
+body.study-preview-page .study-option__text {padding:0!important;}
+body.study-preview-page .study-option.is-correct,body.study-preview-page .study-option.is-correct:hover {
+ border:1px solid #309254!important;background:#E0F3E5!important;color:#205D37!important;box-shadow:inset 0 0 0 1px rgba(48,146,84,.18)!important;
+}
+body.study-preview-page .study-option.is-correct .study-option__key {border-color:#309254;background:#309254;color:#fff;}
+body.study-preview-page .study-option.is-incorrect,body.study-preview-page .study-option.is-incorrect:hover {
+ border:1px solid #D0525B!important;background:#FCE7E7!important;color:#8D2831!important;box-shadow:inset 0 0 0 1px rgba(208,82,91,.14)!important;
+}
+body.study-preview-page .study-option.is-incorrect .study-option__key {border-color:#C94C55;background:#C94C55;color:#fff;}
+body.study-preview-page .study-option.is-pending {border-color:#8AAE8D!important;background:#F1F6E8!important;}
+body.study-preview-page .study-question__actions {align-items:center;justify-content:space-between;margin-top:19px!important;}
+body.study-preview-page .study-action {min-height:41px;padding:10px 16px!important;font-size:10px!important;}
+body.study-preview-page .study-action:disabled {opacity:.42;}
+body.study-preview-page .study-action--finish {border-color:rgba(37,91,52,.22)!important;background:#EEF4E5!important;color:#315B39!important;}
+body.study-preview-page .study-feedback {
+ margin-top:18px!important;padding:17px 18px!important;border:1px solid rgba(45,130,70,.2)!important;border-left:4px solid #39965C!important;
+ border-radius:8px!important;background:#EFF7EF!important;
+}
+body.study-preview-page .study-feedback[data-result="incorrect"] {border-color:rgba(197,68,76,.24)!important;border-left-color:#CB4B54!important;background:#FFF0EF!important;}
+body.study-preview-page .study-feedback[data-result="pending"] {border-color:rgba(86,123,86,.15)!important;border-left-color:#85A876!important;background:#F4F7EE!important;}
+body.study-preview-page .study-feedback[data-result="error"] {border-color:rgba(197,68,76,.2)!important;border-left-color:#CB4B54!important;background:#FFF5F2!important;}
+body.study-preview-page .study-feedback__title {margin:0!important;color:#276B3E!important;font:750 16px/1.3 "Bricolage Grotesque Variable",sans-serif!important;}
+body.study-preview-page .study-feedback[data-result="incorrect"] .study-feedback__title {color:#A3333C!important;}
+body.study-preview-page .study-feedback__points {margin:11px 0 0!important;padding-left:19px!important;display:grid;gap:7px!important;color:#425C46!important;font:400 11px/1.65 "Poppins",sans-serif!important;}
+body.study-preview-page .study-feedback__points li {padding-left:2px;}
+body.study-preview-page .study-feedback__takeaway {margin-top:12px!important;padding:10px 12px!important;border-left:3px solid #80A987!important;background:rgba(255,255,255,.66)!important;color:#3F5B43!important;font:400 10px/1.65 "Poppins",sans-serif!important;}
+body.study-preview-page .study-feedback[data-result="incorrect"] .study-feedback__takeaway {border-left-color:#CE7378!important;}
+body.study-preview-page .study-feedback__takeaway strong {font-size:8px!important;}
+body.study-preview-page .study-sidebar {gap:11px!important;}
+body.study-preview-page .study-sidebar__section {padding:17px!important;background:#F2F6E9!important;}
+body.study-preview-page .study-sidebar__stat {font-size:10px!important;}
+body.study-preview-page .study-sidebar__boundary {font-size:9px!important;}
+body.study-preview-page .study-complete {margin:0!important;padding:8px 0!important;border:0!important;}
+body.study-preview-page .study-complete__stats {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:19px 0!important;border:0!important;}
+body.study-preview-page .study-complete__stat {padding:13px;border-radius:8px;background:#EEF4E4;}
+body.study-preview-page .study-complete__stat strong {font-size:23px!important;}
+body.study-preview-page .study-review-row {padding:12px 9px!important;}
+body.study-preview-page .study-review-row__result.is-unanswered {color:#71806C!important;}
+@media(max-width:1100px) {
+ body.study-preview-page .study-workspace {grid-template-columns:220px minmax(0,1fr)!important;}
+ body.study-preview-page .study-sidebar {grid-column:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
+ body.study-preview-page .study-sidebar__boundary {grid-column:1/-1;}
+}
+@media(max-width:760px) {
+ body.study-preview-page .study-workspace {grid-template-columns:1fr!important;width:calc(100% - 36px)!important;}
+ body.study-preview-page .study-rail {position:static!important;height:auto;max-height:none;overflow:visible;}
+ body.study-preview-page .study-bank-nav {max-height:230px;overflow:auto;}
+ body.study-preview-page .study-options {grid-template-columns:1fr!important;}
+ body.study-preview-page .study-sidebar {grid-column:auto;grid-template-columns:1fr 1fr;}
+}
+@media(max-width:520px) {
+ body.study-preview-page .study-sidebar {grid-template-columns:1fr;}
+ body.study-preview-page .study-session {padding:18px!important;}
+ body.study-preview-page .study-question__actions {justify-content:stretch;}
+ body.study-preview-page .study-action {flex:1 1 auto;}
+ body.study-preview-page .study-complete__stats {grid-template-columns:repeat(2,minmax(0,1fr));}
+}

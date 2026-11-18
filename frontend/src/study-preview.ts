@@ -3,6 +3,7 @@ import "./styles/study-preview.css";
 import "./styles/arthic-study-final.css";
 import { initCommon } from "./lib/common-init";
 import { SAMPLE_QUESTIONS, type StudyQuestionPrompt } from "./data/sample-questions";
+import { EXPANDED_SAMPLE_QUESTIONS } from "./data/expanded-sample-questions";
 
 initCommon();
 
@@ -14,8 +15,20 @@ interface StudyAnswer {
   takeaway: string;
 }
 
-let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS];
-let QUESTIONS: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS];
+const EXAMS = ["MDCAT", "LCAT", "NET", "CSS", "ALL"];
+const SUBJECT_LABELS: Record<string, string> = {
+  BIO: "Biology", CHEM: "Chemistry", PHY: "Physics", MATH: "Mathematics",
+  CS: "Computer science", ENGLISH: "English", VERBAL: "Verbal reasoning",
+  LOGIC: "Logical reasoning", GENERAL: "General studies", ANALYTICAL: "Analytical reasoning",
+  PAKISTAN: "Pakistan studies", ECONOMICS: "Economics", INTERNATIONAL: "International relations",
+};
+const EXAM_LABELS: Record<string, string> = { MDCAT: "MDCAT", LCAT: "LCAT", NET: "NUST NET", CSS: "CSS", ALL: "All tracks" };
+
+let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS];
+
+function subjectLabel(code: string): string {
+  return SUBJECT_LABELS[code] ?? code;
+}
 
 async function loadQuestionFeed(): Promise<void> {
   try {
@@ -24,32 +37,23 @@ async function loadQuestionFeed(): Promise<void> {
       credentials: "same-origin",
     });
     if (!response.ok) return;
-
     const payload: unknown = await response.json();
     if (!payload || typeof payload !== "object" || !("questions" in payload)) return;
-    const questions = (payload as { questions?: unknown }).questions;
-    if (!Array.isArray(questions) || questions.length === 0) return;
-
-    const valid = questions.every((question): question is StudyQuestionPrompt => {
-      if (!question || typeof question !== "object") return false;
-      const item = question as Partial<StudyQuestionPrompt>;
-      return (
-        typeof item.id === "string" &&
-        ["LCAT", "NET", "CSS", "MDCAT"].includes(String(item.examCode)) &&
-        typeof item.topic === "string" &&
-        typeof item.prompt === "string" &&
-        Array.isArray(item.options) &&
-        item.options.length > 1 &&
-        item.options.every((option) =>
-          option && typeof option.key === "string" && typeof option.text === "string"
-        ) &&
-        item.options.every((option) => option.key.length > 0)
-      );
+    const incoming = (payload as { questions?: unknown }).questions;
+    if (!Array.isArray(incoming) || incoming.length === 0) return;
+    const valid = incoming.every((raw): raw is StudyQuestionPrompt => {
+      if (!raw || typeof raw !== "object") return false;
+      const q = raw as Partial<StudyQuestionPrompt>;
+      return typeof q.id === "string" &&
+        ["LCAT", "NET", "CSS", "MDCAT"].includes(String(q.examCode)) &&
+        typeof q.subjectCode === "string" && typeof q.topic === "string" &&
+        typeof q.prompt === "string" && Array.isArray(q.options) &&
+        q.options.length >= 2 &&
+        q.options.every((o) => o && typeof o.key === "string" && typeof o.text === "string");
     });
-
-    if (valid) QUESTION_FEED = questions;
+    if (valid) QUESTION_FEED = incoming;
   } catch {
-    // Keep the bundled sample set available if the API is temporarily offline.
+    // The bundled original set remains available if the question feed is offline.
   }
 }
 
@@ -65,13 +69,17 @@ if (root) {
   const feedback = root.querySelector<HTMLElement>("[data-question-feedback]");
   const feedbackTitle = root.querySelector<HTMLElement>("[data-feedback-title]");
   const feedbackPoints = root.querySelector<HTMLUListElement>("[data-feedback-points]");
+  const takeaway = root.querySelector<HTMLElement>("[data-feedback-takeaway]");
   const trackFilters = Array.from(root.querySelectorAll<HTMLButtonElement>("[data-exam-filter]"));
   const trackLabels = Array.from(root.querySelectorAll<HTMLElement>("[data-practice-track-label]"));
+  const trackCounts = Array.from(root.querySelectorAll<HTMLElement>("[data-track-count]"));
   const questionBankCount = root.querySelector<HTMLElement>("[data-question-bank-count]");
   const questionTotal = root.querySelector<HTMLElement>("[data-question-total]");
-  const takeaway = root.querySelector<HTMLElement>("[data-feedback-takeaway]");
-  const checkButton = root.querySelector<HTMLButtonElement>("[data-check-answer]");
-  const nextButton = root.querySelector<HTMLButtonElement>("[data-next-question]");
+  const bankTotal = root.querySelector<HTMLElement>("[data-bank-total]");
+  const subjectFilter = root.querySelector<HTMLSelectElement>("[data-subject-filter]");
+  const questionSearch = root.querySelector<HTMLInputElement>("[data-question-search]");
+  const questionMap = root.querySelector<HTMLElement>("[data-question-map]");
+  const mapCount = root.querySelector<HTMLElement>("[data-map-count]");
   const progressTrack = root.querySelector<HTMLElement>("[data-session-progress-track]");
   const progressFill = root.querySelector<HTMLElement>("[data-session-progress-fill]");
   const sidebarProgressFill = root.querySelector<HTMLElement>("[data-sidebar-progress-fill]");
@@ -79,6 +87,9 @@ if (root) {
   const completedValue = root.querySelector<HTMLElement>("[data-completed-count]");
   const correctValue = root.querySelector<HTMLElement>("[data-correct-count]");
   const accuracyValue = root.querySelector<HTMLElement>("[data-accuracy-value]");
+  const previousButton = root.querySelector<HTMLButtonElement>("[data-previous-question]");
+  const nextButton = root.querySelector<HTMLButtonElement>("[data-next-question]");
+  const finishButton = root.querySelector<HTMLButtonElement>("[data-finish-session]");
   const completeHeading = root.querySelector<HTMLElement>("[data-complete-heading]");
   const completeLede = root.querySelector<HTMLElement>("[data-complete-lede]");
   const completeStats = root.querySelector<HTMLElement>("[data-complete-stats]");
@@ -88,325 +99,378 @@ if (root) {
   if (
     questionScreen && completeScreen && number && topic && prompt && instruction &&
     optionList && feedback && feedbackTitle && feedbackPoints && takeaway &&
-    checkButton && nextButton && progressFill && progressLabel &&
-    completedValue && correctValue && accuracyValue && completeHeading &&
-    completeLede && completeStats && reviewList
+    questionMap && subjectFilter && questionSearch && previousButton && nextButton &&
+    finishButton && progressTrack && progressFill && sidebarProgressFill && progressLabel &&
+    completedValue && correctValue && accuracyValue && completeHeading && completeLede &&
+    completeStats && reviewList
   ) {
     let questionIndex = 0;
-    let selectedKey: string | null = null;
-    const answers: StudyAnswer[] = [];
-    let hasInteracted = false;
     let activeExam = new URLSearchParams(window.location.search).get("exam") || "MDCAT";
-    if (!["LCAT", "NET", "CSS", "MDCAT", "ALL"].includes(activeExam)) activeExam = "MDCAT";
+    let activeSubject = "ALL";
+    let searchTerm = "";
+    let isSubmitting = false;
+    let pendingOptionKey: string | null = null;
+    let hasInteracted = false;
+    let questions: StudyQuestionPrompt[] = [...QUESTION_FEED];
+    const answers = new Map<string, StudyAnswer>();
+    if (!EXAMS.includes(activeExam)) activeExam = "MDCAT";
 
-    function applyExamFilter(examCode: string, moveFocus = false): void {
-      activeExam = examCode;
-      QUESTIONS = QUESTION_FEED.filter((question) => examCode === "ALL" || question.examCode === examCode);
-      questionIndex = 0;
-      selectedKey = null;
-      answers.length = 0;
-      hasInteracted = false;
-      questionScreen!.hidden = false;
-      completeScreen!.hidden = true;
-      trackFilters.forEach((button) => {
-        button.setAttribute("aria-pressed", String(button.dataset.examFilter === examCode));
+    function filteredQuestions(): StudyQuestionPrompt[] {
+      const term = searchTerm.trim().toLocaleLowerCase();
+      return QUESTION_FEED.filter((question) => {
+        const examMatches = activeExam === "ALL" || question.examCode === activeExam;
+        const subjectMatches = activeSubject === "ALL" || question.subjectCode === activeSubject;
+        const textMatches = !term || [question.topic, question.prompt, question.subjectCode]
+          .some((value) => value.toLocaleLowerCase().includes(term));
+        return examMatches && subjectMatches && textMatches;
       });
-      const label = examCode === "ALL" ? "All tracks" : examCode;
-      trackLabels.forEach((element) => { element.textContent = label; });
-      if (questionBankCount) questionBankCount.textContent = QUESTIONS.length + " original questions in this set";
-      if (questionTotal) questionTotal.textContent = QUESTIONS.length + " questions";
-      if (!QUESTIONS.length) {
-        prompt!.textContent = "No questions are available for this track yet.";
-        topic!.textContent = label;
-        number!.textContent = "Question bank";
-        optionList!.replaceChildren();
-        instruction!.textContent = "Choose another track to continue practising.";
-        checkButton!.hidden = true;
-        nextButton!.hidden = true;
-        feedback!.hidden = true;
-        progressFill!.style.width = "0%";
-        if (sidebarProgressFill) sidebarProgressFill.style.width = "0%";
-        progressLabel!.textContent = "0 of 0 answered";
-        completedValue!.textContent = "0 / 0";
-        correctValue!.textContent = "0";
-        accuracyValue!.textContent = "—";
-        return;
-      }
-      renderQuestion(moveFocus);
     }
 
-    trackFilters.forEach((button) => {
-      button.addEventListener("click", () => applyExamFilter(button.dataset.examFilter || "ALL", true));
-    });
+    function fillSubjectFilter(): void {
+      const available = [...new Set(QUESTION_FEED
+        .filter((question) => activeExam === "ALL" || question.examCode === activeExam)
+        .map((question) => question.subjectCode))].sort();
+      subjectFilter!.replaceChildren();
+      const all = document.createElement("option");
+      all.value = "ALL";
+      all.textContent = "All subjects";
+      subjectFilter!.append(all);
+      available.forEach((code) => {
+        const option = document.createElement("option");
+        option.value = code;
+        option.textContent = subjectLabel(code);
+        subjectFilter!.append(option);
+      });
+      if (activeSubject !== "ALL" && !available.includes(activeSubject)) activeSubject = "ALL";
+      subjectFilter!.value = activeSubject;
+    }
 
-    const correctCount = () => answers.filter((answer) => answer.isCorrect).length;
-    const accuracy = () => answers.length ? Math.round((correctCount() / answers.length) * 100) : null;
+    function getCounts() {
+      const answered = questions.map((question) => answers.get(question.id))
+        .filter((answer): answer is StudyAnswer => Boolean(answer));
+      const correct = answered.filter((answer) => answer.isCorrect).length;
+      return { answered: answered.length, correct, incorrect: answered.length - correct, total: questions.length };
+    }
 
     function updateProgress(): void {
-      const completed = answers.length;
-      const correct = correctCount();
-      const percent = QUESTIONS.length ? Math.round((completed / QUESTIONS.length) * 100) : 0;
-
+      const counts = getCounts();
+      const percent = counts.total ? Math.round((counts.answered / counts.total) * 100) : 0;
       progressFill!.style.width = percent + "%";
       sidebarProgressFill!.style.width = percent + "%";
-      progressTrack!.setAttribute("aria-valuenow", String(percent));
-      progressLabel!.textContent = completed + " of " + QUESTIONS.length + " answered";
-      completedValue!.textContent = completed + " / " + QUESTIONS.length;
-      correctValue!.textContent = String(correct);
-      accuracyValue!.textContent = accuracy() === null ? "—" : accuracy() + "%";
+      progressTrack!.setAttribute("aria-valuenow", String(counts.answered));
+      progressTrack!.setAttribute("aria-valuemax", String(counts.total));
+      progressLabel!.textContent = counts.answered + " of " + counts.total + " answered";
+      completedValue!.textContent = counts.answered + " / " + counts.total;
+      correctValue!.textContent = String(counts.correct);
+      accuracyValue!.textContent = counts.answered
+        ? Math.round((counts.correct / counts.answered) * 100) + "%"
+        : "—";
+      if (questionBankCount) questionBankCount.textContent = counts.total + " questions in this set";
+      if (questionTotal) questionTotal.textContent = counts.total + " questions";
+      if (mapCount) mapCount.textContent = String(counts.total);
     }
 
-    function renderOptions(question: StudyQuestionPrompt, reviewAnswer?: StudyAnswer): void {
-      optionList!.replaceChildren();
+    function renderQuestionMap(): void {
+      questionMap!.replaceChildren();
+      questions.forEach((question, index) => {
+        const answer = answers.get(question.id);
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = String(index + 1);
+        button.className = index === questionIndex ? "is-current" : "";
+        if (answer) button.classList.add(answer.isCorrect ? "is-correct" : "is-incorrect");
+        if (isSubmitting) button.disabled = true;
+        button.setAttribute("aria-label", "Open question " + (index + 1) +
+          (answer ? (answer.isCorrect ? ", correct" : ", needs review") : ", not answered"));
+        button.setAttribute("aria-current", index === questionIndex ? "step" : "false");
+        button.addEventListener("click", () => goToQuestion(index));
+        questionMap!.append(button);
+      });
+      updateProgress();
+    }
 
+    function renderExplanation(answer: StudyAnswer): void {
+      feedback!.dataset.result = answer.isCorrect ? "correct" : "incorrect";
+      feedbackTitle!.textContent = answer.isCorrect ? "Correct — well done." : "Not quite. Here's why.";
+      feedbackPoints!.replaceChildren();
+      answer.explanation.split(/\n+/).map((part) => part.trim()).filter(Boolean).forEach((part) => {
+        const item = document.createElement("li");
+        item.textContent = part;
+        feedbackPoints!.append(item);
+      });
+      takeaway!.textContent = answer.takeaway;
+      feedback!.hidden = false;
+    }
+
+    function renderOptions(question: StudyQuestionPrompt, savedAnswer?: StudyAnswer): void {
+      optionList!.replaceChildren();
       question.options.forEach((option) => {
         const button = document.createElement("button");
         button.type = "button";
         button.className = "study-option";
-        button.setAttribute("aria-pressed", String(Boolean(reviewAnswer && option.key === reviewAnswer.selected)));
-        button.innerHTML =
-          '<span class="study-option__key" aria-hidden="true"></span>' +
-          '<span class="study-option__text"></span>';
-        button.querySelector<HTMLElement>(".study-option__key")!.textContent = option.key;
-        button.querySelector<HTMLElement>(".study-option__text")!.textContent = option.text;
-
-        if (reviewAnswer) {
+        const key = document.createElement("span");
+        key.className = "study-option__key";
+        key.setAttribute("aria-hidden", "true");
+        key.textContent = option.key;
+        const text = document.createElement("span");
+        text.className = "study-option__text";
+        text.textContent = option.text;
+        button.append(key, text);
+        button.setAttribute("aria-pressed", String(Boolean(savedAnswer && option.key === savedAnswer.selected)));
+        if (savedAnswer) {
           button.disabled = true;
-          if (option.key === reviewAnswer.correct) button.classList.add("is-correct");
-          else if (option.key === reviewAnswer.selected && !reviewAnswer.isCorrect) button.classList.add("is-incorrect");
+          if (option.key === savedAnswer.correct) button.classList.add("is-correct");
+          else if (option.key === savedAnswer.selected && !savedAnswer.isCorrect) button.classList.add("is-incorrect");
         } else {
-          button.addEventListener("click", () => {
-            if (selectedKey !== null || answers[questionIndex]) return;
-            hasInteracted = true;
-            selectedKey = option.key;
-            optionList!.querySelectorAll<HTMLButtonElement>(".study-option").forEach((choice) => {
-              choice.setAttribute("aria-pressed", String(choice === button));
-            });
-            checkButton!.disabled = false;
-          });
+          button.disabled = isSubmitting;
+          if (isSubmitting && option.key === pendingOptionKey) button.classList.add("is-pending");
+          button.addEventListener("click", () => { void submitAnswer(question, option.key); });
         }
-
         optionList!.append(button);
       });
     }
 
-    let isReviewingQuestion = false;
-
-    function renderQuestion(moveFocus = false, reviewOnly = false): void {
-      const question = QUESTIONS[questionIndex];
-      const savedAnswer = answers[questionIndex];
-      isReviewingQuestion = reviewOnly;
-      selectedKey = reviewOnly && savedAnswer ? savedAnswer.selected : null;
-      number!.textContent = "Question " + (questionIndex + 1) + " / " + QUESTIONS.length;
+    function renderQuestion(moveFocus = false): void {
+      const question = questions[questionIndex];
+      if (!question) return;
+      const savedAnswer = answers.get(question.id);
+      number!.textContent = "QUESTION " + (questionIndex + 1) + " / " + questions.length;
       topic!.textContent = question.topic;
       prompt!.textContent = question.prompt;
       instruction!.textContent = question.instruction;
-      feedback!.hidden = true;
-      feedback!.removeAttribute("data-result");
+      const subject = root.querySelector<HTMLElement>("[data-current-subject]");
+      if (subject) subject.textContent = subjectLabel(question.subjectCode);
+      const exam = root.querySelector<HTMLElement>("[data-current-exam]");
+      if (exam) exam.textContent = EXAM_LABELS[question.examCode] ?? question.examCode;
+      feedback!.hidden = !savedAnswer;
       feedbackPoints!.replaceChildren();
-      checkButton!.hidden = reviewOnly;
-      checkButton!.disabled = true;
-      checkButton!.classList.remove("is-loading");
-      checkButton!.removeAttribute("aria-busy");
-      checkButton!.textContent = "Check answer";
-      nextButton!.hidden = !reviewOnly;
-      nextButton!.textContent = reviewOnly ? "Back to session review" : (questionIndex === QUESTIONS.length - 1 ? "View session results" : "Next question");
-      renderOptions(question, reviewOnly && savedAnswer ? savedAnswer : undefined);
-      if (reviewOnly && savedAnswer) {
-        feedback!.dataset.result = savedAnswer.isCorrect ? "correct" : "incorrect";
-        feedbackTitle!.textContent = savedAnswer.isCorrect ? "That's correct." : "Not quite — let's unpack it.";
-        savedAnswer.explanation.split(/\n+/).map((part) => part.trim()).filter(Boolean).forEach((part) => {
-          const item = document.createElement("li");
-          item.textContent = part;
-          feedbackPoints!.append(item);
-        });
-        takeaway!.textContent = savedAnswer.takeaway;
-        feedback!.hidden = false;
-      }
+      if (savedAnswer) renderExplanation(savedAnswer);
+      renderOptions(question, savedAnswer);
+      previousButton!.disabled = questionIndex === 0 || isSubmitting;
+      nextButton!.disabled = questionIndex >= questions.length - 1 || isSubmitting;
+      finishButton!.disabled = isSubmitting || questions.length === 0;
       updateProgress();
+      renderQuestionMap();
       if (moveFocus) prompt!.focus();
     }
 
-    async function checkAnswer(): Promise<void> {
-      if (selectedKey === null || answers[questionIndex]) return;
-      const question = QUESTIONS[questionIndex];
-      checkButton!.disabled = true;
-      checkButton!.classList.add("is-loading");
-      checkButton!.setAttribute("aria-busy", "true");
-      checkButton!.textContent = "Checking…";
-
+    async function submitAnswer(question: StudyQuestionPrompt, optionKey: string): Promise<void> {
+      if (isSubmitting || answers.has(question.id)) return;
+      hasInteracted = true;
+      isSubmitting = true;
+      pendingOptionKey = optionKey;
+      feedback!.dataset.result = "pending";
+      feedbackTitle!.textContent = "Checking your answer…";
+      feedbackPoints!.replaceChildren();
+      takeaway!.textContent = "";
+      feedback!.hidden = false;
+      renderOptions(question);
+      previousButton!.disabled = true;
+      nextButton!.disabled = true;
+      finishButton!.disabled = true;
       try {
         const response = await fetch("/api/study/check", {
           method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
+          headers: { Accept: "application/json", "Content-Type": "application/json" },
           credentials: "same-origin",
-          body: JSON.stringify({
-            questionId: question.id,
-            selectedOption: selectedKey,
-          }),
+          body: JSON.stringify({ questionId: question.id, selectedOption: optionKey }),
         });
-
-        if (!response.ok) {
-          throw new Error("The answer checker returned " + response.status);
-        }
-
+        if (!response.ok) throw new Error("Answer check failed with " + response.status);
         const result = await response.json() as {
-          questionId?: unknown;
-          selectedOption?: unknown;
-          correctOption?: unknown;
-          isCorrect?: unknown;
-          explanation?: unknown;
-          takeaway?: unknown;
+          questionId?: unknown; selectedOption?: unknown; correctOption?: unknown;
+          isCorrect?: unknown; explanation?: unknown; takeaway?: unknown;
         };
-
         if (
-          result.questionId !== question.id ||
-          result.selectedOption !== selectedKey ||
-          typeof result.correctOption !== "string" ||
-          typeof result.isCorrect !== "boolean" ||
-          typeof result.explanation !== "string" ||
-          typeof result.takeaway !== "string" ||
+          result.questionId !== question.id || result.selectedOption !== optionKey ||
+          typeof result.correctOption !== "string" || typeof result.isCorrect !== "boolean" ||
+          typeof result.explanation !== "string" || typeof result.takeaway !== "string" ||
           !question.options.some((option) => option.key === result.correctOption)
-        ) {
-          throw new Error("The answer checker returned an invalid response");
-        }
+        ) throw new Error("The answer checker returned an invalid response");
 
-        const correctOption = result.correctOption;
-        const isCorrect = result.isCorrect;
-        answers.push({ selected: selectedKey, correct: correctOption, isCorrect, explanation: result.explanation, takeaway: result.takeaway });
-        feedback!.dataset.result = isCorrect ? "correct" : "incorrect";
-        feedbackTitle!.textContent = isCorrect ? "That's correct." : "Not quite — let's unpack it.";
-        feedbackPoints!.replaceChildren();
-        result.explanation.split(/\n+/).map((part) => part.trim()).filter(Boolean).forEach((part) => {
-          const item = document.createElement("li");
-          item.textContent = part;
-          feedbackPoints!.append(item);
+        answers.set(question.id, {
+          selected: optionKey, correct: result.correctOption, isCorrect: result.isCorrect,
+          explanation: result.explanation, takeaway: result.takeaway,
         });
-        takeaway!.textContent = result.takeaway;
-        feedback!.hidden = false;
-
-        optionList!.querySelectorAll<HTMLButtonElement>(".study-option").forEach((button) => {
-          const key = button.querySelector<HTMLElement>(".study-option__key")?.textContent ?? "";
-          button.disabled = true;
-          if (key === correctOption) button.classList.add("is-correct");
-          else if (key === selectedKey && !isCorrect) button.classList.add("is-incorrect");
-        });
-
-        checkButton!.classList.remove("is-loading");
-        checkButton!.removeAttribute("aria-busy");
-        checkButton!.textContent = "Check answer";
-        checkButton!.hidden = true;
-        nextButton!.hidden = false;
-        updateProgress();
+        isSubmitting = false;
+        pendingOptionKey = null;
+        renderQuestion();
       } catch {
-        feedback!.removeAttribute("data-result");
-        feedbackTitle!.textContent = "Answer checking is unavailable.";
+        isSubmitting = false;
+        pendingOptionKey = null;
+        feedback!.dataset.result = "error";
+        feedbackTitle!.textContent = "We couldn't check that answer.";
         feedbackPoints!.replaceChildren();
-        const errorPoint = document.createElement("li");
-        errorPoint.textContent = "The question is still here, but the answer service could not be reached. Please try again shortly.";
-        feedbackPoints!.append(errorPoint);
+        const item = document.createElement("li");
+        item.textContent = "Your answer has not been recorded. Choose an option again to retry.";
+        feedbackPoints!.append(item);
         takeaway!.textContent = "";
         feedback!.hidden = false;
-        checkButton!.classList.remove("is-loading");
-        checkButton!.removeAttribute("aria-busy");
-        checkButton!.textContent = "Check answer";
-        checkButton!.disabled = false;
+        renderOptions(questions[questionIndex]);
+        previousButton!.disabled = questionIndex === 0;
+        nextButton!.disabled = questionIndex >= questions.length - 1;
+        finishButton!.disabled = questions.length === 0;
+        renderQuestionMap();
       }
     }
 
+    function goToQuestion(index: number): void {
+      if (isSubmitting || index < 0 || index >= questions.length) return;
+      questionIndex = index;
+      questionScreen!.hidden = false;
+      completeScreen!.hidden = true;
+      renderQuestion(true);
+    }
+
     function showComplete(): void {
+      if (isSubmitting || !questions.length) return;
       questionScreen!.hidden = true;
       completeScreen!.hidden = false;
-
-      const score = correctCount();
-      const total = QUESTIONS.length;
-      const percent = accuracy() ?? 0;
-
-      isReviewingQuestion = false;
-      completeHeading!.textContent = score === total ? "A clean sweep." : "Session complete.";
-      completeLede!.textContent =
-        "You answered " + total + " original questions. Select any response below to reopen the question, see the correct answer and read its explanation.";
-
-      completeStats!.innerHTML =
-        '<div class="study-complete__stat"><span>Correct</span><strong>' + score + ' / ' + total + '</strong></div>' +
-        '<div class="study-complete__stat"><span>Accuracy</span><strong>' + percent + '%</strong></div>' +
-        '<div class="study-complete__stat"><span>Questions</span><strong>' + total + '</strong></div>';
-
+      const counts = getCounts();
+      const percent = counts.answered ? Math.round((counts.correct / counts.answered) * 100) : 0;
+      completeHeading!.textContent = counts.answered === counts.total ? "Session complete." : "Your session review.";
+      completeLede!.textContent = counts.answered + " of " + counts.total +
+        " questions answered. Select any question to review its explanation or continue an unfinished question.";
+      completeStats!.replaceChildren();
+      [
+        ["Answered", counts.answered + " / " + counts.total],
+        ["Correct", String(counts.correct)],
+        ["Needs review", String(counts.incorrect)],
+        ["Accuracy", counts.answered ? percent + "%" : "—"],
+      ].forEach(([label, value]) => {
+        const card = document.createElement("div");
+        card.className = "study-complete__stat";
+        const name = document.createElement("span");
+        name.textContent = label;
+        const amount = document.createElement("strong");
+        amount.textContent = value;
+        card.append(name, amount);
+        completeStats!.append(card);
+      });
       reviewList!.replaceChildren();
-      QUESTIONS.forEach((question, index) => {
-        const answer = answers[index];
+      questions.forEach((question, index) => {
+        const answer = answers.get(question.id);
         const row = document.createElement("button");
         row.type = "button";
         row.className = "study-review-row";
-        row.setAttribute("aria-label", "Open review for question " + (index + 1) + ", " + question.topic + ". " + (answer.isCorrect ? "Correct." : "Needs review."));
-        const result = document.createElement("span");
-        result.className = "study-review-row__result" + (answer.isCorrect ? "" : " is-incorrect");
-        result.textContent = answer.isCorrect ? "Correct" : "Review";
+        const status = document.createElement("span");
+        status.className = "study-review-row__result" +
+          (answer ? (answer.isCorrect ? "" : " is-incorrect") : " is-unanswered");
+        status.textContent = answer ? (answer.isCorrect ? "Correct" : "Review") : "Not answered";
         const qIndex = document.createElement("span");
         qIndex.className = "study-review-row__index";
         qIndex.textContent = String(index + 1).padStart(2, "0");
-        const text = document.createElement("p");
-        text.className = "study-review-row__text";
-        const selected = question.options.find((option) => option.key === answer.selected)?.text ?? answer.selected;
-        const correct = question.options.find((option) => option.key === answer.correct)?.text ?? answer.correct;
-        text.textContent = question.topic + ": your answer — " + selected + "; correct answer — " + correct + ".";
-        row.append(qIndex, text, result);
-        row.addEventListener("click", () => showQuestionReview(index));
+        const body = document.createElement("p");
+        body.className = "study-review-row__text";
+        body.textContent = answer
+          ? question.topic + ": " + (answer.isCorrect ? "correct answer recorded" : "review the explanation")
+          : question.topic + ": not answered yet";
+        row.setAttribute("aria-label", "Open question " + (index + 1) + ", " + status.textContent);
+        row.append(qIndex, body, status);
+        row.addEventListener("click", () => goToQuestion(index));
         reviewList!.append(row);
       });
       updateProgress();
       completeHeading!.focus();
     }
 
-    function showQuestionReview(index: number): void {
-      if (!answers[index]) return;
-      questionIndex = index;
+    function applyFilters(): void {
+      if (isSubmitting) return;
+      questions = filteredQuestions();
+      questionIndex = 0;
       questionScreen!.hidden = false;
       completeScreen!.hidden = true;
-      renderQuestion(true, true);
+      trackFilters.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.examFilter === activeExam)));
+      trackLabels.forEach((element) => { element.textContent = EXAM_LABELS[activeExam] ?? activeExam; });
+      if (questions.length) renderQuestion();
+      else {
+        questionMap!.replaceChildren();
+        number!.textContent = "NO QUESTIONS";
+        topic!.textContent = "Try another filter";
+        prompt!.textContent = "No questions match these filters.";
+        instruction!.textContent = "Choose a different subject or clear your search.";
+        optionList!.replaceChildren();
+        feedback!.hidden = true;
+        previousButton!.disabled = true;
+        nextButton!.disabled = true;
+        finishButton!.disabled = true;
+        updateProgress();
+        renderQuestionMap();
+      }
     }
 
-    checkButton.addEventListener("click", () => { void checkAnswer(); });
-    nextButton.addEventListener("click", () => {
-      if (isReviewingQuestion) {
-        showComplete();
-        return;
-      }
-      if (answers.length !== questionIndex + 1) return;
-      if (questionIndex < QUESTIONS.length - 1) {
-        questionIndex += 1;
-        renderQuestion(true);
-      } else {
-        showComplete();
-      }
+    trackFilters.forEach((button) => button.addEventListener("click", () => {
+      if (isSubmitting) return;
+      hasInteracted = true;
+      activeExam = button.dataset.examFilter || "ALL";
+      activeSubject = "ALL";
+      fillSubjectFilter();
+      applyFilters();
+    }));
+    subjectFilter.addEventListener("change", () => {
+      if (isSubmitting) return;
+      hasInteracted = true;
+      activeSubject = subjectFilter!.value || "ALL";
+      applyFilters();
     });
+    questionSearch.addEventListener("input", () => {
+      if (isSubmitting) return;
+      hasInteracted = true;
+      searchTerm = questionSearch!.value;
+      applyFilters();
+    });
+    previousButton.addEventListener("click", () => goToQuestion(questionIndex - 1));
+    nextButton.addEventListener("click", () => goToQuestion(questionIndex + 1));
+    finishButton.addEventListener("click", showComplete);
+    resetButtons.forEach((button) => button.addEventListener("click", () => {
+      if (isSubmitting) return;
+      questions.forEach((question) => answers.delete(question.id));
+      questionIndex = 0;
+      completeScreen!.hidden = true;
+      questionScreen!.hidden = false;
+      renderQuestion(true);
+    }));
 
-    resetButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        questionIndex = 0;
-        selectedKey = null;
-        isReviewingQuestion = false;
-        answers.length = 0;
-        completeScreen!.hidden = true;
-        questionScreen!.hidden = false;
-        renderQuestion(true);
+    function refreshBankCounts(): void {
+      if (bankTotal) bankTotal.textContent = String(QUESTION_FEED.length);
+      trackCounts.forEach((element) => {
+        const code = element.dataset.trackCount || "ALL";
+        element.textContent = String(code === "ALL"
+          ? QUESTION_FEED.length
+          : QUESTION_FEED.filter((question) => question.examCode === code).length);
       });
-    });
+    }
 
-    // The bundled sample appears immediately; a slower feed may replace it
-    // only before the student has started answering.
-    QUESTIONS = QUESTION_FEED.filter((question) => activeExam === "ALL" || question.examCode === activeExam);
-    trackFilters.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.examFilter === activeExam)));
-    const initialLabel = activeExam === "ALL" ? "All tracks" : activeExam;
-    trackLabels.forEach((element) => { element.textContent = initialLabel; });
-    if (questionBankCount) questionBankCount.textContent = QUESTIONS.length + " original questions in this set";
-    if (questionTotal) questionTotal.textContent = QUESTIONS.length + " questions";
-    renderQuestion();
-    void loadQuestionFeed().then(() => {
-      if (!hasInteracted && answers.length === 0 && questionIndex === 0) applyExamFilter(activeExam);
-    });
+    function fillSubjectFilter(): void {
+      const available = [...new Set(QUESTION_FEED
+        .filter((question) => activeExam === "ALL" || question.examCode === activeExam)
+        .map((question) => question.subjectCode))].sort();
+      subjectFilter!.replaceChildren();
+      const all = document.createElement("option");
+      all.value = "ALL";
+      all.textContent = "All subjects";
+      subjectFilter!.append(all);
+      available.forEach((code) => {
+        const option = document.createElement("option");
+        option.value = code;
+        option.textContent = subjectLabel(code);
+        subjectFilter!.append(option);
+      });
+      if (activeSubject !== "ALL" && !available.includes(activeSubject)) activeSubject = "ALL";
+      subjectFilter!.value = activeSubject;
+    }
+
+    function hydrateFromServer(): void {
+      void loadQuestionFeed().then(() => {
+        if (hasInteracted || answers.size || isSubmitting) return;
+        refreshBankCounts();
+        fillSubjectFilter();
+        applyFilters();
+      });
+    }
+
+    refreshBankCounts();
+    fillSubjectFilter();
+    applyFilters();
+    hydrateFromServer();
   }
 }
