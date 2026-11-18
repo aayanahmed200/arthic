@@ -165,8 +165,9 @@ if (root) {
       accuracyValue!.textContent = counts.answered
         ? Math.round((counts.correct / counts.answered) * 100) + "%"
         : "—";
-      if (questionBankCount) questionBankCount.textContent = counts.total + " questions in this set";
-      if (questionTotal) questionTotal.textContent = counts.total + " questions";
+      const questionWord = counts.total === 1 ? "question" : "questions";
+      if (questionBankCount) questionBankCount.textContent = counts.total + " " + questionWord + " in this set";
+      if (questionTotal) questionTotal.textContent = counts.total + " " + questionWord;
       if (mapCount) mapCount.textContent = String(counts.total);
     }
 

@@ -73,7 +73,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Keep a clearly labelled demo feed available until questions are published.
   res.setHeader("Cache-Control", "public, max-age=60, s-maxage=300, stale-while-revalidate=3600");
   return res.status(200).json({
-    dataVersion: "arthic-original-four-track-v3",
+    dataVersion: "arthic-original-four-track-v4-160",
     sourceKind: "original-sample",
     isOfficialPastPaper: false,
     questions: SAMPLE_QUESTIONS.map((question) => ({
