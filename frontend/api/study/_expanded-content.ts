@@ -4324,5 +4324,4 @@ export const EXPANDED_SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
     "takeaway": "Density = mass ÷ volume.",
     "sourceKind": "original-sample"
   }
-]
 ];
