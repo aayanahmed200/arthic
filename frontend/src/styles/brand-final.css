@@ -1,0 +1,744 @@
+/* Arthic final brand system: white everywhere, green navigation, clear type and consistent page rhythm. */
+:root {
+  color-scheme: light;
+  --arthic-white: #FFFFFF;
+  --arthic-green: #356512;
+  --arthic-green-dark: #28520E;
+  --arthic-green-mid: #4C7A22;
+  --arthic-ink: #111111;
+  --arthic-muted: #4B514A;
+  --arthic-line: rgba(17,17,17,.12);
+  --arthic-card-shadow: 0 8px 24px rgba(20,35,18,.055);
+}
+html {
+  min-width: 320px;
+  background: #FFFFFF !important;
+  color: #111111 !important;
+  scroll-padding-top: 104px;
+}
+html body {
+  min-width: 320px;
+  margin: 0;
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  color: #111111 !important;
+  overflow-x: clip;
+}
+body.home-page,
+body.content-page,
+body.study-preview-page,
+body.legal-page,
+body.not-found-document,
+body.error-page,
+#main,
+main,
+.content-main {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  color: #111111 !important;
+}
+/* Structural page bands are always white; panel boundaries come from spacing,
+   fine outlines and typography, not alternating tint colours. */
+html body :is(main,section,article,aside,footer,form,fieldset,
+.content-main,.home-page,.home-shell,.content-container,.site-footer,
+.footer-frame,.footer,.footer-inner,.footer-grid,.footer-column,
+.method-hero,.method-steps,.method-current,.method-planned,
+.pricing-intro,.pricing-plan-section,.pricing-faq,
+.career-intro,.careers-roles,.careers-note,.careers-application-note,
+.waitlist-layout,.waitlist-copy,.waitlist-form,.apply-layout,.apply-role,.apply-form,
+.exam-track-grid,.exam-track-card,.study-intro,.study-workspace,.study-rail,
+.study-session,.study-sidebar,.study-sidebar__section,.study-preview-invite,
+.study-question,.study-complete,.entry,.not-found-card) {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+}
+/* Shared fixed navigation: one solid green pill on every route. */
+html body .site-header {
+  position: fixed !important;
+  z-index: 1200 !important;
+  top: 14px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: min(980px,calc(100vw - 32px)) !important;
+  height: 66px !important;
+  min-height: 66px !important;
+  padding: 0 18px !important;
+  border: 1px solid rgba(25,63,10,.08) !important;
+  border-radius: 999px !important;
+  background: #356512 !important;
+  background-color: #356512 !important;
+  background-image: none !important;
+  box-shadow: 0 10px 28px rgba(24,61,12,.18) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html body .site-header .desktop-nav {
+  position: static !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(8px,1.6vw,22px) !important;
+  margin: 0 auto !important;
+  transform: none !important;
+  background: transparent !important;
+}
+html body .site-header .desktop-nav a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 42px !important;
+  padding: 10px 15px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: #FFFFFF !important;
+  font: 600 13px/1.2 "Poppins",sans-serif !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+html body .site-header .desktop-nav a:hover,
+html body .site-header .desktop-nav a:focus-visible,
+html body .site-header .desktop-nav a.is-active,
+html body .site-header .desktop-nav a[aria-current="page"] {
+  background: #4C7A22 !important;
+  color: #FFFFFF !important;
+}
+html body .site-header .header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-left: 12px !important;
+}
+html body .site-header .header-actions .button,
+html body .site-header .button--small {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 42px !important;
+  padding: 10px 17px !important;
+  border: 1px solid rgba(255,255,255,.9) !important;
+  border-radius: 999px !important;
+  background: #FFFFFF !important;
+  color: #28520E !important;
+  font: 700 12px/1.2 "Poppins",sans-serif !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+html body .site-header .header-actions .button:hover,
+html body .site-header .button--small:hover {
+  background: #F1F7EB !important;
+  color: #20450C !important;
+  transform: translateY(-1px);
+}
+html body .site-header .menu-toggle {
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  width: 42px !important;
+  height: 42px !important;
+  border: 1px solid rgba(255,255,255,.4) !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+}
+html body .site-header .menu-toggle span:not(.sr-only) {
+  width: 18px !important;
+  height: 2px !important;
+  border-radius: 3px !important;
+  background: #FFFFFF !important;
+}
+html body .mobile-menu {
+  position: fixed !important;
+  z-index: 1190 !important;
+  top: 88px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  width: min(460px,calc(100vw - 28px)) !important;
+  padding: 12px !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  border-radius: 18px !important;
+  background: #356512 !important;
+  background-color: #356512 !important;
+  box-shadow: 0 16px 36px rgba(20,55,10,.2) !important;
+}
+html body .mobile-menu nav {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 5px !important;
+  background: transparent !important;
+}
+html body .mobile-menu a {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 44px !important;
+  padding: 10px 12px !important;
+  border-radius: 10px !important;
+  background: transparent !important;
+  color: #FFFFFF !important;
+  font: 600 13px/1.3 "Poppins",sans-serif !important;
+  text-decoration: none !important;
+}
+html body .mobile-menu a:hover,
+html body .mobile-menu a[aria-current="page"] {
+  background: #4C7A22 !important;
+  color: #FFFFFF !important;
+}
+html body .mobile-menu[hidden] { display: none !important; }
+
+/* Consistent type system. Green is reserved for headings and meaningful
+   labels; long-form copy remains black for contrast. */
+html body :is(h1,h2,h3,h4,.brand-name,.home-eyebrow,.home-section-title .home-eyebrow,
+.oneprep-eyebrow,.study-intro__aside-label,.study-rail__eyebrow,
+.study-session__eyebrow,.study-sidebar__eyebrow,.study-complete__eyebrow,
+.content-hero__topline,.entry__title,.entry__body h2,.footer-column>span,
+.footer__col-label,.pricing-plan__eyebrow,.career-role__type) {
+  color: #356512 !important;
+}
+html body :is(p,li,dd,small,figcaption,label,.content-hero__lede,.oneprep-lede,
+.method-hero__lede,.study-intro__lede,.study-session__subhead,
+.study-sidebar__text,.entry__body,.entry__lede,.footer__tagline,
+.footer-column>a,.footer-email,.career-role__body,.waitlist-points) {
+  color: #111111 !important;
+}
+html body a:not(.button):not(.home-button):not(.oneprep-button):not(.study-action):not(.career-role__link) {
+  color: #356512;
+}
+html body :is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,button[type="submit"],
+input[type="submit"],.footer__cta,.home-sample-check,.home-sample-next) {
+  border: 1px solid #356512 !important;
+  border-radius: 999px !important;
+  background: #356512 !important;
+  background-color: #356512 !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+html body :is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,button[type="submit"],
+input[type="submit"],.footer__cta,.home-sample-check,.home-sample-next):hover {
+  border-color: #28520E !important;
+  background: #28520E !important;
+  background-color: #28520E !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+html body :is(button,input,select,textarea):focus-visible,
+html body a:focus-visible {
+  outline: 3px solid rgba(53,101,18,.3) !important;
+  outline-offset: 3px !important;
+}
+
+/* All inner routes share a centered content width, generous top clearance
+   beneath the fixed navigation, and consistent vertical spacing. */
+html body.content-page #main.content-main {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: clamp(26px,3.5vw,42px) !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 104px 0 68px !important;
+  background: #FFFFFF !important;
+}
+html body.content-page #main.content-main > section {
+  box-sizing: border-box !important;
+  width: min(1160px,calc(100% - 56px)) !important;
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+  padding: clamp(26px,3vw,42px) 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+html body.content-page #main.content-main > section.content-hero,
+html body.content-page #main.content-main > section.oneprep-subhero,
+html body.content-page #main.content-main > section.method-hero,
+html body.content-page #main.content-main > section.pricing-intro,
+html body.content-page #main.content-main > section.study-intro {
+  width: 100% !important;
+  max-width: none !important;
+  padding: clamp(46px,6vw,74px) max(28px,calc((100vw - 1120px)/2)) clamp(28px,4vw,48px) !important;
+}
+html body.content-page #main.content-main > section.content-hero > *,
+html body.content-page #main.content-main > section.oneprep-subhero > .content-container,
+html body.content-page #main.content-main > section.method-hero > .content-container {
+  width: min(1120px,100%) !important;
+  max-width: 1120px !important;
+  margin-inline: auto !important;
+}
+html body.content-page #main.content-main :is(h1,h2,h3,h4) {
+  color: #356512 !important;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+html body.content-page #main.content-main :is(p,li,dd) {
+  color: #111111 !important;
+  line-height: 1.75 !important;
+}
+html body.content-page #main.content-main :is(.content-hero__lede,.oneprep-lede,.method-hero__lede,.study-intro__lede) {
+  max-width: 68ch !important;
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+}
+html body.content-page #main.content-main :is(.waitlist-layout,.apply-layout,.career-intro__layout,.method-current__inner) {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+  align-items: start !important;
+  gap: clamp(24px,4vw,52px) !important;
+}
+html body.content-page #main.content-main :is(.waitlist-form,.apply-form,.apply-role,.pricing-intro__aside,.study-intro__aside,
+.exam-track-card,.pricing-plan,.career-role--detailed,.method-step,.not-found-card) {
+  min-width: 0 !important;
+  border: 1px solid rgba(17,17,17,.12) !important;
+  border-radius: 14px !important;
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(20,35,18,.055) !important;
+}
+html body.content-page #main.content-main :is(.waitlist-form,.apply-form,.apply-role,.pricing-intro__aside,.study-intro__aside) {
+  padding: clamp(20px,2.6vw,32px) !important;
+}
+html body.content-page #main.content-main :is(.pricing-plan-grid,.exam-track-grid,.oneprep-route-grid,.method-step-grid) {
+  display: grid !important;
+  gap: clamp(14px,2vw,22px) !important;
+}
+html body.content-page #main.content-main :is(input.field,textarea.field,.field) {
+  width: 100% !important;
+  max-width: 100% !important;
+  border: 1px solid rgba(17,17,17,.18) !important;
+  border-radius: 9px !important;
+  background: #FFFFFF !important;
+  color: #111111 !important;
+  box-shadow: none !important;
+}
+html body.legal-page #main > .entry {
+  width: min(940px,calc(100% - 48px)) !important;
+  max-width: 940px !important;
+  margin: 112px auto 68px !important;
+  padding: clamp(28px,4vw,52px) !important;
+  border: 1px solid rgba(17,17,17,.12) !important;
+  border-radius: 14px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(20,35,18,.055) !important;
+}
+html body.legal-page #main > .entry .entry__body {
+  max-width: 76ch !important;
+  margin-inline: auto !important;
+  color: #111111 !important;
+  line-height: 1.85 !important;
+}
+html body.not-found-document #main .not-found-card {
+  width: min(760px,calc(100% - 40px)) !important;
+  margin: 130px auto 80px !important;
+  padding: clamp(28px,4vw,52px) !important;
+  border: 1px solid rgba(17,17,17,.12) !important;
+  border-radius: 14px !important;
+  background: #FFFFFF !important;
+}
+
+/* Practice room: full-width three-column desktop workspace with visible
+   controls, central question panel and progress sidebar. */
+html body.study-preview-page #main.content-main {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 104px 0 54px !important;
+  background: #FFFFFF !important;
+}
+html body.study-preview-page #main.content-main > section.study-intro {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 38px max(28px,calc((100vw - 1200px)/2)) 28px !important;
+  background: #FFFFFF !important;
+  text-align: left !important;
+}
+html body.study-preview-page .study-intro__layout {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) 260px !important;
+  align-items: center !important;
+  gap: clamp(24px,4vw,56px) !important;
+  width: min(1200px,100%) !important;
+  margin: 0 auto !important;
+}
+html body.study-preview-page .study-intro h1 {
+  max-width: 14ch !important;
+  margin: 0 0 15px !important;
+  color: #356512 !important;
+  font: 800 clamp(42px,5.2vw,66px)/.98 "Bricolage Grotesque Variable",sans-serif !important;
+  letter-spacing: -.055em !important;
+}
+html body.study-preview-page .study-intro__lede {
+  max-width: 64ch !important;
+  margin: 0 !important;
+  color: #111111 !important;
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+}
+html body.study-preview-page .study-intro__aside {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  min-width: 0 !important;
+  padding: 20px !important;
+  border: 1px solid rgba(17,17,17,.13) !important;
+  border-radius: 14px !important;
+  background: #FFFFFF !important;
+  box-shadow: var(--arthic-card-shadow) !important;
+}
+html body.study-preview-page .study-intro__aside-label,
+html body.study-preview-page .study-intro__aside-caption,
+html body.study-preview-page .study-intro__aside-meta span {
+  color: #111111 !important;
+}
+html body.study-preview-page .study-intro__aside strong {
+  color: #356512 !important;
+  font-size: 54px !important;
+  line-height: 1 !important;
+}
+html body.study-preview-page .study-workspace {
+  display: grid !important;
+  grid-template-columns: minmax(210px,240px) minmax(0,1fr) minmax(190px,220px) !important;
+  align-items: start !important;
+  gap: 16px !important;
+  width: min(1360px,calc(100% - 48px)) !important;
+  max-width: 1360px !important;
+  margin: 0 auto !important;
+  padding: 24px 0 38px !important;
+  background: #FFFFFF !important;
+}
+html body.study-preview-page .study-rail,
+html body.study-preview-page .study-session,
+html body.study-preview-page .study-sidebar {
+  display: block !important;
+  position: static !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 18px !important;
+  overflow: visible !important;
+  border: 1px solid rgba(17,17,17,.13) !important;
+  border-radius: 13px !important;
+  background: #FFFFFF !important;
+  box-shadow: var(--arthic-card-shadow) !important;
+}
+html body.study-preview-page .study-session {
+  padding: clamp(20px,2.5vw,32px) !important;
+}
+html body.study-preview-page .study-rail > div,
+html body.study-preview-page .study-bank-nav,
+html body.study-preview-page .study-sidebar__section,
+html body.study-preview-page .study-complete__stat,
+html body.study-preview-page .study-intro__aside-meta {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #FFFFFF !important;
+  box-shadow: none !important;
+}
+html body.study-preview-page .study-sidebar {
+  display: grid !important;
+  gap: 15px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html body.study-preview-page .study-sidebar__section {
+  padding: 16px !important;
+  border: 1px solid rgba(17,17,17,.12) !important;
+  border-radius: 12px !important;
+  background: #FFFFFF !important;
+}
+html body.study-preview-page .study-rail__name,
+html body.study-preview-page .study-sidebar__heading,
+html body.study-preview-page .study-session__heading {
+  color: #356512 !important;
+}
+html body.study-preview-page :is(.study-rail__eyebrow,.study-session__eyebrow,.study-sidebar__eyebrow,
+.study-filter-label,.study-question__meta,.study-question__context) {
+  color: #356512 !important;
+}
+html body.study-preview-page :is(.study-session__subhead,.study-sidebar__text,.study-question__instruction,
+.study-sidebar__stat,.study-sidebar__boundary,.study-bank-nav__hint,.study-rail__foot) {
+  color: #111111 !important;
+}
+html body.study-preview-page .study-question__text {
+  color: #111111 !important;
+  font-size: clamp(21px,2vw,27px) !important;
+  line-height: 1.45 !important;
+}
+html body.study-preview-page .study-options {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) !important;
+  gap: 9px !important;
+  margin-top: 18px !important;
+}
+html body.study-preview-page .study-option {
+  display: grid !important;
+  grid-template-columns: 30px minmax(0,1fr) !important;
+  align-items: center !important;
+  min-height: 54px !important;
+  padding: 12px 14px !important;
+  border: 1px solid #356512 !important;
+  border-radius: 9px !important;
+  background: #356512 !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+html body.study-preview-page .study-option * {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+html body.study-preview-page .study-option.is-correct,
+html body.study-preview-page .study-option.is-correct:hover {
+  border-color: #438D24 !important;
+  background: #438D24 !important;
+}
+html body.study-preview-page .study-option.is-incorrect,
+html body.study-preview-page .study-option.is-incorrect:hover {
+  border-color: #B4235A !important;
+  background: #B4235A !important;
+}
+html body.study-preview-page .study-action--secondary,
+html body.study-preview-page .study-action--finish {
+  border-color: #356512 !important;
+  background: #356512 !important;
+  color: #FFFFFF !important;
+}
+html body.study-preview-page .study-preview-invite {
+  width: min(1160px,calc(100% - 48px)) !important;
+  margin: 0 auto 30px !important;
+  padding: 22px 0 !important;
+  border: 0 !important;
+  background: #FFFFFF !important;
+}
+
+/* The footer stays a clean continuation of the white page. */
+html body .site-footer,
+html body .site-footer .footer-inner,
+html body .site-footer .footer-grid,
+html body .site-footer .footer-column,
+html body .footer-frame,
+html body .footer {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html body .site-footer .footer-garden,
+html body .site-footer .footer-foliage,
+html body .footer-garden,
+html body .footer-foliage {
+  display: none !important;
+}
+html body .site-footer {
+  padding: 38px 0 24px !important;
+}
+html body .site-footer .footer-inner {
+  width: min(1200px,calc(100% - 48px)) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+html body .site-footer .footer-column > span,
+html body .site-footer .footer__col-label {
+  color: #356512 !important;
+}
+html body .site-footer :is(a,p,small) {
+  color: #111111 !important;
+}
+
+/* Shared white custom dropdowns on homepage, practice and forms. */
+html body .custom-select {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  z-index: 5;
+}
+html body .custom-select:focus-within,
+html body .custom-select:has(.custom-select__trigger[aria-expanded="true"]) {
+  z-index: 50;
+}
+html body .custom-select__native {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+html body .custom-select__trigger {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  width: 100% !important;
+  min-height: 45px !important;
+  padding: 10px 13px !important;
+  border: 1px solid rgba(17,17,17,.2) !important;
+  border-radius: 9px !important;
+  background: #FFFFFF !important;
+  color: #111111 !important;
+  font: 500 13px/1.4 "Poppins",sans-serif !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+}
+html body .custom-select__trigger:hover,
+html body .custom-select__trigger:focus-visible,
+html body .custom-select__trigger[aria-expanded="true"] {
+  border-color: #356512 !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 3px rgba(53,101,18,.1) !important;
+}
+html body .custom-select__trigger svg {
+  width: 12px !important;
+  height: 8px !important;
+  color: #356512 !important;
+  transition: transform .16s ease !important;
+}
+html body .custom-select__trigger[aria-expanded="true"] svg {
+  transform: rotate(180deg) !important;
+}
+html body .custom-select__listbox {
+  position: absolute !important;
+  top: calc(100% + 6px) !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1500 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  max-height: min(280px,45vh) !important;
+  overflow-y: auto !important;
+  padding: 5px !important;
+  border: 1px solid rgba(17,17,17,.12) !important;
+  border-radius: 11px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 14px 34px rgba(17,17,17,.13) !important;
+}
+html body .custom-select__listbox[hidden] {display:none !important;}
+html body .custom-select__option {
+  width: 100% !important;
+  min-height: 37px !important;
+  padding: 8px 10px !important;
+  border: 0 !important;
+  border-radius: 7px !important;
+  background: #FFFFFF !important;
+  color: #111111 !important;
+  font: 400 12px/1.4 "Poppins",sans-serif !important;
+  text-align: left !important;
+  cursor: pointer !important;
+}
+html body .custom-select__option:hover,
+html body .custom-select__option:focus-visible,
+html body .custom-select__option[aria-selected="true"] {
+  background: #FFFFFF !important;
+  color: #356512 !important;
+}
+html body .custom-select__option[aria-selected="true"] {
+  box-shadow: inset 3px 0 #356512 !important;
+}
+html body .custom-select__option:disabled {opacity:.45 !important;cursor:not-allowed !important;}
+
+/* Consistent spacing without crowding on smaller screens. */
+@media(max-width:980px) {
+  html body .site-header {width:calc(100vw - 24px) !important;}
+  html body.study-preview-page .study-workspace {
+    grid-template-columns:minmax(190px,220px) minmax(0,1fr) !important;
+  }
+  html body.study-preview-page .study-sidebar {
+    grid-column:2 !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:760px) {
+  html body .site-header {
+    top:10px !important;
+    width:calc(100vw - 24px) !important;
+    height:58px !important;
+    min-height:58px !important;
+    padding:0 10px !important;
+  }
+  html body .site-header .desktop-nav {display:none !important;}
+  html body .site-header .menu-toggle {display:flex !important;margin-left:auto !important;}
+  html body .site-header .header-actions {margin-left:0 !important;}
+  html body .site-header .header-actions .button,
+  html body .site-header .button--small {min-height:38px !important;padding:8px 12px !important;font-size:11px !important;}
+  html body .mobile-menu {top:76px !important;}
+  html body.content-page #main.content-main {padding-top:84px !important;gap:24px !important;}
+  html body.content-page #main.content-main > section,
+  html body.content-page #main.content-main > section.content-hero,
+  html body.content-page #main.content-main > section.oneprep-subhero,
+  html body.content-page #main.content-main > section.method-hero,
+  html body.content-page #main.content-main > section.pricing-intro,
+  html body.content-page #main.content-main > section.study-intro {
+    width:calc(100% - 32px) !important;
+    padding:25px 0 !important;
+  }
+  html body.content-page #main.content-main > section.content-hero > *,
+  html body.content-page #main.content-main > section.oneprep-subhero > .content-container,
+  html body.content-page #main.content-main > section.method-hero > .content-container {width:100% !important;}
+  html body.content-page #main.content-main :is(.waitlist-layout,.apply-layout,.career-intro__layout,.method-current__inner) {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  html body.study-preview-page #main.content-main {padding-top:82px !important;}
+  html body.study-preview-page .study-intro {
+    width:100% !important;
+    padding:26px 18px 18px !important;
+  }
+  html body.study-preview-page .study-intro__layout {grid-template-columns:1fr !important;gap:18px !important;}
+  html body.study-preview-page .study-intro__aside {max-width:none !important;}
+  html body.study-preview-page .study-workspace {
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    width:calc(100% - 24px) !important;
+    gap:12px !important;
+    padding:12px 0 28px !important;
+  }
+  html body.study-preview-page .study-rail,
+  html body.study-preview-page .study-session,
+  html body.study-preview-page .study-sidebar {
+    grid-column:1 !important;
+    width:100% !important;
+  }
+  html body.study-preview-page .study-sidebar {grid-template-columns:1fr !important;}
+  html body.study-preview-page .study-options {grid-template-columns:1fr !important;}
+  html body.study-preview-page .study-question-map {grid-template-columns:repeat(8,minmax(0,1fr)) !important;}
+  html body.study-preview-page .study-session {padding:18px !important;}
+  html body.legal-page #main > .entry {
+    width:calc(100% - 28px) !important;
+    margin:86px auto 36px !important;
+    padding:22px 18px !important;
+  }
+  html body .site-footer .footer-inner {width:calc(100% - 36px) !important;}
+}
+@media(prefers-reduced-motion:reduce) {
+  html body .custom-select__trigger svg {transition:none !important;}
+}
