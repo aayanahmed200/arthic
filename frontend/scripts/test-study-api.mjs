@@ -45,13 +45,13 @@ try {
   const feed = mockRequest("GET");
   questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
-  assert.equal(feed.res.body.questions.length, 480);
+  assert.equal(feed.res.body.questions.length, 560);
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
   for (const examCode of examCodes) {
-    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 120);
+    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 140);
   }
-  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v8-480");
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v9-560");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
   assert.ok(feed.res.body.dataVersion);
   assert.ok(feed.res.body.questions.some((item) => item.id === "mdcat-extra-014"));
@@ -73,6 +73,10 @@ try {
     ["net-plus-001", "C"],
     ["css-plus-001", "B"],
     ["mdcat-plus-001", "A"],
+    ["lcat-next-001", "C"],
+    ["net-next-001", "C"],
+    ["css-next-001", "C"],
+    ["mdcat-next-001", "B"],
   ]) {
     const added = mockRequest("POST", { questionId, selectedOption: correctOption });
     await checkHandler(added.req, added.res);

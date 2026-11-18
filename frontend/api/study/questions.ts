@@ -37,7 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         WHERE is_published = true AND is_archived = false
           AND exam_code IN ('LCAT', 'NET', 'CSS', 'MDCAT')
         ORDER BY exam_code, subject_code, topic, id
-        LIMIT 500
+        LIMIT 600
       `;
       const published = rows
         .map((row) => toPublicQuestion(row as Record<string, unknown>))
@@ -59,7 +59,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       if (merged.size) {
         res.setHeader("Cache-Control", "public, max-age=30, s-maxage=60, stale-while-revalidate=300");
         return res.status(200).json({
-          dataVersion: "arthic-original-four-track-v8-480",
+          dataVersion: "arthic-original-four-track-v9-560",
           sourceKind: "mixed-original-and-curated",
           isOfficialPastPaper: false,
           questions: Array.from(merged.values()),
@@ -73,7 +73,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Keep a clearly labelled demo feed available until questions are published.
   res.setHeader("Cache-Control", "public, max-age=60, s-maxage=300, stale-while-revalidate=3600");
   return res.status(200).json({
-    dataVersion: "arthic-original-four-track-v8-480",
+    dataVersion: "arthic-original-four-track-v9-560",
     sourceKind: "original-sample",
     isOfficialPastPaper: false,
     questions: SAMPLE_QUESTIONS.map((question) => ({
