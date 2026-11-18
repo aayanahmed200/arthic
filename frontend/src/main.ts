@@ -5,4 +5,5 @@ import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/800.css";
 import "./styles/arthic-share.css";
+import "./styles/arthic-shell.css";
 import "./landing";

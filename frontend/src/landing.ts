@@ -1,3 +1,7 @@
+import { initReferenceChrome } from "./lib/reference-chrome";
+
+initReferenceChrome();
+
 const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
 const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
 

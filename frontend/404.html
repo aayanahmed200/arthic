@@ -5,23 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light" />
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#d0ecfd" />
+  <meta name="theme-color" content="#D0ECFD" />
   <title>404 — Arthic</title>
   <meta name="description" content="This page could not be found on Arthic." />
   <link rel="stylesheet" href="/src/styles/arthic-share.css" />
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/arthic-mark.png" />
-<link rel="manifest" href="/site.webmanifest" />
+  <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/arthic-mark.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body>
-  <main class="not-found-page">
+<body class="content-page not-found-document">
+  <header class="site-header" data-nav></header>
+  <div class="mobile-menu" id="mobile-menu" data-mobile-nav></div>
+  <main class="not-found-page" id="main">
     <section class="not-found-card">
-      <a class="brand" href="/">Arthic<span class="brand-dot">.</span></a>
       <p class="section-kicker">A SMALL DETOUR</p>
       <h1>That page<br />isn't in this syllabus.</h1>
       <p>The address may have changed, or this page may not be part of Arthic yet. Head back to your exam-preparation space.</p>
-      <a class="button button--large" href="/">Back to Arthic <span aria-hidden="true">↗</span></a>
-      </section>
+      <a class="button button--large button--primary" href="/">Back to Arthic <span aria-hidden="true">↗</span></a>
+    </section>
   </main>
+  <div class="footer-frame"></div>
+  <script type="module" src="/src/notfound.ts"></script>
 </body>
 </html>

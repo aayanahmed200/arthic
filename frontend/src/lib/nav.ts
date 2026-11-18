@@ -37,7 +37,7 @@ function initActiveNavByPath(): void {
     else link.removeAttribute("aria-current");
   });
 
-  const homeMark = document.querySelector<HTMLAnchorElement>(".nav__mark");
+  const homeMark = document.querySelector<HTMLAnchorElement>(".site-header .brand");
   if (homeMark) {
     const isHome = current === "/";
     homeMark.classList.toggle("is-active", isHome);
@@ -82,6 +82,7 @@ function initMobileMenu(
   panel.setAttribute("role", "dialog");
   panel.setAttribute("aria-modal", "true");
   panel.setAttribute("aria-label", "Main menu");
+  panel.hidden = true;
   panel.setAttribute("aria-hidden", "true");
   panel.inert = true;
 
@@ -94,6 +95,7 @@ function initMobileMenu(
 
   const close = (restoreFocus = false) => {
     panel.classList.remove("is-open");
+    panel.hidden = true;
     panel.inert = true;
     panel.setAttribute("aria-hidden", "true");
     toggle.setAttribute("aria-expanded", "false");
@@ -104,6 +106,7 @@ function initMobileMenu(
   };
 
   const open = () => {
+    panel.hidden = false;
     panel.inert = false;
     panel.setAttribute("aria-hidden", "false");
     panel.classList.add("is-open");
