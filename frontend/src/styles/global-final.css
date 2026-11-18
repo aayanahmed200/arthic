@@ -845,7 +845,7 @@ html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-header,.mobile-men
 html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-header .desktop-nav a,body.content-page .nav__links a,.mobile-menu a,body.content-page .mobile-nav a) {
   color:#28520E!important;
 }
-html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-header .desktop-nav a:hover,.site-header .desktop-nav a.is-active,.site-header .desktop-nav a[aria-current=page,.mobile-menu a:hover,.mobile-menu a[aria-current=page,body.content-page .nav__links a:hover,body.content-page .nav__links a[aria-current=page]) {
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-header .desktop-nav a:hover,.site-header .desktop-nav a.is-active,.site-header .desktop-nav a[aria-current="page"],.mobile-menu a:hover,.mobile-menu a[aria-current="page"],body.content-page .nav__links a:hover,body.content-page .nav__links a[aria-current="page"]) {
   background:rgba(150,215,60,.20)!important;
   color:#28520E!important;
 }
