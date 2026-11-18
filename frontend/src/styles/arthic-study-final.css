@@ -1759,3 +1759,11 @@ body.study-preview-page .study-preview-invite {
   }
 }
 
+
+/* The practice canvas must match the shared Arthic canvas on every route. */
+:root { --practice-canvas: #F3F6EE; }
+html body.content-page.study-preview-page,
+html body.content-page.study-preview-page .content-main,
+html body.content-page.study-preview-page main {
+  background: #F3F6EE !important;
+}
