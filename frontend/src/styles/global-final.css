@@ -590,3 +590,76 @@ html body.study-preview-page .study-preview-invite {
   html body.content-page .content-main > section.content-hero,
   html body.content-page .content-main > section.oneprep-subhero {padding-top:104px!important;}
 }
+
+
+/* Final section-surface layer uses matching specificity to the old flattening
+   selectors, so the deliberate per-section palette reliably wins. */
+html body:not(#arthic-blue-specificity) #main > section:nth-of-type(2):not(#arthic-blue-specificity):not(.study-workspace) {
+  background:#F8FCFF!important;background-color:#F8FCFF!important;background-image:none!important;
+  box-shadow:0 0 0 100vmax #F8FCFF!important;clip-path:inset(0 -100vmax);
+}
+html body:not(#arthic-blue-specificity) #main > section:nth-of-type(3):not(#arthic-blue-specificity) {
+  background:#EAF3E7!important;background-color:#EAF3E7!important;background-image:none!important;
+  box-shadow:0 0 0 100vmax #EAF3E7!important;clip-path:inset(0 -100vmax);
+}
+html body:not(#arthic-blue-specificity) #main > section:nth-of-type(4):not(#arthic-blue-specificity) {
+  background:#F8FCFF!important;background-color:#F8FCFF!important;background-image:none!important;
+  box-shadow:0 0 0 100vmax #F8FCFF!important;clip-path:inset(0 -100vmax);
+}
+html body:not(#arthic-blue-specificity) #main > section:nth-of-type(5):not(#arthic-blue-specificity):not(.content-cta):not(.home-cta) {
+  background:#EAF3E7!important;background-color:#EAF3E7!important;background-image:none!important;
+  box-shadow:0 0 0 100vmax #EAF3E7!important;clip-path:inset(0 -100vmax);
+}
+html body:not(#arthic-blue-specificity) #main > section.content-cta:not(#arthic-blue-specificity),
+html body:not(#arthic-blue-specificity) #main > section.oneprep-final-cta:not(#arthic-blue-specificity),
+html body:not(#arthic-blue-specificity) #main > section.home-cta:not(#arthic-blue-specificity) {
+  background:#DCEFF8!important;background-color:#DCEFF8!important;background-image:none!important;
+  box-shadow:0 0 0 100vmax #DCEFF8!important;clip-path:inset(0 -100vmax);
+}
+html body.content-page.study-preview-page:not(#arthic-blue-specificity) #main > section.study-workspace:not(#arthic-blue-specificity) {
+  background:transparent!important;background-color:transparent!important;box-shadow:none!important;clip-path:none!important;
+}
+html body.content-page.study-preview-page:not(#arthic-blue-specificity) #main > section.study-preview-invite:not(#arthic-blue-specificity) {
+  background:#EAF3E7!important;background-color:#EAF3E7!important;
+  box-shadow:0 0 0 100vmax #EAF3E7!important;clip-path:inset(0 -100vmax);
+}
+/* Home has no class on body; target its main element directly. */
+html body:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main.home-page > section.home-approach,
+html body:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main.home-page > section.home-available {
+  background:#F8FCFF!important;background-color:#F8FCFF!important;background-image:none!important;
+}
+html body:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main.home-page > section.home-routes {
+  background:#EAF3E7!important;background-color:#EAF3E7!important;background-image:none!important;
+}
+html body:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main.home-page > section.home-cta {
+  background:#DCEFF8!important;background-color:#DCEFF8!important;background-image:none!important;
+}
+
+/* Keep card faces consistent while allowing the surrounding section bands to vary. */
+html body.content-page:not(#arthic-blue-specificity) .content-main :is(
+  .pricing-plan,.exam-track-card,.oneprep-route-card,.career-role--detailed,
+  .method-step,.oneprep-step-card,.apply-form,.waitlist-form
+):not(#arthic-blue-specificity) {
+  border-radius:16px!important;
+}
+html body.content-page:not(#arthic-blue-specificity) .content-main :is(
+  .pricing-plan,.pricing-plan--individual,.pricing-plan--group,.pricing-plan--coaching,
+  .exam-track-card,.exam-track-card--lcat,.exam-track-card--net,.exam-track-card--css,
+  .exam-track-card--mdcat,.oneprep-route-card,.method-step,.oneprep-step-card
+):not(#arthic-blue-specificity) {
+  background:#F8FCFF!important;
+  border:1px solid rgba(32,72,89,.14)!important;
+  box-shadow:0 6px 20px rgba(31,65,79,.04)!important;
+}
+html body.content-page:not(#arthic-blue-specificity) .content-main :is(input,select,textarea,.field) {
+  border-radius:10px!important;
+}
+
+/* The practice room never sticks beside the scrolling question area. */
+html body.content-page.study-preview-page:not(#arthic-blue-specificity) .study-rail {
+  position:static!important;top:auto!important;inset:auto!important;
+  height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;
+}
+html body.content-page.study-preview-page:not(#arthic-blue-specificity) .study-session {
+  position:static!important;top:auto!important;max-height:none!important;overflow:visible!important;
+}
