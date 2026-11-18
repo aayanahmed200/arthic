@@ -51,6 +51,7 @@ try {
   for (const examCode of examCodes) {
     assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 60);
   }
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v5-240");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
   assert.ok(feed.res.body.dataVersion);
   assert.ok(feed.res.body.questions.some((item) => item.id === "mdcat-extra-014"));
@@ -104,6 +105,25 @@ try {
   assert.equal(expandedIncorrect.res.code, 200);
   assert.equal(expandedIncorrect.res.body.isCorrect, false);
   assert.equal(expandedIncorrect.res.body.correctOption, "C");
+
+  const newNetCorrect = mockRequest("POST", {
+    questionId: "net-extra-017",
+    selectedOption: "C",
+  });
+  await checkHandler(newNetCorrect.req, newNetCorrect.res);
+  assert.equal(newNetCorrect.res.code, 200);
+  assert.equal(newNetCorrect.res.body.isCorrect, true);
+  assert.equal(newNetCorrect.res.body.correctOption, "C");
+  assert.ok(newNetCorrect.res.body.explanation.includes("f′(2) = 4 + 3 = 7"));
+
+  const newNetIncorrect = mockRequest("POST", {
+    questionId: "net-extra-017",
+    selectedOption: "D",
+  });
+  await checkHandler(newNetIncorrect.req, newNetIncorrect.res);
+  assert.equal(newNetIncorrect.res.code, 200);
+  assert.equal(newNetIncorrect.res.body.isCorrect, false);
+  assert.equal(newNetIncorrect.res.body.correctOption, "C");
 
   const invalid = mockRequest("POST", {
     questionId: "mdcat-bio-cell-001",
