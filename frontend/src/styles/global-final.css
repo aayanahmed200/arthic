@@ -752,7 +752,7 @@ html body.study-preview-page,html body.legal-page,html body.not-found-document {
   color:#111111!important;
 }
 html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
-:is(#main,main,section,.content-main,.home-page,[data-page-surface]) {
+:is(#main,main,.content-main,.home-page,main > section:not(.not-found-card),.content-main > section:not(.not-found-card),[data-page-surface]) {
   background:#BFE7FF!important;
   background-color:#BFE7FF!important;
   background-image:none!important;
