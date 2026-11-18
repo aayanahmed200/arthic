@@ -238,9 +238,9 @@ if (root) {
       topic!.textContent = question.topic;
       prompt!.textContent = question.prompt;
       instruction!.textContent = question.instruction;
-      const subject = root.querySelector<HTMLElement>("[data-current-subject]");
+      const subject = root!.querySelector<HTMLElement>("[data-current-subject]");
       if (subject) subject.textContent = subjectLabel(question.subjectCode);
-      const exam = root.querySelector<HTMLElement>("[data-current-exam]");
+      const exam = root!.querySelector<HTMLElement>("[data-current-exam]");
       if (exam) exam.textContent = EXAM_LABELS[question.examCode] ?? question.examCode;
       feedback!.hidden = !savedAnswer;
       feedbackPoints!.replaceChildren();
@@ -438,25 +438,6 @@ if (root) {
           ? QUESTION_FEED.length
           : QUESTION_FEED.filter((question) => question.examCode === code).length);
       });
-    }
-
-    function fillSubjectFilter(): void {
-      const available = [...new Set(QUESTION_FEED
-        .filter((question) => activeExam === "ALL" || question.examCode === activeExam)
-        .map((question) => question.subjectCode))].sort();
-      subjectFilter!.replaceChildren();
-      const all = document.createElement("option");
-      all.value = "ALL";
-      all.textContent = "All subjects";
-      subjectFilter!.append(all);
-      available.forEach((code) => {
-        const option = document.createElement("option");
-        option.value = code;
-        option.textContent = subjectLabel(code);
-        subjectFilter!.append(option);
-      });
-      if (activeSubject !== "ALL" && !available.includes(activeSubject)) activeSubject = "ALL";
-      subjectFilter!.value = activeSubject;
     }
 
     function hydrateFromServer(): void {
