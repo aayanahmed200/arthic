@@ -3892,5 +3892,4 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     ],
     "sourceKind": "original-sample"
   }
-]
 ];
