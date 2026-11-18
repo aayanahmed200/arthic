@@ -9,8 +9,9 @@
   "icons": [
     {
       "src": "/arthic-logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
