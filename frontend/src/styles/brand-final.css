@@ -123,18 +123,20 @@ html body .site-header .button--small {
   justify-content: center !important;
   min-height: 42px !important;
   padding: 10px 17px !important;
-  border: 1px solid rgba(255,255,255,.9) !important;
+  border: 1px solid rgba(255,255,255,.65) !important;
   border-radius: 999px !important;
-  background: #FFFFFF !important;
-  color: #28520E !important;
+  background: #28520E !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
   font: 700 12px/1.2 "Poppins",sans-serif !important;
   box-shadow: none !important;
   text-decoration: none !important;
 }
 html body .site-header .header-actions .button:hover,
 html body .site-header .button--small:hover {
-  background: #F1F7EB !important;
-  color: #20450C !important;
+  background: #4C7A22 !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
   transform: translateY(-1px);
 }
 html body .site-header .menu-toggle {
