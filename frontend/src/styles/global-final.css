@@ -126,3 +126,39 @@ body.study-preview-page .study-question-map button {min-height:32px!important;fo
   body.content-page :is(.content-main p,.content-main li,.entry__body p,.entry__body li) {font-size:16px!important;}
 }
 @media(prefers-reduced-motion:reduce) {.site-header,.mobile-menu {backdrop-filter:none!important;}}
+
+
+/* Last-word canvas override: older theme files scope backgrounds more specifically
+   to content-page and study-page routes, so override those exact selectors here. */
+html body,
+html body.content-page,
+html body.home-page,
+html body.study-preview-page,
+html body.legal-page,
+html body.not-found-document {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+  color:#203B44!important;
+}
+html body.content-page main,
+html body.content-page .content-main,
+html body.content-page main > section,
+html body.content-page main > article,
+html body.content-page main > div,
+html body.home-page main,
+html body.home-page main > section,
+html body.study-preview-page main,
+html body.study-preview-page main > section,
+html body.legal-page main,
+html body.legal-page main > section,
+html body.not-found-document main,
+html body.not-found-document main > section {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+}
+html body.study-preview-page .study-question__text {font-size:clamp(22px,1.65vw,27px)!important;}
+html body.study-preview-page .study-option,
+html body.study-preview-page .study-option__text {font-size:15px!important;line-height:1.6!important;}
+html body.study-preview-page .study-option {min-height:60px!important;}
