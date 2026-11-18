@@ -1730,4 +1730,2167 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     ],
     "sourceKind": "original-sample"
   }
+,
+[
+  {
+    "id": "lcat-extra-017",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Discounts and percentages",
+    "prompt": "A jacket costs Rs 2,400 before a 15% discount. What is its sale price?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Rs 2,040"
+      },
+      {
+        "key": "B",
+        "text": "Rs 2,160"
+      },
+      {
+        "key": "C",
+        "text": "Rs 2,250"
+      },
+      {
+        "key": "D",
+        "text": "Rs 2,340"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-018",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Unit rates",
+    "prompt": "A printer produces 84 pages in 7 minutes at a constant rate. How many pages will it produce in 12 minutes?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "120"
+      },
+      {
+        "key": "B",
+        "text": "132"
+      },
+      {
+        "key": "C",
+        "text": "144"
+      },
+      {
+        "key": "D",
+        "text": "156"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-019",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Linear equations",
+    "prompt": "If 4x − 7 = 21, what is the value of x?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "5"
+      },
+      {
+        "key": "B",
+        "text": "6"
+      },
+      {
+        "key": "C",
+        "text": "7"
+      },
+      {
+        "key": "D",
+        "text": "8"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-020",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Time and distance",
+    "prompt": "A bus travels 180 km in 2.5 hours at a constant speed. What is its average speed?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "68 km/h"
+      },
+      {
+        "key": "B",
+        "text": "70 km/h"
+      },
+      {
+        "key": "C",
+        "text": "72 km/h"
+      },
+      {
+        "key": "D",
+        "text": "75 km/h"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-021",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Meaning in context",
+    "prompt": "In the sentence “The new policy may mitigate delays,” what does “mitigate” most nearly mean?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Worsen"
+      },
+      {
+        "key": "B",
+        "text": "Reduce"
+      },
+      {
+        "key": "C",
+        "text": "Predict"
+      },
+      {
+        "key": "D",
+        "text": "Record"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-022",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Supported inference",
+    "prompt": "A library extended its evening hours after students requested more study time. Which conclusion is best supported?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Every student studies at night"
+      },
+      {
+        "key": "B",
+        "text": "The library had no visitors before the change"
+      },
+      {
+        "key": "C",
+        "text": "The change responds to students’ requests"
+      },
+      {
+        "key": "D",
+        "text": "The library will remain open all night"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-023",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Central idea",
+    "prompt": "A passage explains that urban trees provide shade, absorb some rainfall and create habitats for birds. Which statement best captures its central idea?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Trees are useful parts of urban environments"
+      },
+      {
+        "key": "B",
+        "text": "Birds only live in cities with parks"
+      },
+      {
+        "key": "C",
+        "text": "Rainfall is the main problem in cities"
+      },
+      {
+        "key": "D",
+        "text": "Urban trees require no maintenance"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-024",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Author’s purpose",
+    "prompt": "An article compares three public transport options by cost, journey time and accessibility. What is its most likely purpose?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "To entertain with a travel story"
+      },
+      {
+        "key": "B",
+        "text": "To persuade readers to buy a car"
+      },
+      {
+        "key": "C",
+        "text": "To compare options using stated criteria"
+      },
+      {
+        "key": "D",
+        "text": "To describe the history of a city"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-025",
+    "examCode": "LCAT",
+    "subjectCode": "LOGIC",
+    "topic": "Set reasoning",
+    "prompt": "In a group of 26 students, 15 study Biology, 13 study Chemistry and 5 study neither. How many study both subjects?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "5"
+      },
+      {
+        "key": "B",
+        "text": "7"
+      },
+      {
+        "key": "C",
+        "text": "8"
+      },
+      {
+        "key": "D",
+        "text": "10"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-026",
+    "examCode": "LCAT",
+    "subjectCode": "LOGIC",
+    "topic": "Syllogisms",
+    "prompt": "All architects are designers. Some designers are researchers. Which conclusion must be true?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Some architects are researchers"
+      },
+      {
+        "key": "B",
+        "text": "All researchers are architects"
+      },
+      {
+        "key": "C",
+        "text": "All architects are designers"
+      },
+      {
+        "key": "D",
+        "text": "No designers are architects"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-027",
+    "examCode": "LCAT",
+    "subjectCode": "LOGIC",
+    "topic": "Contrapositive reasoning",
+    "prompt": "If the laboratory is open, the lights are on. The lights are not on. What follows logically?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The laboratory is open"
+      },
+      {
+        "key": "B",
+        "text": "The laboratory is not open"
+      },
+      {
+        "key": "C",
+        "text": "The lights are faulty"
+      },
+      {
+        "key": "D",
+        "text": "The laboratory opens later"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-028",
+    "examCode": "LCAT",
+    "subjectCode": "LOGIC",
+    "topic": "Number patterns",
+    "prompt": "What is the next number in the sequence 4, 9, 14, 19, …?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "22"
+      },
+      {
+        "key": "B",
+        "text": "23"
+      },
+      {
+        "key": "C",
+        "text": "24"
+      },
+      {
+        "key": "D",
+        "text": "25"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-029",
+    "examCode": "LCAT",
+    "subjectCode": "ENGLISH",
+    "topic": "Subject–verb agreement",
+    "prompt": "Choose the sentence with correct subject–verb agreement.",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Neither the tutors nor the coordinator are available"
+      },
+      {
+        "key": "B",
+        "text": "Neither the tutors nor the coordinator is available"
+      },
+      {
+        "key": "C",
+        "text": "Neither the tutor nor the coordinators is available"
+      },
+      {
+        "key": "D",
+        "text": "Neither tutors nor coordinator were available"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-030",
+    "examCode": "LCAT",
+    "subjectCode": "ENGLISH",
+    "topic": "Punctuation",
+    "prompt": "Which sentence uses punctuation correctly?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The meeting ended, however the questions continued."
+      },
+      {
+        "key": "B",
+        "text": "The meeting ended; however, the questions continued."
+      },
+      {
+        "key": "C",
+        "text": "The meeting ended however; the questions continued."
+      },
+      {
+        "key": "D",
+        "text": "The meeting ended however the questions, continued."
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-031",
+    "examCode": "LCAT",
+    "subjectCode": "ENGLISH",
+    "topic": "Pronoun reference",
+    "prompt": "Which sentence makes the pronoun reference clearest?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "When Sara met Amina, she was carrying a folder."
+      },
+      {
+        "key": "B",
+        "text": "Sara was carrying a folder when she met Amina."
+      },
+      {
+        "key": "C",
+        "text": "She met Amina while Sara carried a folder."
+      },
+      {
+        "key": "D",
+        "text": "When she met her, Sara had the folder."
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-032",
+    "examCode": "LCAT",
+    "subjectCode": "ENGLISH",
+    "topic": "Modifier placement",
+    "prompt": "Which sentence correctly shows who was walking to school?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Walking to school, the rain began to fall."
+      },
+      {
+        "key": "B",
+        "text": "Walking to school, Mira noticed the rain beginning to fall."
+      },
+      {
+        "key": "C",
+        "text": "The rain, walking to school, began to fall."
+      },
+      {
+        "key": "D",
+        "text": "Mira noticed, walking to school the rain."
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-033",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Probability",
+    "prompt": "A fair six-sided die is rolled once. What is the probability of getting a number greater than 4?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1/6"
+      },
+      {
+        "key": "B",
+        "text": "1/3"
+      },
+      {
+        "key": "C",
+        "text": "1/2"
+      },
+      {
+        "key": "D",
+        "text": "2/3"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-034",
+    "examCode": "LCAT",
+    "subjectCode": "MATH",
+    "topic": "Averages",
+    "prompt": "The mean of 6, 8, 10 and x is 9. What is x?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "10"
+      },
+      {
+        "key": "B",
+        "text": "11"
+      },
+      {
+        "key": "C",
+        "text": "12"
+      },
+      {
+        "key": "D",
+        "text": "13"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-035",
+    "examCode": "LCAT",
+    "subjectCode": "VERBAL",
+    "topic": "Argument structure",
+    "prompt": "A proposal says a school should add bicycle racks because more students will cycle if secure parking is available. Which assumption does the proposal rely on?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Students never walk to school"
+      },
+      {
+        "key": "B",
+        "text": "Some students would consider cycling if parking were secure"
+      },
+      {
+        "key": "C",
+        "text": "Bicycle racks reduce the length of every journey"
+      },
+      {
+        "key": "D",
+        "text": "All students already own bicycles"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "lcat-extra-036",
+    "examCode": "LCAT",
+    "subjectCode": "LOGIC",
+    "topic": "Ordering",
+    "prompt": "Four presentations are scheduled in order. H is before J, J is before K, and L is after K. Which presentation must be last?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "H"
+      },
+      {
+        "key": "B",
+        "text": "J"
+      },
+      {
+        "key": "C",
+        "text": "K"
+      },
+      {
+        "key": "D",
+        "text": "L"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-017",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Differentiation",
+    "prompt": "If f(x) = x² + 3x, what is f′(2)?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "5"
+      },
+      {
+        "key": "B",
+        "text": "6"
+      },
+      {
+        "key": "C",
+        "text": "7"
+      },
+      {
+        "key": "D",
+        "text": "8"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-018",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Logarithms",
+    "prompt": "If log₁₀(x) = 2, what is x?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "10"
+      },
+      {
+        "key": "B",
+        "text": "20"
+      },
+      {
+        "key": "C",
+        "text": "100"
+      },
+      {
+        "key": "D",
+        "text": "1,000"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-019",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Straight-line gradients",
+    "prompt": "What is the gradient of the line passing through (2, 3) and (6, 11)?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1"
+      },
+      {
+        "key": "B",
+        "text": "2"
+      },
+      {
+        "key": "C",
+        "text": "3"
+      },
+      {
+        "key": "D",
+        "text": "4"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-020",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Trigonometric identities",
+    "prompt": "For an angle θ, which identity is always true?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "sin²θ + cos²θ = 1"
+      },
+      {
+        "key": "B",
+        "text": "sin θ + cos θ = 1"
+      },
+      {
+        "key": "C",
+        "text": "tan θ = sin θ + cos θ"
+      },
+      {
+        "key": "D",
+        "text": "sin 2θ = sin²θ"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-021",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Matrices",
+    "prompt": "What is the determinant of the matrix [[3, 2], [1, 4]]?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "8"
+      },
+      {
+        "key": "B",
+        "text": "9"
+      },
+      {
+        "key": "C",
+        "text": "10"
+      },
+      {
+        "key": "D",
+        "text": "12"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-022",
+    "examCode": "NET",
+    "subjectCode": "MATH",
+    "topic": "Probability",
+    "prompt": "A bag contains 3 red and 2 blue balls. One ball is selected at random. What is the probability it is blue?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1/5"
+      },
+      {
+        "key": "B",
+        "text": "2/5"
+      },
+      {
+        "key": "C",
+        "text": "3/5"
+      },
+      {
+        "key": "D",
+        "text": "2/3"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-023",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Conservation of momentum",
+    "prompt": "A 2 kg trolley moving at 3 m/s collides with a stationary 1 kg trolley. They move together after impact. What is their shared speed?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1 m/s"
+      },
+      {
+        "key": "B",
+        "text": "2 m/s"
+      },
+      {
+        "key": "C",
+        "text": "3 m/s"
+      },
+      {
+        "key": "D",
+        "text": "4 m/s"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-024",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Gravitational potential energy",
+    "prompt": "A 2 kg object is raised 5 m. Taking g = 10 m/s², how much gravitational potential energy does it gain?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "50 J"
+      },
+      {
+        "key": "B",
+        "text": "75 J"
+      },
+      {
+        "key": "C",
+        "text": "100 J"
+      },
+      {
+        "key": "D",
+        "text": "150 J"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-025",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Series circuits",
+    "prompt": "Two resistors of 4 Ω and 6 Ω are connected in series. What is their equivalent resistance?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "2 Ω"
+      },
+      {
+        "key": "B",
+        "text": "5 Ω"
+      },
+      {
+        "key": "C",
+        "text": "10 Ω"
+      },
+      {
+        "key": "D",
+        "text": "24 Ω"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-026",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Specific heat capacity",
+    "prompt": "How much energy is required to raise the temperature of 2 kg of a substance by 3°C if its specific heat capacity is 500 J/(kg·°C)?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1,000 J"
+      },
+      {
+        "key": "B",
+        "text": "2,000 J"
+      },
+      {
+        "key": "C",
+        "text": "3,000 J"
+      },
+      {
+        "key": "D",
+        "text": "4,000 J"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-027",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Wave properties",
+    "prompt": "A wave has frequency 5 Hz and wavelength 2 m. What is its speed?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "2.5 m/s"
+      },
+      {
+        "key": "B",
+        "text": "5 m/s"
+      },
+      {
+        "key": "C",
+        "text": "7 m/s"
+      },
+      {
+        "key": "D",
+        "text": "10 m/s"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-028",
+    "examCode": "NET",
+    "subjectCode": "PHY",
+    "topic": "Electric power",
+    "prompt": "A device operates at 12 V and draws a current of 2 A. What is its electrical power?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "6 W"
+      },
+      {
+        "key": "B",
+        "text": "12 W"
+      },
+      {
+        "key": "C",
+        "text": "24 W"
+      },
+      {
+        "key": "D",
+        "text": "48 W"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-029",
+    "examCode": "NET",
+    "subjectCode": "CS",
+    "topic": "Binary arithmetic",
+    "prompt": "What is the binary representation of decimal 13?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1010"
+      },
+      {
+        "key": "B",
+        "text": "1011"
+      },
+      {
+        "key": "C",
+        "text": "1101"
+      },
+      {
+        "key": "D",
+        "text": "1110"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-030",
+    "examCode": "NET",
+    "subjectCode": "CS",
+    "topic": "Boolean logic",
+    "prompt": "What is the output of a NAND gate when both inputs are 1?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "0"
+      },
+      {
+        "key": "B",
+        "text": "1"
+      },
+      {
+        "key": "C",
+        "text": "Depends on the circuit"
+      },
+      {
+        "key": "D",
+        "text": "Undefined"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-031",
+    "examCode": "NET",
+    "subjectCode": "CS",
+    "topic": "Algorithm complexity",
+    "prompt": "What is the time complexity of binary search on a sorted array of n elements?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "O(1)"
+      },
+      {
+        "key": "B",
+        "text": "O(log n)"
+      },
+      {
+        "key": "C",
+        "text": "O(n)"
+      },
+      {
+        "key": "D",
+        "text": "O(n²)"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-032",
+    "examCode": "NET",
+    "subjectCode": "CS",
+    "topic": "Object-oriented programming",
+    "prompt": "Which concept groups data and the methods that operate on that data while restricting direct access to internal state?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Iteration"
+      },
+      {
+        "key": "B",
+        "text": "Encapsulation"
+      },
+      {
+        "key": "C",
+        "text": "Compilation"
+      },
+      {
+        "key": "D",
+        "text": "Recursion"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-033",
+    "examCode": "NET",
+    "subjectCode": "CS",
+    "topic": "Database keys",
+    "prompt": "What is the main purpose of a primary key in a relational database table?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "To sort every row alphabetically"
+      },
+      {
+        "key": "B",
+        "text": "To uniquely identify each row"
+      },
+      {
+        "key": "C",
+        "text": "To store duplicate values"
+      },
+      {
+        "key": "D",
+        "text": "To link every table to the internet"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-034",
+    "examCode": "NET",
+    "subjectCode": "CHEM",
+    "topic": "Isotopes",
+    "prompt": "Atoms of the same element that have different numbers of neutrons are called:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Ions"
+      },
+      {
+        "key": "B",
+        "text": "Isotopes"
+      },
+      {
+        "key": "C",
+        "text": "Isomers"
+      },
+      {
+        "key": "D",
+        "text": "Allotropes"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-035",
+    "examCode": "NET",
+    "subjectCode": "CHEM",
+    "topic": "Gas laws",
+    "prompt": "At constant temperature, a gas occupies 4 L at a pressure of 2 atm. What volume will it occupy at 4 atm?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "1 L"
+      },
+      {
+        "key": "B",
+        "text": "2 L"
+      },
+      {
+        "key": "C",
+        "text": "4 L"
+      },
+      {
+        "key": "D",
+        "text": "8 L"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "net-extra-036",
+    "examCode": "NET",
+    "subjectCode": "CHEM",
+    "topic": "Acids and pH",
+    "prompt": "At 25°C, a solution has pH 3. What is its hydrogen-ion concentration?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "10⁻¹ mol/L"
+      },
+      {
+        "key": "B",
+        "text": "10⁻² mol/L"
+      },
+      {
+        "key": "C",
+        "text": "10⁻³ mol/L"
+      },
+      {
+        "key": "D",
+        "text": "10⁻⁴ mol/L"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-017",
+    "examCode": "CSS",
+    "subjectCode": "ENGLISH",
+    "topic": "Sentence correction",
+    "prompt": "Choose the grammatically correct sentence.",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The committee have submitted its report"
+      },
+      {
+        "key": "B",
+        "text": "The committee has submitted its report"
+      },
+      {
+        "key": "C",
+        "text": "The committee has submit their report"
+      },
+      {
+        "key": "D",
+        "text": "The committee were submitting its report yesterday"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-018",
+    "examCode": "CSS",
+    "subjectCode": "ENGLISH",
+    "topic": "Précis writing",
+    "prompt": "Which quality is most important in a good précis?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Adding personal opinions"
+      },
+      {
+        "key": "B",
+        "text": "Preserving the central meaning concisely"
+      },
+      {
+        "key": "C",
+        "text": "Including every example"
+      },
+      {
+        "key": "D",
+        "text": "Using more words than the original"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-019",
+    "examCode": "CSS",
+    "subjectCode": "ENGLISH",
+    "topic": "Logical connectors",
+    "prompt": "Which connector best completes the sentence? “The evidence was limited; ___, the report avoided a firm conclusion.”",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "therefore"
+      },
+      {
+        "key": "B",
+        "text": "nevertheless"
+      },
+      {
+        "key": "C",
+        "text": "for example"
+      },
+      {
+        "key": "D",
+        "text": "similarly"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-020",
+    "examCode": "CSS",
+    "subjectCode": "GENERAL",
+    "topic": "Scientific reasoning",
+    "prompt": "A researcher repeats an experiment and obtains similar results. This most directly supports the experiment’s:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Repeatability"
+      },
+      {
+        "key": "B",
+        "text": "Popularity"
+      },
+      {
+        "key": "C",
+        "text": "Cost"
+      },
+      {
+        "key": "D",
+        "text": "Complexity"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-021",
+    "examCode": "CSS",
+    "subjectCode": "GENERAL",
+    "topic": "Ecosystems",
+    "prompt": "In a food chain, green plants are usually classified as:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Primary consumers"
+      },
+      {
+        "key": "B",
+        "text": "Decomposers"
+      },
+      {
+        "key": "C",
+        "text": "Producers"
+      },
+      {
+        "key": "D",
+        "text": "Secondary consumers"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-022",
+    "examCode": "CSS",
+    "subjectCode": "GENERAL",
+    "topic": "Research ethics",
+    "prompt": "A researcher reports only the results that support a preferred conclusion and omits contradictory findings. Which ethical principle is most directly violated?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Objectivity and honest reporting"
+      },
+      {
+        "key": "B",
+        "text": "Confidentiality of participants"
+      },
+      {
+        "key": "C",
+        "text": "Efficient time management"
+      },
+      {
+        "key": "D",
+        "text": "Peer-review scheduling"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-023",
+    "examCode": "CSS",
+    "subjectCode": "PAKISTAN",
+    "topic": "Geography",
+    "prompt": "Which mountain range forms a major part of northern Pakistan?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Kirthar Range"
+      },
+      {
+        "key": "B",
+        "text": "Himalayas"
+      },
+      {
+        "key": "C",
+        "text": "Salt Range"
+      },
+      {
+        "key": "D",
+        "text": "Sulaiman Range"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-024",
+    "examCode": "CSS",
+    "subjectCode": "PAKISTAN",
+    "topic": "Water resources",
+    "prompt": "The Indus River system is especially important to Pakistan because it:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Provides a major source of irrigation water"
+      },
+      {
+        "key": "B",
+        "text": "Is the country’s only source of electricity"
+      },
+      {
+        "key": "C",
+        "text": "Flows only through urban areas"
+      },
+      {
+        "key": "D",
+        "text": "Has no connection to agriculture"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-025",
+    "examCode": "CSS",
+    "subjectCode": "PAKISTAN",
+    "topic": "Civic concepts",
+    "prompt": "In a federal system, constitutional powers are:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Held only by local councils"
+      },
+      {
+        "key": "B",
+        "text": "Divided between national and regional governments"
+      },
+      {
+        "key": "C",
+        "text": "Exercised only by the courts"
+      },
+      {
+        "key": "D",
+        "text": "Transferred entirely to private organisations"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-026",
+    "examCode": "CSS",
+    "subjectCode": "ECONOMICS",
+    "topic": "Inflation",
+    "prompt": "If a household’s income remains unchanged while the general price level rises, its purchasing power will generally:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Increase"
+      },
+      {
+        "key": "B",
+        "text": "Decrease"
+      },
+      {
+        "key": "C",
+        "text": "Remain exactly the same"
+      },
+      {
+        "key": "D",
+        "text": "Become unlimited"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-027",
+    "examCode": "CSS",
+    "subjectCode": "ECONOMICS",
+    "topic": "Opportunity cost",
+    "prompt": "A student spends an evening studying instead of working a paid shift. The opportunity cost is best described as:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The money already spent on books"
+      },
+      {
+        "key": "B",
+        "text": "The wages forgone by not taking the shift"
+      },
+      {
+        "key": "C",
+        "text": "The student’s examination score"
+      },
+      {
+        "key": "D",
+        "text": "The total number of study hours"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-028",
+    "examCode": "CSS",
+    "subjectCode": "ECONOMICS",
+    "topic": "Market structures",
+    "prompt": "In a perfectly competitive market, an individual firm is generally described as a:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Price maker"
+      },
+      {
+        "key": "B",
+        "text": "Price taker"
+      },
+      {
+        "key": "C",
+        "text": "Monopoly supplier"
+      },
+      {
+        "key": "D",
+        "text": "Government regulator"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-029",
+    "examCode": "CSS",
+    "subjectCode": "INTERNATIONAL",
+    "topic": "Diplomacy",
+    "prompt": "A country’s embassy in another country primarily serves to:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Replace the host country’s courts"
+      },
+      {
+        "key": "B",
+        "text": "Maintain official relations and provide consular services"
+      },
+      {
+        "key": "C",
+        "text": "Control the host country’s elections"
+      },
+      {
+        "key": "D",
+        "text": "Set the host country’s domestic taxes"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-030",
+    "examCode": "CSS",
+    "subjectCode": "INTERNATIONAL",
+    "topic": "International law",
+    "prompt": "The principle of state sovereignty primarily refers to a state’s:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Authority over its own territory and domestic affairs, subject to international law"
+      },
+      {
+        "key": "B",
+        "text": "Right to ignore every international agreement"
+      },
+      {
+        "key": "C",
+        "text": "Control over all neighbouring states"
+      },
+      {
+        "key": "D",
+        "text": "Ability to prevent all foreign trade"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-031",
+    "examCode": "CSS",
+    "subjectCode": "ANALYTICAL",
+    "topic": "Correlation and causation",
+    "prompt": "A study finds that ice-cream sales and swimming attendance both rise in summer. Which conclusion is most reasonable?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Ice cream causes people to swim"
+      },
+      {
+        "key": "B",
+        "text": "Swimming causes people to buy ice cream"
+      },
+      {
+        "key": "C",
+        "text": "A third factor such as warm weather may influence both"
+      },
+      {
+        "key": "D",
+        "text": "The two variables must be unrelated"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-032",
+    "examCode": "CSS",
+    "subjectCode": "ANALYTICAL",
+    "topic": "Sampling bias",
+    "prompt": "A survey about public transport is conducted only among people waiting at a railway station. What is the main limitation?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The sample may overrepresent people who already use rail services"
+      },
+      {
+        "key": "B",
+        "text": "The sample is guaranteed to represent everyone"
+      },
+      {
+        "key": "C",
+        "text": "The survey cannot contain numerical data"
+      },
+      {
+        "key": "D",
+        "text": "The results must be completely false"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-033",
+    "examCode": "CSS",
+    "subjectCode": "GENERAL",
+    "topic": "Climate systems",
+    "prompt": "Which gas is a major contributor to human-caused global warming?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Oxygen"
+      },
+      {
+        "key": "B",
+        "text": "Carbon dioxide"
+      },
+      {
+        "key": "C",
+        "text": "Argon"
+      },
+      {
+        "key": "D",
+        "text": "Neon"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-034",
+    "examCode": "CSS",
+    "subjectCode": "GENERAL",
+    "topic": "Public administration",
+    "prompt": "In public administration, transparency most directly means:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Making relevant decisions and information open to scrutiny"
+      },
+      {
+        "key": "B",
+        "text": "Keeping all procedures secret"
+      },
+      {
+        "key": "C",
+        "text": "Removing records after decisions"
+      },
+      {
+        "key": "D",
+        "text": "Giving every task to one official"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-035",
+    "examCode": "CSS",
+    "subjectCode": "PAKISTAN",
+    "topic": "Agricultural geography",
+    "prompt": "Which crop is widely associated with the irrigated plains of Punjab and Sindh?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Wheat"
+      },
+      {
+        "key": "B",
+        "text": "Coffee"
+      },
+      {
+        "key": "C",
+        "text": "Cocoa"
+      },
+      {
+        "key": "D",
+        "text": "Rubber"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "css-extra-036",
+    "examCode": "CSS",
+    "subjectCode": "ANALYTICAL",
+    "topic": "Evaluating arguments",
+    "prompt": "An argument claims that a new library caused exam results to improve because results rose after the library opened. What additional information would most strengthen the causal claim?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "A comparison with similar students or schools without the new library"
+      },
+      {
+        "key": "B",
+        "text": "The library’s paint colour"
+      },
+      {
+        "key": "C",
+        "text": "The number of shelves in the building"
+      },
+      {
+        "key": "D",
+        "text": "The date the argument was written"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-017",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Blood components",
+    "prompt": "Which blood component is primarily responsible for transporting oxygen from the lungs to body tissues?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Platelets"
+      },
+      {
+        "key": "B",
+        "text": "Red blood cells"
+      },
+      {
+        "key": "C",
+        "text": "White blood cells"
+      },
+      {
+        "key": "D",
+        "text": "Plasma proteins"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-018",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Nervous coordination",
+    "prompt": "Which part of a neuron usually receives signals from other neurons?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Axon terminal"
+      },
+      {
+        "key": "B",
+        "text": "Dendrites"
+      },
+      {
+        "key": "C",
+        "text": "Myelin sheath"
+      },
+      {
+        "key": "D",
+        "text": "Node of Ranvier"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-019",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Plant transport",
+    "prompt": "Which tissue transports water and mineral ions from roots towards the leaves?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Phloem"
+      },
+      {
+        "key": "B",
+        "text": "Xylem"
+      },
+      {
+        "key": "C",
+        "text": "Epidermis"
+      },
+      {
+        "key": "D",
+        "text": "Cortex"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-020",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Cellular respiration",
+    "prompt": "In aerobic respiration, the final electron acceptor in the electron transport chain is:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Carbon dioxide"
+      },
+      {
+        "key": "B",
+        "text": "Oxygen"
+      },
+      {
+        "key": "C",
+        "text": "Glucose"
+      },
+      {
+        "key": "D",
+        "text": "NADH"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-021",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Inheritance",
+    "prompt": "If two heterozygous parents (Aa × Aa) are crossed, what is the probability of an aa offspring?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "0%"
+      },
+      {
+        "key": "B",
+        "text": "25%"
+      },
+      {
+        "key": "C",
+        "text": "50%"
+      },
+      {
+        "key": "D",
+        "text": "75%"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-022",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Immune response",
+    "prompt": "Which cells can differentiate into plasma cells that secrete antibodies?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "B lymphocytes"
+      },
+      {
+        "key": "B",
+        "text": "Red blood cells"
+      },
+      {
+        "key": "C",
+        "text": "Platelets"
+      },
+      {
+        "key": "D",
+        "text": "Neurons"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-023",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Endocrine system",
+    "prompt": "Which hormone lowers blood glucose by promoting uptake of glucose by many body cells?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Glucagon"
+      },
+      {
+        "key": "B",
+        "text": "Insulin"
+      },
+      {
+        "key": "C",
+        "text": "Adrenaline"
+      },
+      {
+        "key": "D",
+        "text": "Thyroxine"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-024",
+    "examCode": "MDCAT",
+    "subjectCode": "BIO",
+    "topic": "Ecology",
+    "prompt": "Organisms that break down dead organic matter and recycle nutrients are called:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Producers"
+      },
+      {
+        "key": "B",
+        "text": "Primary consumers"
+      },
+      {
+        "key": "C",
+        "text": "Decomposers"
+      },
+      {
+        "key": "D",
+        "text": "Predators"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-025",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Molar concentration",
+    "prompt": "What is the molarity of a solution containing 0.5 mol of solute in 2 L of solution?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "0.10 M"
+      },
+      {
+        "key": "B",
+        "text": "0.20 M"
+      },
+      {
+        "key": "C",
+        "text": "0.25 M"
+      },
+      {
+        "key": "D",
+        "text": "1.00 M"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-026",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Organic chemistry",
+    "prompt": "Which functional group is characteristic of alcohols?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "−COOH"
+      },
+      {
+        "key": "B",
+        "text": "−OH"
+      },
+      {
+        "key": "C",
+        "text": "−CHO"
+      },
+      {
+        "key": "D",
+        "text": "−NH₂"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-027",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Chemical equilibrium",
+    "prompt": "For a reversible reaction at dynamic equilibrium, which statement is correct?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "The forward reaction stops"
+      },
+      {
+        "key": "B",
+        "text": "The reverse reaction stops"
+      },
+      {
+        "key": "C",
+        "text": "Forward and reverse reaction rates are equal"
+      },
+      {
+        "key": "D",
+        "text": "Reactant and product concentrations must be equal"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-028",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Periodic table",
+    "prompt": "Across a period from left to right, atomic radius generally:",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Increases"
+      },
+      {
+        "key": "B",
+        "text": "Decreases"
+      },
+      {
+        "key": "C",
+        "text": "Remains exactly constant"
+      },
+      {
+        "key": "D",
+        "text": "First becomes infinite"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-029",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Oxidation numbers",
+    "prompt": "What is the oxidation number of oxygen in most ordinary compounds?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "−2"
+      },
+      {
+        "key": "B",
+        "text": "+1"
+      },
+      {
+        "key": "C",
+        "text": "0"
+      },
+      {
+        "key": "D",
+        "text": "+2"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-030",
+    "examCode": "MDCAT",
+    "subjectCode": "CHEM",
+    "topic": "Acid–base reactions",
+    "prompt": "What are the main products when hydrochloric acid reacts completely with sodium hydroxide?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Sodium chloride and water"
+      },
+      {
+        "key": "B",
+        "text": "Sodium and hydrogen gas"
+      },
+      {
+        "key": "C",
+        "text": "Chlorine and oxygen"
+      },
+      {
+        "key": "D",
+        "text": "Sodium oxide and hydrogen"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-031",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Newton’s laws",
+    "prompt": "A net force of 15 N acts on a 3 kg object. What is its acceleration?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "3 m/s²"
+      },
+      {
+        "key": "B",
+        "text": "5 m/s²"
+      },
+      {
+        "key": "C",
+        "text": "12 m/s²"
+      },
+      {
+        "key": "D",
+        "text": "45 m/s²"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-032",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Kinetic energy",
+    "prompt": "What is the kinetic energy of a 2 kg object moving at 4 m/s?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "8 J"
+      },
+      {
+        "key": "B",
+        "text": "12 J"
+      },
+      {
+        "key": "C",
+        "text": "16 J"
+      },
+      {
+        "key": "D",
+        "text": "32 J"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-033",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Electrical resistance",
+    "prompt": "A current of 0.5 A flows through a resistor connected to 6 V. What is the resistance?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "3 Ω"
+      },
+      {
+        "key": "B",
+        "text": "6 Ω"
+      },
+      {
+        "key": "C",
+        "text": "12 Ω"
+      },
+      {
+        "key": "D",
+        "text": "18 Ω"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-034",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Wave frequency",
+    "prompt": "A wave completes 20 cycles in 4 seconds. What is its frequency?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "4 Hz"
+      },
+      {
+        "key": "B",
+        "text": "5 Hz"
+      },
+      {
+        "key": "C",
+        "text": "16 Hz"
+      },
+      {
+        "key": "D",
+        "text": "80 Hz"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-035",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Lenses",
+    "prompt": "An object is placed beyond 2F of a converging lens. Where is its image formed?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "Between F and 2F on the opposite side"
+      },
+      {
+        "key": "B",
+        "text": "At 2F on the same side"
+      },
+      {
+        "key": "C",
+        "text": "Between the lens and F on the same side"
+      },
+      {
+        "key": "D",
+        "text": "At infinity for every object position"
+      }
+    ],
+    "sourceKind": "original-sample"
+  },
+  {
+    "id": "mdcat-extra-036",
+    "examCode": "MDCAT",
+    "subjectCode": "PHY",
+    "topic": "Density",
+    "prompt": "A substance has mass 200 g and volume 50 cm³. What is its density?",
+    "instruction": "Choose one answer.",
+    "options": [
+      {
+        "key": "A",
+        "text": "2 g/cm³"
+      },
+      {
+        "key": "B",
+        "text": "3 g/cm³"
+      },
+      {
+        "key": "C",
+        "text": "4 g/cm³"
+      },
+      {
+        "key": "D",
+        "text": "5 g/cm³"
+      }
+    ],
+    "sourceKind": "original-sample"
+  }
+]
 ];
