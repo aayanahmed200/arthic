@@ -860,7 +860,7 @@ html body:not(#arthic-polish):not(#arthic-polish-2) .site-header .menu-toggle sp
 /* Filled actions all use the same logo green with white lettering. */
 html body:not(#arthic-polish):not(#arthic-polish-2)
 :is(a.button,button.button,.button--small,.home-primary,.home-button,
-.oneprep-button,.study-action,.career-role__link,.footer__cta,
+.oneprep-button,.home-secondary,.home-sample-check,.home-sample-next,.study-action,.career-role__link,.footer__cta,
 button[type=submit],input[type=submit],.waitlist-form button,
 .apply-form button,.subscribe-form button,.form-submit) {
   background:#356512!important;
@@ -873,7 +873,7 @@ button[type=submit],input[type=submit],.waitlist-form button,
 }
 html body:not(#arthic-polish):not(#arthic-polish-2)
 :is(a.button,button.button,.button--small,.home-primary,.home-button,
-.oneprep-button,.study-action,.career-role__link,.footer__cta,
+.oneprep-button,.home-secondary,.home-sample-check,.home-sample-next,.study-action,.career-role__link,.footer__cta,
 button[type=submit],input[type=submit],.waitlist-form button,
 .apply-form button,.subscribe-form button,.form-submit):hover {
   background:#28520E!important;
@@ -1111,4 +1111,72 @@ html body.not-found-document #main .not-found-card {
     width:calc(100% - 36px)!important;
     padding-top:26px!important;
   }
+}
+
+
+/* Answer choices are controls too: use strong contrast before and after
+   checking, while keeping correctness colours unmistakable. */
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option {
+  background:#356512!important;
+  background-color:#356512!important;
+  border-color:#356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option > span:first-child {
+  border-color:rgba(255,255,255,.7)!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option:hover:not(:disabled),
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option[aria-pressed=true] {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option.is-correct {
+  background:#4F8F1E!important;
+  background-color:#4F8F1E!important;
+  border-color:#4F8F1E!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option.is-incorrect {
+  background:#B4235A!important;
+  background-color:#B4235A!important;
+  border-color:#B4235A!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option {
+  background:#356512!important;
+  background-color:#356512!important;
+  border-color:#356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option :is(.study-option__key,.study-option__text) {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option__key {
+  border-color:rgba(255,255,255,.72)!important;
+  background:transparent!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option:hover:not(:disabled),
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option[aria-pressed=true] {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option.is-correct {
+  background:#4F8F1E!important;
+  background-color:#4F8F1E!important;
+  border-color:#4F8F1E!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option.is-incorrect {
+  background:#B4235A!important;
+  background-color:#B4235A!important;
+  border-color:#B4235A!important;
+  color:#FFFFFF!important;
 }
