@@ -1322,3 +1322,258 @@ body.content-page .footer__bottom {
   }
 }
 
+
+/* ==========================================================================
+   Final shared site system: one page canvas, one dropdown treatment,
+   clean full-width footer edges and a restrained green scrollbar.
+   ========================================================================== */
+:root {
+  --arthic-page: #F3F6EE;
+  --arthic-surface: #FFFEF8;
+  --arthic-soft: #E8EFDD;
+  --arthic-green: #2F7548;
+  --arthic-green-dark: #205A38;
+  --arthic-ink: #203B2C;
+  --arthic-muted: #617360;
+}
+
+/* One canvas across the homepage, content pages, practice room and policies. */
+html,
+body {
+  min-width: 320px;
+  background: var(--arthic-page) !important;
+  color: var(--arthic-ink);
+  scrollbar-width: thin;
+  scrollbar-color: #789D6F transparent;
+}
+body.home-page,
+body.content-page,
+body.study-preview-page,
+body.legal-page,
+body.error-page,
+.home-page {
+  background: var(--arthic-page) !important;
+}
+body.home-page main,
+body.content-page main,
+body.study-preview-page main,
+body.legal-page main,
+body.error-page main,
+.home-page {
+  background: transparent !important;
+}
+body.content-page .content-main > section,
+body.home-page main > section,
+body.study-preview-page main > section {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* The same spacing and alignment rules are used by the main hero sections. */
+body.content-page .content-main > :is(.content-hero,.oneprep-subhero,.study-intro,.method-hero,.pricing-intro,.career-intro),
+body.home-page .home-hero,
+body.study-preview-page .study-intro {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body.content-page .content-main > :is(.content-hero,.oneprep-subhero,.study-intro,.method-hero,.pricing-intro,.career-intro) > .content-container,
+body.content-page .content-main > :is(.content-hero,.oneprep-subhero,.study-intro) .content-container {
+  width: min(1200px, calc(100% - 64px)) !important;
+  max-width: 1200px !important;
+  margin-inline: auto !important;
+}
+
+/* A consistently styled, native and keyboard-accessible dropdown on all pages.
+   Only its presentation changes; the browser's normal option menu stays intact. */
+body select,
+body.content-page select,
+body.home-page select,
+body.study-preview-page select,
+.home-page select {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 44px 10px 14px !important;
+  border: 1px solid rgba(44, 83, 51, .22) !important;
+  border-radius: 11px !important;
+  background-color: var(--arthic-surface) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m3.5 6 4.5 4.5L12.5 6' stroke='%233D6948' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 16px 16px !important;
+  color: #294833 !important;
+  font: 500 13px/1.4 "Poppins", sans-serif !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+body select:hover,
+body.content-page select:hover,
+body.study-preview-page select:hover {
+  border-color: rgba(47, 117, 72, .55) !important;
+}
+body select:focus,
+body.content-page select:focus,
+body.study-preview-page select:focus {
+  outline: 3px solid rgba(47, 117, 72, .18) !important;
+  border-color: var(--arthic-green) !important;
+}
+body select option,
+body.content-page select option,
+body.study-preview-page select option {
+  background: #FFFEF8;
+  color: #203B2C;
+}
+body select::-ms-expand { display: none; }
+
+/* Consistent thin scrollbar. Tracks remain transparent so the page canvas
+   shows through rather than creating a separate grey bar. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #789D6F transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  min-height: 34px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: #86A97A;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #4F8055;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Footer: remove the line at the bottom and any side seams or frame edges. */
+body .site-footer,
+body.content-page .footer-frame,
+body.content-page .footer,
+body.study-preview-page .footer-frame,
+body.study-preview-page .footer {
+  position: relative;
+  display: block;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+body .site-footer {
+  overflow: clip;
+  background: var(--arthic-page) !important;
+}
+body .site-footer .footer-garden {
+  display: block;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  overflow: hidden;
+  background: transparent !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+body .site-footer .footer-foliage {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  vertical-align: top;
+}
+body .site-footer .footer-inner {
+  width: min(1260px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 30px 0 24px !important;
+  border: 0 !important;
+}
+body .site-footer .footer-grid,
+body .site-footer .footer-column {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+body .site-footer .footer-bottom,
+body .site-footer .footer__bottom,
+body.content-page .footer__bottom,
+body.study-preview-page .footer__bottom {
+  border: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+body.content-page .footer-frame,
+body.study-preview-page .footer-frame {
+  overflow: clip;
+  background: var(--arthic-page) !important;
+}
+body.content-page .footer,
+body.study-preview-page .footer {
+  background: var(--arthic-page) !important;
+  color: var(--arthic-ink) !important;
+  border: 0 !important;
+  padding-block: 44px 28px !important;
+}
+body.content-page .footer__top,
+body.study-preview-page .footer__top {
+  margin-bottom: 0 !important;
+}
+body.content-page .footer__bottom,
+body.study-preview-page .footer__bottom {
+  padding: 15px 0 0 !important;
+}
+body .site-footer::before,
+body .site-footer::after,
+body .site-footer .footer-inner::before,
+body .site-footer .footer-inner::after,
+body.content-page .footer-frame::before,
+body.content-page .footer-frame::after,
+body.content-page .footer::before,
+body.content-page .footer::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Avoid a horizontal seam introduced by fractional-width media at the footer. */
+body .site-footer img,
+body.content-page .footer img,
+body.study-preview-page .footer img {
+  image-rendering: auto;
+}
+@media (max-width: 760px) {
+  body.content-page .content-main > :is(.content-hero,.oneprep-subhero,.study-intro,.method-hero,.pricing-intro,.career-intro) > .content-container,
+  body.content-page .content-main > :is(.content-hero,.oneprep-subhero,.study-intro) .content-container {
+    width: calc(100% - 40px) !important;
+  }
+  body .site-footer .footer-inner {
+    width: calc(100% - 40px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *::-webkit-scrollbar-thumb {
+    transition: none !important;
+  }
+}
+
