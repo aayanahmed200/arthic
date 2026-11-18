@@ -45,13 +45,13 @@ try {
   const feed = mockRequest("GET");
   questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
-  assert.equal(feed.res.body.questions.length, 320);
+  assert.equal(feed.res.body.questions.length, 400);
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
   for (const examCode of examCodes) {
-    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 80);
+    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 100);
   }
-  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v6-320");
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v7-400");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
   assert.ok(feed.res.body.dataVersion);
   assert.ok(feed.res.body.questions.some((item) => item.id === "mdcat-extra-014"));
@@ -60,6 +60,23 @@ try {
     assert.equal("correctOption" in item, false);
     assert.equal("explanation" in item, false);
     assert.equal("takeaway" in item, false);
+  }
+
+
+  // Confirm answer data for the four newly expanded tracks remains server-side.
+  for (const [questionId, correctOption] of [
+    ["lcat-new-001", "B"],
+    ["net-new-001", "C"],
+    ["css-new-001", "B"],
+    ["mdcat-new-001", "B"],
+  ]) {
+    const added = mockRequest("POST", { questionId, selectedOption: correctOption });
+    await checkHandler(added.req, added.res);
+    assert.equal(added.res.code, 200, questionId);
+    assert.equal(added.res.body.isCorrect, true, questionId);
+    assert.equal(added.res.body.correctOption, correctOption, questionId);
+    assert.ok(added.res.body.explanation, questionId);
+    assert.ok(added.res.body.takeaway, questionId);
   }
 
   const feedWrongMethod = mockRequest("POST");
