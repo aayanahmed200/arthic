@@ -1,4 +1,5 @@
 import { EXPANDED_SAMPLE_QUESTIONS } from "./_expanded-content.js";
+import { MORE_SAMPLE_QUESTIONS } from "./_more-content.js";
 
 export interface StudyOption { key: string; text: string; }
 
@@ -2907,4 +2908,5 @@ const BASE_SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
 export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
   ...BASE_SAMPLE_QUESTIONS,
   ...EXPANDED_SAMPLE_QUESTIONS,
+  ...MORE_SAMPLE_QUESTIONS,
 ];

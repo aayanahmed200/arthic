@@ -1,9 +1,11 @@
 import "./styles/main.css";
 import "./styles/study-preview.css";
 import "./styles/arthic-study-final.css";
+import "./styles/global-final.css";
 import { initCommon } from "./lib/common-init";
 import { SAMPLE_QUESTIONS, type StudyQuestionPrompt } from "./data/sample-questions";
 import { EXPANDED_SAMPLE_QUESTIONS } from "./data/expanded-sample-questions";
+import { MORE_SAMPLE_QUESTIONS } from "./data/more-sample-questions";
 
 initCommon();
 
@@ -24,7 +26,7 @@ const SUBJECT_LABELS: Record<string, string> = {
 };
 const EXAM_LABELS: Record<string, string> = { MDCAT: "MDCAT", LCAT: "LCAT", NET: "NUST NET", CSS: "CSS", ALL: "All tracks" };
 
-let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS];
+let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS, ...MORE_SAMPLE_QUESTIONS];
 
 function subjectLabel(code: string): string {
   return SUBJECT_LABELS[code] ?? code;

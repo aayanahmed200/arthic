@@ -7,3 +7,4 @@ import "@fontsource/poppins/800.css";
 import "./styles/arthic-share.css";
 import "./styles/arthic-shell.css";
 import "./landing";
+import "./styles/global-final.css";

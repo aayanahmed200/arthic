@@ -1,8 +1,4 @@
 const HEADER = `<header class="site-header" data-header data-nav>
-  <a class="brand" href="/" aria-label="Arthic home">
-    <img class="brand-mark" src="/arthic-mark.svg" width="44" height="44" alt="" />
-    <span class="brand-name">Arthic</span>
-  </a>
   <nav class="desktop-nav" aria-label="Primary navigation">
     <a href="/study-preview.html" data-nav-link>Practice</a>
     <a href="/pricing.html" data-nav-link>Pricing</a>
@@ -67,11 +63,9 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
 
 function applyReferenceSurfaces(): void {
   if (!document.body.classList.contains("content-page")) return;
-  // The body is the lime canvas; each page owns its own section surfaces.
-  // Do not paint every main section the same color here: page-specific CSS
-  // needs to control the practice, pricing, careers and pathway layouts.
-  document.documentElement.style.setProperty("background", "#CCEB80");
-  document.body.style.setProperty("background", "#CCEB80");
+  // Every route shares the same light-blue page canvas.
+  document.documentElement.style.setProperty("background", "#D0ECFD");
+  document.body.style.setProperty("background", "#D0ECFD");
 }
 
 export function initReferenceChrome(): void {
@@ -85,6 +79,6 @@ export function initReferenceChrome(): void {
   if (existingFooter) existingFooter.outerHTML = FOOTER;
 
   document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#D0ECFD");
-  document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/favicon.svg?v=5");
+  document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/favicon.svg?v=6");
   applyReferenceSurfaces();
 }
