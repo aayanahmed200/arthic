@@ -718,3 +718,111 @@ html body:not(#arthic-blue-specificity) :is(.site-footer,.footer-frame,.footer,.
 html body:not(#arthic-blue-specificity) .not-found-card {background:#D0ECFD!important;background-color:#D0ECFD!important;}
 html body:not(#arthic-blue-specificity) .site-header,
 html body:not(#arthic-blue-specificity) .mobile-menu {background:rgba(208,236,253,.97)!important;}
+
+
+/* Final Arthic brand layer: one sky-blue canvas, lime-green headings and black supporting copy. */
+:root {
+  --arthic-blue:#BFE7FF;
+  --arthic-page:#BFE7FF;
+  --arthic-sky:#BFE7FF;
+  --sky:#BFE7FF;
+  --grass:#92D540;
+  --arthic-lime:#92D540;
+  --arthic-green:#356512;
+  --color-bg:#BFE7FF;
+  --color-bg-raised:#BFE7FF;
+  --color-bg-sunken:#BFE7FF;
+  --color-fg:#111111;
+  --color-fg-dim:#111111;
+  --color-fg-mute:#111111;
+  --color-fg-faint:rgba(17,17,17,.14);
+  --color-fg-hairline:rgba(17,17,17,.10);
+  --color-focus:#356512;
+  --color-accent:#356512;
+  --color-accent-strong:#356512;
+  --color-accent-fill:#92D540;
+  --color-accent-dim:rgba(146,213,64,.17);
+  --color-accent-hairline:rgba(53,101,18,.3);
+}
+html,html body,html body.content-page,html body.home-page,
+html body.study-preview-page,html body.legal-page,html body.not-found-document {
+  background:#BFE7FF!important;
+  background-color:#BFE7FF!important;
+  background-image:none!important;
+  color:#111111!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(#main,main,section,.content-main,.home-page,.home-shell,.content-container,
+.site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,.footer-column,
+.footer-garden,.entry,.not-found-card,.study-rail,.study-session,
+.study-sidebar,.study-sidebar__section,.study-bank-nav,.study-preview-invite,
+[data-page-surface]) {
+  background:#BFE7FF!important;
+  background-color:#BFE7FF!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(.site-header,.mobile-menu,body.content-page .nav,body.content-page .mobile-nav) {
+  background:rgba(191,231,255,.98)!important;
+  background-color:rgba(191,231,255,.98)!important;
+  background-image:none!important;
+}
+/* Green is reserved for titles, labels, key values and navigational emphasis. */
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(h1,h2,h3,h4,.brand-name,.home-route__name,.home-facts dt,
+.study-intro__aside strong,.study-sidebar__stat strong,
+.content-hero__topline,.oneprep-eyebrow,.home-eyebrow,
+.study-rail__eyebrow,.study-session__eyebrow,.study-sidebar__eyebrow,
+.study-complete__eyebrow,.footer-column>span,.footer__col-label,
+.site-header .desktop-nav a,body.content-page .nav__links a,
+.study-intro__aside-label,.study-session__type,.study-question__meta,
+.study-question__context,.study-bank-nav__top,.study-filter-label) {
+  color:#356512!important;
+}
+/* Supporting copy stays black for contrast and predictable reading. */
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(p,li,small,dd,blockquote,figcaption,
+.content-hero__lede,.oneprep-lede,.study-intro__lede,.content-hero__note,
+.oneprep-subhero__note,.study-session__subhead,.study-question__instruction,
+.study-rail__foot,.study-sidebar__text,.study-intro__aside-caption,
+.home-route__detail,.home-disclaimer,.home-available__body,
+.footer-column>a,.footer-email,.footer__tagline,.footer__col>a,
+.mobile-nav__foot,.mobile-nav__mail,.study-bank-nav__hint) {
+  color:#111111!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+a:not(.button):not(.study-option):not(.home-sample-option):not(.study-action) {
+  color:#356512!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(.site-footer a,.footer-column>a,.footer-email,.footer__col>a,.mobile-nav__foot) {
+  color:#111111!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(input,select,textarea,.study-filter-select,.study-filter-search) {
+  color:#111111!important;
+  background-color:rgba(255,255,255,.72)!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(.site-header .button--small,.site-header .header-actions .button) {
+  background:#356512!important;
+  background-color:#356512!important;
+  border-color:#356512!important;
+  color:#ffffff!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(.site-header .button--small,.site-header .header-actions .button):hover {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#ffffff!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2) :focus-visible {
+  outline-color:#356512!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2) ::selection {
+  background:#356512!important;
+  color:#ffffff!important;
+}

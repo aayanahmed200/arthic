@@ -30,7 +30,7 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand brand--footer" href="/" aria-label="Arthic home">
-          <img class="brand-mark" src="/favicon.svg" width="44" height="44" alt="" />
+          <img class="brand-mark" src="/arthic-logo.png" width="44" height="44" alt="" />
           <span class="brand-name">Arthic</span>
         </a>
         <a class="footer-email" href="mailto:hello@arthic.tech">hello@arthic.tech</a>
@@ -63,21 +63,41 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
   </div>
 </footer>`;
 
+let surfaceObserver: MutationObserver | null = null;
+
 function applyReferenceSurfaces(): void {
-  // Apply the same flat blue to every route and every section after its page
-  // markup is present. Inline important styles beat older page-specific fills.
-  const blue = "#D0ECFD";
+  const blue = "#BFE7FF";
+  const surfaceSelector = [
+    "main", "section", ".content-main", ".home-page", ".home-shell",
+    ".content-container", ".site-footer", ".footer-frame", ".footer",
+    ".footer-inner", ".footer-grid", ".footer-column", ".footer-garden",
+    ".not-found-card", ".entry", ".study-rail", ".study-session",
+    ".study-sidebar", ".study-sidebar__section", ".study-preview-invite",
+    "[data-page-surface]"
+  ].join(",");
+
+  const applySurface = (surface: HTMLElement): void => {
+    surface.style.setProperty("background-color", blue, "important");
+    surface.style.setProperty("background-image", "none", "important");
+  };
+
   document.documentElement.style.setProperty("background-color", blue, "important");
   document.documentElement.style.setProperty("background-image", "none", "important");
   document.body.style.setProperty("background-color", blue, "important");
   document.body.style.setProperty("background-image", "none", "important");
+  document.querySelectorAll<HTMLElement>(surfaceSelector).forEach(applySurface);
 
-  document.querySelectorAll<HTMLElement>(
-    "main, section, .content-main, .home-page, .site-footer, .footer-inner, .footer-garden, .not-found-card, .entry"
-  ).forEach((surface) => {
-    surface.style.setProperty("background-color", blue, "important");
-    surface.style.setProperty("background-image", "none", "important");
-  });
+  // Keep delayed content on the same canvas too.
+  if (!surfaceObserver) {
+    surfaceObserver = new MutationObserver((records) => {
+      records.forEach((record) => record.addedNodes.forEach((node) => {
+        if (!(node instanceof HTMLElement)) return;
+        if (node.matches(surfaceSelector)) applySurface(node);
+        node.querySelectorAll<HTMLElement>(surfaceSelector).forEach(applySurface);
+      }));
+    });
+    surfaceObserver.observe(document.body, { childList: true, subtree: true });
+  }
 }
 
 export function initReferenceChrome(): void {
@@ -90,7 +110,8 @@ export function initReferenceChrome(): void {
   const existingFooter = document.querySelector<HTMLElement>(".footer-frame, [data-footer-root], .site-footer");
   if (existingFooter) existingFooter.outerHTML = FOOTER;
 
-  document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#D0ECFD");
-  document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/favicon.svg");
+  document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#BFE7FF");
+  document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/arthic-logo.png");
+  document.querySelector<HTMLLinkElement>('link[rel="apple-touch-icon"]')?.setAttribute("href", "/arthic-logo.png");
   applyReferenceSurfaces();
 }

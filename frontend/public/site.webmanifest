@@ -4,13 +4,13 @@
   "description": "Exam preparation for LCAT, NUST NET, CSS and MDCAT.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#D0ECFD",
-  "theme_color": "#D0ECFD",
+  "background_color": "#BFE7FF",
+  "theme_color": "#BFE7FF",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "/arthic-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }
