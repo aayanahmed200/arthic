@@ -1,0 +1,83 @@
+/* Final, page-last practice surface corrections. The shared design system
+   provides the page composition; these high-specificity rules ensure older
+   study-preview styles cannot wash out the distinct surfaces. */
+html body.content-page.study-preview-page main > section.study-intro {
+  display:block!important;
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+  text-align:left!important;
+  padding:112px 24px 48px!important;
+}
+html body.content-page.study-preview-page main > section.study-intro::before,
+html body.content-page.study-preview-page main > section.study-intro::after {
+  content:none!important;
+  display:none!important;
+}
+html body.content-page.study-preview-page .study-intro__layout {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 270px!important;
+  align-items:center!important;
+  gap:clamp(34px,6vw,90px)!important;
+  width:min(1280px,100%)!important;
+  margin:0 auto!important;
+}
+html body.content-page.study-preview-page .study-intro h1 {
+  max-width:13ch!important;
+  margin:0 0 16px!important;
+  text-align:left!important;
+  text-transform:none!important;
+  font-family:"Bricolage Grotesque Variable",sans-serif!important;
+  font-size:clamp(48px,6vw,76px)!important;
+  font-weight:800!important;
+  line-height:.96!important;
+  letter-spacing:-.065em!important;
+}
+html body.content-page.study-preview-page .study-intro__lede {
+  max-width:60ch!important;
+  margin:0!important;
+  text-align:left!important;
+  color:#314A3A!important;
+  font-size:16px!important;
+  line-height:1.7!important;
+}
+html body.content-page.study-preview-page .study-rail {
+  position:sticky!important;
+  top:92px!important;
+  min-height:520px!important;
+  padding:19px 16px!important;
+  border:1px solid rgba(31,66,39,.14)!important;
+  border-radius:14px!important;
+  background:#E8F1CF!important;
+  background-color:#E8F1CF!important;
+  border-right:1px solid rgba(31,66,39,.14)!important;
+}
+html body.content-page.study-preview-page .study-sidebar {
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+}
+html body.content-page.study-preview-page .study-sidebar__section {
+  padding:17px 16px!important;
+  border:1px solid rgba(29,66,39,.12)!important;
+  border-radius:12px!important;
+  background:#F3F6E9!important;
+}
+@media(max-width:760px) {
+  html body.content-page.study-preview-page main > section.study-intro {
+    padding:106px 20px 38px!important;
+  }
+  html body.content-page.study-preview-page .study-intro__layout {
+    grid-template-columns:1fr!important;
+    gap:22px!important;
+  }
+  html body.content-page.study-preview-page .study-intro__aside {
+    min-height:0!important;
+    padding:17px 19px!important;
+  }
+  html body.content-page.study-preview-page .study-rail {
+    position:static!important;
+    min-height:0!important;
+    padding:16px!important;
+  }
+}

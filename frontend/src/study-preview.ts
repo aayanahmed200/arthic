@@ -1,5 +1,6 @@
 import "./styles/main.css";
 import "./styles/study-preview.css";
+import "./styles/arthic-study-final.css";
 import { initCommon } from "./lib/common-init";
 import { SAMPLE_QUESTIONS, type StudyQuestionPrompt } from "./data/sample-questions";
 
