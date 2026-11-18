@@ -1,5 +1,6 @@
 const HEADER = `<header class="site-header" data-header data-nav>
   <nav class="desktop-nav" aria-label="Primary navigation">
+    <a href="/" data-nav-link>Home</a>
     <a href="/study-preview.html" data-nav-link>Practice</a>
     <a href="/pricing.html" data-nav-link>Pricing</a>
     <a href="/careers.html" data-nav-link>Careers</a>
@@ -13,6 +14,7 @@ const HEADER = `<header class="site-header" data-header data-nav>
 
 const MOBILE_MENU = `<div class="mobile-menu" id="mobile-menu" data-mobile-menu data-mobile-nav hidden aria-hidden="true">
   <nav aria-label="Mobile navigation">
+    <a href="/" data-mobile-link>Home</a>
     <a href="/study-preview.html" data-mobile-link>Practice</a>
     <a href="/pricing.html" data-mobile-link>Pricing</a>
     <a href="/careers.html" data-mobile-link>Careers</a>

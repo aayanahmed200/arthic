@@ -695,3 +695,26 @@ html body.content-page.not-found-document:not(#arthic-blue-specificity):not(#art
     border-radius:16px!important;
   }
 }
+
+
+/* Unified blue sections across every Arthic route, including older themed sections. */
+html body:not(#arthic-blue-specificity) {
+ background:#D0ECFD!important;background-color:#D0ECFD!important;background-image:none!important;
+}
+html body:not(#arthic-blue-specificity) :is(main,#main,.content-main,.home-page,.site-footer,.footer-frame,.footer,.footer-garden) {
+ background:#D0ECFD!important;background-color:#D0ECFD!important;background-image:none!important;
+}
+html body:not(#arthic-blue-specificity) section,
+html body:not(#arthic-blue-specificity) main > section,
+html body:not(#arthic-blue-specificity) .content-main > section,
+html body:not(#arthic-blue-specificity) .home-page > section,
+html body:not(#arthic-blue-specificity) .entry {
+ background:#D0ECFD!important;background-color:#D0ECFD!important;background-image:none!important;
+ box-shadow:none!important;clip-path:none!important;
+}
+html body:not(#arthic-blue-specificity) :is(.site-footer,.footer-frame,.footer,.site-footer .footer-garden) {
+ background:#D0ECFD!important;background-color:#D0ECFD!important;background-image:none!important;
+}
+html body:not(#arthic-blue-specificity) .not-found-card {background:#D0ECFD!important;background-color:#D0ECFD!important;}
+html body:not(#arthic-blue-specificity) .site-header,
+html body:not(#arthic-blue-specificity) .mobile-menu {background:rgba(208,236,253,.97)!important;}
