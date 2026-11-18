@@ -1923,7 +1923,8 @@ export const EXPANDED_SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
     "sourceKind": "original-sample"
   }
 ,
-"id": "lcat-extra-017",
+  {
+    "id": "lcat-extra-017",
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Discounts and percentages",
