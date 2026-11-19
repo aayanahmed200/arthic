@@ -46,13 +46,13 @@ try {
   const feed = mockRequest("GET");
   questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
-  assert.equal(feed.res.body.questions.length, 720);
+  assert.equal(feed.res.body.questions.length, 800);
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
   for (const examCode of examCodes) {
-    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 180);
+    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 200);
   }
-  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v11-720");
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v12-800");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
   assert.ok(feed.res.body.dataVersion);
   assert.ok(feed.res.body.questions.some((item) => item.id === "mdcat-extra-014"));
@@ -69,6 +69,26 @@ try {
   for (const question of v11Questions) {
     assert.equal(question.options.length, 4, question.id);
     assert.ok(question.options.some((option) => option.key === question.answer), question.id);
+    const check = mockRequest("POST", { questionId: question.id, selectedOption: question.answer });
+    await checkHandler(check.req, check.res);
+    assert.equal(check.res.code, 200, question.id);
+    assert.equal(check.res.body.isCorrect, true, question.id);
+    assert.equal(check.res.body.correctOption, question.answer, question.id);
+    assert.ok(check.res.body.explanation, question.id);
+    assert.ok(check.res.body.takeaway, question.id);
+  }
+
+
+  const v12Questions = SAMPLE_QUESTIONS.filter((item) => item.id.startsWith("v12-"));
+  assert.equal(v12Questions.length, 80);
+  for (const examCode of examCodes) {
+    assert.equal(v12Questions.filter((item) => item.examCode === examCode).length, 20);
+  }
+  for (const question of v12Questions) {
+    assert.equal(question.options.length, 4, question.id);
+    assert.ok(question.options.some((option) => option.key === question.answer), question.id);
+    assert.ok(question.explanation, question.id);
+    assert.ok(question.takeaway, question.id);
     const check = mockRequest("POST", { questionId: question.id, selectedOption: question.answer });
     await checkHandler(check.req, check.res);
     assert.equal(check.res.code, 200, question.id);
@@ -212,7 +232,7 @@ try {
   await checkHandler(wrongMethod.req, wrongMethod.res);
   assert.equal(wrongMethod.res.code, 405);
 
-  console.log("Study question API tests passed (720 questions; all V10 and V11 answer keys checked):");
+  console.log("Study question API tests passed (800 questions; all V10, V11 and V12 answer keys checked):");
   console.log("- public feed returns questions without answer keys or explanations");
   console.log("- correct and incorrect answers are scored server-side");
   console.log("- explanations and takeaways arrive only after submission");
