@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { SAMPLE_QUESTIONS } from "./_sample-content.js";
 
 const SUPPORTED_EXAMS = new Set(["LCAT", "NET", "CSS", "MDCAT"]);
-const DATA_VERSION = "arthic-original-four-track-v11-720";
+const DATA_VERSION = "arthic-original-four-track-v12-800";
 
 function normalizedSubjectCode(examCode: string, subjectCode: string): string {
   return examCode === "LCAT" && ["ENGLISH", "LOGIC", "ANALYTICAL"].includes(subjectCode)
@@ -44,7 +44,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         WHERE is_published = true AND is_archived = false
           AND exam_code IN ('LCAT', 'NET', 'CSS', 'MDCAT')
         ORDER BY exam_code, subject_code, topic, id
-        LIMIT 800
+        LIMIT 900
       `;
       const published = rows
         .map((row) => toPublicQuestion(row as Record<string, unknown>))
