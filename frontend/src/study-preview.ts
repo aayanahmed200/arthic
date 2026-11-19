@@ -11,6 +11,7 @@ import { FRESH_SAMPLE_QUESTIONS } from "./data/fresh-sample-questions";
 import { NEXT_SAMPLE_QUESTIONS } from "./data/next-sample-questions";
 import { V10_SAMPLE_QUESTIONS } from "./data/v10-sample-questions";
 import { V11_SAMPLE_QUESTIONS } from "./data/v11-sample-questions";
+import { V12_SAMPLE_QUESTIONS } from "./data/v12-sample-questions";
 
 initCommon();
 
@@ -33,7 +34,7 @@ const SUBJECT_LABELS: Record<string, string> = {
 };
 const EXAM_LABELS: Record<string, string> = { MDCAT: "MDCAT", LCAT: "LCAT", NET: "NUST NET", CSS: "CSS", ALL: "All tracks" };
 
-let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS, ...MORE_SAMPLE_QUESTIONS, ...ADDITIONAL_SAMPLE_QUESTIONS, ...FRESH_SAMPLE_QUESTIONS, ...NEXT_SAMPLE_QUESTIONS, ...V10_SAMPLE_QUESTIONS, ...V11_SAMPLE_QUESTIONS];
+let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS, ...MORE_SAMPLE_QUESTIONS, ...ADDITIONAL_SAMPLE_QUESTIONS, ...FRESH_SAMPLE_QUESTIONS, ...NEXT_SAMPLE_QUESTIONS, ...V10_SAMPLE_QUESTIONS, ...V11_SAMPLE_QUESTIONS, ...V12_SAMPLE_QUESTIONS];
 
 function displaySubjectCode(question: StudyQuestionPrompt): string {
   if (question.examCode === "LCAT" && ["ENGLISH", "LOGIC", "ANALYTICAL"].includes(question.subjectCode)) return "VERBAL";
