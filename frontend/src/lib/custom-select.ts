@@ -60,6 +60,8 @@ function enhanceSelect(select: HTMLSelectElement): void {
 
   let optionEls: HTMLButtonElement[] = [];
   let activeIndex = Math.max(0, select.selectedIndex);
+  let typeaheadBuffer = "";
+  let typeaheadTimer = 0;
 
   const syncValue = (): void => {
     valueEl.textContent = select.selectedOptions[0]?.textContent?.trim() || select.getAttribute("placeholder") || "Choose an option";
@@ -98,6 +100,8 @@ function enhanceSelect(select: HTMLSelectElement): void {
   const close = (restoreFocus = false): void => {
     listbox.hidden = true;
     trigger.setAttribute("aria-expanded", "false");
+    wrapper.classList.remove("is-open", "custom-select--open-up");
+    listbox.style.removeProperty("max-height");
     if (restoreFocus) trigger.focus();
   };
 
@@ -123,8 +127,20 @@ function enhanceSelect(select: HTMLSelectElement): void {
 
   const open = (direction: 1 | -1 | 0 = 0): void => {
     if (select.disabled || !optionEls.length) return;
+
+    const triggerRect = trigger.getBoundingClientRect();
+    const spaceBelow = Math.max(0, window.innerHeight - triggerRect.bottom - 16);
+    const spaceAbove = Math.max(0, triggerRect.top - 16);
+    const estimatedHeight = Math.min(280, optionEls.length * 41 + 12);
+    const openUp = spaceBelow < Math.min(estimatedHeight, 180) && spaceAbove > spaceBelow;
+    const availableSpace = openUp ? spaceAbove : spaceBelow;
+
+    wrapper.classList.toggle("custom-select--open-up", openUp);
+    wrapper.classList.add("is-open");
+    listbox.style.maxHeight = Math.max(112, Math.min(280, availableSpace || 112)) + "px";
     listbox.hidden = false;
     trigger.setAttribute("aria-expanded", "true");
+
     const selected = select.selectedIndex >= 0 ? select.selectedIndex : 0;
     const startingIndex = direction === 0
       ? selected
@@ -147,6 +163,21 @@ function enhanceSelect(select: HTMLSelectElement): void {
   listbox.addEventListener("keydown", (event) => {
     if (event.key === "Escape") { event.preventDefault(); close(true); return; }
     if (event.key === "Tab") { close(false); return; }
+    if (!event.ctrlKey && !event.metaKey && !event.altKey && /^[a-z0-9]$/i.test(event.key)) {
+      event.preventDefault();
+      typeaheadBuffer += event.key.toLocaleLowerCase();
+      window.clearTimeout(typeaheadTimer);
+      typeaheadTimer = window.setTimeout(() => { typeaheadBuffer = ""; }, 650);
+      const startAt = (activeIndex + 1) % optionEls.length;
+      const match = Array.from({length: optionEls.length}, (_, offset) => (startAt + offset) % optionEls.length)
+        .find((index) => !optionEls[index]?.disabled &&
+          (optionEls[index]?.textContent || "").trim().toLocaleLowerCase().startsWith(typeaheadBuffer));
+      if (match !== undefined) {
+        activeIndex = match;
+        optionEls[match]?.focus();
+      }
+      return;
+    }
     if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) return;
     event.preventDefault();
     if (event.key === "Home") {
