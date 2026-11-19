@@ -26,7 +26,7 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand brand--footer" href="/" aria-label="Arthic home"><span class="brand-name">Arthic</span></a>
+        <a class="brand brand--footer" href="/" aria-label="Arthic home"><img class="footer-wordmark" src="/arthic-footer-wordmark.png" alt="Arthic" width="360" height="102" /></a>
         <p class="footer-brand__description">A clearer place to prepare, practise and build confidence across Pakistan's entrance and competitive exams.</p>
         <a class="footer-email" href="mailto:hello@arthic.tech">hello@arthic.tech</a>
       </div>
