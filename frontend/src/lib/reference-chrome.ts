@@ -26,36 +26,41 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand brand--footer" href="/" aria-label="Arthic home">
-          <img class="brand-mark" src="/arthic-logo.png" width="44" height="44" alt="" />
-          <span class="brand-name">Arthic</span>
-        </a>
+        <a class="brand brand--footer" href="/" aria-label="Arthic home"><span class="brand-name">Arthic</span></a>
+        <p class="footer-brand__description">A clearer place to prepare, practise and build confidence across Pakistan's entrance and competitive exams.</p>
         <a class="footer-email" href="mailto:hello@arthic.tech">hello@arthic.tech</a>
       </div>
-      <nav class="footer-column" aria-label="Practice">
-        <span>Practice</span>
-        <a href="/study-preview.html">Practice questions</a>
+      <nav class="footer-column" aria-label="Learn">
+        <span>Learn</span>
+        <a href="/study-preview.html">Practice preview</a>
         <a href="/subjects.html">Exam pathways</a>
+        <a href="/method.html">How Arthic works</a>
+        <a href="/pricing.html">Plans and pricing</a>
       </nav>
-      <nav class="footer-column" aria-label="Exam routes">
-        <span>Exam routes</span>
+      <nav class="footer-column" aria-label="Exam boards">
+        <span>Exam boards</span>
         <a href="/subjects.html#lcat">LCAT</a>
-        <a href="/subjects.html#net">NET</a>
+        <a href="/subjects.html#net">NUST NET</a>
         <a href="/subjects.html#css">CSS</a>
         <a href="/subjects.html#mdcat">MDCAT</a>
       </nav>
-      <nav class="footer-column" aria-label="Company">
-        <span>Company</span>
+      <nav class="footer-column" aria-label="Arthic">
+        <span>Arthic</span>
         <a href="/careers.html">Careers</a>
-        <a href="/waitlist.html">Early access</a>
+        <a href="/waitlist.html">Join early access</a>
         <a href="mailto:hello@arthic.tech">Contact</a>
       </nav>
-      <nav class="footer-column" aria-label="Legal">
-        <span>Legal</span>
+      <nav class="footer-column" aria-label="Policies">
+        <span>Policies</span>
         <a href="/terms.html">Terms of use</a>
         <a href="/privacy.html">Privacy policy</a>
         <a href="/cookies.html">Cookie policy</a>
       </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span data-year>2026</span> Arthic. All rights reserved.</p>
+      <span>Thoughtful practice. Clearer progress.</span>
+      <a href="#top">Back to top ↑</a>
     </div>
   </div>
 </footer>`;
@@ -123,8 +128,8 @@ export function initReferenceChrome(): void {
   if (existingFooter) existingFooter.outerHTML = FOOTER;
 
   document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#F7F2E8");
-  document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/arthic-logo.png");
-  document.querySelector<HTMLLinkElement>('link[rel="apple-touch-icon"]')?.setAttribute("href", "/arthic-logo.png");
+  document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/favicon.svg");
+  document.querySelector<HTMLLinkElement>('link[rel="apple-touch-icon"]')?.setAttribute("href", "/icon-512.png");
   applyReferenceSurfaces();
   applyBrandFooter();
 }
