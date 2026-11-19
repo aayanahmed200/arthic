@@ -9,6 +9,10 @@
   --arthic-muted: #4B514A;
   --arthic-line: rgba(17,17,17,.12);
   --arthic-card-shadow: 0 8px 24px rgba(20,35,18,.055);
+  --arthic-pink: #F6D7E2;
+  --arthic-pink-border: #E8B3C5;
+  --arthic-pink-ink: #713349;
+  --arthic-pink-hover: #EFB9CD;
 }
 html {
   min-width: 320px;
@@ -66,10 +70,10 @@ html body .site-header {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  width: min(700px,calc(100vw - 32px)) !important;
-  height: 62px !important;
-  min-height: 62px !important;
-  padding: 0 14px !important;
+  width: min(640px,calc(100vw - 32px)) !important;
+  height: 58px !important;
+  min-height: 58px !important;
+  padding: 0 12px !important;
   border: 1px solid rgba(25,63,10,.08) !important;
   border-radius: 999px !important;
   background: #356512 !important;
@@ -84,7 +88,7 @@ html body .site-header .desktop-nav {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: clamp(6px,1.2vw,16px) !important;
+  gap: clamp(4px,.75vw,9px) !important;
   margin: 0 auto !important;
   transform: none !important;
   background: transparent !important;
@@ -93,13 +97,13 @@ html body .site-header .desktop-nav a {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-height: 42px !important;
-  padding: 10px 12px !important;
+  min-height: 38px !important;
+  padding: 8px 9px !important;
   border: 0 !important;
   border-radius: 999px !important;
   background: transparent !important;
   color: #FFFFFF !important;
-  font: 600 13px/1.2 "Poppins",sans-serif !important;
+  font: 600 12px/1.2 "Poppins",sans-serif !important;
   text-decoration: none !important;
   box-shadow: none !important;
 }
@@ -114,21 +118,21 @@ html body .site-header .header-actions {
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
-  margin-left: 12px !important;
+  margin-left: 8px !important;
 }
 html body .site-header .header-actions .button,
 html body .site-header .button--small {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-height: 42px !important;
-  padding: 10px 14px !important;
+  min-height: 38px !important;
+  padding: 8px 11px !important;
   border: 1px solid rgba(255,255,255,.65) !important;
   border-radius: 999px !important;
   background: #28520E !important;
   color: #FFFFFF !important;
   -webkit-text-fill-color: #FFFFFF !important;
-  font: 700 12px/1.2 "Poppins",sans-serif !important;
+  font: 700 11px/1.2 "Poppins",sans-serif !important;
   box-shadow: none !important;
   text-decoration: none !important;
 }
@@ -742,6 +746,220 @@ html body .custom-select__listbox {
   box-shadow: 0 14px 34px rgba(17,17,17,.13) !important;
 }
 html body .custom-select__listbox[hidden] {display:none !important;}
+
+html body .custom-select.is-open,
+html body .custom-select:has(.custom-select__trigger[aria-expanded="true"]) {
+  z-index: 1600 !important;
+}
+html body .custom-select--open-up .custom-select__listbox {
+  top: auto !important;
+  bottom: calc(100% + 7px) !important;
+}
+html body .custom-select__trigger {
+  min-height: 47px !important;
+  padding: 11px 14px !important;
+  border-color: rgba(36,71,27,.18) !important;
+  border-radius: 12px !important;
+  background: #FFFFFF !important;
+  color: #20351E !important;
+  font-size: 12px !important;
+  transition: border-color .16s ease, box-shadow .16s ease, background .16s ease !important;
+}
+html body .custom-select__trigger:hover,
+html body .custom-select__trigger:focus-visible,
+html body .custom-select__trigger[aria-expanded="true"] {
+  border-color: #6A913E !important;
+  background: #FCFDF9 !important;
+  box-shadow: 0 0 0 3px rgba(92,132,53,.13) !important;
+}
+html body .custom-select__listbox {
+  gap: 3px !important;
+  padding: 6px !important;
+  border-color: rgba(36,71,27,.14) !important;
+  border-radius: 13px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 18px 42px rgba(25,48,22,.16) !important;
+  overscroll-behavior: contain !important;
+  animation: arthic-select-in .14s ease-out both;
+}
+html body .custom-select__option {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 40px !important;
+  padding: 9px 11px !important;
+  border-radius: 8px !important;
+  background: #FFFFFF !important;
+  color: #293D27 !important;
+  font-size: 12px !important;
+  text-align: left !important;
+  transition: background .14s ease, color .14s ease !important;
+}
+html body .custom-select__option:hover,
+html body .custom-select__option:focus-visible {
+  outline: 0 !important;
+  background: #FCEBF1 !important;
+  color: #713349 !important;
+}
+html body .custom-select__option[aria-selected="true"] {
+  background: #EEF5E7 !important;
+  color: #315D24 !important;
+  font-weight: 650 !important;
+  box-shadow: inset 3px 0 #5D8B37 !important;
+}
+@keyframes arthic-select-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pink is a secondary accent, not a replacement for the main green action. */
+html body :is(.home-secondary,.study-action--finish,.oneprep-button--pink,.button--pink) {
+  border: 1px solid var(--arthic-pink-border) !important;
+  border-radius: 999px !important;
+  background: var(--arthic-pink) !important;
+  color: var(--arthic-pink-ink) !important;
+  -webkit-text-fill-color: var(--arthic-pink-ink) !important;
+  box-shadow: none !important;
+}
+html body :is(.home-secondary,.study-action--finish,.oneprep-button--pink,.button--pink):hover:not(:disabled) {
+  border-color: #D98FA9 !important;
+  background: var(--arthic-pink-hover) !important;
+  color: #5C263C !important;
+  -webkit-text-fill-color: #5C263C !important;
+}
+html body.study-preview-page .study-action--finish {
+  border-color: var(--arthic-pink-border) !important;
+  background: var(--arthic-pink) !important;
+  color: var(--arthic-pink-ink) !important;
+  -webkit-text-fill-color: var(--arthic-pink-ink) !important;
+}
+html body.study-preview-page .study-action--finish:hover:not(:disabled) {
+  border-color: #D98FA9 !important;
+  background: var(--arthic-pink-hover) !important;
+  color: #5C263C !important;
+  -webkit-text-fill-color: #5C263C !important;
+}
+
+/* Board switching gets an actual, accessible loading surface inside the
+   question workspace rather than silently swapping the question text. */
+html body.study-preview-page .study-session {
+  position: relative !important;
+  isolation: isolate !important;
+}
+html body.study-preview-page .study-board-loading {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 20 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  border-radius: inherit !important;
+  background: rgba(255,255,255,.94) !important;
+  color: #315D24 !important;
+  font: 650 13px/1.5 "Poppins",sans-serif !important;
+  text-align: center !important;
+  backdrop-filter: blur(3px);
+}
+html body.study-preview-page .study-board-loading[hidden] {
+  display: none !important;
+}
+html body.study-preview-page .study-board-loading__spinner {
+  display: block !important;
+  width: 32px !important;
+  height: 32px !important;
+  border: 3px solid #E7EDDF !important;
+  border-top-color: #D98FA9 !important;
+  border-right-color: #5B8739 !important;
+  border-radius: 50% !important;
+  animation: arthic-board-spin .72s linear infinite;
+}
+@keyframes arthic-board-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Bring the other inner pages onto one predictable content rhythm. */
+html body.content-page #main.content-main > section {
+  box-sizing: border-box !important;
+}
+html body.content-page #main.content-main > section :is(h1,h2,h3,h4) {
+  text-wrap: balance;
+}
+html body.content-page #main.content-main :is(.pricing-plan-grid,.exam-track-grid,.method-step-grid,.oneprep-route-grid) {
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  align-items: stretch !important;
+}
+html body.content-page #main.content-main .pricing-plan {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  padding: clamp(20px,2.4vw,30px) !important;
+}
+html body.content-page #main.content-main .pricing-plan > .oneprep-button {
+  margin-top: auto !important;
+  align-self: flex-start !important;
+}
+html body.content-page #main.content-main .pricing-benchmark-list {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 14px !important;
+}
+html body.content-page #main.content-main .pricing-benchmark {
+  min-width: 0 !important;
+  padding: 20px !important;
+  border: 1px solid rgba(17,17,17,.12) !important;
+  border-radius: 12px !important;
+  background: #FFFFFF !important;
+}
+html body.content-page #main.content-main :is(.apply-form,.waitlist-form) {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+}
+html body.content-page #main.content-main :is(input,select,textarea) {
+  max-width: 100% !important;
+}
+html body.content-page #main.content-main :is(.content-cta h2,.content-cta p) {
+  color: #111111 !important;
+}
+html body.content-page #main.content-main .content-cta {
+  border-top: 1px solid rgba(17,17,17,.08) !important;
+}
+@media(max-width:980px) {
+  html body.content-page #main.content-main :is(.pricing-plan-grid,.exam-track-grid,.method-step-grid,.oneprep-route-grid) {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:760px) {
+  html body .site-header {
+    height: 58px !important;
+    min-height: 58px !important;
+  }
+  html body .mobile-menu {
+    width: min(390px,calc(100vw - 24px)) !important;
+    max-height: calc(100vh - 92px) !important;
+    overflow-y: auto !important;
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+  html body .mobile-menu nav {
+    gap: 4px !important;
+  }
+  html body .mobile-menu a {
+    min-height: 42px !important;
+    padding: 9px 10px !important;
+  }
+  html body.content-page #main.content-main :is(.pricing-plan-grid,.exam-track-grid,.method-step-grid,.oneprep-route-grid,.pricing-benchmark-list) {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  html body .custom-select__listbox,
+  html body .study-board-loading__spinner {
+    animation: none !important;
+  }
+}
+
 html body .custom-select__option {
   width: 100% !important;
   min-height: 37px !important;
@@ -767,7 +985,7 @@ html body .custom-select__option:disabled {opacity:.45 !important;cursor:not-all
 
 /* Consistent spacing without crowding on smaller screens. */
 @media(max-width:980px) {
-  html body .site-header {width:min(700px,calc(100vw - 24px)) !important;}
+  html body .site-header {width:min(640px,calc(100vw - 24px)) !important;}
   html body.study-preview-page .study-workspace {
     grid-template-columns:minmax(190px,220px) minmax(0,1fr) !important;
   }
