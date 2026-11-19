@@ -63,7 +63,8 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
 let surfaceObserver: MutationObserver | null = null;
 
 function applyReferenceSurfaces(): void {
-  const white = "#FFFFFF";
+  const cream = "#F7F2E8";
+  const forest = "#1D4033";
   const surfaceSelector = [
     "main", ".content-main", ".home-page",
     "main > section:not(.not-found-card)",
@@ -72,14 +73,16 @@ function applyReferenceSurfaces(): void {
   ].join(",");
 
   const applySurface = (surface: HTMLElement): void => {
-    surface.style.setProperty("background-color", white, "important");
+    surface.style.setProperty("background-color", cream, "important");
     surface.style.setProperty("background-image", "none", "important");
+    surface.style.setProperty("color", forest, "important");
   };
 
-  document.documentElement.style.setProperty("background-color", white, "important");
+  document.documentElement.style.setProperty("background-color", cream, "important");
   document.documentElement.style.setProperty("background-image", "none", "important");
-  document.body.style.setProperty("background-color", white, "important");
+  document.body.style.setProperty("background-color", cream, "important");
   document.body.style.setProperty("background-image", "none", "important");
+  document.body.style.setProperty("color", forest, "important");
   document.querySelectorAll<HTMLElement>(surfaceSelector).forEach(applySurface);
 
   // Keep delayed content on the same canvas too.
@@ -97,14 +100,15 @@ function applyReferenceSurfaces(): void {
 
 
 function applyBrandFooter(): void {
-  const green = "#FFFFFF";
+  const cream = "#F7F2E8";
+  const forest = "#1D4033";
   const footerSelector = ".site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,.footer-column";
   document.querySelectorAll<HTMLElement>(footerSelector).forEach((surface) => {
-    surface.style.setProperty("background-color", green, "important");
+    surface.style.setProperty("background-color", cream, "important");
     surface.style.setProperty("background-image", "none", "important");
     surface.style.setProperty("border", "0", "important");
     surface.style.setProperty("box-shadow", "none", "important");
-    surface.style.setProperty("color", "#111111", "important");
+    surface.style.setProperty("color", forest, "important");
   });
 }
 
