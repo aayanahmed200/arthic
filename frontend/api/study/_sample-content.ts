@@ -5,6 +5,7 @@ import { FRESH_PRIVATE_QUESTIONS } from "./_fresh-content.js";
 import { NEXT_PRIVATE_QUESTIONS } from "./_next-content.js";
 import { V10_PRIVATE_QUESTIONS } from "./_v10-content.js";
 import { V11_PRIVATE_QUESTIONS } from "./_v11-content.js";
+import { V12_PRIVATE_QUESTIONS } from "./_v12-content.js";
 
 export interface StudyOption { key: string; text: string; }
 
@@ -2919,4 +2920,5 @@ export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
   ...NEXT_PRIVATE_QUESTIONS,
   ...V10_PRIVATE_QUESTIONS,
   ...V11_PRIVATE_QUESTIONS,
+  ...V12_PRIVATE_QUESTIONS,
 ];
