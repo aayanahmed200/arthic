@@ -408,5 +408,5 @@ const ANSWER_DETAILS: Record<string, { answer: string; explanation: string; take
 export const V10_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = V10_SAMPLE_QUESTIONS.map((question) => {
   const details = ANSWER_DETAILS[question.id];
   if (!details) throw new Error(`Missing answer details for ${question.id}`);
-  return { ...question, ...details };
+  return { ...question, ...details, sourceKind: "original-sample" as const };
 });
