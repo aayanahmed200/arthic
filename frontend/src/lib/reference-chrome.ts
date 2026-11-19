@@ -118,7 +118,7 @@ export function initReferenceChrome(): void {
   const existingFooter = document.querySelector<HTMLElement>(".footer-frame, [data-footer-root], .site-footer");
   if (existingFooter) existingFooter.outerHTML = FOOTER;
 
-  document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#FFFFFF");
+  document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute("content", "#F7F2E8");
   document.querySelector<HTMLLinkElement>('link[rel="icon"]')?.setAttribute("href", "/arthic-logo.png");
   document.querySelector<HTMLLinkElement>('link[rel="apple-touch-icon"]')?.setAttribute("href", "/arthic-logo.png");
   applyReferenceSurfaces();
