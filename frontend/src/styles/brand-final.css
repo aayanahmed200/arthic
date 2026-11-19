@@ -2085,3 +2085,420 @@ html body .home-sample-feedback[data-result="incorrect"] {
   border-color: var(--arthic-coral) !important;
   background: var(--arthic-coral-soft) !important;
 }
+
+
+/* ===============================================================
+   ARTHIC PAGE CANVAS + LAYOUT RESET
+   One cream page background on every route, consistent editorial
+   page width and section rhythm. Cards use a subtly lighter cream,
+   never pure white. These rules override all retired white layouts.
+   =============================================================== */
+:root {
+  --arthic-cream: #F7F2E8;
+  --arthic-surface: #FBF7EF;
+  --arthic-surface-muted: #EFE8DA;
+  --arthic-forest: #1D4033;
+  --arthic-forest-soft: #4C6659;
+  --arthic-coral: #B84B38;
+  --arthic-coral-hover: #A33F30;
+  --arthic-coral-soft: #F4DDD6;
+  --arthic-line: rgba(29,64,51,.16);
+  --arthic-card-shadow: 0 8px 24px rgba(29,64,51,.055);
+  --color-bg: var(--arthic-cream);
+  --color-fg: var(--arthic-forest);
+  --color-muted: var(--arthic-forest-soft);
+  --sky: var(--arthic-cream);
+  --grass: var(--arthic-cream);
+  --paper: var(--arthic-surface);
+}
+html,
+body,
+body.home-page,
+body.content-page,
+body.study-preview-page,
+body.legal-page,
+body.not-found-document,
+body.error-page {
+  min-height: 100%;
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+  background-image: none !important;
+  color: var(--arthic-forest) !important;
+  color-scheme: light !important;
+}
+
+/* The whole page canvas, including long sections and page footers. */
+html body :is(main,#main,.content-main,.home-shell,.home-page,.site-footer,
+.footer-frame,.footer,.entry.container,.not-found-page) {
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+  background-image: none !important;
+  color: var(--arthic-forest) !important;
+}
+html body.content-page :is(#main,main,.content-main),
+html body.content-page.legal-page #main,
+html body.content-page.not-found-document #main,
+html body.content-page.study-preview-page #main {
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+  background-image: none !important;
+}
+
+/* Standard interior pages: one centered column, identical side gutters,
+   top clearance below the fixed menu, and one consistent vertical rhythm. */
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main {
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: clamp(34px,4.6vw,56px) !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 116px 0 76px !important;
+  background: var(--arthic-cream) !important;
+}
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main > section,
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main > div.content-container {
+  box-sizing: border-box !important;
+  width: min(1120px,calc(100% - 48px)) !important;
+  max-width: 1120px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main > :is(.content-hero,.oneprep-subhero,.method-hero,.pricing-intro,.career-intro) {
+  display: block !important;
+  min-height: 0 !important;
+  padding: 12px 0 4px !important;
+  text-align: left !important;
+}
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main > :is(.content-hero,.oneprep-subhero,.method-hero,.pricing-intro,.career-intro) > .content-container,
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main > .oneprep-subhero > .pathways-intro__inner {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 1120px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main > section > :is(.content-hero__topline,.oneprep-eyebrow,.method-section-head,.oneprep-section-head) {
+  margin-bottom: 16px !important;
+}
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main :is(h1,h2,h3,h4) {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-family: "Bricolage Grotesque Variable",system-ui,sans-serif !important;
+  letter-spacing: -.045em !important;
+  line-height: 1.06 !important;
+  text-wrap: balance !important;
+}
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main :is(h1) {
+  max-width: 17ch !important;
+  margin: 0 0 18px !important;
+  font-size: clamp(42px,5.6vw,68px) !important;
+}
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main :is(h2) {
+  margin: 0 0 14px !important;
+  font-size: clamp(27px,3.1vw,38px) !important;
+}
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main :is(p,li,dd) {
+  color: var(--arthic-forest-soft) !important;
+  -webkit-text-fill-color: var(--arthic-forest-soft) !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+}
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main :is(.content-hero__lede,.oneprep-lede,.method-hero__lede) {
+  max-width: 66ch !important;
+  margin: 0 !important;
+  font-size: clamp(15px,1.4vw,17px) !important;
+  line-height: 1.75 !important;
+}
+html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main :is(.content-hero__topline,.oneprep-eyebrow,.method-section-head .eyebrow,.pricing-plan__eyebrow) {
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+  font-size: 10px !important;
+  font-weight: 750 !important;
+  letter-spacing: .13em !important;
+  text-transform: uppercase !important;
+}
+
+/* Consistent, restrained cream surfaces. No page contains white panels. */
+html body.content-page #main :is(.pricing-plan,.pricing-intro__aside,.pricing-benchmark,
+.exam-track-card,.exam-finder,.method-step,.method-current__panel,.method-planned__item,
+.oneprep-faq-item,.pricing-faq__item,.career-role--detailed,.careers-note,
+.apply-role,.apply-form,.waitlist-form,.study-intro__aside,.study-rail,
+.study-bank-nav,.study-session,.study-sidebar__section,.study-complete,
+.entry,.not-found-card) {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  background: var(--arthic-surface) !important;
+  background-color: var(--arthic-surface) !important;
+  background-image: none !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--arthic-card-shadow) !important;
+}
+html body.content-page #main :is(.pricing-plan,.pricing-intro__aside,.pricing-benchmark,
+.exam-track-card,.exam-finder,.method-step,.method-current__panel,.method-planned__item,
+.oneprep-faq-item,.pricing-faq__item,.career-role--detailed,.careers-note,
+.apply-role,.apply-form,.waitlist-form,.study-intro__aside,.study-rail,
+.study-bank-nav,.study-session,.study-sidebar__section,.study-complete) {
+  color: var(--arthic-forest) !important;
+}
+html body.content-page #main :is(.pricing-plan,.pricing-intro__aside,.exam-track-card,
+.method-step,.method-current__panel,.method-planned__item,.oneprep-faq-item,
+.pricing-faq__item,.career-role--detailed,.careers-note,.apply-role,.apply-form,
+.waitlist-form,.study-intro__aside,.study-rail,.study-session,.study-sidebar__section) {
+  padding: clamp(20px,2.4vw,30px) !important;
+}
+html body.content-page #main :is(.pricing-plan--individual,.pricing-plan--group,.pricing-plan--coaching) {
+  background: var(--arthic-surface) !important;
+}
+html body.content-page #main :is(.pricing-plan-grid,.exam-track-grid,.method-step-grid,
+.method-planned__grid,.pricing-benchmark-list,.career-list--detailed) {
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  align-items: stretch !important;
+  gap: clamp(14px,2vw,22px) !important;
+  width: 100% !important;
+  max-width: 1120px !important;
+  margin-inline: auto !important;
+}
+html body.content-page #main :is(.pricing-plan-grid,.exam-track-grid,.method-step-grid,
+.method-planned__grid,.pricing-benchmark-list,.career-list--detailed) > * {
+  min-width: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* Page-specific two-column layouts share the same grid and responsive fallbacks. */
+html body.content-page #main :is(.waitlist-layout,.apply-layout,.career-intro__layout,
+.method-current__inner,.pricing-intro) {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) minmax(300px,.82fr) !important;
+  align-items: center !important;
+  gap: clamp(26px,4vw,52px) !important;
+}
+html body.content-page #main :is(.waitlist-copy,.apply-role,.career-intro__copy,.method-current__copy,.pricing-intro__copy) {
+  min-width: 0 !important;
+}
+html body.content-page #main :is(.waitlist-form,.apply-form) {
+  width: 100% !important;
+  max-width: none !important;
+  padding: clamp(22px,3vw,34px) !important;
+}
+html body.content-page #main :is(.apply-form__grid,.waitlist-form__row) {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 15px !important;
+}
+html body.content-page #main :is(.apply-form__field,.waitlist-form__row > *) {
+  min-width: 0 !important;
+}
+html body.content-page #main :is(.apply-form__field--wide) { grid-column: 1 / -1 !important; }
+html body.content-page #main :is(.career-role--detailed) {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 14px !important;
+}
+html body.content-page #main :is(.career-role__content,.career-role__detail-grid) {
+  min-width: 0 !important;
+}
+html body.content-page #main :is(.exam-track-card,.pricing-plan,.method-step) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+html body.content-page #main :is(.exam-track-card__top) {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+}
+
+/* The call-to-action is the same aligned width and surface on every route. */
+html body.content-page #main > .content-cta,
+html body.content-page #main > .oneprep-final-cta {
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  width: min(1120px,calc(100% - 48px)) !important;
+  max-width: 1120px !important;
+  margin: 0 auto !important;
+  padding: clamp(24px,3.2vw,38px) !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 16px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: var(--arthic-card-shadow) !important;
+}
+html body.content-page #main :is(.content-cta__inner,.oneprep-final-cta__inner) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 26px !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* Legal pages keep the same canvas and typography without a giant white sheet. */
+html body.content-page.legal-page #main {
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 70vh !important;
+  margin: 0 !important;
+  padding: 120px 0 82px !important;
+  background: var(--arthic-cream) !important;
+}
+html body.content-page.legal-page #main > .entry {
+  box-sizing: border-box !important;
+  width: min(900px,calc(100% - 48px)) !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: clamp(26px,4vw,48px) !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 16px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: var(--arthic-card-shadow) !important;
+}
+html body.content-page.legal-page #main > .entry :is(.entry__head,.entry__body,.entry__foot) {
+  background: transparent !important;
+  color: var(--arthic-forest) !important;
+}
+html body.content-page.legal-page #main > .entry .entry__body {
+  max-width: 74ch !important;
+  margin: 28px auto 0 !important;
+  font-size: 14px !important;
+  line-height: 1.85 !important;
+}
+html body.content-page.legal-page #main > .entry .entry__body :is(p,li) {
+  color: var(--arthic-forest-soft) !important;
+  line-height: 1.85 !important;
+}
+html body.content-page.legal-page #main > .entry .entry__body h2 {
+  margin: 30px 0 10px !important;
+  color: var(--arthic-forest) !important;
+}
+
+/* 404 is a centered cream page with one matching surface, not a separate theme. */
+html body.content-page.not-found-document #main.not-found-page {
+  box-sizing: border-box !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  min-height: 78vh !important;
+  padding: 116px 24px 72px !important;
+  background: var(--arthic-cream) !important;
+}
+html body.content-page.not-found-document #main .not-found-card {
+  width: min(760px,100%) !important;
+  margin: 0 !important;
+  padding: clamp(30px,5vw,58px) !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 18px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: var(--arthic-card-shadow) !important;
+}
+
+/* Practice route and homepage use exactly the same cream page canvas. */
+html body.study-preview-page,
+html body.study-preview-page #main,
+html body.study-preview-page #main.content-main,
+html body.study-preview-page #main.content-main > section,
+html body.study-preview-page .study-workspace {
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+}
+html body.study-preview-page :is(.study-rail,.study-bank-nav,.study-session,.study-sidebar__section,
+.study-question,.study-complete,.study-intro__aside) {
+  background: var(--arthic-surface) !important;
+}
+html body.home-page,
+html body:not(.content-page):not(.study-preview-page):not(.not-found-document) {
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+}
+html body :is(.hero,.wave-divider,.showcase-section,.features-section,.templates-section,
+.education-section,.arcade-section,.get-started-section,.home-section,.home-shell,
+.home-approach,.home-routes,.home-available,.home-cta) {
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+  background-image: none !important;
+  color: var(--arthic-forest) !important;
+}
+html body :is(.hero-window,.board-demo,.sandbox-demo,.feature-card,.template-sheet,
+.education-wall__note,.arcade-card,.get-started-card,.hero-sticky,.board-card,.canvas-note) {
+  background: var(--arthic-surface) !important;
+  background-color: var(--arthic-surface) !important;
+  border-color: var(--arthic-line) !important;
+}
+html body .hero-window__body {
+  background: #F1EBDD !important;
+}
+
+/* Consistent responsive layouts: no squeezed columns, clipped forms or
+   page-specific gutters that make routes feel like separate products. */
+@media(max-width:980px) {
+  html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main {
+    gap: 34px !important;
+    padding-top: 104px !important;
+  }
+  html body.content-page #main :is(.pricing-plan-grid,.exam-track-grid,.method-step-grid,
+  .method-planned__grid,.career-list--detailed) {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:720px) {
+  html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main {
+    gap: 28px !important;
+    padding: 94px 0 48px !important;
+  }
+  html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main > section,
+  html body.content-page:not(.study-preview-page):not(.not-found-document):not(.legal-page) #main.content-main > div.content-container {
+    width: calc(100% - 36px) !important;
+    max-width: 1120px !important;
+  }
+  html body.content-page #main :is(.waitlist-layout,.apply-layout,.career-intro__layout,
+  .method-current__inner,.pricing-intro) {
+    grid-template-columns: minmax(0,1fr) !important;
+    align-items: stretch !important;
+  }
+  html body.content-page #main :is(.pricing-plan-grid,.exam-track-grid,.method-step-grid,
+  .method-planned__grid,.pricing-benchmark-list,.career-list--detailed) {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  html body.content-page #main :is(.content-cta,.oneprep-final-cta) {
+    width: calc(100% - 36px) !important;
+    padding: 22px !important;
+  }
+  html body.content-page #main :is(.content-cta__inner,.oneprep-final-cta__inner) {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  html body.content-page.legal-page #main {
+    padding: 96px 0 48px !important;
+  }
+  html body.content-page.legal-page #main > .entry {
+    width: calc(100% - 32px) !important;
+    padding: 22px !important;
+  }
+  html body.content-page.not-found-document #main.not-found-page {
+    min-height: 70vh !important;
+    padding: 92px 18px 42px !important;
+  }
+  html body.content-page #main :is(.apply-form__grid,.waitlist-form__row) {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  html body.content-page #main .apply-form__field--wide { grid-column: auto !important; }
+}
