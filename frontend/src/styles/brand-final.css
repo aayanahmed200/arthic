@@ -1069,3 +1069,454 @@ html body .custom-select__option:disabled {opacity:.45 !important;cursor:not-all
 @media(prefers-reduced-motion:reduce) {
   html body .custom-select__trigger svg {transition:none !important;}
 }
+
+
+/* Final shared corrections: these rules are loaded by every internal page. */
+html body .site-header {
+  width: min(520px,calc(100vw - 32px)) !important;
+  height: 54px !important;
+  min-height: 54px !important;
+  padding-inline: 9px !important;
+}
+html body .site-header .desktop-nav { gap: 4px !important; }
+html body .site-header .desktop-nav a {
+  min-height: 36px !important;
+  padding: 8px 10px !important;
+  font-size: 11px !important;
+}
+html body .site-header .header-actions { margin-left: 5px !important; }
+html body .site-header .header-actions .button,
+html body .site-header .button--small {
+  min-height: 35px !important;
+  padding: 7px 10px !important;
+  font-size: 10px !important;
+}
+html body .mobile-menu {
+  width: min(320px,calc(100vw - 24px)) !important;
+  max-height: min(420px,calc(100vh - 88px)) !important;
+  overflow-y: auto !important;
+}
+html body .mobile-menu nav {
+  grid-template-columns: 1fr !important;
+  gap: 4px !important;
+}
+html body .mobile-menu a {
+  min-height: 42px !important;
+  padding: 9px 12px !important;
+}
+
+/* Keep every interior route on the same readable content canvas. */
+html body.content-page #main.content-main {
+  gap: clamp(22px,3vw,34px) !important;
+  padding-top: 96px !important;
+  padding-bottom: 58px !important;
+}
+html body.content-page #main.content-main > section:not(.content-hero):not(.oneprep-subhero):not(.method-hero):not(.pricing-intro):not(.study-intro) {
+  width: min(1120px,calc(100% - 56px)) !important;
+  max-width: 1120px !important;
+  padding-block: clamp(22px,2.8vw,36px) !important;
+}
+html body.content-page #main.content-main :is(.waitlist-layout,.apply-layout,.career-intro__layout,.method-current__inner) > * {
+  min-width: 0 !important;
+}
+html body.content-page #main.content-main :is(.pricing-plan-grid,.exam-track-grid,.oneprep-route-grid,.method-step-grid) > * {
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+html body.content-page #main.content-main :is(input,select,textarea,button) {
+  max-width: 100% !important;
+}
+html body.content-page #main.content-main :is(.apply-form,.waitlist-form) {
+  width: 100% !important;
+}
+@media(max-width:760px) {
+  html body.content-page #main.content-main {
+    padding-top: 84px !important;
+    padding-bottom: 40px !important;
+    gap: 18px !important;
+  }
+  html body.content-page #main.content-main > section:not(.content-hero):not(.oneprep-subhero):not(.method-hero):not(.pricing-intro):not(.study-intro) {
+    width: calc(100% - 32px) !important;
+    padding-block: 22px !important;
+  }
+  html body .site-header {
+    width: calc(100vw - 24px) !important;
+    height: 54px !important;
+    min-height: 54px !important;
+  }
+  html body .site-header .desktop-nav { display: none !important; }
+  html body .site-header .menu-toggle { display: flex !important; }
+}
+
+/* The practice rail is deliberately bounded: only the question grid scrolls.
+   The controls above it remain visible and dropdowns can extend outside panels. */
+html body.study-preview-page .study-workspace {
+  grid-template-columns: minmax(230px,250px) minmax(0,1fr) minmax(205px,228px) !important;
+  gap: 18px !important;
+  width: min(1380px,calc(100% - 44px)) !important;
+  max-width: 1380px !important;
+  align-items: start !important;
+}
+html body.study-preview-page .study-rail {
+  position: sticky !important;
+  top: 86px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  width: 100% !important;
+  height: min(790px,calc(100vh - 104px)) !important;
+  max-height: calc(100vh - 104px) !important;
+  min-height: 0 !important;
+  padding: 13px !important;
+  overflow: visible !important;
+  border: 1px solid #D8E4CB !important;
+  border-radius: 15px !important;
+  background: #EEF4E4 !important;
+  box-shadow: none !important;
+}
+html body.study-preview-page .study-rail > div {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) !important;
+  align-content: start !important;
+  align-items: stretch !important;
+  gap: 8px !important;
+  min-width: 0 !important;
+  padding: 3px 2px 10px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+html body.study-preview-page .study-rail__eyebrow {
+  margin: 0 !important;
+  font-size: 9px !important;
+  line-height: 1.4 !important;
+  letter-spacing: .13em !important;
+}
+html body.study-preview-page .study-rail__name {
+  margin: 0 0 2px !important;
+  font-size: 22px !important;
+  line-height: 1.1 !important;
+}
+html body.study-preview-page .practice-track-filters {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 6px !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+html body.study-preview-page .practice-track-filters button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 6px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 39px !important;
+  padding: 8px 9px !important;
+  border: 1px solid #D8E3D0 !important;
+  border-radius: 9px !important;
+  background: #FFFFFF !important;
+  color: #36533A !important;
+  font: 650 10px/1.2 "Poppins",sans-serif !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+}
+html body.study-preview-page .practice-track-filters button:last-child {
+  grid-column: 1 / -1 !important;
+  justify-content: center !important;
+}
+html body.study-preview-page .practice-track-filters button small {
+  font: 600 9px/1 "Poppins",sans-serif !important;
+  opacity: .82 !important;
+}
+html body.study-preview-page .practice-track-filters button[aria-pressed="true"] {
+  border-color: #356512 !important;
+  background: #356512 !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+html body.study-preview-page .study-filter-label {
+  margin: 3px 0 -4px !important;
+  color: #566C50 !important;
+  font-size: 8px !important;
+  font-weight: 750 !important;
+  letter-spacing: .12em !important;
+}
+html body.study-preview-page .study-filter-select,
+html body.study-preview-page .study-filter-search,
+html body.study-preview-page .study-rail .custom-select__trigger {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 40px !important;
+  margin: 0 !important;
+  padding: 9px 11px !important;
+  border: 1px solid #D5E0CD !important;
+  border-radius: 9px !important;
+  background: #FFFFFF !important;
+  color: #263E29 !important;
+  font: 500 11px/1.35 "Poppins",sans-serif !important;
+}
+html body.study-preview-page .study-rail__nav,
+html body.study-preview-page .study-rail__foot {
+  display: none !important;
+}
+html body.study-preview-page .study-bank-nav {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 12px 10px 10px !important;
+  overflow: hidden !important;
+  border: 1px solid #D9E4D1 !important;
+  border-radius: 11px !important;
+  background: #FFFFFF !important;
+}
+html body.study-preview-page .study-bank-nav__top {
+  flex: 0 0 auto !important;
+  margin: 0 0 9px !important;
+  font-size: 9px !important;
+}
+html body.study-preview-page .study-question-map {
+  display: grid !important;
+  flex: 0 1 auto !important;
+  grid-template-columns: repeat(8,minmax(0,1fr)) !important;
+  align-content: start !important;
+  gap: 5px !important;
+  max-height: min(34vh,340px) !important;
+  min-height: 0 !important;
+  padding: 2px 3px 2px 1px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #8BA96B #F1F5EC !important;
+}
+html body.study-preview-page .study-question-map button {
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 27px !important;
+  padding: 2px 1px !important;
+  border: 1px solid #E0E8DA !important;
+  border-radius: 6px !important;
+  background: #FAFCF8 !important;
+  color: #455C46 !important;
+  font: 600 9px/1 "Poppins",sans-serif !important;
+  white-space: nowrap !important;
+}
+html body.study-preview-page .study-question-map button.is-current {
+  outline: 2px solid #356512 !important;
+  outline-offset: 0 !important;
+  border-color: #356512 !important;
+  background: #EAF2E2 !important;
+  color: #28520E !important;
+}
+html body.study-preview-page .study-question-map button.is-correct {
+  border-color: #62A778 !important;
+  background: #DDF1E2 !important;
+  color: #216238 !important;
+}
+html body.study-preview-page .study-question-map button.is-incorrect {
+  border-color: #D47B80 !important;
+  background: #FBE5E5 !important;
+  color: #96333B !important;
+}
+html body.study-preview-page .study-bank-nav__hint {
+  flex: 0 0 auto !important;
+  margin: 8px 0 0 !important;
+  color: #6B7B66 !important;
+  font-size: 8px !important;
+  line-height: 1.4 !important;
+}
+html body.study-preview-page .study-session {
+  min-width: 0 !important;
+  position: relative !important;
+}
+html body.study-preview-page .study-sidebar {
+  min-width: 0 !important;
+}
+html body.study-preview-page .study-question__actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+html body.study-preview-page .study-question__actions .study-action {
+  min-width: 118px !important;
+}
+html body.study-preview-page .study-question__actions .study-action--finish {
+  border: 1px solid #E8B3C5 !important;
+  background: #F6D7E2 !important;
+  color: #713349 !important;
+  -webkit-text-fill-color: #713349 !important;
+}
+html body.study-preview-page .study-question__actions .study-action--finish:hover:not(:disabled) {
+  border-color: #D98FA9 !important;
+  background: #EFB9CD !important;
+  color: #5C263C !important;
+  -webkit-text-fill-color: #5C263C !important;
+}
+
+@media(max-width:1100px) {
+  html body.study-preview-page .study-workspace {
+    grid-template-columns: minmax(220px,240px) minmax(0,1fr) !important;
+  }
+  html body.study-preview-page .study-sidebar {
+    grid-column: 2 !important;
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:760px) {
+  html body.study-preview-page .study-workspace {
+    grid-template-columns: minmax(0,1fr) !important;
+    width: calc(100% - 24px) !important;
+    gap: 12px !important;
+    padding-top: 12px !important;
+  }
+  html body.study-preview-page .study-rail {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    padding: 12px !important;
+  }
+  html body.study-preview-page .study-rail > div {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  html body.study-preview-page .practice-track-filters {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  }
+  html body.study-preview-page .study-question-map {
+    grid-template-columns: repeat(8,minmax(0,1fr)) !important;
+    max-height: 230px !important;
+  }
+  html body.study-preview-page .study-sidebar {
+    grid-column: 1 !important;
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  html body.study-preview-page .study-question__actions {
+    display: grid !important;
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  }
+  html body.study-preview-page .study-question__actions .study-action--finish {
+    grid-column: 1 / -1 !important;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  html body.study-preview-page .study-question-map button,
+  html body .mobile-menu a {
+    transition: none !important;
+  }
+}
+
+/* A board change should look like the page is loading, not like it froze.
+   The semantic status remains readable while the rest is decorative skeleton. */
+html body.study-preview-page .study-board-loading {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 30 !important;
+  display: grid !important;
+  grid-template-rows: auto 1fr !important;
+  align-content: center !important;
+  justify-items: stretch !important;
+  gap: 18px !important;
+  padding: clamp(18px,3vw,34px) !important;
+  border-radius: inherit !important;
+  background: rgba(255,255,255,.97) !important;
+  color: #315D24 !important;
+  text-align: left !important;
+  backdrop-filter: blur(4px);
+}
+html body.study-preview-page .study-board-loading[hidden] { display: none !important; }
+html body.study-preview-page .study-board-loading__message {
+  color: #355F2B !important;
+  font: 700 12px/1.45 "Poppins",sans-serif !important;
+  letter-spacing: .01em !important;
+}
+html body.study-preview-page .study-board-skeleton {
+  display: grid !important;
+  align-content: center !important;
+  gap: 20px !important;
+  width: min(100%,620px) !important;
+  margin: 0 auto !important;
+}
+html body.study-preview-page .study-board-skeleton__meta {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+}
+html body.study-preview-page .study-board-skeleton__meta i {
+  display: block !important;
+  width: 110px !important;
+  height: 12px !important;
+  border-radius: 999px !important;
+}
+html body.study-preview-page .study-board-skeleton__meta i:last-child { width: 94px !important; }
+html body.study-preview-page .study-board-skeleton__title {
+  display: grid !important;
+  gap: 10px !important;
+  max-width: 540px !important;
+}
+html body.study-preview-page .study-board-skeleton__title i {
+  display: block !important;
+  width: 90% !important;
+  height: 19px !important;
+  border-radius: 6px !important;
+}
+html body.study-preview-page .study-board-skeleton__title i:nth-child(2) { width: 76% !important; }
+html body.study-preview-page .study-board-skeleton__title i:nth-child(3) { width: 42% !important; }
+html body.study-preview-page .study-board-skeleton__options {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 10px !important;
+}
+html body.study-preview-page .study-board-skeleton__options i {
+  display: block !important;
+  min-width: 0 !important;
+  min-height: 64px !important;
+  border: 1px solid #E0E8DA !important;
+  border-radius: 10px !important;
+}
+html body.study-preview-page .study-board-skeleton__meta i,
+html body.study-preview-page .study-board-skeleton__title i,
+html body.study-preview-page .study-board-skeleton__options i {
+  background: linear-gradient(100deg,#EEF3E9 20%,#FAFCF8 45%,#EEF3E9 70%) !important;
+  background-size: 220% 100% !important;
+  animation: arthic-skeleton-shimmer 1.2s ease-in-out infinite !important;
+}
+@keyframes arthic-skeleton-shimmer {
+  to { background-position: -220% 0; }
+}
+html body.study-preview-page .study-action--finish {
+  border: 1px solid #E8B3C5 !important;
+  background: #F6D7E2 !important;
+  color: #713349 !important;
+  -webkit-text-fill-color: #713349 !important;
+}
+html body .custom-select__option:hover,
+html body .custom-select__option:focus-visible {
+  background: #FCEBF1 !important;
+  color: #713349 !important;
+  outline: 2px solid rgba(217,143,169,.38) !important;
+  outline-offset: -2px !important;
+}
+html body .custom-select__option[aria-selected="true"] {
+  background: #EEF5E7 !important;
+  color: #315D24 !important;
+  box-shadow: inset 3px 0 #5D8B37 !important;
+}
+html body .custom-select__option[aria-selected="true"]:focus-visible {
+  background: #FCEBF1 !important;
+  color: #713349 !important;
+}
+@media(prefers-reduced-motion:reduce) {
+  html body.study-preview-page .study-board-skeleton :is(i) {
+    animation: none !important;
+  }
+}
