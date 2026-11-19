@@ -1,18 +1,26 @@
 /* Arthic final brand system: white everywhere, green navigation, clear type and consistent page rhythm. */
 :root {
   color-scheme: light;
-  --arthic-white: #FFFFFF;
-  --arthic-green: #356512;
-  --arthic-green-dark: #28520E;
-  --arthic-green-mid: #4C7A22;
-  --arthic-ink: #111111;
-  --arthic-muted: #4B514A;
-  --arthic-line: rgba(17,17,17,.12);
-  --arthic-card-shadow: 0 8px 24px rgba(20,35,18,.055);
-  --arthic-pink: #F6D7E2;
-  --arthic-pink-border: #E8B3C5;
-  --arthic-pink-ink: #713349;
-  --arthic-pink-hover: #EFB9CD;
+  --arthic-cream: #F7F2E8;
+  --arthic-surface: #FFFCF5;
+  --arthic-surface-muted: #EFE8DA;
+  --arthic-forest: #1D4033;
+  --arthic-forest-soft: #4C6659;
+  --arthic-coral: #B84B38;
+  --arthic-coral-hover: #A33F30;
+  --arthic-coral-soft: #F4DDD6;
+  --arthic-line: rgba(29,64,51,.16);
+  --arthic-card-shadow: 0 10px 28px rgba(29,64,51,.075);
+  --arthic-white: var(--arthic-surface);
+  --arthic-green: var(--arthic-forest);
+  --arthic-green-dark: #153328;
+  --arthic-green-mid: #315849;
+  --arthic-ink: var(--arthic-forest);
+  --arthic-muted: var(--arthic-forest-soft);
+  --arthic-pink: var(--arthic-coral-soft);
+  --arthic-pink-border: #DBA99B;
+  --arthic-pink-ink: var(--arthic-coral);
+  --arthic-pink-hover: #EFC9BE;
 }
 html {
   min-width: 320px;
@@ -1518,5 +1526,502 @@ html body .custom-select__option[aria-selected="true"]:focus-visible {
 @media(prefers-reduced-motion:reduce) {
   html body.study-preview-page .study-board-skeleton :is(i) {
     animation: none !important;
+  }
+}
+
+
+/* ===============================================================
+   ARTHIC VISUAL SYSTEM — FOREST / CREAM / CORAL
+   One palette for every route. This block is intentionally last so
+   legacy page styles cannot reintroduce blue, lime, pink or black text.
+   =============================================================== */
+:root {
+  color-scheme: light;
+  --arthic-cream: #F7F2E8;
+  --arthic-surface: #FFFCF5;
+  --arthic-surface-muted: #EFE8DA;
+  --arthic-forest: #1D4033;
+  --arthic-forest-soft: #4C6659;
+  --arthic-coral: #B84B38;
+  --arthic-coral-hover: #A33F30;
+  --arthic-coral-soft: #F4DDD6;
+  --arthic-line: rgba(29,64,51,.16);
+  --arthic-card-shadow: 0 10px 28px rgba(29,64,51,.075);
+  --color-bg: var(--arthic-cream);
+  --color-fg: var(--arthic-forest);
+  --color-muted: var(--arthic-forest-soft);
+  --sky: var(--arthic-cream);
+  --grass: var(--arthic-cream);
+  --paper: var(--arthic-surface);
+  --pink: var(--arthic-coral);
+  --pink-deep: var(--arthic-coral-hover);
+  --footer-green: var(--arthic-cream);
+}
+html, body {
+  min-width: 320px !important;
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+  color: var(--arthic-forest) !important;
+  color-scheme: light !important;
+}
+html body :is(main, section, article, aside, footer, .content-main, .home-shell,
+.home-page, .home-section, .home-approach, .home-routes, .home-available,
+.home-cta, .showcase-section, .features-section, .templates-section,
+.education-section, .arcade-section, .get-started-section, .content-container) {
+  background-color: var(--arthic-cream) !important;
+  background-image: none !important;
+  color: var(--arthic-forest) !important;
+}
+
+/* Text no longer flips between black, blue-grey and green from old page rules. */
+html body :is(main, footer, section, article, aside, form, .content-main) *
+:not(button):not(button *):not(a.button):not(a.button *):not(.button):not(.button *)
+:not(.home-primary):not(.home-primary *):not(.home-button):not(.home-button *)
+:not(.oneprep-button):not(.oneprep-button *):not(.study-action):not(.study-action *)
+:not(.career-role__link):not(.career-role__link *):not(.footer__cta):not(.footer__cta *)
+:not(.home-sample-check):not(.home-sample-next):not(.home-sample-check *):not(.home-sample-next *) {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body :is(h1,h2,h3,h4,h5,h6,.hero h1,.section-heading h2,.templates-copy h2,
+.arcade-card h2,.get-started-card h2,.method-hero h1,.pricing-intro h1,
+.content-hero h1,.study-intro h1,.study-session__heading) {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body :is(.hero-lede,.section-heading>p,.content-hero__lede,.oneprep-lede,
+.method-hero__lede,.study-intro__lede,.study-session__subhead,.career-role__body,
+.footer__tagline,.entry__body,.waitlist-points,.pricing-plan p,.exam-track-card p) {
+  color: var(--arthic-forest-soft) !important;
+  -webkit-text-fill-color: var(--arthic-forest-soft) !important;
+}
+html body :is(.home-highlight,.text-accent,.accent-text,.hero h1 em,
+.section-heading h2 em,.method-hero h1 em,.pricing-intro h1 em,
+.home-eyebrow strong,.oneprep-eyebrow strong) {
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+}
+html body a:not(.button):not(.home-primary):not(.home-button):not(.oneprep-button):not(.study-action):not(.career-role__link) {
+  color: var(--arthic-forest) !important;
+  text-decoration-color: rgba(184,75,56,.42);
+}
+html body a:not(.button):not(.home-primary):not(.home-button):not(.oneprep-button):not(.study-action):not(.career-role__link):hover {
+  color: var(--arthic-coral) !important;
+  text-decoration-color: var(--arthic-coral);
+}
+
+/* Compact navigation sized to its links, not a long stretched capsule. */
+html body .site-header {
+  position: fixed !important;
+  z-index: 1200 !important;
+  top: 12px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  width: max-content !important;
+  max-width: calc(100vw - 28px) !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  padding: 5px 7px !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 13px !important;
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+  box-shadow: 0 8px 24px rgba(29,64,51,.09) !important;
+  backdrop-filter: blur(12px) !important;
+}
+html body .site-header .desktop-nav {
+  position: static !important;
+  display: flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  margin: 0 !important;
+  transform: none !important;
+  white-space: nowrap !important;
+  background: transparent !important;
+}
+html body .site-header .desktop-nav a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 34px !important;
+  padding: 7px 10px !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font: 650 11px/1.2 "Poppins",sans-serif !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  transition: background .15s ease, color .15s ease !important;
+}
+html body .site-header .desktop-nav a:hover,
+html body .site-header .desktop-nav a.is-active,
+html body .site-header .desktop-nav a[aria-current="page"] {
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+}
+html body .site-header .desktop-nav a:focus-visible {
+  outline: 2px solid var(--arthic-coral) !important;
+  outline-offset: 1px !important;
+}
+html body .site-header .header-actions {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin: 0 !important;
+}
+html body .site-header .header-actions .button,
+html body .site-header .button--small {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 34px !important;
+  padding: 7px 11px !important;
+  border: 1px solid var(--arthic-coral) !important;
+  border-radius: 8px !important;
+  background: var(--arthic-coral) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  font: 700 10px/1.2 "Poppins",sans-serif !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+html body .site-header .header-actions .button:hover,
+html body .site-header .button--small:hover {
+  border-color: var(--arthic-coral-hover) !important;
+  background: var(--arthic-coral-hover) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+html body .site-header .menu-toggle {
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  width: 38px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: var(--arthic-surface-muted) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+html body .site-header .menu-toggle span:not(.sr-only) {
+  width: 17px !important;
+  height: 2px !important;
+  border-radius: 2px !important;
+  background: var(--arthic-forest) !important;
+}
+html body .site-header .menu-toggle:focus-visible {
+  outline: 2px solid var(--arthic-coral) !important;
+  outline-offset: 2px !important;
+}
+
+/* Mobile navigation is a compact anchored dropdown, not a full-width sheet. */
+html body .mobile-menu {
+  position: fixed !important;
+  z-index: 1190 !important;
+  top: 68px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  width: min(272px,calc(100vw - 28px)) !important;
+  max-height: min(390px,calc(100vh - 84px)) !important;
+  overflow-y: auto !important;
+  padding: 8px !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 13px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: 0 15px 36px rgba(29,64,51,.13) !important;
+}
+html body .mobile-menu nav {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) !important;
+  gap: 3px !important;
+  background: transparent !important;
+}
+html body .mobile-menu a {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 38px !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font: 600 12px/1.35 "Poppins",sans-serif !important;
+  text-decoration: none !important;
+}
+html body .mobile-menu a:hover,
+html body .mobile-menu a[aria-current="page"] {
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+}
+html body .mobile-menu[hidden] { display: none !important; }
+html body .mobile-menu a:focus-visible {
+  outline: 0 !important;
+  background: var(--arthic-coral-soft) !important;
+}
+
+/* Warm surfaces replace isolated white panels and leftover blue/green bands. */
+html body :is(.hero,.home-hero,.showcase-section,.features-section,.templates-section,
+.education-section,.arcade-section,.get-started-section,.method-hero,.method-steps,
+.method-current,.method-planned,.pricing-intro,.pricing-plan-section,.pricing-faq,
+.career-intro,.careers-roles,.careers-note,.careers-application-note,
+.waitlist-layout,.waitlist-copy,.waitlist-form,.apply-layout,.apply-role,.apply-form,
+.exam-track-grid,.study-intro,.study-workspace,.study-session,.study-sidebar,
+.study-preview-invite,.entry,.not-found-card,.site-footer,.footer-frame,.footer) {
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+  background-image: none !important;
+  color: var(--arthic-forest) !important;
+}
+html body :is(.hero-window,.board-demo,.sandbox-demo,.feature-card,.template-sheet,
+.education-wall__note,.arcade-card,.get-started-card,.exam-track-card,.pricing-plan,
+.pricing-intro__aside,.career-role--detailed,.method-step,.waitlist-form,.apply-form,
+.apply-role,.study-rail,.study-bank-nav,.study-question,.study-sidebar__section,
+.study-complete,.not-found-card,.entry) {
+  border-color: var(--arthic-line) !important;
+  background: var(--arthic-surface) !important;
+  background-color: var(--arthic-surface) !important;
+  box-shadow: 0 7px 22px rgba(29,64,51,.055) !important;
+}
+html body :is(input,select,textarea,.field,.study-filter-select,.study-filter-search,
+.custom-select__trigger) {
+  border: 1px solid rgba(29,64,51,.24) !important;
+  border-radius: 9px !important;
+  background: var(--arthic-surface) !important;
+  background-color: var(--arthic-surface) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  box-shadow: none !important;
+}
+html body :is(input,select,textarea,.field)::placeholder {
+  color: var(--arthic-forest-soft) !important;
+  opacity: .82 !important;
+}
+
+/* Dropdown selections use a soft coral fill — no green circle, inset stripe
+   or heavy focus halo. Keyboard focus remains visible without looking selected. */
+html body .custom-select__trigger:hover,
+html body .custom-select__trigger[aria-expanded="true"],
+html body .custom-select__trigger:focus-visible {
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-surface) !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+html body .custom-select__option {
+  min-height: 38px !important;
+  padding: 8px 10px !important;
+  border: 0 !important;
+  border-radius: 7px !important;
+  background: transparent !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  box-shadow: none !important;
+  font: 500 12px/1.35 "Poppins",sans-serif !important;
+}
+html body .custom-select__option:hover,
+html body .custom-select__option:focus-visible,
+html body .custom-select__option[aria-selected="true"],
+html body .custom-select__option[aria-selected="true"]:focus-visible {
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+html body .custom-select__listbox {
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 11px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: 0 12px 28px rgba(29,64,51,.12) !important;
+}
+
+/* Coral is reserved for primary decisions, progress and a few highlights. */
+html body :is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,button[type="submit"],
+input[type="submit"],.footer__cta,.home-sample-check,.home-sample-next,
+.oneprep-button--primary,.button--primary) {
+  border: 1px solid var(--arthic-coral) !important;
+  border-radius: 9px !important;
+  background: var(--arthic-coral) !important;
+  background-color: var(--arthic-coral) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+html body :is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,button[type="submit"],
+input[type="submit"],.footer__cta,.home-sample-check,.home-sample-next,
+.oneprep-button--primary,.button--primary):hover:not(:disabled) {
+  border-color: var(--arthic-coral-hover) !important;
+  background: var(--arthic-coral-hover) !important;
+  background-color: var(--arthic-coral-hover) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+html body :is(.home-secondary,.button--outline,.oneprep-button--light,
+.study-action--secondary) {
+  border: 1px solid rgba(29,64,51,.3) !important;
+  border-radius: 9px !important;
+  background: transparent !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  box-shadow: none !important;
+}
+html body .study-action--finish {
+  border: 1px solid var(--arthic-coral) !important;
+  background: var(--arthic-coral) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* Clear active question state without the green circular outline. */
+html body.study-preview-page .study-question-map button {
+  min-height: 27px !important;
+  border: 1px solid rgba(29,64,51,.12) !important;
+  border-radius: 5px !important;
+  background: var(--arthic-surface) !important;
+  color: var(--arthic-forest-soft) !important;
+  box-shadow: none !important;
+}
+html body.study-preview-page .study-question-map button.is-current {
+  outline: 0 !important;
+  outline-offset: 0 !important;
+  border: 1px solid var(--arthic-coral) !important;
+  border-radius: 5px !important;
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+  box-shadow: none !important;
+}
+html body.study-preview-page .study-question-map button.is-correct {
+  border-color: #6F9D76 !important;
+  background: #E2EDE3 !important;
+  color: #24563A !important;
+}
+html body.study-preview-page .study-question-map button.is-incorrect {
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-coral) !important;
+}
+html body.study-preview-page .study-rail,
+html body.study-preview-page .study-bank-nav {
+  background: var(--arthic-surface) !important;
+  border-color: var(--arthic-line) !important;
+}
+html body.study-preview-page .study-board-loading {
+  background: rgba(255,252,245,.97) !important;
+  color: var(--arthic-forest) !important;
+}
+html body.study-preview-page .study-board-loading__message {
+  color: var(--arthic-forest) !important;
+}
+html body.study-preview-page .study-board-skeleton__options i {
+  border-color: var(--arthic-line) !important;
+}
+html body.study-preview-page .study-board-skeleton__meta i,
+html body.study-preview-page .study-board-skeleton__title i,
+html body.study-preview-page .study-board-skeleton__options i {
+  background: linear-gradient(100deg,#EFE8DA 20%,#FFFCF5 45%,#EFE8DA 70%) !important;
+}
+html body.study-preview-page .study-option {
+  border-color: var(--arthic-line) !important;
+  background: var(--arthic-surface) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body.study-preview-page .study-option:hover:not(:disabled) {
+  border-color: var(--arthic-forest-soft) !important;
+  background: #F4F0E7 !important;
+}
+html body.study-preview-page .study-option.is-correct {
+  border-color: #6F9D76 !important;
+  background: #E2EDE3 !important;
+  color: #24563A !important;
+}
+html body.study-preview-page .study-option.is-incorrect {
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-coral) !important;
+}
+
+/* Use a subtle coral focus edge, never a circular green halo. */
+html body :is(button,input,select,textarea,a):focus-visible {
+  outline: 2px solid var(--arthic-coral) !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+html body .custom-select__trigger:focus-visible,
+html body .custom-select__option:focus-visible,
+html body .study-question-map button:focus-visible {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+html body .site-footer,
+html body .footer-frame,
+html body .footer {
+  background: var(--arthic-cream) !important;
+  color: var(--arthic-forest) !important;
+}
+html body .site-footer :is(a,span,p,small,strong) {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+@media(max-width:760px) {
+  html body .site-header {
+    top: 10px !important;
+    left: auto !important;
+    right: 12px !important;
+    transform: none !important;
+    width: 46px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 4px !important;
+    justify-content: center !important;
+    border-radius: 10px !important;
+  }
+  html body .site-header .desktop-nav,
+  html body .site-header .header-actions { display: none !important; }
+  html body .site-header .menu-toggle {
+    display: flex !important;
+    width: 36px !important;
+    height: 34px !important;
+    border: 0 !important;
+    border-radius: 7px !important;
+    background: var(--arthic-surface-muted) !important;
+  }
+  html body .mobile-menu {
+    top: 62px !important;
+    left: auto !important;
+    right: 12px !important;
+    transform: none !important;
+    width: min(260px,calc(100vw - 24px)) !important;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  html body .site-header *,
+  html body .mobile-menu *,
+  html body .custom-select__option {
+    transition: none !important;
   }
 }
