@@ -2025,3 +2025,63 @@ html body .site-footer :is(a,span,p,small,strong) {
     transition: none !important;
   }
 }
+
+
+/* Final cleanup for decorative cards inherited from the first visual theme. */
+html body :is(.hero-sticky,.board-card,.canvas-note,.template-sheet,.education-wall__note,
+.feature-card,.home-sample-card,.home-route,.study-sidebar__section) {
+  border-color: var(--arthic-line) !important;
+  box-shadow: 0 6px 18px rgba(29,64,51,.055) !important;
+}
+html body :is(.hero-sticky--blue,.hero-sticky--lime,.board-card--blue,
+.board-card--lime,.board-card--green,.canvas-note--yellow,.canvas-note--blue,
+.canvas-note--green,.template-sheet,.feature-card,.education-wall__note) {
+  background: var(--arthic-surface) !important;
+  color: var(--arthic-forest) !important;
+}
+html body :is(.hero-sticky--cream,.board-card--pink,.canvas-note--pink) {
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-forest) !important;
+}
+html body :is(.hero-sticky span,.hero-sticky strong,.hero-sticky small,
+.board-card b,.board-card p,.canvas-note b,.canvas-note p,
+.template-sheet b,.template-sheet p,.education-wall__note b,
+.education-wall__note p,.feature-card h3,.feature-card p) {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body :is(.column-color--blue,.column-color--green) { background: var(--arthic-forest) !important; }
+html body .column-color--pink { background: var(--arthic-coral) !important; }
+html body.study-preview-page .practice-track-filters button[aria-pressed="true"] {
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-coral) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+html body .home-sample-option {
+  border-color: var(--arthic-line) !important;
+  background: var(--arthic-surface) !important;
+  color: var(--arthic-forest) !important;
+}
+html body .home-sample-option[aria-pressed="true"] {
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-coral-soft) !important;
+}
+html body .home-sample-option.is-correct {
+  border-color: #6F9D76 !important;
+  background: #E2EDE3 !important;
+}
+html body .home-sample-option.is-incorrect {
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-coral-soft) !important;
+}
+html body .study-feedback[data-result="correct"],
+html body .home-sample-feedback[data-result="correct"] {
+  border-color: #6F9D76 !important;
+  background: #EAF2E8 !important;
+}
+html body .study-feedback[data-result="incorrect"],
+html body .home-sample-feedback[data-result="incorrect"] {
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-coral-soft) !important;
+}
