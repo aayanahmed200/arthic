@@ -2502,3 +2502,32 @@ html body .hero-window__body {
   }
   html body.content-page #main .apply-form__field--wide { grid-column: auto !important; }
 }
+
+
+/* Final page-specific balance: pricing hero is editorial single-column,
+   while the four exam pathways form an even 2 × 2 layout. */
+html body.content-page.pricing-page #main.content-main > .pricing-intro {
+  display: block !important;
+  grid-template-columns: none !important;
+  width: min(1120px,calc(100% - 48px)) !important;
+  max-width: 1120px !important;
+  padding: 12px 0 4px !important;
+  text-align: left !important;
+}
+html body.content-page.pricing-page #main .pricing-intro__copy {
+  width: 100% !important;
+  max-width: 820px !important;
+  margin: 0 !important;
+}
+html body.content-page.pathways-page #main .exam-track-grid,
+html body.content-page #main .exam-track-grid {
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+}
+@media(max-width:720px) {
+  html body.content-page.pricing-page #main.content-main > .pricing-intro,
+  html body.content-page.pathways-page #main .exam-track-grid,
+  html body.content-page #main .exam-track-grid {
+    width: calc(100% - 36px) !important;
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+}
