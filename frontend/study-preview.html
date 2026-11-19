@@ -19,8 +19,8 @@
 <meta name="twitter:title" content="Study session preview | Arthic" />
 <meta name="twitter:description" content="Try a sample study session with Arthic." />
 <meta name="twitter:image" content="https://arthic.tech/og-image.png" />
-<link rel="icon" href="/arthic-logo.png" type="image/png" sizes="512x512" />
-<link rel="apple-touch-icon" href="/arthic-logo.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/icon-512.png" />
 <link rel="manifest" href="/site.webmanifest" />
 </head>
 <body class="content-page study-preview-page">
@@ -70,72 +70,73 @@
   <section class="study-intro" id="top">
     <div class="study-intro__layout">
       <div class="study-intro__copy">
-        <div class="content-hero__topline"><span>ARTHIC PRACTICE ROOM</span><span>LCAT · NET · CSS · MDCAT</span><span>INSTANT FEEDBACK</span></div>
-        <h1>Practice. Learn. Get better.</h1>
-        <p class="study-intro__lede">A focused place to work through original questions. Pick an exam and subject, answer at your own pace, then learn from a clear explanation after every choice.</p>
+        <div class="content-hero__topline"><span>ARTHIC PRACTICE</span><span>LCAT · NET · CSS · MDCAT</span></div>
+        <h1>One question at a time.</h1>
+        <p class="study-intro__lede">Choose a track, answer at your own pace, and see a clear explanation as soon as you submit.</p>
       </div>
-      <aside class="study-intro__aside" aria-label="Question bank overview">
-        <span class="study-intro__aside-label">ORIGINAL QUESTION BANK</span>
+      <div class="study-intro__count" aria-label="Question bank size">
         <strong data-bank-total>800</strong>
-        <span class="study-intro__aside-caption">questions across four exam tracks</span>
-        <div class="study-intro__aside-meta"><span>200 questions per exam</span><span>Server-checked answers</span><span>Session review included</span></div>
-      </aside>
+        <span>original practice questions</span>
+        <small>200 questions in each exam track</small>
+      </div>
     </div>
   </section>
 
-  <section class="study-workspace content-container" aria-label="Arthic practice platform">
-    <aside class="study-rail" aria-label="Question bank controls">
-      <div>
-        <p class="study-rail__eyebrow">YOUR PRACTICE ROOM</p>
-        <p class="study-rail__name" data-practice-track-label>MDCAT</p>
-        <div class="practice-track-filters" role="group" aria-label="Choose an exam">
-          <button type="button" data-exam-filter="MDCAT" aria-pressed="true">MDCAT <small data-track-count="MDCAT">200</small></button>
-          <button type="button" data-exam-filter="LCAT" aria-pressed="false">LCAT <small data-track-count="LCAT">200</small></button>
-          <button type="button" data-exam-filter="NET" aria-pressed="false">NET <small data-track-count="NET">200</small></button>
-          <button type="button" data-exam-filter="CSS" aria-pressed="false">CSS <small data-track-count="CSS">200</small></button>
-          <button type="button" data-exam-filter="ALL" aria-pressed="false">All tracks <small data-track-count="ALL">800</small></button>
-        </div>
+  <section class="study-workspace content-container" aria-label="Practice questions">
+    <aside class="study-rail" aria-label="Practice filters">
+      <div class="study-rail__heading">
+        <span class="study-rail__eyebrow">CHOOSE YOUR EXAM</span>
+        <strong class="study-rail__name" data-practice-track-label>MDCAT</strong>
+      </div>
+      <div class="practice-track-filters" role="group" aria-label="Choose an exam">
+        <button type="button" data-exam-filter="MDCAT" aria-pressed="true">MDCAT <small data-track-count="MDCAT">200</small></button>
+        <button type="button" data-exam-filter="LCAT" aria-pressed="false">LCAT <small data-track-count="LCAT">200</small></button>
+        <button type="button" data-exam-filter="NET" aria-pressed="false">NET <small data-track-count="NET">200</small></button>
+        <button type="button" data-exam-filter="CSS" aria-pressed="false">CSS <small data-track-count="CSS">200</small></button>
+        <button type="button" data-exam-filter="ALL" aria-pressed="false">All tracks <small data-track-count="ALL">800</small></button>
+      </div>
+      <div class="study-rail__filters">
         <label class="study-filter-label" for="practiceSubjectFilter">SUBJECT</label>
         <select class="study-filter-select" id="practiceSubjectFilter" data-subject-filter data-custom-select><option value="ALL">All subjects</option></select>
-        <label class="study-filter-label" for="practiceQuestionSearch">FIND A QUESTION</label>
-        <input class="study-filter-search" id="practiceQuestionSearch" data-question-search type="search" placeholder="Search a topic or question" autocomplete="off" />
-        <nav class="study-rail__nav" aria-label="Practice sections">
-          <a class="study-rail__link is-active" href="#practice">Questions</a>
-          <a class="study-rail__link" href="#session-progress">Progress</a>
-          <a class="study-rail__link" href="#topic-note">Study tips</a>
-        </nav>
+        <label class="study-filter-label" for="practiceQuestionSearch">SEARCH QUESTIONS</label>
+        <input class="study-filter-search" id="practiceQuestionSearch" data-question-search type="search" placeholder="Search a topic" autocomplete="off" />
       </div>
-      <section class="study-bank-nav" aria-label="Question navigator">
-        <div class="study-bank-nav__top"><strong>QUESTION LIST</strong><span data-map-count>200</span></div>
+      <details class="study-bank-nav">
+        <summary class="study-bank-nav__summary"><span>Browse questions</span><strong data-map-count>200</strong></summary>
         <div class="study-question-map" data-question-map></div>
-        <p class="study-bank-nav__hint">Green = correct · Red = review · Grey = not answered</p>
-      </section>
-      <p class="study-rail__foot"><strong>Original Arthic questions</strong>Choose any question from the numbered list. Your progress stays in this session while the page remains open.</p>
+        <p class="study-bank-nav__hint">Green = correct · Coral = review · Grey = unanswered</p>
+      </details>
+      <p class="study-rail__note">Your answers and progress stay in this browser session.</p>
     </aside>
 
     <section class="study-session" id="practice" aria-labelledby="study-session-heading">
       <div class="study-session__top">
         <div>
-          <p class="study-session__eyebrow">PRACTICE SESSION / <span data-practice-track-label>MDCAT</span></p>
+          <p class="study-session__eyebrow">PRACTICE SESSION · <span data-practice-track-label>MDCAT</span></p>
           <h2 class="study-session__heading" id="study-session-heading">Your question session</h2>
-          <p class="study-session__subhead"><span data-question-bank-count>200 questions in this set</span> · Choose an answer to get instant feedback.</p>
+          <p class="study-session__subhead"><span data-question-bank-count>200 questions in this set</span> · Instant answer feedback.</p>
         </div>
-        <span class="study-session__type">INSTANT FEEDBACK</span>
+        <span class="study-session__type">SELF-PACED</span>
       </div>
       <div class="study-board-loading" data-board-loading role="status" aria-live="polite" aria-atomic="true" hidden>
-        <span class="study-board-loading__message" data-board-loading-label>Preparing practice questions</span>
+        <img class="study-board-loading__logo" src="/favicon.svg" alt="" />
+        <span class="study-board-loading__message" data-board-loading-label>Preparing MDCAT questions</span>
+        <span class="study-board-loading__subtext">Setting up your next question set</span>
         <div class="study-board-skeleton" aria-hidden="true">
           <div class="study-board-skeleton__meta"><i></i><i></i></div>
-          <div class="study-board-skeleton__title"><i></i><i></i><i></i></div>
-          <div class="study-board-skeleton__options">
-            <i></i><i></i><i></i><i></i>
-          </div>
+          <div class="study-board-skeleton__title"><i></i><i></i></div>
+          <div class="study-board-skeleton__options"><i></i><i></i><i></i><i></i></div>
         </div>
+      </div>
+      <div class="study-session__summary" id="session-progress" aria-label="Your session progress">
+        <div class="study-session__metric"><span>Answered</span><strong data-completed-count>0 / 200</strong></div>
+        <div class="study-session__metric"><span>Correct</span><strong data-correct-count>0</strong></div>
+        <div class="study-session__metric"><span>Accuracy</span><strong data-accuracy-value>—</strong></div>
       </div>
       <div class="study-progress" aria-label="Session progress">
         <div class="study-progress__labels">
           <span data-session-progress-label>0 of 200 answered</span>
-          <span data-question-total>180 questions</span>
+          <span data-question-total>200 questions</span>
         </div>
         <div class="study-progress__track" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="200" aria-valuenow="0" data-session-progress-track>
           <div class="study-progress__fill" data-session-progress-fill></div>
@@ -147,6 +148,7 @@
           <span data-question-topic>Cell organelles</span>
         </div>
         <div class="study-question__context"><span data-current-exam>MDCAT</span><span data-current-subject>Biology</span></div>
+        <p class="study-question__source" data-question-source>Original Arthic practice · No past-paper year or session</p>
         <h3 class="study-question__text" id="question-prompt" tabindex="-1" data-question-prompt>Loading the question bank…</h3>
         <p class="study-question__instruction" data-question-instruction>Choose one answer. Your answer is checked as soon as you choose it.</p>
         <div class="study-options" role="group" aria-label="Answer choices" data-question-options></div>
@@ -161,7 +163,6 @@
         <button class="study-action" type="button" data-next-question>Next question</button>
         <button class="study-action study-action--finish" type="button" data-finish-session>Finish session</button>
       </div>
-
       <section class="study-complete study-screen" data-study-complete aria-labelledby="complete-heading" hidden>
         <p class="study-complete__eyebrow">SESSION REVIEW</p>
         <h3 class="study-complete__heading" id="complete-heading" tabindex="-1" data-complete-heading>Your session review.</h3>
@@ -174,32 +175,12 @@
           <a class="study-action study-action--secondary" href="/subjects.html">Explore another exam</a>
         </div>
       </section>
+      <p class="study-session__note" id="topic-note">Every item in this current bank is an original Arthic practice question, not copied from an official exam paper.</p>
     </section>
-
-    <aside class="study-sidebar" aria-label="Session details">
-      <section class="study-sidebar__section study-sidebar__section--score" id="session-progress">
-        <p class="study-sidebar__eyebrow">SESSION OVERVIEW</p>
-        <h3 class="study-sidebar__heading">Your progress</h3>
-        <div class="study-sidebar__stat"><span>Answered</span><strong data-completed-count>0 / 200</strong></div>
-        <div class="study-sidebar__stat"><span>Correct</span><strong data-correct-count>0</strong></div>
-        <div class="study-sidebar__stat"><span>Accuracy</span><strong data-accuracy-value>—</strong></div>
-        <div class="study-progress__track study-sidebar__progress" aria-hidden="true"><div class="study-progress__fill" data-sidebar-progress-fill></div></div>
-      </section>
-      <section class="study-sidebar__section" id="topic-note">
-        <p class="study-sidebar__eyebrow">HOW IT WORKS</p>
-        <h3 class="study-sidebar__heading">Learn as you go</h3>
-        <p class="study-sidebar__text">Select an option to see the correct answer straight away.</p>
-        <p class="study-sidebar__text">A short explanation breaks the reasoning into simple points, followed by one key takeaway.</p>
-      </section>
-      <div class="study-sidebar__boundary">
-        <strong>About this question bank</strong>
-        800 original Arthic-written questions across four exam tracks. They are practice examples, not official past papers. Progress is kept for the current browser session only.
-      </div>
-    </aside>
   </section>
   <section class="study-preview-invite content-container">
-    <p>All questions are original Arthic-written practice material, not official LCAT, NET, CSS or MDCAT past papers.</p>
-    <a href="/waitlist.html">Get early-access updates ↗</a>
+    <p>Want to follow product updates as Arthic develops?</p>
+    <a href="/waitlist.html">Join the early-access list ↗</a>
   </section>
 </main>
 
