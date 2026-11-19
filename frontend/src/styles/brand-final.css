@@ -4645,3 +4645,603 @@ html body.not-found-document .not-found-art img {
   }
   html body.not-found-document .not-found-art { width: 130px !important; grid-row: 1 !important; }
 }
+
+
+/* ===============================================================
+   FINAL CONSISTENCY PASS — remove legacy pink variants, footer rules,
+   clipped wordmark, mismatched action styles and default scrollbars.
+   =============================================================== */
+
+/* One scrollbar everywhere: forest thumb on the cream track. */
+html {
+  scrollbar-color: var(--arthic-forest) var(--arthic-cream) !important;
+  scrollbar-width: thin !important;
+}
+html body,
+html body * {
+  scrollbar-color: var(--arthic-forest) var(--arthic-cream) !important;
+}
+html body::-webkit-scrollbar,
+html body *::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+html body::-webkit-scrollbar-track,
+html body *::-webkit-scrollbar-track {
+  background: var(--arthic-cream) !important;
+  border: 0 !important;
+}
+html body::-webkit-scrollbar-thumb,
+html body *::-webkit-scrollbar-thumb {
+  background: var(--arthic-forest) !important;
+  border: 2px solid var(--arthic-cream) !important;
+  border-radius: 99px !important;
+}
+html body::-webkit-scrollbar-thumb:hover,
+html body *::-webkit-scrollbar-thumb:hover {
+  background: var(--arthic-green-dark) !important;
+}
+
+/* Footer: no separator rules anywhere; full-width canvas and a complete logo. */
+html body .site-footer,
+html body footer.site-footer {
+  box-sizing: border-box !important;
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 60px 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  background: var(--arthic-cream) !important;
+  color: var(--arthic-forest) !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+html body .site-footer::before,
+html body .site-footer::after,
+html body .site-footer *::before,
+html body .site-footer *::after {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html body .site-footer * {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+html body .site-footer .footer-inner {
+  box-sizing: border-box !important;
+  width: min(1240px,calc(100% - 64px)) !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  padding: 46px 0 22px !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+html body .site-footer .footer-grid {
+  display: grid !important;
+  grid-template-columns: minmax(240px,1.55fr) repeat(4,minmax(105px,1fr)) !important;
+  align-items: start !important;
+  gap: clamp(18px,2.8vw,38px) !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+html body .site-footer .footer-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: 320px !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+html body .site-footer .brand--footer {
+  display: block !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 0 2px !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+html body .site-footer .brand--footer img:not(.footer-wordmark),
+html body .site-footer .brand--footer .brand-mark,
+html body .site-footer .brand--footer .brand-name {
+  display: none !important;
+}
+html body .site-footer .brand--footer .footer-wordmark {
+  display: block !important;
+  width: clamp(205px,19vw,250px) !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: 720 / 205 !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  vertical-align: top !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+html body .site-footer .footer-brand__description,
+html body .site-footer .footer-column > span,
+html body .site-footer .footer-column a,
+html body .site-footer .footer-bottom :is(p,span,a) {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  opacity: 1 !important;
+}
+html body .site-footer .footer-email {
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+  opacity: 1 !important;
+}
+html body .site-footer .footer-brand__description {
+  max-width: 34ch !important;
+  margin: 0 !important;
+  font-size: 11px !important;
+  line-height: 1.75 !important;
+}
+html body .site-footer .footer-column {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  background: transparent !important;
+}
+html body .site-footer .footer-column > span {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+html body .site-footer .footer-column a {
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+  text-decoration: none !important;
+}
+html body .site-footer .footer-column a:hover,
+html body .site-footer .footer-bottom a:hover {
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+}
+html body .site-footer .footer-bottom {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  width: 100% !important;
+  margin: 28px 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+html body .site-footer .footer-bottom :is(p,span,a) {
+  margin: 0 !important;
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+}
+@media(max-width:980px) {
+  html body .site-footer .footer-inner { width: calc(100% - 44px) !important; }
+  html body .site-footer .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  html body .site-footer .footer-brand { grid-column: 1 / -1 !important; max-width: 430px !important; }
+}
+@media(max-width:560px) {
+  html body .site-footer { margin-top: 44px !important; }
+  html body .site-footer .footer-inner { width: calc(100% - 36px) !important; padding: 34px 0 18px !important; }
+  html body .site-footer .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 23px 14px !important; }
+  html body .site-footer .footer-brand { grid-column: 1 / -1 !important; max-width: 100% !important; }
+  html body .site-footer .brand--footer .footer-wordmark { width: 210px !important; }
+  html body .site-footer .footer-bottom { flex-wrap: wrap !important; align-items: flex-start !important; margin-top: 22px !important; }
+}
+
+/* One action vocabulary on every route. Primary = coral/white;
+   secondary = cream/forest. This specifically defeats the old pink rule
+   in arthic-reference-system.css, which was only loaded on inner pages. */
+html body :is(
+  a.button:not(.button--outline), button.button:not(.button--outline),
+  .button--small, .button--primary, .button--solid, .btn--primary, .btn--solid,
+  .home-primary, .home-button:not(.home-button--secondary),
+  .oneprep-button--primary, .oneprep-button:not(.oneprep-button--light),
+  .study-action:not(.study-action--secondary):not(.study-action--finish),
+  button[type="submit"], input[type="submit"], .footer__cta,
+  .home-sample-check, .nav__cta
+) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  min-height: 44px !important;
+  padding: 11px 18px !important;
+  border: 1px solid var(--arthic-coral) !important;
+  border-radius: 9px !important;
+  background: var(--arthic-coral) !important;
+  background-color: var(--arthic-coral) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  font-family: "Poppins",Arial,sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: .012em !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  transform: none;
+}
+html body.content-page main :is(
+  a.oneprep-button--primary, a.home-button:not(.home-button--secondary),
+  a.btn--primary, a.btn--solid, .content-cta a.home-button,
+  .oneprep-final-cta a.oneprep-button--primary,
+  button[type="submit"], input[type="submit"]
+) {
+  background: var(--arthic-coral) !important;
+  background-color: var(--arthic-coral) !important;
+  border-color: var(--arthic-coral) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  border-radius: 9px !important;
+  font-family: "Poppins",Arial,sans-serif !important;
+}
+html body :is(
+  a.button:not(.button--outline), button.button:not(.button--outline),
+  .button--small, .button--primary, .button--solid, .btn--primary, .btn--solid,
+  .home-primary, .home-button:not(.home-button--secondary),
+  .oneprep-button--primary, .oneprep-button:not(.oneprep-button--light),
+  .study-action:not(.study-action--secondary):not(.study-action--finish),
+  button[type="submit"], input[type="submit"], .footer__cta,
+  .home-sample-check, .nav__cta
+):hover:not(:disabled) {
+  border-color: var(--arthic-coral-hover) !important;
+  background: var(--arthic-coral-hover) !important;
+  background-color: var(--arthic-coral-hover) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+html body :is(
+  .button--outline, .btn--outline, .home-secondary, .home-button--secondary,
+  .oneprep-button--light, .study-action--secondary, .study-action--finish,
+  a.button--outline
+) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-height: 42px !important;
+  padding: 10px 16px !important;
+  border: 1px solid rgba(29,64,51,.32) !important;
+  border-radius: 9px !important;
+  background: var(--arthic-surface) !important;
+  background-color: var(--arthic-surface) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-family: "Poppins",Arial,sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  line-height: 1.25 !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+html body :is(
+  .button--outline, .btn--outline, .home-secondary, .home-button--secondary,
+  .oneprep-button--light, .study-action--secondary, .study-action--finish,
+  a.button--outline
+):hover:not(:disabled) {
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body :is(button,input[type="submit"],a.button,.home-button,.oneprep-button,.study-action):disabled {
+  cursor: not-allowed !important;
+  opacity: .5 !important;
+}
+html body :is(a.button,button.button,.home-button,.oneprep-button,.study-action):focus-visible {
+  outline: 2px solid var(--arthic-forest) !important;
+  outline-offset: 3px !important;
+  box-shadow: none !important;
+}
+
+/* Pricing: bigger prices and tidy, scannable feature bullets. */
+html body.content-page.pricing-page #main .pricing-plan__price {
+  display: flex !important;
+  align-items: baseline !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin: 13px 0 3px !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-family: "Poppins",Arial,sans-serif !important;
+  font-size: clamp(36px,3.5vw,46px) !important;
+  font-weight: 800 !important;
+  letter-spacing: -.05em !important;
+  line-height: 1 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price span {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.35 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan ul {
+  display: grid !important;
+  gap: 10px !important;
+  margin: 12px 0 20px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li {
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 0 0 19px !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+  text-align: left !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li::before {
+  content: "✓" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__intro {
+  min-height: 0 !important;
+  margin: 0 !important;
+  color: var(--arthic-forest) !important;
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__status {
+  margin: 2px 0 0 !important;
+  color: var(--arthic-coral) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+}
+
+/* Careers copy is short now; keep the cards compact and readable. */
+html body.content-page.career-page #main .career-list--detailed {
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  align-items: stretch !important;
+  gap: 14px !important;
+}
+html body.content-page.career-page #main .career-role--detailed {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 11px !important;
+  padding: 20px !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 13px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: 0 6px 20px rgba(29,64,51,.045) !important;
+}
+html body.content-page.career-page #main .career-role__body,
+html body.content-page.career-page #main .career-role__note {
+  margin: 0 !important;
+  color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid {
+  display: grid !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  padding-top: 11px !important;
+  border-top: 1px solid var(--arthic-line) !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid ul {
+  display: grid !important;
+  gap: 5px !important;
+  margin: 6px 0 0 !important;
+  padding-left: 16px !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid li {
+  color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid strong {
+  color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+  font-weight: 750 !important;
+}
+html body.content-page.career-page #main .careers-note,
+html body.content-page.career-page #main .careers-application-note {
+  color: var(--arthic-forest) !important;
+}
+@media(max-width:980px) {
+  html body.content-page.career-page #main .career-list--detailed { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+}
+@media(max-width:680px) {
+  html body.content-page.career-page #main .career-list--detailed { grid-template-columns: minmax(0,1fr) !important; }
+  html body.content-page.pricing-page #main .pricing-plan__price { font-size: 38px !important; }
+}
+
+/* Practice: one calm workspace; explicit text contrast on every answer choice. */
+html body.content-page.study-preview-page,
+html body.content-page.study-preview-page #main.content-main,
+html body.content-page.study-preview-page .study-intro,
+html body.content-page.study-preview-page .study-workspace {
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+}
+html body.content-page.study-preview-page .study-intro__layout {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: 26px !important;
+}
+html body.content-page.study-preview-page .study-intro h1,
+html body.content-page.study-preview-page .study-session__heading,
+html body.content-page.study-preview-page .study-question__text {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body.content-page.study-preview-page .study-rail,
+html body.content-page.study-preview-page .study-session {
+  background: var(--arthic-surface) !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 7px 22px rgba(29,64,51,.045) !important;
+}
+html body.content-page.study-preview-page .study-session {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  padding: clamp(17px,2.2vw,26px) !important;
+}
+html body.content-page.study-preview-page .study-question {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  padding: clamp(17px,2vw,24px) !important;
+  border: 1px solid rgba(29,64,51,.18) !important;
+  border-radius: 11px !important;
+  background: var(--arthic-cream) !important;
+  box-shadow: none !important;
+}
+html body.content-page.study-preview-page button.study-option,
+html body.content-page.study-preview-page .study-options button,
+html body.content-page.study-preview-page .study-option {
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
+  width: 100% !important;
+  min-height: 54px !important;
+  padding: 11px 14px !important;
+  border: 1px solid rgba(29,64,51,.2) !important;
+  border-radius: 9px !important;
+  background: var(--arthic-surface) !important;
+  background-color: var(--arthic-surface) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  text-align: left !important;
+  text-shadow: none !important;
+  font-family: "Poppins",Arial,sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+html body.content-page.study-preview-page .study-option__text {
+  flex: 1 1 auto !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  opacity: 1 !important;
+}
+html body.content-page.study-preview-page .study-option__key {
+  display: grid !important;
+  place-items: center !important;
+  flex: 0 0 28px !important;
+  width: 28px !important;
+  height: 28px !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 7px !important;
+  background: var(--arthic-surface-muted) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body.content-page.study-preview-page .study-option:hover:not(:disabled) {
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body.content-page.study-preview-page .study-option.is-correct {
+  border-color: #79A982 !important;
+  background: #E5F0E6 !important;
+  color: #24563A !important;
+  -webkit-text-fill-color: #24563A !important;
+}
+html body.content-page.study-preview-page .study-option.is-incorrect {
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body.content-page.study-preview-page .study-option:disabled {
+  cursor: default !important;
+  opacity: 1 !important;
+}
+html body.content-page.study-preview-page .study-question__meta,
+html body.content-page.study-preview-page .study-question__source,
+html body.content-page.study-preview-page .study-question__instruction,
+html body.content-page.study-preview-page .study-session__subhead,
+html body.content-page.study-preview-page .study-session__note {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body.content-page.study-preview-page .study-session__metric span {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body.content-page.study-preview-page .study-session__metric strong {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body.content-page.study-preview-page .study-question__actions {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 9px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+html body.content-page.study-preview-page .study-action {
+  min-width: 118px !important;
+  min-height: 44px !important;
+}
+html body.content-page.study-preview-page .study-action--secondary,
+html body.content-page.study-preview-page .study-action--finish {
+  background: var(--arthic-surface) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  border: 1px solid rgba(29,64,51,.28) !important;
+}
+html body.content-page.study-preview-page .study-progress__fill {
+  background: var(--arthic-coral) !important;
+}
+html body.content-page.study-preview-page .study-board-loading {
+  background: rgba(255,252,245,.97) !important;
+  color: var(--arthic-forest) !important;
+}
+@media(max-width:720px) {
+  html body.content-page.study-preview-page .study-intro__layout { display: grid !important; grid-template-columns: 1fr !important; }
+  html body.content-page.study-preview-page .study-question__actions { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  html body.content-page.study-preview-page .study-action--finish { grid-column: 1 / -1 !important; }
+}
