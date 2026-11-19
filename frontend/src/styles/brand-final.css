@@ -3626,3 +3626,1020 @@ html body.study-preview-page .study-complete[hidden],
 html body.study-preview-page .study-board-loading[hidden] {
   display: none !important;
 }
+
+
+/* ===============================================================
+   ARTHIC PAGE FINISH — full-width footer, consistent editorial
+   layouts for the rest of the site, and a cohesive 404.
+   Forest #1D4033 · Cream #F7F2E8 · Coral #B84B38
+   =============================================================== */
+
+/* Every interior route gets the same outer frame and top rhythm. */
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main {
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: clamp(38px,5vw,62px) !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 126px 0 70px !important;
+  overflow: visible !important;
+  background: var(--arthic-cream) !important;
+}
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main > section {
+  box-sizing: border-box !important;
+  width: min(1160px,calc(100% - 56px)) !important;
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main > .content-hero,
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main > .oneprep-subhero,
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main > .method-hero {
+  min-height: 0 !important;
+  padding: 10px 0 0 !important;
+  background: transparent !important;
+}
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main :is(h1,h2,h3,h4) {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-family: "Poppins",Arial,sans-serif !important;
+  letter-spacing: -.035em !important;
+  line-height: 1.12 !important;
+  text-wrap: balance !important;
+}
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main h1 {
+  max-width: 16ch !important;
+  margin: 0 0 18px !important;
+  font-size: clamp(40px,5.3vw,64px) !important;
+  font-weight: 700 !important;
+}
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main h2 {
+  margin: 0 0 12px !important;
+  font-size: clamp(24px,3vw,34px) !important;
+  font-weight: 650 !important;
+}
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main :is(p,li,dd) {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-size: 13px !important;
+  line-height: 1.8 !important;
+}
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main :is(.content-hero__lede,.oneprep-lede,.method-hero__lede) {
+  max-width: 68ch !important;
+  margin: 0 !important;
+  font-size: clamp(14px,1.35vw,16px) !important;
+  line-height: 1.85 !important;
+}
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main :is(.content-hero__topline,.oneprep-eyebrow,.method-section-head .eyebrow) {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 10px 18px !important;
+  margin: 0 0 17px !important;
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+  font-size: 9px !important;
+  font-weight: 750 !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+}
+html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main :is(.content-hero__topline span,.content-hero__topline > *) {
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+}
+
+/* A quiet surface vocabulary: cream page, warm-cream cards, fine forest borders. */
+html body.content-page #main :is(.pricing-intro__aside,.pricing-plan,.pricing-benchmark,
+.exam-track-card,.exam-finder,.method-step-list > li,.method-current__copy,
+.method-planned__list > li,.oneprep-faq-list details,.career-intro__aside,
+.career-role--detailed,.careers-note,.careers-application-note,.waitlist-form,
+.apply-role,.apply-form,.exam-prep-note,.content-cta,.oneprep-final-cta) {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 14px !important;
+  background: var(--arthic-surface) !important;
+  color: var(--arthic-forest) !important;
+  box-shadow: 0 8px 24px rgba(29,64,51,.045) !important;
+}
+html body.content-page #main :is(.pricing-intro__aside,.pricing-plan,.pricing-benchmark,
+.exam-track-card,.method-current__copy,.method-planned__list > li,.oneprep-faq-list details,
+.career-intro__aside,.career-role--detailed,.careers-note,.careers-application-note,
+.waitlist-form,.apply-role,.apply-form,.exam-prep-note,.content-cta,.oneprep-final-cta) {
+  padding: clamp(19px,2.4vw,28px) !important;
+}
+html body.content-page #main :is(.pricing-intro__aside,.career-intro__aside) {
+  max-width: 360px !important;
+}
+html body.content-page #main :is(.pricing-intro,.career-intro) {
+  display: grid !important;
+  grid-template-columns: minmax(0,1.2fr) minmax(250px,.8fr) !important;
+  align-items: end !important;
+  gap: clamp(24px,4vw,52px) !important;
+  width: min(1160px,calc(100% - 56px)) !important;
+}
+html body.content-page.pricing-page #main .pricing-intro__copy,
+html body.content-page.career-page #main .career-intro__copy {
+  min-width: 0 !important;
+  max-width: 760px !important;
+}
+html body.content-page.pricing-page #main .pricing-intro__aside,
+html body.content-page.career-page #main .career-intro__aside {
+  justify-self: end !important;
+}
+html body.content-page #main :is(.pricing-intro__aside-label,.career-intro__aside-label) {
+  color: var(--arthic-coral) !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: .13em !important;
+}
+html body.content-page #main :is(.pricing-intro__aside strong,.career-intro__aside strong) {
+  display: block !important;
+  margin: 9px 0 !important;
+  color: var(--arthic-forest) !important;
+  font-size: 20px !important;
+}
+html body.content-page #main :is(.pricing-intro__aside p,.career-intro__aside p) {
+  margin: 0 !important;
+  color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+}
+html body.content-page #main :is(.pricing-intro__aside-foot,.career-intro__aside-caption) {
+  display: block !important;
+  margin-top: 13px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid var(--arthic-line) !important;
+  color: var(--arthic-forest) !important;
+  font-size: 9px !important;
+}
+
+/* Pricing becomes a clean three-column comparison with aligned amounts. */
+html body.content-page.pricing-page #main .pricing-plan-section {
+  display: grid !important;
+  gap: 16px !important;
+  width: min(1160px,calc(100% - 56px)) !important;
+}
+html body.content-page.pricing-page #main .pricing-plan-section > .content-hero__topline {
+  justify-content: space-between !important;
+  margin: 0 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  align-items: stretch !important;
+  gap: 16px !important;
+  width: 100% !important;
+}
+html body.content-page.pricing-page #main .pricing-plan {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+  min-height: 100% !important;
+  padding: clamp(20px,2.6vw,30px) !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__eyebrow {
+  margin: 0 !important;
+  color: var(--arthic-coral) !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: .13em !important;
+}
+html body.content-page.pricing-page #main .pricing-plan h2 {
+  margin: 2px 0 0 !important;
+  font-size: 25px !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__intro {
+  min-height: 62px !important;
+  margin: 0 !important;
+  color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price {
+  display: flex !important;
+  align-items: baseline !important;
+  flex-wrap: wrap !important;
+  gap: 5px !important;
+  margin: 12px 0 0 !important;
+  color: var(--arthic-forest) !important;
+  font-size: clamp(27px,3vw,36px) !important;
+  font-weight: 800 !important;
+  letter-spacing: -.04em !important;
+  line-height: 1.05 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price span {
+  color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__status {
+  margin: 0 !important;
+  color: var(--arthic-coral) !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan ul {
+  flex: 1 1 auto !important;
+  display: grid !important;
+  gap: 7px !important;
+  margin: 12px 0 18px !important;
+  padding-left: 17px !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li {
+  padding: 0 !important;
+  color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+  line-height: 1.65 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan .oneprep-button {
+  margin-top: auto !important;
+  align-self: flex-start !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark-list {
+  display: grid !important;
+  grid-template-columns: repeat(4,minmax(0,1fr)) !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark {
+  padding: 16px !important;
+  box-shadow: none !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark :is(strong,b) {
+  color: var(--arthic-forest) !important;
+  font-size: 15px !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark :is(p,span,small) {
+  color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__list {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 10px !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item {
+  padding: 15px 17px !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 10px !important;
+  background: var(--arthic-surface) !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item :is(h3,p) { color: var(--arthic-forest) !important; }
+
+/* Careers: give the three roles equal columns, consistent card internals. */
+html body.content-page.career-page #main .careers-roles {
+  display: grid !important;
+  gap: 17px !important;
+}
+html body.content-page.career-page #main .career-list--detailed {
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  align-items: stretch !important;
+  gap: 15px !important;
+  width: 100% !important;
+}
+html body.content-page.career-page #main .career-role--detailed {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 13px !important;
+  min-width: 0 !important;
+  padding: 23px !important;
+}
+html body.content-page.career-page #main .career-role__number {
+  color: var(--arthic-coral) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+html body.content-page.career-page #main .career-role__type {
+  color: var(--arthic-coral) !important;
+  font-size: 9px !important;
+  font-weight: 750 !important;
+  letter-spacing: .08em !important;
+}
+html body.content-page.career-page #main .career-role__content :is(h2,h3) {
+  margin: 2px 0 9px !important;
+  color: var(--arthic-forest) !important;
+  font-size: 22px !important;
+}
+html body.content-page.career-page #main .career-role__body,
+html body.content-page.career-page #main .career-role__detail-grid,
+html body.content-page.career-page #main .career-role__note {
+  color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+  line-height: 1.75 !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid {
+  display: grid !important;
+  gap: 13px !important;
+  margin-top: 4px !important;
+  padding-top: 13px !important;
+  border-top: 1px solid var(--arthic-line) !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid strong {
+  color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid ul {
+  display: grid !important;
+  gap: 5px !important;
+  margin: 7px 0 0 !important;
+  padding-left: 16px !important;
+}
+html body.content-page.career-page #main .career-role__link {
+  margin-top: auto !important;
+  padding-top: 12px !important;
+  border-top: 1px solid var(--arthic-line) !important;
+  color: var(--arthic-coral) !important;
+  font-size: 11px !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+}
+
+/* Waitlist and application: clean split layout, real space around each form. */
+html body.content-page.waitlist-page #main .waitlist-layout,
+html body.content-page.apply-page #main .apply-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) minmax(360px,.92fr) !important;
+  align-items: start !important;
+  gap: clamp(28px,4vw,54px) !important;
+  width: min(1100px,calc(100% - 56px)) !important;
+}
+html body.content-page.waitlist-page #main .waitlist-copy,
+html body.content-page.apply-page #main .apply-role {
+  min-width: 0 !important;
+  padding: 8px 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html body.content-page.waitlist-page #main .waitlist-points {
+  display: grid !important;
+  gap: 0 !important;
+  margin: 24px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+html body.content-page.waitlist-page #main .waitlist-points > li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 13px !important;
+  padding: 14px 0 !important;
+  border-bottom: 1px solid var(--arthic-line) !important;
+  color: var(--arthic-forest) !important;
+  font-size: 12px !important;
+}
+html body.content-page.waitlist-page #main .waitlist-points__number {
+  display: grid !important;
+  flex: 0 0 30px !important;
+  place-items: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 7px !important;
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-coral) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+}
+html body.content-page.waitlist-page #main .waitlist-form,
+html body.content-page.apply-page #main .apply-form {
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: clamp(21px,2.8vw,32px) !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 15px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: 0 8px 24px rgba(29,64,51,.05) !important;
+}
+html body.content-page.waitlist-page #main .waitlist-form__label,
+html body.content-page.apply-page #main .apply-form__section-label {
+  color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+  font-weight: 750 !important;
+  letter-spacing: .07em !important;
+}
+html body.content-page.waitlist-page #main .waitlist-form__row {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) auto !important;
+  gap: 9px !important;
+  align-items: stretch !important;
+}
+html body.content-page.waitlist-page #main .field,
+html body.content-page.apply-page #main .field {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 45px !important;
+  padding: 11px 13px !important;
+  border: 1px solid rgba(29,64,51,.25) !important;
+  border-radius: 8px !important;
+  background: var(--arthic-cream) !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+  box-shadow: none !important;
+}
+html body.content-page.waitlist-page #main .field::placeholder,
+html body.content-page.apply-page #main .field::placeholder {
+  color: var(--arthic-forest) !important;
+  opacity: .65 !important;
+}
+html body.content-page.apply-page #main .apply-form__section {
+  display: grid !important;
+  gap: 12px !important;
+  margin: 0 0 22px !important;
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid var(--arthic-line) !important;
+}
+html body.content-page.apply-page #main .apply-form__grid {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 13px !important;
+}
+html body.content-page.apply-page #main .apply-form__field {
+  display: grid !important;
+  gap: 7px !important;
+  min-width: 0 !important;
+}
+html body.content-page.apply-page #main .apply-form__field--wide { grid-column: 1 / -1 !important; }
+html body.content-page.apply-page #main .apply-form__field label {
+  color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+html body.content-page.apply-page #main .apply-form textarea.field {
+  min-height: 120px !important;
+  resize: vertical !important;
+}
+html body.content-page.waitlist-page #main :is(.waitlist-form__fineprint,.waitlist-form__status),
+html body.content-page.apply-page #main :is(.apply-form__note,.apply-form__status) {
+  color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+  line-height: 1.7 !important;
+}
+html body.content-page.waitlist-page #main :is(.waitlist-form__fineprint,.waitlist-form__fineprint a),
+html body.content-page.apply-page #main :is(.apply-form__note,.apply-form__note a) {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+
+/* Exam pathways: a simple navigation strip, then a clear 2 × 2 card grid. */
+html body.content-page.pathways-page #main .oneprep-subhero {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 12px 0 0 !important;
+  background: transparent !important;
+}
+html body.content-page.pathways-page #main .pathways-intro__inner {
+  display: grid !important;
+  grid-template-columns: minmax(0,1.1fr) minmax(300px,.9fr) !important;
+  gap: 36px !important;
+  align-items: end !important;
+  width: min(1160px,calc(100% - 56px)) !important;
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+}
+html body.content-page.pathways-page #main .pathways-intro__copy h1 em {
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+  font-style: normal !important;
+}
+html body.content-page.pathways-page #main .oneprep-route-strip {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 8px !important;
+  margin: 0 !important;
+}
+html body.content-page.pathways-page #main .oneprep-route-strip a {
+  display: grid !important;
+  gap: 5px !important;
+  min-width: 0 !important;
+  padding: 13px !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 9px !important;
+  background: var(--arthic-surface) !important;
+  color: var(--arthic-forest) !important;
+  text-decoration: none !important;
+  transition: border-color .16s ease,transform .16s ease,background .16s ease !important;
+}
+html body.content-page.pathways-page #main .oneprep-route-strip a:hover {
+  transform: translateY(-2px) !important;
+  border-color: var(--arthic-coral) !important;
+  background: var(--arthic-coral-soft) !important;
+}
+html body.content-page.pathways-page #main .oneprep-route-strip :is(span,small,strong) {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+}
+html body.content-page.pathways-page #main .oneprep-route-strip span {
+  color: var(--arthic-coral) !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+}
+html body.content-page.pathways-page #main .exam-track-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+}
+html body.content-page.pathways-page #main .exam-track-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  min-width: 0 !important;
+  padding: clamp(20px,2.5vw,28px) !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 14px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: 0 8px 24px rgba(29,64,51,.045) !important;
+}
+html body.content-page.pathways-page #main .exam-track-card__number,
+html body.content-page.pathways-page #main .exam-track-card__index {
+  color: var(--arthic-coral) !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  letter-spacing: .09em !important;
+}
+html body.content-page.pathways-page #main .exam-track-card h2 {
+  margin: 0 !important;
+  color: var(--arthic-forest) !important;
+  font-size: 28px !important;
+}
+html body.content-page.pathways-page #main .exam-track-card p {
+  margin: 0 !important;
+  color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+}
+html body.content-page.pathways-page #main .exam-track-card__tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+}
+html body.content-page.pathways-page #main .exam-track-card__tags span {
+  padding: 6px 8px !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 6px !important;
+  background: var(--arthic-cream) !important;
+  color: var(--arthic-forest) !important;
+  font-size: 9px !important;
+}
+html body.content-page.pathways-page #main .exam-track-card__link {
+  margin-top: auto !important;
+  padding-top: 14px !important;
+  border-top: 1px solid var(--arthic-line) !important;
+  color: var(--arthic-coral) !important;
+  font-size: 11px !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+}
+html body.content-page.pathways-page #main .exam-finder {
+  display: grid !important;
+  gap: 8px !important;
+  padding: 14px !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 10px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: none !important;
+}
+html body.content-page.pathways-page #main .exam-finder :is(label,p) {
+  color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+}
+html body.content-page.pathways-page #main .exam-finder__field {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+}
+
+/* Method page: one narrative column, steps separated by numbered rules. */
+html body.content-page.method-page #main .method-hero > .content-container {
+  width: min(1160px,calc(100% - 56px)) !important;
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+}
+html body.content-page.method-page #main .method-hero h1 { max-width: 15ch !important; }
+html body.content-page.method-page #main .method-steps {
+  display: grid !important;
+  grid-template-columns: minmax(240px,.75fr) minmax(0,1.25fr) !important;
+  gap: clamp(24px,4vw,56px) !important;
+  align-items: start !important;
+}
+html body.content-page.method-page #main .method-section-head { max-width: 410px !important; }
+html body.content-page.method-page #main .method-step-list {
+  display: grid !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+html body.content-page.method-page #main .method-step-list > li {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0,1fr) auto !important;
+  gap: 14px !important;
+  align-items: start !important;
+  padding: 17px 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--arthic-line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html body.content-page.method-page #main .method-step-list__number {
+  display: grid !important;
+  place-items: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 8px !important;
+  background: var(--arthic-coral-soft) !important;
+  color: var(--arthic-coral) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+}
+html body.content-page.method-page #main .method-step-list h3 {
+  margin: 1px 0 6px !important;
+  color: var(--arthic-forest) !important;
+  font-size: 17px !important;
+}
+html body.content-page.method-page #main .method-step-list p {
+  margin: 0 !important;
+  color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+}
+html body.content-page.method-page #main .method-step-list__status {
+  color: var(--arthic-coral) !important;
+  font-size: 8px !important;
+  font-weight: 800 !important;
+  letter-spacing: .1em !important;
+}
+html body.content-page.method-page #main .method-current {
+  width: 100% !important;
+  max-width: none !important;
+  padding: clamp(24px,4vw,42px) 0 !important;
+  background: var(--arthic-surface) !important;
+}
+html body.content-page.method-page #main .method-current__inner {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+  gap: 36px !important;
+  align-items: center !important;
+  width: min(1160px,calc(100% - 56px)) !important;
+  margin: 0 auto !important;
+}
+html body.content-page.method-page #main .method-current__copy {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html body.content-page.method-page #main .method-planned__list {
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+html body.content-page.method-page #main .method-planned__list > li {
+  display: grid !important;
+  align-content: start !important;
+  gap: 10px !important;
+  padding: 19px !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 11px !important;
+  background: var(--arthic-surface) !important;
+}
+html body.content-page.method-page #main .method-planned__list > li > span {
+  color: var(--arthic-coral) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+}
+html body.content-page.method-page #main .method-planned__list h3 {
+  margin: 0 !important;
+  font-size: 16px !important;
+}
+html body.content-page.method-page #main .method-planned__list p { margin: 0 !important; }
+html body.content-page.method-page #main .oneprep-faq-list {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 9px !important;
+}
+html body.content-page.method-page #main .oneprep-faq-list details {
+  padding: 15px 17px !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 9px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: none !important;
+}
+html body.content-page.method-page #main .oneprep-faq-list summary {
+  color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+html body.content-page.method-page #main .oneprep-faq-list p {
+  color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+}
+html body.content-page.method-page #main .oneprep-final-cta {
+  width: 100% !important;
+  max-width: none !important;
+  padding: 30px 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: none !important;
+}
+html body.content-page.method-page #main .oneprep-final-cta__inner {
+  width: min(1160px,calc(100% - 56px)) !important;
+  margin: 0 auto !important;
+}
+
+/* Footer: flush to the viewport, all footer copy and links forest green.
+   The inner content is centred without adding an inset card or white panel. */
+html body .site-footer {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 70px 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+  color: var(--arthic-forest) !important;
+  box-shadow: none !important;
+  overflow: clip !important;
+}
+html body .site-footer * {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  opacity: 1 !important;
+}
+html body .site-footer .footer-inner {
+  box-sizing: border-box !important;
+  width: min(1240px,calc(100% - 64px)) !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  padding: 52px 0 22px !important;
+  background: transparent !important;
+}
+html body .site-footer .footer-grid {
+  display: grid !important;
+  grid-template-columns: minmax(230px,1.6fr) repeat(4,minmax(110px,1fr)) !important;
+  align-items: start !important;
+  gap: clamp(18px,3vw,42px) !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+html body .site-footer .footer-brand {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  max-width: 300px !important;
+  background: transparent !important;
+}
+html body .site-footer .brand--footer {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  text-decoration: none !important;
+}
+html body .site-footer .brand--footer img,
+html body .site-footer .brand--footer .brand-mark { display: none !important; }
+html body .site-footer .brand--footer .brand-name {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-size: 27px !important;
+  font-weight: 800 !important;
+  letter-spacing: -.045em !important;
+}
+html body .site-footer .footer-brand__description {
+  margin: 0 !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+  line-height: 1.8 !important;
+}
+html body .site-footer .footer-email {
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+  font-size: 11px !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+}
+html body .site-footer .footer-column {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html body .site-footer .footer-column > span {
+  margin: 0 0 4px !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .13em !important;
+  text-transform: uppercase !important;
+}
+html body .site-footer .footer-column a {
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  text-decoration: none !important;
+}
+html body .site-footer .footer-column a:hover,
+html body .site-footer .footer-bottom a:hover {
+  color: var(--arthic-coral) !important;
+  -webkit-text-fill-color: var(--arthic-coral) !important;
+}
+html body .site-footer .footer-bottom {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  width: 100% !important;
+  margin: 38px 0 0 !important;
+  padding: 17px 0 0 !important;
+  border-top: 1px solid rgba(29,64,51,.2) !important;
+  background: transparent !important;
+}
+html body .site-footer .footer-bottom :is(p,span,a) {
+  margin: 0 !important;
+  color: var(--arthic-forest) !important;
+  -webkit-text-fill-color: var(--arthic-forest) !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+}
+html body .site-footer .footer-bottom a { text-decoration: none !important; }
+@media(max-width:980px) {
+  html body .site-footer .footer-inner { width: calc(100% - 44px) !important; }
+  html body .site-footer .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  html body .site-footer .footer-brand { grid-column: 1 / -1 !important; max-width: 480px !important; }
+}
+@media(max-width:560px) {
+  html body .site-footer { margin-top: 46px !important; }
+  html body .site-footer .footer-inner { width: calc(100% - 36px) !important; padding: 36px 0 18px !important; }
+  html body .site-footer .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 26px 14px !important; }
+  html body .site-footer .footer-brand { grid-column: 1 / -1 !important; max-width: 100% !important; }
+  html body .site-footer .footer-bottom { flex-wrap: wrap !important; align-items: flex-start !important; margin-top: 28px !important; }
+}
+
+/* Custom 404 page. */
+html body.not-found-document #main.not-found-page {
+  box-sizing: border-box !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  min-height: min(760px,82vh) !important;
+  padding: 132px 24px 78px !important;
+  background: var(--arthic-cream) !important;
+}
+html body.not-found-document #main .not-found-card {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 1fr minmax(180px,.55fr) !important;
+  align-items: center !important;
+  gap: clamp(22px,4vw,54px) !important;
+  width: min(980px,100%) !important;
+  max-width: 980px !important;
+  margin: 0 !important;
+  padding: clamp(28px,5vw,62px) !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 20px !important;
+  background: var(--arthic-surface) !important;
+  box-shadow: 0 12px 32px rgba(29,64,51,.055) !important;
+}
+html body.not-found-document .not-found-copy { min-width: 0 !important; }
+html body.not-found-document .not-found-kicker {
+  margin: 0 0 15px !important;
+  color: var(--arthic-coral) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .15em !important;
+}
+html body.not-found-document .not-found-card h1 {
+  max-width: 12ch !important;
+  margin: 0 0 15px !important;
+  color: var(--arthic-forest) !important;
+  font-size: clamp(38px,5.2vw,62px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.045em !important;
+}
+html body.not-found-document .not-found-card p:not(.not-found-kicker) {
+  max-width: 48ch !important;
+  margin: 0 0 24px !important;
+  color: var(--arthic-forest) !important;
+  font-size: 13px !important;
+  line-height: 1.8 !important;
+}
+html body.not-found-document .not-found-actions {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+html body.not-found-document .not-found-actions a {
+  min-height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px 15px !important;
+  border-radius: 8px !important;
+  font-size: 11px !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+}
+html body.not-found-document .not-found-actions .not-found-primary {
+  background: var(--arthic-coral) !important;
+  color: #FFFFFF !important;
+}
+html body.not-found-document .not-found-actions .not-found-secondary {
+  border: 1px solid var(--arthic-line) !important;
+  background: transparent !important;
+  color: var(--arthic-forest) !important;
+}
+html body.not-found-document .not-found-art {
+  display: grid !important;
+  place-items: center !important;
+  width: min(220px,100%) !important;
+  aspect-ratio: 1 !important;
+  margin-inline: auto !important;
+  border: 1px solid var(--arthic-line) !important;
+  border-radius: 50% !important;
+  background: var(--arthic-cream) !important;
+}
+html body.not-found-document .not-found-art img {
+  display: block !important;
+  width: 62% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+@media(max-width:720px) {
+  html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main {
+    gap: 34px !important;
+    padding: 94px 0 48px !important;
+  }
+  html body.content-page:not(.study-preview-page):not(.legal-page):not(.not-found-document) #main.content-main > section,
+  html body.content-page.pricing-page #main .pricing-plan-section,
+  html body.content-page.waitlist-page #main .waitlist-layout,
+  html body.content-page.apply-page #main .apply-layout,
+  html body.content-page.pathways-page #main .pathways-intro__inner {
+    width: calc(100% - 36px) !important;
+  }
+  html body.content-page #main :is(.pricing-intro,.career-intro,.waitlist-layout,.apply-layout,.pathways-intro__inner,
+  .method-steps,.method-current__inner) {
+    grid-template-columns: minmax(0,1fr) !important;
+    align-items: stretch !important;
+    gap: 22px !important;
+  }
+  html body.content-page #main :is(.pricing-intro__aside,.career-intro__aside) { justify-self: stretch !important; max-width: none !important; }
+  html body.content-page.pricing-page #main .pricing-plan-grid,
+  html body.content-page.pricing-page #main .pricing-benchmark-list,
+  html body.content-page.pricing-page #main .pricing-faq__list,
+  html body.content-page.career-page #main .career-list--detailed,
+  html body.content-page.pathways-page #main .exam-track-grid,
+  html body.content-page.method-page #main .method-planned__list,
+  html body.content-page.method-page #main .oneprep-faq-list {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  html body.content-page.apply-page #main .apply-form__grid,
+  html body.content-page.waitlist-page #main .waitlist-form__row {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  html body.content-page.apply-page #main .apply-form__field--wide { grid-column: auto !important; }
+  html body.content-page.method-page #main .method-step-list > li {
+    grid-template-columns: 35px minmax(0,1fr) !important;
+  }
+  html body.content-page.method-page #main .method-step-list__status { grid-column: 2 !important; }
+  html body.not-found-document #main.not-found-page {
+    min-height: 62vh !important;
+    padding: 94px 18px 50px !important;
+  }
+  html body.not-found-document #main .not-found-card {
+    grid-template-columns: minmax(0,1fr) !important;
+    padding: 25px !important;
+  }
+  html body.not-found-document .not-found-art { width: 130px !important; grid-row: 1 !important; }
+}
