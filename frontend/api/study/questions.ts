@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { SAMPLE_QUESTIONS } from "./_sample-content.js";
 
 const SUPPORTED_EXAMS = new Set(["LCAT", "NET", "CSS", "MDCAT"]);
-const DATA_VERSION = "arthic-original-four-track-v10-640";
+const DATA_VERSION = "arthic-original-four-track-v11-720";
 
 function normalizedSubjectCode(examCode: string, subjectCode: string): string {
   return examCode === "LCAT" && ["ENGLISH", "LOGIC", "ANALYTICAL"].includes(subjectCode)
