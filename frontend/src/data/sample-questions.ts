@@ -11,6 +11,9 @@ export interface StudyQuestionPrompt {
   instruction: string;
   options: StudyOption[];
   sourceKind: "original-sample" | "licensed" | "public-domain";
+  /** Populated only when a question is sourced from an actual exam paper. */
+  examYear?: number;
+  examSession?: string;
 }
 
 /** Original Arthic-written examples; none are official past-paper questions. */
