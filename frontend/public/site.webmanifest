@@ -8,9 +8,9 @@
   "theme_color": "#F7F2E8",
   "icons": [
     {
-      "src": "/arthic-logo.png",
-      "sizes": "128x128",
-      "type": "image/png",
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any"
     }
   ]
