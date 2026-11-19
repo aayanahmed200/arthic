@@ -283,6 +283,18 @@ if (root) {
       if (subject) subject.textContent = subjectLabel(displaySubjectCode(question));
       const exam = root!.querySelector<HTMLElement>("[data-current-exam]");
       if (exam) exam.textContent = EXAM_LABELS[question.examCode] ?? question.examCode;
+      const source = root!.querySelector<HTMLElement>("[data-question-source]");
+      if (source) {
+        if (typeof question.examYear === "number" && question.examSession) {
+          source.textContent = question.examYear + " · " + question.examSession;
+        } else if (question.sourceKind === "licensed" || question.sourceKind === "public-domain") {
+          source.textContent = question.examYear
+            ? question.examYear + " · Exam session not supplied"
+            : "External source · Exam year/session not supplied";
+        } else {
+          source.textContent = "Original Arthic practice · No past-paper year or session";
+        }
+      }
       feedback!.hidden = !savedAnswer;
       feedbackPoints!.replaceChildren();
       if (savedAnswer) renderExplanation(savedAnswer);
@@ -465,7 +477,7 @@ if (root) {
         // while waiting for the shared server feed if it is still loading.
         await Promise.all([
           QUESTION_FEED_READY,
-          new Promise<void>((resolve) => { window.setTimeout(resolve, 220); }),
+          new Promise<void>((resolve) => { window.setTimeout(resolve, 2000); }),
         ]);
         refreshBankCounts();
         fillSubjectFilter();
