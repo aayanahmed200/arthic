@@ -1,3 +1,8 @@
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/800.css";
 /* Arthic final brand system: white everywhere, green navigation, clear type and consistent page rhythm. */
 :root {
   color-scheme: light;
@@ -2537,7 +2542,6 @@ html body.content-page #main .exam-track-grid {
    ARTHIC FINAL UI PASS — one typeface, simpler practice and cleaner
    pricing/careers/waitlist surfaces. Palette: forest / cream / coral.
    =============================================================== */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
 /* One typeface everywhere, with restrained tracking for readability. */
 html body,
@@ -3613,4 +3617,12 @@ html body :is(.button--outline,.home-secondary,.study-action--secondary):hover:n
   html body.content-page.careers-page #main .career-list--detailed { grid-template-columns: minmax(0,1fr) !important; }
   html body.content-page.waitlist-page #main .waitlist-layout,
   html body.content-page.apply-page #main .apply-layout { grid-template-columns: minmax(0,1fr) !important; }
+}
+
+
+/* Hidden states must continue to work with the simplified preview components. */
+html body.study-preview-page .study-question[hidden],
+html body.study-preview-page .study-complete[hidden],
+html body.study-preview-page .study-board-loading[hidden] {
+  display: none !important;
 }
