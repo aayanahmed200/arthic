@@ -71,6 +71,8 @@ async function loadQuestionFeed(): Promise<void> {
   }
 }
 
+const QUESTION_FEED_READY = loadQuestionFeed();
+
 const root = document.querySelector<HTMLElement>("[data-study-preview]");
 if (root) {
   const questionScreen = root.querySelector<HTMLElement>("[data-study-question-screen]");
@@ -79,6 +81,9 @@ if (root) {
   const topic = root.querySelector<HTMLElement>("[data-question-topic]");
   const prompt = root.querySelector<HTMLElement>("[data-question-prompt]");
   const instruction = root.querySelector<HTMLElement>("[data-question-instruction]");
+  const studySession = root.querySelector<HTMLElement>(".study-session");
+  const boardLoading = root.querySelector<HTMLElement>("[data-board-loading]");
+  const boardLoadingLabel = root.querySelector<HTMLElement>("[data-board-loading-label]");
   const optionList = root.querySelector<HTMLElement>("[data-question-options]");
   const feedback = root.querySelector<HTMLElement>("[data-question-feedback]");
   const feedbackTitle = root.querySelector<HTMLElement>("[data-feedback-title]");
@@ -118,13 +123,14 @@ if (root) {
     questionMap && subjectFilter && questionSearch && previousButton && nextButton &&
     finishButton && progressTrack && progressFill && sidebarProgressFill && progressLabel &&
     completedValue && correctValue && accuracyValue && completeHeading && completeLede &&
-    completeStats && reviewList
+    completeStats && reviewList && studySession && boardLoading && boardLoadingLabel
   ) {
     let questionIndex = 0;
     let activeExam = new URLSearchParams(window.location.search).get("exam") || "MDCAT";
     let activeSubject = "ALL";
     let searchTerm = "";
     let isSubmitting = false;
+    let isChangingBoard = false;
     let pendingOptionKey: string | null = null;
     let hasInteracted = false;
     let questions: StudyQuestionPrompt[] = [...QUESTION_FEED];
@@ -436,22 +442,52 @@ if (root) {
       }
     }
 
-    trackFilters.forEach((button) => button.addEventListener("click", () => {
-      if (isSubmitting) return;
+    async function changeExamBoard(nextExam: string): Promise<void> {
+      if (isSubmitting || isChangingBoard || !EXAMS.includes(nextExam) || nextExam === activeExam) return;
+
       hasInteracted = true;
-      activeExam = button.dataset.examFilter || "ALL";
+      isChangingBoard = true;
+      activeExam = nextExam;
       activeSubject = "ALL";
-      fillSubjectFilter();
-      applyFilters();
+
+      trackFilters.forEach((button) => { button.disabled = true; });
+      previousButton!.disabled = true;
+      nextButton!.disabled = true;
+      finishButton!.disabled = true;
+      questionMap!.querySelectorAll<HTMLButtonElement>("button").forEach((button) => { button.disabled = true; });
+      studySession!.setAttribute("aria-busy", "true");
+      boardLoadingLabel!.textContent = "Preparing " + (EXAM_LABELS[nextExam] ?? nextExam) + " questions";
+      boardLoading!.hidden = false;
+
+      try {
+        // Keep the indicator visible long enough to communicate the board change,
+        // while waiting for the shared server feed if it is still loading.
+        await Promise.all([
+          QUESTION_FEED_READY,
+          new Promise<void>((resolve) => { window.setTimeout(resolve, 220); }),
+        ]);
+        refreshBankCounts();
+        fillSubjectFilter();
+        applyFilters();
+      } finally {
+        boardLoading!.hidden = true;
+        studySession!.removeAttribute("aria-busy");
+        trackFilters.forEach((button) => { button.disabled = false; });
+        isChangingBoard = false;
+      }
+    }
+
+    trackFilters.forEach((button) => button.addEventListener("click", () => {
+      void changeExamBoard(button.dataset.examFilter || "ALL");
     }));
     subjectFilter.addEventListener("change", () => {
-      if (isSubmitting) return;
+      if (isSubmitting || isChangingBoard) return;
       hasInteracted = true;
       activeSubject = subjectFilter!.value || "ALL";
       applyFilters();
     });
     questionSearch.addEventListener("input", () => {
-      if (isSubmitting) return;
+      if (isSubmitting || isChangingBoard) return;
       hasInteracted = true;
       searchTerm = questionSearch!.value;
       applyFilters();
@@ -479,7 +515,7 @@ if (root) {
     }
 
     function hydrateFromServer(): void {
-      void loadQuestionFeed().then(() => {
+      void QUESTION_FEED_READY.then(() => {
         if (hasInteracted || answers.size || isSubmitting) return;
         refreshBankCounts();
         fillSubjectFilter();
