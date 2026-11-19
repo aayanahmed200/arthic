@@ -6,22 +6,31 @@
   <meta name="color-scheme" content="light" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#F7F2E8" />
-  <title>404 — Arthic</title>
-  <meta name="description" content="This page could not be found on Arthic." />
-  <link rel="stylesheet" href="/src/styles/arthic-share.css" />
+  <title>404 — Page not found | Arthic</title>
+  <meta name="description" content="This page could not be found. Return to Arthic and continue exploring exam practice." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/icon-512.png" />
   <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/src/styles/arthic-share.css" />
 </head>
 <body class="content-page not-found-document">
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" data-nav></header>
   <div class="mobile-menu" id="mobile-menu" data-mobile-nav></div>
   <main class="not-found-page" id="main">
-    <section class="not-found-card">
-      <p class="section-kicker">A SMALL DETOUR</p>
-      <h1>That page<br />isn't in this syllabus.</h1>
-      <p>The address may have changed, or this page may not be part of Arthic yet. Head back to your exam-preparation space.</p>
-      <a class="button button--large button--primary" href="/">Back to Arthic <span aria-hidden="true">↗</span></a>
+    <section class="not-found-card" aria-labelledby="not-found-heading">
+      <div class="not-found-copy">
+        <p class="not-found-kicker">ARTHIC · 404</p>
+        <h1 id="not-found-heading">This page took a wrong turn.</h1>
+        <p>The address may be incorrect, or the page may have moved. The rest of your practice space is still here.</p>
+        <div class="not-found-actions">
+          <a class="not-found-primary" href="/">Back to home <span aria-hidden="true">↗</span></a>
+          <a class="not-found-secondary" href="/study-preview.html">Open practice</a>
+        </div>
+      </div>
+      <div class="not-found-art" aria-hidden="true">
+        <img src="/favicon.svg" alt="" width="160" height="140" />
+      </div>
     </section>
   </main>
   <div class="footer-frame"></div>
