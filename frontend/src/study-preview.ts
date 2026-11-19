@@ -9,6 +9,7 @@ import { MORE_SAMPLE_QUESTIONS } from "./data/more-sample-questions";
 import { ADDITIONAL_SAMPLE_QUESTIONS } from "./data/additional-sample-questions";
 import { FRESH_SAMPLE_QUESTIONS } from "./data/fresh-sample-questions";
 import { NEXT_SAMPLE_QUESTIONS } from "./data/next-sample-questions";
+import { V10_SAMPLE_QUESTIONS } from "./data/v10-sample-questions";
 
 initCommon();
 
@@ -26,10 +27,17 @@ const SUBJECT_LABELS: Record<string, string> = {
   CS: "Computer science", ENGLISH: "English", VERBAL: "Verbal reasoning",
   LOGIC: "Logical reasoning", GENERAL: "General studies", ANALYTICAL: "Analytical reasoning",
   PAKISTAN: "Pakistan studies", ECONOMICS: "Economics", INTERNATIONAL: "International relations",
+  URDU: "Urdu", ISLAMIC: "Islamic studies", CIVICS: "Civics & ethics",
+  GENERAL_ABILITIES: "General abilities", GENERAL_KNOWLEDGE: "General knowledge",
 };
 const EXAM_LABELS: Record<string, string> = { MDCAT: "MDCAT", LCAT: "LCAT", NET: "NUST NET", CSS: "CSS", ALL: "All tracks" };
 
-let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS, ...MORE_SAMPLE_QUESTIONS, ...ADDITIONAL_SAMPLE_QUESTIONS, ...FRESH_SAMPLE_QUESTIONS, ...NEXT_SAMPLE_QUESTIONS];
+let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS, ...MORE_SAMPLE_QUESTIONS, ...ADDITIONAL_SAMPLE_QUESTIONS, ...FRESH_SAMPLE_QUESTIONS, ...NEXT_SAMPLE_QUESTIONS, ...V10_SAMPLE_QUESTIONS];
+
+function displaySubjectCode(question: StudyQuestionPrompt): string {
+  if (question.examCode === "LCAT" && ["ENGLISH", "LOGIC", "ANALYTICAL"].includes(question.subjectCode)) return "VERBAL";
+  return question.subjectCode;
+}
 
 function subjectLabel(code: string): string {
   return SUBJECT_LABELS[code] ?? code;
@@ -126,7 +134,7 @@ if (root) {
       const term = searchTerm.trim().toLocaleLowerCase();
       return QUESTION_FEED.filter((question) => {
         const examMatches = activeExam === "ALL" || question.examCode === activeExam;
-        const subjectMatches = activeSubject === "ALL" || question.subjectCode === activeSubject;
+        const subjectMatches = activeSubject === "ALL" || displaySubjectCode(question) === activeSubject;
         const textMatches = !term || [question.topic, question.prompt, question.subjectCode]
           .some((value) => value.toLocaleLowerCase().includes(term));
         return examMatches && subjectMatches && textMatches;
@@ -136,7 +144,7 @@ if (root) {
     function fillSubjectFilter(): void {
       const available = [...new Set(QUESTION_FEED
         .filter((question) => activeExam === "ALL" || question.examCode === activeExam)
-        .map((question) => question.subjectCode))].sort();
+        .map(displaySubjectCode))].sort();
       subjectFilter!.replaceChildren();
       const all = document.createElement("option");
       all.value = "ALL";
@@ -264,7 +272,7 @@ if (root) {
         ? "Answer checked. The correct choice is highlighted in green; an incorrect selection is marked red."
         : question.instruction;
       const subject = root!.querySelector<HTMLElement>("[data-current-subject]");
-      if (subject) subject.textContent = subjectLabel(question.subjectCode);
+      if (subject) subject.textContent = subjectLabel(displaySubjectCode(question));
       const exam = root!.querySelector<HTMLElement>("[data-current-exam]");
       if (exam) exam.textContent = EXAM_LABELS[question.examCode] ?? question.examCode;
       feedback!.hidden = !savedAnswer;
