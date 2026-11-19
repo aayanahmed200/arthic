@@ -2,6 +2,13 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { SAMPLE_QUESTIONS } from "./_sample-content.js";
 
 const SUPPORTED_EXAMS = new Set(["LCAT", "NET", "CSS", "MDCAT"]);
+const DATA_VERSION = "arthic-original-four-track-v10-640";
+
+function normalizedSubjectCode(examCode: string, subjectCode: string): string {
+  return examCode === "LCAT" && ["ENGLISH", "LOGIC", "ANALYTICAL"].includes(subjectCode)
+    ? "VERBAL"
+    : subjectCode;
+}
 import { sql } from "../_db.js";
 
 function toPublicQuestion(row: Record<string, unknown>) {
@@ -10,7 +17,7 @@ function toPublicQuestion(row: Record<string, unknown>) {
   return {
     id: String(row.id),
     examCode: String(row.exam_code),
-    subjectCode: String(row.subject_code),
+    subjectCode: normalizedSubjectCode(String(row.exam_code), String(row.subject_code)),
     topic: String(row.topic),
     prompt: String(row.prompt),
     instruction: String(row.instruction || "Choose one answer."),
@@ -37,7 +44,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         WHERE is_published = true AND is_archived = false
           AND exam_code IN ('LCAT', 'NET', 'CSS', 'MDCAT')
         ORDER BY exam_code, subject_code, topic, id
-        LIMIT 600
+        LIMIT 800
       `;
       const published = rows
         .map((row) => toPublicQuestion(row as Record<string, unknown>))
@@ -48,7 +55,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       SAMPLE_QUESTIONS.forEach((question) => merged.set(question.id, {
         id: question.id,
         examCode: question.examCode,
-        subjectCode: question.subjectCode,
+        subjectCode: normalizedSubjectCode(question.examCode, question.subjectCode),
         topic: question.topic,
         prompt: question.prompt,
         instruction: question.instruction,
@@ -59,7 +66,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       if (merged.size) {
         res.setHeader("Cache-Control", "public, max-age=30, s-maxage=60, stale-while-revalidate=300");
         return res.status(200).json({
-          dataVersion: "arthic-original-four-track-v9-560",
+          dataVersion: DATA_VERSION,
           sourceKind: "mixed-original-and-curated",
           isOfficialPastPaper: false,
           questions: Array.from(merged.values()),
@@ -73,13 +80,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Keep a clearly labelled demo feed available until questions are published.
   res.setHeader("Cache-Control", "public, max-age=60, s-maxage=300, stale-while-revalidate=3600");
   return res.status(200).json({
-    dataVersion: "arthic-original-four-track-v9-560",
+    dataVersion: DATA_VERSION,
     sourceKind: "original-sample",
     isOfficialPastPaper: false,
     questions: SAMPLE_QUESTIONS.map((question) => ({
       id: question.id,
       examCode: question.examCode,
-      subjectCode: question.subjectCode,
+      subjectCode: normalizedSubjectCode(question.examCode, question.subjectCode),
       topic: question.topic,
       prompt: question.prompt,
       instruction: question.instruction,
