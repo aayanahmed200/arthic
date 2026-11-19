@@ -4418,14 +4418,16 @@ html body .site-footer .brand--footer {
   gap: 0 !important;
   text-decoration: none !important;
 }
-html body .site-footer .brand--footer img,
+html body .site-footer .brand--footer img:not(.footer-wordmark),
 html body .site-footer .brand--footer .brand-mark { display: none !important; }
-html body .site-footer .brand--footer .brand-name {
-  color: var(--arthic-forest) !important;
-  -webkit-text-fill-color: var(--arthic-forest) !important;
-  font-size: 27px !important;
-  font-weight: 800 !important;
-  letter-spacing: -.045em !important;
+html body .site-footer .brand--footer .footer-wordmark {
+  display: block !important;
+  width: min(190px,100%) !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  margin: 0 !important;
 }
 html body .site-footer .footer-brand__description {
   margin: 0 !important;
