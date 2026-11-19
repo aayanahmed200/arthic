@@ -123,6 +123,7 @@ function enhanceSelect(select: HTMLSelectElement): void {
     }
     activeIndex = enabledIndex;
     optionEls[activeIndex]?.focus();
+    optionEls[activeIndex]?.scrollIntoView({ block: "nearest" });
   };
 
   const open = (direction: 1 | -1 | 0 = 0): void => {
@@ -175,6 +176,7 @@ function enhanceSelect(select: HTMLSelectElement): void {
       if (match !== undefined) {
         activeIndex = match;
         optionEls[match]?.focus();
+        optionEls[match]?.scrollIntoView({ block: "nearest" });
       }
       return;
     }
@@ -189,6 +191,7 @@ function enhanceSelect(select: HTMLSelectElement): void {
       if (lastEnabled >= 0) {
         activeIndex = lastEnabled;
         optionEls[activeIndex]?.focus();
+        optionEls[activeIndex]?.scrollIntoView({ block: "nearest" });
       }
       return;
     }
