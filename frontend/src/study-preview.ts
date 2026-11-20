@@ -105,7 +105,6 @@ if (root) {
   const questionSearch = root.querySelector<HTMLInputElement>("[data-question-search]");
   const progressTrack = root.querySelector<HTMLElement>("[data-session-progress-track]");
   const progressFill = root.querySelector<HTMLElement>("[data-session-progress-fill]");
-  const sidebarProgressFill = root.querySelector<HTMLElement>("[data-sidebar-progress-fill]");
   const progressLabel = root.querySelector<HTMLElement>("[data-session-progress-label]");
   const completedValue = root.querySelector<HTMLElement>("[data-completed-count]");
   const correctValue = root.querySelector<HTMLElement>("[data-correct-count]");
@@ -123,7 +122,7 @@ if (root) {
     questionScreen && completeScreen && number && topic && prompt && instruction &&
     optionList && feedback && feedbackTitle && feedbackAnswer && feedbackPoints && takeaway &&
     subjectFilter && questionSearch && previousButton && nextButton &&
-    finishButton && progressTrack && progressFill && sidebarProgressFill && progressLabel &&
+    finishButton && progressTrack && progressFill && progressLabel &&
     completedValue && correctValue && accuracyValue && completeHeading && completeLede &&
     completeStats && reviewList && studySession && boardLoading && boardLoadingLabel
   ) {
@@ -180,7 +179,6 @@ if (root) {
       const counts = getCounts();
       const percent = counts.total ? Math.round((counts.answered / counts.total) * 100) : 0;
       progressFill!.style.width = percent + "%";
-      sidebarProgressFill!.style.width = percent + "%";
       progressTrack!.setAttribute("aria-valuenow", String(counts.answered));
       progressTrack!.setAttribute("aria-valuemax", String(counts.total));
       progressLabel!.textContent = counts.answered + " of " + counts.total + " answered";
