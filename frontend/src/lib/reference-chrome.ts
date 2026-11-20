@@ -22,41 +22,36 @@ const MOBILE_MENU = `<div class="mobile-menu" id="mobile-menu" data-mobile-menu 
   </nav>
 </div>`;
 
-const FOOTER = `<footer class="site-footer" id="site-footer">
+const FOOTER = `<footer class="site-footer footer-central" id="site-footer">
   <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="brand brand--footer" href="/" aria-label="Arthic home"><img class="footer-wordmark" src="/arthic-footer-wordmark.png" alt="Arthic" width="360" height="102" /></a>
-        <p class="footer-brand__description">A clearer place to prepare, practise and build confidence across Pakistan's entrance and competitive exams.</p>
-        <a class="footer-email" href="mailto:hello@arthic.tech">hello@arthic.tech</a>
-      </div>
-      <nav class="footer-column" aria-label="Learn">
+    <nav class="footer-grid" aria-label="Footer navigation">
+      <div class="footer-column">
         <span>Learn</span>
         <a href="/study-preview.html">Practice preview</a>
         <a href="/subjects.html">Exam pathways</a>
-        <a href="/method.html">How Arthic works</a>
-        <a href="/pricing.html">Plans and pricing</a>
-      </nav>
-      <nav class="footer-column" aria-label="Exam boards">
+        <a href="/method.html">How it works</a>
+      </div>
+      <div class="footer-column">
         <span>Exam boards</span>
         <a href="/subjects.html#lcat">LCAT</a>
         <a href="/subjects.html#net">NUST NET</a>
         <a href="/subjects.html#css">CSS</a>
         <a href="/subjects.html#mdcat">MDCAT</a>
-      </nav>
-      <nav class="footer-column" aria-label="Arthic">
-        <span>Arthic</span>
+      </div>
+      <div class="footer-column">
+        <span>Company</span>
         <a href="/careers.html">Careers</a>
-        <a href="/waitlist.html">Join early access</a>
+        <a href="/waitlist.html">Early access</a>
         <a href="mailto:hello@arthic.tech">Contact</a>
-      </nav>
-      <nav class="footer-column" aria-label="Policies">
+      </div>
+      <div class="footer-column">
         <span>Policies</span>
         <a href="/terms.html">Terms of use</a>
         <a href="/privacy.html">Privacy policy</a>
         <a href="/cookies.html">Cookie policy</a>
-      </nav>
-    </div>
+      </div>
+    </nav>
+    <a class="footer-email footer-email--center" href="mailto:hello@arthic.tech">hello@arthic.tech</a>
   </div>
 </footer>`;
 
