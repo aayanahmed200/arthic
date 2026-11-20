@@ -3,6 +3,7 @@ import type { StudyQuestionPrompt } from "./data/sample-questions";
 import "./styles/study-preview.css";
 import "./styles/arthic-study-final.css";
 import "./styles/brand-final.css";
+import "./styles/ui-polish.css";
 import { initCommon } from "./lib/common-init";
 
 initCommon();
