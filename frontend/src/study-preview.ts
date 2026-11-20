@@ -26,7 +26,6 @@ interface StudyAnswer {
   takeaway: string;
 }
 
-const EXAMS = ["MDCAT", "LCAT", "NET", "CSS", "ALL"];
 const SUBJECT_LABELS: Record<string, string> = {
   BIO: "Biology", CHEM: "Chemistry", PHY: "Physics", MATH: "Mathematics",
   CS: "Computer science", ENGLISH: "English", VERBAL: "Verbal reasoning",
