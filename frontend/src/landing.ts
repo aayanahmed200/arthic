@@ -152,40 +152,205 @@ if ("IntersectionObserver" in window && sectionTargets.length) {
   sectionTargets.forEach((target) => sectionObserver.observe(target));
 }
 
-/* Homepage practice preview: real answer selection, server checking and track navigation. */
-type HomeQuestion={id:string;examCode:"LCAT"|"NET"|"CSS"|"MDCAT";topic:string;prompt:string;instruction:string;options:Array<{key:string;text:string}>};
-const homeCard=document.querySelector<HTMLElement>("[data-home-preview]");
-if(homeCard){
- const track=homeCard.querySelector<HTMLSelectElement>("[data-home-track]");
- const prompt=homeCard.querySelector<HTMLElement>("[data-home-prompt]");
- const topic=homeCard.querySelector<HTMLElement>("[data-home-topic]");
- const counter=homeCard.querySelector<HTMLElement>("[data-home-counter]");
- const instruction=homeCard.querySelector<HTMLElement>("[data-home-instruction]");
- const choices=homeCard.querySelector<HTMLElement>("[data-home-options]");
- const check=homeCard.querySelector<HTMLButtonElement>("[data-home-check]");
- const next=homeCard.querySelector<HTMLButtonElement>("[data-home-next]");
- const feedback=homeCard.querySelector<HTMLElement>("[data-home-feedback]");
- const feedbackTitle=homeCard.querySelector<HTMLElement>("[data-home-feedback-title]");
- const feedbackList=homeCard.querySelector<HTMLUListElement>("[data-home-feedback-points]");
- const takeaway=homeCard.querySelector<HTMLElement>("[data-home-takeaway]");
- const status=homeCard.querySelector<HTMLElement>("[data-home-status]");
- let bank:HomeQuestion[]=[];let active:HomeQuestion[]=[];let index=0;let selected:string|null=null;let answered=false;let pending=false;
- const say=(v:string)=>{if(status)status.textContent=v;};
- const resetFeedback=()=>{if(feedback&&feedbackTitle&&feedbackList&&takeaway){feedback.hidden=true;feedback.removeAttribute("data-result");feedbackTitle.textContent="";feedbackList.replaceChildren();takeaway.textContent="";}};
- const render=()=>{
-  const q=active[index];if(!q||!prompt||!topic||!counter||!instruction||!choices||!check||!next)return;
-  selected=null;answered=false;pending=false;prompt.textContent=q.prompt;topic.textContent=q.examCode+" / "+q.topic.toUpperCase();counter.textContent=String(index+1).padStart(2,"0")+" / "+String(active.length).padStart(2,"0");instruction.textContent=q.instruction||"Choose one answer.";choices.replaceChildren();
-  q.options.forEach(o=>{const button=document.createElement("button");button.type="button";button.className="home-sample-option";button.dataset.homeOption=o.key;button.setAttribute("aria-pressed","false");const key=document.createElement("span");key.textContent=o.key;const text=document.createElement("span");text.textContent=o.text;button.append(key,text);button.addEventListener("click",()=>{if(answered||pending)return;selected=o.key;choices.querySelectorAll<HTMLButtonElement>(".home-sample-option").forEach(b=>b.setAttribute("aria-pressed",String(b===button)));check.disabled=false;say("Answer selected. Check it to see the explanation.");});choices.append(button);});
-  check.disabled=true;check.textContent="Check answer";next.disabled=false;resetFeedback();say("Choose an option to check your understanding.");
- };
- const reveal=(r:{isCorrect:boolean;correctOption:string;explanation:string;takeaway:string})=>{
-  if(!feedback||!feedbackTitle||!feedbackList||!takeaway||!choices||!check)return;feedbackTitle.textContent=r.isCorrect?"That’s correct.":"Not quite. Here’s why.";
-  r.explanation.split(/\n+/).map(x=>x.trim()).filter(Boolean).forEach(x=>{const li=document.createElement("li");li.textContent=x;feedbackList.append(li);});takeaway.textContent=r.takeaway;feedback.dataset.result=r.isCorrect?"correct":"incorrect";feedback.hidden=false;
-  choices.querySelectorAll<HTMLButtonElement>(".home-sample-option").forEach(b=>{b.disabled=true;const key=b.dataset.homeOption;if(key===r.correctOption)b.classList.add("is-correct");else if(key===selected&&!r.isCorrect)b.classList.add("is-incorrect");});answered=true;check.disabled=true;check.textContent="Answer checked";say(r.isCorrect?"Correct answer.":"Review the explanation, then try another question.");
- };
- check?.addEventListener("click",async()=>{const q=active[index];if(!q||!selected||answered||pending)return;pending=true;check.disabled=true;check.textContent="Checking…";say("Checking your answer…");try{const response=await fetch("/api/study/check",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({questionId:q.id,selectedOption:selected})});const result=await response.json() as {isCorrect:boolean;correctOption:string;explanation:string;takeaway:string;error?:string};if(!response.ok)throw new Error(result.error||"Answer checking is unavailable.");reveal(result);}catch(e){pending=false;check.disabled=false;check.textContent="Try checking again";say(e instanceof Error?e.message:"Could not check that answer.");}});
- next?.addEventListener("click",()=>{if(active.length){index=(index+1)%active.length;render();}});
- const setTrack=(code:string)=>{active=bank.filter(q=>q.examCode===code);index=0;if(active.length)render();};
- track?.addEventListener("change",()=>setTrack(track.value));
- fetch("/api/study/questions",{headers:{"Accept":"application/json"}}).then(r=>{if(!r.ok)throw new Error("Question feed unavailable.");return r.json() as Promise<{questions:HomeQuestion[]}>;}).then(data=>{bank=Array.isArray(data.questions)?data.questions:[];if(!bank.length)throw new Error("No questions available.");setTrack(track?.value||"LCAT");}).catch(e=>say(e instanceof Error?e.message:"Could not load questions."));
+/* Homepage practice preview: automatically check each selected answer. */
+type HomeQuestion = {
+  id: string;
+  examCode: "LCAT" | "NET" | "CSS" | "MDCAT";
+  topic: string;
+  prompt: string;
+  instruction: string;
+  options: Array<{ key: string; text: string }>;
+};
+
+const homeCard = document.querySelector<HTMLElement>("[data-home-preview]");
+
+if (homeCard) {
+  const track = homeCard.querySelector<HTMLSelectElement>("[data-home-track]");
+  const prompt = homeCard.querySelector<HTMLElement>("[data-home-prompt]");
+  const topic = homeCard.querySelector<HTMLElement>("[data-home-topic]");
+  const counter = homeCard.querySelector<HTMLElement>("[data-home-counter]");
+  const instruction = homeCard.querySelector<HTMLElement>("[data-home-instruction]");
+  const choices = homeCard.querySelector<HTMLElement>("[data-home-options]");
+  const next = homeCard.querySelector<HTMLButtonElement>("[data-home-next]");
+  const feedback = homeCard.querySelector<HTMLElement>("[data-home-feedback]");
+  const feedbackTitle = homeCard.querySelector<HTMLElement>("[data-home-feedback-title]");
+  const feedbackList = homeCard.querySelector<HTMLUListElement>("[data-home-feedback-points]");
+  const takeaway = homeCard.querySelector<HTMLElement>("[data-home-takeaway]");
+  const status = homeCard.querySelector<HTMLElement>("[data-home-status]");
+
+  let bank: HomeQuestion[] = [];
+  let active: HomeQuestion[] = [];
+  let index = 0;
+  let selected: string | null = null;
+  let answered = false;
+  let pending = false;
+
+  const say = (message: string): void => {
+    if (status) status.textContent = message;
+  };
+
+  const resetFeedback = (): void => {
+    if (!feedback || !feedbackTitle || !feedbackList || !takeaway) return;
+    feedback.hidden = true;
+    feedback.removeAttribute("data-result");
+    feedbackTitle.textContent = "";
+    feedbackList.replaceChildren();
+    takeaway.textContent = "";
+  };
+
+  const reveal = (result: {
+    isCorrect: boolean;
+    correctOption: string;
+    explanation: string;
+    takeaway: string;
+  }): void => {
+    if (!feedback || !feedbackTitle || !feedbackList || !takeaway || !choices) return;
+
+    feedbackTitle.textContent = result.isCorrect
+      ? "That’s correct."
+      : "Not quite. Here’s why.";
+
+    result.explanation
+      .split(/\n+/)
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .forEach((line) => {
+        const item = document.createElement("li");
+        item.textContent = line;
+        feedbackList.append(item);
+      });
+
+    takeaway.textContent = result.takeaway;
+    feedback.dataset.result = result.isCorrect ? "correct" : "incorrect";
+    feedback.hidden = false;
+
+    choices.querySelectorAll<HTMLButtonElement>(".home-sample-option").forEach((button) => {
+      button.disabled = true;
+      const key = button.dataset.homeOption;
+      if (key === result.correctOption) button.classList.add("is-correct");
+      else if (key === selected && !result.isCorrect) button.classList.add("is-incorrect");
+    });
+
+    answered = true;
+    pending = false;
+    say(result.isCorrect ? "Correct answer." : "Review the explanation, then try another question.");
+  };
+
+  const checkAnswer = async (question: HomeQuestion, optionKey: string): Promise<void> => {
+    if (answered || pending) return;
+    selected = optionKey;
+    pending = true;
+
+    if (choices) {
+      choices.querySelectorAll<HTMLButtonElement>(".home-sample-option").forEach((button) => {
+        button.disabled = true;
+        button.classList.toggle("is-pending", button.dataset.homeOption === optionKey);
+      });
+    }
+
+    say("Checking your answer…");
+
+    try {
+      const response = await fetch("/api/study/check", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify({ questionId: question.id, selectedOption: optionKey }),
+      });
+      const result = await response.json() as {
+        isCorrect: boolean;
+        correctOption: string;
+        explanation: string;
+        takeaway: string;
+        error?: string;
+      };
+      if (!response.ok) throw new Error(result.error || "Answer checking is unavailable.");
+      reveal(result);
+    } catch (error) {
+      pending = false;
+      selected = null;
+      choices?.querySelectorAll<HTMLButtonElement>(".home-sample-option").forEach((button) => {
+        button.disabled = false;
+        button.classList.remove("is-pending");
+        button.setAttribute("aria-pressed", "false");
+      });
+      say(error instanceof Error ? error.message : "Could not check that answer. Try again.");
+    }
+  };
+
+  const render = (): void => {
+    const question = active[index];
+    if (!question || !prompt || !topic || !counter || !instruction || !choices || !next) return;
+
+    selected = null;
+    answered = false;
+    pending = false;
+    prompt.textContent = question.prompt;
+    topic.textContent = question.examCode + " / " + question.topic.toUpperCase();
+    counter.textContent = String(index + 1).padStart(2, "0") + " / " +
+      String(active.length).padStart(2, "0");
+    instruction.textContent = question.instruction || "Choose one answer.";
+    choices.replaceChildren();
+
+    question.options.forEach((option) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "home-sample-option";
+      button.dataset.homeOption = option.key;
+      button.setAttribute("aria-pressed", "false");
+
+      const key = document.createElement("span");
+      key.textContent = option.key;
+      const text = document.createElement("span");
+      text.textContent = option.text;
+      button.append(key, text);
+
+      button.addEventListener("click", () => {
+        if (answered || pending) return;
+        selected = option.key;
+        choices.querySelectorAll<HTMLButtonElement>(".home-sample-option").forEach((choice) => {
+          choice.setAttribute("aria-pressed", String(choice === button));
+        });
+        void checkAnswer(question, option.key);
+      });
+
+      choices.append(button);
+    });
+
+    next.disabled = false;
+    resetFeedback();
+    say("Choose an option to see instant feedback.");
+  };
+
+  const setTrack = (code: string): void => {
+    active = bank.filter((question) => question.examCode === code);
+    index = 0;
+    if (active.length) render();
+    else say("No sample questions are available for this track yet.");
+  };
+
+  next?.addEventListener("click", () => {
+    if (active.length) {
+      index = (index + 1) % active.length;
+      render();
+    }
+  });
+  track?.addEventListener("change", () => setTrack(track.value));
+
+  fetch("/api/study/questions", {
+    headers: { Accept: "application/json" },
+    credentials: "same-origin",
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error("Question feed unavailable.");
+      return response.json() as Promise<{ questions: HomeQuestion[] }>;
+    })
+    .then((data) => {
+      bank = Array.isArray(data.questions) ? data.questions : [];
+      if (!bank.length) throw new Error("No questions available.");
+      setTrack(track?.value || "LCAT");
+    })
+    .catch((error: unknown) => {
+      say(error instanceof Error ? error.message : "Could not load questions.");
+    });
 }
