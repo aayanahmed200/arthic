@@ -1,20 +1,9 @@
 import "./styles/main.css";
+import type { StudyQuestionPrompt } from "./data/sample-questions";
 import "./styles/study-preview.css";
 import "./styles/arthic-study-final.css";
 import "./styles/brand-final.css";
 import { initCommon } from "./lib/common-init";
-import { SAMPLE_QUESTIONS, type StudyQuestionPrompt } from "./data/sample-questions";
-import { EXPANDED_SAMPLE_QUESTIONS } from "./data/expanded-sample-questions";
-import { MORE_SAMPLE_QUESTIONS } from "./data/more-sample-questions";
-import { ADDITIONAL_SAMPLE_QUESTIONS } from "./data/additional-sample-questions";
-import { FRESH_SAMPLE_QUESTIONS } from "./data/fresh-sample-questions";
-import { NEXT_SAMPLE_QUESTIONS } from "./data/next-sample-questions";
-import { V10_SAMPLE_QUESTIONS } from "./data/v10-sample-questions";
-import { V11_SAMPLE_QUESTIONS } from "./data/v11-sample-questions";
-import { V12_SAMPLE_QUESTIONS } from "./data/v12-sample-questions";
-import { V13_SAMPLE_QUESTIONS } from "./data/v13-sample-questions";
-import { V14_SAMPLE_QUESTIONS } from "./data/v14-sample-questions";
-import { V15_SAMPLE_QUESTIONS } from "./data/v15-sample-questions";
 
 initCommon();
 
@@ -36,7 +25,9 @@ const SUBJECT_LABELS: Record<string, string> = {
 };
 const EXAM_LABELS: Record<string, string> = { MDCAT: "MDCAT", LCAT: "LCAT", NET: "NUST NET", CSS: "CSS", ALL: "All tracks" };
 
-let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS, ...MORE_SAMPLE_QUESTIONS, ...ADDITIONAL_SAMPLE_QUESTIONS, ...FRESH_SAMPLE_QUESTIONS, ...NEXT_SAMPLE_QUESTIONS, ...V10_SAMPLE_QUESTIONS, ...V11_SAMPLE_QUESTIONS, ...V12_SAMPLE_QUESTIONS, ...V13_SAMPLE_QUESTIONS, ...V14_SAMPLE_QUESTIONS, ...V15_SAMPLE_QUESTIONS];
+let QUESTION_FEED: StudyQuestionPrompt[] = [];
+let questionFeedLoading = true;
+let questionFeedUnavailable = false;
 
 function displaySubjectCode(question: StudyQuestionPrompt): string {
   if (question.examCode === "LCAT" && ["ENGLISH", "LOGIC", "ANALYTICAL"].includes(question.subjectCode)) return "VERBAL";
@@ -53,11 +44,15 @@ async function loadQuestionFeed(): Promise<void> {
       headers: { Accept: "application/json" },
       credentials: "same-origin",
     });
-    if (!response.ok) return;
+    if (!response.ok) throw new Error("Question feed request failed with " + response.status);
     const payload: unknown = await response.json();
-    if (!payload || typeof payload !== "object" || !("questions" in payload)) return;
+    if (!payload || typeof payload !== "object" || !("questions" in payload)) {
+      throw new Error("Question feed response was incomplete");
+    }
     const incoming = (payload as { questions?: unknown }).questions;
-    if (!Array.isArray(incoming) || incoming.length === 0) return;
+    if (!Array.isArray(incoming) || incoming.length === 0) {
+      throw new Error("Question feed was empty");
+    }
     const valid = incoming.every((raw): raw is StudyQuestionPrompt => {
       if (!raw || typeof raw !== "object") return false;
       const q = raw as Partial<StudyQuestionPrompt>;
@@ -68,9 +63,12 @@ async function loadQuestionFeed(): Promise<void> {
         q.options.length >= 2 &&
         q.options.every((o) => o && typeof o.key === "string" && typeof o.text === "string");
     });
-    if (valid) QUESTION_FEED = incoming;
+    if (!valid) throw new Error("Question feed contained invalid records");
+    QUESTION_FEED = incoming;
   } catch {
-    // The bundled original set remains available if the question feed is offline.
+    questionFeedUnavailable = true;
+  } finally {
+    questionFeedLoading = false;
   }
 }
 
@@ -149,7 +147,7 @@ if (root) {
 
     if (activeExam) examSelect!.value = activeExam;
 
-    function setQuizStatus(message: string, state: "info" | "error" = "info"): void {
+    function setQuizStatus(message: string, state: "info" | "error" | "loading" = "info"): void {
       quizStatus!.textContent = message;
       quizStatus!.dataset.state = state;
     }
@@ -211,17 +209,26 @@ if (root) {
 
     function updateAvailableCount(): void {
       const count = questionsForSetup().length;
-      questionBankCount!.textContent = activeExam
-        ? count + " matching questions available"
-        : "Choose a board to begin";
+      questionBankCount!.textContent = questionFeedLoading
+        ? "Loading the question bank"
+        : questionFeedUnavailable
+          ? "Question bank unavailable"
+          : activeExam ? count + " matching questions available" : "Choose a board to begin";
       questionTotal!.textContent = QUIZ_LENGTH + " questions";
       if (!quizStarted) {
-        setQuizStatus(activeExam
-          ? count + " questions match these settings. A short quiz uses up to 10."
-          : "Choose an exam board to see matching questions.");
+        if (questionFeedLoading) {
+          setQuizStatus("Loading practice questions…", "loading");
+        } else if (questionFeedUnavailable) {
+          setQuizStatus("The practice bank could not load. Refresh the page to try again.", "error");
+        } else {
+          setQuizStatus(activeExam
+            ? count + " questions match these settings. A short quiz uses up to 10."
+            : "Choose an exam board to see matching questions.");
+        }
       }
-      if (bankTotal) bankTotal.textContent = String(QUESTION_FEED.length);
-      startButton!.disabled = !activeExam || count === 0 || isPreparingQuiz || isSubmitting;
+      if (bankTotal) bankTotal.textContent = questionFeedLoading ? "…" : String(QUESTION_FEED.length);
+      startButton!.disabled = questionFeedLoading || questionFeedUnavailable ||
+        !activeExam || count === 0 || isPreparingQuiz || isSubmitting;
     }
 
     function getCounts() {
@@ -463,7 +470,10 @@ if (root) {
       instruction!.textContent = "Select an exam, optionally narrow by subject and difficulty, then start your 10-question quiz.";
       root!.querySelector<HTMLElement>("[data-current-exam]")!.textContent = "EXAM BOARD";
       root!.querySelector<HTMLElement>("[data-current-subject]")!.textContent = "SUBJECT";
-      root!.querySelector<HTMLElement>("[data-question-source]")!.textContent = "920 original practice questions available";
+      root!.querySelector<HTMLElement>("[data-question-source]")!.textContent =
+        questionFeedLoading ? "Loading the practice bank…" :
+          questionFeedUnavailable ? "Practice bank temporarily unavailable" :
+            QUESTION_FEED.length + " original practice questions available";
       optionList!.replaceChildren();
       feedback!.hidden = true;
       previousButton!.disabled = true;
@@ -503,10 +513,7 @@ if (root) {
       studySession!.setAttribute("aria-busy", "true");
       setQuizStatus("Picking your questions…");
       try {
-        await Promise.all([
-          QUESTION_FEED_READY,
-          new Promise<void>((resolve) => { window.setTimeout(resolve, 1600); }),
-        ]);
+        await QUESTION_FEED_READY;
         // Refresh the candidate pool after the live feed has completed.
         const readyCandidates = questionsForSetup();
         const selected = shuffle(readyCandidates.length ? readyCandidates : candidates)
@@ -525,7 +532,7 @@ if (root) {
         boardLoading!.hidden = true;
         studySession!.removeAttribute("aria-busy");
         isPreparingQuiz = false;
-        startButton!.disabled = false;
+        updateAvailableCount();
       }
     }
 
@@ -534,7 +541,9 @@ if (root) {
       updateAvailableCount();
       if (!quizStarted) {
         root!.querySelector<HTMLElement>("[data-question-source]")!.textContent =
-          QUESTION_FEED.length + " original practice questions available";
+          questionFeedLoading ? "Loading the practice bank…" :
+            questionFeedUnavailable ? "Practice bank temporarily unavailable" :
+              QUESTION_FEED.length + " original practice questions available";
       }
     }
 

@@ -6840,3 +6840,878 @@ html body :is(a,button,input,select,textarea):focus-visible {
 @media(prefers-reduced-motion:reduce) {
   html body :is(a,button,input,select,textarea) { transition:none !important; }
 }
+
+
+/* --------------------------------------------------------------------------
+   Arthic clarity pass — exam routes, editorial plan pages, loaders and motion
+   -------------------------------------------------------------------------- */
+
+/* The secondary hero action must remain readable on its pale surface. */
+html body .home-actions .home-secondary,
+html body .home-actions a.home-secondary {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:48px !important;
+  padding:12px 21px !important;
+  border:1px solid var(--arthic-forest) !important;
+  border-radius:999px !important;
+  background:#FFFCF5 !important;
+  color:var(--arthic-forest) !important;
+  -webkit-text-fill-color:var(--arthic-forest) !important;
+  font-weight:700 !important;
+  text-decoration:none !important;
+  box-shadow:none !important;
+}
+html body .home-actions .home-secondary:hover,
+html body .home-actions a.home-secondary:hover {
+  border-color:var(--arthic-forest) !important;
+  background:var(--arthic-forest) !important;
+  color:#FFFFFF !important;
+  -webkit-text-fill-color:#FFFFFF !important;
+  transform:translateY(-1px) !important;
+}
+
+/* Choose your exam: rounded rectangles with one clear circular board marker. */
+html body.home-page .home-route-list {
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:14px !important;
+  width:min(100%,980px) !important;
+  margin:30px auto 0 !important;
+  padding:0 !important;
+  border:0 !important;
+}
+html body.home-page .home-route {
+  display:grid !important;
+  grid-template-columns:52px minmax(0,1fr) 32px !important;
+  grid-template-rows:auto auto !important;
+  align-items:center !important;
+  gap:5px 14px !important;
+  min-width:0 !important;
+  min-height:116px !important;
+  padding:20px 22px !important;
+  border:1px solid rgba(29,64,51,.14) !important;
+  border-radius:22px !important;
+  background:#FFFCF5 !important;
+  color:var(--arthic-forest) !important;
+  box-shadow:0 7px 22px rgba(29,64,51,.045) !important;
+  text-decoration:none !important;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background-color .18s ease !important;
+}
+html body.home-page .home-route__number {
+  grid-column:1 !important;
+  grid-row:1 / span 2 !important;
+  display:grid !important;
+  place-items:center !important;
+  width:48px !important;
+  height:48px !important;
+  border:1px solid rgba(29,64,51,.12) !important;
+  border-radius:50% !important;
+  background:#EAF0E7 !important;
+  color:var(--arthic-forest) !important;
+  font:700 12px/1 "IBM Plex Mono",monospace !important;
+}
+html body.home-page .home-route__name {
+  grid-column:2 !important;
+  grid-row:1 !important;
+  color:var(--arthic-forest) !important;
+  font:700 clamp(20px,2vw,25px)/1.05 "Bricolage Grotesque Variable",sans-serif !important;
+  letter-spacing:-.035em !important;
+}
+html body.home-page .home-route__detail {
+  grid-column:2 !important;
+  grid-row:2 !important;
+  max-width:34ch !important;
+  color:var(--arthic-forest-soft) !important;
+  font:500 10px/1.45 "Poppins",sans-serif !important;
+}
+html body.home-page .home-route__arrow {
+  grid-column:3 !important;
+  grid-row:1 / span 2 !important;
+  display:grid !important;
+  place-items:center !important;
+  width:30px !important;
+  height:30px !important;
+  border:1px solid rgba(29,64,51,.15) !important;
+  border-radius:50% !important;
+  color:var(--arthic-forest) !important;
+  font-size:15px !important;
+  transition:background-color .18s ease,color .18s ease,transform .18s ease !important;
+}
+html body.home-page .home-route:hover {
+  border-color:rgba(29,64,51,.42) !important;
+  background:#FFFFFF !important;
+  transform:translateY(-2px) !important;
+  box-shadow:0 12px 28px rgba(29,64,51,.08) !important;
+}
+html body.home-page .home-route:hover .home-route__arrow {
+  background:var(--arthic-forest) !important;
+  color:#FFFFFF !important;
+  transform:translateX(2px) !important;
+}
+
+/* Exam directory: shorter route tabs, then compact board cards. */
+html body.pathways-page .oneprep-route-strip {
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:10px !important;
+  width:min(100%,1120px) !important;
+  margin:28px auto 0 !important;
+  padding:0 !important;
+  border:0 !important;
+}
+html body.pathways-page .oneprep-route-strip a {
+  display:grid !important;
+  grid-template-columns:38px minmax(0,1fr) !important;
+  grid-template-rows:auto auto !important;
+  align-items:center !important;
+  gap:3px 10px !important;
+  min-width:0 !important;
+  min-height:72px !important;
+  padding:12px 14px !important;
+  border:1px solid rgba(29,64,51,.14) !important;
+  border-radius:17px !important;
+  background:#FFFCF5 !important;
+  color:var(--arthic-forest) !important;
+  text-decoration:none !important;
+  transition:border-color .16s ease,transform .16s ease,background-color .16s ease !important;
+}
+html body.pathways-page .oneprep-route-strip a > span {
+  grid-column:1 !important;
+  grid-row:1 / span 2 !important;
+  display:grid !important;
+  place-items:center !important;
+  width:36px !important;
+  height:36px !important;
+  border-radius:50% !important;
+  background:#EAF0E7 !important;
+  color:var(--arthic-forest) !important;
+  font:700 10px/1 "IBM Plex Mono",monospace !important;
+}
+html body.pathways-page .oneprep-route-strip a strong {
+  grid-column:2 !important;
+  grid-row:1 !important;
+  color:var(--arthic-forest) !important;
+  font-size:14px !important;
+  line-height:1.1 !important;
+}
+html body.pathways-page .oneprep-route-strip a small {
+  grid-column:2 !important;
+  grid-row:2 !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:9px !important;
+  line-height:1.35 !important;
+}
+html body.pathways-page .oneprep-route-strip a:hover {
+  border-color:var(--arthic-forest) !important;
+  background:#FFFFFF !important;
+  transform:translateY(-1px) !important;
+}
+html body.pathways-page .exam-track-grid {
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:16px !important;
+  align-items:stretch !important;
+}
+html body.pathways-page .exam-track-card {
+  position:relative !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:12px !important;
+  min-width:0 !important;
+  min-height:300px !important;
+  padding:24px !important;
+  border:1px solid rgba(29,64,51,.14) !important;
+  border-radius:21px !important;
+  background:#FFFCF5 !important;
+  box-shadow:0 8px 24px rgba(29,64,51,.04) !important;
+}
+html body.pathways-page .exam-track-card__top {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+}
+html body.pathways-page .exam-track-card__number {
+  color:var(--arthic-forest-soft) !important;
+  font:700 9px/1.35 "Poppins",sans-serif !important;
+  letter-spacing:.08em !important;
+}
+html body.pathways-page .exam-track-card__index {
+  display:grid !important;
+  place-items:center !important;
+  flex:0 0 42px !important;
+  width:42px !important;
+  height:42px !important;
+  border:1px solid rgba(29,64,51,.14) !important;
+  border-radius:50% !important;
+  background:#EAF0E7 !important;
+  color:var(--arthic-forest) !important;
+  font:700 12px/1 "IBM Plex Mono",monospace !important;
+}
+html body.pathways-page .exam-track-card h2 {
+  margin:0 !important;
+  color:var(--arthic-forest) !important;
+  font:700 clamp(30px,3vw,38px)/1 "Bricolage Grotesque Variable",sans-serif !important;
+  letter-spacing:-.055em !important;
+}
+html body.pathways-page .exam-track-card__lede {
+  margin:-5px 0 0 !important;
+  color:var(--arthic-coral) !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  line-height:1.45 !important;
+}
+html body.pathways-page .exam-track-card > p:not(.exam-track-card__lede) {
+  display:-webkit-box !important;
+  -webkit-box-orient:vertical !important;
+  -webkit-line-clamp:2 !important;
+  overflow:hidden !important;
+  min-height:3.1em !important;
+  margin:0 !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:11px !important;
+  line-height:1.55 !important;
+}
+html body.pathways-page .exam-track-card__tags {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:6px !important;
+  margin:0 !important;
+}
+html body.pathways-page .exam-track-card__tags span {
+  padding:6px 9px !important;
+  border:1px solid rgba(29,64,51,.12) !important;
+  border-radius:999px !important;
+  background:#F4F5EF !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:9px !important;
+  line-height:1.15 !important;
+}
+html body.pathways-page .exam-track-card__link {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  align-self:flex-start !important;
+  gap:8px !important;
+  min-height:40px !important;
+  margin-top:auto !important;
+  padding:10px 14px !important;
+  border:1px solid var(--arthic-forest) !important;
+  border-radius:999px !important;
+  background:var(--arthic-forest) !important;
+  color:#FFFFFF !important;
+  -webkit-text-fill-color:#FFFFFF !important;
+  font-size:10px !important;
+  font-weight:700 !important;
+  text-decoration:none !important;
+  transition:background-color .16s ease,border-color .16s ease,transform .16s ease !important;
+}
+html body.pathways-page .exam-track-card__link:hover {
+  border-color:var(--arthic-forest-soft) !important;
+  background:var(--arthic-forest-soft) !important;
+  color:#FFFFFF !important;
+  -webkit-text-fill-color:#FFFFFF !important;
+  transform:translateY(-1px) !important;
+}
+
+/* Pricing: consistent content width, three balanced plans, compact research. */
+html body.content-page.pricing-page #main.content-main {
+  gap:0 !important;
+  padding-bottom:62px !important;
+  background:var(--arthic-cream) !important;
+}
+html body.content-page.pricing-page #main .pricing-intro {
+  width:min(1160px,calc(100% - 56px)) !important;
+  max-width:1160px !important;
+  grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr) !important;
+  align-items:center !important;
+  gap:clamp(28px,5vw,72px) !important;
+  padding:132px 0 54px !important;
+}
+html body.content-page.pricing-page #main .pricing-intro h1 {
+  max-width:13ch !important;
+  margin:16px 0 18px !important;
+  font-size:clamp(44px,5.2vw,68px) !important;
+  line-height:.99 !important;
+  letter-spacing:-.065em !important;
+}
+html body.content-page.pricing-page #main .pricing-intro__aside {
+  max-width:360px !important;
+  padding:25px !important;
+  border:1px solid rgba(29,64,51,.13) !important;
+  border-radius:20px !important;
+  background:#FFFCF5 !important;
+  box-shadow:0 10px 28px rgba(29,64,51,.045) !important;
+}
+html body.content-page.pricing-page #main .pricing-plan-section,
+html body.content-page.pricing-page #main .pricing-benchmarks,
+html body.content-page.pricing-page #main .pricing-faq {
+  width:min(1160px,calc(100% - 56px)) !important;
+  max-width:1160px !important;
+}
+html body.content-page.pricing-page #main .pricing-plan-section {
+  padding:18px 0 54px !important;
+}
+html body.content-page.pricing-page #main .pricing-plan-grid {
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  align-items:stretch !important;
+  gap:16px !important;
+}
+html body.content-page.pricing-page #main .pricing-plan {
+  min-width:0 !important;
+  min-height:475px !important;
+  padding:25px !important;
+  border:1px solid rgba(29,64,51,.14) !important;
+  border-top:4px solid var(--arthic-forest) !important;
+  border-radius:20px !important;
+  background:#FFFCF5 !important;
+  box-shadow:0 9px 26px rgba(29,64,51,.05) !important;
+  transition:transform .18s ease,box-shadow .18s ease !important;
+}
+html body.content-page.pricing-page #main .pricing-plan:hover {
+  transform:translateY(-2px) !important;
+  box-shadow:0 14px 32px rgba(29,64,51,.08) !important;
+}
+html body.content-page.pricing-page #main .pricing-plan--group {
+  border-top-color:#6C806A !important;
+}
+html body.content-page.pricing-page #main .pricing-plan--coaching {
+  border-top-color:var(--arthic-coral) !important;
+}
+html body.content-page.pricing-page #main .pricing-plan h2 {
+  margin:0 !important;
+  color:var(--arthic-forest) !important;
+  font-size:25px !important;
+  line-height:1.15 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  align-items:baseline !important;
+  gap:5px 8px !important;
+  color:var(--arthic-forest) !important;
+  font:800 clamp(32px,3vw,42px)/1 "Bricolage Grotesque Variable",sans-serif !important;
+  letter-spacing:-.06em !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price span {
+  color:var(--arthic-forest-soft) !important;
+  font:600 10px/1.4 "Poppins",sans-serif !important;
+  letter-spacing:0 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__status {
+  color:var(--arthic-coral) !important;
+  font-size:10px !important;
+  font-weight:700 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan ul {
+  display:grid !important;
+  gap:8px !important;
+  margin:8px 0 18px !important;
+  padding:0 !important;
+  list-style:none !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li {
+  position:relative !important;
+  margin:0 !important;
+  padding-left:20px !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:10px !important;
+  line-height:1.55 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li::before {
+  content:"✓" !important;
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  color:var(--arthic-coral) !important;
+  font-weight:800 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan .oneprep-button {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
+  min-height:44px !important;
+  margin-top:auto !important;
+  border-radius:999px !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmarks {
+  padding:24px 0 48px !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmarks > h2 {
+  max-width:22ch !important;
+  margin:14px 0 10px !important;
+  color:var(--arthic-forest) !important;
+  font-size:clamp(28px,3.8vw,42px) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.05em !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmarks__lede {
+  max-width:76ch !important;
+  margin:0 0 20px !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:11px !important;
+  line-height:1.7 !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark-list {
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  align-items:stretch !important;
+  gap:12px !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark {
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  gap:10px !important;
+  min-width:0 !important;
+  padding:20px !important;
+  border:1px solid rgba(29,64,51,.13) !important;
+  border-radius:17px !important;
+  background:#FFFCF5 !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark > div > span {
+  color:var(--arthic-coral) !important;
+  font:800 9px/1.4 "Poppins",sans-serif !important;
+  letter-spacing:.1em !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark h3 {
+  margin:5px 0 0 !important;
+  color:var(--arthic-forest) !important;
+  font-size:16px !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark p {
+  margin:0 !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:10px !important;
+  line-height:1.65 !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark a {
+  display:inline-flex !important;
+  margin:0 10px 0 0 !important;
+  color:var(--arthic-coral) !important;
+  font-size:10px !important;
+  font-weight:750 !important;
+  line-height:1.5 !important;
+  text-decoration:underline !important;
+  text-underline-offset:3px !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmarks__note,
+html body.content-page.pricing-page #main .pricing-footnote {
+  max-width:96ch !important;
+  margin:18px 0 0 !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:10px !important;
+  line-height:1.7 !important;
+}
+html body.content-page.pricing-page #main .pricing-faq {
+  padding:20px 0 34px !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__heading {
+  margin:14px 0 10px !important;
+  color:var(--arthic-forest) !important;
+  font-size:clamp(28px,3.4vw,38px) !important;
+  letter-spacing:-.045em !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__list {
+  display:grid !important;
+  gap:0 !important;
+  margin:14px 0 0 !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item {
+  display:grid !important;
+  grid-template-columns:minmax(210px,.7fr) minmax(0,1.3fr) !important;
+  gap:24px !important;
+  padding:18px 0 !important;
+  border-top:1px solid rgba(29,64,51,.13) !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item:last-child {
+  border-bottom:1px solid rgba(29,64,51,.13) !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item dt {
+  color:var(--arthic-forest) !important;
+  font:700 13px/1.45 "Poppins",sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item dd {
+  margin:0 !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:11px !important;
+  line-height:1.7 !important;
+}
+html body.content-page.pricing-page #main .content-cta {
+  margin-top:28px !important;
+  padding:32px 0 !important;
+  background:#EAF0E7 !important;
+}
+html body.content-page.pricing-page #main .content-cta__inner {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:28px !important;
+  width:min(1160px,calc(100% - 56px)) !important;
+  margin:0 auto !important;
+}
+
+/* Careers: readable role cards, with the long rule-lines replaced by spacing. */
+html body.content-page.career-page #main .career-intro {
+  display:grid !important;
+  grid-template-columns:minmax(0,1.2fr) minmax(270px,.8fr) !important;
+  align-items:center !important;
+  gap:clamp(28px,5vw,70px) !important;
+  width:min(1160px,calc(100% - 56px)) !important;
+  max-width:1160px !important;
+  margin:0 auto !important;
+  padding:132px 0 52px !important;
+}
+html body.content-page.career-page #main .career-intro h1 {
+  max-width:13ch !important;
+  margin:16px 0 !important;
+  color:var(--arthic-forest) !important;
+  font-size:clamp(42px,5.1vw,66px) !important;
+  line-height:1 !important;
+  letter-spacing:-.06em !important;
+}
+html body.content-page.career-page #main .career-intro__aside {
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:360px !important;
+  justify-self:end !important;
+  padding:24px !important;
+  border:1px solid rgba(29,64,51,.13) !important;
+  border-radius:20px !important;
+  background:#FFFCF5 !important;
+  box-shadow:0 10px 28px rgba(29,64,51,.045) !important;
+}
+html body.content-page.career-page #main .career-intro__aside strong {
+  display:block !important;
+  margin:12px 0 4px !important;
+  color:var(--arthic-forest) !important;
+  font:800 58px/.95 "Bricolage Grotesque Variable",sans-serif !important;
+  letter-spacing:-.07em !important;
+}
+html body.content-page.career-page #main .career-intro__aside p {
+  margin:12px 0 0 !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:10px !important;
+  line-height:1.7 !important;
+}
+html body.content-page.career-page #main .careers-roles,
+html body.content-page.career-page #main .careers-application-note {
+  width:min(1160px,calc(100% - 56px)) !important;
+  max-width:1160px !important;
+  margin:0 auto !important;
+}
+html body.content-page.career-page #main .careers-roles {
+  padding:15px 0 32px !important;
+}
+html body.content-page.career-page #main .career-list--detailed {
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:15px !important;
+  align-items:stretch !important;
+}
+html body.content-page.career-page #main .career-role--detailed {
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:stretch !important;
+  gap:14px !important;
+  min-width:0 !important;
+  min-height:420px !important;
+  padding:23px !important;
+  border:1px solid rgba(29,64,51,.14) !important;
+  border-radius:20px !important;
+  background:#FFFCF5 !important;
+  box-shadow:0 8px 24px rgba(29,64,51,.045) !important;
+}
+html body.content-page.career-page #main .career-role__number {
+  display:grid !important;
+  place-items:center !important;
+  width:42px !important;
+  height:42px !important;
+  border:1px solid rgba(29,64,51,.12) !important;
+  border-radius:50% !important;
+  background:#EAF0E7 !important;
+  color:var(--arthic-forest) !important;
+  font:700 11px/1 "IBM Plex Mono",monospace !important;
+}
+html body.content-page.career-page #main .career-role__type {
+  display:block !important;
+  margin:0 0 7px !important;
+  color:var(--arthic-coral) !important;
+  font-size:9px !important;
+  font-weight:800 !important;
+  letter-spacing:.1em !important;
+}
+html body.content-page.career-page #main .career-role__content {
+  display:flex !important;
+  flex-direction:column !important;
+  gap:10px !important;
+  flex:1 1 auto !important;
+  min-width:0 !important;
+}
+html body.content-page.career-page #main .career-role__content h2 {
+  margin:0 !important;
+  color:var(--arthic-forest) !important;
+  font:700 23px/1.12 "Bricolage Grotesque Variable",sans-serif !important;
+  letter-spacing:-.035em !important;
+}
+html body.content-page.career-page #main .career-role__body {
+  margin:0 !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:10px !important;
+  line-height:1.65 !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid {
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:12px !important;
+  margin:3px 0 0 !important;
+  padding-top:13px !important;
+  border-top:1px solid rgba(29,64,51,.12) !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid strong {
+  color:var(--arthic-forest) !important;
+  font-size:9px !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid ul {
+  display:grid !important;
+  gap:6px !important;
+  margin:7px 0 0 !important;
+  padding-left:13px !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid li {
+  color:var(--arthic-forest-soft) !important;
+  font-size:9px !important;
+  line-height:1.5 !important;
+}
+html body.content-page.career-page #main .career-role__note {
+  margin:0 !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:9px !important;
+  line-height:1.5 !important;
+}
+html body.content-page.career-page #main .career-role__link {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  align-self:stretch !important;
+  width:100% !important;
+  min-height:42px !important;
+  margin-top:auto !important;
+  border:1px solid var(--arthic-forest) !important;
+  border-radius:999px !important;
+  background:var(--arthic-forest) !important;
+  color:#FFFFFF !important;
+  -webkit-text-fill-color:#FFFFFF !important;
+  font-size:10px !important;
+  text-decoration:none !important;
+}
+html body.content-page.career-page #main .career-role__link:hover {
+  border-color:var(--arthic-forest-soft) !important;
+  background:var(--arthic-forest-soft) !important;
+  color:#FFFFFF !important;
+  -webkit-text-fill-color:#FFFFFF !important;
+}
+html body.content-page.career-page #main .careers-note,
+html body.content-page.career-page #main .careers-application-note {
+  padding:22px 24px !important;
+  border:1px solid rgba(29,64,51,.13) !important;
+  border-radius:18px !important;
+  background:#FFFCF5 !important;
+}
+html body.content-page.career-page #main .careers-note {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:18px !important;
+  margin-top:17px !important;
+}
+html body.content-page.career-page #main .careers-note p,
+html body.content-page.career-page #main .careers-application-note p {
+  margin:0 !important;
+  color:var(--arthic-forest-soft) !important;
+  font-size:10px !important;
+  line-height:1.7 !important;
+}
+html body.content-page.career-page #main .careers-application-note h2 {
+  margin:10px 0 7px !important;
+  color:var(--arthic-forest) !important;
+  font-size:23px !important;
+}
+html body.content-page.career-page #main .careers-application-note {
+  margin-bottom:26px !important;
+}
+html body.content-page.career-page #main .content-cta {
+  margin-top:20px !important;
+  padding:32px 0 !important;
+  background:#EAF0E7 !important;
+}
+html body.content-page.career-page #main .content-cta__inner {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:25px !important;
+  width:min(1160px,calc(100% - 56px)) !important;
+  margin:0 auto !important;
+}
+
+/* Loading stays visible only while work is actually happening. */
+html body.study-preview-page .study-quiz-form__status[data-state="loading"] {
+  display:flex !important;
+  align-items:center !important;
+  gap:9px !important;
+  color:var(--arthic-forest-soft) !important;
+}
+html body.study-preview-page .study-quiz-form__status[data-state="loading"]::before {
+  content:"" !important;
+  display:block !important;
+  flex:0 0 13px !important;
+  width:13px !important;
+  height:13px !important;
+  border:2px solid rgba(29,64,51,.18) !important;
+  border-top-color:var(--arthic-forest) !important;
+  border-radius:50% !important;
+  animation:arthic-spin .7s linear infinite !important;
+}
+html body.study-preview-page .study-feedback[data-result="pending"] .study-feedback__icon {
+  display:inline-block !important;
+  width:18px !important;
+  height:18px !important;
+  overflow:hidden !important;
+  border:2px solid rgba(29,64,51,.18) !important;
+  border-top-color:var(--arthic-coral) !important;
+  border-radius:50% !important;
+  color:transparent !important;
+  font-size:0 !important;
+  vertical-align:middle !important;
+  animation:arthic-spin .65s linear infinite !important;
+}
+html body.study-preview-page .study-board-skeleton i {
+  background:linear-gradient(100deg,#ECEFE8 15%,#FFFFFF 35%,#ECEFE8 55%) !important;
+  background-size:220% 100% !important;
+  animation:arthic-skeleton-shimmer 1.2s ease-in-out infinite !important;
+}
+@keyframes arthic-spin {
+  to { transform:rotate(360deg); }
+}
+@keyframes arthic-skeleton-shimmer {
+  from { background-position:100% 0; }
+  to { background-position:-120% 0; }
+}
+
+/* Cross-document view transitions for page changes, with a reduced-motion path. */
+@view-transition {
+  navigation:auto;
+}
+::view-transition-old(root) {
+  animation:arthic-view-out .12s ease both;
+}
+::view-transition-new(root) {
+  animation:arthic-view-in .22s cubic-bezier(.2,.7,.25,1) both;
+}
+@keyframes arthic-view-out {
+  to { opacity:0; transform:translateY(-3px); }
+}
+@keyframes arthic-view-in {
+  from { opacity:0; transform:translateY(7px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* Responsive: keep the hierarchy but remove compressed columns. */
+@media(max-width:1080px) {
+  html body.pathways-page .oneprep-route-strip {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  html body.content-page.pricing-page #main .pricing-plan-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  html body.content-page.pricing-page #main .pricing-plan:last-child {
+    grid-column:1 / -1 !important;
+  }
+  html body.content-page.career-page #main .career-list--detailed {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:760px) {
+  html body.home-page .home-route-list {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  html body.pathways-page .exam-track-grid {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  html body.content-page.pricing-page #main .pricing-intro,
+  html body.content-page.career-page #main .career-intro {
+    grid-template-columns:minmax(0,1fr) !important;
+    width:calc(100% - 36px) !important;
+    padding:105px 0 35px !important;
+  }
+  html body.content-page.pricing-page #main .pricing-intro__aside,
+  html body.content-page.career-page #main .career-intro__aside {
+    justify-self:stretch !important;
+    max-width:none !important;
+  }
+  html body.content-page.pricing-page #main .pricing-plan-section,
+  html body.content-page.pricing-page #main .pricing-benchmarks,
+  html body.content-page.pricing-page #main .pricing-faq,
+  html body.content-page.career-page #main .careers-roles,
+  html body.content-page.career-page #main .careers-application-note {
+    width:calc(100% - 36px) !important;
+  }
+  html body.content-page.pricing-page #main .pricing-plan-grid,
+  html body.content-page.pricing-page #main .pricing-benchmark-list,
+  html body.content-page.career-page #main .career-list--detailed {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  html body.content-page.pricing-page #main .pricing-plan:last-child {
+    grid-column:auto !important;
+  }
+  html body.content-page.pricing-page #main .pricing-faq__item {
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:7px !important;
+  }
+  html body.content-page.pricing-page #main .content-cta__inner,
+  html body.content-page.career-page #main .content-cta__inner {
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    width:calc(100% - 36px) !important;
+  }
+  html body.content-page.career-page #main .careers-note {
+    flex-direction:column !important;
+    align-items:flex-start !important;
+  }
+  html body.content-page.career-page #main .career-role--detailed {
+    min-height:0 !important;
+  }
+}
+@media(max-width:520px) {
+  html body.pathways-page .oneprep-route-strip {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  html body.content-page.career-page #main .career-role__detail-grid {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  html body.home-page .home-route {
+    min-height:100px !important;
+    padding:16px !important;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation:none !important;
+  }
+  html body.study-preview-page .study-quiz-form__status[data-state="loading"]::before,
+  html body.study-preview-page .study-feedback[data-result="pending"] .study-feedback__icon,
+  html body.study-preview-page .study-board-skeleton i {
+    animation:none !important;
+  }
+  html body.home-page .home-route,
+  html body.pathways-page .oneprep-route-strip a,
+  html body.pathways-page .exam-track-card__link,
+  html body.content-page.pricing-page #main .pricing-plan {
+    transition:none !important;
+  }
+}
