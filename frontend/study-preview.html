@@ -75,9 +75,9 @@
         <p class="study-intro__lede">Choose a track, answer at your own pace, and see a clear explanation as soon as you submit.</p>
       </div>
       <div class="study-intro__count" aria-label="Question bank size">
-        <strong data-bank-total>880</strong>
+        <strong data-bank-total>920</strong>
         <span>original practice questions</span>
-        <small>220 questions in each exam track</small>
+        <small>230 questions in each exam track</small>
       </div>
     </div>
   </section>
@@ -89,11 +89,11 @@
         <strong class="study-rail__name" data-practice-track-label>MDCAT</strong>
       </div>
       <div class="practice-track-filters" role="group" aria-label="Choose an exam">
-        <button type="button" data-exam-filter="MDCAT" aria-pressed="true">MDCAT <small data-track-count="MDCAT">220</small></button>
-        <button type="button" data-exam-filter="LCAT" aria-pressed="false">LCAT <small data-track-count="LCAT">220</small></button>
-        <button type="button" data-exam-filter="NET" aria-pressed="false">NET <small data-track-count="NET">220</small></button>
-        <button type="button" data-exam-filter="CSS" aria-pressed="false">CSS <small data-track-count="CSS">220</small></button>
-        <button type="button" data-exam-filter="ALL" aria-pressed="false">All tracks <small data-track-count="ALL">880</small></button>
+        <button type="button" data-exam-filter="MDCAT" aria-pressed="true">MDCAT <small data-track-count="MDCAT">230</small></button>
+        <button type="button" data-exam-filter="LCAT" aria-pressed="false">LCAT <small data-track-count="LCAT">230</small></button>
+        <button type="button" data-exam-filter="NET" aria-pressed="false">NET <small data-track-count="NET">230</small></button>
+        <button type="button" data-exam-filter="CSS" aria-pressed="false">CSS <small data-track-count="CSS">230</small></button>
+        <button type="button" data-exam-filter="ALL" aria-pressed="false">All tracks <small data-track-count="ALL">920</small></button>
       </div>
       <div class="study-rail__filters">
         <label class="study-filter-label" for="practiceSubjectFilter">SUBJECT</label>
@@ -101,11 +101,6 @@
         <label class="study-filter-label" for="practiceQuestionSearch">SEARCH QUESTIONS</label>
         <input class="study-filter-search" id="practiceQuestionSearch" data-question-search type="search" placeholder="Search a topic" autocomplete="off" />
       </div>
-      <details class="study-bank-nav">
-        <summary class="study-bank-nav__summary"><span>Browse questions</span><strong data-map-count>220</strong></summary>
-        <div class="study-question-map" data-question-map></div>
-        <p class="study-bank-nav__hint">Green = correct · Coral = review · Grey = unanswered</p>
-      </details>
       <p class="study-rail__note">Your answers and progress stay in this browser session.</p>
     </aside>
 
@@ -114,7 +109,7 @@
         <div>
           <p class="study-session__eyebrow">PRACTICE SESSION · <span data-practice-track-label>MDCAT</span></p>
           <h2 class="study-session__heading" id="study-session-heading">Your question session</h2>
-          <p class="study-session__subhead"><span data-question-bank-count>220 questions in this set</span> · Instant answer feedback.</p>
+          <p class="study-session__subhead"><span data-question-bank-count>230 questions in this set</span> · Instant answer feedback.</p>
         </div>
         <span class="study-session__type">SELF-PACED</span>
       </div>
@@ -129,27 +124,27 @@
         </div>
       </div>
       <div class="study-session__summary" id="session-progress" aria-label="Your session progress">
-        <div class="study-session__metric"><span>Answered</span><strong data-completed-count>0 / 220</strong></div>
+        <div class="study-session__metric"><span>Answered</span><strong data-completed-count>0 / 230</strong></div>
         <div class="study-session__metric"><span>Correct</span><strong data-correct-count>0</strong></div>
         <div class="study-session__metric"><span>Accuracy</span><strong data-accuracy-value>—</strong></div>
       </div>
       <div class="study-progress" aria-label="Session progress">
         <div class="study-progress__labels">
-          <span data-session-progress-label>0 of 220 answered</span>
-          <span data-question-total>220 questions</span>
+          <span data-session-progress-label>0 of 230 answered</span>
+          <span data-question-total>230 questions</span>
         </div>
-        <div class="study-progress__track" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="220" aria-valuenow="0" data-session-progress-track>
+        <div class="study-progress__track" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="230" aria-valuenow="0" data-session-progress-track>
           <div class="study-progress__fill" data-session-progress-fill></div>
         </div>
       </div>
       <section class="study-question study-screen" data-study-question-screen aria-labelledby="question-prompt">
         <div class="study-question__meta">
-          <span data-question-number>QUESTION 1 / 220</span>
+          <span data-question-number>QUESTION 1 / 230</span>
           <span data-question-topic>Cell organelles</span>
         </div>
         <div class="study-question__context"><span data-current-exam>MDCAT</span><span data-current-subject>Biology</span></div>
         <p class="study-question__source" data-question-source>Original Arthic practice · No past-paper year or session</p>
-        <h3 class="study-question__text" id="question-prompt" tabindex="-1" data-question-prompt>Loading the question bank…</h3>
+        <h3 class="study-question__text" id="question-prompt" tabindex="-1" data-question-prompt><span class="study-initial-loader" role="status" aria-label="Preparing questions"><span class="study-initial-loader__spinner" aria-hidden="true"></span></span></h3>
         <p class="study-question__instruction" data-question-instruction>Choose one answer. Your answer is checked as soon as you choose it.</p>
         <div class="study-options" role="group" aria-label="Answer choices" data-question-options></div>
         <div class="study-feedback" data-question-feedback role="status" aria-live="polite" hidden>
