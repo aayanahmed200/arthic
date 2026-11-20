@@ -120,6 +120,25 @@ try {
     assert.ok(check.res.body.takeaway, question.id);
   }
 
+  const v16Questions = SAMPLE_QUESTIONS.filter((item) => item.id.startsWith("v16-"));
+  assert.equal(v16Questions.length, 40);
+  for (const examCode of examCodes) {
+    assert.equal(v16Questions.filter((item) => item.examCode === examCode).length, 10);
+  }
+  for (const question of v16Questions) {
+    assert.equal(question.options.length, 4, question.id);
+    assert.ok(question.options.some((option) => option.key === question.answer), question.id);
+    assert.ok(question.explanation, question.id);
+    assert.ok(question.takeaway, question.id);
+    const check = mockRequest("POST", { questionId: question.id, selectedOption: question.answer });
+    await checkHandler(check.req, check.res);
+    assert.equal(check.res.code, 200, question.id);
+    assert.equal(check.res.body.isCorrect, true, question.id);
+    assert.equal(check.res.body.correctOption, question.answer, question.id);
+    assert.ok(check.res.body.explanation, question.id);
+    assert.ok(check.res.body.takeaway, question.id);
+  }
+
   const v14Questions = SAMPLE_QUESTIONS.filter((item) => item.id.startsWith("v14-"));
   assert.equal(v14Questions.length, 40);
   for (const examCode of examCodes) {
