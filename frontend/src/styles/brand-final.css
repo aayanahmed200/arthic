@@ -5635,3 +5635,28 @@ html body :is(
   .button, .btn, .study-action, .nav__cta, .home-sample-next,
   .home-sample-check, .career-role__link
 ) .lucide-arrow-right { display:none !important; }
+
+
+/* Homepage next-question action is secondary: solid forest with white text. */
+html body .home-sample-card__actions .home-sample-next {
+  min-height: 42px !important;
+  padding: 10px 16px !important;
+  border: 1px solid var(--arthic-forest) !important;
+  border-radius: 9px !important;
+  background: var(--arthic-forest) !important;
+  background-color: var(--arthic-forest) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  font-family: "Poppins",Arial,sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+html body .home-sample-card__actions .home-sample-next:hover:not(:disabled) {
+  border-color: var(--arthic-forest-soft) !important;
+  background: var(--arthic-forest-soft) !important;
+  background-color: var(--arthic-forest-soft) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
