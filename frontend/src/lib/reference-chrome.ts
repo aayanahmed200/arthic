@@ -57,11 +57,6 @@ const FOOTER = `<footer class="site-footer" id="site-footer">
         <a href="/cookies.html">Cookie policy</a>
       </nav>
     </div>
-    <div class="footer-bottom">
-      <p>© <span data-year>2026</span> Arthic. All rights reserved.</p>
-      <span>Thoughtful practice. Clearer progress.</span>
-      <a href="#top">Back to top ↑</a>
-    </div>
   </div>
 </footer>`;
 
