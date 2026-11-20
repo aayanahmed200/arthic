@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://arthic.tech/sitemap.xml
+Sitemap: https://www.arthic.tech/sitemap.xml
