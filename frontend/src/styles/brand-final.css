@@ -5431,3 +5431,207 @@ html body.not-found-document .not-found-art img {
   html body.not-found-document #main .not-found-card { grid-template-columns:1fr !important; padding:25px !important; }
   html body.not-found-document .not-found-art { width:124px !important; grid-row:1 !important; }
 }
+
+
+/* Legal documents: transparent content surfaces, responsive reading width. */
+html body.content-page.legal-page,
+html body.content-page.legal-page #main,
+html body.content-page.legal-page #main > .entry,
+html body.content-page.legal-page #main > .entry > :is(header,div,section),
+html body.content-page.legal-page #main > .entry .entry__head,
+html body.content-page.legal-page #main > .entry .entry__body,
+html body.content-page.legal-page #main > .entry .entry__foot {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+html body.content-page.legal-page {
+  min-width: 320px !important;
+  background: var(--arthic-cream) !important;
+  background-color: var(--arthic-cream) !important;
+  color: var(--arthic-forest) !important;
+}
+html body.content-page.legal-page #main {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 70vh !important;
+  margin: 0 !important;
+  padding: clamp(106px,12vw,142px) 0 clamp(54px,7vw,84px) !important;
+  overflow: visible !important;
+}
+html body.content-page.legal-page #main > .entry {
+  box-sizing: border-box !important;
+  display: block !important;
+  width: min(1120px,calc(100% - clamp(36px,8vw,112px))) !important;
+  max-width: 1120px !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  overflow: visible !important;
+}
+html body.content-page.legal-page #main > .entry .entry__head {
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 0 clamp(28px,4vw,46px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+html body.content-page.legal-page #main > .entry .entry__title {
+  max-width: 16ch !important;
+  color: var(--arthic-forest) !important;
+  font-family: "Poppins",Arial,sans-serif !important;
+  font-size: clamp(34px,5.5vw,58px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.045em !important;
+}
+html body.content-page.legal-page #main > .entry .entry__lede {
+  max-width: 68ch !important;
+  color: var(--arthic-forest) !important;
+  font-size: clamp(13px,1.35vw,15px) !important;
+  line-height: 1.75 !important;
+}
+html body.content-page.legal-page #main > .entry .entry__body {
+  box-sizing: border-box !important;
+  width: min(100%,84ch) !important;
+  max-width: 84ch !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  color: var(--arthic-forest) !important;
+  font-family: "Poppins",Arial,sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.85 !important;
+  overflow-wrap: anywhere !important;
+}
+html body.content-page.legal-page #main > .entry .entry__body :is(p,li) {
+  color: var(--arthic-forest) !important;
+  font-size: clamp(12px,1.1vw,13px) !important;
+  line-height: 1.9 !important;
+}
+html body.content-page.legal-page #main > .entry .entry__body h2 {
+  margin: clamp(25px,3.6vw,38px) 0 10px !important;
+  color: var(--arthic-forest) !important;
+  font-size: clamp(17px,2vw,21px) !important;
+  line-height: 1.35 !important;
+}
+html body.content-page.legal-page #main > .entry .entry__body :is(ul,ol) {
+  padding-left: 1.35rem !important;
+  margin: 10px 0 18px !important;
+}
+html body.content-page.legal-page #main > .entry .entry__body a {
+  color: var(--arthic-coral) !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 3px !important;
+}
+html body.content-page.legal-page #main > .entry .entry__foot {
+  width: min(100%,84ch) !important;
+  margin: 38px 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+html body.content-page.legal-page #main > .entry .entry__foot .arrow-glyph { display:none !important; }
+@media(max-width:760px) {
+  html body.content-page.legal-page #main {
+    padding: 98px 0 54px !important;
+  }
+  html body.content-page.legal-page #main > .entry {
+    width: calc(100% - 38px) !important;
+  }
+  html body.content-page.legal-page #main > .entry .entry__body {
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+  }
+}
+@media(max-width:420px) {
+  html body.content-page.legal-page #main > .entry {
+    width: calc(100% - 30px) !important;
+  }
+}
+
+/* Primary filled actions are coral/orange; secondary filled actions are
+   forest green. Both use white text for consistent contrast on all pages. */
+html body :is(
+  .home-primary, .home-button:not(.home-button--secondary),
+  .oneprep-button--primary, .button--primary, .btn--primary, .btn--solid,
+  .nav__cta, .home-sample-check, .home-sample-next,
+  button[type="submit"], input[type="submit"],
+  .study-action:not(.study-action--secondary):not(.study-action--finish)
+) {
+  background: var(--arthic-coral) !important;
+  background-color: var(--arthic-coral) !important;
+  border: 1px solid var(--arthic-coral) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+html body :is(
+  .home-secondary, .home-button--secondary, .oneprep-button--light,
+  .oneprep-button--secondary, .button--outline, .btn--outline,
+  .study-action--secondary, .study-action--finish
+) {
+  background: var(--arthic-forest) !important;
+  background-color: var(--arthic-forest) !important;
+  border: 1px solid var(--arthic-forest) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+html body :is(
+  .home-secondary, .home-button--secondary, .oneprep-button--light,
+  .oneprep-button--secondary, .button--outline, .btn--outline,
+  .study-action--secondary, .study-action--finish
+) :is(span,strong,svg) {
+  color: #FFFFFF !important;
+  fill: currentColor !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+html body :is(
+  .home-primary, .home-button:not(.home-button--secondary),
+  .oneprep-button--primary, .button--primary, .btn--primary, .btn--solid,
+  .nav__cta, .home-sample-check, .home-sample-next,
+  button[type="submit"], input[type="submit"],
+  .study-action:not(.study-action--secondary):not(.study-action--finish)
+):hover:not(:disabled) {
+  background: var(--arthic-coral-hover) !important;
+  background-color: var(--arthic-coral-hover) !important;
+  border-color: var(--arthic-coral-hover) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+html body :is(
+  .home-secondary, .home-button--secondary, .oneprep-button--light,
+  .oneprep-button--secondary, .button--outline, .btn--outline,
+  .study-action--secondary, .study-action--finish
+):hover:not(:disabled) {
+  background: var(--arthic-forest-soft) !important;
+  background-color: var(--arthic-forest-soft) !important;
+  border-color: var(--arthic-forest-soft) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* Button-like links and controls should be clean text-first actions. */
+html body :is(
+  .home-primary, .home-secondary, .home-button, .oneprep-button,
+  .button, .btn, .study-action, .nav__cta, .home-sample-next,
+  .home-sample-check, .career-role__link
+) :is(.arrow-glyph,.icon-arrow,.button-arrow,.button__arrow,[aria-hidden="true"]) {
+  display: none !important;
+}
+html body :is(
+  .home-primary, .home-secondary, .home-button, .oneprep-button,
+  .button, .btn, .study-action, .nav__cta, .home-sample-next,
+  .home-sample-check, .career-role__link
+) .lucide-arrow-up-right,
+html body :is(
+  .home-primary, .home-secondary, .home-button, .oneprep-button,
+  .button, .btn, .study-action, .nav__cta, .home-sample-next,
+  .home-sample-check, .career-role__link
+) .lucide-arrow-right { display:none !important; }
