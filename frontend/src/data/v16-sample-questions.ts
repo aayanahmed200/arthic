@@ -1033,7 +1033,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Kidney function",
-    "prompt": "In a nephron, where does filtration of blood from the glomerular capillaries into the renal corpuscle begin?",
+    "prompt": "In a nephron, which structure receives filtrate as blood is filtered across the glomerular capillaries?",
     "options": [
       {
         "key": "A",
