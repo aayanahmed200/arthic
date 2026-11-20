@@ -834,7 +834,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
       },
       {
         "key": "D",
-        "text": "Cent centriole"
+        "text": "Centriole"
       }
     ],
     "sourceKind": "original-sample"
