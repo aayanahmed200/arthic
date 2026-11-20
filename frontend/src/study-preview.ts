@@ -95,9 +95,12 @@ if (root) {
   const feedbackIcon = root.querySelector<HTMLElement>("[data-feedback-icon]");
   const feedbackPoints = root.querySelector<HTMLUListElement>("[data-feedback-points]");
   const takeaway = root.querySelector<HTMLElement>("[data-feedback-takeaway]");
-  const trackFilters = Array.from(root.querySelectorAll<HTMLButtonElement>("[data-exam-filter]"));
+  const quizForm = root.querySelector<HTMLFormElement>("[data-quiz-setup]");
+  const examSelect = root.querySelector<HTMLSelectElement>("[data-quiz-exam]");
+  const difficultySelect = root.querySelector<HTMLSelectElement>("[data-quiz-difficulty]");
+  const quizStatus = root.querySelector<HTMLElement>("[data-quiz-status]");
+  const startButton = root.querySelector<HTMLButtonElement>("[data-start-quiz]");
   const trackLabels = Array.from(root.querySelectorAll<HTMLElement>("[data-practice-track-label]"));
-  const trackCounts = Array.from(root.querySelectorAll<HTMLElement>("[data-track-count]"));
   const questionBankCount = root.querySelector<HTMLElement>("[data-question-bank-count]");
   const questionTotal = root.querySelector<HTMLElement>("[data-question-total]");
   const bankTotal = root.querySelector<HTMLElement>("[data-bank-total]");
@@ -118,45 +121,48 @@ if (root) {
   const reviewList = root.querySelector<HTMLElement>("[data-review-list]");
   const resetButtons = root.querySelectorAll<HTMLButtonElement>("[data-reset-session]");
 
-  if (
-    questionScreen && completeScreen && number && topic && prompt && instruction &&
-    optionList && feedback && feedbackTitle && feedbackAnswer && feedbackPoints && takeaway &&
-    subjectFilter && questionSearch && previousButton && nextButton &&
-    finishButton && progressTrack && progressFill && progressLabel &&
-    completedValue && correctValue && accuracyValue && completeHeading && completeLede &&
-    completeStats && reviewList && studySession && boardLoading && boardLoadingLabel
-  ) {
-    let questionIndex = 0;
-    let activeExam = new URLSearchParams(window.location.search).get("exam") || "MDCAT";
+  const requiredElements = [
+    questionScreen, completeScreen, number, topic, prompt, instruction, studySession,
+    boardLoading, boardLoadingLabel, optionList, feedback, feedbackTitle, feedbackAnswer,
+    feedbackPoints, takeaway, quizForm, examSelect, difficultySelect, quizStatus, startButton,
+    subjectFilter, questionSearch, progressTrack, progressFill, progressLabel, completedValue,
+    correctValue, accuracyValue, previousButton, nextButton, finishButton,
+    completeHeading, completeLede, completeStats, reviewList,
+  ];
+
+  if (requiredElements.every(Boolean)) {
+    type DifficultyBand = "EASY" | "STANDARD" | "CHALLENGING";
+    const EXAM_CODES = ["LCAT", "NET", "CSS", "MDCAT"] as const;
+    const QUIZ_LENGTH = 10;
+    const params = new URLSearchParams(window.location.search);
+    let activeExam = EXAM_CODES.includes(params.get("exam") as typeof EXAM_CODES[number])
+      ? (params.get("exam") as string)
+      : "";
     let activeSubject = "ALL";
     let searchTerm = "";
     let isSubmitting = false;
-    let isChangingBoard = false;
+    let isPreparingQuiz = false;
+    let questionIndex = 0;
+    let quizStarted = false;
     let pendingOptionKey: string | null = null;
-    let hasInteracted = false;
-    let questions: StudyQuestionPrompt[] = [...QUESTION_FEED];
+    let questions: StudyQuestionPrompt[] = [];
     const answers = new Map<string, StudyAnswer>();
-    if (!EXAMS.includes(activeExam)) activeExam = "MDCAT";
 
-    function filteredQuestions(): StudyQuestionPrompt[] {
-      const term = searchTerm.trim().toLocaleLowerCase();
-      return QUESTION_FEED.filter((question) => {
-        const examMatches = activeExam === "ALL" || question.examCode === activeExam;
-        const subjectMatches = activeSubject === "ALL" || displaySubjectCode(question) === activeSubject;
-        const textMatches = !term || [question.topic, question.prompt, question.subjectCode]
-          .some((value) => value.toLocaleLowerCase().includes(term));
-        return examMatches && subjectMatches && textMatches;
-      });
+    if (activeExam) examSelect!.value = activeExam;
+
+    function setQuizStatus(message: string, state: "info" | "error" = "info"): void {
+      quizStatus!.textContent = message;
+      quizStatus!.dataset.state = state;
     }
 
     function fillSubjectFilter(): void {
       const available = [...new Set(QUESTION_FEED
-        .filter((question) => activeExam === "ALL" || question.examCode === activeExam)
+        .filter((question) => !activeExam || question.examCode === activeExam)
         .map(displaySubjectCode))].sort();
       subjectFilter!.replaceChildren();
       const all = document.createElement("option");
       all.value = "ALL";
-      all.textContent = "All subjects";
+      all.textContent = "Any subject";
       subjectFilter!.append(all);
       available.forEach((code) => {
         const option = document.createElement("option");
@@ -168,30 +174,81 @@ if (root) {
       subjectFilter!.value = activeSubject;
     }
 
+    function difficultyScore(question: StudyQuestionPrompt): number {
+      const fullText = [question.topic, question.prompt, ...question.options.map((option) => option.text)]
+        .join(" ").toLocaleLowerCase();
+      const advancedCues = [
+        "differentiat", "derivative", "integral", "equilibrium", "probability",
+        "constitutional", "international", "confounding", "trigonometry", "coordinate",
+        "molecular", "concentration", "acceleration", "inference", "logical ordering",
+        "data interpretation", "electrical power", "genetics", "kinetics",
+      ];
+      const cueScore = advancedCues.reduce((total, cue) => total + (fullText.includes(cue) ? 1 : 0), 0);
+      const wordCount = fullText.split(/\s+/).filter(Boolean).length;
+      return wordCount / 22 + cueScore * 0.42 + Math.max(0, question.options.length - 4) * 0.2;
+    }
+
+    function questionsForSetup(): StudyQuestionPrompt[] {
+      const term = searchTerm.trim().toLocaleLowerCase();
+      const candidates = QUESTION_FEED.filter((question) => {
+        const examMatches = question.examCode === activeExam;
+        const subjectMatches = activeSubject === "ALL" || displaySubjectCode(question) === activeSubject;
+        const textMatches = !term || [question.topic, question.prompt, question.subjectCode]
+          .some((value) => value.toLocaleLowerCase().includes(term));
+        return examMatches && subjectMatches && textMatches;
+      });
+
+      const selectedDifficulty = difficultySelect!.value as "ALL" | DifficultyBand;
+      if (selectedDifficulty === "ALL" || candidates.length < 3) return candidates;
+
+      const ranked = candidates.map((question) => ({ question, score: difficultyScore(question) }))
+        .sort((a, b) => a.score - b.score);
+      const bandSize = Math.ceil(ranked.length / 3);
+      const bandIndex = selectedDifficulty === "EASY" ? 0
+        : selectedDifficulty === "STANDARD" ? 1 : 2;
+      const band = ranked.slice(bandIndex * bandSize, bandIndex === 2 ? ranked.length : (bandIndex + 1) * bandSize);
+      return (band.length ? band : ranked).map((item) => item.question);
+    }
+
+    function updateAvailableCount(): void {
+      const count = questionsForSetup().length;
+      questionBankCount!.textContent = activeExam
+        ? count + " matching questions available"
+        : "Choose a board to begin";
+      questionTotal!.textContent = QUIZ_LENGTH + " questions";
+      if (!quizStarted) {
+        setQuizStatus(activeExam
+          ? count + " questions match these settings. A short quiz uses up to 10."
+          : "Choose an exam board to see matching questions.");
+      }
+      if (bankTotal) bankTotal.textContent = String(QUESTION_FEED.length);
+      startButton!.disabled = !activeExam || count === 0 || isPreparingQuiz || isSubmitting;
+    }
+
     function getCounts() {
-      const answered = questions.map((question) => answers.get(question.id))
+      const completed = questions.map((question) => answers.get(question.id))
         .filter((answer): answer is StudyAnswer => Boolean(answer));
-      const correct = answered.filter((answer) => answer.isCorrect).length;
-      return { answered: answered.length, correct, incorrect: answered.length - correct, total: questions.length };
+      const correct = completed.filter((answer) => answer.isCorrect).length;
+      return { answered: completed.length, correct, incorrect: completed.length - correct, total: questions.length };
     }
 
     function updateProgress(): void {
       const counts = getCounts();
+      const displayTotal = counts.total || QUIZ_LENGTH;
       const percent = counts.total ? Math.round((counts.answered / counts.total) * 100) : 0;
       progressFill!.style.width = percent + "%";
       progressTrack!.setAttribute("aria-valuenow", String(counts.answered));
-      progressTrack!.setAttribute("aria-valuemax", String(counts.total));
-      progressLabel!.textContent = counts.answered + " of " + counts.total + " answered";
-      completedValue!.textContent = counts.answered + " / " + counts.total;
+      progressTrack!.setAttribute("aria-valuemax", String(displayTotal));
+      progressLabel!.textContent = counts.total
+        ? counts.answered + " of " + counts.total + " answered"
+        : "Progress appears when your quiz starts";
+      completedValue!.textContent = counts.answered + " / " + displayTotal;
       correctValue!.textContent = String(counts.correct);
       accuracyValue!.textContent = counts.answered
         ? Math.round((counts.correct / counts.answered) * 100) + "%"
         : "—";
-      const questionWord = counts.total === 1 ? "question" : "questions";
-      if (questionBankCount) questionBankCount.textContent = counts.total + " " + questionWord + " in this set";
-      if (questionTotal) questionTotal.textContent = counts.total + " " + questionWord;
+      questionTotal!.textContent = displayTotal + " questions";
     }
-
 
     function renderExplanation(answer: StudyAnswer): void {
       feedback!.dataset.result = answer.isCorrect ? "correct" : "incorrect";
@@ -264,17 +321,7 @@ if (root) {
       const exam = root!.querySelector<HTMLElement>("[data-current-exam]");
       if (exam) exam.textContent = EXAM_LABELS[question.examCode] ?? question.examCode;
       const source = root!.querySelector<HTMLElement>("[data-question-source]");
-      if (source) {
-        if (typeof question.examYear === "number" && question.examSession) {
-          source.textContent = question.examYear + " · " + question.examSession;
-        } else if (question.sourceKind === "licensed" || question.sourceKind === "public-domain") {
-          source.textContent = question.examYear
-            ? question.examYear + " · Exam session not supplied"
-            : "External source · Exam year/session not supplied";
-        } else {
-          source.textContent = "Original Arthic practice · No past-paper year or session";
-        }
-      }
+      if (source) source.textContent = "Original Arthic practice question";
       feedback!.hidden = !savedAnswer;
       feedbackPoints!.replaceChildren();
       if (savedAnswer) renderExplanation(savedAnswer);
@@ -283,13 +330,11 @@ if (root) {
       nextButton!.disabled = questionIndex >= questions.length - 1 || isSubmitting;
       finishButton!.disabled = isSubmitting || questions.length === 0;
       updateProgress();
-
       if (moveFocus) prompt!.focus();
     }
 
     async function submitAnswer(question: StudyQuestionPrompt, optionKey: string): Promise<void> {
       if (isSubmitting || answers.has(question.id)) return;
-      hasInteracted = true;
       isSubmitting = true;
       pendingOptionKey = optionKey;
       feedback!.dataset.result = "pending";
@@ -346,7 +391,6 @@ if (root) {
         previousButton!.disabled = questionIndex === 0;
         nextButton!.disabled = questionIndex >= questions.length - 1;
         finishButton!.disabled = questions.length === 0;
-
       }
     }
 
@@ -364,7 +408,7 @@ if (root) {
       completeScreen!.hidden = false;
       const counts = getCounts();
       const percent = counts.answered ? Math.round((counts.correct / counts.answered) * 100) : 0;
-      completeHeading!.textContent = counts.answered === counts.total ? "Session complete." : "Your session review.";
+      completeHeading!.textContent = counts.answered === counts.total ? "Quiz complete." : "Your quiz review.";
       completeLede!.textContent = counts.answered + " of " + counts.total +
         " questions answered. Select any question to review its explanation or continue an unfinished question.";
       completeStats!.replaceChildren();
@@ -410,82 +454,120 @@ if (root) {
       completeHeading!.focus();
     }
 
-    function applyFilters(): void {
-      if (isSubmitting) return;
-      questions = filteredQuestions();
+    function clearIdleQuestion(): void {
+      quizStarted = false;
+      questions = [];
       questionIndex = 0;
-      questionScreen!.hidden = false;
-      completeScreen!.hidden = true;
-      trackFilters.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.examFilter === activeExam)));
-      trackLabels.forEach((element) => { element.textContent = EXAM_LABELS[activeExam] ?? activeExam; });
-      if (questions.length) renderQuestion();
-      else {
-        number!.textContent = "NO QUESTIONS";
-        topic!.textContent = "Try another filter";
-        prompt!.textContent = "No questions match these filters.";
-        instruction!.textContent = "Choose a different subject or clear your search.";
-        optionList!.replaceChildren();
-        feedback!.hidden = true;
-        previousButton!.disabled = true;
-        nextButton!.disabled = true;
-        finishButton!.disabled = true;
-        updateProgress();
-
-      }
-    }
-
-    async function changeExamBoard(nextExam: string): Promise<void> {
-      if (isSubmitting || isChangingBoard || !EXAMS.includes(nextExam) || nextExam === activeExam) return;
-
-      hasInteracted = true;
-      isChangingBoard = true;
-      activeExam = nextExam;
-      activeSubject = "ALL";
-
-      trackFilters.forEach((button) => { button.disabled = true; });
+      number!.textContent = "READY WHEN YOU ARE";
+      topic!.textContent = "10 questions · one at a time";
+      prompt!.textContent = "Choose your exam board to build a short quiz.";
+      instruction!.textContent = "Select an exam, optionally narrow by subject and difficulty, then start your 10-question quiz.";
+      root!.querySelector<HTMLElement>("[data-current-exam]")!.textContent = "EXAM BOARD";
+      root!.querySelector<HTMLElement>("[data-current-subject]")!.textContent = "SUBJECT";
+      root!.querySelector<HTMLElement>("[data-question-source]")!.textContent = "920 original practice questions available";
+      optionList!.replaceChildren();
+      feedback!.hidden = true;
       previousButton!.disabled = true;
       nextButton!.disabled = true;
       finishButton!.disabled = true;
-      studySession!.setAttribute("aria-busy", "true");
-      boardLoadingLabel!.textContent = "Preparing " + (EXAM_LABELS[nextExam] ?? nextExam) + " questions";
-      boardLoading!.hidden = false;
+      updateProgress();
+    }
 
+    function shuffle<T>(items: T[]): T[] {
+      const result = [...items];
+      for (let index = result.length - 1; index > 0; index -= 1) {
+        const swap = Math.floor(Math.random() * (index + 1));
+        [result[index], result[swap]] = [result[swap], result[index]];
+      }
+      return result;
+    }
+
+    async function startQuiz(): Promise<void> {
+      if (isPreparingQuiz || isSubmitting || !quizForm!.reportValidity()) return;
+      activeExam = examSelect!.value;
+      if (!EXAM_CODES.includes(activeExam as typeof EXAM_CODES[number])) {
+        examSelect!.focus();
+        return;
+      }
+      activeSubject = subjectFilter!.value || "ALL";
+      searchTerm = questionSearch!.value || "";
+      const candidates = questionsForSetup();
+      if (!candidates.length) {
+        setQuizStatus("No questions match those settings. Try a different subject or topic.", "error");
+        return;
+      }
+
+      isPreparingQuiz = true;
+      startButton!.disabled = true;
+      boardLoadingLabel!.textContent = "Preparing " + (EXAM_LABELS[activeExam] ?? activeExam) + " quiz";
+      boardLoading!.hidden = false;
+      studySession!.setAttribute("aria-busy", "true");
+      setQuizStatus("Picking your questions…");
       try {
-        // Keep the indicator visible long enough to communicate the board change,
-        // while waiting for the shared server feed if it is still loading.
         await Promise.all([
           QUESTION_FEED_READY,
-          new Promise<void>((resolve) => { window.setTimeout(resolve, 2000); }),
+          new Promise<void>((resolve) => { window.setTimeout(resolve, 1600); }),
         ]);
-        refreshBankCounts();
-        fillSubjectFilter();
-        applyFilters();
+        // Refresh the candidate pool after the live feed has completed.
+        const readyCandidates = questionsForSetup();
+        const selected = shuffle(readyCandidates.length ? readyCandidates : candidates)
+          .slice(0, QUIZ_LENGTH);
+        questions = selected;
+        answers.clear();
+        questionIndex = 0;
+        quizStarted = true;
+        completeScreen!.hidden = true;
+        questionScreen!.hidden = false;
+        trackLabels.forEach((label) => { label.textContent = EXAM_LABELS[activeExam] ?? activeExam; });
+        renderQuestion();
+        const chosenDifficulty = difficultySelect!.selectedOptions[0]?.textContent ?? "Mixed difficulty";
+        setQuizStatus("Quiz ready · " + questions.length + " questions · " + chosenDifficulty + ".");
       } finally {
         boardLoading!.hidden = true;
         studySession!.removeAttribute("aria-busy");
-        trackFilters.forEach((button) => { button.disabled = false; });
-        isChangingBoard = false;
+        isPreparingQuiz = false;
+        startButton!.disabled = false;
       }
     }
 
-    trackFilters.forEach((button) => button.addEventListener("click", () => {
-      void changeExamBoard(button.dataset.examFilter || "ALL");
-    }));
-    subjectFilter.addEventListener("change", () => {
-      if (isSubmitting || isChangingBoard) return;
-      hasInteracted = true;
+    function refreshBankCounts(): void {
+      if (bankTotal) bankTotal.textContent = String(QUESTION_FEED.length);
+      updateAvailableCount();
+      if (!quizStarted) {
+        root!.querySelector<HTMLElement>("[data-question-source]")!.textContent =
+          QUESTION_FEED.length + " original practice questions available";
+      }
+    }
+
+    examSelect!.addEventListener("change", () => {
+      activeExam = examSelect!.value;
+      activeSubject = "ALL";
+      subjectFilter!.value = "ALL";
+      fillSubjectFilter();
+      if (quizStarted) clearIdleQuestion();
+      updateAvailableCount();
+    });
+    subjectFilter!.addEventListener("change", () => {
       activeSubject = subjectFilter!.value || "ALL";
-      applyFilters();
+      if (quizStarted) clearIdleQuestion();
+      updateAvailableCount();
     });
-    questionSearch.addEventListener("input", () => {
-      if (isSubmitting || isChangingBoard) return;
-      hasInteracted = true;
+    difficultySelect!.addEventListener("change", () => {
+      if (quizStarted) clearIdleQuestion();
+      updateAvailableCount();
+    });
+    questionSearch!.addEventListener("input", () => {
       searchTerm = questionSearch!.value;
-      applyFilters();
+      if (quizStarted) clearIdleQuestion();
+      updateAvailableCount();
     });
-    previousButton.addEventListener("click", () => goToQuestion(questionIndex - 1));
-    nextButton.addEventListener("click", () => goToQuestion(questionIndex + 1));
-    finishButton.addEventListener("click", showComplete);
+    quizForm!.addEventListener("submit", (event) => {
+      event.preventDefault();
+      void startQuiz();
+    });
+    previousButton!.addEventListener("click", () => goToQuestion(questionIndex - 1));
+    nextButton!.addEventListener("click", () => goToQuestion(questionIndex + 1));
+    finishButton!.addEventListener("click", showComplete);
     resetButtons.forEach((button) => button.addEventListener("click", () => {
       if (isSubmitting) return;
       questions.forEach((question) => answers.delete(question.id));
@@ -495,28 +577,15 @@ if (root) {
       renderQuestion(true);
     }));
 
-    function refreshBankCounts(): void {
-      if (bankTotal) bankTotal.textContent = String(QUESTION_FEED.length);
-      trackCounts.forEach((element) => {
-        const code = element.dataset.trackCount || "ALL";
-        element.textContent = String(code === "ALL"
-          ? QUESTION_FEED.length
-          : QUESTION_FEED.filter((question) => question.examCode === code).length);
-      });
-    }
-
-    function hydrateFromServer(): void {
-      void QUESTION_FEED_READY.then(() => {
-        if (hasInteracted || answers.size || isSubmitting) return;
-        refreshBankCounts();
-        fillSubjectFilter();
-        applyFilters();
-      });
-    }
-
-    refreshBankCounts();
     fillSubjectFilter();
-    applyFilters();
-    hydrateFromServer();
+    clearIdleQuestion();
+    if (activeExam) updateAvailableCount();
+    else setQuizStatus("Choose an exam board to see matching questions.");
+    updateProgress();
+    refreshBankCounts();
+    void QUESTION_FEED_READY.then(() => {
+      refreshBankCounts();
+      fillSubjectFilter();
+    });
   }
 }
