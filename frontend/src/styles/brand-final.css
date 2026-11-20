@@ -5558,7 +5558,7 @@ html body.content-page.legal-page #main > .entry .entry__foot .arrow-glyph { dis
 html body :is(
   .home-primary, .home-button:not(.home-button--secondary),
   .oneprep-button--primary, .button--primary, .btn--primary, .btn--solid,
-  .nav__cta, .home-sample-check, .home-sample-next,
+  .nav__cta, .home-sample-check,
   button[type="submit"], input[type="submit"],
   .study-action:not(.study-action--secondary):not(.study-action--finish)
 ) {
@@ -5571,7 +5571,7 @@ html body :is(
   box-shadow: none !important;
 }
 html body :is(
-  .home-secondary, .home-button--secondary, .oneprep-button--light,
+  .home-secondary, .home-button--secondary, .home-sample-next, .oneprep-button--light,
   .oneprep-button--secondary, .button--outline, .btn--outline,
   .study-action--secondary, .study-action--finish
 ) {
@@ -5584,7 +5584,7 @@ html body :is(
   box-shadow: none !important;
 }
 html body :is(
-  .home-secondary, .home-button--secondary, .oneprep-button--light,
+  .home-secondary, .home-button--secondary, .home-sample-next, .oneprep-button--light,
   .oneprep-button--secondary, .button--outline, .btn--outline,
   .study-action--secondary, .study-action--finish
 ) :is(span,strong,svg) {
@@ -5595,7 +5595,7 @@ html body :is(
 html body :is(
   .home-primary, .home-button:not(.home-button--secondary),
   .oneprep-button--primary, .button--primary, .btn--primary, .btn--solid,
-  .nav__cta, .home-sample-check, .home-sample-next,
+  .nav__cta, .home-sample-check,
   button[type="submit"], input[type="submit"],
   .study-action:not(.study-action--secondary):not(.study-action--finish)
 ):hover:not(:disabled) {
