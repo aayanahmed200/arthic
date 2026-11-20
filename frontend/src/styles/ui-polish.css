@@ -1,0 +1,643 @@
+/* Arthic UI polish — shared button contrast and clean page rhythm. */
+:root {
+  --arthic-ui-coral: #B84B38;
+  --arthic-ui-coral-hover: #963A2C;
+  --arthic-ui-coral-soft: #F8E8E2;
+  --arthic-ui-forest: #214B38;
+  --arthic-ui-paper: #F7F2E8;
+  --arthic-ui-surface: #FFFFFF;
+  --arthic-ui-ink: #20251F;
+}
+
+/* Every primary action uses one unmistakable contrast-safe hover state. */
+html body :is(
+  a.button, button.button, .button--small, .home-primary, .home-button,
+  .oneprep-button, .study-action:not(.study-action--secondary),
+  .career-role__link, .study-quiz-start, .home-sample-next,
+  .nav__cta, button[type="submit"], input[type="submit"]
+) {
+  border: 1px solid var(--arthic-ui-coral) !important;
+  border-radius: 10px !important;
+  background: var(--arthic-ui-coral) !important;
+  background-color: var(--arthic-ui-coral) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease !important;
+}
+html body :is(
+  a.button, button.button, .button--small, .home-primary, .home-button,
+  .oneprep-button, .study-action:not(.study-action--secondary),
+  .career-role__link, .study-quiz-start, .home-sample-next,
+  .nav__cta, button[type="submit"], input[type="submit"]
+):hover:not(:disabled),
+html body :is(
+  a.button, button.button, .button--small, .home-primary, .home-button,
+  .oneprep-button, .study-action:not(.study-action--secondary),
+  .career-role__link, .study-quiz-start, .home-sample-next,
+  .nav__cta, button[type="submit"], input[type="submit"]
+):focus-visible {
+  border-color: var(--arthic-ui-coral-hover) !important;
+  background: var(--arthic-ui-coral-hover) !important;
+  background-color: var(--arthic-ui-coral-hover) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+/* Outline actions stay light; they never become green text on a green fill. */
+html body :is(
+  .home-secondary, .button--outline, .oneprep-button--light,
+  .study-action--secondary, .home-button--secondary
+) {
+  border: 1px solid rgba(33,75,56,.28) !important;
+  border-radius: 10px !important;
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: var(--arthic-ui-forest) !important;
+  -webkit-text-fill-color: var(--arthic-ui-forest) !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease !important;
+}
+html body :is(
+  .home-secondary, .button--outline, .oneprep-button--light,
+  .study-action--secondary, .home-button--secondary
+):hover:not(:disabled),
+html body :is(
+  .home-secondary, .button--outline, .oneprep-button--light,
+  .study-action--secondary, .home-button--secondary
+):focus-visible {
+  border-color: var(--arthic-ui-coral) !important;
+  background: var(--arthic-ui-coral-soft) !important;
+  background-color: var(--arthic-ui-coral-soft) !important;
+  color: #6F2C22 !important;
+  -webkit-text-fill-color: #6F2C22 !important;
+  transform: translateY(-1px);
+}
+
+/* Neutral utility buttons remain readable too. Excludes answer cards and select options. */
+html body button:not(.study-option):not(.home-sample-option):not(.custom-select__option)
+:not(.study-question-map__button):not(.nav__toggle):not(.menu-toggle):not(.nav__icon-btn)
+:not(.home-primary):not(.home-secondary):not(.home-button):not(.oneprep-button)
+:not(.study-action):not(.study-quiz-start):not(.home-sample-next):not(.career-role__link)
+:not([type="submit"]) {
+  color: var(--arthic-ui-forest);
+}
+html body button:not(.study-option):not(.home-sample-option):not(.custom-select__option)
+:not(.nav__toggle):not(.menu-toggle):not(.nav__icon-btn):not(.study-action)
+:not(.study-quiz-start):not(.home-sample-next):not([type="submit"]):hover:not(:disabled) {
+  border-color: rgba(184,75,56,.5);
+  background-color: var(--arthic-ui-coral-soft);
+  color: #6F2C22;
+}
+
+/* Keep keyboard focus visible without introducing a green-on-green state. */
+html body :is(a,button,input,select,textarea):focus-visible {
+  outline: 2px solid rgba(184,75,56,.48) !important;
+  outline-offset: 3px !important;
+}
+
+/* Home: centre the pathway explainer link within the section width. */
+html body main.home-page .home-text-link {
+  display: flex !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin: 24px auto 0 !important;
+  text-align: center !important;
+}
+
+/* Pricing: one clear grid, consistent card anatomy and predictable text wrapping. */
+html body.content-page.pricing-page #main.content-main > .pricing-intro {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) minmax(250px,330px) !important;
+  align-items: center !important;
+  gap: clamp(28px,5vw,64px) !important;
+  width: min(1160px,calc(100% - 48px)) !important;
+  max-width: 1160px !important;
+  margin: 42px auto 54px !important;
+  padding: 0 !important;
+}
+html body.content-page.pricing-page .pricing-intro__copy {
+  min-width: 0 !important;
+  max-width: 760px !important;
+}
+html body.content-page.pricing-page .pricing-intro__copy h1 {
+  max-width: 12ch !important;
+  margin: 18px 0 16px !important;
+  font-size: clamp(42px,5.4vw,68px) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.045em !important;
+  text-wrap: balance !important;
+}
+html body.content-page.pricing-page .pricing-intro__copy .content-hero__lede {
+  max-width: 58ch !important;
+  margin: 0 !important;
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+}
+html body.content-page.pricing-page .pricing-intro__aside {
+  display: grid !important;
+  align-content: start !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  padding: 24px !important;
+  border: 1px solid #E7DCCB !important;
+  border-radius: 16px !important;
+  background: #FBF8F1 !important;
+  box-shadow: none !important;
+}
+html body.content-page.pricing-page .pricing-intro__aside strong {
+  font: 700 25px/1.18 "Bricolage Grotesque",sans-serif !important;
+  letter-spacing: -.025em !important;
+  color: #252A24 !important;
+}
+html body.content-page.pricing-page .pricing-intro__aside p {
+  margin: 0 !important;
+  max-width: 38ch !important;
+  font: 400 13px/1.7 "Poppins",sans-serif !important;
+  color: #555B52 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan-section {
+  width: min(1240px,calc(100% - 48px)) !important;
+  max-width: 1240px !important;
+  margin: 0 auto 68px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html body.content-page.pricing-page #main .pricing-plan-section > .content-hero__topline {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  margin: 0 0 20px !important;
+}
+html body.content-page.pricing-page #main .pricing-plan-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  gap: 18px !important;
+  align-items: stretch !important;
+}
+html body.content-page.pricing-page #main .pricing-plan {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  min-width: 0 !important;
+  min-height: 100% !important;
+  padding: clamp(22px,2.4vw,30px) !important;
+  border: 1px solid #E6DFD3 !important;
+  border-top: 3px solid #D7C9B5 !important;
+  border-radius: 16px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 8px 26px rgba(41,48,37,.045) !important;
+  transform: none !important;
+}
+html body.content-page.pricing-page #main .pricing-plan:hover {
+  transform: none !important;
+  box-shadow: 0 8px 26px rgba(41,48,37,.045) !important;
+}
+html body.content-page.pricing-page #main .pricing-plan--group { border-top-color: #66836D !important; }
+html body.content-page.pricing-page #main .pricing-plan--coaching { border-top-color: var(--arthic-ui-coral) !important; }
+html body.content-page.pricing-page #main .pricing-plan__eyebrow {
+  margin: 0 0 14px !important;
+  color: #6B7468 !important;
+  font: 600 10px/1.4 "Poppins",sans-serif !important;
+  letter-spacing: .12em !important;
+}
+html body.content-page.pricing-page #main .pricing-plan h2 {
+  margin: 0 0 10px !important;
+  color: #252A24 !important;
+  font: 700 30px/1.1 "Bricolage Grotesque",sans-serif !important;
+  letter-spacing: -.035em !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__intro {
+  width: 100% !important;
+  min-height: 5.2em !important;
+  margin: 0 0 22px !important;
+  color: #545B51 !important;
+  font: 400 13px/1.72 "Poppins",sans-serif !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+  overflow-wrap: normal !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: baseline !important;
+  gap: 6px 8px !important;
+  margin: 0 0 7px !important;
+  color: var(--arthic-ui-forest) !important;
+  font: 700 clamp(30px,3vw,42px)/1.08 "Bricolage Grotesque",sans-serif !important;
+  letter-spacing: -.05em !important;
+  white-space: normal !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price span {
+  color: #747A70 !important;
+  font: 500 11px/1.4 "Poppins",sans-serif !important;
+  letter-spacing: 0 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__status {
+  min-height: 34px !important;
+  margin: 0 0 22px !important;
+  color: #757B70 !important;
+  font: 500 10px/1.5 "Poppins",sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-plan ul {
+  display: grid !important;
+  gap: 12px !important;
+  width: 100% !important;
+  margin: 0 0 28px !important;
+  padding: 20px 0 0 !important;
+  border-top: 1px solid #EEE8DE !important;
+  list-style: none !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li {
+  display: grid !important;
+  grid-template-columns: 14px minmax(0,1fr) !important;
+  gap: 9px !important;
+  margin: 0 !important;
+  color: #343B33 !important;
+  font: 400 12px/1.65 "Poppins",sans-serif !important;
+  overflow-wrap: anywhere !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li::before {
+  content: "✓" !important;
+  color: #6F9274 !important;
+  font: 700 13px/1.5 "Poppins",sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-plan .oneprep-button {
+  display: inline-flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 48px !important;
+  margin: auto 0 0 !important;
+  padding: 12px 16px !important;
+  font-size: 12px !important;
+  white-space: normal !important;
+  text-align: center !important;
+}
+html body.content-page.pricing-page #main .pricing-footnote {
+  max-width: 90ch !important;
+  margin: 18px 0 0 !important;
+  color: #74796F !important;
+  font: 400 11px/1.7 "Poppins",sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmarks {
+  width: min(1160px,calc(100% - 48px)) !important;
+  max-width: 1160px !important;
+  margin: 0 auto 68px !important;
+  padding: 30px !important;
+  border: 1px solid #E7DFD3 !important;
+  border-radius: 18px !important;
+  background: #FBF9F4 !important;
+  box-shadow: none !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmarks h2 {
+  max-width: 22ch !important;
+  margin: 14px 0 12px !important;
+  font: 700 clamp(27px,3vw,38px)/1.12 "Bricolage Grotesque",sans-serif !important;
+  letter-spacing: -.04em !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmarks__lede {
+  max-width: 78ch !important;
+  margin: 0 0 24px !important;
+  color: #5A6056 !important;
+  font: 400 13px/1.75 "Poppins",sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark-list {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 14px !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark {
+  display: grid !important;
+  align-content: start !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  padding: 20px !important;
+  border: 1px solid #E8E1D6 !important;
+  border-radius: 13px !important;
+  background: #FFFFFF !important;
+  box-shadow: none !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark h3 {
+  margin: 5px 0 0 !important;
+  font: 650 19px/1.2 "Bricolage Grotesque",sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark p {
+  margin: 0 !important;
+  color: #555C52 !important;
+  font: 400 12px/1.72 "Poppins",sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmark a {
+  width: fit-content !important;
+  max-width: 100% !important;
+  font: 600 11px/1.5 "Poppins",sans-serif !important;
+  overflow-wrap: anywhere !important;
+}
+html body.content-page.pricing-page #main .pricing-benchmarks__note {
+  max-width: 90ch !important;
+  margin: 22px 0 0 !important;
+  color: #70766C !important;
+  font: 400 11px/1.7 "Poppins",sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-faq {
+  width: min(980px,calc(100% - 48px)) !important;
+  max-width: 980px !important;
+  margin: 0 auto 68px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__heading {
+  margin: 12px 0 24px !important;
+  font: 700 clamp(28px,3vw,40px)/1.1 "Bricolage Grotesque",sans-serif !important;
+  letter-spacing: -.04em !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__list {
+  display: grid !important;
+  gap: 0 !important;
+  border-top: 1px solid #E6DED2 !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item {
+  padding: 18px 0 !important;
+  border-bottom: 1px solid #E6DED2 !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item dt {
+  margin: 0 0 7px !important;
+  font: 650 16px/1.35 "Bricolage Grotesque",sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item dd {
+  margin: 0 !important;
+  max-width: 78ch !important;
+  color: #5D6359 !important;
+  font: 400 12px/1.72 "Poppins",sans-serif !important;
+}
+html body.content-page.pricing-page #main .content-cta {
+  margin-top: 50px !important;
+}
+
+/* Careers: clean role rows with consistent columns and readable descriptions. */
+html body.content-page.career-page #main.content-main > .career-intro {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) minmax(220px,300px) !important;
+  align-items: center !important;
+  gap: clamp(28px,5vw,64px) !important;
+  width: min(1160px,calc(100% - 48px)) !important;
+  max-width: 1160px !important;
+  margin: 42px auto 52px !important;
+  padding: 0 !important;
+}
+html body.content-page.career-page .career-intro__copy {
+  min-width: 0 !important;
+  max-width: 760px !important;
+}
+html body.content-page.career-page .career-intro__copy h1 {
+  max-width: 13ch !important;
+  margin: 18px 0 16px !important;
+  font-size: clamp(42px,5.4vw,66px) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.045em !important;
+  text-wrap: balance !important;
+}
+html body.content-page.career-page .career-intro__copy .content-hero__lede {
+  max-width: 60ch !important;
+  margin: 0 !important;
+  font-size: 15px !important;
+  line-height: 1.78 !important;
+}
+html body.content-page.career-page .career-intro__aside {
+  display: grid !important;
+  align-content: start !important;
+  gap: 9px !important;
+  padding: 24px !important;
+  border: 1px solid #E7DCCB !important;
+  border-radius: 16px !important;
+  background: #FBF8F1 !important;
+  box-shadow: none !important;
+}
+html body.content-page.career-page .career-intro__aside strong {
+  font: 700 54px/1 "Bricolage Grotesque",sans-serif !important;
+  letter-spacing: -.05em !important;
+}
+html body.content-page.career-page .career-intro__aside p {
+  margin: 8px 0 0 !important;
+  color: #555B52 !important;
+  font: 400 12px/1.72 "Poppins",sans-serif !important;
+}
+html body.content-page.career-page #main .careers-roles {
+  width: min(1120px,calc(100% - 48px)) !important;
+  max-width: 1120px !important;
+  margin: 0 auto 60px !important;
+  padding: 0 !important;
+}
+html body.content-page.career-page #main .careers-roles > .content-hero__topline {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 0 0 18px !important;
+}
+html body.content-page.career-page #main .career-list--detailed {
+  display: grid !important;
+  gap: 14px !important;
+}
+html body.content-page.career-page #main .career-role--detailed {
+  display: grid !important;
+  grid-template-columns: 44px minmax(0,1fr) minmax(150px,190px) !important;
+  align-items: start !important;
+  gap: 22px !important;
+  min-width: 0 !important;
+  padding: clamp(20px,2.4vw,28px) !important;
+  border: 1px solid #E6DFD3 !important;
+  border-radius: 16px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(41,48,37,.045) !important;
+}
+html body.content-page.career-page #main .career-role__number {
+  display: grid !important;
+  place-items: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 10px !important;
+  background: #F4EFE5 !important;
+  color: #6B7468 !important;
+  font: 650 12px/1 "Poppins",sans-serif !important;
+}
+html body.content-page.career-page #main .career-role__content {
+  display: grid !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+}
+html body.content-page.career-page #main .career-role__type {
+  margin: 0 !important;
+  color: var(--arthic-ui-coral) !important;
+  font: 650 10px/1.4 "Poppins",sans-serif !important;
+  letter-spacing: .12em !important;
+}
+html body.content-page.career-page #main .career-role__content h2 {
+  margin: 0 !important;
+  color: #252A24 !important;
+  font: 700 27px/1.12 "Bricolage Grotesque",sans-serif !important;
+  letter-spacing: -.035em !important;
+}
+html body.content-page.career-page #main .career-role__body,
+html body.content-page.career-page #main .career-role__note {
+  max-width: 72ch !important;
+  margin: 0 !important;
+  color: #555C52 !important;
+  font: 400 13px/1.72 "Poppins",sans-serif !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+  overflow-wrap: normal !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 12px !important;
+  margin: 8px 0 0 !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid > div {
+  display: grid !important;
+  align-content: start !important;
+  gap: 8px !important;
+  min-width: 0 !important;
+  padding: 14px 16px !important;
+  border: 1px solid #EFE9DF !important;
+  border-radius: 12px !important;
+  background: #FBF9F4 !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid strong {
+  color: #555D52 !important;
+  font: 650 10px/1.4 "Poppins",sans-serif !important;
+  letter-spacing: .09em !important;
+  text-transform: uppercase !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid ul {
+  display: grid !important;
+  gap: 6px !important;
+  margin: 0 !important;
+  padding: 0 0 0 16px !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid li {
+  margin: 0 !important;
+  color: #444C42 !important;
+  font: 400 11px/1.6 "Poppins",sans-serif !important;
+}
+html body.content-page.career-page #main .career-role__note {
+  padding-top: 4px !important;
+  font-size: 11px !important;
+}
+html body.content-page.career-page #main .career-role__link {
+  align-self: center !important;
+  justify-self: end !important;
+  width: 100% !important;
+  min-height: 44px !important;
+  padding: 11px 14px !important;
+  text-align: center !important;
+  font: 600 11px/1.4 "Poppins",sans-serif !important;
+}
+html body.content-page.career-page #main .careers-note {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 22px !important;
+  margin: 18px 0 0 !important;
+  padding: 22px 24px !important;
+  border: 1px solid #E7DFD3 !important;
+  border-radius: 14px !important;
+  background: #FBF8F1 !important;
+}
+html body.content-page.career-page #main .careers-note p {
+  margin: 0 !important;
+  color: #555B52 !important;
+  font: 400 13px/1.7 "Poppins",sans-serif !important;
+}
+html body.content-page.career-page #main .careers-note .career-role__link {
+  width: auto !important;
+  flex: 0 0 auto !important;
+}
+html body.content-page.career-page #main .careers-application-note {
+  width: min(1120px,calc(100% - 48px)) !important;
+  max-width: 1120px !important;
+  margin: 0 auto 58px !important;
+  padding: 24px 0 !important;
+  border-top: 1px solid #E6DED2 !important;
+  border-bottom: 1px solid #E6DED2 !important;
+}
+html body.content-page.career-page #main .careers-application-note h2 {
+  margin: 12px 0 8px !important;
+  font: 700 27px/1.15 "Bricolage Grotesque",sans-serif !important;
+}
+html body.content-page.career-page #main .careers-application-note p {
+  max-width: 76ch !important;
+  margin: 0 !important;
+  color: #5A6057 !important;
+  font: 400 13px/1.75 "Poppins",sans-serif !important;
+}
+
+@media (max-width: 980px) {
+  html body.content-page.pricing-page #main .pricing-plan-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  html body.content-page.pricing-page #main .pricing-plan--coaching { grid-column: 1 / -1 !important; }
+  html body.content-page.career-page #main .career-role--detailed { grid-template-columns: 38px minmax(0,1fr) !important; }
+  html body.content-page.career-page #main .career-role__link { grid-column: 2 !important; justify-self: start !important; width: min(260px,100%) !important; }
+}
+@media (max-width: 680px) {
+  html body.content-page.pricing-page #main.content-main > .pricing-intro,
+  html body.content-page.career-page #main.content-main > .career-intro {
+    grid-template-columns: minmax(0,1fr) !important;
+    width: calc(100% - 36px) !important;
+    gap: 20px !important;
+    margin-top: 28px !important;
+    margin-bottom: 38px !important;
+  }
+  html body.content-page.pricing-page #main .pricing-plan-section,
+  html body.content-page.pricing-page #main .pricing-benchmarks,
+  html body.content-page.pricing-page #main .pricing-faq,
+  html body.content-page.career-page #main .careers-roles,
+  html body.content-page.career-page #main .careers-application-note {
+    width: calc(100% - 36px) !important;
+  }
+  html body.content-page.pricing-page #main .pricing-plan-grid,
+  html body.content-page.pricing-page #main .pricing-benchmark-list {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  html body.content-page.pricing-page #main .pricing-plan--coaching { grid-column: auto !important; }
+  html body.content-page.pricing-page #main .pricing-plan { min-height: 0 !important; }
+  html body.content-page.pricing-page #main .pricing-plan__intro { min-height: 0 !important; }
+  html body.content-page.pricing-page #main .pricing-benchmarks { padding: 20px !important; }
+  html body.content-page.pricing-page #main .pricing-plan-section > .content-hero__topline,
+  html body.content-page.career-page #main .careers-roles > .content-hero__topline {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  html body.content-page.career-page #main .career-role--detailed {
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 14px !important;
+    padding: 20px !important;
+  }
+  html body.content-page.career-page #main .career-role__detail-grid {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  html body.content-page.career-page #main .career-role__link {
+    grid-column: auto !important;
+    justify-self: stretch !important;
+    width: 100% !important;
+  }
+  html body.content-page.career-page #main .careers-note {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 18px !important;
+  }
+  html body.content-page.career-page #main .careers-note .career-role__link { width: 100% !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body :is(a,button) { transition-duration: 0.01ms !important; }
+}
