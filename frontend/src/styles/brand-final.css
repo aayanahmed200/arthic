@@ -5245,3 +5245,189 @@ html body.content-page.study-preview-page .study-board-loading {
   html body.content-page.study-preview-page .study-question__actions { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
   html body.content-page.study-preview-page .study-action--finish { grid-column: 1 / -1 !important; }
 }
+
+
+/* Latest refinements: full-height wordmark, footer without a copyright row,
+   simplified pricing and careers layouts, spinner placeholder, and 404. */
+html body :is(.site-footer,.footer) { overflow: visible !important; clip-path: none !important; }
+html body :is(.site-footer,.footer) .brand--footer {
+  display: block !important; width: max-content !important; max-width: 100% !important;
+  height: auto !important; min-height: 0 !important; max-height: none !important;
+  margin: 0 !important; padding: 0 !important; line-height: 0 !important;
+  overflow: visible !important; clip-path: none !important;
+}
+html body :is(.site-footer,.footer) .footer-wordmark {
+  display: block !important; box-sizing: border-box !important;
+  width: clamp(235px,23vw,300px) !important; max-width: min(300px,100%) !important;
+  height: auto !important; min-height: 0 !important; max-height: none !important;
+  aspect-ratio: auto !important; object-fit: contain !important; object-position: left center !important;
+  vertical-align: top !important; margin: 0 !important; padding: 0 !important;
+  overflow: visible !important; clip-path: none !important; transform: none !important;
+}
+html body .site-footer .brand--footer .brand-mark,
+html body .site-footer .brand--footer .brand-name { display:none !important; }
+html body :is(.site-footer,.footer) .footer-bottom,
+html body :is(.site-footer,.footer) .footer__bottom { display:none !important; }
+
+/* Practice's initial state is an animated symbol, not a text placeholder. */
+html body.study-preview-page .study-initial-loader {
+  display:inline-grid !important; place-items:center !important;
+  width:34px !important; height:34px !important; vertical-align:middle !important;
+}
+html body.study-preview-page .study-initial-loader__spinner {
+  display:block !important; width:26px !important; height:26px !important;
+  border:3px solid rgba(29,64,51,.16) !important;
+  border-top-color:var(--arthic-coral) !important;
+  border-right-color:var(--arthic-forest) !important;
+  border-radius:50% !important;
+  animation:arthic-initial-spin .75s linear infinite !important;
+}
+@keyframes arthic-initial-spin { to { transform:rotate(360deg); } }
+@media(prefers-reduced-motion:reduce) { html body.study-preview-page .study-initial-loader__spinner { animation:none !important; } }
+html body.study-preview-page .study-bank-nav,
+html body.study-preview-page [data-question-map] { display:none !important; }
+
+/* Pricing amounts and feature bullets. */
+html body.content-page.pricing-page #main .pricing-plan-grid {
+  display:grid !important; grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  align-items:stretch !important; gap:16px !important;
+}
+html body.content-page.pricing-page #main .pricing-plan {
+  display:flex !important; flex-direction:column !important; align-items:stretch !important;
+  min-width:0 !important; height:100% !important; padding:clamp(21px,2.6vw,30px) !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price {
+  display:flex !important; align-items:baseline !important; flex-wrap:wrap !important; gap:6px !important;
+  margin:15px 0 4px !important; color:var(--arthic-forest) !important;
+  -webkit-text-fill-color:var(--arthic-forest) !important;
+  font-size:clamp(42px,4.4vw,54px) !important; font-weight:800 !important;
+  letter-spacing:-.055em !important; line-height:1 !important; font-variant-numeric:tabular-nums !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price span {
+  color:var(--arthic-forest) !important; -webkit-text-fill-color:var(--arthic-forest) !important;
+  font-size:11px !important; font-weight:500 !important; letter-spacing:0 !important; line-height:1.35 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan ul {
+  display:grid !important; gap:11px !important; margin:16px 0 24px !important;
+  padding:0 !important; list-style:none !important; text-align:left !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li {
+  position:relative !important; display:block !important; margin:0 !important;
+  padding:0 0 0 25px !important; list-style:none !important;
+  color:var(--arthic-forest) !important; -webkit-text-fill-color:var(--arthic-forest) !important;
+  font-size:12px !important; line-height:1.65 !important; text-align:left !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li::marker { content:"" !important; }
+html body.content-page.pricing-page #main .pricing-plan li::before {
+  content:"✓" !important; position:absolute !important; left:0 !important; top:0 !important;
+  display:grid !important; place-items:center !important; width:17px !important; height:17px !important;
+  border-radius:5px !important; background:var(--arthic-coral-soft) !important;
+  color:var(--arthic-coral) !important; -webkit-text-fill-color:var(--arthic-coral) !important;
+  font-size:10px !important; font-weight:800 !important;
+}
+html body.content-page.pricing-page #main .pricing-plan .oneprep-button { margin-top:auto !important; align-self:flex-start !important; }
+@media(max-width:760px) {
+  html body.content-page.pricing-page #main .pricing-plan-grid { grid-template-columns:minmax(0,1fr) !important; }
+  html body.content-page.pricing-page #main .pricing-plan__price { font-size:44px !important; }
+}
+
+/* Careers cards: shorter copy, even columns, aligned actions. */
+html body.content-page.career-page #main .career-list--detailed {
+  display:grid !important; grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  align-items:stretch !important; gap:15px !important;
+}
+html body.content-page.career-page #main .career-role--detailed {
+  display:flex !important; flex-direction:column !important; gap:14px !important;
+  min-width:0 !important; height:100% !important; padding:clamp(19px,2vw,25px) !important;
+  border:1px solid var(--arthic-line) !important; border-radius:13px !important; background:var(--arthic-surface) !important;
+}
+html body.content-page.career-page #main .career-role__content {
+  display:flex !important; flex-direction:column !important; align-items:flex-start !important; gap:10px !important;
+}
+html body.content-page.career-page #main .career-role__type {
+  color:var(--arthic-coral) !important; font-size:9px !important; font-weight:800 !important; letter-spacing:.1em !important;
+}
+html body.content-page.career-page #main .career-role__content h2 {
+  margin:0 !important; color:var(--arthic-forest) !important; font-size:22px !important; line-height:1.2 !important;
+}
+html body.content-page.career-page #main .career-role__body {
+  margin:0 !important; color:var(--arthic-forest) !important; font-size:11px !important; line-height:1.7 !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid {
+  display:grid !important; grid-template-columns:1fr !important; gap:11px !important;
+  width:100% !important; margin:0 !important; padding:13px 0 0 !important; border-top:1px solid var(--arthic-line) !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid > div { display:grid !important; gap:6px !important; }
+html body.content-page.career-page #main .career-role__detail-grid strong {
+  color:var(--arthic-forest) !important; font-size:10px !important; font-weight:750 !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid ul {
+  display:grid !important; gap:5px !important; margin:0 !important; padding-left:16px !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid li {
+  color:var(--arthic-forest) !important; font-size:10px !important; line-height:1.5 !important;
+}
+html body.content-page.career-page #main .career-role__note {
+  margin:0 !important; color:var(--arthic-forest) !important; font-size:9px !important; line-height:1.5 !important;
+}
+html body.content-page.career-page #main .career-role__link {
+  display:inline-flex !important; align-items:center !important; gap:7px !important;
+  margin-top:auto !important; padding-top:12px !important; border-top:1px solid var(--arthic-line) !important;
+  color:var(--arthic-coral) !important; font-size:11px !important; font-weight:750 !important; text-decoration:none !important;
+}
+html body.content-page.career-page #main .careers-note {
+  display:flex !important; justify-content:space-between !important; align-items:center !important; gap:18px !important;
+  padding:17px 20px !important; border:1px solid var(--arthic-line) !important; border-radius:10px !important;
+  background:var(--arthic-surface) !important;
+}
+html body.content-page.career-page #main .careers-note p { margin:0 !important; font-size:11px !important; }
+html body.content-page.career-page #main .careers-application-note {
+  max-width:1160px !important; padding:22px 25px !important;
+  border:1px solid var(--arthic-line) !important; border-radius:12px !important; background:var(--arthic-surface) !important;
+}
+html body.content-page.career-page #main .careers-application-note p {
+  max-width:78ch !important; margin:8px 0 0 !important; font-size:11px !important; line-height:1.7 !important;
+}
+@media(max-width:980px) { html body.content-page.career-page #main .career-list--detailed { grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
+@media(max-width:680px) {
+  html body.content-page.career-page #main .career-list--detailed { grid-template-columns:minmax(0,1fr) !important; }
+  html body.content-page.career-page #main .careers-note { flex-direction:column !important; align-items:flex-start !important; }
+}
+
+/* 404: stronger hierarchy and clean mobile layout. */
+html body.not-found-document #main.not-found-page {
+  display:grid !important; place-items:center !important; width:100% !important;
+  min-height:min(700px,78vh) !important; padding:118px 24px 60px !important; background:var(--arthic-cream) !important;
+}
+html body.not-found-document #main .not-found-card {
+  display:grid !important; grid-template-columns:minmax(0,1fr) minmax(180px,.46fr) !important;
+  align-items:center !important; gap:clamp(24px,5vw,70px) !important;
+  width:min(960px,100%) !important; padding:clamp(30px,5vw,62px) !important;
+  border:1px solid var(--arthic-line) !important; border-radius:18px !important;
+  background:var(--arthic-surface) !important; box-shadow:0 12px 32px rgba(29,64,51,.05) !important;
+}
+html body.not-found-document .not-found-code {
+  display:block !important; margin:0 0 8px !important; color:var(--arthic-coral) !important;
+  font-size:clamp(68px,9vw,112px) !important; font-weight:800 !important; line-height:.9 !important;
+  letter-spacing:-.075em !important; font-variant-numeric:tabular-nums !important;
+}
+html body.not-found-document .not-found-card h1 {
+  max-width:13ch !important; margin:0 0 14px !important; color:var(--arthic-forest) !important;
+  font-size:clamp(32px,4vw,48px) !important; line-height:1.08 !important;
+}
+html body.not-found-document .not-found-card p:not(.not-found-kicker) {
+  max-width:48ch !important; margin:0 0 22px !important; color:var(--arthic-forest) !important;
+  font-size:12px !important; line-height:1.8 !important;
+}
+html body.not-found-document .not-found-art {
+  display:grid !important; place-items:center !important; width:100% !important; aspect-ratio:1 !important;
+  border:1px solid var(--arthic-line) !important; border-radius:50% !important; background:var(--arthic-cream) !important;
+}
+html body.not-found-document .not-found-art img {
+  display:block !important; width:58% !important; max-width:150px !important; height:auto !important; object-fit:contain !important;
+}
+@media(max-width:680px) {
+  html body.not-found-document #main.not-found-page { padding:90px 17px 44px !important; min-height:62vh !important; }
+  html body.not-found-document #main .not-found-card { grid-template-columns:1fr !important; padding:25px !important; }
+  html body.not-found-document .not-found-art { width:124px !important; grid-row:1 !important; }
+}
