@@ -46,13 +46,13 @@ try {
   const feed = mockRequest("GET");
   questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
-  assert.equal(feed.res.body.questions.length, 920);
+  assert.equal(feed.res.body.questions.length, 960);
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
   for (const examCode of examCodes) {
-    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 230);
+    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 240);
   }
-  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v15-920");
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v16-960");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
   assert.ok(feed.res.body.dataVersion);
   assert.ok(feed.res.body.questions.some((item) => item.id === "mdcat-extra-014"));
@@ -292,7 +292,7 @@ try {
   await checkHandler(wrongMethod.req, wrongMethod.res);
   assert.equal(wrongMethod.res.code, 405);
 
-  console.log("Study question API tests passed (920 questions; all V10, V11, V12, V13, V14 and V15 answer keys checked):");
+  console.log("Study question API tests passed (960 questions; all V10–V16 answer keys checked):");
   console.log("- public feed returns questions without answer keys or explanations");
   console.log("- correct and incorrect answers are scored server-side");
   console.log("- explanations and takeaways arrive only after submission");
