@@ -122,7 +122,7 @@ if (root) {
   if (
     questionScreen && completeScreen && number && topic && prompt && instruction &&
     optionList && feedback && feedbackTitle && feedbackAnswer && feedbackPoints && takeaway &&
-    questionMap && subjectFilter && questionSearch && previousButton && nextButton &&
+    subjectFilter && questionSearch && previousButton && nextButton &&
     finishButton && progressTrack && progressFill && sidebarProgressFill && progressLabel &&
     completedValue && correctValue && accuracyValue && completeHeading && completeLede &&
     completeStats && reviewList && studySession && boardLoading && boardLoadingLabel
