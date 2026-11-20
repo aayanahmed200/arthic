@@ -106,7 +106,6 @@ if (root) {
   const questionTotal = root.querySelector<HTMLElement>("[data-question-total]");
   const bankTotal = root.querySelector<HTMLElement>("[data-bank-total]");
   const subjectFilter = root.querySelector<HTMLSelectElement>("[data-subject-filter]");
-  const questionSearch = root.querySelector<HTMLInputElement>("[data-question-search]");
   const progressTrack = root.querySelector<HTMLElement>("[data-session-progress-track]");
   const progressFill = root.querySelector<HTMLElement>("[data-session-progress-fill]");
   const progressLabel = root.querySelector<HTMLElement>("[data-session-progress-label]");
@@ -126,7 +125,7 @@ if (root) {
     questionScreen, completeScreen, number, topic, prompt, instruction, studySession,
     boardLoading, boardLoadingLabel, optionList, feedback, feedbackTitle, feedbackAnswer,
     feedbackPoints, takeaway, quizForm, setupPanel, workspace, statsPanel, changeQuizButton, examSelect, difficultySelect, quizStatus, startButton,
-    subjectFilter, questionSearch, progressTrack, progressFill, progressLabel, completedValue,
+    subjectFilter, progressTrack, progressFill, progressLabel, completedValue,
     correctValue, accuracyValue, previousButton, nextButton, finishButton,
     completeHeading, completeLede, completeStats, reviewList,
   ];
@@ -140,7 +139,6 @@ if (root) {
       ? (params.get("exam") as string)
       : "";
     let activeSubject = "ALL";
-    let searchTerm = "";
     let isSubmitting = false;
     let isPreparingQuiz = false;
     let questionIndex = 0;
@@ -190,13 +188,10 @@ if (root) {
     }
 
     function questionsForSetup(): StudyQuestionPrompt[] {
-      const term = searchTerm.trim().toLocaleLowerCase();
       const candidates = QUESTION_FEED.filter((question) => {
         const examMatches = question.examCode === activeExam;
         const subjectMatches = activeSubject === "ALL" || displaySubjectCode(question) === activeSubject;
-        const textMatches = !term || [question.topic, question.prompt, question.subjectCode]
-          .some((value) => value.toLocaleLowerCase().includes(term));
-        return examMatches && subjectMatches && textMatches;
+        return examMatches && subjectMatches;
       });
 
       const selectedDifficulty = difficultySelect!.value as "ALL" | DifficultyBand;
@@ -503,10 +498,9 @@ if (root) {
         return;
       }
       activeSubject = subjectFilter!.value || "ALL";
-      searchTerm = questionSearch!.value || "";
       const candidates = questionsForSetup();
       if (!candidates.length) {
-        setQuizStatus("No questions match those settings. Try a different subject or topic.", "error");
+        setQuizStatus("No questions match those settings. Try a different subject or difficulty.", "error");
         return;
       }
 
@@ -569,11 +563,6 @@ if (root) {
       updateAvailableCount();
     });
     difficultySelect!.addEventListener("change", () => {
-      if (quizStarted) clearIdleQuestion();
-      updateAvailableCount();
-    });
-    questionSearch!.addEventListener("input", () => {
-      searchTerm = questionSearch!.value;
       if (quizStarted) clearIdleQuestion();
       updateAvailableCount();
     });
