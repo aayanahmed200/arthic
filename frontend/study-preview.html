@@ -72,8 +72,8 @@
     <div class="study-intro__layout">
       <div class="study-intro__copy">
         <div class="content-hero__topline"><span>ARTHIC PRACTICE</span><span>LCAT · NET · CSS · MDCAT</span></div>
-        <h1>One question at a time.</h1>
-        <p class="study-intro__lede">Choose a track, answer at your own pace, and see a clear explanation as soon as you submit.</p>
+        <h1>Start with a short quiz.</h1>
+        <p class="study-intro__lede">Choose your exam board, subject and difficulty. Your practice workspace opens with a focused 10-question set.</p>
       </div>
       <div class="study-intro__count" aria-label="Question bank size">
         <strong data-bank-total>960</strong>
@@ -83,8 +83,8 @@
     </div>
   </section>
 
-  <section class="study-workspace content-container" aria-label="Short practice quiz" data-quiz-workspace>
-    <aside class="study-rail" aria-label="Set up your quiz">
+  <section class="study-workspace content-container" aria-label="Short practice quiz" data-quiz-workspace data-stage="setup">
+    <aside class="study-rail" aria-label="Set up your quiz" data-quiz-setup-panel>
       <div class="study-rail__heading">
         <span class="study-rail__eyebrow">BUILD A SHORT QUIZ</span>
         <strong class="study-rail__name">Choose your focus.</strong>
@@ -122,14 +122,14 @@
       </form>
     </aside>
 
-    <section class="study-session" id="practice" aria-labelledby="study-session-heading">
+    <section class="study-session" id="practice" aria-labelledby="study-session-heading" hidden>
       <div class="study-session__top">
         <div>
           <p class="study-session__eyebrow">YOUR PRACTICE · <span data-practice-track-label>NOT STARTED</span></p>
           <h2 class="study-session__heading" id="study-session-heading">Your question session</h2>
           <p class="study-session__subhead"><span data-question-bank-count>Choose a board to begin</span> · Instant answer feedback.</p>
         </div>
-        <span class="study-session__type">10 QUESTIONS</span>
+        <div class="study-session__tools"><span class="study-session__type">10 QUESTIONS</span><button class="study-setup-change" type="button" data-change-quiz>Change setup</button></div>
       </div>
       <div class="study-board-loading" data-board-loading role="status" aria-live="polite" aria-atomic="true" hidden>
         <img class="study-board-loading__logo" src="/favicon.svg" alt="" />
@@ -186,7 +186,7 @@
       <p class="study-session__note" id="topic-note">Every item in this question bank is an original Arthic practice question, not copied from an official exam paper.</p>
     </section>
 
-    <aside class="study-stats-rail" aria-label="Quiz statistics">
+    <aside class="study-stats-rail" aria-label="Quiz statistics" data-quiz-stats hidden>
       <p class="study-stats-rail__eyebrow">LIVE SESSION STATS</p>
       <h2>Your progress.</h2>
       <div class="study-stats-rail__items">
