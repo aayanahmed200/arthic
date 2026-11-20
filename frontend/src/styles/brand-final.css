@@ -2429,7 +2429,7 @@ html body.study-preview-page :is(.study-rail,.study-bank-nav,.study-session,.stu
 .study-question,.study-complete,.study-intro__aside) {
   background: var(--arthic-surface) !important;
 }
-html body.home-page,
+html body main.home-page,
 html body:not(.content-page):not(.study-preview-page):not(.not-found-document) {
   background: var(--arthic-cream) !important;
   background-color: var(--arthic-cream) !important;
@@ -6873,7 +6873,7 @@ html body .home-actions a.home-secondary:hover {
 }
 
 /* Choose your exam: rounded rectangles with one clear circular board marker. */
-html body.home-page .home-route-list {
+html body main.home-page .home-route-list {
   display:grid !important;
   grid-template-columns:repeat(2,minmax(0,1fr)) !important;
   gap:14px !important;
@@ -6882,7 +6882,7 @@ html body.home-page .home-route-list {
   padding:0 !important;
   border:0 !important;
 }
-html body.home-page .home-route {
+html body main.home-page .home-route {
   display:grid !important;
   grid-template-columns:52px minmax(0,1fr) 32px !important;
   grid-template-rows:auto auto !important;
@@ -6899,7 +6899,7 @@ html body.home-page .home-route {
   text-decoration:none !important;
   transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background-color .18s ease !important;
 }
-html body.home-page .home-route__number {
+html body main.home-page .home-route__number {
   grid-column:1 !important;
   grid-row:1 / span 2 !important;
   display:grid !important;
@@ -6912,21 +6912,21 @@ html body.home-page .home-route__number {
   color:var(--arthic-forest) !important;
   font:700 12px/1 "IBM Plex Mono",monospace !important;
 }
-html body.home-page .home-route__name {
+html body main.home-page .home-route__name {
   grid-column:2 !important;
   grid-row:1 !important;
   color:var(--arthic-forest) !important;
   font:700 clamp(20px,2vw,25px)/1.05 "Bricolage Grotesque Variable",sans-serif !important;
   letter-spacing:-.035em !important;
 }
-html body.home-page .home-route__detail {
+html body main.home-page .home-route__detail {
   grid-column:2 !important;
   grid-row:2 !important;
   max-width:34ch !important;
   color:var(--arthic-forest-soft) !important;
   font:500 10px/1.45 "Poppins",sans-serif !important;
 }
-html body.home-page .home-route__arrow {
+html body main.home-page .home-route__arrow {
   grid-column:3 !important;
   grid-row:1 / span 2 !important;
   display:grid !important;
@@ -6939,13 +6939,13 @@ html body.home-page .home-route__arrow {
   font-size:15px !important;
   transition:background-color .18s ease,color .18s ease,transform .18s ease !important;
 }
-html body.home-page .home-route:hover {
+html body main.home-page .home-route:hover {
   border-color:rgba(29,64,51,.42) !important;
   background:#FFFFFF !important;
   transform:translateY(-2px) !important;
   box-shadow:0 12px 28px rgba(29,64,51,.08) !important;
 }
-html body.home-page .home-route:hover .home-route__arrow {
+html body main.home-page .home-route:hover .home-route__arrow {
   background:var(--arthic-forest) !important;
   color:#FFFFFF !important;
   transform:translateX(2px) !important;
@@ -7636,7 +7636,7 @@ html body.study-preview-page .study-board-skeleton i {
   }
 }
 @media(max-width:760px) {
-  html body.home-page .home-route-list {
+  html body main.home-page .home-route-list {
     grid-template-columns:minmax(0,1fr) !important;
   }
   html body.pathways-page .exam-track-grid {
@@ -7693,7 +7693,7 @@ html body.study-preview-page .study-board-skeleton i {
   html body.content-page.career-page #main .career-role__detail-grid {
     grid-template-columns:minmax(0,1fr) !important;
   }
-  html body.home-page .home-route {
+  html body main.home-page .home-route {
     min-height:100px !important;
     padding:16px !important;
   }
@@ -7708,7 +7708,7 @@ html body.study-preview-page .study-board-skeleton i {
   html body.study-preview-page .study-board-skeleton i {
     animation:none !important;
   }
-  html body.home-page .home-route,
+  html body main.home-page .home-route,
   html body.pathways-page .oneprep-route-strip a,
   html body.pathways-page .exam-track-card__link,
   html body.content-page.pricing-page #main .pricing-plan {
