@@ -93,6 +93,10 @@ if (root) {
   const feedbackPoints = root.querySelector<HTMLUListElement>("[data-feedback-points]");
   const takeaway = root.querySelector<HTMLElement>("[data-feedback-takeaway]");
   const quizForm = root.querySelector<HTMLFormElement>("[data-quiz-setup]");
+  const setupPanel = root.querySelector<HTMLElement>("[data-quiz-setup-panel]");
+  const workspace = root.querySelector<HTMLElement>("[data-quiz-workspace]");
+  const statsPanel = root.querySelector<HTMLElement>("[data-quiz-stats]");
+  const changeQuizButton = root.querySelector<HTMLButtonElement>("[data-change-quiz]");
   const examSelect = root.querySelector<HTMLSelectElement>("[data-quiz-exam]");
   const difficultySelect = root.querySelector<HTMLSelectElement>("[data-quiz-difficulty]");
   const quizStatus = root.querySelector<HTMLElement>("[data-quiz-status]");
@@ -121,7 +125,7 @@ if (root) {
   const requiredElements = [
     questionScreen, completeScreen, number, topic, prompt, instruction, studySession,
     boardLoading, boardLoadingLabel, optionList, feedback, feedbackTitle, feedbackAnswer,
-    feedbackPoints, takeaway, quizForm, examSelect, difficultySelect, quizStatus, startButton,
+    feedbackPoints, takeaway, quizForm, setupPanel, workspace, statsPanel, changeQuizButton, examSelect, difficultySelect, quizStatus, startButton,
     subjectFilter, questionSearch, progressTrack, progressFill, progressLabel, completedValue,
     correctValue, accuracyValue, previousButton, nextButton, finishButton,
     completeHeading, completeLede, completeStats, reviewList,
@@ -522,6 +526,10 @@ if (root) {
         answers.clear();
         questionIndex = 0;
         quizStarted = true;
+        setupPanel!.hidden = true;
+        studySession!.hidden = false;
+        statsPanel!.hidden = false;
+        workspace!.dataset.stage = "practice";
         completeScreen!.hidden = true;
         questionScreen!.hidden = false;
         trackLabels.forEach((label) => { label.textContent = EXAM_LABELS[activeExam] ?? activeExam; });
@@ -573,6 +581,20 @@ if (root) {
       event.preventDefault();
       void startQuiz();
     });
+
+    changeQuizButton!.addEventListener("click", () => {
+      if (isSubmitting || isPreparingQuiz) return;
+      quizStarted = false;
+      setupPanel!.hidden = false;
+      studySession!.hidden = true;
+      statsPanel!.hidden = true;
+      workspace!.dataset.stage = "setup";
+      completeScreen!.hidden = true;
+      questionScreen!.hidden = false;
+      setQuizStatus("Update your choices, then start a fresh 10-question quiz.");
+      updateAvailableCount();
+      setupPanel!.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
     previousButton!.addEventListener("click", () => goToQuestion(questionIndex - 1));
     nextButton!.addEventListener("click", () => goToQuestion(questionIndex + 1));
     finishButton!.addEventListener("click", showComplete);
@@ -585,6 +607,10 @@ if (root) {
       renderQuestion(true);
     }));
 
+    setupPanel!.hidden = false;
+    studySession!.hidden = true;
+    statsPanel!.hidden = true;
+    workspace!.dataset.stage = "setup";
     fillSubjectFilter();
     clearIdleQuestion();
     if (activeExam) updateAvailableCount();
