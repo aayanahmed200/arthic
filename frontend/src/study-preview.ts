@@ -14,6 +14,7 @@ import { V11_SAMPLE_QUESTIONS } from "./data/v11-sample-questions";
 import { V12_SAMPLE_QUESTIONS } from "./data/v12-sample-questions";
 import { V13_SAMPLE_QUESTIONS } from "./data/v13-sample-questions";
 import { V14_SAMPLE_QUESTIONS } from "./data/v14-sample-questions";
+import { V15_SAMPLE_QUESTIONS } from "./data/v15-sample-questions";
 
 initCommon();
 
@@ -36,7 +37,7 @@ const SUBJECT_LABELS: Record<string, string> = {
 };
 const EXAM_LABELS: Record<string, string> = { MDCAT: "MDCAT", LCAT: "LCAT", NET: "NUST NET", CSS: "CSS", ALL: "All tracks" };
 
-let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS, ...MORE_SAMPLE_QUESTIONS, ...ADDITIONAL_SAMPLE_QUESTIONS, ...FRESH_SAMPLE_QUESTIONS, ...NEXT_SAMPLE_QUESTIONS, ...V10_SAMPLE_QUESTIONS, ...V11_SAMPLE_QUESTIONS, ...V12_SAMPLE_QUESTIONS, ...V13_SAMPLE_QUESTIONS, ...V14_SAMPLE_QUESTIONS];
+let QUESTION_FEED: StudyQuestionPrompt[] = [...SAMPLE_QUESTIONS, ...EXPANDED_SAMPLE_QUESTIONS, ...MORE_SAMPLE_QUESTIONS, ...ADDITIONAL_SAMPLE_QUESTIONS, ...FRESH_SAMPLE_QUESTIONS, ...NEXT_SAMPLE_QUESTIONS, ...V10_SAMPLE_QUESTIONS, ...V11_SAMPLE_QUESTIONS, ...V12_SAMPLE_QUESTIONS, ...V13_SAMPLE_QUESTIONS, ...V14_SAMPLE_QUESTIONS, ...V15_SAMPLE_QUESTIONS];
 
 function displaySubjectCode(question: StudyQuestionPrompt): string {
   if (question.examCode === "LCAT" && ["ENGLISH", "LOGIC", "ANALYTICAL"].includes(question.subjectCode)) return "VERBAL";
@@ -102,8 +103,6 @@ if (root) {
   const bankTotal = root.querySelector<HTMLElement>("[data-bank-total]");
   const subjectFilter = root.querySelector<HTMLSelectElement>("[data-subject-filter]");
   const questionSearch = root.querySelector<HTMLInputElement>("[data-question-search]");
-  const questionMap = root.querySelector<HTMLElement>("[data-question-map]");
-  const mapCount = root.querySelector<HTMLElement>("[data-map-count]");
   const progressTrack = root.querySelector<HTMLElement>("[data-session-progress-track]");
   const progressFill = root.querySelector<HTMLElement>("[data-session-progress-fill]");
   const sidebarProgressFill = root.querySelector<HTMLElement>("[data-sidebar-progress-fill]");
@@ -193,27 +192,8 @@ if (root) {
       const questionWord = counts.total === 1 ? "question" : "questions";
       if (questionBankCount) questionBankCount.textContent = counts.total + " " + questionWord + " in this set";
       if (questionTotal) questionTotal.textContent = counts.total + " " + questionWord;
-      if (mapCount) mapCount.textContent = String(counts.total);
     }
 
-    function renderQuestionMap(): void {
-      questionMap!.replaceChildren();
-      questions.forEach((question, index) => {
-        const answer = answers.get(question.id);
-        const button = document.createElement("button");
-        button.type = "button";
-        button.textContent = String(index + 1);
-        button.className = index === questionIndex ? "is-current" : "";
-        if (answer) button.classList.add(answer.isCorrect ? "is-correct" : "is-incorrect");
-        if (isSubmitting) button.disabled = true;
-        button.setAttribute("aria-label", "Open question " + (index + 1) +
-          (answer ? (answer.isCorrect ? ", correct" : ", needs review") : ", not answered"));
-        button.setAttribute("aria-current", index === questionIndex ? "step" : "false");
-        button.addEventListener("click", () => goToQuestion(index));
-        questionMap!.append(button);
-      });
-      updateProgress();
-    }
 
     function renderExplanation(answer: StudyAnswer): void {
       feedback!.dataset.result = answer.isCorrect ? "correct" : "incorrect";
@@ -305,7 +285,7 @@ if (root) {
       nextButton!.disabled = questionIndex >= questions.length - 1 || isSubmitting;
       finishButton!.disabled = isSubmitting || questions.length === 0;
       updateProgress();
-      renderQuestionMap();
+
       if (moveFocus) prompt!.focus();
     }
 
@@ -368,7 +348,7 @@ if (root) {
         previousButton!.disabled = questionIndex === 0;
         nextButton!.disabled = questionIndex >= questions.length - 1;
         finishButton!.disabled = questions.length === 0;
-        renderQuestionMap();
+
       }
     }
 
@@ -442,7 +422,6 @@ if (root) {
       trackLabels.forEach((element) => { element.textContent = EXAM_LABELS[activeExam] ?? activeExam; });
       if (questions.length) renderQuestion();
       else {
-        questionMap!.replaceChildren();
         number!.textContent = "NO QUESTIONS";
         topic!.textContent = "Try another filter";
         prompt!.textContent = "No questions match these filters.";
@@ -453,7 +432,7 @@ if (root) {
         nextButton!.disabled = true;
         finishButton!.disabled = true;
         updateProgress();
-        renderQuestionMap();
+
       }
     }
 
@@ -469,7 +448,6 @@ if (root) {
       previousButton!.disabled = true;
       nextButton!.disabled = true;
       finishButton!.disabled = true;
-      questionMap!.querySelectorAll<HTMLButtonElement>("button").forEach((button) => { button.disabled = true; });
       studySession!.setAttribute("aria-busy", "true");
       boardLoadingLabel!.textContent = "Preparing " + (EXAM_LABELS[nextExam] ?? nextExam) + " questions";
       boardLoading!.hidden = false;
