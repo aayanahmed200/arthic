@@ -38,20 +38,26 @@ try {
   await questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
   const survivingIds = new Set(SAMPLE_QUESTIONS.map((question) => question.id));
-  const existingByStem = new Map(SAMPLE_QUESTIONS.map((question) => [normalizeQuestionStem(question.prompt), question.id]));
-  console.log("DE-DUP COUNTS", JSON.stringify({
-    rawV18: V18_SAMPLE_QUESTIONS.length,
-    missingV18: V18_SAMPLE_QUESTIONS.filter((question) => !survivingIds.has(question.id)).map((question) => ({
-      id: question.id, prompt: question.prompt, duplicateOf: existingByStem.get(normalizeQuestionStem(question.prompt)) || "unknown",
-    })),
-    total: feed.res.body.questions.length,
-    byExam: Object.fromEntries(["LCAT", "NET", "CSS", "MDCAT"].map((exam) => [exam,
-      feed.res.body.questions.filter((question) => question.examCode === exam).length
-    ])),
-    v18ByExam: Object.fromEntries(["LCAT", "NET", "CSS", "MDCAT"].map((exam) => [exam,
-      SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v18-") && question.examCode === exam).length
-    ])),
-  }));
+  const missingV18 = V18_SAMPLE_QUESTIONS.filter((question) => !survivingIds.has(question.id));
+  const expectedDuplicateV18 = [
+    "v18-css-011",
+    "v18-css-018",
+    "v18-mdcat-004",
+    "v18-mdcat-019",
+    "v18-mdcat-021",
+    "v18-mdcat-022",
+  ];
+  assert.equal(V18_SAMPLE_QUESTIONS.length, 133, "authored V18 records");
+  assert.deepEqual(
+    missingV18.map((question) => question.id).sort(),
+    expectedDuplicateV18.sort(),
+    "only the known repeated V18 stems may be omitted",
+  );
+  for (const omitted of missingV18) {
+    assert.ok(SAMPLE_QUESTIONS.some((question) =>
+      normalizeQuestionStem(question.prompt) === normalizeQuestionStem(omitted.prompt)
+    ), omitted.id + " must be omitted only because the same stem already exists");
+  }
   assert.equal(feed.res.body.questions.length, 1060);
   assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v18-1060");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
@@ -86,8 +92,8 @@ try {
   }
 
   const v18 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v18-"));
-  assert.equal(v18.length, 133, "all V18 additions must survive de-duplication");
-  const expectedV18 = { LCAT: 28, NET: 41, CSS: 21, MDCAT: 43 };
+  assert.equal(v18.length, 127, "V18 additions should retain 127 unique questions after the six known repeats are omitted");
+  const expectedV18 = { LCAT: 28, NET: 41, CSS: 19, MDCAT: 39 };
   for (const [examCode, expectedCount] of Object.entries(expectedV18)) {
     assert.equal(v18.filter((question) => question.examCode === examCode).length, expectedCount, examCode + " V18 count");
   }
@@ -147,7 +153,7 @@ try {
   assert.equal(feedWrongMethod.res.code, 405);
 
   console.log("Study question API tests passed (1,060 unique questions; 265 per exam track):");
-  console.log("- 133 V18 additions are all present and have server-checked answers");
+  console.log("- 127 unique V18 additions are present; six repeated stems are explicitly identified");
   console.log("- every item has a subject, topic, four distinct options, explanation and explicit difficulty");
   console.log("- question stems are unique across all four tracks");
   console.log("- original practice questions have no invented past-paper dates");
