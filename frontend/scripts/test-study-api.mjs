@@ -33,6 +33,7 @@ try {
   const { SAMPLE_QUESTIONS, RETIRED_NEAR_DUPLICATE_IDS } = await server.ssrLoadModule("/api/study/_sample-content.ts");
   const { V18_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v18-sample-questions.ts");
   const { V19_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v19-sample-questions.ts");
+  const { V20_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v20-sample-questions.ts");
   const { normalizeQuestionStem, classifyPracticeDifficulty } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
 
   const difficultyCases = [
@@ -74,13 +75,13 @@ try {
       normalizeQuestionStem(question.prompt) === normalizeQuestionStem(omitted.prompt)
     ), omitted.id + " must be omitted only because the same stem already exists");
   }
-  assert.equal(feed.res.body.questions.length, 1060);
-  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v19-1060");
+  assert.equal(feed.res.body.questions.length, 1080);
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v20-1080");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
 
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
   for (const examCode of examCodes) {
-    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 265, examCode);
+    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 270, examCode);
   }
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
 
@@ -98,6 +99,18 @@ try {
       retiredId + " must not appear in the public feed");
   }
 
+  assert.equal(V20_SAMPLE_QUESTIONS.length, 20, "V20 should contain 20 original questions");
+  const v20 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v20-"));
+  assert.equal(v20.length, 20, "all V20 questions should survive the unique-stem pass");
+  const expectedV20 = { LCAT: 5, NET: 5, CSS: 5, MDCAT: 5 };
+  for (const [examCode, expectedCount] of Object.entries(expectedV20)) {
+    assert.equal(v20.filter((question) => question.examCode === examCode).length, expectedCount, examCode + " V20 count");
+  }
+  for (const question of V20_SAMPLE_QUESTIONS) {
+    assert.ok(SAMPLE_QUESTIONS.some((sample) => sample.id === question.id), question.id + " missing from the bank");
+    assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " difficulty missing");
+  }
+
   assert.equal(V19_SAMPLE_QUESTIONS.length, 18, "V19 should contain 18 replacements");
   const v19 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v19-"));
   assert.equal(v19.length, 18, "all V19 replacement questions must survive");
@@ -110,8 +123,8 @@ try {
     assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " difficulty missing");
   }
 
-  assert.equal(SAMPLE_QUESTIONS.length, 1060);
-  assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => question.id)).size, 1060, "question IDs must be unique");
+  assert.equal(SAMPLE_QUESTIONS.length, 1080);
+  assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => question.id)).size, 1080, "question IDs must be unique");
   assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => normalizeQuestionStem(question.prompt))).size, 1060,
     "duplicate question stems must be removed across all exam tracks");
 
@@ -213,8 +226,8 @@ try {
   assert.equal(feedWrongMethod.res.code, 405);
 
   console.log("Difficulty distribution:", JSON.stringify(difficultyDistribution));
-  console.log("Study question API tests passed (1,060 unique questions; 265 per exam track):");
-  console.log("- 127 unique V18 additions and 18 V19 replacements are present with worked answers");
+  console.log("Study question API tests passed (1,080 unique questions; 270 per exam track):");
+  console.log("- 127 unique V18 additions, 18 V19 replacements and 20 V20 additions are present with worked answers");
   console.log("- 18 near-duplicate prompts are retired and hidden from the feed and answer-check API");
   console.log("- every item has a subject, topic, four distinct options, explanation and explicit difficulty");
   console.log("- question stems are unique across all four tracks");
