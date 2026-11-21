@@ -8,13 +8,15 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   res.setHeader("Cache-Control", "no-store");
+  const accountsOpen = process.env.STUDENT_ACCOUNTS_ENABLED === "true" &&
+    isSupabaseAuthConfigured() && Boolean(process.env.POSTGRES_URL);
   return res.status(200).json({
-    available: false,
+    available: accountsOpen,
     phase: "identity-foundation",
     identityProvider: "supabase",
     identityVerificationConfigured: isSupabaseAuthConfigured(),
-    accountsOpen: false,
-    signInEnabled: false,
-    reason: "Student accounts remain closed while sign-up, account recovery, age-appropriate consent and student privacy controls are prepared.",
+    accountsOpen,
+    signInEnabled: accountsOpen,
+    reason: accountsOpen ? null : "Student accounts are disabled by default. Enable them only after database setup, Google provider configuration, age-appropriate consent and legal review are complete.",
   });
 }
