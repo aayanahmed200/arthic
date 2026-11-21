@@ -38,9 +38,12 @@ function getClientIp(req: VercelRequest): string {
   // x-forwarded-for can be a comma-separated chain (client, proxy, proxy…)
   // when it passes through more than one hop — the first entry is the
   // original client. Vercel's own edge network sets this reliably.
-  const header = req.headers["x-forwarded-for"];
-  const raw = Array.isArray(header) ? header[0] : header;
-  const ip = raw?.split(",")[0]?.trim();
+  const platformHeader = req.headers["x-vercel-forwarded-for"];
+  const forwardedHeader = req.headers["x-forwarded-for"];
+  const platformValue = Array.isArray(platformHeader) ? platformHeader[0] : platformHeader;
+  const forwardedValue = Array.isArray(forwardedHeader) ? forwardedHeader[0] : forwardedHeader;
+  const raw = platformValue || forwardedValue;
+  const ip = raw?.split(",")[0]?.trim().slice(0, 64);
   return ip || "unknown";
 }
 
@@ -50,6 +53,7 @@ export async function checkRateLimit(
   bucket: string,
   limit: number,
   windowSeconds: number,
+  failClosed = false,
 ): Promise<boolean> {
   const key = `${bucket}:${getClientIp(req)}`;
   const interval = `${windowSeconds} seconds`;
@@ -78,9 +82,14 @@ export async function checkRateLimit(
     }
     return true;
   } catch (err) {
-    // if the rate limiter itself breaks, fail open rather than taking
-    // a working feature down because of a bug in the thing guarding it.
     console.error("rate limit check failed", err);
+    if (failClosed) {
+      res.setHeader("Retry-After", String(windowSeconds));
+      res.status(503).json({ error: "request protection is temporarily unavailable. Please try again shortly." });
+      return false;
+    }
+    // Public, non-billable demo paths may opt into fail-open behaviour.
+    // Paid-provider and private-data endpoints must use failClosed=true.
     return true;
   }
 }
