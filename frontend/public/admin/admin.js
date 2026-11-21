@@ -52,14 +52,24 @@
     catch { $("exportStatus").textContent = "clipboard unavailable."; }
   });
 
-  const fields = { examCode:"qExam", subjectCode:"qSubject", topic:"qTopic", prompt:"qPrompt", instruction:"qInstruction", sourceKind:"qSource", sourceNote:"qSourceNote", explanation:"qExplanation", takeaway:"qTakeaway" };
+  const fields = { examCode:"qExam", subjectCode:"qSubject", topic:"qTopic", prompt:"qPrompt", instruction:"qInstruction", sourceKind:"qSource", sourceNote:"qSourceNote", difficulty:"qDifficulty", examYear:"qExamYear", examMonth:"qExamMonth", examSession:"qExamSession", explanation:"qExplanation", takeaway:"qTakeaway" };
   const list = $("questionList");
   const message = (text, error = false) => { $("questionStatus").textContent = text; $("questionStatus").dataset.error = String(error); };
   const options = () => $("qOptions").value.split("\n").map((line) => {
     const m = /^\s*([A-F])\s*[|:]\s*(.+?)\s*$/.exec(line);
     return m ? { key:m[1], text:m[2] } : null;
   }).filter(Boolean);
-  const payload = () => ({ ...Object.fromEntries(Object.entries(fields).map(([k,id]) => [k,$(id).value])), options:options(), answerKey:$("qAnswer").value });
+  const payload = () => {
+    const data = Object.fromEntries(Object.entries(fields).map(([key,id]) => [key, $(id).value]));
+    return {
+      ...data,
+      examYear: data.examYear ? Number(data.examYear) : null,
+      examMonth: data.examMonth ? Number(data.examMonth) : null,
+      examSession: data.examSession || null,
+      options: options(),
+      answerKey: $("qAnswer").value,
+    };
+  };
 
   function renderList() {
     $("questionCount").textContent = String(questions.length); list.replaceChildren();
@@ -72,7 +82,11 @@
       const button=document.createElement("button"), title=document.createElement("strong"), prompt=document.createElement("span"), meta=document.createElement("small");
       button.type="button"; button.className="question-list__item"+(selected?.id===q.id?" is-selected":"");
       title.textContent=q.topic; prompt.textContent=q.prompt;
-      meta.textContent=`${q.exam_code} · ${q.subject_code} · ${q.is_archived?"archived":q.is_published?"published":"draft"}`;
+      const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      const provenance = q.source_kind === "past-paper" && q.exam_year && q.exam_month
+        ? `${monthNames[q.exam_month - 1]} ${q.exam_year}`
+        : "original / licensed";
+      meta.textContent=`${q.exam_code} · ${q.subject_code} · ${q.difficulty || "STANDARD"} · ${provenance} · ${q.is_archived?"archived":q.is_published?"published":"draft"}`;
       button.append(title,prompt,meta); button.addEventListener("click",()=>edit(q)); list.append(button);
     });
   }
@@ -93,6 +107,7 @@
       $("editorMode").textContent="NEW DRAFT"; $("editorTitle").textContent="Create a question"; $("editorVersion").textContent="";
     }
     $("questionPreview").hidden=true; message("");
+    updatePaperDateVisibility();
     $("saveQuestionBtn").disabled=Boolean(q?.is_archived);
     $("publishQuestionBtn").disabled=!q||q.is_archived;
     $("unpublishQuestionBtn").disabled=!q||!q.is_published;
@@ -111,6 +126,15 @@
       else list.textContent=error.message;
     }
   }
+
+  function updatePaperDateVisibility() {
+    const isPastPaper = $("qSource").value === "past-paper";
+    $("paperDateFields").hidden = !isPastPaper;
+    $("qExamYear").required = isPastPaper;
+    $("qExamMonth").required = isPastPaper;
+  }
+
+  $("qSource").addEventListener("change", updatePaperDateVisibility);
 
   function setBusy(value) {
     busy = value;
@@ -152,7 +176,11 @@
   }
   function preview() {
     const q=payload();
-    $("previewTopic").textContent=`${q.examCode} · ${q.subjectCode} · ${q.topic}`;
+    const level = q.difficulty === "CHALLENGING" ? "Challenging" : q.difficulty === "EASY" ? "Easy" : "Standard";
+    const source = q.sourceKind === "past-paper" && q.examYear && q.examMonth
+      ? `${q.examYear}-${String(q.examMonth).padStart(2,"0")} · ${q.sourceNote}`
+      : q.sourceNote || "Original Arthic practice · not an official past paper";
+    $("previewTopic").textContent=`${q.examCode} · ${q.subjectCode} · ${level} · ${source}`;
     $("previewPrompt").textContent=q.prompt; $("previewInstruction").textContent=q.instruction;
     $("previewOptions").replaceChildren();
     q.options.forEach((o)=>{const li=document.createElement("li");li.textContent=o.text;if(o.key===q.answerKey)li.dataset.correct="true";$("previewOptions").append(li);});
