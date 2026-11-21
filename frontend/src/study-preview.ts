@@ -4,6 +4,7 @@ import "./styles/study-preview.css";
 import "./styles/arthic-study-final.css";
 import "./styles/brand-final.css";
 import "./styles/ui-polish.css";
+import "./styles/practice-layout-fixes.css";
 import { initCommon } from "./lib/common-init";
 
 initCommon();
