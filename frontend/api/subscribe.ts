@@ -13,7 +13,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // generous — this isn't a paid-API endpoint like Arlo, mainly guarding
   // against a scripted spam loop filling the waitlist table with junk.
-  if (!(await checkRateLimit(req, res, "subscribe", 10, 60))) return;
+  if (!(await checkRateLimit(req, res, "subscribe", 10, 60, true))) return;
 
   if (!process.env.POSTGRES_URL) {
     return res.status(503).json({ error: "signups aren't connected to storage yet — check back soon." });
