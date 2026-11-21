@@ -85,7 +85,9 @@ export async function startGoogleSignIn(intent: AuthIntent): Promise<void> {
   sessionStorage.setItem(OAUTH_INTENT_KEY, intent);
 
   const authorize = new URL("/auth/v1/authorize", url);
+  authorize.searchParams.set("apikey", key);
   authorize.searchParams.set("provider", "google");
+  authorize.searchParams.set("scopes", "openid email profile");
   authorize.searchParams.set("redirect_to", new URL("/auth-callback.html", window.location.origin).toString());
   authorize.searchParams.set("code_challenge", challenge);
   authorize.searchParams.set("code_challenge_method", "s256");
