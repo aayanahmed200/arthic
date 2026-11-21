@@ -66,7 +66,7 @@ export function parseQuestionDraft(body: unknown): QuestionInputResult {
   if (!explanation) return { ok: false, error: "enter an explanation." };
   if (!takeaway) return { ok: false, error: "enter a short takeaway." };
   if (!answerKey || !/^[A-F]$/.test(answerKey)) return { ok: false, error: "choose a valid answer key." };
-  if (!sourceKind || !["original-sample", "licensed", "public-domain"].includes(sourceKind)) return { ok: false, error: "choose a valid source type." };
+  if (!sourceKind || !["original-sample", "licensed", "public-domain", "past-paper"].includes(sourceKind)) return { ok: false, error: "choose a valid source type." };
   if (!difficulty || !["EASY", "STANDARD", "CHALLENGING"].includes(difficulty)) return { ok: false, error: "choose a question difficulty." };
   if (sourceKind !== "original-sample" && !sourceNote) return { ok: false, error: "add the source and permission/reference note before saving." };
   if ((examYear === null) !== (examMonth === null)) return { ok: false, error: "enter both the paper year and month, or leave both blank." };
