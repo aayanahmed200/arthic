@@ -86,10 +86,10 @@ try {
 
   const expectedRetiredNearDuplicates = [
     "v11-lcat-001", "v11-lcat-009",
-    "v15-net-004", "v11-net-016", "net-new-014", "v11-net-003",
+    "v15-net-004", "v11-net-016", "net-new-014", "v11-net-003", "v13-net-009",
     "v11-css-002", "v10-css-014", "v15-css-005", "css-new-008",
     "v12-mdcat-007", "mdcat-more-009", "mdcat-next-011", "mdcat-new-008",
-    "v13-mdcat-009", "mdcat-new-010", "mdcat-next-008", "mdcat-extra-005",
+    "v13-mdcat-009", "mdcat-new-010", "mdcat-next-008", "mdcat-extra-005", "mdcat-plus-002",
   ];
   assert.deepEqual([...RETIRED_NEAR_DUPLICATE_IDS].sort(), expectedRetiredNearDuplicates.sort());
   for (const retiredId of RETIRED_NEAR_DUPLICATE_IDS) {
