@@ -37,6 +37,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         COALESCE(SUM(correct_count), 0)::int AS correct
       FROM study_sessions GROUP BY exam_code ORDER BY exam_code
     `;
+    const requestRows = await sql`
+      SELECT r.id, s.email, r.request_type, r.status, r.created_at
+      FROM student_data_requests r
+      JOIN student_accounts s ON s.id = r.student_id
+      WHERE r.status IN ('requested', 'in_progress')
+      ORDER BY r.created_at ASC LIMIT 50
+    `;
     return res.status(200).json({
       totals: {
         users: Number(row.users ?? 0),
@@ -54,6 +61,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         sessions: Number(item.sessions ?? 0),
         answered: Number(item.answered ?? 0),
         correct: Number(item.correct ?? 0),
+      })),
+      dataRequests: requestRows.rows.map((item) => ({
+        requestId: String(item.id),
+        email: String(item.email),
+        type: String(item.request_type),
+        status: String(item.status),
+        createdAt: item.created_at instanceof Date ? item.created_at.toISOString() : String(item.created_at),
       })),
       privacyNote: "Aggregate account and practice statistics only; no anonymous page-view tracking is collected by this endpoint.",
     });
