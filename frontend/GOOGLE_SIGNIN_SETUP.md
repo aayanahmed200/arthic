@@ -30,6 +30,8 @@ Configure these values for the same Supabase project:
 - VITE_SUPABASE_PUBLISHABLE_KEY
 - POSTGRES_URL
 - ADMIN_EMAILS
+- STUDENT_ACCOUNTS_ENABLED=false
+- VITE_STUDENT_ACCOUNTS_ENABLED=false
 
 The SUPABASE_ values are used by serverless functions. The VITE_ values are public browser configuration used to start the OAuth flow, and must match the same project. Never expose a Supabase secret/service-role key or the database connection string in a VITE_ variable.
 
@@ -44,7 +46,11 @@ ADMIN_EMAILS is a comma-separated allowlist of exact Google account email addres
 5. Create a test student account through /dashboard.html, accept the current Terms and Privacy Policy, and complete the age/guardian declaration.
 6. Start a practice session while signed in, answer a question, reload Dashboard and check that the result synced.
 
-## 5. Important limitations
+## 5. Enable student accounts only after setup
+
+Keep both student account flags set to false by default. The Google admin sign-in works independently of student registration. After the schema setup, Google callback verification, data-flow/security checks and legal/age-consent review are complete, set both STUDENT_ACCOUNTS_ENABLED and VITE_STUDENT_ACCOUNTS_ENABLED to true and rebuild/redeploy the frontend. The server still rejects new student accounts unless its server-side flag is true.
+
+## 6. Important limitations
 
 - The age/guardian declaration is self-attested and does not independently verify parent/guardian identity or permission. Do not broadly enable minor accounts until a suitable consent process has been implemented and reviewed by local counsel.
 - Account deletion is currently queued for administrative review. It does not automatically delete the Supabase Auth user. An administrator must remove both the student's application data and authentication identity and record completion.
