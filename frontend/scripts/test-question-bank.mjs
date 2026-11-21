@@ -54,6 +54,20 @@ try {
       !("answer" in question) && !("answerKey" in question) &&
       !("explanation" in question) && !("takeaway" in question)),
       "the public question feed must not expose answer keys or explanations");
+    const checkHandler = (await server.ssrLoadModule("/api/study/check.ts")).default;
+    const checkRes = {
+      code: 200, headers: {}, body: null,
+      setHeader(name, value) { this.headers[name] = value; return this; },
+      status(code) { this.code = code; return this; },
+      json(value) { this.body = value; return this; },
+    };
+    await checkHandler({
+      method: "POST",
+      headers: {},
+      body: { questionId: "v20-lcat-001", selectedOption: "B" },
+    }, checkRes);
+    assert.equal(checkRes.code, 503,
+      "answer checking must fail closed if the shared rate limiter cannot reach storage");
   } finally {
     if (previousQuestionFeedUrl === undefined) delete process.env.POSTGRES_URL;
     else process.env.POSTGRES_URL = previousQuestionFeedUrl;
