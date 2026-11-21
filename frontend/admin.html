@@ -31,6 +31,7 @@
     <section data-admin-main hidden>
       <div class="workspace-topline"><div><h2>Platform overview</h2><p class="workspace-lede">Aggregate service statistics. This dashboard does not track anonymous page views or create advertising profiles.</p></div><button class="workspace-button workspace-button--secondary" type="button" data-signout>Sign out</button></div>
       <div class="workspace-grid">
+        <div class="workspace-stat"><span>Public page views (7 days)</span><strong data-admin-pageviews>0</strong><small><span data-admin-pageviews-today>0</span> today · route totals, not unique visitors</small></div>
         <div class="workspace-stat"><span>Student accounts</span><strong data-admin-users>0</strong><small><span data-admin-users-week>0</span> new in the last 7 days</small></div>
         <div class="workspace-stat"><span>Practice sessions</span><strong data-admin-sessions>0</strong><small>All recorded sessions</small></div>
         <div class="workspace-stat"><span>Answers submitted</span><strong data-admin-answers>0</strong><small>Synced student answers</small></div>
@@ -40,6 +41,13 @@
         <div class="workspace-stat"><span>Job applications</span><strong data-admin-applications>0</strong><small>Stored applications</small></div>
         <div class="workspace-stat"><span>Pending data requests</span><strong data-admin-requests>0</strong><small>Access or deletion queue</small></div>
       </div>
+      <section class="workspace-panel">
+        <h2>Public pages · last 7 days</h2>
+        <div class="workspace-table-wrap"><table class="workspace-table">
+          <thead><tr><th>Page</th><th>Views</th></tr></thead>
+          <tbody data-admin-page-rows><tr><td colspan="2" class="workspace-empty">No public page views recorded yet.</td></tr></tbody>
+        </table></div>
+      </section>
       <section class="workspace-panel">
         <h2>Practice by exam track</h2>
         <div class="workspace-table-wrap"><table class="workspace-table">
