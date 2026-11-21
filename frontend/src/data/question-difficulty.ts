@@ -43,7 +43,7 @@ const EASY_PATTERNS = [
   /which part of .+ (?:receives|contains|produces|secretes|binds)/,
   /during which (?:phase|stage) .+ (?:replicated|align|separate|occur)/,
   /choose the correct (?:verb|passive form|completion|transition)/,
-  /^what is .{1,90}\??$/i,
+  /what is .{1,90}$/i,
   /what is (?:15% of|\d+% of|the decimal value of|the next term|the median|the gradient|the period|the momentum|the power|the net force|the equivalent resistance)/,
   /what is log(?:arithm)?[_₀-₉0-9]*(?:\([^)]*\))?\s*(?:\d+|[0-9/]+)/,
   /solve\s+\d*x\s*[+−-]\s*\d+\s*=\s*\d+/,
