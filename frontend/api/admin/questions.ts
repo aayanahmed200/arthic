@@ -65,6 +65,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         )
         RETURNING id, exam_code, subject_code, topic, prompt, instruction, options,
                   answer_key, explanation, takeaway, source_kind, source_note,
+                  difficulty, exam_year, exam_month, exam_session,
                   version, is_published, is_archived, created_at, updated_at
       `;
       return res.status(201).json({ question: rows[0] });
@@ -93,6 +94,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         WHERE id = ${id} AND version = ${expectedVersion} AND is_archived = false
         RETURNING id, exam_code, subject_code, topic, prompt, instruction, options,
                   answer_key, explanation, takeaway, source_kind, source_note,
+                  difficulty, exam_year, exam_month, exam_session,
                   version, is_published, is_archived, created_at, updated_at
       `;
       if (!rows[0]) {
