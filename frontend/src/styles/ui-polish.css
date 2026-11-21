@@ -641,3 +641,158 @@ html body.content-page.career-page #main .careers-application-note p {
 @media (prefers-reduced-motion: reduce) {
   html body :is(a,button) { transition-duration: 0.01ms !important; }
 }
+
+
+/* Final layout corrections from the page review. Keep FAQ and role content
+   in a single readable column before arranging their internal elements. */
+html body.content-page.pricing-page #main .pricing-faq > .content-hero__topline {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin: 0 0 10px !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__heading {
+  max-width: none !important;
+  margin: 10px 0 22px !important;
+  text-align: left !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__list {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-auto-flow: row !important;
+  gap: 0 !important;
+  width: 100% !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 0 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-bottom: 1px solid #E6DED2 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item dt {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item .faq__q {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 22px !important;
+  width: 100% !important;
+  min-height: 72px !important;
+  margin: 0 !important;
+  padding: 18px 2px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #243C2E !important;
+  text-align: left !important;
+  font: 650 clamp(16px, 1.7vw, 20px)/1.3 "Bricolage Grotesque", sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item .faq__q:hover:not(:disabled) {
+  border: 0 !important;
+  background: transparent !important;
+  color: #243C2E !important;
+  transform: none !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item .faq__q > span:first-child {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow-wrap: normal !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item .faq__icon {
+  display: grid !important;
+  place-items: center !important;
+  flex: 0 0 34px !important;
+  width: 34px !important;
+  height: 34px !important;
+  border: 1px solid #DED8CC !important;
+  border-radius: 50% !important;
+  background: #FFFFFF !important;
+}
+html body.content-page.pricing-page #main .pricing-faq__item dd {
+  grid-column: 1 !important;
+  width: 100% !important;
+  max-width: 82ch !important;
+  margin: 0 !important;
+  padding: 0 54px 20px 2px !important;
+  color: #5D6359 !important;
+  font: 400 13px/1.75 "Poppins", sans-serif !important;
+  overflow-wrap: break-word !important;
+}
+
+/* The careers roles are full-width rows, not three narrow cards. */
+html body.content-page.career-page #main .career-list--detailed {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-auto-flow: row !important;
+  gap: 14px !important;
+  width: 100% !important;
+}
+html body.content-page.career-page #main .career-role--detailed {
+  grid-template-columns: 44px minmax(0, 1fr) minmax(170px, 190px) !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+html body.content-page.career-page #main .career-role__content {
+  grid-column: 2 !important;
+  min-width: 0 !important;
+  align-content: start !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  width: 100% !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid > div {
+  min-width: 0 !important;
+  height: 100% !important;
+}
+html body.content-page.career-page #main .career-role__detail-grid li {
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+html body.content-page.career-page #main .career-role__link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  justify-self: stretch !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  white-space: normal !important;
+  line-height: 1.4 !important;
+}
+
+/* Let market-reference cards fill their grid tracks evenly. */
+html body.content-page.pricing-page #main .pricing-benchmark {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+/* A clear, low-emphasis note under the estimated difficulty selector. */
+html body.content-page.study-preview-page .study-quiz-form__hint {
+  max-width: 42ch !important;
+  margin: 7px 0 18px !important;
+  padding-left: 10px !important;
+  border-left: 2px solid rgba(184, 75, 56, .28) !important;
+  color: #687064 !important;
+  font: 400 11px/1.6 "Poppins", sans-serif !important;
+}
+
+
+/* On narrow screens, stack the role number, content and CTA in one column. */
+@media (max-width: 680px) {
+  html body.content-page.career-page #main .career-role__content {
+    grid-column: 1 !important;
+  }
+}

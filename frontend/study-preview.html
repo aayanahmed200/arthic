@@ -72,8 +72,8 @@
     <div class="study-intro__layout">
       <div class="study-intro__copy">
         <div class="content-hero__topline"><span>ARTHIC PRACTICE</span><span>LCAT · NET · CSS · MDCAT</span></div>
-        <h1>Start with a short quiz.</h1>
-        <p class="study-intro__lede">Choose an exam board, then narrow your quiz by subject or difficulty. Your practice workspace opens with a focused 10-question set.</p>
+        <h1>Choose your practice.</h1>
+        <p class="study-intro__lede">Choose an exam board to begin. Subject and estimated difficulty are optional filters; each session contains 10 questions.</p>
       </div>
       <div class="study-intro__count" aria-label="Question bank size">
         <strong data-bank-total>1,000</strong>
@@ -83,12 +83,12 @@
     </div>
   </section>
 
-  <section class="study-workspace content-container" aria-label="Short practice quiz" data-quiz-workspace data-stage="setup">
-    <aside class="study-rail" aria-label="Set up your quiz" data-quiz-setup-panel>
+  <section class="study-workspace content-container" aria-label="Practice setup" data-quiz-workspace data-stage="setup">
+    <aside class="study-rail" aria-label="Choose practice filters" data-quiz-setup-panel>
       <div class="study-rail__heading">
-        <span class="study-rail__eyebrow">BUILD A SHORT QUIZ</span>
+        <span class="study-rail__eyebrow">PRACTICE SETUP</span>
         <strong class="study-rail__name">Choose your focus.</strong>
-        <p class="study-rail__intro">Choose your board and optional subject or difficulty, then start a 10-question set.</p>
+        <p class="study-rail__intro">Select an exam board, then add an optional subject or estimated difficulty filter.</p>
       </div>
       <form class="study-quiz-form" data-quiz-setup>
         <label class="study-filter-label" for="quizExamSelect">EXAM BOARD <span aria-hidden="true">*</span></label>
@@ -105,14 +105,14 @@
           <option value="ALL">Any subject</option>
         </select>
 
-        <label class="study-filter-label" for="quizDifficultySelect">DIFFICULTY</label>
-        <select class="study-filter-select" id="quizDifficultySelect" data-quiz-difficulty data-custom-select>
+        <label class="study-filter-label" for="quizDifficultySelect">DIFFICULTY <span class="study-filter-optional">ESTIMATED</span></label>
+        <select class="study-filter-select" id="quizDifficultySelect" data-quiz-difficulty data-custom-select aria-describedby="quizDifficultyNote">
           <option value="ALL">Mixed difficulty</option>
           <option value="EASY">Easy</option>
           <option value="STANDARD">Standard</option>
           <option value="CHALLENGING">Challenging</option>
         </select>
-        <p class="study-quiz-form__hint">Difficulty is an estimated practice level based on question complexity, not an official exam rating.</p>
+        <p class="study-quiz-form__hint" id="quizDifficultyNote">An estimate based on question complexity, not an official exam difficulty rating.</p>
 
         <button class="study-quiz-start" type="submit" data-start-quiz>Start 10-question quiz</button>
         <p class="study-quiz-form__status" data-quiz-status aria-live="polite">Choose an exam board to see matching questions.</p>

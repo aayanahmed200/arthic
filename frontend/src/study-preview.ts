@@ -222,7 +222,7 @@ if (root) {
           setQuizStatus("The practice bank could not load. Refresh the page to try again.", "error");
         } else {
           setQuizStatus(activeExam
-            ? count + " questions match these settings. A short quiz uses up to 10."
+            ? count + " questions match these settings. A practice session contains up to 10 questions."
             : "Choose an exam board to see matching questions.");
         }
       }
@@ -466,7 +466,7 @@ if (root) {
       questionIndex = 0;
       number!.textContent = "READY WHEN YOU ARE";
       topic!.textContent = "10 questions · one at a time";
-      prompt!.textContent = "Choose your exam board to build a short quiz.";
+      prompt!.textContent = "Choose an exam board to begin a practice session.";
       instruction!.textContent = "Select an exam, optionally narrow by subject and difficulty, then start your 10-question quiz.";
       root!.querySelector<HTMLElement>("[data-current-exam]")!.textContent = "EXAM BOARD";
       root!.querySelector<HTMLElement>("[data-current-subject]")!.textContent = "SUBJECT";
