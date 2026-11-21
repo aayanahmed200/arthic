@@ -18,9 +18,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "method not allowed" });
   }
   res.setHeader("Cache-Control", "no-store");
+  // A lightweight per-IP gate catches repeated invalid Basic-Auth attempts
+  // whenever the shared limiter is available. The authenticated operations
+  // use a strict second limit so writes never proceed without protection.
+  if (!(await checkRateLimit(req, res, "admin-auth", 12, 60))) return;
   if (!requireAdmin(req, res)) return;
   if (!process.env.POSTGRES_URL) return res.status(503).json({ error: "Postgres is not configured on the server." });
-  if (!(await checkRateLimit(req, res, "admin-question-bank", 180, 60))) return;
+  if (!(await checkRateLimit(req, res, "admin-question-bank", 180, 60, true))) return;
 
   try {
     if (req.method === "GET") {
