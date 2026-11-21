@@ -5880,12 +5880,6 @@ html body.content-page.study-preview-page .study-filter-search:focus {
   outline:2px solid rgba(29,64,51,.12) !important;
   outline-offset:1px !important;
 }
-html body.content-page.study-preview-page .study-quiz-form__hint {
-  margin:7px 0 0 !important;
-  color:var(--arthic-forest-soft) !important;
-  font-size:9px !important;
-  line-height:1.55 !important;
-}
 html body.content-page.study-preview-page .study-quiz-form__status {
   min-height:32px !important;
   margin:11px 0 0 !important;
@@ -8466,12 +8460,6 @@ html body.study-preview-page .study-workspace[data-stage="setup"] .study-filter-
   color:#1D3327 !important;
   font-size:13px !important;
   line-height:1.4 !important;
-}
-html body.study-preview-page .study-workspace[data-stage="setup"] .study-quiz-form__hint {
-  margin:0 0 5px !important;
-  color:#798579 !important;
-  font-size:10px !important;
-  line-height:1.65 !important;
 }
 html body.study-preview-page .study-workspace[data-stage="setup"] .study-quiz-start {
   width:100% !important;
