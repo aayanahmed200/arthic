@@ -10,7 +10,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "method not allowed" });
   }
-  if (!(await checkRateLimit(req, res, "study-check", 30, 60, true))) return;
+  if (!(await checkRateLimit(req, res, "study-check", 30, 60))) return;
 
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("X-Content-Type-Options", "nosniff");
