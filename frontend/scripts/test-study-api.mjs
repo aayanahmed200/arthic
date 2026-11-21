@@ -125,7 +125,7 @@ try {
 
   assert.equal(SAMPLE_QUESTIONS.length, 1080);
   assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => question.id)).size, 1080, "question IDs must be unique");
-  assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => normalizeQuestionStem(question.prompt))).size, 1060,
+  assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => normalizeQuestionStem(question.prompt))).size, 1080,
     "duplicate question stems must be removed across all exam tracks");
 
   const difficultyValues = new Set(["EASY", "STANDARD", "CHALLENGING"]);
