@@ -32,7 +32,22 @@ try {
   const checkHandler = (await server.ssrLoadModule("/api/study/check.ts")).default;
   const { SAMPLE_QUESTIONS } = await server.ssrLoadModule("/api/study/_sample-content.ts");
   const { V18_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v18-sample-questions.ts");
-  const { normalizeQuestionStem } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
+  const { normalizeQuestionStem, classifyPracticeDifficulty } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
+
+  const difficultyCases = [
+    [{ topic: "Cell organelles", prompt: "Which organelle is the main site of aerobic respiration in a eukaryotic cell?" }, "EASY"],
+    [{ topic: "Percentages", prompt: "What is 15% of 240?" }, "EASY"],
+    [{ topic: "Specific heat capacity", prompt: "How much heat is needed to raise the temperature of 0.5 kg of water by 10°C?" }, "STANDARD"],
+    [{ topic: "Probability without replacement", prompt: "A bag contains 3 red counters and 2 blue counters. Two counters are selected without replacement. What is the probability that both are red?" }, "CHALLENGING"],
+    [{ topic: "Evaluating evidence", prompt: "Which additional evidence would best test whether the workshops caused the increase in scores?" }, "CHALLENGING"],
+    [{ topic: "Constitutional structure", prompt: "Which combination makes up the Parliament under Pakistan's parliamentary system?" }, "STANDARD"],
+    [{ topic: "Stoichiometry", prompt: "What does the limiting reagent determine in a chemical reaction?" }, "STANDARD"],
+    [{ topic: "Basic biology", prompt: "What is osmosis?" }, "EASY"],
+  ];
+  for (const [question, expected] of difficultyCases) {
+    assert.equal(classifyPracticeDifficulty(question), expected,
+      "difficulty should fit task: " + question.prompt);
+  }
 
   const feed = mockRequest("GET");
   await questionsHandler(feed.req, feed.res);
@@ -74,6 +89,15 @@ try {
     "duplicate question stems must be removed across all exam tracks");
 
   const difficultyValues = new Set(["EASY", "STANDARD", "CHALLENGING"]);
+  const difficultyDistribution = Object.fromEntries(examCodes.map((examCode) => {
+    const counts = { EASY: 0, STANDARD: 0, CHALLENGING: 0 };
+    for (const question of SAMPLE_QUESTIONS.filter((item) => item.examCode === examCode)) {
+      counts[question.difficulty]++;
+    }
+    assert.ok(counts.EASY > 0 && counts.STANDARD > 0 && counts.CHALLENGING > 0,
+      examCode + " must have a useful spread of question levels");
+    return [examCode, counts];
+  }));
   for (const question of SAMPLE_QUESTIONS) {
     assert.ok(question.prompt.trim().length >= (question.id.startsWith("v18-") ? 20 : 8), question.id + " prompt too short");
     assert.ok(question.topic.trim(), question.id + " missing topic");
@@ -157,6 +181,7 @@ try {
   await questionsHandler(feedWrongMethod.req, feedWrongMethod.res);
   assert.equal(feedWrongMethod.res.code, 405);
 
+  console.log("Difficulty distribution:", JSON.stringify(difficultyDistribution));
   console.log("Study question API tests passed (1,060 unique questions; 265 per exam track):");
   console.log("- 127 unique V18 additions are present; six repeated stems are explicitly identified");
   console.log("- every item has a subject, topic, four distinct options, explanation and explicit difficulty");
