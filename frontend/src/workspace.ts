@@ -5,7 +5,7 @@ import "./styles/workspace.css";
 import { initCommon } from "./lib/common-init";
 import {
   authIsConfigured, getAccessToken, saveAccountConsent,
-  signOut, startGoogleSignIn,
+  startGoogleSignIn,
 } from "./lib/student-auth";
 
 initCommon();
