@@ -15,6 +15,7 @@ const originalFetch = globalThis.fetch;
 const originalUrl = process.env.SUPABASE_URL;
 const originalKey = process.env.SUPABASE_PUBLISHABLE_KEY;
 const originalAccountsEnabled = process.env.STUDENT_ACCOUNTS_ENABLED;
+const originalPostgresUrl = process.env.POSTGRES_URL;
 
 function mockRequest(method, authorization) {
   const res = {
@@ -51,6 +52,7 @@ try {
   delete process.env.SUPABASE_URL;
   delete process.env.SUPABASE_PUBLISHABLE_KEY;
   delete process.env.STUDENT_ACCOUNTS_ENABLED;
+  delete process.env.POSTGRES_URL;
 
   const noToken = mockRequest("GET");
   await me(noToken.req, noToken.res);
@@ -160,5 +162,7 @@ try {
   else process.env.SUPABASE_PUBLISHABLE_KEY = originalKey;
   if (originalAccountsEnabled === undefined) delete process.env.STUDENT_ACCOUNTS_ENABLED;
   else process.env.STUDENT_ACCOUNTS_ENABLED = originalAccountsEnabled;
+  if (originalPostgresUrl === undefined) delete process.env.POSTGRES_URL;
+  else process.env.POSTGRES_URL = originalPostgresUrl;
   await server.close();
 }
