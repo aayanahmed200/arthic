@@ -31,12 +31,19 @@ try {
   const questionsHandler = (await server.ssrLoadModule("/api/study/questions.ts")).default;
   const checkHandler = (await server.ssrLoadModule("/api/study/check.ts")).default;
   const { SAMPLE_QUESTIONS } = await server.ssrLoadModule("/api/study/_sample-content.ts");
+  const { V18_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v18-sample-questions.ts");
   const { normalizeQuestionStem } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
 
   const feed = mockRequest("GET");
   await questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
+  const survivingIds = new Set(SAMPLE_QUESTIONS.map((question) => question.id));
+  const existingByStem = new Map(SAMPLE_QUESTIONS.map((question) => [normalizeQuestionStem(question.prompt), question.id]));
   console.log("DE-DUP COUNTS", JSON.stringify({
+    rawV18: V18_SAMPLE_QUESTIONS.length,
+    missingV18: V18_SAMPLE_QUESTIONS.filter((question) => !survivingIds.has(question.id)).map((question) => ({
+      id: question.id, prompt: question.prompt, duplicateOf: existingByStem.get(normalizeQuestionStem(question.prompt)) || "unknown",
+    })),
     total: feed.res.body.questions.length,
     byExam: Object.fromEntries(["LCAT", "NET", "CSS", "MDCAT"].map((exam) => [exam,
       feed.res.body.questions.filter((question) => question.examCode === exam).length
