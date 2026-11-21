@@ -11,6 +11,6 @@ initCommon();
 if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 if (!window.location.hash) {
   window.addEventListener("pageshow", () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, { once: true });
 }
