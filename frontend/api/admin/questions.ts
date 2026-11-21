@@ -111,7 +111,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           AND length(trim(prompt)) > 0 AND length(trim(explanation)) > 0
           AND length(trim(takeaway)) > 0
           AND answer_key IN (SELECT jsonb_array_elements(options)->>'key')
-          AND (source_kind = 'original-sample' OR source_note IS NOT NULL)
+          AND (
+            source_kind = 'original-sample'
+            OR (source_kind IN ('licensed', 'public-domain') AND source_note IS NOT NULL)
+            OR (source_kind = 'past-paper' AND source_note IS NOT NULL
+                AND exam_year BETWEEN 1950 AND 2100 AND exam_month BETWEEN 1 AND 12)
+          )
         RETURNING id, is_published, is_archived, version
       `;
       if (!rows[0]) return res.status(409).json({ error: "question is incomplete or no longer available. Save it first." });
