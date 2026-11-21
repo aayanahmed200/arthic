@@ -1,7 +1,14 @@
+import "./styles/main.css";
+import "./styles/brand-final.css";
+import "./styles/ui-polish.css";
+import "./styles/workspace.css";
+import { initCommon } from "./lib/common-init";
 import {
   clearAccountConsent, clearAuthIntent, completeGoogleCallback, currentAuthIntent,
   getAccessToken, readAccountConsent,
 } from "./lib/student-auth";
+
+initCommon();
 
 const status = document.querySelector<HTMLElement>("[data-callback-status]");
 function say(message: string, error = false): void {
