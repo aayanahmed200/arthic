@@ -43,14 +43,15 @@ ADMIN_EMAILS is a comma-separated allowlist of exact Google account email addres
 2. Sign in with a Google account listed in ADMIN_EMAILS.
 3. Select Initialize student database once.
 4. Confirm statistics load. Setup creates account, session, answer, preference and data-request tables. Original sample questions are seeded as drafts and not published automatically.
-5. Create a test student account through /dashboard.html, accept the current Terms and Privacy Policy, and complete the age/guardian declaration.
-6. Start a practice session while signed in, answer a question, reload Dashboard and check that the result synced.
+Do not create a student test account yet while the student account flags remain false. Complete the feature-flag enablement section below first, then use the test procedure there.
 
 ## 5. Enable student accounts only after setup
 
 Keep both student account flags set to false by default. The Google admin sign-in works independently of student registration. After the schema setup, Google callback verification, data-flow/security checks and legal/age-consent review are complete, set both STUDENT_ACCOUNTS_ENABLED and VITE_STUDENT_ACCOUNTS_ENABLED to true and rebuild/redeploy the frontend. The server still rejects new student accounts unless its server-side flag is true.
 
-## 6. Important limitations
+After enabling the flags in a controlled test environment, create a test student account through /dashboard.html, accept the current Terms and Privacy Policy, complete the age/guardian declaration, start a practice session and answer a question. Reload Dashboard and confirm that the result synced before enabling the feature for real students.
+
+## 7. Important limitations
 
 - The age/guardian declaration is self-attested and does not independently verify parent/guardian identity or permission. Do not broadly enable minor accounts until a suitable consent process has been implemented and reviewed by local counsel.
 - Account deletion is currently queued for administrative review. It does not automatically delete the Supabase Auth user. An administrator must remove both the student's application data and authentication identity and record completion.
