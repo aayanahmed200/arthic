@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { SAMPLE_QUESTIONS } from "./_sample-content.js";
+import { RETIRED_NEAR_DUPLICATE_IDS, SAMPLE_QUESTIONS } from "./_sample-content.js";
 
 const SUPPORTED_EXAMS = new Set(["LCAT", "NET", "CSS", "MDCAT"]);
-const DATA_VERSION = "arthic-original-four-track-v18-1060";
+const DATA_VERSION = "arthic-original-four-track-v19-1060";
 
 function normalizedSubjectCode(examCode: string, subjectCode: string): string {
   return examCode === "LCAT" && ["ENGLISH", "LOGIC", "ANALYTICAL"].includes(subjectCode)
@@ -63,7 +63,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const published = rows
         .map((row) => toPublicQuestion(row as Record<string, unknown>))
         .filter((question): question is NonNullable<ReturnType<typeof toPublicQuestion>> =>
-          question !== null && SUPPORTED_EXAMS.has(question.examCode)
+          question !== null &&
+          SUPPORTED_EXAMS.has(question.examCode) &&
+          !RETIRED_NEAR_DUPLICATE_IDS.has(question.id)
         );
       const merged = new Map<string, NonNullable<ReturnType<typeof toPublicQuestion>>>();
       SAMPLE_QUESTIONS.forEach((question) => merged.set(question.id, {
