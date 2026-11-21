@@ -165,6 +165,8 @@ html body.study-preview-page .study-workspace[data-stage="practice"] .study-sess
 }
 
 html body.study-preview-page .study-stats-rail {
+  position: sticky !important;
+  top: 92px !important;
   display: grid !important;
   align-content: start !important;
   gap: 12px !important;
