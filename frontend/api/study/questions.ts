@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { SAMPLE_QUESTIONS } from "./_sample-content.js";
 
 const SUPPORTED_EXAMS = new Set(["LCAT", "NET", "CSS", "MDCAT"]);
-const DATA_VERSION = "arthic-original-four-track-v17-1000";
+const DATA_VERSION = "arthic-original-four-track-v18-1060";
 
 function normalizedSubjectCode(examCode: string, subjectCode: string): string {
   return examCode === "LCAT" && ["ENGLISH", "LOGIC", "ANALYTICAL"].includes(subjectCode)
@@ -10,6 +10,7 @@ function normalizedSubjectCode(examCode: string, subjectCode: string): string {
     : subjectCode;
 }
 import { sql } from "../_db.js";
+import { classifyPracticeDifficulty } from "../../src/data/question-difficulty.js";
 
 function toPublicQuestion(row: Record<string, unknown>) {
   const rawOptions = typeof row.options === "string" ? JSON.parse(row.options) : row.options;
@@ -26,6 +27,18 @@ function toPublicQuestion(row: Record<string, unknown>) {
       return { key: String(option.key), text: String(option.text) };
     }),
     sourceKind: String(row.source_kind),
+    sourceNote: typeof row.source_note === "string" ? row.source_note : null,
+    difficulty: ["EASY", "STANDARD", "CHALLENGING"].includes(String(row.difficulty))
+      ? String(row.difficulty)
+      : classifyPracticeDifficulty({
+          examCode: String(row.exam_code),
+          subjectCode: String(row.subject_code),
+          topic: String(row.topic),
+          prompt: String(row.prompt),
+        }),
+    examYear: Number.isInteger(Number(row.exam_year)) && row.exam_year !== null ? Number(row.exam_year) : null,
+    examMonth: Number.isInteger(Number(row.exam_month)) && Number(row.exam_month) >= 1 && Number(row.exam_month) <= 12 ? Number(row.exam_month) : null,
+    examSession: typeof row.exam_session === "string" ? row.exam_session : null,
   };
 }
 
@@ -39,7 +52,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (process.env.POSTGRES_URL) {
     try {
       const { rows } = await sql`
-        SELECT id, exam_code, subject_code, topic, prompt, instruction, options, source_kind
+        SELECT id, exam_code, subject_code, topic, prompt, instruction, options,
+               source_kind, source_note, difficulty, exam_year, exam_month, exam_session
         FROM question_bank
         WHERE is_published = true AND is_archived = false
           AND exam_code IN ('LCAT', 'NET', 'CSS', 'MDCAT')
@@ -61,6 +75,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         instruction: question.instruction,
         options: question.options,
         sourceKind: question.sourceKind,
+        sourceNote: question.sourceNote ?? "Original Arthic practice question; not taken from an official past paper.",
+        difficulty: question.difficulty ?? classifyPracticeDifficulty(question),
+        examYear: question.examYear ?? null,
+        examMonth: question.examMonth ?? null,
+        examSession: question.examSession ?? null,
       }));
       published.forEach((question) => merged.set(question.id, question));
       if (merged.size) {
@@ -68,7 +87,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(200).json({
           dataVersion: DATA_VERSION,
           sourceKind: "mixed-original-and-curated",
-          isOfficialPastPaper: false,
+          isOfficialPastPaper: Array.from(merged.values()).some((question) =>
+            question.sourceKind === "past-paper" &&
+            Number.isInteger(question.examYear) &&
+            Number.isInteger(question.examMonth)
+          ),
           questions: Array.from(merged.values()),
         });
       }
@@ -92,6 +115,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       instruction: question.instruction,
       options: question.options,
       sourceKind: question.sourceKind,
+      sourceNote: question.sourceNote ?? "Original Arthic practice question; not taken from an official past paper.",
+      difficulty: question.difficulty ?? classifyPracticeDifficulty(question),
+      examYear: question.examYear ?? null,
+      examMonth: question.examMonth ?? null,
+      examSession: question.examSession ?? null,
     })),
   });
 }
