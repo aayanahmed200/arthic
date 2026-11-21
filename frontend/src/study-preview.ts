@@ -5,6 +5,7 @@ import "./styles/arthic-study-final.css";
 import "./styles/brand-final.css";
 import "./styles/ui-polish.css";
 import { initCommon } from "./lib/common-init";
+import { getAccessToken } from "./lib/student-auth";
 
 initCommon();
 
@@ -149,6 +150,47 @@ if (root) {
     let pendingOptionKey: string | null = null;
     let questions: StudyQuestionPrompt[] = [];
     const answers = new Map<string, StudyAnswer>();
+    let savedSessionId: string | null = null;
+
+    async function closeSavedSession(finalStatus: "completed" | "abandoned"): Promise<void> {
+      const sessionId = savedSessionId;
+      savedSessionId = null;
+      if (!sessionId) return;
+      const token = await getAccessToken();
+      if (!token) return;
+      try {
+        await fetch("/api/student/sessions", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+          body: JSON.stringify({ sessionId, status: finalStatus }),
+          cache: "no-store",
+        });
+      } catch {
+        // The local practice view remains usable if the session cannot be closed.
+      }
+    }
+
+    async function startSavedSession(): Promise<string | null> {
+      const token = await getAccessToken();
+      if (!token) return null;
+      try {
+        const response = await fetch("/api/student/sessions", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+          body: JSON.stringify({
+            examCode: activeExam,
+            subjectCode: activeSubject,
+            questionCount: questions.length,
+          }),
+          cache: "no-store",
+        });
+        if (!response.ok) return null;
+        const result = await response.json() as { sessionId?: unknown };
+        return typeof result.sessionId === "string" ? result.sessionId : null;
+      } catch {
+        return null;
+      }
+    }
 
     if (activeExam) examSelect!.value = activeExam;
 
@@ -364,11 +406,21 @@ function updateAvailableCount(): void {
       nextButton!.disabled = true;
       finishButton!.disabled = true;
       try {
+        const token = savedSessionId ? await getAccessToken() : null;
+        if (savedSessionId && !token) throw new Error("Your sign-in session expired. Sign in again before syncing this answer.");
         const response = await fetch("/api/study/check", {
           method: "POST",
-          headers: { Accept: "application/json", "Content-Type": "application/json" },
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            ...(savedSessionId && token ? { Authorization: "Bearer " + token } : {}),
+          },
           credentials: "same-origin",
-          body: JSON.stringify({ questionId: question.id, selectedOption: optionKey }),
+          body: JSON.stringify({
+            questionId: question.id,
+            selectedOption: optionKey,
+            ...(savedSessionId ? { sessionId: savedSessionId } : {}),
+          }),
         });
         if (!response.ok) throw new Error("Answer check failed with " + response.status);
         const result = await response.json() as {
@@ -417,8 +469,9 @@ function updateAvailableCount(): void {
       renderQuestion(true);
     }
 
-    function showComplete(): void {
+    async function showComplete(): Promise<void> {
       if (isSubmitting || !questions.length) return;
+      await closeSavedSession("completed");
       questionScreen!.hidden = true;
       completeScreen!.hidden = false;
       const counts = getCounts();
@@ -521,6 +574,7 @@ function updateAvailableCount(): void {
       studySession!.setAttribute("aria-busy", "true");
       setQuizStatus("Picking your questions…");
       try {
+        await closeSavedSession("abandoned");
         await QUESTION_FEED_READY;
         // Refresh the candidate pool after the live feed has completed.
         const readyCandidates = questionsForSetup();
@@ -528,6 +582,7 @@ function updateAvailableCount(): void {
           .slice(0, QUIZ_LENGTH);
         questions = selected;
         answers.clear();
+        savedSessionId = await startSavedSession();
         questionIndex = 0;
         quizStarted = true;
         setupPanel!.hidden = true;
@@ -539,7 +594,8 @@ function updateAvailableCount(): void {
         trackLabels.forEach((label) => { label.textContent = EXAM_LABELS[activeExam] ?? activeExam; });
         renderQuestion();
         const chosenDifficulty = difficultySelect!.selectedOptions[0]?.textContent ?? "Mixed difficulty";
-        setQuizStatus("Quiz ready · " + questions.length + " questions · " + chosenDifficulty + ".");
+        setQuizStatus("Quiz ready · " + questions.length + " questions · " + chosenDifficulty +
+          (savedSessionId ? " · progress sync is on." : " · this session is temporary on this device."));
       } finally {
         boardLoading!.hidden = true;
         studySession!.removeAttribute("aria-busy");
@@ -584,6 +640,7 @@ function updateAvailableCount(): void {
     changeQuizButton!.addEventListener("click", () => {
       if (isSubmitting || isPreparingQuiz) return;
       quizStarted = false;
+      void closeSavedSession("abandoned");
       setupPanel!.hidden = false;
       studySession!.hidden = true;
       statsPanel!.hidden = true;
@@ -599,11 +656,15 @@ function updateAvailableCount(): void {
     finishButton!.addEventListener("click", showComplete);
     resetButtons.forEach((button) => button.addEventListener("click", () => {
       if (isSubmitting) return;
-      questions.forEach((question) => answers.delete(question.id));
-      questionIndex = 0;
-      completeScreen!.hidden = true;
-      questionScreen!.hidden = false;
-      renderQuestion(true);
+      void (async () => {
+        await closeSavedSession("abandoned");
+        questions.forEach((question) => answers.delete(question.id));
+        questionIndex = 0;
+        savedSessionId = await startSavedSession();
+        completeScreen!.hidden = true;
+        questionScreen!.hidden = false;
+        renderQuestion(true);
+      })();
     }));
 
     setupPanel!.hidden = false;
