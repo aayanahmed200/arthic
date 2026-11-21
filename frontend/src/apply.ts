@@ -81,7 +81,11 @@ const tag = document.querySelector<HTMLElement>("[data-role-tag]");
 if (tag) tag.textContent = role.tag;
 
 const body = document.querySelector<HTMLElement>("[data-role-body]");
-if (body) body.textContent = role.blurb;
+if (body) {
+  body.textContent = role.blurb;
+  body.classList.remove("apply-role__body--loading");
+  body.removeAttribute("aria-busy");
+}
 
 const roleField = document.querySelector<HTMLInputElement>("[data-role-field]");
 if (roleField) roleField.value = role.dbRole;
