@@ -4,7 +4,7 @@ import "./styles/ui-polish.css";
 import "./styles/workspace.css";
 import { initCommon } from "./lib/common-init";
 import {
-  authIsConfigured, getAccessToken, readAccountConsent, saveAccountConsent,
+  authIsConfigured, getAccessToken, saveAccountConsent,
   signOut, startGoogleSignIn,
 } from "./lib/student-auth";
 
@@ -78,15 +78,18 @@ function showRows(selector: string, rows: Array<Record<string, unknown>>, fields
 }
 
 async function setupAccount(): Promise<void> {
+  const form = document.querySelector<HTMLFormElement>("[data-account-consent]");
+  if (!form || !form.reportValidity()) return;
+  const consent = {
+    acceptedTerms: Boolean(form.querySelector<HTMLInputElement>("[name=acceptTerms]")?.checked),
+    acceptedPrivacy: Boolean(form.querySelector<HTMLInputElement>("[name=acceptPrivacy]")?.checked),
+    ageDeclaration: Boolean(form.querySelector<HTMLInputElement>("[name=ageDeclaration]")?.checked),
+  };
+  if (!consent.acceptedTerms || !consent.acceptedPrivacy || !consent.ageDeclaration) return;
+  saveAccountConsent(consent);
+
   const token = await getAccessToken();
   if (!token) {
-    const form = document.querySelector<HTMLFormElement>("[data-account-consent]");
-    if (!form || !form.reportValidity()) return;
-    saveAccountConsent({
-      acceptedTerms: Boolean(form.querySelector<HTMLInputElement>("[name=acceptTerms]")?.checked),
-      acceptedPrivacy: Boolean(form.querySelector<HTMLInputElement>("[name=acceptPrivacy]")?.checked),
-      ageDeclaration: Boolean(form.querySelector<HTMLInputElement>("[name=ageDeclaration]")?.checked),
-    });
     await startGoogleSignIn("student");
     return;
   }
@@ -95,9 +98,9 @@ async function setupAccount(): Promise<void> {
   const response = await api("/api/student/account", {
     method: "POST",
     body: {
-      acceptTerms: true,
-      acceptPrivacy: true,
-      ageDeclaration: true,
+      acceptTerms: consent.acceptedTerms,
+      acceptPrivacy: consent.acceptedPrivacy,
+      ageDeclaration: consent.ageDeclaration,
       termsVersion: TERMS_VERSION,
       privacyVersion: PRIVACY_VERSION,
     },
@@ -171,17 +174,17 @@ async function loadSettings(): Promise<void> {
 }
 
 async function loadAdmin(): Promise<void> {
+  const token = await getAccessToken();
+  if (!token) {
+    show("[data-admin-auth]", true);
+    show("[data-admin-main]", false);
+    return;
+  }
+  show("[data-admin-auth]", false);
+  show("[data-admin-main]", true);
   try {
-    const token = await getAccessToken();
-    if (!token) {
-      show("[data-admin-auth]", true);
-      show("[data-admin-main]", false);
-      return;
-    }
     const data = await payload(await api("/api/admin/stats"));
     const totals = data.totals as Record<string, unknown> | undefined;
-    show("[data-admin-auth]", false);
-    show("[data-admin-main]", true);
     put("[data-admin-users]", totals?.users ?? 0);
     put("[data-admin-users-week]", totals?.newUsers7d ?? 0);
     put("[data-admin-sessions]", totals?.sessions ?? 0);
@@ -192,6 +195,7 @@ async function loadAdmin(): Promise<void> {
     put("[data-admin-applications]", totals?.applications ?? 0);
     put("[data-admin-requests]", totals?.pendingDataRequests ?? 0);
     showRows("[data-admin-track-rows]", Array.isArray(data.examActivity) ? data.examActivity as Array<Record<string, unknown>> : [], ["examCode", "sessions", "answered", "correct"]);
+    status("Statistics refreshed.", "success");
   } catch (error) {
     status(error instanceof Error ? error.message : "Could not load admin statistics.", "error");
   }
@@ -205,15 +209,6 @@ function initPage(): void {
     button.addEventListener("click", async () => {
       try {
         if (!authIsConfigured()) throw new Error("Google sign-in is not configured yet. Add the Supabase public settings first.");
-        if (page === "student") {
-          const form = document.querySelector<HTMLFormElement>("[data-account-consent]");
-          if (form && !form.reportValidity()) return;
-          if (form) saveAccountConsent({
-            acceptedTerms: Boolean(form.querySelector<HTMLInputElement>("[name=acceptTerms]")?.checked),
-            acceptedPrivacy: Boolean(form.querySelector<HTMLInputElement>("[name=acceptPrivacy]")?.checked),
-            ageDeclaration: Boolean(form.querySelector<HTMLInputElement>("[name=ageDeclaration]")?.checked),
-          });
-        }
         await startGoogleSignIn(page === "admin" ? "admin" : "student");
       } catch (error) {
         status(error instanceof Error ? error.message : "Could not start Google sign-in.", "error");
@@ -227,6 +222,22 @@ function initPage(): void {
       await signOut();
       window.location.replace("/dashboard.html");
     });
+  });
+
+  document.querySelector<HTMLButtonElement>("[data-initialize-schema]")?.addEventListener("click", async () => {
+    const button = document.querySelector<HTMLButtonElement>("[data-initialize-schema]");
+    if (button) button.disabled = true;
+    status("Preparing the student database and question tables…");
+    try {
+      const response = await api("/api/admin/setup-students", { method: "POST", body: {} });
+      const result = await payload(response);
+      status(typeof result.message === "string" ? result.message : "Database setup completed.", "success");
+      await loadAdmin();
+    } catch (error) {
+      status(error instanceof Error ? error.message : "Database setup failed.", "error");
+    } finally {
+      if (button) button.disabled = false;
+    }
   });
 
   const consentForm = document.querySelector<HTMLFormElement>("[data-account-consent]");
