@@ -2934,6 +2934,8 @@ export const RETIRED_NEAR_DUPLICATE_IDS = new Set<string>([
   "v11-net-016",
   "net-new-014",
   "v11-net-003",
+  // The later binary-value wording was previously surviving the exact-stem pass.
+  "v13-net-009",
   // CSS MPT: repeated federalism, Constitution and Objectives Resolution facts.
   "v11-css-002",
   "v10-css-014",
@@ -2949,6 +2951,8 @@ export const RETIRED_NEAR_DUPLICATE_IDS = new Set<string>([
   "mdcat-new-010",
   "mdcat-next-008",
   "mdcat-extra-005",
+  // Keep the clearer nephron-ultrafiltration item and retire its exact copy.
+  "mdcat-plus-002",
 ]);
 
 const QUESTION_SOURCES: PrivateStudyQuestion[] = [
