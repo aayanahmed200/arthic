@@ -130,6 +130,11 @@ try {
   assert.equal(incorrect.res.headers["Cache-Control"], "no-store");
 
   for (const question of feed.res.body.questions) {
+    assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " public difficulty missing");
+    assert.ok(typeof question.sourceNote === "string" && question.sourceNote.trim(), question.id + " public provenance missing");
+    assert.equal(question.sourceKind, "original-sample", question.id + " should be labelled as original Arthic practice");
+    assert.equal(question.examYear, null, question.id + " must not have an invented year");
+    assert.equal(question.examMonth, null, question.id + " must not have an invented month");
     assert.equal("answer" in question, false);
     assert.equal("correctOption" in question, false);
     assert.equal("explanation" in question, false);
