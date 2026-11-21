@@ -2,6 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { RETIRED_NEAR_DUPLICATE_IDS, SAMPLE_QUESTIONS } from "./_sample-content.js";
 import { sql } from "../_db.js";
 import { checkRateLimit } from "../_rate_limit.js";
+import { authenticateStudent } from "../student/_supabase-auth.js";
 
 const QUESTION_ID_MAX = 100;
 
@@ -79,6 +80,63 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const isCorrect = selectedOption === question.answer;
+  let saved = false;
+  const authorization = req.headers.authorization;
+  if (authorization) {
+    const auth = await authenticateStudent(req);
+    if (!auth.ok) {
+      const status = auth.kind === "missing-token" || auth.kind === "invalid-token" ? 401 :
+        auth.kind === "email-unverified" ? 403 : 503;
+      return res.status(status).json({ error: auth.message });
+    }
+    const sessionId = typeof body.sessionId === "string" ? body.sessionId.trim() : "";
+    if (!/^[0-9a-f-]{36}$/i.test(sessionId)) {
+      return res.status(400).json({ error: "A valid active practice session is required to sync this answer." });
+    }
+    if (!process.env.POSTGRES_URL) {
+      return res.status(503).json({ error: "Practice syncing is unavailable because student storage is not configured." });
+    }
+    try {
+      const persisted = await sql`
+        WITH active_session AS (
+          SELECT id
+          FROM study_sessions
+          WHERE id = ${sessionId}
+            AND student_id = ${auth.identity.id}
+            AND status = 'active'
+            AND answered_count < question_count
+          FOR UPDATE
+        ),
+        inserted_answer AS (
+          INSERT INTO study_answers (
+            study_session_id, student_id, question_id, question_version,
+            selected_option, is_correct, answered_at
+          )
+          SELECT id, ${auth.identity.id}, ${question.id}, 1,
+            ${selectedOption}, ${isCorrect}, now()
+          FROM active_session
+          ON CONFLICT (study_session_id, question_id) DO NOTHING
+          RETURNING id
+        )
+        UPDATE study_sessions
+        SET answered_count = answered_count + 1,
+            correct_count = correct_count + CASE WHEN ${isCorrect} THEN 1 ELSE 0 END,
+            updated_at = now()
+        WHERE id = ${sessionId}
+          AND student_id = ${auth.identity.id}
+          AND status = 'active'
+          AND EXISTS (SELECT 1 FROM inserted_answer)
+        RETURNING id
+      `;
+      if (!persisted.rows[0]) {
+        return res.status(409).json({ error: "This session is closed, full or this question has already been answered in it." });
+      }
+      saved = true;
+    } catch (error) {
+      console.error("student answer sync failed", error);
+      return res.status(503).json({ error: "Your answer was checked, but it could not be synced. Try again after checking your connection." });
+    }
+  }
   return res.status(200).json({
     questionId: question.id,
     selectedOption,
@@ -86,5 +144,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     isCorrect,
     explanation: question.explanation,
     takeaway: question.takeaway,
+    saved,
   });
 }
