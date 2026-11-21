@@ -1020,3 +1020,31 @@ html body.content-page.career-page #main .careers-note .careers-role__link {
   html body.content-page.career-page #main .careers-role__link { width: 100% !important; }
   html body.content-page.career-page #main .careers-note .careers-role__link { width: 100% !important; }
 }
+
+
+/* Question provenance and per-question level are always visible above the stem. */
+html body.content-page.study-preview-page .study-question__meta-line {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 7px !important;
+  margin: 0 0 8px !important;
+  color: #7B513E !important;
+  font: 650 10px/1.55 "Poppins", sans-serif !important;
+  letter-spacing: .09em !important;
+  text-transform: uppercase !important;
+}
+html body.content-page.study-preview-page .study-question__source {
+  margin: 0 0 16px !important;
+  color: #687064 !important;
+  font: 400 11px/1.65 "Poppins", sans-serif !important;
+  overflow-wrap: anywhere !important;
+}
+html body.content-page.study-preview-page .study-quiz-form__hint {
+  max-width: 46ch !important;
+  margin: 8px 0 18px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  color: #687064 !important;
+  font: 400 12px/1.65 "Poppins", sans-serif !important;
+}
