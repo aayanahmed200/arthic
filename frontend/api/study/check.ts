@@ -11,7 +11,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "method not allowed" });
   }
-  if (!(await checkRateLimit(req, res, "study-check", 30, 60))) return;
+  const authorization = req.headers.authorization;
+  if (!(await checkRateLimit(req, res, "study-check", 30, 60, Boolean(authorization)))) return;
 
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("X-Content-Type-Options", "nosniff");
@@ -81,7 +82,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const isCorrect = selectedOption === question.answer;
   let saved = false;
-  const authorization = req.headers.authorization;
   if (authorization) {
     const auth = await authenticateStudent(req);
     if (!auth.ok) {
