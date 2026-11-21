@@ -185,6 +185,9 @@ async function loadAdmin(): Promise<void> {
   try {
     const data = await payload(await api("/api/admin/stats"));
     const totals = data.totals as Record<string, unknown> | undefined;
+    put("[data-admin-pageviews]", totals?.pageViews7d ?? 0);
+    put("[data-admin-pageviews-today]", totals?.pageViewsToday ?? 0);
+    showRows("[data-admin-page-rows]", Array.isArray(data.pageActivity) ? data.pageActivity as Array<Record<string, unknown>> : [], ["path", "views"]);
     put("[data-admin-users]", totals?.users ?? 0);
     put("[data-admin-users-week]", totals?.newUsers7d ?? 0);
     put("[data-admin-sessions]", totals?.sessions ?? 0);
