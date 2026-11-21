@@ -82,7 +82,9 @@ export async function checkRateLimit(
     }
     return true;
   } catch (err) {
-    console.error("rate limit check failed", err);
+    // Missing database configuration is an expected fail-closed state in
+    // local/test environments; avoid logging a full stack for that case.
+    if (process.env.POSTGRES_URL) console.error("rate limit check failed", err);
     if (failClosed) {
       res.setHeader("Retry-After", String(windowSeconds));
       res.status(503).json({ error: "request protection is temporarily unavailable. Please try again shortly." });
