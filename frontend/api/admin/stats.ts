@@ -26,7 +26,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         (SELECT COUNT(*) FROM question_bank WHERE is_published = true AND is_archived = false)::int AS published_questions,
         (SELECT COUNT(*) FROM subscribers)::int AS waitlist,
         (SELECT COUNT(*) FROM applications)::int AS applications,
-        (SELECT COUNT(*) FROM student_data_requests WHERE status IN ('requested', 'in_progress'))::int AS pending_data_requests
+        (SELECT COUNT(*) FROM student_data_requests WHERE status IN ('requested', 'in_progress'))::int AS pending_data_requests,
+        (SELECT COALESCE(SUM(views), 0) FROM site_page_views WHERE view_date >= CURRENT_DATE - INTERVAL '6 days')::int AS page_views_7d,
+        (SELECT COALESCE(SUM(views), 0) FROM site_page_views WHERE view_date = CURRENT_DATE)::int AS page_views_today
     `;
     const row = totalsResult.rows[0] as Record<string, unknown>;
     const answers = Number(row.answers ?? 0);
@@ -44,6 +46,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       WHERE r.status IN ('requested', 'in_progress')
       ORDER BY r.created_at ASC LIMIT 50
     `;
+    const pageRows = await sql`
+      SELECT path, SUM(views)::int AS views
+      FROM site_page_views
+      WHERE view_date >= CURRENT_DATE - INTERVAL '6 days'
+      GROUP BY path
+      ORDER BY views DESC
+      LIMIT 20
+    `;
     return res.status(200).json({
       totals: {
         users: Number(row.users ?? 0),
@@ -55,12 +65,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         waitlist: Number(row.waitlist ?? 0),
         applications: Number(row.applications ?? 0),
         pendingDataRequests: Number(row.pending_data_requests ?? 0),
+        pageViews7d: Number(row.page_views_7d ?? 0),
+        pageViewsToday: Number(row.page_views_today ?? 0),
       },
       examActivity: examRows.rows.map((item) => ({
         examCode: String(item.exam_code),
         sessions: Number(item.sessions ?? 0),
         answered: Number(item.answered ?? 0),
         correct: Number(item.correct ?? 0),
+      })),
+      pageActivity: pageRows.rows.map((item) => ({
+        path: String(item.path),
+        views: Number(item.views ?? 0),
       })),
       dataRequests: requestRows.rows.map((item) => ({
         requestId: String(item.id),
@@ -69,7 +85,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         status: String(item.status),
         createdAt: item.created_at instanceof Date ? item.created_at.toISOString() : String(item.created_at),
       })),
-      privacyNote: "Aggregate account and practice statistics only; no anonymous page-view tracking is collected by this endpoint.",
+      privacyNote: "Daily route-level public page views are aggregated without user identifiers; private workspace pages are excluded.",
     });
   } catch (error) {
     console.error("admin statistics request failed", error);
