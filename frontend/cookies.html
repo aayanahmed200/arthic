@@ -1,166 +1,70 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light" />
-<script>document.documentElement.setAttribute("data-theme", "light");</script>
-<title>Cookies and browser storage | Arthic</title>
-<meta name="description" content="What arthic.tech actually stores in your browser, in plain language — and it's less than you'd think." />
-<meta name="theme-color" content="#F7F2E8" />
-
-<link rel="manifest" href="/site.webmanifest" />
-<link rel="canonical" href="https://www.arthic.tech/cookies.html" />
-
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Arthic" />
-<meta property="og:title" content="Cookies and browser storage | Arthic" />
-<meta property="og:description" content="What arthic.tech actually stores in your browser, in plain language — and it's less than you'd think." />
-<meta property="og:image" content="https://www.arthic.tech/og-image.png" />
-<meta property="og:url" content="https://www.arthic.tech/cookies.html" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Cookies and browser storage | Arthic" />
-<meta name="twitter:description" content="What arthic.tech actually stores in your browser, in plain language — and it's less than you'd think." />
-<meta name="twitter:image" content="https://www.arthic.tech/og-image.png" />
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/icon-512.png" />
-<link rel="manifest" href="/site.webmanifest" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#F7F2E8" />
+  <title>Cookies and browser storage | Arthic</title>
+  <meta name="description" content="A clear guide to cookies, browser session storage, Google sign-in and essential storage used by Arthic." />
+  <link rel="canonical" href="https://www.arthic.tech/cookies.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icon-512.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 </head>
 <body class="content-page legal-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main id="main">
+    <article class="entry container" id="top">
+      <header class="entry__head">
+        <p class="eyebrow">Legal / Browser storage</p>
+        <span class="entry__date">Effective and last updated: 21 November 2026</span>
+        <h1 class="entry__title">Cookies and browser storage.</h1>
+        <p class="entry__lede">What the site stores on your device, what is essential to sign in, and what it does not use.</p>
+      </header>
 
-<div class="grain" aria-hidden="true"></div>
-<a class="skip-link" href="#main">skip to content</a>
+      <div class="legal-layout">
+        <nav class="legal-toc" aria-label="On this page">
+          <span>On this page</span>
+          <a href="#overview">Overview</a>
+          <a href="#session">Sign-in session storage</a>
+          <a href="#site-storage">Practice and preferences</a>
+          <a href="#cookies">Cookies</a>
+          <a href="#third-party">External services</a>
+          <a href="#control">Your controls</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-<header class="nav" data-nav>
-  <div class="nav__inner container">
-    <a href="/" class="nav__mark" aria-label="Arthic — home">
-      <img class="brand-mark--light" src="/arthic-logo.png" alt="Arthic" width="800" height="272" />
-</a>
+        <div class="entry__body">
+          <p id="overview">A cookie is a small piece of information that a website or service may store in your browser. Browser storage also includes mechanisms such as sessionStorage and localStorage. This notice covers both, because they can serve similar purposes even though they are technically different.</p>
 
-    <nav class="nav__links" aria-label="primary">
-      <a href="/subjects.html" class="hover-underline" data-nav-link>subjects</a>
-      <a href="/method.html" class="hover-underline" data-nav-link>method</a>
-      <a href="/pricing.html" class="hover-underline" data-nav-link>pricing</a>
-      <a href="/careers.html" class="hover-underline" data-nav-link>careers</a>
-      <a href="/waitlist.html" class="btn btn--solid nav__cta"><span>waitlist</span></a>
-    </nav>
+          <h2 id="session">1. Essential sign-in session storage</h2>
+          <p>When you choose Google sign-in and complete account setup, Arthic stores the authentication provider's access and refresh credentials in the browser's <strong>sessionStorage</strong> for the active tab. This allows the site to make authenticated requests for your account and practice progress and to refresh the session while the tab remains open. The stored credentials are not a tracking cookie. Closing the tab or signing out removes the browser session; signing out also asks the authentication provider to end the session.</p>
+          <p>These credentials are sensitive. Do not share your device with someone you do not trust, keep your browser up to date, and sign out on a shared computer. If the browser session is cleared, you may need to sign in again. Arthic does not store your Google password.</p>
 
-    <div class="nav__utility">
-      <div class="nav__region">
-        <button class="nav__icon-btn nav__region-btn" type="button" data-region-toggle aria-haspopup="true" aria-expanded="false" aria-controls="regionPopover" aria-label="where Arthic covers exams, by region">
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3" />
-            <path d="M1.6 8h12.8M8 1.6c1.75 1.8 2.75 4.05 2.75 6.4S9.75 12.6 8 14.4C6.25 12.6 5.25 10.35 5.25 8S6.25 3.4 8 1.6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
-          </svg>
-        </button>
-        <div class="region-popover" id="regionPopover" data-region-popover role="menu" hidden>
-          <p class="region-popover__label">where we cover</p>
-          <a class="boards__region-tag boards__region-tag--live" role="menuitem" href="/subjects.html"><img class="boards__flag" src="/flags/pk.svg" alt="" width="18" height="13" /><span>Pakistan</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cambridgeinternational.org" target="_blank" rel="noopener" title="Arthic doesn't cover Cambridge yet — this links to Cambridge International's own site"><img class="boards__flag" src="/flags/gb.svg" alt="" width="18" height="13" /><span>UK</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.collegeboard.org" target="_blank" rel="noopener" title="Arthic doesn't cover the SAT/AP yet — this links to College Board's own site"><img class="boards__flag" src="/flags/us.svg" alt="" width="18" height="13" /><span>USA</span></a>
-          <a class="boards__region-tag boards__region-tag--soon" role="menuitem" href="https://www.cbse.gov.in" target="_blank" rel="noopener" title="Arthic doesn't cover CBSE yet — this links to CBSE's own site"><img class="boards__flag" src="/flags/in.svg" alt="" width="18" height="13" /><span>India</span></a>
+          <h2 id="site-storage">2. Practice state and preferences</h2>
+          <p>For visitors who are not signed in, an active practice quiz and its answer feedback remain in the page's memory and reset when the page is reloaded or closed. They are not a saved profile. When you are signed in and begin a synced session, question attempts and session totals are sent to Arthic's server and associated with your account so they can appear in the dashboard on another device after you sign in there. Settings you save are stored with your account.</p>
+          <p>The public website does not currently use localStorage for advertising, behavioural profiling or analytics identifiers. Site fonts are bundled with the website and served as local assets; the current font setup does not require a Google Fonts request.</p>
+
+          <h2 id="cookies">3. Cookies and analytics</h2>
+          <p>Arthic does not currently set analytics, advertising or retargeting cookies and does not currently run third-party analytics or advertising pixels. Our hosting, security and authentication providers may use strictly operational cookies or similar mechanisms on their own domains to deliver their services. When you are redirected to Google to authenticate, Google's own cookies and browser technologies are governed by Google's policies.</p>
+          <p>We do not use a third-party analytics or advertising cookie that requires an opt-in banner on the current site. If we add non-essential cookies or tracking in the future, we will update this notice and provide the choices required by applicable law before enabling them.</p>
+
+          <h2 id="third-party">4. External services</h2>
+          <p>Google is used only when you actively choose the Google sign-in option. Supabase provides authentication and may provide the database; Vercel hosts and serves Arthic. These services may process technical information needed to provide authentication, hosting, storage and security. Review their own policies for details of their processing.</p>
+
+          <h2 id="control">5. Your controls</h2>
+          <p>You can clear browser site data through your browser settings, close the tab to clear its sessionStorage, or sign out from Arthic Settings. Clearing browser data does not itself delete practice records already saved on Arthic's servers. To request server-side access, export or deletion, use the account controls when available or email <a href="mailto:hello@arthic.tech">hello@arthic.tech</a>.</p>
+          <p>Blocking all storage may prevent sign-in or synced account features from working. The public pages and anonymous sample practice can still be used without creating an account, subject to ordinary browser and security requirements.</p>
+
+          <h2 id="contact">6. Contact and updates</h2>
+          <p>If we change the browser technologies used by Arthic, we will update this notice and its date. Questions can be sent to <a href="mailto:hello@arthic.tech">hello@arthic.tech</a>.</p>
+          <p class="legal-disclaimer">This notice describes the current intended browser-storage setup. Your browser, Google and other third-party services may apply their own storage controls and policies.</p>
         </div>
       </div>
-    </div>
-
-    <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileNav">
-      <span data-nav-toggle-label>menu</span>
-    </button>
-  </div>
-</header>
-
-<div class="mobile-nav" id="mobileNav" data-mobile-nav>
-  <nav aria-label="mobile primary">
-    <a href="/subjects.html" data-mobile-link>01 — subjects</a>
-    <a href="/method.html" data-mobile-link>02 — method</a>
-    <a href="/pricing.html" data-mobile-link>03 — pricing</a>
-    <a href="/careers.html" data-mobile-link>04 — careers</a>
-    <a href="/waitlist.html" data-mobile-link>05 — join waitlist</a>
-  </nav>
-  <p class="mobile-nav__foot"><span>an all-in-one exam-prep platform for MDCAT, ECAT, NUST NET, FAST, CSS, PMS, and LUMS BA-LL.B. built by students, early.</span><a class="mobile-nav__mail" href="mailto:hello@arthic.tech">hello@arthic.tech</a></p>
-</div>
-
-<main id="main">
-  <article class="entry container" id="top">
-    <header class="entry__head" data-reveal>
-      <p class="eyebrow">Legal</p>
-      <span class="entry__date">last updated november 2026</span>
-      <h1 class="entry__title">Cookies and browser storage.</h1>
-      <p class="entry__lede">What the Arthic exam-preparation site stores in your browser, and which external requests it makes to display its typefaces.</p>
-    </header>
-
-    <div class="entry__body" data-reveal data-reveal-delay="100">
-      <p>
-        Most cookie policies are long because most sites use a lot of cookies — analytics,
-        advertising, third-party trackers, session management across a dozen services. Arthic
-        doesn't do any of that today, so this page says exactly what's true and stops there
-        rather than padding it out to look more official.
-      </p>
-
-      <h2>1. browser storage</h2><p>The current public site does not save a theme preference or a student profile in localStorage. The sample study preview keeps the active question and answer feedback in the page while you use it; that temporary practice state resets when the page is reloaded. It is not a saved student account or a persistent study history.</p>
-
-      <h2>2. analytics and advertising</h2><p>The site does not currently use analytics cookies, advertising or retargeting pixels, or third-party advertising trackers. There is no live student login or account session on the public site. If future account or platform features require additional browser storage, this page will be updated to explain what is used and why before those features are introduced.</p>
-
-      <h2>3. external font requests</h2><p>Arthic loads the Inter and Lilita One typefaces from Google Fonts. Your browser requests the font files from Google, which may receive your IP address and basic browser request information needed to deliver them. This request provides the site's typefaces; Arthic does not use it for advertising or analytics. The old floating support-chat widget is not part of the current site.</p>
-
-      <h2>4. the waitlist and job applications</h2>
-      <p>
-        Submitting the waitlist form or a job application sends that information to Arthic's own
-        servers to act on it (see the <a href="/privacy.html" class="hover-underline">privacy
-        policy</a> for what happens to it there) — that's a direct request you make by submitting
-        a form, not a cookie or browser-storage mechanism, so it isn't covered by this page.
-      </p>
-
-      <h2>5. questions</h2>
-      <p>
-        If something on this page stops being accurate — because Arthic adds a feature that
-        changes any of this — we'll update it rather than leave a stale policy up. In the
-        meantime, if anything here is unclear, email
-        <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>.
-      </p>
-    </div>
-  </article>
-</main>
-
-<div class="footer-frame">
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <a href="/" class="footer__mark" aria-label="Arthic — home">
-          <img class="brand-mark--light" src="/arthic-logo.png" alt="Arthic" width="800" height="272" />
-</a>
-        <p class="footer__tagline">an all-in-one exam-prep platform for Pakistan's toughest exams.</p>
-      </div>
-
-      <nav class="footer__col" aria-label="resources">
-        <span class="footer__col-label">resources</span>
-        <a href="/subjects.html" class="hover-underline">subjects</a>
-        <a href="/method.html" class="hover-underline">method</a>
-        <a href="/careers.html" class="hover-underline">careers</a>
-      </nav>
-
-      <nav class="footer__col" aria-label="legal">
-        <span class="footer__col-label">legal</span>
-        <a href="/privacy.html" class="hover-underline">privacy</a>
-        <a href="/terms.html" class="hover-underline">terms</a>
-        <a href="/cookies.html" class="hover-underline">cookies</a>
-      </nav>
-
-      <nav class="footer__col" aria-label="contact">
-        <span class="footer__col-label">contact</span>
-        <a href="mailto:hello@arthic.tech" class="hover-underline">hello@arthic.tech</a>
-      </nav>
-    </div>
-
-    <div class="footer__bottom">
-      <p>© <span data-year>2026</span> Arthic. <span>All rights reserved.</span></p>
-      <a href="#top" class="hover-underline">back to top</a>
-    </div>
-  </div>
-</footer>
-</div>
-
-<script type="module" src="/src/legal.ts"></script>
+      <div class="entry__foot"><a class="link-arrow link-arrow--large" href="/privacy.html"><span>Read the Privacy Policy</span><span aria-hidden="true">→</span></a></div>
+    </article>
+  </main>
+  <script type="module" src="/src/legal.ts"></script>
 </body>
 </html>
