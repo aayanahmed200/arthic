@@ -73,12 +73,12 @@
       <div class="study-intro__copy">
         <div class="content-hero__topline"><span>ARTHIC PRACTICE</span><span>LCAT · NET · CSS · MDCAT</span></div>
         <h1>Choose your practice.</h1>
-        <p class="study-intro__lede">Choose an exam board to begin. Subject and estimated difficulty are optional filters; each session contains 10 questions.</p>
+        <p class="study-intro__lede">Choose an exam board to begin. Subject and difficulty are optional filters; each session contains 10 questions.</p>
       </div>
       <div class="study-intro__count" aria-label="Question bank size">
-        <strong data-bank-total>1,060</strong>
+        <strong data-bank-total>1,080</strong>
         <span>original practice questions</span>
-        <small>265 questions in each exam track</small>
+        <small>270 questions in each exam track</small>
       </div>
     </div>
   </section>
@@ -88,32 +88,35 @@
       <div class="study-rail__heading">
         <span class="study-rail__eyebrow">PRACTICE SETUP</span>
         <strong class="study-rail__name">Choose your focus.</strong>
-        <p class="study-rail__intro">Select an exam board, then add an optional subject or estimated difficulty filter.</p>
+        <p class="study-rail__intro">Select an exam board. Subject and difficulty filters are optional.</p>
       </div>
       <form class="study-quiz-form" data-quiz-setup>
-        <label class="study-filter-label" for="quizExamSelect">EXAM BOARD <span aria-hidden="true">*</span></label>
-        <select class="study-filter-select" id="quizExamSelect" data-quiz-exam required data-custom-select>
-          <option value="" disabled selected>Choose an exam board</option>
-          <option value="LCAT">LUMS LCAT</option>
-          <option value="NET">NUST NET</option>
-          <option value="CSS">CSS</option>
-          <option value="MDCAT">MDCAT</option>
-        </select>
-
-        <label class="study-filter-label" for="practiceSubjectFilter">SUBJECT <span class="study-filter-optional">OPTIONAL</span></label>
-        <select class="study-filter-select" id="practiceSubjectFilter" data-subject-filter data-custom-select>
-          <option value="ALL">Any subject</option>
-        </select>
-
-        <label class="study-filter-label" for="quizDifficultySelect">DIFFICULTY LEVEL</label>
-        <select class="study-filter-select" id="quizDifficultySelect" data-quiz-difficulty data-custom-select aria-describedby="quizDifficultyNote">
-          <option value="ALL">Mixed difficulty</option>
-          <option value="EASY">Easy</option>
-          <option value="STANDARD">Standard</option>
-          <option value="CHALLENGING">Challenging</option>
-        </select>
-        <p class="study-quiz-form__hint" id="quizDifficultyNote">Each question is assigned a level based on the reasoning and steps it requires. These are Arthic practice levels, not official exam ratings.</p>
-
+        <div class="study-filter-field">
+          <label class="study-filter-label" for="quizExamSelect">EXAM BOARD <span aria-hidden="true">*</span></label>
+          <select class="study-filter-select" id="quizExamSelect" data-quiz-exam required data-custom-select>
+            <option value="" disabled selected>Choose an exam board</option>
+            <option value="LCAT">LUMS LCAT</option>
+            <option value="NET">NUST NET</option>
+            <option value="CSS">CSS</option>
+            <option value="MDCAT">MDCAT</option>
+          </select>
+        </div>
+        <div class="study-filter-field">
+          <label class="study-filter-label" for="practiceSubjectFilter">SUBJECT <span class="study-filter-optional">OPTIONAL</span></label>
+          <select class="study-filter-select" id="practiceSubjectFilter" data-subject-filter data-custom-select>
+            <option value="ALL">Any subject</option>
+          </select>
+        </div>
+        <div class="study-filter-field">
+          <label class="study-filter-label" for="quizDifficultySelect">DIFFICULTY</label>
+          <select class="study-filter-select" id="quizDifficultySelect" data-quiz-difficulty data-custom-select aria-describedby="quizDifficultyNote">
+            <option value="ALL">Mixed difficulty</option>
+            <option value="EASY">Easy</option>
+            <option value="STANDARD">Standard</option>
+            <option value="CHALLENGING">Challenging</option>
+          </select>
+        </div>
+        <p class="study-quiz-form__hint" id="quizDifficultyNote">Difficulty labels reflect the reasoning and steps each question requires. They are Arthic practice levels, not official exam ratings.</p>
         <button class="study-quiz-start" type="submit" data-start-quiz>Start 10-question quiz</button>
         <p class="study-quiz-form__status" data-quiz-status aria-live="polite">Choose an exam board to see matching questions.</p>
       </form>

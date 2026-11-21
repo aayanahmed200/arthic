@@ -13,6 +13,7 @@ import { V16_PRIVATE_QUESTIONS } from "./_v16-content.js";
 import { V17_PRIVATE_QUESTIONS } from "./_v17-content.js";
 import { V18_PRIVATE_QUESTIONS } from "./_v18-content.js";
 import { V19_PRIVATE_QUESTIONS } from "./_v19-content.js";
+import { V20_PRIVATE_QUESTIONS } from "./_v20-content.js";
 import { classifyPracticeDifficulty, normalizeQuestionStem } from "../../src/data/question-difficulty.js";
 
 export interface StudyOption { key: string; text: string; }
@@ -2972,6 +2973,7 @@ const QUESTION_SOURCES: PrivateStudyQuestion[] = [
   ...V17_PRIVATE_QUESTIONS,
   ...V18_PRIVATE_QUESTIONS,
   ...V19_PRIVATE_QUESTIONS,
+  ...V20_PRIVATE_QUESTIONS,
 ];
 
 const seenQuestionIds = new Set<string>();
