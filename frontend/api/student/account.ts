@@ -33,6 +33,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(200).json({ account: rows[0] });
     }
 
+    if (process.env.STUDENT_ACCOUNTS_ENABLED !== "true") {
+      return res.status(403).json({ error: "Student account registration is currently disabled. Public practice remains available." });
+    }
+
     const body = req.body && typeof req.body === "object" && !Array.isArray(req.body)
       ? req.body as Record<string, unknown> : {};
     if (body.acceptTerms !== true || body.acceptPrivacy !== true || body.ageDeclaration !== true) {
