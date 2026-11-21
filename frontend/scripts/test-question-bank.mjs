@@ -75,7 +75,8 @@ try {
 
     const unauthenticated = mockAdminRequest("GET");
     await admin(unauthenticated.req, unauthenticated.res);
-    assert.equal(unauthenticated.res.code, 401);
+    assert.equal(unauthenticated.res.code, 503,
+      "the strict shared rate limiter must fail closed when its database is unavailable");
 
     const authorizedWithoutDatabase = mockAdminRequest(
       "GET",
@@ -83,7 +84,7 @@ try {
     );
     await admin(authorizedWithoutDatabase.req, authorizedWithoutDatabase.res);
     assert.equal(authorizedWithoutDatabase.res.code, 503);
-    console.log("Question-bank admin API access tests passed: invalid methods and unauthenticated requests are rejected; missing database fails closed.");
+    console.log("Question-bank admin API access tests passed: invalid methods are rejected and database-backed request protection fails closed when storage is unavailable.");
   } finally {
     if (previousAdminPassword === undefined) delete process.env.ADMIN_PASSWORD;
     else process.env.ADMIN_PASSWORD = previousAdminPassword;
