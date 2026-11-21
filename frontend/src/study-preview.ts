@@ -154,8 +154,18 @@ if (root) {
     if (activeExam) examSelect!.value = activeExam;
 
     function setQuizStatus(message: string, state: "info" | "error" | "loading" = "info"): void {
-      quizStatus!.textContent = message;
+      quizStatus!.replaceChildren();
       quizStatus!.dataset.state = state;
+      if (state === "loading") {
+        const indicator = document.createElement("span");
+        indicator.className = "study-inline-spinner";
+        indicator.setAttribute("aria-hidden", "true");
+        const label = document.createElement("span");
+        label.textContent = message;
+        quizStatus!.append(indicator, label);
+        return;
+      }
+      quizStatus!.textContent = message;
     }
 
     function fillSubjectFilter(): void {
@@ -199,15 +209,17 @@ function questionsForSetup(): StudyQuestionPrompt[] {
 
 function updateAvailableCount(): void {
       const count = questionsForSetup().length;
+      if (questionFeedLoading) questionBankCount!.dataset.state = "loading";
+      else questionBankCount!.removeAttribute("data-state");
       questionBankCount!.textContent = questionFeedLoading
-        ? "Loading the question bank"
+        ? "Preparing questions"
         : questionFeedUnavailable
           ? "Question bank unavailable"
           : activeExam ? count + " matching questions available" : "Choose a board to begin";
       questionTotal!.textContent = QUIZ_LENGTH + " questions";
       if (!quizStarted) {
         if (questionFeedLoading) {
-          setQuizStatus("Loading practice questions…", "loading");
+          setQuizStatus("Preparing practice questions", "loading");
         } else if (questionFeedUnavailable) {
           setQuizStatus("The practice bank could not load. Refresh the page to try again.", "error");
         } else {
@@ -354,9 +366,10 @@ function updateAvailableCount(): void {
       isSubmitting = true;
       pendingOptionKey = optionKey;
       feedback!.dataset.result = "pending";
-      feedbackTitle!.textContent = "Checking your answer…";
+      feedbackTitle!.textContent = "Checking answer";
+      feedback!.setAttribute("aria-busy", "true");
       feedbackAnswer!.textContent = "Your selected option will be marked as soon as the check returns.";
-      if (feedbackIcon) feedbackIcon.textContent = "…";
+      if (feedbackIcon) feedbackIcon.textContent = "";
       feedbackPoints!.replaceChildren();
       takeaway!.textContent = "";
       feedback!.hidden = false;
@@ -389,10 +402,12 @@ function updateAvailableCount(): void {
         });
         isSubmitting = false;
         pendingOptionKey = null;
+        feedback!.removeAttribute("aria-busy");
         renderQuestion();
       } catch {
         isSubmitting = false;
         pendingOptionKey = null;
+        feedback!.removeAttribute("aria-busy");
         feedback!.dataset.result = "error";
         feedbackTitle!.textContent = "We couldn't check that answer.";
         feedbackAnswer!.textContent = "No result was recorded. Try selecting an option again.";

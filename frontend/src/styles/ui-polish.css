@@ -780,14 +780,6 @@ html body.content-page.pricing-page #main .pricing-benchmark {
 }
 
 /* A clear, low-emphasis note under the estimated difficulty selector. */
-html body.content-page.study-preview-page .study-quiz-form__hint {
-  max-width: 42ch !important;
-  margin: 7px 0 18px !important;
-  padding-left: 10px !important;
-  border-left: 2px solid rgba(184, 75, 56, .28) !important;
-  color: #687064 !important;
-  font: 400 11px/1.6 "Poppins", sans-serif !important;
-}
 
 
 /* On narrow screens, stack the role number, content and CTA in one column. */
@@ -1040,14 +1032,6 @@ html body.content-page.study-preview-page .study-question__source {
   font: 400 11px/1.65 "Poppins", sans-serif !important;
   overflow-wrap: anywhere !important;
 }
-html body.content-page.study-preview-page .study-quiz-form__hint {
-  max-width: 46ch !important;
-  margin: 8px 0 18px !important;
-  padding: 0 !important;
-  border: 0 !important;
-  color: #687064 !important;
-  font: 400 12px/1.65 "Poppins", sans-serif !important;
-}
 
 /* Pricing and Careers list alignment and price hierarchy. */
 html body.content-page.pricing-page #main .pricing-plan ul {
@@ -1143,4 +1127,137 @@ html body.content-page.career-page #main .careers-role__details li::before {
   display: block !important;
   color: #6F9274 !important;
   font: 700 13px/1.5 "Poppins", sans-serif !important;
+}
+
+
+/* Keep long-form legal documents in a centred, readable column. The text
+   remains left-aligned for scanning; the document itself is centred. */
+html body.content-page.legal-page #main .entry.container {
+  width: min(760px, calc(100% - 48px)) !important;
+  max-width: 760px !important;
+  margin-inline: auto !important;
+}
+html body.content-page.legal-page #main .entry__head,
+html body.content-page.legal-page #main .entry__body,
+html body.content-page.legal-page #main .entry__foot {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+}
+html body.content-page.legal-page #main .entry__body {
+  font-size: clamp(14px, 1.15vw, 15px) !important;
+  line-height: 1.82 !important;
+  text-align: left !important;
+}
+html body.content-page.legal-page #main .entry__body h2 {
+  margin-top: 2.25em !important;
+  margin-bottom: .75em !important;
+  text-wrap: balance !important;
+}
+@media (max-width: 760px) {
+  html body.content-page.legal-page #main .entry.container {
+    width: calc(100% - 38px) !important;
+  }
+}
+
+/* Shared loading indicators: use movement and progress shapes instead of
+   leaving a button or page sitting on a plain “loading…” message. */
+@keyframes arthic-indicator-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes arthic-skeleton-shimmer {
+  to { background-position: -180% 0; }
+}
+.study-inline-spinner {
+  display: inline-block;
+  flex: 0 0 15px;
+  width: 15px;
+  height: 15px;
+  margin-right: 9px;
+  border: 2px solid rgba(33,75,56,.22);
+  border-top-color: var(--arthic-ui-coral);
+  border-radius: 50%;
+  vertical-align: -3px;
+  animation: arthic-indicator-spin .72s linear infinite;
+}
+html body.content-page.study-preview-page [data-question-bank-count][data-state="loading"]::before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-right: 8px;
+  border: 2px solid rgba(33,75,56,.2);
+  border-top-color: var(--arthic-ui-coral);
+  border-radius: 50%;
+  vertical-align: -2px;
+  animation: arthic-indicator-spin .72s linear infinite;
+}
+html body.content-page.study-preview-page .study-feedback[data-result="pending"] .study-feedback__icon {
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  overflow: hidden !important;
+  border: 2px solid rgba(33,75,56,.2) !important;
+  border-top-color: var(--arthic-ui-coral) !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  animation: arthic-indicator-spin .72s linear infinite !important;
+}
+html body.content-page.study-preview-page .study-feedback[data-result="pending"] .study-feedback__icon::before,
+html body.content-page.study-preview-page .study-feedback[data-result="pending"] .study-feedback__icon::after {
+  content: none !important;
+}
+
+/* Apply-page role details start with a quiet skeleton, not placeholder copy. */
+html body.content-page.apply-page .apply-role__body--loading {
+  width: min(100%, 34rem) !important;
+}
+html body.content-page.apply-page .apply-role__skeleton {
+  display: grid;
+  gap: 8px;
+  width: min(100%, 34rem);
+  padding-block: 3px;
+}
+html body.content-page.apply-page .apply-role__skeleton i {
+  display: block;
+  width: 100%;
+  height: 9px;
+  border-radius: 99px;
+  background: linear-gradient(90deg,#E9EDE4 20%,#F5F6F0 42%,#E9EDE4 64%);
+  background-size: 200% 100%;
+  animation: arthic-skeleton-shimmer 1.25s ease-in-out infinite;
+}
+html body.content-page.apply-page .apply-role__skeleton i:nth-child(2) { width: 86%; }
+html body.content-page.apply-page .apply-role__skeleton i:nth-child(3) { width: 62%; }
+html body.content-page.apply-page .apply-form button.is-loading {
+  position: relative !important;
+  cursor: progress !important;
+  opacity: .92 !important;
+}
+html body.content-page.apply-page .apply-form button.is-loading::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  vertical-align: -2px;
+  animation: arthic-indicator-spin .72s linear infinite;
+}
+html body.content-page.apply-page .apply-form__status[data-state="pending"]:empty {
+  visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .study-inline-spinner,
+  html body.content-page.study-preview-page [data-question-bank-count][data-state="loading"]::before,
+  html body.content-page.study-preview-page .study-feedback[data-result="pending"] .study-feedback__icon,
+  html body.content-page.apply-page .apply-role__skeleton i,
+  html body.content-page.apply-page .apply-form button.is-loading::after {
+    animation-duration: 1.8s !important;
+  }
 }

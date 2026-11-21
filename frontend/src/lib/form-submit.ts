@@ -15,7 +15,7 @@ export function initFormSubmit(form: HTMLFormElement, opts: SubmitOptions): void
   const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
   const honeypot = form.querySelector<HTMLInputElement>("input[name='website']");
 
-  const setStatus = (message: string, state: "idle" | "error" | "success") => {
+  const setStatus = (message: string, state: "idle" | "pending" | "error" | "success") => {
     if (!status) return;
     status.textContent = message;
     status.dataset.state = state;
@@ -41,7 +41,7 @@ export function initFormSubmit(form: HTMLFormElement, opts: SubmitOptions): void
     button?.setAttribute("disabled", "true");
     button?.classList.add("is-loading");
     button?.setAttribute("aria-busy", "true");
-    setStatus("sending…", "idle");
+    setStatus("", "pending");
 
     try {
       const response = await fetch(opts.endpoint, {
