@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { requireAdmin } from "../_auth.js";
 import { ensureStudentWorkspaceSchema } from "../_student-schema.js";
+import { checkRateLimit } from "../_rate_limit.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -8,6 +9,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "method not allowed" });
   }
 
+  if (!(await checkRateLimit(req, res, "admin-schema-setup", 5, 300))) return;
   if (!requireAdmin(req, res)) return;
 
   if (!process.env.POSTGRES_URL) {
