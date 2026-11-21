@@ -30,8 +30,9 @@ try {
 
   const questionsHandler = (await server.ssrLoadModule("/api/study/questions.ts")).default;
   const checkHandler = (await server.ssrLoadModule("/api/study/check.ts")).default;
-  const { SAMPLE_QUESTIONS } = await server.ssrLoadModule("/api/study/_sample-content.ts");
+  const { SAMPLE_QUESTIONS, RETIRED_NEAR_DUPLICATE_IDS } = await server.ssrLoadModule("/api/study/_sample-content.ts");
   const { V18_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v18-sample-questions.ts");
+  const { V19_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v19-sample-questions.ts");
   const { normalizeQuestionStem, classifyPracticeDifficulty } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
 
   const difficultyCases = [
@@ -74,7 +75,7 @@ try {
     ), omitted.id + " must be omitted only because the same stem already exists");
   }
   assert.equal(feed.res.body.questions.length, 1060);
-  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v18-1060");
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v19-1060");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
 
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
@@ -82,6 +83,32 @@ try {
     assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 265, examCode);
   }
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
+
+  const expectedRetiredNearDuplicates = [
+    "v11-lcat-001", "v11-lcat-009",
+    "v15-net-004", "v11-net-016", "net-new-014", "v11-net-003",
+    "v11-css-002", "v10-css-014", "v15-css-005", "css-new-008",
+    "v12-mdcat-007", "mdcat-more-009", "mdcat-next-011", "mdcat-new-008",
+    "v13-mdcat-009", "mdcat-new-010", "mdcat-next-008", "mdcat-extra-005",
+  ];
+  assert.deepEqual([...RETIRED_NEAR_DUPLICATE_IDS].sort(), expectedRetiredNearDuplicates.sort());
+  for (const retiredId of RETIRED_NEAR_DUPLICATE_IDS) {
+    assert.equal(survivingIds.has(retiredId), false, retiredId + " should have been retired");
+    assert.equal(feed.res.body.questions.some((question) => question.id === retiredId), false,
+      retiredId + " must not appear in the public feed");
+  }
+
+  assert.equal(V19_SAMPLE_QUESTIONS.length, 18, "V19 should contain 18 replacements");
+  const v19 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v19-"));
+  assert.equal(v19.length, 18, "all V19 replacement questions must survive");
+  const expectedV19 = { LCAT: 2, NET: 4, CSS: 4, MDCAT: 8 };
+  for (const [examCode, expectedCount] of Object.entries(expectedV19)) {
+    assert.equal(v19.filter((question) => question.examCode === examCode).length, expectedCount, examCode + " V19 count");
+  }
+  for (const question of V19_SAMPLE_QUESTIONS) {
+    assert.ok(SAMPLE_QUESTIONS.some((sample) => sample.id === question.id), question.id + " replacement missing from bank");
+    assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " difficulty missing");
+  }
 
   assert.equal(SAMPLE_QUESTIONS.length, 1060);
   assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => question.id)).size, 1060, "question IDs must be unique");
@@ -169,6 +196,10 @@ try {
   await checkHandler(invalid.req, invalid.res);
   assert.equal(invalid.res.code, 400);
 
+  const retiredCheck = mockRequest("POST", { questionId: "v11-lcat-001", selectedOption: "A" });
+  await checkHandler(retiredCheck.req, retiredCheck.res);
+  assert.equal(retiredCheck.res.code, 404);
+
   const unknown = mockRequest("POST", { questionId: "not-a-question", selectedOption: "A" });
   await checkHandler(unknown.req, unknown.res);
   assert.equal(unknown.res.code, 404);
@@ -183,7 +214,8 @@ try {
 
   console.log("Difficulty distribution:", JSON.stringify(difficultyDistribution));
   console.log("Study question API tests passed (1,060 unique questions; 265 per exam track):");
-  console.log("- 127 unique V18 additions are present; six repeated stems are explicitly identified");
+  console.log("- 127 unique V18 additions and 18 V19 replacements are present with worked answers");
+  console.log("- 18 near-duplicate prompts are retired and hidden from the feed and answer-check API");
   console.log("- every item has a subject, topic, four distinct options, explanation and explicit difficulty");
   console.log("- question stems are unique across all four tracks");
   console.log("- original practice questions have no invented past-paper dates");
