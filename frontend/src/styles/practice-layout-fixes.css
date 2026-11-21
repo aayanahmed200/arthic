@@ -53,7 +53,7 @@ html body.study-preview-page .study-workspace[data-stage="setup"] {
   grid-template-columns: minmax(0, 790px) !important;
   justify-content: center !important;
   align-items: start !important;
-  width: min(100% - 48px, 1120px) !important;
+  width: min(calc(100% - 48px), 1120px) !important;
   max-width: 1120px !important;
   gap: 0 !important;
   margin-inline: auto !important;
@@ -84,21 +84,20 @@ html body.study-preview-page .study-quiz-form__hint {
 html body.study-preview-page .study-quiz-form {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  align-items: end !important;
-  gap: 10px 16px !important;
+  align-items: start !important;
+  gap: 16px !important;
   margin-top: 22px !important;
 }
 
-html body.study-preview-page .study-quiz-form > label,
-html body.study-preview-page .study-quiz-form > select,
-html body.study-preview-page .study-quiz-form > p,
-html body.study-preview-page .study-quiz-form > button {
+html body.study-preview-page .study-filter-field {
+  display: grid !important;
+  align-content: start !important;
+  gap: 7px !important;
   min-width: 0 !important;
 }
 
-html body.study-preview-page .study-quiz-form > label {
-  align-self: end !important;
-  margin: 0 0 -3px !important;
+html body.study-preview-page .study-filter-field > .study-filter-label {
+  margin: 0 !important;
   color: #426447 !important;
   font: 700 10px/1.4 "Poppins", sans-serif !important;
   letter-spacing: .07em !important;
@@ -117,7 +116,7 @@ html body.study-preview-page .study-filter-select {
 
 html body.study-preview-page .study-quiz-form__hint {
   grid-column: 1 / -1 !important;
-  margin: 4px 0 5px !important;
+  margin: 0 !important;
 }
 
 html body.study-preview-page .study-quiz-start {
@@ -135,10 +134,10 @@ html body.study-preview-page .study-quiz-form__status {
 
 html body.study-preview-page .study-workspace[data-stage="practice"] {
   display: grid !important;
-  grid-template-columns: minmax(205px, 235px) minmax(0, 1fr) minmax(205px, 225px) !important;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 260px) !important;
   align-items: start !important;
   gap: 18px !important;
-  width: min(100% - 48px, 1420px) !important;
+  width: min(calc(100% - 48px), 1420px) !important;
   max-width: 1420px !important;
   margin-inline: auto !important;
   padding: 28px 0 58px !important;
@@ -249,12 +248,13 @@ html body.study-preview-page .study-option {
 
 @media (max-width: 1120px) {
   html body.study-preview-page .study-workspace[data-stage="practice"] {
-    grid-template-columns: 220px minmax(0, 1fr) !important;
+    grid-template-columns: minmax(0, 1fr) !important;
   }
   html body.study-preview-page .study-stats-rail {
-    grid-column: 1 / -1 !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    align-items: center !important;
+    position: static !important;
+    grid-column: auto !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
   }
   html body.study-preview-page .study-stats-rail > h2,
   html body.study-preview-page .study-stats-rail__eyebrow,
