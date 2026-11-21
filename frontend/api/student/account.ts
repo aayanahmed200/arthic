@@ -46,18 +46,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { rows } = await sql`
       INSERT INTO student_accounts (
         id, email, display_name, auth_provider, provider_subject,
-        email_verified_at, privacy_notice_version, terms_version
+        email_verified_at, privacy_notice_version, terms_version,
+        age_declaration_confirmed, terms_accepted_at, privacy_accepted_at
       )
       VALUES (
         ${auth.identity.id}, ${auth.identity.email}, ${displayName}, 'supabase',
-        ${auth.identity.id}, ${auth.identity.emailVerifiedAt}, ${PRIVACY_VERSION}, ${TERMS_VERSION}
+        ${auth.identity.id}, ${auth.identity.emailVerifiedAt}, ${PRIVACY_VERSION}, ${TERMS_VERSION},
+        true, now(), now()
       )
       ON CONFLICT (id) DO UPDATE SET
         email = EXCLUDED.email,
         display_name = EXCLUDED.display_name,
         email_verified_at = EXCLUDED.email_verified_at,
         privacy_notice_version = EXCLUDED.privacy_notice_version,
-        terms_version = EXCLUDED.terms_version
+        terms_version = EXCLUDED.terms_version,
+        age_declaration_confirmed = true,
+        terms_accepted_at = now(),
+        privacy_accepted_at = now()
       WHERE student_accounts.disabled_at IS NULL
       RETURNING id, email, display_name, created_at, privacy_notice_version, terms_version
     `;
