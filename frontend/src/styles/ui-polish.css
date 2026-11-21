@@ -1048,3 +1048,99 @@ html body.content-page.study-preview-page .study-quiz-form__hint {
   color: #687064 !important;
   font: 400 12px/1.65 "Poppins", sans-serif !important;
 }
+
+/* Pricing and Careers list alignment and price hierarchy. */
+html body.content-page.pricing-page #main .pricing-plan ul {
+  display: grid !important;
+  align-content: start !important;
+  justify-items: stretch !important;
+  width: 100% !important;
+  margin: 0 0 28px !important;
+  padding: 20px 0 0 !important;
+  border-top: 1px solid #EEE8DE !important;
+  list-style: none !important;
+  text-align: left !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li {
+  display: grid !important;
+  grid-template-columns: 14px minmax(0, 1fr) !important;
+  align-items: start !important;
+  justify-items: start !important;
+  gap: 9px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #343B33 !important;
+  font: 400 12px/1.65 "Poppins", sans-serif !important;
+  text-align: left !important;
+  overflow-wrap: anywhere !important;
+}
+html body.content-page.pricing-page #main .pricing-plan li::before {
+  content: "✓" !important;
+  position: static !important;
+  display: block !important;
+  color: #6F9274 !important;
+  font: 700 13px/1.5 "Poppins", sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: baseline !important;
+  justify-content: flex-start !important;
+  gap: 0 7px !important;
+  margin: 0 0 7px !important;
+  text-align: left !important;
+  white-space: normal !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price > strong {
+  color: var(--arthic-ui-forest, #245B38) !important;
+  font: 800 clamp(44px, 3.8vw, 54px)/1 "Bricolage Grotesque Variable", sans-serif !important;
+  letter-spacing: -.065em !important;
+  font-variant-numeric: tabular-nums !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price > .pricing-plan__currency {
+  color: #536B55 !important;
+  font: 600 15px/1.2 "Poppins", sans-serif !important;
+  letter-spacing: -.02em !important;
+}
+html body.content-page.pricing-page #main .pricing-plan__price > .pricing-plan__term {
+  color: #747A70 !important;
+  font: 500 11px/1.4 "Poppins", sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* Careers role details use the same clear left-aligned check bullets as Pricing. */
+html body.content-page.career-page #main .careers-role__details,
+html body.content-page.career-page #main .careers-role__details > div {
+  text-align: left !important;
+}
+html body.content-page.career-page #main .careers-role__details ul {
+  display: grid !important;
+  align-content: start !important;
+  justify-items: stretch !important;
+  gap: 8px !important;
+  margin: 9px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  text-align: left !important;
+}
+html body.content-page.career-page #main .careers-role__details li {
+  display: grid !important;
+  grid-template-columns: 14px minmax(0, 1fr) !important;
+  align-items: start !important;
+  justify-items: start !important;
+  gap: 9px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #343B33 !important;
+  font: 400 12px/1.65 "Poppins", sans-serif !important;
+  text-align: left !important;
+  overflow-wrap: anywhere !important;
+}
+html body.content-page.career-page #main .careers-role__details li::before {
+  content: "✓" !important;
+  position: static !important;
+  display: block !important;
+  color: #6F9274 !important;
+  font: 700 13px/1.5 "Poppins", sans-serif !important;
+}
