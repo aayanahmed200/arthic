@@ -36,6 +36,15 @@ try {
   const feed = mockRequest("GET");
   await questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
+  console.log("DE-DUP COUNTS", JSON.stringify({
+    total: feed.res.body.questions.length,
+    byExam: Object.fromEntries(["LCAT", "NET", "CSS", "MDCAT"].map((exam) => [exam,
+      feed.res.body.questions.filter((question) => question.examCode === exam).length
+    ])),
+    v18ByExam: Object.fromEntries(["LCAT", "NET", "CSS", "MDCAT"].map((exam) => [exam,
+      SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v18-") && question.examCode === exam).length
+    ])),
+  }));
   assert.equal(feed.res.body.questions.length, 1060);
   assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v18-1060");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
