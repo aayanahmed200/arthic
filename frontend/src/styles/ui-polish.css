@@ -788,3 +788,11 @@ html body.content-page.study-preview-page .study-quiz-form__hint {
   color: #687064 !important;
   font: 400 11px/1.6 "Poppins", sans-serif !important;
 }
+
+
+/* On narrow screens, stack the role number, content and CTA in one column. */
+@media (max-width: 680px) {
+  html body.content-page.career-page #main .career-role__content {
+    grid-column: 1 !important;
+  }
+}
