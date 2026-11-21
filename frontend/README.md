@@ -1,60 +1,73 @@
 # Arthic Frontend
 
-The Vite and TypeScript marketing site, with the deployed Vercel serverless API in `api/`.
+The Vite and TypeScript website for Arthic, including its public pages, practice preview and Vercel serverless API routes.
 
 ## Overview
 
-The frontend is a multi-page site for Arthic's Pakistani entrance-test preparation product. It can run with the same-origin Vercel API or be connected to the optional standalone Express backend.
+The frontend serves the public Arthic site and the practice experience for LCAT, NUST NET, CSS MPT and MDCAT. Its API routes handle application and waitlist submissions, question delivery, answer checking and protected administration.
 
-## Highlights
+The practice feed does not expose answer keys. The browser submits a selected option to a server endpoint, which checks it and returns the result and explanation.
 
-- Multi-page Vite site with shared navigation and styles.
-- Waitlist and job-application forms backed by serverless endpoints.
-- Responsive pages with progressive enhancement and reduced-motion support.
-- The `/study-preview.html` route contains an interactive practice preview using original sample questions. Answer keys stay server-side and are checked by `api/study/check.ts`; the preview still has no student sign-in, licensed live question bank, AI mentor connection, or saved progress.
-- Preview features are labelled as previews rather than presented as finished functionality.
-- The AI mentor is in development and the current product is English-only.
-- `api/study/questions.ts` serves the same versioned original sample set used by the preview. It is not an official past-paper feed.
-- `api/admin/student-schema.ts` prepares the additive PostgreSQL schema for student accounts, sessions, question content, study sessions, answers and data requests. It is admin-protected and does not open student accounts.
-- `api/student/me.ts` verifies a Supabase access token against the Auth service and requires `email_confirmed_at`; it never trusts client-supplied profile data. It does not create a local profile or open the workspace.
-- Set `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` only in server environment settings to enable the verification check. Do not add a Supabase secret key to frontend variables.
-- Student sign-in remains unavailable until sign-up UI, verified email and recovery, age-appropriate consent, privacy terms and deletion/support procedures are ready.
-- `api/study/questions.ts` returns published question prompts without answer keys; `api/study/check.ts` scores a submitted option and returns the explanation only after submission. The original demo set remains the fallback until the database has published content.
-- `api/admin/questions.ts` is protected by the existing admin credentials. The `/admin` question-bank tab supports creating, editing, previewing, publishing, unpublishing and archiving. Editing a published item returns it to draft for review.
-- The admin schema setup adds authoring fields and seeds the three original sample questions as drafts. It never overwrites later edits.
-- `npm run build` type-checks the frontend and Vercel API files, runs identity, practice and question-bank validation/access tests, and then builds the site.
-- Run `npm run test:api` alone to test identity verification, server-side question scoring and question-bank validation without contacting a live Supabase project or writing to the database.
+## Repository contents
+
+- `index.html` and the other page HTML files — public site pages.
+- `src/` — TypeScript page behaviour, practice interface, data and shared styles.
+- `api/` — Vercel serverless endpoints for forms, student verification, practice and administration.
+- `study-preview.html` — practice interface using the original sample feed and published content when configured.
+- `vercel.json` — Vite build, output and routing configuration.
+- `.env.example` — local server-side and build-time configuration names.
 
 ## Technology
 
-TypeScript, Vite, CSS, Vercel Functions, and PostgreSQL.
+TypeScript, Vite, CSS, Vercel Functions and PostgreSQL. The optional self-hosted Express/SQLite backend is maintained separately in [`../backend/`](../backend/README.md).
 
 ## Run locally
 
-To run the site with its Vercel API:
+From this directory, install dependencies and start the frontend with its Vercel API routes:
 
 ```bash
 npm install
+cp .env.example .env
 npx vercel dev
 ```
 
-For the frontend alone:
+To run only the Vite frontend:
 
 ```bash
-npm install
 npm run dev
 ```
 
-The Vite server uses `http://localhost:5173`. The standalone Express backend can be reached at `http://localhost:3001` when configured. For Vercel deployment, set the Root Directory to `frontend`, add the server environment variables, and use `vercel.json` for build and output settings.
+The Vite-only command does not run the Vercel API routes. Use `npx vercel dev` to test frontend and API behaviour together.
 
 ## Configuration
 
-See `.env.example` for all settings:
+See `.env.example` and the root [deployment guide](../DEPLOYMENT.md).
 
-- `VITE_API_BASE` — leave empty for the normal same-origin Vercel API. Set it only when using the standalone Express backend.
-- `POSTGRES_URL` — Postgres connection string for the deployed API.
-- `ADMIN_USER` — admin username; defaults to `admin`.
-- `ADMIN_PASSWORD` — required for admin endpoints.
+- `POSTGRES_URL` — PostgreSQL connection string for database-backed features.
+- `ADMIN_USER` and `ADMIN_PASSWORD` — credentials for protected administration routes.
+- `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` — server-side student identity verification settings. Student sign-in is not enabled by these settings alone.
+- `VITE_API_BASE` — leave unset for the normal same-origin Vercel API; use only when connecting to the optional standalone backend.
 
-Without `POSTGRES_URL`, the site still loads; routes that need storage return a clear not-configured response.
+Without `POSTGRES_URL`, the site can still load and use the original sample practice content; endpoints that require database storage report that storage is not configured.
 
+## Tests
+
+Run the API validation tests:
+
+```bash
+npm run test:api
+```
+
+Run the full TypeScript, API-test and Vite production-build sequence:
+
+```bash
+npm run build
+```
+
+## Scope and limitations
+
+The current public practice tracks are LCAT, NUST NET, CSS MPT and MDCAT. Original sample questions are not official past-paper content. Database-backed questions are served only when records have been published in the configured question bank. Student sign-up and the wider student workspace remain disabled; the AI mentor is not a live feature. The current interface is English-only.
+
+## License
+
+The code is licensed under the MIT License. See [../LICENSE](../LICENSE) for the full text. The Arthic name and wordmark are not included.
