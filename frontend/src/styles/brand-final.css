@@ -8635,3 +8635,39 @@ html body.study-preview-page .study-board-loading {
     font-size:54px !important;
   }
 }
+
+
+/* Five centered footer columns: the account and operations links share the same row. */
+html body :is(.site-footer,.footer).footer-central .footer-grid,
+html body :is(.site-footer,.footer).footer-central .footer__top {
+  grid-template-columns: repeat(5,minmax(0,1fr)) !important;
+}
+html body :is(.site-footer,.footer).footer-central .footer-column {
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  gap:9px !important;
+  min-width:0 !important;
+  text-align:center !important;
+}
+html body :is(.site-footer,.footer).footer-central .footer-column > span {
+  margin:0 0 5px !important;
+}
+html body :is(.site-footer,.footer).footer-central .footer-column > a {
+  overflow-wrap:anywhere !important;
+  font-size:11px !important;
+  line-height:1.6 !important;
+}
+@media(max-width:900px) {
+  html body :is(.site-footer,.footer).footer-central .footer-grid,
+  html body :is(.site-footer,.footer).footer-central .footer__top {
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:560px) {
+  html body :is(.site-footer,.footer).footer-central .footer-grid,
+  html body :is(.site-footer,.footer).footer-central .footer__top {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:24px 14px !important;
+  }
+}
