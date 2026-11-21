@@ -47,6 +47,14 @@
         </table></div>
       </section>
       <section class="workspace-panel">
+        <h2>Open student data requests</h2>
+        <p>Review export and deletion requests promptly. A deletion request is complete only after the Arthic database record and the associated Supabase Auth user have both been handled; do not mark a request complete before that work is done.</p>
+        <div class="workspace-table-wrap"><table class="workspace-table">
+          <thead><tr><th>Account email</th><th>Request</th><th>Status</th><th>Received</th></tr></thead>
+          <tbody data-admin-request-rows><tr><td colspan="4" class="workspace-empty">No pending data requests.</td></tr></tbody>
+        </table></div>
+      </section>
+      <section class="workspace-panel">
         <h2>Student database</h2>
         <p>Initialize the account, progress and preferences tables once before enabling synced student accounts. This setup also inserts the original sample questions as unpublished drafts.</p>
         <div class="workspace-actions"><button class="workspace-button workspace-button--secondary" type="button" data-initialize-schema>Initialize student database</button></div>
