@@ -195,6 +195,7 @@ async function loadAdmin(): Promise<void> {
     put("[data-admin-applications]", totals?.applications ?? 0);
     put("[data-admin-requests]", totals?.pendingDataRequests ?? 0);
     showRows("[data-admin-track-rows]", Array.isArray(data.examActivity) ? data.examActivity as Array<Record<string, unknown>> : [], ["examCode", "sessions", "answered", "correct"]);
+    showRows("[data-admin-request-rows]", Array.isArray(data.dataRequests) ? data.dataRequests as Array<Record<string, unknown>> : [], ["email", "type", "status", "createdAt"]);
     status("Statistics refreshed.", "success");
   } catch (error) {
     status(error instanceof Error ? error.message : "Could not load admin statistics.", "error");
