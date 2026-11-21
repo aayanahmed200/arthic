@@ -71,6 +71,11 @@ function saveSession(value: Record<string, unknown>): AuthSession {
   return session;
 }
 
+export function studentAccountsEnabled(): boolean {
+  const env = import.meta.env as ImportMetaEnv & { readonly VITE_STUDENT_ACCOUNTS_ENABLED?: string };
+  return env.VITE_STUDENT_ACCOUNTS_ENABLED === "true";
+}
+
 export function authIsConfigured(): boolean {
   const { url, key } = config();
   return Boolean(url && key);
@@ -79,13 +84,15 @@ export function authIsConfigured(): boolean {
 export async function startGoogleSignIn(intent: AuthIntent): Promise<void> {
   const { url, key } = config();
   if (!url || !key) throw new Error("Google sign-in has not been configured yet. Please try again later.");
+  if (intent === "student" && !studentAccountsEnabled()) {
+    throw new Error("Student account sign-in is not enabled yet. You can still use the public practice preview.");
+  }
   const verifier = randomVerifier();
   const challenge = await sha256(verifier);
   sessionStorage.setItem(OAUTH_VERIFIER_KEY, verifier);
   sessionStorage.setItem(OAUTH_INTENT_KEY, intent);
 
   const authorize = new URL("/auth/v1/authorize", url);
-  authorize.searchParams.set("apikey", key);
   authorize.searchParams.set("provider", "google");
   authorize.searchParams.set("scopes", "openid email profile");
   authorize.searchParams.set("redirect_to", new URL("/auth-callback.html", window.location.origin).toString());
