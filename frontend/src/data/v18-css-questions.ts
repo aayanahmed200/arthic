@@ -75,4 +75,10 @@ export const V18_CSS_QUESTIONS: StudyQuestionPrompt[] = [
   question("v18-css-019","ENGLISH","Reading comprehension: inference","CHALLENGING",
     "A policy pilot improved response times in two districts, but neither district had the same staffing levels as the rest of the country. Which conclusion is most defensible?",
     ["The policy will produce identical results in every district.","The pilot provides encouraging evidence, but wider testing is needed before national conclusions are drawn.","Staffing levels cannot affect response times.","The pilot proves that no other policy could work."]),
+  question("v18-css-020","GENERAL","Budget allocation","STANDARD",
+    "A department allocates 35% of its Rs. 8 million budget to staffing and 25% to equipment. The rest is reserved for training. How much is reserved for training?",
+    ["Rs. 2.8 million","Rs. 3.0 million","Rs. 3.2 million","Rs. 3.6 million"]),
+  question("v18-css-021","PAKISTAN","Pakistan Movement","EASY",
+    "The Lahore Resolution was adopted in March 1940 at which political gathering?",
+    ["The annual session of the All-India Muslim League","The first meeting of the Constituent Assembly","The Simla Conference of 1945","The Cabinet Mission meeting of 1946"]),
 ];
