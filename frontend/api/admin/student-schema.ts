@@ -2,6 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { requireAdmin } from "../_auth.js";
 import { ensureStudentWorkspaceSchema } from "../_student-schema.js";
 import { checkRateLimit } from "../_rate_limit.js";
+import { SAMPLE_QUESTIONS } from "../study/_sample-content.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -21,7 +22,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({
       ok: true,
       schemaVersion: 3,
-      seededDraftQuestions: 1,,
+      seededDraftQuestions: SAMPLE_QUESTIONS.length,
       message: "Student workspace and question-bank tables are ready. Sample questions were seeded as drafts; student account access remains closed.",
     });
   } catch (error) {
