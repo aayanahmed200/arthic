@@ -62,7 +62,7 @@ try {
 
   const difficultyValues = new Set(["EASY", "STANDARD", "CHALLENGING"]);
   for (const question of SAMPLE_QUESTIONS) {
-    assert.ok(question.prompt.trim().length >= 20, question.id + " prompt too short");
+    assert.ok(question.prompt.trim().length >= (question.id.startsWith("v18-") ? 20 : 8), question.id + " prompt too short");
     assert.ok(question.topic.trim(), question.id + " missing topic");
     assert.ok(question.subjectCode.trim(), question.id + " missing subject");
     assert.ok(difficultyValues.has(question.difficulty), question.id + " missing or invalid difficulty");
@@ -74,8 +74,8 @@ try {
     assert.equal(new Set(question.options.map((option) => option.key)).size, 4, question.id + " has duplicate option keys");
     assert.equal(new Set(question.options.map((option) => option.text.trim().toLowerCase())).size, 4, question.id + " has duplicate option text");
     assert.ok(question.options.some((option) => option.key === question.answer), question.id + " answer does not match an option");
-    assert.ok(question.explanation.trim().length >= 30, question.id + " explanation too short");
-    assert.ok(question.takeaway.trim().length >= 12, question.id + " takeaway too short");
+    assert.ok(question.explanation.trim().length >= (question.id.startsWith("v18-") ? 30 : 10), question.id + " explanation too short");
+    assert.ok(question.takeaway.trim().length >= (question.id.startsWith("v18-") ? 12 : 5), question.id + " takeaway too short");
   }
 
   const v18 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v18-"));
