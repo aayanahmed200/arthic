@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { SAMPLE_QUESTIONS } from "./_sample-content.js";
+import { RETIRED_NEAR_DUPLICATE_IDS, SAMPLE_QUESTIONS } from "./_sample-content.js";
 import { sql } from "../_db.js";
 import { checkRateLimit } from "../_rate_limit.js";
 
@@ -20,6 +20,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const selectedOption = typeof body.selectedOption === "string" ? body.selectedOption.trim().toUpperCase() : "";
   if (!questionId || questionId.length > QUESTION_ID_MAX || !/^[A-F]$/.test(selectedOption)) {
     return res.status(400).json({ error: "provide a question ID and one answer option (A–F)." });
+  }
+
+  if (RETIRED_NEAR_DUPLICATE_IDS.has(questionId)) {
+    return res.status(404).json({ error: "that question is no longer available." });
   }
 
   let question: {

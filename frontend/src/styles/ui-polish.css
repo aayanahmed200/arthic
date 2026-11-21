@@ -13,7 +13,7 @@
 html body :is(
   a.button, button.button, .button--small, .home-primary, .home-button,
   .oneprep-button, .study-action:not(.study-action--secondary),
-  .career-role__link, .study-quiz-start, .home-sample-next,
+  .career-role__link, .careers-role__link, .study-quiz-start, .home-sample-next,
   .nav__cta, button[type="submit"], input[type="submit"]
 ) {
   border: 1px solid var(--arthic-ui-coral) !important;
@@ -29,13 +29,13 @@ html body :is(
 html body :is(
   a.button, button.button, .button--small, .home-primary, .home-button,
   .oneprep-button, .study-action:not(.study-action--secondary),
-  .career-role__link, .study-quiz-start, .home-sample-next,
+  .career-role__link, .careers-role__link, .study-quiz-start, .home-sample-next,
   .nav__cta, button[type="submit"], input[type="submit"]
 ):hover:not(:disabled),
 html body :is(
   a.button, button.button, .button--small, .home-primary, .home-button,
   .oneprep-button, .study-action:not(.study-action--secondary),
-  .career-role__link, .study-quiz-start, .home-sample-next,
+  .career-role__link, .careers-role__link, .study-quiz-start, .home-sample-next,
   .nav__cta, button[type="submit"], input[type="submit"]
 ):focus-visible {
   border-color: var(--arthic-ui-coral-hover) !important;
@@ -795,4 +795,256 @@ html body.content-page.study-preview-page .study-quiz-form__hint {
   html body.content-page.career-page #main .career-role__content {
     grid-column: 1 !important;
   }
+}
+
+
+/* ── Stable page structures: native FAQ and full-width Careers rows ── */
+html body.content-page.pricing-page #main .pricing-faq-v2 {
+  width: min(980px, calc(100% - 48px)) !important;
+  max-width: 980px !important;
+  margin: 0 auto 72px !important;
+  padding: 36px 0 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html body.content-page.pricing-page #main .pricing-faq-v2 .pricing-faq-title {
+  max-width: none !important;
+  margin: 12px 0 26px !important;
+  color: #243C2E !important;
+  font: 700 clamp(30px, 3.4vw, 42px)/1.08 "Bricolage Grotesque", sans-serif !important;
+  letter-spacing: -.04em !important;
+  text-align: left !important;
+}
+html body.content-page.pricing-page #main .pricing-faq-list {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) !important;
+  gap: 0 !important;
+  width: 100% !important;
+  border-top: 1px solid #E5DED2 !important;
+}
+html body.content-page.pricing-page #main .pricing-faq-item {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid #E5DED2 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html body.content-page.pricing-page #main .pricing-faq-question {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 24px !important;
+  width: 100% !important;
+  min-height: 76px !important;
+  margin: 0 !important;
+  padding: 20px 4px !important;
+  color: #243C2E !important;
+  cursor: pointer !important;
+  list-style: none !important;
+  font: 650 clamp(17px, 1.8vw, 21px)/1.3 "Bricolage Grotesque", sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-faq-question::-webkit-details-marker { display: none !important; }
+html body.content-page.pricing-page #main .pricing-faq-question::after {
+  content: "+" !important;
+  display: grid !important;
+  flex: 0 0 34px !important;
+  width: 34px !important;
+  height: 34px !important;
+  place-items: center !important;
+  border: 1px solid #DED8CC !important;
+  border-radius: 50% !important;
+  background: #FFFFFF !important;
+  color: #314B3A !important;
+  font: 400 22px/1 "Poppins", sans-serif !important;
+}
+html body.content-page.pricing-page #main .pricing-faq-item[open] .pricing-faq-question::after {
+  content: "−" !important;
+}
+html body.content-page.pricing-page #main .pricing-faq-question:hover {
+  color: #243C2E !important;
+  background: transparent !important;
+}
+html body.content-page.pricing-page #main .pricing-faq-answer {
+  max-width: 78ch !important;
+  margin: 0 !important;
+  padding: 0 64px 22px 4px !important;
+  color: #5D6359 !important;
+  font: 400 14px/1.75 "Poppins", sans-serif !important;
+}
+html body.content-page.career-page #main .careers-role-list {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) !important;
+  gap: 16px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+html body.content-page.career-page #main .careers-role {
+  display: grid !important;
+  grid-template-columns: 44px minmax(0,1fr) minmax(170px,190px) !important;
+  align-items: start !important;
+  gap: 22px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 26px !important;
+  border: 1px solid #E6DFD3 !important;
+  border-radius: 16px !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(41,48,37,.045) !important;
+}
+html body.content-page.career-page #main .careers-role__index {
+  display: grid !important;
+  place-items: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  border: 1px solid #DED8CC !important;
+  border-radius: 10px !important;
+  background: #F7F2E8 !important;
+  color: #526B59 !important;
+  font: 600 12px/1 "Poppins", sans-serif !important;
+}
+html body.content-page.career-page #main .careers-role__content {
+  display: grid !important;
+  grid-column: 2 !important;
+  align-content: start !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+}
+html body.content-page.career-page #main .careers-role__type {
+  margin: 0 !important;
+  color: #B84B38 !important;
+  font: 650 10px/1.4 "Poppins", sans-serif !important;
+  letter-spacing: .12em !important;
+}
+html body.content-page.career-page #main .careers-role__title {
+  margin: 0 !important;
+  color: #243C2E !important;
+  font: 700 clamp(25px, 2.5vw, 32px)/1.12 "Bricolage Grotesque", sans-serif !important;
+  letter-spacing: -.035em !important;
+}
+html body.content-page.career-page #main .careers-role__body,
+html body.content-page.career-page #main .careers-role__note {
+  max-width: 70ch !important;
+  margin: 0 !important;
+  color: #596257 !important;
+  font: 400 14px/1.7 "Poppins", sans-serif !important;
+  overflow-wrap: break-word !important;
+}
+html body.content-page.career-page #main .careers-role__details {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 12px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 8px 0 0 !important;
+}
+html body.content-page.career-page #main .careers-role__details > div {
+  display: grid !important;
+  align-content: start !important;
+  gap: 9px !important;
+  min-width: 0 !important;
+  padding: 15px !important;
+  border: 1px solid #EFE9DF !important;
+  border-radius: 12px !important;
+  background: #FBF9F4 !important;
+}
+html body.content-page.career-page #main .careers-role__details strong {
+  color: #596257 !important;
+  font: 650 10px/1.4 "Poppins", sans-serif !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+}
+html body.content-page.career-page #main .careers-role__details ul {
+  display: grid !important;
+  gap: 7px !important;
+  margin: 0 !important;
+  padding: 0 0 0 16px !important;
+}
+html body.content-page.career-page #main .careers-role__details li {
+  margin: 0 !important;
+  color: #444C42 !important;
+  font: 400 12px/1.65 "Poppins", sans-serif !important;
+  overflow-wrap: break-word !important;
+}
+html body.content-page.career-page #main .careers-role__link {
+  align-self: center !important;
+  justify-self: stretch !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 46px !important;
+  padding: 12px 16px !important;
+  white-space: normal !important;
+  text-align: center !important;
+  font: 600 12px/1.4 "Poppins", sans-serif !important;
+}
+html body.content-page.career-page #main .careers-note .careers-role__link {
+  width: auto !important;
+  flex: 0 0 auto !important;
+}
+@media (max-width: 900px) {
+  html body.content-page.career-page #main .careers-role {
+    grid-template-columns: 42px minmax(0,1fr) !important;
+  }
+  html body.content-page.career-page #main .careers-role__content { grid-column: 2 !important; }
+  html body.content-page.career-page #main .careers-role__link {
+    grid-column: 2 !important;
+    justify-self: start !important;
+    width: min(260px,100%) !important;
+  }
+}
+@media (max-width: 680px) {
+  html body.content-page.pricing-page #main .pricing-faq-v2,
+  html body.content-page.career-page #main .careers-roles {
+    width: calc(100% - 36px) !important;
+  }
+  html body.content-page.pricing-page #main .pricing-faq-answer { padding-right: 2px !important; }
+  html body.content-page.career-page #main .careers-role {
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 14px !important;
+    padding: 20px !important;
+  }
+  html body.content-page.career-page #main .careers-role__content,
+  html body.content-page.career-page #main .careers-role__link { grid-column: 1 !important; }
+  html body.content-page.career-page #main .careers-role__details {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  html body.content-page.career-page #main .careers-role__link { width: 100% !important; }
+  html body.content-page.career-page #main .careers-note .careers-role__link { width: 100% !important; }
+}
+
+
+/* Question provenance and per-question level are always visible above the stem. */
+html body.content-page.study-preview-page .study-question__meta-line {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 7px !important;
+  margin: 0 0 8px !important;
+  color: #7B513E !important;
+  font: 650 10px/1.55 "Poppins", sans-serif !important;
+  letter-spacing: .09em !important;
+  text-transform: uppercase !important;
+}
+html body.content-page.study-preview-page .study-question__source {
+  margin: 0 0 16px !important;
+  color: #687064 !important;
+  font: 400 11px/1.65 "Poppins", sans-serif !important;
+  overflow-wrap: anywhere !important;
+}
+html body.content-page.study-preview-page .study-quiz-form__hint {
+  max-width: 46ch !important;
+  margin: 8px 0 18px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  color: #687064 !important;
+  font: 400 12px/1.65 "Poppins", sans-serif !important;
 }

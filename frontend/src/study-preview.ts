@@ -60,8 +60,10 @@ async function loadQuestionFeed(): Promise<void> {
       return typeof q.id === "string" &&
         ["LCAT", "NET", "CSS", "MDCAT"].includes(String(q.examCode)) &&
         typeof q.subjectCode === "string" && typeof q.topic === "string" &&
-        typeof q.prompt === "string" && Array.isArray(q.options) &&
-        q.options.length >= 2 &&
+        typeof q.prompt === "string" &&
+        ["EASY", "STANDARD", "CHALLENGING"].includes(String(q.difficulty)) &&
+        typeof q.sourceKind === "string" && typeof q.sourceNote === "string" &&
+        Array.isArray(q.options) && q.options.length === 4 &&
         q.options.every((o) => o && typeof o.key === "string" && typeof o.text === "string");
     });
     if (!valid) throw new Error("Question feed contained invalid records");
@@ -174,40 +176,27 @@ if (root) {
       subjectFilter!.value = activeSubject;
     }
 
-    function difficultyScore(question: StudyQuestionPrompt): number {
-      const fullText = [question.topic, question.prompt, ...question.options.map((option) => option.text)]
-        .join(" ").toLocaleLowerCase();
-      const advancedCues = [
-        "differentiat", "derivative", "integral", "equilibrium", "probability",
-        "constitutional", "international", "confounding", "trigonometry", "coordinate",
-        "molecular", "concentration", "acceleration", "inference", "logical ordering",
-        "data interpretation", "electrical power", "genetics", "kinetics",
-      ];
-      const cueScore = advancedCues.reduce((total, cue) => total + (fullText.includes(cue) ? 1 : 0), 0);
-      const wordCount = fullText.split(/\s+/).filter(Boolean).length;
-      return wordCount / 22 + cueScore * 0.42 + Math.max(0, question.options.length - 4) * 0.2;
-    }
+    function difficultyLabel(level: StudyQuestionPrompt["difficulty"]): string {
+  switch (level) {
+    case "EASY": return "Easy";
+    case "CHALLENGING": return "Challenging";
+    default: return "Standard";
+  }
+}
 
-    function questionsForSetup(): StudyQuestionPrompt[] {
-      const candidates = QUESTION_FEED.filter((question) => {
-        const examMatches = question.examCode === activeExam;
-        const subjectMatches = activeSubject === "ALL" || displaySubjectCode(question) === activeSubject;
-        return examMatches && subjectMatches;
-      });
+function questionsForSetup(): StudyQuestionPrompt[] {
+  const candidates = QUESTION_FEED.filter((question) => {
+    const examMatches = question.examCode === activeExam;
+    const subjectMatches = activeSubject === "ALL" || displaySubjectCode(question) === activeSubject;
+    return examMatches && subjectMatches;
+  });
 
-      const selectedDifficulty = difficultySelect!.value as "ALL" | DifficultyBand;
-      if (selectedDifficulty === "ALL" || candidates.length < 3) return candidates;
+  const selectedDifficulty = difficultySelect!.value as "ALL" | DifficultyBand;
+  if (selectedDifficulty === "ALL") return candidates;
+  return candidates.filter((question) => (question.difficulty ?? "STANDARD") === selectedDifficulty);
+}
 
-      const ranked = candidates.map((question) => ({ question, score: difficultyScore(question) }))
-        .sort((a, b) => a.score - b.score);
-      const bandSize = Math.ceil(ranked.length / 3);
-      const bandIndex = selectedDifficulty === "EASY" ? 0
-        : selectedDifficulty === "STANDARD" ? 1 : 2;
-      const band = ranked.slice(bandIndex * bandSize, bandIndex === 2 ? ranked.length : (bandIndex + 1) * bandSize);
-      return (band.length ? band : ranked).map((item) => item.question);
-    }
-
-    function updateAvailableCount(): void {
+function updateAvailableCount(): void {
       const count = questionsForSetup().length;
       questionBankCount!.textContent = questionFeedLoading
         ? "Loading the question bank"
@@ -326,8 +315,28 @@ if (root) {
       if (subject) subject.textContent = subjectLabel(displaySubjectCode(question));
       const exam = root!.querySelector<HTMLElement>("[data-current-exam]");
       if (exam) exam.textContent = EXAM_LABELS[question.examCode] ?? question.examCode;
+      const meta = root!.querySelector<HTMLElement>("[data-question-meta]");
+      if (meta) {
+        meta.textContent = [
+          EXAM_LABELS[question.examCode] ?? question.examCode,
+          subjectLabel(displaySubjectCode(question)),
+          difficultyLabel(question.difficulty),
+        ].join(" · ");
+      }
       const source = root!.querySelector<HTMLElement>("[data-question-source]");
-      if (source) source.textContent = "Original Arthic practice question";
+      if (source) {
+        const paperDate = question.sourceKind === "past-paper" &&
+          Number.isInteger(question.examYear) &&
+          Number.isInteger(question.examMonth) &&
+          (question.examMonth ?? 0) >= 1 &&
+          (question.examMonth ?? 0) <= 12;
+        const monthName = paperDate
+          ? ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][(question.examMonth ?? 1) - 1]
+          : "";
+        source.textContent = paperDate
+          ? [monthName, question.examYear, question.examSession, question.sourceNote].filter(Boolean).join(" · ")
+          : question.sourceNote ?? "Original Arthic practice · not an official past-paper question";
+      }
       feedback!.hidden = !savedAnswer;
       feedbackPoints!.replaceChildren();
       if (savedAnswer) renderExplanation(savedAnswer);

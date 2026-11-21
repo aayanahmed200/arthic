@@ -16,7 +16,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "method not allowed" });
   }
 
-  if (!(await checkRateLimit(req, res, "apply", 6, 60))) return;
+  if (!(await checkRateLimit(req, res, "apply", 6, 60, true))) return;
 
   if (!process.env.POSTGRES_URL) {
     return res

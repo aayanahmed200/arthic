@@ -18,15 +18,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "method not allowed" });
   }
   res.setHeader("Cache-Control", "no-store");
+  // A lightweight per-IP gate catches repeated invalid Basic-Auth attempts
+  // whenever the shared limiter is available. The authenticated operations
+  // use a strict second limit so writes never proceed without protection.
+  if (!(await checkRateLimit(req, res, "admin-auth", 12, 60, true))) return;
   if (!requireAdmin(req, res)) return;
   if (!process.env.POSTGRES_URL) return res.status(503).json({ error: "Postgres is not configured on the server." });
-  if (!(await checkRateLimit(req, res, "admin-question-bank", 180, 60))) return;
+  if (!(await checkRateLimit(req, res, "admin-question-bank", 180, 60, true))) return;
 
   try {
     if (req.method === "GET") {
       const { rows } = await sql`
         SELECT id, exam_code, subject_code, topic, prompt, instruction, options,
                answer_key, explanation, takeaway, source_kind, source_note,
+               difficulty, exam_year, exam_month, exam_session,
                version, is_published, is_archived, created_at, updated_at
         FROM question_bank
         ORDER BY updated_at DESC
@@ -48,16 +53,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         INSERT INTO question_bank (
           id, exam_code, subject_code, topic, prompt, instruction, options,
           answer_key, explanation, takeaway, source_kind, source_note,
+          difficulty, exam_year, exam_month, exam_session,
           version, is_published, is_archived, updated_at
         )
         VALUES (
           ${id}, ${q.examCode}, ${q.subjectCode}, ${q.topic}, ${q.prompt},
           ${q.instruction}, ${JSON.stringify(q.options)}::jsonb, ${q.answerKey},
           ${q.explanation}, ${q.takeaway}, ${q.sourceKind}, ${q.sourceNote},
+          ${q.difficulty}, ${q.examYear}, ${q.examMonth}, ${q.examSession},
           1, false, false, now()
         )
         RETURNING id, exam_code, subject_code, topic, prompt, instruction, options,
                   answer_key, explanation, takeaway, source_kind, source_note,
+                  difficulty, exam_year, exam_month, exam_session,
                   version, is_published, is_archived, created_at, updated_at
       `;
       return res.status(201).json({ question: rows[0] });
@@ -80,10 +88,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             options = ${JSON.stringify(q.options)}::jsonb, answer_key = ${q.answerKey},
             explanation = ${q.explanation}, takeaway = ${q.takeaway},
             source_kind = ${q.sourceKind}, source_note = ${q.sourceNote},
+            difficulty = ${q.difficulty}, exam_year = ${q.examYear},
+            exam_month = ${q.examMonth}, exam_session = ${q.examSession},
             is_published = false, version = version + 1, updated_at = now()
         WHERE id = ${id} AND version = ${expectedVersion} AND is_archived = false
         RETURNING id, exam_code, subject_code, topic, prompt, instruction, options,
                   answer_key, explanation, takeaway, source_kind, source_note,
+                  difficulty, exam_year, exam_month, exam_session,
                   version, is_published, is_archived, created_at, updated_at
       `;
       if (!rows[0]) {
@@ -102,7 +113,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           AND length(trim(prompt)) > 0 AND length(trim(explanation)) > 0
           AND length(trim(takeaway)) > 0
           AND answer_key IN (SELECT jsonb_array_elements(options)->>'key')
-          AND (source_kind = 'original-sample' OR source_note IS NOT NULL)
+          AND (
+            source_kind = 'original-sample'
+            OR (source_kind IN ('licensed', 'public-domain') AND source_note IS NOT NULL)
+            OR (source_kind = 'past-paper' AND source_note IS NOT NULL
+                AND exam_year BETWEEN 1950 AND 2100 AND exam_month BETWEEN 1 AND 12)
+          )
         RETURNING id, is_published, is_archived, version
       `;
       if (!rows[0]) return res.status(409).json({ error: "question is incomplete or no longer available. Save it first." });

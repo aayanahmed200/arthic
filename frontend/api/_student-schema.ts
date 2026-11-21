@@ -57,8 +57,12 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
           answer_key TEXT NOT NULL,
           explanation TEXT NOT NULL,
           takeaway TEXT NOT NULL,
-          source_kind TEXT NOT NULL CHECK (source_kind IN ('original-sample', 'licensed', 'public-domain')),
+          source_kind TEXT NOT NULL CHECK (source_kind IN ('original-sample', 'licensed', 'public-domain', 'past-paper')),
           source_note TEXT,
+          difficulty TEXT NOT NULL DEFAULT 'STANDARD' CHECK (difficulty IN ('EASY', 'STANDARD', 'CHALLENGING')),
+          exam_year INTEGER CHECK (exam_year BETWEEN 1950 AND 2100),
+          exam_month INTEGER CHECK (exam_month BETWEEN 1 AND 12),
+          exam_session TEXT,
           version INTEGER NOT NULL DEFAULT 1 CHECK (version > 0),
           is_published BOOLEAN NOT NULL DEFAULT false,
           is_archived BOOLEAN NOT NULL DEFAULT false,
@@ -74,6 +78,20 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
 
       await sql`ALTER TABLE question_bank ADD COLUMN IF NOT EXISTS instruction TEXT NOT NULL DEFAULT 'Choose one answer.';`;
       await sql`ALTER TABLE question_bank ADD COLUMN IF NOT EXISTS is_archived BOOLEAN NOT NULL DEFAULT false;`;
+      await sql`ALTER TABLE question_bank ADD COLUMN IF NOT EXISTS difficulty TEXT NOT NULL DEFAULT 'STANDARD';`;
+      await sql`ALTER TABLE question_bank ADD COLUMN IF NOT EXISTS exam_year INTEGER;`;
+      await sql`ALTER TABLE question_bank ADD COLUMN IF NOT EXISTS exam_month INTEGER;`;
+      await sql`ALTER TABLE question_bank ADD COLUMN IF NOT EXISTS exam_session TEXT;`;
+      await sql`ALTER TABLE question_bank DROP CONSTRAINT IF EXISTS question_bank_source_kind_check;`;
+      await sql`ALTER TABLE question_bank ADD CONSTRAINT question_bank_source_kind_check CHECK (source_kind IN ('original-sample', 'licensed', 'public-domain', 'past-paper'));`;
+      await sql`ALTER TABLE question_bank DROP CONSTRAINT IF EXISTS question_bank_difficulty_check;`;
+      await sql`ALTER TABLE question_bank ADD CONSTRAINT question_bank_difficulty_check CHECK (difficulty IN ('EASY', 'STANDARD', 'CHALLENGING'));`;
+      await sql`ALTER TABLE question_bank DROP CONSTRAINT IF EXISTS question_bank_exam_month_check;`;
+      await sql`ALTER TABLE question_bank ADD CONSTRAINT question_bank_exam_month_check CHECK (exam_month IS NULL OR exam_month BETWEEN 1 AND 12);`;
+      await sql`ALTER TABLE question_bank DROP CONSTRAINT IF EXISTS question_bank_exam_year_check;`;
+      await sql`ALTER TABLE question_bank ADD CONSTRAINT question_bank_exam_year_check CHECK (exam_year IS NULL OR exam_year BETWEEN 1950 AND 2100);`;
+      await sql`ALTER TABLE question_bank DROP CONSTRAINT IF EXISTS question_bank_paper_date_pair_check;`;
+      await sql`ALTER TABLE question_bank ADD CONSTRAINT question_bank_paper_date_pair_check CHECK ((exam_year IS NULL) = (exam_month IS NULL));`;
 
       // Seed original demonstration questions as drafts, without overwriting
       // content that an administrator has already edited.
@@ -82,6 +100,7 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
           INSERT INTO question_bank (
             id, exam_code, subject_code, topic, prompt, instruction, options,
             answer_key, explanation, takeaway, source_kind, source_note,
+            difficulty, exam_year, exam_month, exam_session,
             version, is_published, is_archived
           )
           VALUES (
@@ -89,7 +108,9 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
             ${question.topic}, ${question.prompt}, ${question.instruction},
             ${JSON.stringify(question.options)}::jsonb, ${question.answer},
             ${question.explanation}, ${question.takeaway}, ${question.sourceKind},
-            'Original Arthic sample question; not an official past paper.',
+            ${question.sourceNote ?? 'Original Arthic practice question; not an official past paper.'},
+            ${question.difficulty ?? 'STANDARD'}, ${question.examYear ?? null},
+            ${question.examMonth ?? null}, ${question.examSession ?? null},
             1, false, false
           )
           ON CONFLICT (id) DO NOTHING
@@ -166,7 +187,7 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
 
       await sql`
         INSERT INTO app_schema_migrations (version, name)
-        VALUES (1, 'student-workspace-foundation'), (2, 'question-bank-authoring')
+        VALUES (1, 'student-workspace-foundation'), (2, 'question-bank-authoring'), (3, 'question-editorial-metadata')
         ON CONFLICT (version) DO NOTHING;
       `;
     })().catch((error) => {

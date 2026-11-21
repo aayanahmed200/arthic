@@ -11,6 +11,9 @@ import { V14_PRIVATE_QUESTIONS } from "./_v14-content.js";
 import { V15_PRIVATE_QUESTIONS } from "./_v15-content.js";
 import { V16_PRIVATE_QUESTIONS } from "./_v16-content.js";
 import { V17_PRIVATE_QUESTIONS } from "./_v17-content.js";
+import { V18_PRIVATE_QUESTIONS } from "./_v18-content.js";
+import { V19_PRIVATE_QUESTIONS } from "./_v19-content.js";
+import { classifyPracticeDifficulty, normalizeQuestionStem } from "../../src/data/question-difficulty.js";
 
 export interface StudyOption { key: string; text: string; }
 
@@ -25,7 +28,12 @@ export interface PrivateStudyQuestion {
   answer: string;
   explanation: string;
   takeaway: string;
-  sourceKind: "original-sample";
+  sourceKind: "original-sample" | "licensed" | "public-domain" | "past-paper";
+  difficulty?: "EASY" | "STANDARD" | "CHALLENGING";
+  sourceNote?: string;
+  examYear?: number;
+  examMonth?: number;
+  examSession?: string;
 }
 
 /** Original Arthic sample bank with answer keys retained on the server. */
@@ -2916,7 +2924,38 @@ const BASE_SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
   }
 ];
 
-export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
+/** Retire reworded copies of the same underlying fact/check. Different-number calculation drills remain available. */
+export const RETIRED_NEAR_DUPLICATE_IDS = new Set<string>([
+  // LCAT: same ratio data and same single-draw probability task.
+  "v11-lcat-001",
+  "v11-lcat-009",
+  // NET: exact-repeat power, binary, mole and quadratic-root checks.
+  "v15-net-004",
+  "v11-net-016",
+  "net-new-014",
+  "v11-net-003",
+  // The later binary-value wording was previously surviving the exact-stem pass.
+  "v13-net-009",
+  // CSS MPT: repeated federalism, Constitution and Objectives Resolution facts.
+  "v11-css-002",
+  "v10-css-014",
+  "v15-css-005",
+  "css-new-008",
+  // MDCAT: repeated antibody, neutralisation, xylem, oxidation,
+  // electron-transport and nephron recall prompts.
+  "v12-mdcat-007",
+  "mdcat-more-009",
+  "mdcat-next-011",
+  "mdcat-new-008",
+  "v13-mdcat-009",
+  "mdcat-new-010",
+  "mdcat-next-008",
+  "mdcat-extra-005",
+  // Keep the clearer nephron-ultrafiltration item and retire its exact copy.
+  "mdcat-plus-002",
+]);
+
+const QUESTION_SOURCES: PrivateStudyQuestion[] = [
   ...BASE_SAMPLE_QUESTIONS,
   ...EXPANDED_SAMPLE_QUESTIONS,
   ...MORE_SAMPLE_QUESTIONS,
@@ -2931,4 +2970,29 @@ export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
   ...V15_PRIVATE_QUESTIONS,
   ...V16_PRIVATE_QUESTIONS,
   ...V17_PRIVATE_QUESTIONS,
+  ...V18_PRIVATE_QUESTIONS,
+  ...V19_PRIVATE_QUESTIONS,
 ];
+
+const seenQuestionIds = new Set<string>();
+const seenQuestionStems = new Set<string>();
+const UNIQUE_QUESTION_SOURCES: PrivateStudyQuestion[] = [];
+for (const question of QUESTION_SOURCES) {
+  const stem = normalizeQuestionStem(question.prompt);
+  if (
+    RETIRED_NEAR_DUPLICATE_IDS.has(question.id) ||
+    !stem ||
+    seenQuestionIds.has(question.id) ||
+    seenQuestionStems.has(stem)
+  ) continue;
+  seenQuestionIds.add(question.id);
+  seenQuestionStems.add(stem);
+  UNIQUE_QUESTION_SOURCES.push({
+    ...question,
+    difficulty: question.difficulty ?? classifyPracticeDifficulty(question),
+    sourceNote: question.sourceNote ?? "Original Arthic practice question; not taken from an official past paper.",
+  });
+}
+
+/** De-duplicated public practice bank; answer keys remain server-only. */
+export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = UNIQUE_QUESTION_SOURCES;

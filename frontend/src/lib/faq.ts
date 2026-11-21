@@ -5,7 +5,7 @@
  * reader users get expanded/collapsed state for free.
  */
 export function initFaq(): void {
-  document.querySelectorAll<HTMLElement>(".pricing-faq__list").forEach((list) => {
+  document.querySelectorAll<HTMLElement>(".pricing-faq__list:not([data-native-accordion])").forEach((list) => {
     list.classList.add("faq-js");
     list.querySelectorAll<HTMLElement>(".pricing-faq__item").forEach((item, i) => {
       const dt = item.querySelector("dt");
@@ -18,8 +18,14 @@ export function initFaq(): void {
       btn.className = "faq__q";
       btn.setAttribute("aria-expanded", "false");
       btn.setAttribute("aria-controls", id);
-      btn.innerHTML = `<span>${dt.innerHTML}</span><span class="faq__icon" aria-hidden="true"></span>`;
-      dt.textContent = "";
+      const questionText = document.createElement("span");
+      while (dt.firstChild) questionText.appendChild(dt.firstChild);
+      btn.appendChild(questionText);
+
+      const icon = document.createElement("span");
+      icon.className = "faq__icon";
+      icon.setAttribute("aria-hidden", "true");
+      btn.appendChild(icon);
       dt.appendChild(btn);
 
       const inner = document.createElement("div");

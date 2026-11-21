@@ -13,7 +13,8 @@ try {
     options: [{ key: "A", text: "Ribosome" }, { key: "B", text: "Nucleus" }, { key: "C", text: "Golgi apparatus" }, { key: "D", text: "Lysosome" }],
     answerKey: "B", explanation: "The nucleus contains most of a eukaryotic cell's DNA.",
     takeaway: "The nucleus stores most of the cell's genetic material.",
-    sourceKind: "original-sample", sourceNote: "",
+    sourceKind: "original-sample", sourceNote: "", difficulty: "EASY",
+    examYear: null, examMonth: null, examSession: null,
   };
   const valid = parseQuestionDraft(base);
   assert.equal(valid.ok, true);
@@ -29,9 +30,25 @@ try {
     ["duplicate options", { options: [{ key: "A", text: "One" }, { key: "A", text: "Two" }] }],
     ["missing answer option", { answerKey: "F" }],
     ["licensed content without source note", { sourceKind: "licensed", sourceNote: "" }],
+    ["missing difficulty", { difficulty: "" }],
+    ["past paper without date", { sourceKind: "past-paper", sourceNote: "FPSC CSS MPT paper" }],
+    ["past paper with invalid month", { sourceKind: "past-paper", sourceNote: "FPSC CSS MPT paper", examYear: 2025, examMonth: 13 }],
+    ["original sample with invented date", { examYear: 2025, examMonth: 2 }],
+    ["unpaired paper date", { sourceKind: "licensed", sourceNote: "Licensed set", examYear: 2025, examMonth: null }],
     ["too many options", { options: Array.from({ length: 7 }, (_, i) => ({ key: String.fromCharCode(65 + i), text: "Option " + i })) }],
   ]) assert.equal(parseQuestionDraft({ ...base, ...patch }).ok, false, name);
-  console.log("Question-bank validation tests passed: valid content, exam code, options, answer key and attribution rules.");
+  const datedPastPaper = parseQuestionDraft({
+    ...base,
+    sourceKind: "past-paper",
+    sourceNote: "FPSC CSS MPT 2025 paper, official public paper archive",
+    examYear: 2025,
+    examMonth: 2,
+    examSession: "MPT",
+  });
+  assert.equal(datedPastPaper.ok, true);
+  assert.equal(datedPastPaper.value.examYear, 2025);
+  assert.equal(datedPastPaper.value.examMonth, 2);
+  console.log("Question-bank validation tests passed: difficulty, source attribution, real paper dates, options and answer keys.");
 
   const admin = (await server.ssrLoadModule("/api/admin/questions.ts")).default;
   const previousAdminPassword = process.env.ADMIN_PASSWORD;
@@ -58,7 +75,8 @@ try {
 
     const unauthenticated = mockAdminRequest("GET");
     await admin(unauthenticated.req, unauthenticated.res);
-    assert.equal(unauthenticated.res.code, 401);
+    assert.equal(unauthenticated.res.code, 503,
+      "the strict shared rate limiter must fail closed when its database is unavailable");
 
     const authorizedWithoutDatabase = mockAdminRequest(
       "GET",
@@ -66,7 +84,7 @@ try {
     );
     await admin(authorizedWithoutDatabase.req, authorizedWithoutDatabase.res);
     assert.equal(authorizedWithoutDatabase.res.code, 503);
-    console.log("Question-bank admin API access tests passed: invalid methods and unauthenticated requests are rejected; missing database fails closed.");
+    console.log("Question-bank admin API access tests passed: invalid methods are rejected and database-backed request protection fails closed when storage is unavailable.");
   } finally {
     if (previousAdminPassword === undefined) delete process.env.ADMIN_PASSWORD;
     else process.env.ADMIN_PASSWORD = previousAdminPassword;

@@ -111,10 +111,13 @@ async function callGemini(apiKey: string, messages: ChatMessage[]): Promise<Prov
   }));
 
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${apiKey}`,
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
     {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        "x-goog-api-key": apiKey,
+      },
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
         contents,
@@ -148,7 +151,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // per 5 minutes per IP is generous for an actual back-and-forth
   // conversation but shuts down a spam loop or an abandoned-tab retry
   // bug fast.
-  if (!(await checkRateLimit(req, res, "arlo", 12, 300))) return;
+  if (!(await checkRateLimit(req, res, "arlo", 12, 300, true))) return;
 
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
   const geminiKey = process.env.GEMINI_API_KEY;
