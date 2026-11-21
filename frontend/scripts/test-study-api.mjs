@@ -55,6 +55,16 @@ try {
   const feed = mockRequest("GET");
   await questionsHandler(feed.req, feed.res);
   assert.equal(feed.res.code, 200);
+  const omittedV21Diagnostic = V21_SAMPLE_QUESTIONS.filter((question) =>
+    !SAMPLE_QUESTIONS.some((sample) => sample.id === question.id)
+  ).map((question) => ({
+    id: question.id,
+    prompt: question.prompt,
+    duplicateMatches: SAMPLE_QUESTIONS.filter((sample) =>
+      normalizeQuestionStem(sample.prompt) === normalizeQuestionStem(question.prompt)
+    ).map((sample) => ({ id: sample.id, prompt: sample.prompt })),
+  }));
+  if (omittedV21Diagnostic.length) console.log("V21 duplicate-stem diagnosis:", JSON.stringify(omittedV21Diagnostic));
   const survivingIds = new Set(SAMPLE_QUESTIONS.map((question) => question.id));
   const missingV18 = V18_SAMPLE_QUESTIONS.filter((question) => !survivingIds.has(question.id));
   const expectedDuplicateV18 = [
