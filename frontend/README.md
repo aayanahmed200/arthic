@@ -27,7 +27,7 @@ The age/guardian checkbox is a self-declaration, not independent parent or guard
 
 Read GOOGLE_SIGNIN_SETUP.md before enabling accounts. Configure the Supabase Google provider, exact callback redirects, and the variables listed in .env.example.
 
-Set POSTGRES_URL to the database connection string. Set ADMIN_EMAILS to the exact Google account emails permitted to administer Arthic. The allowlist is server-only. Never put it or a database password in a VITE_ variable.
+Set POSTGRES_URL to the database connection string. Set ADMIN_EMAILS to the exact Google account emails permitted to administer Arthic. The allowlist is server-only. Keep STUDENT_ACCOUNTS_ENABLED and VITE_STUDENT_ACCOUNTS_ENABLED set to false until Google and the database are configured, database setup has succeeded, and the age/guardian and legal review gates are complete. Only then set both feature flags to true. Never put ADMIN_EMAILS or a database password in a VITE_ variable.
 
 Open /admin.html with an allowlisted Google account and run Initialize student database once. The idempotent setup prepares account, session, answer, preferences and data-request tables. Original sample questions are seeded as drafts, not published automatically.
 
