@@ -11,7 +11,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("Vary", "Authorization");
-  if (!(await checkRateLimit(req, res, "student-me", 40, 60, true))) return;
+  if (!(await checkRateLimit(req, res, "student-me", 40, 60))) return;
 
   const result = await authenticateStudent(req);
   if (!result.ok) {
@@ -24,7 +24,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
   }
   if (!process.env.POSTGRES_URL) {
-    return res.status(503).json({ authenticated: true, error: "Student storage is not configured." });
+    return res.status(200).json({
+      authenticated: true,
+      emailVerified: true,
+      identity: { id: result.identity.id, email: result.identity.email, displayName: result.identity.displayName },
+      workspace: { available: false, needsSetup: true, termsVersion: null, privacyVersion: null },
+    });
   }
 
   try {
