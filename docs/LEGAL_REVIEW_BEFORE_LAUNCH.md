@@ -22,7 +22,7 @@ Internal launch checklist — not a public policy. The public Privacy Policy, Te
 - Application records: PostgreSQL tables created by the protected admin setup route.
 - Synced learning data: exam/subject, session times, question IDs, selected options and correctness.
 - Admin access: Google identity checked against server-only ADMIN_EMAILS.
-- Admin statistics: aggregate registered accounts, saved practice sessions/answers, published questions, waitlist, applications and open data requests. No anonymous page-view analytics are included.
+- Admin statistics: aggregate registered accounts, saved practice sessions/answers, published questions, waitlist, applications, open data requests and first-party daily public route-view counts. Page counts store only the route/date/counter, are not unique-visitor estimates, and exclude private account/admin pages.
 - Deletion: request queue only. No Supabase Auth admin/service-role deletion is wired into the public API.
 
 **Launch gate:** do not describe Arthic as legally certified or fully compliant, and do not broadly enable student accounts for minors, until operator identity, guardian consent, deletion workflow, provider/data-flow map and lawyer review are complete.
