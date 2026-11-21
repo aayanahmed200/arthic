@@ -53,11 +53,10 @@ async function getClient(): Promise<Client> {
     }
     const next = new Client({
       connectionString,
-      // Supabase's pooler presents a valid cert, but the minimal cert
-      // bundle in some serverless runtimes can't always chain-verify it —
-      // this is the connection setting Supabase's own docs use for
-      // serverless/edge platforms.
-      ssl: { rejectUnauthorized: false },
+      // Always verify the database certificate. A deployment with an
+      // invalid/untrusted certificate should fail closed rather than
+      // silently accepting a possible man-in-the-middle connection.
+      ssl: { rejectUnauthorized: true },
     });
     connecting = next
       .connect()
