@@ -18,8 +18,14 @@ export function initFaq(): void {
       btn.className = "faq__q";
       btn.setAttribute("aria-expanded", "false");
       btn.setAttribute("aria-controls", id);
-      btn.innerHTML = `<span>${dt.innerHTML}</span><span class="faq__icon" aria-hidden="true"></span>`;
-      dt.textContent = "";
+      const questionText = document.createElement("span");
+      while (dt.firstChild) questionText.appendChild(dt.firstChild);
+      btn.appendChild(questionText);
+
+      const icon = document.createElement("span");
+      icon.className = "faq__icon";
+      icon.setAttribute("aria-hidden", "true");
+      btn.appendChild(icon);
       dt.appendChild(btn);
 
       const inner = document.createElement("div");
