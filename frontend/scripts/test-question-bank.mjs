@@ -9,7 +9,7 @@ try {
   const { SAMPLE_QUESTIONS } = await server.ssrLoadModule("/api/study/_sample-content.ts");
   const { V21_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v21-sample-questions.ts");
   const { normalizeQuestionStem } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
-  assert.equal(SAMPLE_QUESTIONS.length, 1120, "the published demo bank has 1,080 unique questions");
+  assert.equal(SAMPLE_QUESTIONS.length, 1120, "the published demo bank has 1,120 unique questions");
   for (const examCode of ["LCAT", "NET", "CSS", "MDCAT"]) {
     assert.equal(SAMPLE_QUESTIONS.filter((question) => question.examCode === examCode).length, 280,
       examCode + " should have 280 questions");
@@ -61,7 +61,7 @@ try {
     };
     await questionsHandler({ method: "GET", headers: {} }, feedRes);
     assert.equal(feedRes.code, 200);
-    assert.equal(feedRes.body.dataVersion, "arthic-original-four-track-v20-1120");
+    assert.equal(feedRes.body.dataVersion, "arthic-original-four-track-v21-1120");
     assert.equal(feedRes.body.questions.length, 1120);
     assert.ok(feedRes.body.questions.every((question) =>
       !("answer" in question) && !("answerKey" in question) &&

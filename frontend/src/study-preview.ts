@@ -495,10 +495,11 @@ function updateAvailableCount(): void {
       instruction!.textContent = "Select an exam, optionally narrow by subject and difficulty, then start your 10-question quiz.";
       root!.querySelector<HTMLElement>("[data-current-exam]")!.textContent = "EXAM BOARD";
       root!.querySelector<HTMLElement>("[data-current-subject]")!.textContent = "SUBJECT";
-      root!.querySelector<HTMLElement>("[data-question-source]")!.textContent =
-        questionFeedLoading ? "Loading the practice bank…" :
-          questionFeedUnavailable ? "Practice bank temporarily unavailable" :
-            QUESTION_FEED.length + " original practice questions available";
+      const questionSource = root!.querySelector<HTMLElement>("[data-question-source]")!;
+      questionSource.dataset.state = questionFeedLoading ? "loading" : "ready";
+      questionSource.textContent = questionFeedLoading ? "Preparing questions" :
+        questionFeedUnavailable ? "Practice bank temporarily unavailable" :
+          QUESTION_FEED.length + " original practice questions available";
       optionList!.replaceChildren();
       feedback!.hidden = true;
       previousButton!.disabled = true;
@@ -568,10 +569,11 @@ function updateAvailableCount(): void {
       if (bankTotal) bankTotal.textContent = String(QUESTION_FEED.length);
       updateAvailableCount();
       if (!quizStarted) {
-        root!.querySelector<HTMLElement>("[data-question-source]")!.textContent =
-          questionFeedLoading ? "Loading the practice bank…" :
-            questionFeedUnavailable ? "Practice bank temporarily unavailable" :
-              QUESTION_FEED.length + " original practice questions available";
+        const questionSource = root!.querySelector<HTMLElement>("[data-question-source]")!;
+        questionSource.dataset.state = questionFeedLoading ? "loading" : "ready";
+        questionSource.textContent = questionFeedLoading ? "Preparing questions" :
+          questionFeedUnavailable ? "Practice bank temporarily unavailable" :
+            QUESTION_FEED.length + " original practice questions available";
       }
     }
 

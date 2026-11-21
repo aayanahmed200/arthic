@@ -1261,3 +1261,44 @@ html body.content-page.apply-page .apply-form__status[data-state="pending"]:empt
     animation-duration: 1.8s !important;
   }
 }
+
+
+/* Question-source loading state: a compact ring sits beside the status text. */
+html body.content-page.study-preview-page .study-question__source[data-state="loading"]::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 7px;
+  border: 2px solid rgba(33,75,56,.2);
+  border-top-color: var(--arthic-ui-coral);
+  border-radius: 50%;
+  vertical-align: -2px;
+  animation: arthic-indicator-spin .72s linear infinite;
+}
+html body.content-page.waitlist-page .waitlist-form button.is-loading {
+  position: relative !important;
+  cursor: progress !important;
+  opacity: .92 !important;
+}
+html body.content-page.waitlist-page .waitlist-form button.is-loading::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  vertical-align: -2px;
+  animation: arthic-indicator-spin .72s linear infinite;
+}
+html body.content-page.waitlist-page .waitlist-form [data-subscribe-status][data-state="pending"]:empty {
+  visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.content-page.study-preview-page .study-question__source[data-state="loading"]::before,
+  html body.content-page.waitlist-page .waitlist-form button.is-loading::after {
+    animation-duration: 1.8s !important;
+  }
+}
