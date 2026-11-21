@@ -20,8 +20,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await ensureStudentWorkspaceSchema();
     return res.status(200).json({
       ok: true,
-      schemaVersion: 2,
-      seededDraftQuestions: 3,
+      schemaVersion: 3,
+      seededDraftQuestions: 1,,
       message: "Student workspace and question-bank tables are ready. Sample questions were seeded as drafts; student account access remains closed.",
     });
   } catch (error) {
