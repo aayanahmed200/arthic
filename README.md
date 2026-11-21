@@ -1,26 +1,31 @@
 # Arthic
 
-[![TypeScript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Vite](https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/) [![Vercel](https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/) [![PostgreSQL](https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/) [![Node.js](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/) [![Express](https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+An early-access exam-preparation platform for Pakistani entrance and competitive exams.
 
-Arthic is an exam-preparation platform for Pakistani entrance tests, bringing study resources and planning tools into one place.
+**[Visit arthic.tech](https://arthic.tech)**
 
 ## Overview
 
-The platform is organised around topic-based past papers, personalised study plans, an exam calendar, and guided explanations.
+This repository contains the public Arthic website, a practice experience and the APIs behind forms and study features. The current practice feed supports LCAT, NUST NET, CSS MPT and MDCAT. It serves original sample questions and can include published questions from the PostgreSQL question bank when the database is configured.
 
-## Highlights
+Answer checking is handled by a server endpoint so correct answers and explanations are not included in the public question-feed response. Public application and waitlist forms also use server-side API routes.
 
-- Focuses on MDCAT, ECAT, NUST NET, FAST, LUMS BA-LL.B admission, CSS, and PMS.
-- Includes subject, method, pricing, careers, waitlist, privacy, and terms pages.
-- Includes an interactive, browser-only study-session preview with original sample questions and written explanations.
+## Repository contents
+
+- `frontend/` — Vite and TypeScript site, page styles, practice interface and Vercel serverless API routes.
+- `frontend/api/study/` — question feed and answer-checking endpoints, plus the sample question content.
+- `frontend/api/admin/` — protected question-bank and student-schema administration endpoints.
+- `backend/` — optional self-hosted Express and SQLite API, separate from the Vercel/PostgreSQL implementation.
+- `DEPLOYMENT.md` — database, Vercel, environment-variable and domain setup.
+- `LICENSE` — code license and brand exclusion.
 
 ## Technology
 
-TypeScript, Vite, hand-written CSS, Vercel serverless functions, PostgreSQL, and an optional Express/SQLite backend.
+TypeScript, JavaScript, Vite, hand-written CSS, Vercel serverless functions and PostgreSQL. The optional standalone backend uses Node.js, Express and SQLite. The two backend implementations are separate; use one for a deployment.
 
 ## Run locally
 
-To run the frontend and deployed API together:
+The main application uses Vercel's local development server to run the frontend and its API routes together:
 
 ```bash
 cd frontend
@@ -29,12 +34,16 @@ cp .env.example .env
 npx vercel dev
 ```
 
-The optional standalone Express/SQLite backend is documented in `backend/README.md`.
+Set `POSTGRES_URL` for database-backed features and configure `ADMIN_USER` and `ADMIN_PASSWORD` before using protected admin routes. Without a database connection, the site can load but endpoints that require storage report that storage is unavailable; the practice API can use its sample question content.
 
-## Notes and limitations
+To use the optional Express/SQLite backend instead, follow [backend/README.md](backend/README.md). Do not run both backends as though they share a database.
 
-The AI mentor, student accounts, synced learner progress, question-bank services, and several learning features are still in development. The study-session preview is illustrative only: progress exists for the current page view, no data is saved or sent, and its questions are not official past-paper content. The current product is English-only. The optional Express/SQLite backend is independent of the deployed Vercel/PostgreSQL API; use one backend per deployment.
+## Scope and limitations
+
+Arthic is in early access. The current practice API covers LCAT, NUST NET, CSS MPT and MDCAT; other exam pages or planned tracks should not be taken as evidence that a full question bank is available for every exam. The current interface is English-only. Student sign-up is intentionally disabled in the checked-in configuration; the student workspace schema and identity-verification settings are marked as not active. The AI mentor and wider student workspace remain under development.
+
+The practice bank includes original sample questions. They are not official past-paper questions unless a source and permission status are explicitly recorded for a published entry. Educational content should be reviewed before being relied on for exam preparation.
 
 ## License
 
-The code is MIT licensed; see `LICENSE`. The Arthic name and wordmark are not covered by that license.
+The code is MIT licensed; see [LICENSE](LICENSE). The Arthic name and wordmark are not included in that license.
