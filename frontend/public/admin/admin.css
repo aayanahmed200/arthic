@@ -32,3 +32,15 @@ main{padding:1.5rem;max-width:1440px;margin:auto}.panel{display:none}.panel.is-a
 .question-preview ol{padding-left:1.4rem}.question-preview li{padding:.3rem 0}.question-preview li[data-correct="true"]{color:var(--accent)}.preview__answer{color:var(--accent)!important}.preview__takeaway{border-left:2px solid var(--accent);padding-left:.7rem}
 @media(max-width:850px){.bank-layout{grid-template-columns:1fr}.bank-list-wrap{border-right:0;border-bottom:1px solid var(--line)}.question-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.app__header{flex-wrap:wrap;gap:.65rem}.app__tabs{order:3;width:100%;flex-basis:100%}}
 @media(max-width:560px){main{padding:1rem .7rem}.bank-heading{align-items:stretch;flex-direction:column}.bank-toolbar{flex-direction:column;align-items:stretch}.bank-toolbar select{width:100%}.question-list,.form-grid{grid-template-columns:1fr}.form-grid__wide{grid-column:auto}.editor{padding:.8rem}.editor__footer{align-items:stretch;flex-direction:column}.editor__actions{justify-content:start}.sub-list li{flex-direction:column;gap:.2rem}}
+
+
+.paper-date-fields[hidden] { display: none !important; }
+.paper-date-fields {
+  margin-top: 4px;
+  padding: 14px;
+  border: 1px solid #e5ddcf;
+  border-radius: 10px;
+  background: #faf8f2;
+}
+.paper-date-fields .form-grid { margin-top: 10px; }
+.paper-date-fields .field-help { margin: 0; color: #647064; font-size: 12px; line-height: 1.6; }
