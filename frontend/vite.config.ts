@@ -11,12 +11,16 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: page("index"),
+        admin: page("admin"),
         apply: page("apply"),
+        authCallback: page("auth-callback"),
         careers: page("careers"),
         cookies: page("cookies"),
+        dashboard: page("dashboard"),
         method: page("method"),
         privacy: page("privacy"),
         pricing: page("pricing"),
+        settings: page("settings"),
         studyPreview: page("study-preview"),
         subjects: page("subjects"),
         terms: page("terms"),

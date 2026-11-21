@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#F7F2E8" />
+  <title>Dashboard | Arthic</title>
+  <meta name="description" content="Your synced Arthic practice history, progress and learning activity." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icon-512.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body class="content-page workspace-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header data-nav></header>
+  <div class="mobile-menu" data-mobile-menu data-mobile-nav hidden></div>
+  <main id="main" data-workspace="dashboard">
+    
+  <section class="workspace-shell">
+    <p class="workspace-kicker">Your Arthic workspace</p>
+    <div class="workspace-topline">
+      <div>
+        <h1 class="workspace-title">Dashboard.</h1>
+        <p class="workspace-lede">Keep your practice sessions and progress in one place. Your public sample quizzes remain available without signing in; syncing is optional.</p>
+      </div>
+      <a class="workspace-button workspace-button--secondary" href="/study-preview.html">Start practicing</a>
+    </div>
+
+    <section class="workspace-panel" data-dashboard-auth>
+      <h2>Sign in to sync your progress.</h2>
+      <p>Continue with Google to create your Arthic student account. Your practice attempts will be saved to this account when you start a quiz while signed in.</p>
+      <form class="workspace-form" data-account-consent>
+        <label class="workspace-check"><input type="checkbox" name="acceptTerms" required /> <span>I have read and agree to the <a href="/terms.html" target="_blank" rel="noopener">Terms of Service</a>.</span></label>
+        <label class="workspace-check"><input type="checkbox" name="acceptPrivacy" required /> <span>I have read the <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and understand what account and practice data will be saved.</span></label>
+        <label class="workspace-check"><input type="checkbox" name="ageDeclaration" required /> <span>I am 18 or older, or a parent/legal guardian has reviewed this information and given me permission to create an account.</span></label>
+        <button class="workspace-button" type="submit">Continue with Google</button>
+      </form>
+      <p class="workspace-status" data-workspace-status role="status" aria-live="polite">You can continue using the public practice preview without creating an account.</p>
+    </section>
+
+    <section data-dashboard-main hidden>
+      <div class="workspace-topline">
+        <div><h2 class="workspace-panel-title">Welcome back, <span data-user-name>Student</span>.</h2><p class="workspace-user" data-user-email></p></div>
+        <button class="workspace-button workspace-button--secondary" type="button" data-signout>Sign out</button>
+      </div>
+      <div class="workspace-grid">
+        <div class="workspace-stat"><span>Practice sessions</span><strong data-stat-sessions>0</strong><small>Synced to your account</small></div>
+        <div class="workspace-stat"><span>Questions answered</span><strong data-stat-answered>0</strong><small>Across saved sessions</small></div>
+        <div class="workspace-stat"><span>Accuracy</span><strong data-stat-accuracy>—</strong><small>Correct answers / answered</small></div>
+      </div>
+      <section class="workspace-panel">
+        <h2>Recent practice</h2>
+        <div class="workspace-table-wrap">
+          <table class="workspace-table">
+            <thead><tr><th>Exam</th><th>Subject</th><th>Answered</th><th>Correct</th><th>Started</th></tr></thead>
+            <tbody data-recent-sessions><tr><td colspan="5" class="workspace-empty">Loading your sessions…</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+      <div class="workspace-actions"><a class="workspace-button" href="/study-preview.html">Practice another set</a><a class="workspace-button workspace-button--secondary" href="/settings.html">Account settings</a></div>
+    </section>
+  </section>
+
+  </main>
+  <footer class="site-footer" data-footer-root></footer>
+  <script type="module" src="/src/workspace.ts"></script>
+</body>
+</html>

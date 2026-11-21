@@ -29,6 +29,16 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
       `;
 
       await sql`
+        ALTER TABLE student_accounts ADD COLUMN IF NOT EXISTS age_declaration_confirmed BOOLEAN NOT NULL DEFAULT false;
+      `;
+      await sql`
+        ALTER TABLE student_accounts ADD COLUMN IF NOT EXISTS terms_accepted_at TIMESTAMPTZ;
+      `;
+      await sql`
+        ALTER TABLE student_accounts ADD COLUMN IF NOT EXISTS privacy_accepted_at TIMESTAMPTZ;
+      `;
+
+      await sql`
         CREATE TABLE IF NOT EXISTS student_sessions (
           id UUID PRIMARY KEY,
           student_id UUID NOT NULL REFERENCES student_accounts(id) ON DELETE CASCADE,
@@ -178,6 +188,16 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
       `;
 
       await sql`
+        CREATE TABLE IF NOT EXISTS student_preferences (
+          student_id UUID PRIMARY KEY REFERENCES student_accounts(id) ON DELETE CASCADE,
+          preferred_exam_code TEXT CHECK (preferred_exam_code IS NULL OR preferred_exam_code IN ('LCAT', 'NET', 'CSS', 'MDCAT')),
+          email_updates BOOLEAN NOT NULL DEFAULT false,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+          updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        );
+      `;
+
+      await sql`
         CREATE TABLE IF NOT EXISTS app_schema_migrations (
           version INTEGER PRIMARY KEY,
           name TEXT NOT NULL,
@@ -187,7 +207,7 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
 
       await sql`
         INSERT INTO app_schema_migrations (version, name)
-        VALUES (1, 'student-workspace-foundation'), (2, 'question-bank-authoring'), (3, 'question-editorial-metadata')
+        VALUES (1, 'student-workspace-foundation'), (2, 'question-bank-authoring'), (3, 'question-editorial-metadata'), (4, 'student-preferences'), (5, 'record-account-consent')
         ON CONFLICT (version) DO NOTHING;
       `;
     })().catch((error) => {

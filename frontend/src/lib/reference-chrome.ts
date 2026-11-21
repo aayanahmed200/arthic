@@ -50,6 +50,12 @@ const FOOTER = `<footer class="site-footer footer-central" id="site-footer">
         <a href="/privacy.html">Privacy policy</a>
         <a href="/cookies.html">Cookie policy</a>
       </div>
+      <div class="footer-column">
+        <span>Your space</span>
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/settings.html">Settings</a>
+        <a href="/admin.html">Admin</a>
+      </div>
     </nav>
     <a class="footer-email footer-email--center" href="mailto:hello@arthic.tech">hello@arthic.tech</a>
   </div>
@@ -80,7 +86,6 @@ function applyReferenceSurfaces(): void {
   document.body.style.setProperty("color", forest, "important");
   document.querySelectorAll<HTMLElement>(surfaceSelector).forEach(applySurface);
 
-  // Keep delayed content on the same canvas too.
   if (!surfaceObserver) {
     surfaceObserver = new MutationObserver((records) => {
       records.forEach((record) => record.addedNodes.forEach((node) => {
@@ -92,7 +97,6 @@ function applyReferenceSurfaces(): void {
     surfaceObserver.observe(document.body, { childList: true, subtree: true });
   }
 }
-
 
 function applyBrandFooter(): void {
   const cream = "#F7F2E8";

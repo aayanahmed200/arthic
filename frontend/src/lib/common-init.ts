@@ -12,8 +12,10 @@ import { initButtons } from "./buttons";
 import { initFaq } from "./faq";
 import { initExamFinder } from "./exam-finder";
 import { initCustomSelects } from "./custom-select";
+import { trackPublicPageView } from "./site-analytics";
 
 export function initCommon(): void {
+  trackPublicPageView();
   initReferenceChrome();
   initNav();
   initRegionPopover();

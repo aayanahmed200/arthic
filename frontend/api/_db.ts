@@ -116,6 +116,14 @@ export function ensureTables(): Promise<void> {
       await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS availability TEXT;`;
       await sql`ALTER TABLE applications ADD COLUMN IF NOT EXISTS start_window TEXT;`;
       await sql`
+        CREATE TABLE IF NOT EXISTS site_page_views (
+          view_date DATE NOT NULL DEFAULT CURRENT_DATE,
+          path TEXT NOT NULL,
+          views INTEGER NOT NULL DEFAULT 0 CHECK (views >= 0),
+          PRIMARY KEY (view_date, path)
+        );
+      `;
+      await sql`
         CREATE TABLE IF NOT EXISTS subscribers (
           id SERIAL PRIMARY KEY,
           email TEXT UNIQUE NOT NULL,
