@@ -79,8 +79,8 @@ try {
   }
 
   const v18 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v18-"));
-  assert.equal(v18.length, 127, "V18 question additions must all survive de-duplication");
-  const expectedV18 = { LCAT: 28, NET: 41, CSS: 19, MDCAT: 39 };
+  assert.equal(v18.length, 133, "all V18 additions must survive de-duplication");
+  const expectedV18 = { LCAT: 28, NET: 41, CSS: 21, MDCAT: 43 };
   for (const [examCode, expectedCount] of Object.entries(expectedV18)) {
     assert.equal(v18.filter((question) => question.examCode === examCode).length, expectedCount, examCode + " V18 count");
   }
@@ -140,7 +140,7 @@ try {
   assert.equal(feedWrongMethod.res.code, 405);
 
   console.log("Study question API tests passed (1,060 unique questions; 265 per exam track):");
-  console.log("- 127 V18 additions are all present and have server-checked answers");
+  console.log("- 133 V18 additions are all present and have server-checked answers");
   console.log("- every item has a subject, topic, four distinct options, explanation and explicit difficulty");
   console.log("- question stems are unique across all four tracks");
   console.log("- original practice questions have no invented past-paper dates");
