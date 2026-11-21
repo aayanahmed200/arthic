@@ -14,7 +14,7 @@ The frontend is a multi-page site for Arthic's Pakistani entrance-test preparati
 - The `/study-preview.html` route contains an interactive practice preview using original sample questions. Answer keys stay server-side and are checked by `api/study/check.ts`.
 - Google sign-in uses Supabase Auth with OAuth PKCE. Student registration is disabled by default and can only be enabled with both a server-side and public build-time flag after database, provider and age/consent setup.
 - When explicitly enabled, signed-in students can sync practice sessions and answer results to PostgreSQL. Dashboard shows progress, Settings supports study preferences and JSON export, and deletion requests enter an admin review queue.
-- The `/admin.html` operations dashboard uses Google sign-in plus a server-side `ADMIN_EMAILS` allowlist. It shows aggregate student/practice/question-bank/waitlist/application statistics and pending data requests; it does not report anonymous page views.
+- The `/admin.html` operations dashboard uses Google sign-in plus a server-side `ADMIN_EMAILS` allowlist. It shows aggregate student/practice/question-bank/waitlist/application statistics, pending data requests, and first-party daily public page-view counts by route (not unique visitors). Private dashboard/admin/callback pages are excluded.
 - The existing `/admin/` question-bank editor continues to use the existing admin credentials.
 - See `GOOGLE_SIGNIN_SETUP.md` for Supabase, callback and Vercel setup. See `../docs/LEGAL_REVIEW_BEFORE_LAUNCH.md` for the privacy, operator identity and age-consent launch checklist.
 - Preview features are labelled as previews rather than presented as finished functionality.
