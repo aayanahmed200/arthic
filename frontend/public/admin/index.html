@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>arthic admin</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="login" id="loginView">
+  <form id="loginForm">
+    <p class="login__label">arthic admin</p>
+    <input type="text" id="loginUser" placeholder="username" autocomplete="username" value="admin">
+    <input type="password" id="loginPass" placeholder="password" autocomplete="current-password">
+    <button type="submit">sign in</button>
+    <p class="login__error" id="loginError"></p>
+  </form>
+</div>
+
+<div class="app" id="appView" hidden>
+  <header class="app__header">
+    <p class="app__title">arthic admin</p>
+    <nav class="app__tabs">
+      <button class="app__tab is-active" data-tab="subscribers" type="button">waitlist</button>
+      <button class="app__tab" data-tab="questions" type="button">question bank</button>
+    </nav>
+    <button class="app__signout" id="signOutBtn">sign out</button>
+  </header>
+
+  <main>
+    <!-- ===== WAITLIST TAB ===== -->
+    <section class="panel is-active" id="subscribersPanel">
+      <p class="panel__heading"><span id="subCount">0</span> on the waitlist</p>
+      <button id="exportBtn">copy all emails</button>
+      <p class="panel__status" id="exportStatus"></p>
+      <ul id="subList" class="sub-list"></ul>
+    </section>
+
+    <section class="panel" id="questionsPanel">
+      <div class="bank-heading">
+        <div>
+          <p class="panel__heading">content workspace</p>
+          <h1>Question bank <span id="questionCount">0</span></h1>
+          <p class="bank-subtitle">Write, review and publish original or properly licensed questions.</p>
+        </div>
+        <div class="bank-toolbar">
+          <select id="questionFilter" aria-label="Filter questions">
+            <option value="all">all questions</option><option value="draft">drafts</option>
+            <option value="published">published</option><option value="archived">archived</option>
+          </select>
+          <button type="button" class="button--accent" id="newQuestionBtn">new question +</button>
+        </div>
+      </div>
+      <div class="bank-layout">
+        <aside class="bank-list-wrap">
+          <p class="field-label">YOUR QUESTIONS</p>
+          <div id="questionList" class="question-list" aria-live="polite"></div>
+        </aside>
+        <section class="editor">
+          <div class="editor__top">
+            <div><p class="field-label" id="editorMode">NEW DRAFT</p><h2 id="editorTitle">Create a question</h2></div>
+            <span class="question-version" id="editorVersion"></span>
+          </div>
+          <form id="questionForm">
+            <div class="form-grid">
+              <label>Exam track<select id="qExam" required>
+                <option value="LCAT">LUMS LCAT</option><option value="NET">NUST NET</option>
+                <option value="CSS">CSS · MPT</option><option value="MDCAT">MDCAT</option>
+              </select></label>
+              <label>Subject code<input id="qSubject" maxlength="24" placeholder="BIO" required></label>
+              <label class="form-grid__wide">Topic<input id="qTopic" maxlength="120" placeholder="Cell biology" required></label>
+              <label class="form-grid__wide">Question prompt<textarea id="qPrompt" maxlength="1800" rows="3" required></textarea></label>
+              <label class="form-grid__wide">Instruction<input id="qInstruction" maxlength="200" value="Choose one answer."></label>
+              <label class="form-grid__wide">Answer options <span class="field-help">One per line: A | Option text (2–6 options)</span>
+                <textarea id="qOptions" maxlength="2200" rows="5" required placeholder="A | First option&#10;B | Second option&#10;C | Third option&#10;D | Fourth option"></textarea>
+              </label>
+              <label>Difficulty level<select id="qDifficulty" required>
+                <option value="EASY">Easy</option><option value="STANDARD" selected>Standard</option><option value="CHALLENGING">Challenging</option>
+              </select></label>
+              <label>Correct option<select id="qAnswer" required><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></label>
+              <label>Content source<select id="qSource" required><option value="original-sample">Original Arthic</option><option value="licensed">Licensed content</option><option value="public-domain">Public domain</option><option value="past-paper">Verified past paper</option></select></label>
+              <label class="form-grid__wide">Source / permission note<input id="qSourceNote" maxlength="500" placeholder="Official archive, paper reference, licence or permission"></label>
+              <div class="paper-date-fields form-grid__wide" id="paperDateFields" hidden>
+                <p class="field-help">Only use these fields when this exact question is traceable to an official past paper.</p>
+                <div class="form-grid">
+                  <label>Paper year<input id="qExamYear" type="number" min="1950" max="2100" step="1" inputmode="numeric"></label>
+                  <label>Paper month<select id="qExamMonth"><option value="">Select month</option><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select></label>
+                  <label class="form-grid__wide">Paper session (optional)<input id="qExamSession" maxlength="80" placeholder="e.g. MPT, morning session, paper code"></label>
+                </div>
+              </div>
+              <label class="form-grid__wide">Explanation<textarea id="qExplanation" maxlength="2400" rows="4" required></textarea></label>
+              <label class="form-grid__wide">Key takeaway<textarea id="qTakeaway" maxlength="500" rows="2" required></textarea></label>
+            </div>
+            <div class="editor__footer">
+              <p id="questionStatus" class="panel__status" role="status"></p>
+              <div class="editor__actions">
+                <button type="button" id="previewQuestionBtn">preview</button>
+                <button type="submit" class="button--accent" id="saveQuestionBtn">save draft</button>
+                <button type="button" id="publishQuestionBtn">publish</button>
+                <button type="button" id="unpublishQuestionBtn">unpublish</button>
+                <button type="button" id="archiveQuestionBtn" class="button--danger">archive</button>
+              </div>
+            </div>
+          </form>
+          <section class="question-preview" id="questionPreview" hidden aria-label="Question preview">
+            <div class="preview__top"><span>STUDENT VIEW</span><button type="button" id="closePreviewBtn">close</button></div>
+            <p id="previewTopic" class="field-label"></p><h3 id="previewPrompt"></h3><p id="previewInstruction"></p>
+            <ol id="previewOptions"></ol><p id="previewAnswer" class="preview__answer"></p>
+            <p id="previewExplanation"></p><p id="previewTakeaway" class="preview__takeaway"></p>
+          </section>
+        </section>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#c0eeff"/>
+  <path d="M0 430 C210 350 330 510 530 450 S870 350 1200 450 L1200 630 L0 630Z" fill="#c3e776"/>
+  <circle cx="970" cy="190" r="210" fill="#a8dbc7" opacity=".55"/>
+  <rect x="655" y="145" width="390" height="310" rx="28" fill="#fffefb" stroke="#ffffff" stroke-width="12" transform="rotate(3 850 300)"/>
+  <rect x="700" y="205" width="140" height="110" rx="12" fill="#a5d8e8" transform="rotate(-5 770 260)"/>
+  <rect x="860" y="185" width="140" height="110" rx="12" fill="#d9e9a6" transform="rotate(4 930 240)"/>
+  <rect x="770" y="335" width="150" height="90" rx="12" fill="#f4d8aa" transform="rotate(-2 845 380)"/>
+  <text x="94" y="155" fill="#102c34" font-family="Arial,sans-serif" font-size="48" font-weight="700">ARTHIC</text>
+  <text x="90" y="285" fill="#111111" font-family="Arial,sans-serif" font-size="88" font-weight="800">Make space for</text>
+  <text x="90" y="380" fill="#111111" font-family="Arial,sans-serif" font-size="88" font-weight="800">every idea.</text>
+  <text x="96" y="462" fill="#324c49" font-family="Arial,sans-serif" font-size="25">Boards, notes and learning — all in one place.</text>
+</svg>

@@ -1,0 +1,30 @@
+# Render Blueprint — see ../DEPLOYMENT.md for the full walkthrough and for
+# the manual dashboard settings if Render's Blueprint UI ever rejects a
+# field here (blueprint syntax has drifted before; the deployment doc has
+# the equivalent settings spelled out either way).
+#
+# Not free-tier: this service mounts a persistent disk so data/arthic.db
+# survives restarts and redeploys, and Render's free instances don't keep
+# disks. Pick any paid instance type when you apply this blueprint — the
+# smallest one is plenty.
+services:
+  - type: web
+    name: arthic-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk:
+      name: arthic-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: ADMIN_USER
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ALLOWED_ORIGIN
+        value: https://arthic.tech
+      - key: DATABASE_PATH
+        value: /var/data/arthic.db

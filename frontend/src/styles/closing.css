@@ -1,0 +1,57 @@
+/* Closing CTA — same --color-bg/--color-fg as every other section (see
+   the note at the top of tokens.css). This used to be the one place on
+   the page that dropped to a permanent dark palette; now that a real
+   theme toggle exists, that contrast moment belongs to anyone who wants
+   it, on every section, not just baked into this one — so this section
+   no longer departs from the shared background. */
+.closing {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  padding-inline: var(--container-pad);
+  text-align: center;
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+.closing__mark {
+  position: relative;
+  height: clamp(20px, 3vw, 26px);
+  width: auto;
+  opacity: 0.92;
+}
+
+.closing__headline {
+  position: relative;
+  font-size: var(--fs-closing);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-weight: 560;
+  max-width: 22ch;
+}
+
+.closing__lede {
+  position: relative;
+  max-width: 46ch;
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body-lg);
+}
+
+.closing .btn--solid {
+  position: relative;
+  background: var(--color-fg);
+  color: var(--color-bg);
+  border-color: var(--color-fg);
+}
+
+.closing .btn--solid:hover,
+.closing .btn--solid:focus-visible {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  border-color: var(--color-fg);
+}

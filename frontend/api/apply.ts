@@ -1,0 +1,61 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { sql, ensureTables } from "./_db.js";
+import { checkRateLimit } from "./_rate_limit.js";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_ROLE = 80;
+const MAX_NAME = 120;
+const MAX_LINK = 300;
+const MAX_MESSAGE = 4000;
+const MAX_AVAILABILITY = 40;
+const MAX_START_WINDOW = 40;
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
+    return res.status(405).json({ error: "method not allowed" });
+  }
+
+  if (!(await checkRateLimit(req, res, "apply", 6, 60, true))) return;
+
+  if (!process.env.POSTGRES_URL) {
+    return res
+      .status(503)
+      .json({ error: "applications aren't connected to storage yet — check back soon." });
+  }
+
+  const body = (req.body ?? {}) as Record<string, unknown>;
+
+  // honeypot — real visitors never fill this hidden field; bots posting
+  // straight to the API often do. Pretend success, skip the insert.
+  if (String(body.website ?? "").trim()) {
+    return res.status(201).json({ ok: true });
+  }
+
+  const role = String(body.role ?? "General").trim().slice(0, MAX_ROLE);
+  const name = String(body.name ?? "").trim().slice(0, MAX_NAME);
+  const email = String(body.email ?? "").trim().toLowerCase();
+  const link = String(body.link ?? "").trim().slice(0, MAX_LINK);
+  const message = String(body.message ?? "").trim().slice(0, MAX_MESSAGE);
+  const availability = String(body.availability ?? "").trim().slice(0, MAX_AVAILABILITY);
+  const startWindow = String(body.start ?? "").trim().slice(0, MAX_START_WINDOW);
+
+  if (!name) {
+    return res.status(400).json({ error: "please enter your name." });
+  }
+  if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
+    return res.status(400).json({ error: "please provide a valid email address." });
+  }
+
+  try {
+    await ensureTables();
+    await sql`
+      INSERT INTO applications (role, name, email, link, message, availability, start_window)
+      VALUES (${role}, ${name}, ${email}, ${link || null}, ${message || null}, ${availability || null}, ${startWindow || null})
+    `;
+    return res.status(201).json({ ok: true });
+  } catch (err) {
+    console.error("application insert failed", err);
+    return res.status(500).json({ error: "something went wrong — try again shortly." });
+  }
+}

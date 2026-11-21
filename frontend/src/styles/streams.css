@@ -1,0 +1,412 @@
+/* ---------- stream cards (under the concept centerpiece) ---------- */
+.centerpiece__streams {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 72rem;
+  text-align: left;
+}
+
+.stream-card {
+  border: 1px solid var(--color-fg-hairline);
+  border-radius: 14px;
+  background: var(--color-bg-raised);
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: border-color var(--dur-base) var(--ease-out-expo), transform var(--dur-base) var(--ease-out-expo);
+}
+
+.stream-card:hover {
+  border-color: var(--color-accent-hairline);
+  transform: translateY(-3px);
+}
+
+.stream-card__name {
+  font-family: var(--font-display);
+  font-weight: 560;
+  font-size: var(--fs-h3);
+  line-height: 1.15;
+}
+
+.stream-card__body {
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body-sm);
+  line-height: 1.55;
+}
+
+.stream-card__exams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.stream-card__exam-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  color: var(--color-accent-strong);
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-accent-hairline);
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .centerpiece__streams {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .centerpiece__streams {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- board logos (institutions arthic preps students for) ----------
+   Full authentic color, not the dimmed/monochrome treatment a "trust
+   strip" of logos usually gets — these are the actual seals of the
+   institutions whose entrance tests arthic teaches to, not a vague
+   credibility signal, so they're shown as themselves. No card/box behind
+   each mark — they sit directly on the section background, like a plain
+   logo strip, with just enough drop-shadow to keep a pale ring readable
+   against a same-toned background in either theme. */
+.boards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.75rem, 3.5vw, 2.5rem);
+  text-align: center;
+}
+
+.boards__note {
+  max-width: 56ch;
+  color: var(--color-fg-mute);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  line-height: 1.6;
+}
+
+.boards__logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 3.5vw, 2.75rem);
+  width: 100%;
+  max-width: 60rem;
+}
+
+.boards__logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(56px, 6vw, 76px);
+  height: clamp(56px, 6vw, 76px);
+  transition: transform var(--dur-base) var(--ease-out-expo), opacity var(--dur-base) var(--ease-out-expo);
+}
+
+.boards__logo:hover {
+  transform: translateY(-3px);
+}
+
+/* themed hover/focus tooltip built from the img's own title attribute —
+   the browser's native title tooltip is slow to appear and unstyled,
+   this shows immediately and matches the site. */
+.boards__logo::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(2px);
+  white-space: nowrap;
+  background: var(--color-fg);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.01em;
+  padding: 0.4em 0.7em;
+  border-radius: 7px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease-out-expo), transform var(--dur-fast) var(--ease-out-expo);
+  z-index: 5;
+}
+
+.boards__logo:hover::after,
+.boards__logo:focus-within::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.boards__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.18)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.12));
+}
+
+:root[data-theme="dark"] .boards__logo img {
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.55)) drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
+}
+
+/* Most of these seals are near-square crests that fill ~92% of their own
+   canvas, so a fixed square box treats them all the same. LUMS and KEMU
+   ship as wider-than-tall artwork (1.20 and 1.13 aspect), so object-fit:
+   contain letterboxes them shorter than the rest — measured against the
+   square seals, LUMS renders about 19% smaller and KEMU about 12% smaller
+   at the same box size. Scale each back up by that exact ratio so every
+   mark reads at the same visual weight; a uniform scale keeps their
+   proportions intact, and it's only ever a few pixels of overflow into
+   the gap between logos, never into a neighboring mark. */
+.boards__logo img[src$="lums.png"] {
+  transform: scale(1.24);
+}
+
+.boards__logo img[src$="kemu.png"] {
+  transform: scale(1.14);
+}
+
+/* current-coverage / expansion strip — the Pakistan flag marks what's
+   live today, the rest are named honestly as not built yet */
+.boards__region {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.6rem, 1.6vw, 1rem);
+  padding-top: 0.15rem;
+}
+
+.boards__region-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.02em;
+  padding: 0.4em 0.9em;
+  border-radius: 999px;
+}
+
+.boards__region-tag--live {
+  color: var(--color-accent-strong);
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-accent-hairline);
+}
+
+.boards__region-tag--soon {
+  color: var(--color-fg-mute);
+  background: var(--color-fg-ghost);
+  border: 1px dashed var(--color-fg-hairline);
+}
+
+/* real flag images (not emoji characters) — plenty of systems fall back
+   to plain two-letter region-code text for flag emoji, so a small
+   self-hosted svg per flag renders identically everywhere. */
+.boards__flag {
+  display: inline-block;
+  width: 1.15em;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.boards__flag-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stream-card,
+  .boards__logo {
+    transition: none;
+  }
+}
+
+/* ---------- homepage "why arthic" comparison ---------- */
+.compare__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.compare__col {
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border: 1px solid var(--color-fg-hairline);
+  border-radius: 16px;
+  background: var(--color-bg-raised);
+}
+
+.compare__col--arthic {
+  border-color: var(--color-accent-hairline);
+  background: var(--color-accent-dim);
+}
+
+.compare__col-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.02em;
+  color: var(--color-fg-mute);
+  margin-bottom: 1rem;
+}
+
+.compare__col--arthic .compare__col-label {
+  color: var(--color-accent-strong);
+  font-weight: 600;
+}
+
+.compare__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body-sm);
+  line-height: 1.5;
+}
+
+.compare__col--arthic .compare__list {
+  color: var(--color-fg);
+}
+
+.compare__list li {
+  padding-left: 1.1em;
+  position: relative;
+}
+
+.compare__list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--color-fg-faint);
+}
+
+.compare__col--arthic .compare__list li::before {
+  content: "✓";
+  color: var(--color-accent-strong);
+}
+
+@media (max-width: 860px) {
+  .compare__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---------- page-load sequence (homepage) ----------
+   Ink screen, wordmark rises in, then the whole screen lifts away to
+   reveal the page while the hero text reveals underneath. Pure CSS and
+   pointer-events: none, so it can never block a click, and it's gone
+   entirely for prefers-reduced-motion. */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  background: var(--color-fg);
+  color: var(--color-bg);
+  pointer-events: none;
+  animation: loader-lift 0.9s var(--ease-out-expo) 1.15s forwards;
+}
+
+.loader__word {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 12vw, 9rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  overflow: hidden;
+  animation: loader-word 0.9s var(--ease-out-expo) 0.1s both;
+}
+
+.loader__dot {
+  color: var(--color-accent-fill);
+}
+
+@keyframes loader-word {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+@keyframes loader-lift {
+  to { transform: translateY(-100%); visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader { display: none; }
+}
+
+/* ---------- ticker band ---------- */
+.marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--color-fg-hairline);
+  padding-block: clamp(0.9rem, 2vw, 1.4rem);
+  background: var(--color-bg);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.marquee__item {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee__star {
+  padding-inline: clamp(1rem, 3vw, 2.2rem);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--color-accent-fill);
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+}
+
+/* ---------- display type: big, heavy, uppercase ---------- */
+.hero__headline--xl,
+main > section h2,
+.entry__title {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.hero__headline--xl {
+  font-size: clamp(2.2rem, 0.7rem + 4vw, 4.2rem);
+  max-width: 16ch;
+}
+
+.hero__headline--xl .pill-highlight--inline {
+  letter-spacing: 0;
+}

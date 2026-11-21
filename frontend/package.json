@@ -1,0 +1,28 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/decode-b64-assets.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/decode-b64-assets.mjs",
+    "build": "tsc && tsc --noEmit -p tsconfig.api.json && npm run test:api && vite build",
+    "preview": "vite preview",
+    "check:api": "tsc --noEmit -p tsconfig.api.json",
+    "test:api": "node scripts/test-student-auth.mjs && node scripts/test-study-api.mjs && node scripts/test-question-bank.mjs"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.23.1",
+    "@vercel/node": "^3.2.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.8"
+  },
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/poppins": "^5.3.0",
+    "lenis": "^1.3.26",
+    "pg": "^8.23.0"
+  }
+}

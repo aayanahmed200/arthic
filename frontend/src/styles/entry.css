@@ -1,0 +1,151 @@
+/* Shared "long-form document" layout — privacy, terms, and the 404's
+   missing-page message. Split out from the old journal-page.css (which
+   also held journal-detail-only loading-skeleton styles that no longer
+   apply now that the journal feature is gone). */
+
+.entry {
+  padding-top: calc(var(--nav-height) + clamp(3rem, 8vw, 6rem));
+  padding-bottom: var(--space-section-y);
+}
+
+.entry__back {
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.entry__head {
+  max-width: 46rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.entry__date {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--color-fg-mute);
+  margin-bottom: 1rem;
+}
+
+.entry__title {
+  font-size: var(--fs-h2-lg);
+  line-height: 1.05;
+}
+
+/* one-line, page-specific hook under the title — every long-form page
+   (privacy, terms, careers) gets one so the headers are symmetrical in
+   structure (eyebrow/date, title, lede) even though each page's content
+   is its own. */
+.entry__lede {
+  margin-top: 0.85rem;
+  max-width: 46ch;
+  font-size: var(--fs-body-lg);
+  color: var(--color-fg-dim);
+  line-height: 1.55;
+}
+
+.entry__body {
+  max-width: 42rem;
+  font-size: var(--fs-body-lg);
+  color: var(--color-fg-dim);
+  line-height: 1.75;
+}
+
+.entry__body p {
+  margin-bottom: 1.7em;
+}
+
+.entry__body p:first-child::first-letter {
+  color: var(--color-fg);
+}
+
+.entry__body ul,
+.entry__body ol {
+  margin: 0 0 1.7em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.entry__body li {
+  position: relative;
+  padding-left: 1.35em;
+}
+
+.entry__body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.entry__body ol {
+  counter-reset: entry-ol;
+}
+
+.entry__body ol li {
+  counter-increment: entry-ol;
+}
+
+.entry__body ol li::before {
+  content: counter(entry-ol) ".";
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--color-fg-mute);
+}
+
+.entry__body strong {
+  color: var(--color-fg);
+  font-weight: 600;
+}
+
+.entry__body h2 {
+  font-size: var(--fs-h3);
+  color: var(--color-fg);
+  margin: 2.8em 0 1em;
+}
+
+.entry__body h2:first-child {
+  margin-top: 0;
+}
+
+.entry__body h3 {
+  font-size: var(--fs-body-lg);
+  color: var(--color-fg);
+  margin: 2.4em 0 0.8em;
+}
+
+.entry__note {
+  font-size: var(--fs-body-sm);
+  color: var(--color-fg-mute);
+  border-left: 2px solid var(--color-fg-hairline);
+  padding-left: 1em;
+  margin-bottom: 2em;
+}
+
+.entry__foot {
+  max-width: 42rem;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  border-top: 1px solid var(--color-fg-hairline);
+}
+
+.entry__missing {
+  max-width: 40rem;
+}
+
+.entry__missing h1 {
+  font-size: var(--fs-h2-lg);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.entry__missing-body {
+  color: var(--color-fg-dim);
+  margin-bottom: 2rem;
+}

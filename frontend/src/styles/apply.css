@@ -1,0 +1,233 @@
+/* ---------- apply page ----------
+   The four inline per-role forms that used to fold out under each role
+   on /careers now live here as one shared, detailed form. apply.ts reads
+   ?role= from the URL and relabels the role card, the link field, and
+   the message field to match — same /api/apply endpoint and honeypot as
+   before, just a page of its own instead of a <details> under each role. */
+.apply-role {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: baseline;
+  max-width: 42rem;
+  padding: 1.1rem 1.4rem;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  border: 1px solid var(--color-fg-hairline);
+  border-radius: 12px;
+  background: var(--color-bg-raised);
+}
+
+.apply-role__tag {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--color-accent-strong);
+}
+
+.apply-role__body {
+  color: var(--color-fg-dim);
+  font-size: var(--fs-body-sm);
+  line-height: 1.55;
+}
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 2.75rem);
+  max-width: 42rem;
+}
+
+.apply-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: clamp(1.25rem, 3vw, 1.75rem);
+  border-top: 1px solid var(--color-fg-hairline);
+}
+
+.apply-form__section:first-of-type {
+  padding-top: 0;
+  border-top: none;
+}
+
+.apply-form__section-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.04em;
+  color: var(--color-fg-mute);
+}
+
+.apply-form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1.5rem;
+}
+
+.apply-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.apply-form__field--wide {
+  grid-column: 1 / -1;
+}
+
+.apply-form__field label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--color-fg-mute);
+  letter-spacing: 0.01em;
+}
+
+.apply-form textarea.field {
+  resize: vertical;
+  min-height: 7em;
+}
+
+.apply-form .btn {
+  align-self: flex-start;
+}
+
+.apply-form__submit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.apply-form__note {
+  font-size: var(--fs-body-sm);
+  color: var(--color-fg-mute);
+}
+
+.apply-form__status {
+  min-height: 1.4em;
+  margin-top: -0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--color-fg-dim);
+}
+
+.apply-form__status[data-state="error"] {
+  color: #d98a7a;
+}
+
+.apply-form__status[data-state="success"] {
+  color: var(--color-fg);
+}
+
+@media (max-width: 640px) {
+  .apply-form__grid {
+    grid-template-columns: 1fr;
+  }
+  .apply-role {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* ---------- custom select ----------
+   Replaces the native <select> popup (which can't be styled reliably
+   across browsers — no rounded corners, no theme colors) with a
+   themed button + listbox. The real <select> stays in the DOM,
+   visually hidden, holding the actual value. */
+.custom-select {
+  position: relative;
+}
+
+.custom-select__native {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-select__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.65em 0.85em;
+  background: var(--color-bg-raised);
+  color: var(--color-fg);
+  border: 1px solid var(--color-fg-faint);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: var(--fs-body-sm);
+  text-align: left;
+  transition: border-color var(--dur-fast) var(--ease-out-expo);
+}
+
+.custom-select__trigger:hover,
+.custom-select__trigger:focus-visible {
+  border-color: var(--color-fg);
+}
+
+.custom-select__trigger svg {
+  width: 11px;
+  height: 8px;
+  flex-shrink: 0;
+  color: var(--color-fg-mute);
+  transition: transform var(--dur-fast) var(--ease-out-expo);
+}
+
+.custom-select__trigger[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.custom-select__listbox {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.35rem;
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-fg-faint);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+  animation: custom-select-in var(--dur-fast) var(--ease-out-expo);
+}
+
+.custom-select__listbox[hidden] {
+  display: none;
+}
+
+.custom-select__option {
+  width: 100%;
+  padding: 0.55em 0.7em;
+  border-radius: 7px;
+  text-align: left;
+  font-size: var(--fs-body-sm);
+  color: var(--color-fg-dim);
+}
+
+.custom-select__option:hover,
+.custom-select__option:focus-visible {
+  background: var(--color-fg-ghost);
+  color: var(--color-fg);
+}
+
+.custom-select__option[aria-selected="true"] {
+  color: var(--color-accent-strong);
+  background: var(--color-accent-dim);
+}
+
+@keyframes custom-select-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

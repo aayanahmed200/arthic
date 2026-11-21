@@ -1,0 +1,143 @@
+/*
+  Design tokens — the entire visual system in one place.
+  Warm paper light theme (not stark white) with two accents used
+  sparingly and deliberately: emerald for the small stuff (dots, rings,
+  hairlines, hover states) and gold for the rarer highlight (a badge, a
+  stat, a rating). Solid buttons stay ink-on-paper, not accent-filled —
+  see the contrast note below. Variable names keep the --color-fg/-bg
+  convention from the previous build (foreground/background reads fine
+  in any theme) even though the palette itself is entirely new.
+
+  Dark theme: an explicit [data-theme="dark"] override block below,
+  toggled by src/lib/theme.ts (persisted to localStorage, applied
+  before paint by an inline head script on every page — see any
+  page's <head> for it). It's a straight ink/paper swap of the same
+  palette (light's --color-fg becomes dark's --color-bg, and back)
+  rather than a second, unrelated palette, so both themes read as the
+  same product. Every section uses --color-bg — there is no longer a
+  one-off "dark bookend" section; the theme toggle itself is the
+  site's one deliberate moment of real contrast, available to anyone,
+  not just baked into one section.
+*/
+
+:root {
+  color-scheme: light;
+
+  /* ---------- color ---------- */
+  --color-bg: #ffffff; /* pure white */
+  --color-bg-raised: #ffffff;
+  --color-bg-sunken: #f3f1ea;
+  --color-fg: #15140f;
+  --color-fg-dim: #57544a; /* 7.3:1 on --color-bg — body copy */
+  --color-fg-mute: #6e6b5e; /* 5.2:1 on --color-bg — labels/timestamps, deliberately kept ≥4.5:1 */
+  --color-fg-faint: rgba(21, 20, 15, 0.13);
+  --color-fg-hairline: rgba(21, 20, 15, 0.09);
+  --color-fg-ghost: rgba(21, 20, 15, 0.045);
+  --color-focus: #15140f;
+
+  /* emerald — decorative/non-text use only (dots, rings, chart lines,
+     checkmarks, thin tinted borders): 3.96:1 on --color-bg, which clears
+     WCAG's 3:1 bar for large text/graphical objects but not 4.5:1 for
+     small text. --color-accent-strong is the text-safe version — use it
+     for ANY hover/active state on text or a link, same rule the rest of
+     this file follows everywhere below. */
+  --color-accent: #0e8f63;
+  --color-accent-strong: #0a8f3a; /* lightened as far as white-text-on-button contrast allows (4.59:1) — can't go much lighter without white text on buttons failing AA */
+  --color-accent-fill: #34e07a; /* bright fill: always carries dark ink text (10.9:1) */
+  --color-accent-dim: rgba(26, 184, 85, 0.16); /* a lighter, more visible green tint for section backgrounds/pills — not just a near-invisible wash */
+  --color-accent-hairline: rgba(14, 143, 99, 0.28);
+
+  /* gold — rarer still than emerald: a badge fill, a rating mark, one
+     accent numeral. Same split as emerald: --color-gold is
+     decorative-only, --color-gold-strong (4.6:1) is what text sits in. */
+  --color-gold: #c8871e;
+  --color-gold-strong: #8f5f10;
+  --color-gold-dim: rgba(200, 135, 30, 0.14);
+
+  /* flags / region strip (board-logos section) — plain sRGB, no
+     contrast math needed since they're only ever drawn on the fixed
+     white chip the board-logos section gives every mark */
+  --color-flag-chip: #ffffff;
+
+  /* ---------- type families ---------- */
+  --font-display: "Bricolage Grotesque Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* ---------- fluid type scale ---------- */
+  --fs-label: 0.8125rem;
+  --fs-body-sm: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+  --fs-body: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+  --fs-body-lg: clamp(1.125rem, 1.02rem + 0.55vw, 1.375rem);
+  --fs-h2: clamp(2rem, 1.3rem + 3.1vw, 3.5rem);
+  --fs-h2-lg: clamp(2.25rem, 1.15rem + 4.6vw, 4.35rem);
+  --fs-h3: clamp(1.375rem, 1.1rem + 1.2vw, 1.75rem);
+  --fs-tagline: clamp(1.0625rem, 0.95rem + 0.6vw, 1.375rem);
+  --fs-featured-title: clamp(3.75rem, 1rem + 11.5vw, 9rem);
+  --fs-closing: clamp(2.5rem, 0.5rem + 8vw, 6.5rem);
+
+  /* ---------- spacing / layout ---------- */
+  --container-max: 1440px;
+  --container-pad: clamp(1.25rem, 1rem + 2.4vw, 4rem);
+  --space-section-y: clamp(7rem, 4.5rem + 9vw, 13rem);
+  --space-section-y-sm: clamp(4.5rem, 3.25rem + 4.5vw, 8rem);
+  --nav-height: clamp(58px, 7vw, 72px);
+
+  /* ---------- motion ---------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 200ms;
+  --dur-base: 550ms;
+  --dur-slow: 900ms;
+
+  /* ---------- z-index scale ---------- */
+  --z-grain: 4;
+  --z-cursor-glow: 6;
+  --z-section-index: 40;
+  --z-nav: 100;
+  --z-mobile-nav: 90;
+  --z-arlo: 110;
+}
+
+/* Fluid type opts into larger jumps on very wide canvases without
+   ever forcing horizontal scroll on narrow ones — see base.css. */
+@media (min-width: 1800px) {
+  :root {
+    --fs-closing: clamp(4rem, 2rem + 5vw, 8rem);
+    --fs-featured-title: clamp(6rem, 2rem + 7vw, 11rem);
+  }
+}
+
+/* ==========================================================
+   Dark theme — set on <html data-theme="dark"> by theme.ts.
+   Same relationships as the light palette (dim ≥7:1, mute ≥4.5:1,
+   accent-strong ≥4.5:1 for text), recomputed against the new dark
+   background rather than reusing the light values verbatim.
+   ========================================================== */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #15140f;
+  --color-bg-raised: #1e1d16;
+  --color-bg-sunken: #0e0d09;
+  --color-fg: #fcfbf8;
+  --color-fg-dim: #c7c4b7; /* 10.5:1 on --color-bg */
+  --color-fg-mute: #9c9a8e; /* 6.5:1 on --color-bg */
+  --color-fg-faint: rgba(252, 251, 248, 0.14);
+  --color-fg-hairline: rgba(252, 251, 248, 0.1);
+  --color-fg-ghost: rgba(252, 251, 248, 0.05);
+  --color-focus: #fcfbf8;
+
+  --color-accent: #17a674;
+  --color-accent-strong: #34c48f; /* 8.3:1 on --color-bg */
+  --color-accent-fill: #34e07a;
+  --color-accent-dim: rgba(52, 196, 143, 0.16);
+  --color-accent-hairline: rgba(52, 196, 143, 0.32);
+
+  --color-gold: #d99f3c;
+  --color-gold-strong: #e8b563; /* 9.8:1 on --color-bg */
+  --color-gold-dim: rgba(217, 159, 60, 0.18);
+
+  --color-flag-chip: #f4f2ea;
+}

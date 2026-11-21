@@ -1,0 +1,497 @@
+/* ---------- layout primitives ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--space-section-y);
+}
+
+.section--tight {
+  padding-block: var(--space-section-y-sm);
+}
+
+/* first section on a page with no hero above it — the fixed nav needs
+   room that a mid-page section normally gets for free by sitting below
+   the hero. Used on about/games/careers (and any future headerless
+   page); pages that open with .hero or the full-bleed .featured art
+   don't need it. */
+.section--first {
+  padding-top: calc(var(--nav-height) + clamp(2.5rem, 6vw, 5rem));
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1.5rem;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-fg);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  transition: top var(--dur-fast) var(--ease-out-expo);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- typographic components ---------- */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: var(--color-accent-strong);
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.eyebrow--index {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- links with an arrow that means "go" ---------- */
+.link-arrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-body-sm);
+  letter-spacing: 0.02em;
+  color: var(--color-fg);
+  padding-block: 0.2em;
+  transition: color var(--dur-fast) var(--ease-out-expo);
+}
+
+.link-arrow:hover,
+.link-arrow:focus-visible {
+  color: var(--color-accent-strong);
+}
+
+.link-arrow span {
+  position: relative;
+}
+
+.link-arrow span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.2em;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0.34);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+  opacity: 0.5;
+}
+
+.link-arrow:hover span::after,
+.link-arrow:focus-visible span::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.link-arrow svg,
+.link-arrow .arrow-glyph {
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.link-arrow:hover svg,
+.link-arrow:hover .arrow-glyph,
+.link-arrow:focus-visible svg,
+.link-arrow:focus-visible .arrow-glyph {
+  transform: translateX(0.3em);
+}
+
+.link-arrow--large {
+  font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.375rem);
+  gap: 0.75em;
+}
+
+/* generic "underline draws in on hover" used by nav + footer links */
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.15em;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.hover-underline:hover::after,
+.hover-underline:focus-visible::after,
+.hover-underline.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ---------- scroll-reveal primitives (progressive enhancement) ----------
+   Elements are fully visible by default. JS adds `.reveal` only once it
+   has confirmed GSAP + ScrollTrigger booted, then flips `.is-in` when the
+   element crosses the trigger point. If JS never runs, content is never
+   hidden — this is the fix for the invisible-section bug in the previous
+   build, which gated visibility entirely behind a script that could fail
+   to fire for every element. */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--dur-slow) var(--ease-out-expo), transform var(--dur-slow) var(--ease-out-expo);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- 3D scroll tilt (progressive enhancement) ----------
+   [data-tilt] wrapper elements sit flat by default — scroll-tilt.ts is
+   the only thing that ever applies a transform, via inline style, and
+   only on a dedicated wrapper that never also carries a data-reveal
+   transform (see that module's comment). This block is defense-in-depth
+   for the same prefers-reduced-motion gate scroll-tilt.ts already checks. */
+.tilt-3d {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-3d {
+    transform: none !important;
+  }
+}
+
+/* ---------- film grain overlay ---------- */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-grain);
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 0.9em 1.6em;
+  border: 1px solid var(--color-fg-faint);
+  border-radius: 999px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: var(--fs-body-sm);
+  letter-spacing: 0.02em;
+  color: var(--color-fg);
+  transition: border-color var(--dur-base) var(--ease-out-expo), background-color var(--dur-base) var(--ease-out-expo), color var(--dur-base) var(--ease-out-expo);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  border-color: var(--color-fg);
+}
+
+/* while a submit button is mid-request (form-submit.ts / subscribe.ts
+   both just set the native `disabled` attribute — no extra markup
+   needed anywhere a .btn submits a form) a thin bar sweeps along its
+   bottom edge, the same treatment used for the Arlo chat's "thinking"
+   state below. */
+.btn:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.btn:disabled::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 35%;
+  background: currentColor;
+  animation: loading-sweep 1.1s ease-in-out infinite;
+}
+
+@keyframes loading-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(285%);
+  }
+}
+
+/* standalone version of the same bar, for anywhere a loading state
+   isn't tied to a disabled button — e.g. Arlo's "thinking" indicator. */
+.loading-bar {
+  position: relative;
+  height: 2px;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-fg-hairline);
+  border-radius: 999px;
+}
+
+.loading-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 35%;
+  background: var(--color-accent-strong);
+  border-radius: 999px;
+  animation: loading-sweep 1.1s ease-in-out infinite;
+}
+
+/* solid = ink pill. On hover a bright fill wipes up from the bottom
+   and the label rolls to a duplicate of itself (the roll is set up by
+   initButtons() in src/lib/buttons.ts). Dark ink text always sits on
+   the bright fill, so contrast is identical in both themes. */
+.btn {
+  isolation: isolate;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--color-accent-fill);
+  transform: translateY(102%);
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: translateY(0);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  color: #111111;
+  border-color: var(--color-accent-fill);
+}
+
+.btn--solid {
+  background: var(--color-fg);
+  color: var(--color-bg);
+  border-color: var(--color-fg);
+}
+
+.btn--solid:hover,
+.btn--solid:focus-visible {
+  color: #111111;
+  border-color: var(--color-accent-fill);
+}
+
+.btn__label {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.3em;
+  line-height: 1.3;
+  vertical-align: bottom;
+}
+
+.btn__label-in {
+  display: block;
+  position: relative;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.btn__label-in::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+.btn:hover .btn__label-in,
+.btn:focus-visible .btn__label-in {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn::before,
+  .btn__label-in {
+    transition-duration: 0.01s;
+  }
+}
+
+/* an arrow riding inside a .btn (paired secondary action next to a
+   .btn--solid, the way Cursor pairs a solid + outline pill in its hero)
+   nudges forward on hover/focus, same gesture as .link-arrow's glyph. */
+.btn .arrow-glyph {
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.btn:hover .arrow-glyph,
+.btn:focus-visible .arrow-glyph {
+  transform: translateX(0.25em);
+}
+
+/* ---------- shared field styling ---------- */
+.field {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-fg-faint);
+  padding-block: 0.6em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-body-sm);
+  color: var(--color-fg);
+  transition: border-color var(--dur-base) var(--ease-out-expo);
+}
+
+.field::placeholder {
+  color: var(--color-fg-mute);
+}
+
+.field:focus-visible {
+  outline: none;
+  border-color: var(--color-fg);
+}
+
+/* selects are the one form control where "transparent" backfires: the
+   closed box can sit on the page background fine, but the native
+   options POPUP falls back to the browser's own default background
+   (usually white) regardless of color-scheme, while still inheriting
+   our light-on-dark text color from .field above — result: pale text
+   on a white popup, unreadable in dark mode. giving both the select
+   and its options an explicit solid background fixes the popup
+   directly instead of hoping color-scheme handles it. */
+select.field {
+  background: var(--color-bg-raised);
+  color: var(--color-fg);
+  border: 1px solid var(--color-fg-faint);
+  border-radius: 6px;
+  padding-inline: 0.7em;
+}
+
+select.field option {
+  background: var(--color-bg-raised);
+  color: var(--color-fg);
+}
+
+/* ---------- theme-aware wordmark ----------
+   Every logo placement (nav, footer, the closing CTA) renders two
+   stacked <img> tags — one pointing at the ink-colored logo.png, one at
+   the white logo-white.png — and only one is ever visible, picked by
+   [data-theme]. Simpler and more robust than swapping `src` in JS, and
+   it means the two-image markup below is the only thing any page needs
+   to add; no per-page CSS. */
+.brand-mark--dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .brand-mark--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .brand-mark--dark {
+  display: inline-block;
+}
+
+/* ---------- headline pill-highlight ----------
+   Wraps a single word in a colored pill inline with the surrounding
+   text, the way Notion's own headline highlights "Ship" — a small,
+   cheap way to give an otherwise plain headline a focal point without
+   touching layout or type scale. */
+.pill-highlight {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.02em 0.45em 0.08em;
+  border-radius: 999px;
+  background: var(--color-accent-dim);
+  color: var(--color-accent-strong);
+  white-space: nowrap;
+}
+
+/* the bolder version used inline within oversized headline text — a
+   solid fill instead of a tint, so it reads as a distinct chip
+   breaking up the text rather than a subtle underline-style
+   highlight. font-size set in its own unit (not em) so it doesn't
+   compound with the huge parent headline's size the way padding
+   (still in em, intentionally, so it scales with whatever heading
+   size it's dropped into) does. */
+.pill-highlight--inline {
+  background: var(--color-accent-fill);
+  color: #111111;
+  font-size: 0.42em;
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
+  padding: 0.3em 0.65em 0.35em;
+  vertical-align: 0.14em;
+  margin-inline: 0.06em;
+}
+
+/* ---------- Arlo mascot doodle ----------
+   A loose, decorative placement of Arlo's face floating near a
+   section — not interactive, just personality. Uses the same mascot
+   markup as the chat widget, sized up and rotated slightly so it
+   reads as a hand-placed sticker rather than a UI element. */
+.mascot-doodle {
+  position: absolute;
+  color: var(--color-accent-fill);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.mascot-doodle svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 700px) {
+  .mascot-doodle {
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Arthic",
+  "short_name": "Arthic",
+  "description": "Exam preparation for LCAT, NUST NET, CSS and MDCAT.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F2E8",
+  "theme_color": "#F7F2E8",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

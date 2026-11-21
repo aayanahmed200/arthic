@@ -1,0 +1,294 @@
+.philosophy__head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  max-width: 40rem;
+}
+
+.philosophy__headline {
+  font-size: var(--fs-h2-lg);
+  line-height: 1.05;
+}
+
+.philosophy__list {
+  border-top: 1px solid var(--color-fg-hairline);
+}
+
+.philosophy__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(3rem, 8vw, 6.5rem) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding-block: clamp(1.75rem, 4vw, 2.75rem);
+  border-bottom: 1px solid var(--color-fg-hairline);
+  transition: padding-left var(--dur-slow) var(--ease-out-expo);
+}
+
+/* a thin accent line growing in from the left, instead of a filled
+   rectangle behind the whole row — the same tactile "this one's
+   active" feedback without it looking like a selection box */
+.philosophy__item::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: var(--color-accent-strong);
+  transform: scaleY(0);
+  transition: transform var(--dur-slow) var(--ease-out-expo);
+}
+
+.philosophy__item:hover {
+  padding-left: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.philosophy__item:hover::before {
+  transform: scaleY(1);
+}
+
+.philosophy__num {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2vw, 1.375rem);
+  color: var(--color-fg-mute);
+  padding-top: 0.2em;
+  transition: color var(--dur-base) var(--ease-out-expo);
+}
+
+.philosophy__item:hover .philosophy__num {
+  color: var(--color-fg-dim);
+}
+
+.philosophy__copy {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  column-gap: clamp(1rem, 4vw, 4rem);
+}
+
+.philosophy__tag {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  color: var(--color-fg-mute);
+  text-transform: lowercase;
+  padding-top: 0.35em;
+}
+
+.philosophy__copy h3 {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+}
+
+.philosophy__body {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-top: 0.85em;
+  color: var(--color-fg-dim);
+  max-width: 52ch;
+}
+
+.apply-cta {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  margin-top: 1.5rem;
+  justify-self: start;
+}
+
+/* ---------- feature-preview steps (map / report) ----------
+   Two of the four steps get a small schematic illustration alongside
+   the copy — same honesty register as .centerpiece__stack and
+   .centerpiece__targets earlier on the page: structural, labeled,
+   no invented numbers, so it reads as a diagram rather than a
+   screenshot and needs no disclaimer caption of its own. */
+.philosophy__item--media {
+  grid-template-columns: clamp(3rem, 8vw, 6.5rem) minmax(0, 1fr) minmax(0, 21rem);
+  align-items: center;
+}
+
+.philosophy__item--media .philosophy__num {
+  order: 1;
+}
+
+.philosophy__item--media .philosophy__copy {
+  order: 2;
+}
+
+.philosophy__item--media .philosophy__media {
+  order: 3;
+}
+
+.philosophy__item--media-left .philosophy__copy {
+  order: 3;
+}
+
+.philosophy__item--media-left .philosophy__media {
+  order: 2;
+}
+
+.feature-card {
+  border: 1px solid var(--color-fg-hairline);
+  border-radius: 12px;
+  background: var(--color-bg-raised);
+  padding: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.feature-card__file {
+  display: inline-flex;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-fg-dim);
+  padding: 0.5em 0.85em;
+  border: 1px solid var(--color-fg-hairline);
+  border-radius: 6px;
+  background: var(--color-bg-deep);
+}
+
+.feature-card__arrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-fg-mute);
+  text-align: center;
+  margin-block: 0.75rem;
+}
+
+.feature-card__frameworks {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.feature-card__fw {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65em 0.4em;
+  border: 1px solid var(--color-accent-hairline);
+  border-radius: 8px;
+  background: var(--color-accent-dim);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-fg);
+  text-align: center;
+}
+
+.feature-card__check {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.feature-card__check::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  width: 4px;
+  height: 7px;
+  border: solid var(--color-bg-raised);
+  border-width: 0 1.6px 1.6px 0;
+  transform: rotate(45deg);
+}
+
+.feature-card--report {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.feature-card__report-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.15rem;
+  border-bottom: 1px solid var(--color-fg-hairline);
+  font-family: var(--font-display);
+  font-weight: 520;
+  font-size: 0.9375rem;
+  color: var(--color-fg);
+}
+
+.feature-card__tag {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  color: var(--color-fg-mute);
+  background: var(--color-fg-ghost);
+  padding: 0.25em 0.6em;
+  border-radius: 999px;
+}
+
+.feature-card__report-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--color-fg-dim);
+}
+
+.feature-card__source {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-fg-mute);
+}
+
+@media (max-width: 760px) {
+  .philosophy__item {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+  }
+  .philosophy__copy {
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+  }
+  .philosophy__tag,
+  .philosophy__copy h3,
+  .philosophy__body {
+    grid-column: 1;
+  }
+  .philosophy__tag {
+    grid-row: 1;
+    padding-top: 0;
+  }
+  .philosophy__copy h3 {
+    grid-row: 2;
+  }
+  .philosophy__body {
+    grid-row: 3;
+    margin-top: 0.15em;
+  }
+
+  .apply-cta {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .philosophy__item--media {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+  }
+
+  .philosophy__item--media .philosophy__num {
+    order: 1;
+  }
+
+  .philosophy__item--media .philosophy__copy {
+    order: 2;
+  }
+
+  .philosophy__item--media .philosophy__media {
+    order: 3;
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+  }
+}

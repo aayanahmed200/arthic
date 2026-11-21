@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>arthic admin</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="login" id="loginView">
+  <form id="loginForm">
+    <p class="login__label">arthic admin</p>
+    <input type="text" id="loginUser" placeholder="username" autocomplete="username" value="admin">
+    <input type="password" id="loginPass" placeholder="password" autocomplete="current-password">
+    <button type="submit">sign in</button>
+    <p class="login__error" id="loginError"></p>
+  </form>
+</div>
+
+<div class="app" id="appView" hidden>
+  <header class="app__header">
+    <p class="app__title">arthic admin</p>
+    <nav class="app__tabs">
+      <button class="app__tab is-active" data-tab="journal">journal</button>
+      <button class="app__tab" data-tab="subscribers">subscribers</button>
+    </nav>
+    <button class="app__signout" id="signOutBtn">sign out</button>
+  </header>
+
+  <main>
+    <!-- ===== JOURNAL TAB ===== -->
+    <section class="panel is-active" id="journalPanel">
+      <div class="panel__grid">
+        <div class="panel__list">
+          <p class="panel__heading">entries</p>
+          <ul id="entryList" class="entry-list"></ul>
+        </div>
+
+        <div class="panel__form">
+          <p class="panel__heading" id="formHeading">new entry</p>
+          <form id="entryForm">
+            <input type="hidden" id="entrySlug">
+            <label>title<input type="text" id="entryTitle" required maxlength="200"></label>
+            <label>excerpt<textarea id="entryExcerpt" rows="2" required maxlength="400"></textarea></label>
+            <label>body<textarea id="entryBody" rows="10" maxlength="20000"></textarea></label>
+            <label>published<input type="date" id="entryDate" required></label>
+            <div class="panel__form-actions">
+              <button type="submit" id="entrySubmit">save entry</button>
+              <button type="button" id="entryNewBtn">new entry</button>
+              <button type="button" id="entryDeleteBtn" class="danger" hidden>delete</button>
+            </div>
+            <p class="panel__status" id="entryStatus"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SUBSCRIBERS TAB ===== -->
+    <section class="panel" id="subscribersPanel">
+      <p class="panel__heading"><span id="subCount">0</span> subscribers</p>
+      <button id="exportBtn">copy all emails</button>
+      <p class="panel__status" id="exportStatus"></p>
+      <ul id="subList" class="sub-list"></ul>
+    </section>
+  </main>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,2110 @@
+/* Final shared visual system: one light-blue page canvas and one floating menu. */
+:root {
+  --arthic-page:#D0ECFD;
+  --arthic-surface:#F7FCFF;
+  --arthic-ink:#203B44;
+  --arthic-green:#2F7548;
+  color-scheme:light;
+}
+html {
+  min-width:320px;
+  background:#D0ECFD!important;
+  font-size:17px!important;
+  scroll-padding-top:104px;
+}
+body {
+  min-width:320px;
+  background:#D0ECFD!important;
+  background-image:none!important;
+  color:#203B44!important;
+  font-size:17px!important;
+}
+body :is(main,.home-page,.content-main,.entry,.footer-frame,.footer,.site-footer,.site-footer .footer-garden) {
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+}
+body :is(main>section,main>article,main>.content-main,.content-main>section,.content-main>article,.content-main>div,.home-page>section) {
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+}
+body :is(.site-footer,.site-footer .footer-garden) {background:#D0ECFD!important;}
+body .site-footer .footer-inner,body .site-footer .footer-grid,body .site-footer .footer-column {background:transparent!important;}
+
+/* Floating navigation pill; the logo and wordmark stay in the footer, not the menu. */
+.site-header {
+  position:fixed!important;z-index:1000!important;top:14px!important;left:50%!important;right:auto!important;
+  transform:translateX(-50%)!important;width:min(980px,calc(100vw - 40px))!important;height:66px!important;min-height:66px!important;
+  padding:0 20px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;
+  border:1px solid rgba(32,72,89,.16)!important;border-radius:999px!important;
+  background:rgba(208,236,253,.94)!important;box-shadow:0 12px 34px rgba(32,72,89,.12)!important;
+  backdrop-filter:blur(18px) saturate(1.12);-webkit-backdrop-filter:blur(18px) saturate(1.12);
+}
+.site-header>.brand,.site-header>.header-actions .brand {display:none!important;}
+.site-header .desktop-nav {
+  position:static!important;left:auto!important;transform:none!important;display:flex!important;
+  align-items:center!important;justify-content:center!important;gap:clamp(18px,3vw,36px)!important;margin:0 auto!important;
+}
+.site-header .desktop-nav a {
+  min-height:42px;padding:11px 15px!important;border-radius:999px!important;
+  color:#294653!important;font-size:14px!important;font-weight:600!important;
+}
+.site-header .desktop-nav a:hover,.site-header .desktop-nav a:focus-visible,
+.site-header .desktop-nav a[aria-current=page],.site-header .desktop-nav a.is-active {
+  background:rgba(47,117,72,.12)!important;color:#205A38!important;
+}
+.site-header .header-actions {display:flex!important;margin-left:12px!important;}
+.site-header .header-actions .button,.site-header .button--small {
+  min-height:42px!important;padding:10px 17px!important;border-radius:999px!important;
+  background:#C92F73!important;border-color:#C92F73!important;color:#fff!important;font-size:13px!important;
+}
+.site-header .menu-toggle {display:none!important;}
+.mobile-menu {
+  position:fixed!important;z-index:999!important;top:88px!important;left:50%!important;right:auto!important;
+  transform:translateX(-50%)!important;width:min(460px,calc(100vw - 24px))!important;padding:12px!important;
+  border:1px solid rgba(32,72,89,.16)!important;border-radius:22px!important;background:rgba(208,236,253,.98)!important;
+  box-shadow:0 18px 40px rgba(32,72,89,.16)!important;backdrop-filter:blur(18px);
+}
+.mobile-menu nav {display:grid!important;grid-template-columns:1fr 1fr!important;gap:6px!important;}
+.mobile-menu a {
+  min-height:48px;display:flex!important;align-items:center;padding:12px 14px!important;border-radius:14px!important;
+  color:#23414D!important;font-size:15px!important;
+}
+.mobile-menu a:hover,.mobile-menu a[aria-current=page] {background:rgba(255,255,255,.68)!important;color:#205A38!important;}
+
+/* Older header markup is covered until reference chrome replaces it. */
+body.content-page .nav {
+  position:fixed!important;z-index:1000!important;top:14px!important;left:50%!important;right:auto!important;
+  transform:translateX(-50%)!important;width:min(980px,calc(100vw - 40px))!important;height:66px!important;
+  border:1px solid rgba(32,72,89,.16)!important;border-radius:999px!important;background:rgba(208,236,253,.94)!important;
+  box-shadow:0 12px 34px rgba(32,72,89,.12)!important;backdrop-filter:blur(18px);
+}
+body.content-page .nav__inner {
+  width:100%!important;max-width:none!important;height:100%!important;display:flex!important;align-items:center!important;
+  justify-content:center!important;padding:0 18px!important;
+}
+body.content-page .nav__mark,body.content-page .nav__utility {display:none!important;}
+body.content-page .nav__links {
+  position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  gap:clamp(14px,2.4vw,28px)!important;margin:0!important;
+}
+body.content-page .nav__links a {font-size:14px!important;color:#294653!important;}
+body.content-page .nav__toggle {display:none!important;}
+body.content-page .mobile-nav {
+  position:fixed!important;z-index:999!important;top:88px!important;left:12px!important;right:12px!important;width:auto!important;
+  border:1px solid rgba(32,72,89,.16)!important;border-radius:22px!important;background:rgba(208,236,253,.98)!important;
+  box-shadow:0 18px 40px rgba(32,72,89,.16)!important;padding:14px!important;
+}
+
+/* Slightly larger type and a wider reading measure for a comfortable zoomed-in feel. */
+body :is(.content-container,.container,.home-shell) {width:min(1280px,calc(100% - 64px))!important;max-width:1280px!important;}
+body :is(.content-hero__lede,.oneprep-lede,.study-intro__lede,.entry__lede,.home-hero__sample-copy>p) {
+  font-size:clamp(17px,1.08rem,20px)!important;line-height:1.72!important;
+}
+body.content-page :is(.content-main p,.content-main li,.entry__body p,.entry__body li) {font-size:17px!important;line-height:1.75!important;}
+body.study-preview-page .study-question__text {font-size:clamp(20px,1.55vw,25px)!important;line-height:1.45!important;}
+body.study-preview-page .study-option {min-height:58px!important;padding:15px 16px!important;font-size:15px!important;line-height:1.55!important;}
+body.study-preview-page .study-option__text {font-size:15px!important;line-height:1.55!important;}
+body.study-preview-page :is(.study-question__instruction,.study-feedback__points,.study-feedback__takeaway,.study-feedback__answer) {
+  font-size:14px!important;line-height:1.7!important;
+}
+body.study-preview-page :is(.study-filter-label,.study-bank-nav__top,.study-intro .content-hero__topline) {font-size:10px!important;}
+body.study-preview-page :is(.study-filter-select,.study-filter-search) {min-height:44px!important;font-size:13px!important;}
+body.study-preview-page .study-question-map button {min-height:32px!important;font-size:11px!important;}
+
+@media(max-width:760px) {
+  html,body {font-size:16px!important;}
+  .site-header {top:10px!important;width:calc(100vw - 24px)!important;height:58px!important;min-height:58px!important;padding:0 12px!important;}
+  .site-header .desktop-nav,.site-header .header-actions {display:none!important;}
+  .site-header .menu-toggle {display:flex!important;width:42px!important;height:42px!important;margin-left:auto!important;background:rgba(255,255,255,.68)!important;}
+  .mobile-menu {top:76px!important;}
+  body.content-page .nav {top:10px!important;width:calc(100vw - 24px)!important;height:58px!important;}
+  body.content-page .nav__inner {justify-content:flex-end!important;}
+  body.content-page .nav__links {display:none!important;}
+  body.content-page .nav__toggle {display:inline-flex!important;margin-left:auto!important;}
+  body.content-page .mobile-nav {top:76px!important;}
+  body :is(.content-container,.container,.home-shell) {width:calc(100% - 40px)!important;}
+  body.content-page :is(.content-main p,.content-main li,.entry__body p,.entry__body li) {font-size:16px!important;}
+}
+@media(prefers-reduced-motion:reduce) {.site-header,.mobile-menu {backdrop-filter:none!important;}}
+
+
+/* Last-word canvas override: older theme files scope backgrounds more specifically
+   to content-page and study-page routes, so override those exact selectors here. */
+html body,
+html body.content-page,
+html body.home-page,
+html body.study-preview-page,
+html body.legal-page,
+html body.not-found-document {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+  color:#203B44!important;
+}
+html body.content-page main,
+html body.content-page .content-main,
+html body.content-page main > section,
+html body.content-page main > article,
+html body.content-page main > div,
+html body.home-page main,
+html body.home-page main > section,
+html body.study-preview-page main,
+html body.study-preview-page main > section,
+html body.legal-page main,
+html body.legal-page main > section,
+html body.not-found-document main,
+html body.not-found-document main > section {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+}
+html body.study-preview-page .study-question__text {font-size:clamp(22px,1.65vw,27px)!important;}
+html body.study-preview-page .study-option,
+html body.study-preview-page .study-option__text {font-size:15px!important;line-height:1.6!important;}
+html body.study-preview-page .study-option {min-height:60px!important;}
+
+
+/* Highest-priority page canvas override. The older page themes use several
+   compound selectors; this intentional non-matching ID raises specificity
+   without adding IDs or changing the page markup. Inner cards retain their
+   own ivory/white surfaces, while every page and major section shares blue. */
+html body:not(#arthic-blue-specificity),
+html body.content-page:not(#arthic-blue-specificity),
+html body.home-page:not(#arthic-blue-specificity),
+html body.study-preview-page:not(#arthic-blue-specificity),
+html body.legal-page:not(#arthic-blue-specificity),
+html body.not-found-document:not(#arthic-blue-specificity) {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+}
+html body:not(#arthic-blue-specificity) #main,
+html body:not(#arthic-blue-specificity) .content-main,
+html body:not(#arthic-blue-specificity) main#main,
+html body.content-page:not(#arthic-blue-specificity) #main,
+html body.content-page:not(#arthic-blue-specificity) .content-main,
+html body.home-page:not(#arthic-blue-specificity) #main,
+html body.study-preview-page:not(#arthic-blue-specificity) #main,
+html body.legal-page:not(#arthic-blue-specificity) #main,
+html body.not-found-document:not(#arthic-blue-specificity) #main {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+}
+html body:not(#arthic-blue-specificity) #main > section:not(#arthic-blue-specificity),
+html body:not(#arthic-blue-specificity) #main > article:not(#arthic-blue-specificity),
+html body.content-page:not(#arthic-blue-specificity) .content-main > section:not(#arthic-blue-specificity),
+html body.content-page:not(#arthic-blue-specificity) .content-main > article:not(#arthic-blue-specificity),
+html body.home-page:not(#arthic-blue-specificity) #main > section:not(#arthic-blue-specificity),
+html body.study-preview-page:not(#arthic-blue-specificity) #main > section:not(#arthic-blue-specificity),
+html body.legal-page:not(#arthic-blue-specificity) #main > section:not(#arthic-blue-specificity) {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+}
+html body.study-preview-page:not(#arthic-blue-specificity) .study-option,
+html body.study-preview-page:not(#arthic-blue-specificity) .study-option__text {
+  font-size:15px!important;
+  line-height:1.6!important;
+}
+html body.study-preview-page:not(#arthic-blue-specificity) .study-option {
+  min-height:60px!important;
+}
+
+
+/* Refined global layout: a compact floating menu, calm section rhythm and
+   a non-sticky practice workspace. These rules intentionally override the
+   older page layers loaded earlier in the build. */
+:root {
+  --arthic-blue:#D0ECFD;
+  --arthic-paper:#F8FCFF;
+  --arthic-mint:#EAF3E7;
+  --arthic-soft-blue:#DCEFF8;
+  --arthic-ink:#203B44;
+  --arthic-line:rgba(32,72,89,.14);
+  --arthic-card-radius:16px;
+  --arthic-control-radius:10px;
+}
+html body,
+html body.content-page,
+html body.home-page,
+html body.study-preview-page,
+html body.legal-page,
+html body.not-found-document {
+  background:var(--arthic-blue)!important;
+  background-color:var(--arthic-blue)!important;
+  background-image:none!important;
+  color:var(--arthic-ink)!important;
+}
+html body #main,
+html body.content-page #main,
+html body.content-page .content-main,
+html body.home-page main.home-page,
+html body.study-preview-page #main,
+html body.legal-page #main,
+html body.not-found-document #main {
+  background:var(--arthic-blue)!important;
+  background-color:var(--arthic-blue)!important;
+  background-image:none!important;
+}
+
+/* Desktop nav now wraps its actual contents instead of occupying a wide bar. */
+html body .site-header {
+  top:14px!important;
+  left:50%!important;
+  right:auto!important;
+  width:max-content!important;
+  max-width:calc(100vw - 32px)!important;
+  height:56px!important;
+  min-height:56px!important;
+  padding:5px 9px!important;
+  gap:7px!important;
+  justify-content:center!important;
+  border-radius:999px!important;
+  border:1px solid rgba(32,72,89,.16)!important;
+  background:rgba(208,236,253,.95)!important;
+  box-shadow:0 9px 24px rgba(32,72,89,.12)!important;
+}
+html body .site-header .desktop-nav {
+  flex:0 0 auto!important;
+  gap:3px!important;
+  margin:0!important;
+}
+html body .site-header .desktop-nav a {
+  min-height:40px!important;
+  padding:8px 12px!important;
+  font-size:12px!important;
+  letter-spacing:-.01em!important;
+}
+html body .site-header .header-actions {
+  flex:0 0 auto!important;
+  margin:0 0 0 3px!important;
+}
+html body .site-header .header-actions .button,
+html body .site-header .button--small {
+  min-height:40px!important;
+  padding:8px 14px!important;
+  font-size:12px!important;
+}
+html body .mobile-menu {
+  top:78px!important;
+  width:max-content!important;
+  max-width:calc(100vw - 24px)!important;
+  padding:9px!important;
+  border-radius:17px!important;
+}
+html body .mobile-menu nav {
+  grid-template-columns:repeat(2,minmax(118px,1fr))!important;
+  gap:4px!important;
+}
+html body .mobile-menu a {
+  min-height:42px!important;
+  padding:9px 11px!important;
+  border-radius:10px!important;
+  font-size:13px!important;
+}
+html body.content-page .nav {
+  width:max-content!important;
+  max-width:calc(100vw - 32px)!important;
+  height:56px!important;
+  min-height:56px!important;
+  padding:5px 9px!important;
+  border-radius:999px!important;
+}
+html body.content-page .nav__inner {width:auto!important;padding:0 9px!important;}
+html body.content-page .nav__links {gap:4px!important;}
+html body.content-page .nav__links a {padding:8px 12px!important;font-size:12px!important;}
+html body.content-page .mobile-nav {width:max-content!important;max-width:calc(100vw - 24px)!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;border-radius:17px!important;}
+html body.content-page .mobile-nav nav a {padding:10px 12px!important;font-size:13px!important;}
+
+@media(max-width:760px) {
+  html body .site-header {
+    top:10px!important;
+    width:52px!important;
+    max-width:52px!important;
+    height:52px!important;
+    min-height:52px!important;
+    padding:4px!important;
+    justify-content:center!important;
+  }
+  html body .site-header .desktop-nav,
+  html body .site-header .header-actions {display:none!important;}
+  html body .site-header .menu-toggle {
+    display:flex!important;
+    width:42px!important;
+    height:42px!important;
+    margin:0!important;
+  }
+  html body .mobile-menu {top:72px!important;}
+  html body.content-page .nav {top:10px!important;width:52px!important;height:52px!important;min-height:52px!important;}
+  html body.content-page .nav__inner {justify-content:center!important;}
+  html body.content-page .nav__toggle {display:inline-flex!important;margin:0!important;}
+  html body.content-page .mobile-nav {top:72px!important;}
+}
+
+/* Real section rhythm: a blue canvas, ivory reading bands, and soft green
+   supporting bands. Unlike the previous flattening rule, cards remain intact. */
+html body.home-page main.home-page > section.home-approach,
+html body.home-page main.home-page > section.home-available,
+html body.content-page .content-main > section:nth-of-type(2n),
+html body.content-page .content-main > section:nth-of-type(4n) {
+  background:#F8FCFF!important;
+  background-color:#F8FCFF!important;
+  background-image:none!important;
+  box-shadow:0 0 0 100vmax #F8FCFF!important;
+  clip-path:inset(0 -100vmax);
+}
+html body.home-page main.home-page > section.home-routes,
+html body.home-page main.home-page > section.home-cta,
+html body.content-page .content-main > section:nth-of-type(3n):not(.content-cta),
+html body.content-page .content-main > section:nth-of-type(5n):not(.content-cta) {
+  background:#EAF3E7!important;
+  background-color:#EAF3E7!important;
+  background-image:none!important;
+  box-shadow:0 0 0 100vmax #EAF3E7!important;
+  clip-path:inset(0 -100vmax);
+}
+html body.content-page .content-main > section.content-hero,
+html body.content-page .content-main > section.oneprep-subhero,
+html body.content-page .content-main > section.study-intro,
+html body.home-page main.home-page > section.home-hero {
+  background:#D0ECFD!important;
+  background-color:#D0ECFD!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+}
+html body.content-page .content-main > section.content-cta,
+html body.content-page .content-main > section.oneprep-final-cta {
+  background:#DCEFF8!important;
+  background-color:#DCEFF8!important;
+  background-image:none!important;
+  box-shadow:0 0 0 100vmax #DCEFF8!important;
+  clip-path:inset(0 -100vmax);
+}
+html body.study-preview-page .content-main > section.study-workspace {
+  background:transparent!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+}
+html body.study-preview-page .content-main > section.study-preview-invite {
+  background:#EAF3E7!important;
+  box-shadow:0 0 0 100vmax #EAF3E7!important;
+  clip-path:inset(0 -100vmax);
+}
+
+/* Consistent surfaces and restrained corners replace the mixed rounded shapes. */
+html body :is(.pricing-plan,.exam-track-card,.oneprep-route-card,.career-role--detailed,
+  .method-step,.oneprep-step-card,.apply-form,.waitlist-form,.study-rail,.study-session,
+  .study-sidebar__section,.study-intro__aside,.home-sample-card,.home-feature__art,
+  .oneprep-pathway-visual,.oneprep-feature-visual,.oneprep-analytics-visual) {
+  border-radius:var(--arthic-card-radius)!important;
+}
+html body :is(.pricing-plan,.exam-track-card,.oneprep-route-card,.method-step,
+  .oneprep-step-card,.apply-form,.waitlist-form,.study-session,.study-sidebar__section,
+  .home-sample-card) {
+  border:1px solid var(--arthic-line)!important;
+  box-shadow:0 8px 24px rgba(31,65,79,.045)!important;
+}
+html body :is(.pricing-plan,.pricing-plan--individual,.pricing-plan--group,
+  .pricing-plan--coaching,.exam-track-card,.exam-track-card--lcat,.exam-track-card--net,
+  .exam-track-card--css,.exam-track-card--mdcat,.oneprep-route-card) {
+  background:#F8FCFF!important;
+}
+html body :is(input,select,textarea,.study-filter-select,.study-filter-search,
+  .apply-form .field,.waitlist-form .field) {
+  border-radius:var(--arthic-control-radius)!important;
+}
+html body :is(.study-option,.study-feedback,.study-bank-nav,.study-question-map) {
+  border-radius:12px!important;
+}
+
+/* Legal pages use a readable paper sheet rather than an edge-to-edge text column. */
+html body.legal-page #main .entry {
+  width:min(940px,calc(100% - 48px))!important;
+  max-width:940px!important;
+  margin:124px auto 68px!important;
+  padding:clamp(28px,5vw,64px)!important;
+  border:1px solid var(--arthic-line)!important;
+  border-radius:20px!important;
+  background:#F8FCFF!important;
+  box-shadow:0 10px 30px rgba(31,65,79,.055)!important;
+}
+html body.legal-page #main .entry__body {max-width:72ch!important;margin-inline:auto!important;}
+html body.legal-page #main .entry__head {max-width:72ch!important;margin-inline:auto!important;}
+html body.not-found-document .not-found-card {
+  max-width:760px!important;
+  border:1px solid var(--arthic-line)!important;
+  border-radius:20px!important;
+  background:#F8FCFF!important;
+  box-shadow:0 10px 30px rgba(31,65,79,.055)!important;
+}
+
+/* The grass artwork is transparent; the footer itself stays on the blue canvas. */
+html body .site-footer,
+html body .site-footer .footer-garden,
+html body.content-page .footer-frame,
+html body.content-page .footer {
+  background:var(--arthic-blue)!important;
+  background-color:var(--arthic-blue)!important;
+}
+html body .site-footer .footer-garden {overflow:visible!important;}
+html body .site-footer .footer-foliage {
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:160px!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+}
+
+/* Practice is a normal document flow: the rail must never pin itself to the viewport. */
+html body.study-preview-page .study-workspace {
+  display:grid!important;
+  width:min(1360px,calc(100% - 56px))!important;
+  max-width:1360px!important;
+  margin:0 auto!important;
+  padding-top:28px!important;
+  padding-bottom:44px!important;
+  grid-template-columns:260px minmax(0,1fr)!important;
+  gap:24px!important;
+  align-items:start!important;
+}
+html body.study-preview-page .study-rail {
+  position:static!important;
+  inset:auto!important;
+  top:auto!important;
+  grid-column:1!important;
+  grid-row:1!important;
+  align-self:start!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+  padding:18px!important;
+  border:1px solid var(--arthic-line)!important;
+  border-radius:16px!important;
+  background:#EAF3E7!important;
+  box-shadow:none!important;
+}
+html body.study-preview-page .study-rail > div {
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body.study-preview-page .study-bank-nav {
+  max-height:300px!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain;
+  padding:14px 10px 10px!important;
+  border:1px solid rgba(32,72,89,.1)!important;
+  border-radius:12px!important;
+  background:#F8FCFF!important;
+}
+html body.study-preview-page .study-question-map {
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  gap:6px!important;
+}
+html body.study-preview-page .study-question-map button {
+  min-height:31px!important;
+  border-radius:7px!important;
+  font-size:10px!important;
+}
+html body.study-preview-page .study-session {
+  grid-column:2!important;
+  grid-row:1!important;
+  min-width:0!important;
+  padding:clamp(24px,3vw,42px)!important;
+  border:1px solid var(--arthic-line)!important;
+  border-radius:18px!important;
+  background:#F8FCFF!important;
+  box-shadow:0 10px 28px rgba(31,65,79,.055)!important;
+}
+html body.study-preview-page .study-question__text {
+  max-width:48ch!important;
+  font-size:clamp(22px,1.9vw,29px)!important;
+  line-height:1.35!important;
+}
+html body.study-preview-page .study-option {
+  min-height:62px!important;
+  padding:14px 16px!important;
+  border-radius:12px!important;
+  font-size:15px!important;
+  line-height:1.55!important;
+}
+html body.study-preview-page .study-option__text {font-size:15px!important;line-height:1.55!important;}
+html body.study-preview-page .study-sidebar {
+  grid-column:2!important;
+  grid-row:2!important;
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+  margin-top:0!important;
+}
+html body.study-preview-page .study-sidebar__boundary {grid-column:1/-1!important;}
+html body.study-preview-page .study-sidebar__section {
+  border:1px solid var(--arthic-line)!important;
+  border-radius:14px!important;
+  background:#EAF3E7!important;
+}
+html body.study-preview-page .study-preview-invite {
+  width:min(1360px,calc(100% - 56px))!important;
+  max-width:1360px!important;
+  padding:24px 0!important;
+}
+@media(max-width:980px) {
+  html body.study-preview-page .study-workspace {
+    width:calc(100% - 40px)!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:16px!important;
+  }
+  html body.study-preview-page .study-rail,
+  html body.study-preview-page .study-session,
+  html body.study-preview-page .study-sidebar {
+    grid-column:1!important;
+    grid-row:auto!important;
+  }
+  html body.study-preview-page .study-rail {
+    display:grid!important;
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important;
+    align-items:start!important;
+    gap:16px!important;
+  }
+  html body.study-preview-page .study-bank-nav {max-height:245px!important;margin:0!important;}
+}
+@media(max-width:620px) {
+  html body .site-header {top:9px!important;}
+  html body .mobile-menu {top:68px!important;}
+  html body.study-preview-page .study-workspace {width:calc(100% - 28px)!important;}
+  html body.study-preview-page .study-rail {
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    padding:14px!important;
+  }
+  html body.study-preview-page .study-bank-nav {max-height:220px!important;}
+  html body.study-preview-page .study-question-map {grid-template-columns:repeat(8,minmax(0,1fr))!important;}
+  html body.study-preview-page .study-session {padding:19px!important;}
+  html body.study-preview-page .study-sidebar {grid-template-columns:1fr!important;}
+  html body.study-preview-page .study-sidebar__boundary {grid-column:1!important;}
+  html body.legal-page #main .entry {width:calc(100% - 28px)!important;margin:92px auto 36px!important;padding:24px 18px!important;border-radius:16px!important;}
+  html body.content-page .content-main > section.content-hero,
+  html body.content-page .content-main > section.oneprep-subhero {padding-top:104px!important;}
+}
+
+
+/* Final section-surface layer uses matching specificity to the old flattening
+   selectors, so the deliberate per-section palette reliably wins. */
+html body:not(#arthic-blue-specificity) #main > section:nth-of-type(2):not(#arthic-blue-specificity):not(.study-workspace) {
+  background:#F8FCFF!important;background-color:#F8FCFF!important;background-image:none!important;
+  box-shadow:0 0 0 100vmax #F8FCFF!important;clip-path:inset(0 -100vmax);
+}
+html body:not(#arthic-blue-specificity) #main > section:nth-of-type(3):not(#arthic-blue-specificity) {
+  background:#EAF3E7!important;background-color:#EAF3E7!important;background-image:none!important;
+  box-shadow:0 0 0 100vmax #EAF3E7!important;clip-path:inset(0 -100vmax);
+}
+html body:not(#arthic-blue-specificity) #main > section:nth-of-type(4):not(#arthic-blue-specificity) {
+  background:#F8FCFF!important;background-color:#F8FCFF!important;background-image:none!important;
+  box-shadow:0 0 0 100vmax #F8FCFF!important;clip-path:inset(0 -100vmax);
+}
+html body:not(#arthic-blue-specificity) #main > section:nth-of-type(5):not(#arthic-blue-specificity):not(.content-cta):not(.home-cta) {
+  background:#EAF3E7!important;background-color:#EAF3E7!important;background-image:none!important;
+  box-shadow:0 0 0 100vmax #EAF3E7!important;clip-path:inset(0 -100vmax);
+}
+html body:not(#arthic-blue-specificity) #main > section.content-cta:not(#arthic-blue-specificity),
+html body:not(#arthic-blue-specificity) #main > section.oneprep-final-cta:not(#arthic-blue-specificity),
+html body:not(#arthic-blue-specificity) #main > section.home-cta:not(#arthic-blue-specificity) {
+  background:#DCEFF8!important;background-color:#DCEFF8!important;background-image:none!important;
+  box-shadow:0 0 0 100vmax #DCEFF8!important;clip-path:inset(0 -100vmax);
+}
+html body.content-page.study-preview-page:not(#arthic-blue-specificity) #main > section.study-workspace:not(#arthic-blue-specificity) {
+  background:transparent!important;background-color:transparent!important;box-shadow:none!important;clip-path:none!important;
+}
+html body.content-page.study-preview-page:not(#arthic-blue-specificity) #main > section.study-preview-invite:not(#arthic-blue-specificity) {
+  background:#EAF3E7!important;background-color:#EAF3E7!important;
+  box-shadow:0 0 0 100vmax #EAF3E7!important;clip-path:inset(0 -100vmax);
+}
+/* Home has no class on body; target its main element directly. */
+html body:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main.home-page > section.home-approach,
+html body:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main.home-page > section.home-available {
+  background:#F8FCFF!important;background-color:#F8FCFF!important;background-image:none!important;
+}
+html body:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main.home-page > section.home-routes {
+  background:#EAF3E7!important;background-color:#EAF3E7!important;background-image:none!important;
+}
+html body:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main.home-page > section.home-cta {
+  background:#DCEFF8!important;background-color:#DCEFF8!important;background-image:none!important;
+}
+
+/* Keep card faces consistent while allowing the surrounding section bands to vary. */
+html body.content-page:not(#arthic-blue-specificity) .content-main :is(
+  .pricing-plan,.exam-track-card,.oneprep-route-card,.career-role--detailed,
+  .method-step,.oneprep-step-card,.apply-form,.waitlist-form
+):not(#arthic-blue-specificity) {
+  border-radius:16px!important;
+}
+html body.content-page:not(#arthic-blue-specificity) .content-main :is(
+  .pricing-plan,.pricing-plan--individual,.pricing-plan--group,.pricing-plan--coaching,
+  .exam-track-card,.exam-track-card--lcat,.exam-track-card--net,.exam-track-card--css,
+  .exam-track-card--mdcat,.oneprep-route-card,.method-step,.oneprep-step-card
+):not(#arthic-blue-specificity) {
+  background:#F8FCFF!important;
+  border:1px solid rgba(32,72,89,.14)!important;
+  box-shadow:0 6px 20px rgba(31,65,79,.04)!important;
+}
+html body.content-page:not(#arthic-blue-specificity) .content-main :is(input,select,textarea,.field) {
+  border-radius:10px!important;
+}
+
+/* The practice room never sticks beside the scrolling question area. */
+html body.content-page.study-preview-page:not(#arthic-blue-specificity) .study-rail {
+  position:static!important;top:auto!important;inset:auto!important;
+  height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;
+}
+html body.content-page.study-preview-page:not(#arthic-blue-specificity) .study-session {
+  position:static!important;top:auto!important;max-height:none!important;overflow:visible!important;
+}
+
+
+/* Legal and 404 reading cards need to sit above the blue page canvas. The
+   earlier legacy page reset had more ID-level specificity, so these exact
+   panel rules deliberately outrank it. */
+html body.content-page.legal-page:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main > article.entry:not(#arthic-blue-specificity-3) {
+  width:min(940px,calc(100% - 48px))!important;
+  max-width:940px!important;
+  margin:124px auto 68px!important;
+  padding:clamp(28px,5vw,64px)!important;
+  border:1px solid rgba(32,72,89,.14)!important;
+  border-radius:20px!important;
+  background:#F8FCFF!important;
+  background-color:#F8FCFF!important;
+  box-shadow:0 10px 30px rgba(31,65,79,.055)!important;
+}
+html body.content-page.not-found-document:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main > section.not-found-card:not(#arthic-blue-specificity-3) {
+  max-width:760px!important;
+  border:1px solid rgba(32,72,89,.14)!important;
+  border-radius:20px!important;
+  background:#F8FCFF!important;
+  background-color:#F8FCFF!important;
+  box-shadow:0 10px 30px rgba(31,65,79,.055)!important;
+}
+@media(max-width:620px) {
+  html body.content-page.legal-page:not(#arthic-blue-specificity):not(#arthic-blue-specificity-2) #main > article.entry:not(#arthic-blue-specificity-3) {
+    width:calc(100% - 28px)!important;
+    margin:92px auto 36px!important;
+    padding:24px 18px!important;
+    border-radius:16px!important;
+  }
+}
+
+
+/* Unified blue sections across every Arthic route, including older themed sections. */
+html body:not(#arthic-blue-specificity) {
+ background:#D0ECFD!important;background-color:#D0ECFD!important;background-image:none!important;
+}
+html body:not(#arthic-blue-specificity) :is(main,#main,.content-main,.home-page,.site-footer,.footer-frame,.footer,.footer-garden) {
+ background:#D0ECFD!important;background-color:#D0ECFD!important;background-image:none!important;
+}
+html body:not(#arthic-blue-specificity) section,
+html body:not(#arthic-blue-specificity) main > section,
+html body:not(#arthic-blue-specificity) .content-main > section,
+html body:not(#arthic-blue-specificity) .home-page > section,
+html body:not(#arthic-blue-specificity) .entry {
+ background:#D0ECFD!important;background-color:#D0ECFD!important;background-image:none!important;
+ box-shadow:none!important;clip-path:none!important;
+}
+html body:not(#arthic-blue-specificity) :is(.site-footer,.footer-frame,.footer,.site-footer .footer-garden) {
+ background:#D0ECFD!important;background-color:#D0ECFD!important;background-image:none!important;
+}
+html body:not(#arthic-blue-specificity) .not-found-card {background:#D0ECFD!important;background-color:#D0ECFD!important;}
+html body:not(#arthic-blue-specificity) .site-header,
+html body:not(#arthic-blue-specificity) .mobile-menu {background:rgba(208,236,253,.97)!important;}
+
+
+/* Final Arthic brand layer: one sky-blue canvas, lime-green headings and black supporting copy. */
+:root {
+  --arthic-blue:#BFE7FF;
+  --arthic-page:#BFE7FF;
+  --arthic-sky:#BFE7FF;
+  --sky:#BFE7FF;
+  --grass:#92D540;
+  --arthic-lime:#92D540;
+  --arthic-green:#356512;
+  --color-bg:#BFE7FF;
+  --color-bg-raised:#BFE7FF;
+  --color-bg-sunken:#BFE7FF;
+  --color-fg:#111111;
+  --color-fg-dim:#111111;
+  --color-fg-mute:#111111;
+  --color-fg-faint:rgba(17,17,17,.14);
+  --color-fg-hairline:rgba(17,17,17,.10);
+  --color-focus:#356512;
+  --color-accent:#356512;
+  --color-accent-strong:#356512;
+  --color-accent-fill:#92D540;
+  --color-accent-dim:rgba(146,213,64,.17);
+  --color-accent-hairline:rgba(53,101,18,.3);
+}
+html,html body,html body.content-page,html body.home-page,
+html body.study-preview-page,html body.legal-page,html body.not-found-document {
+  background:#BFE7FF!important;
+  background-color:#BFE7FF!important;
+  background-image:none!important;
+  color:#111111!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(#main,main,.content-main,.home-page,main > section:not(.not-found-card),.content-main > section:not(.not-found-card),[data-page-surface]) {
+  background:#BFE7FF!important;
+  background-color:#BFE7FF!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(.site-header,.mobile-menu,body.content-page .nav,body.content-page .mobile-nav) {
+  background:rgba(191,231,255,.98)!important;
+  background-color:rgba(191,231,255,.98)!important;
+  background-image:none!important;
+}
+/* Green is reserved for titles, labels, key values and navigational emphasis. */
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(h1,h2,h3,h4,.brand-name,.home-route__name,.home-facts dt,
+.study-intro__aside strong,.study-sidebar__stat strong,
+.content-hero__topline,.oneprep-eyebrow,.home-eyebrow,
+.study-rail__eyebrow,.study-session__eyebrow,.study-sidebar__eyebrow,
+.study-complete__eyebrow,.footer-column>span,.footer__col-label,
+.site-header .desktop-nav a,body.content-page .nav__links a,
+.study-intro__aside-label,.study-session__type,.study-question__meta,
+.study-question__context,.study-bank-nav__top,.study-filter-label) {
+  color:#356512!important;
+}
+/* Supporting copy stays black for contrast and predictable reading. */
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(p,li,small,dd,blockquote,figcaption,
+.content-hero__lede,.oneprep-lede,.study-intro__lede,.content-hero__note,
+.oneprep-subhero__note,.study-session__subhead,.study-question__instruction,
+.study-rail__foot,.study-sidebar__text,.study-intro__aside-caption,
+.home-route__detail,.home-disclaimer,.home-available__body,
+.footer-column>a,.footer-email,.footer__tagline,.footer__col>a,
+.mobile-nav__foot,.mobile-nav__mail,.study-bank-nav__hint) {
+  color:#111111!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+a:not(.button):not(.study-option):not(.home-sample-option):not(.study-action) {
+  color:#356512!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(.site-footer a,.footer-column>a,.footer-email,.footer__col>a,.mobile-nav__foot) {
+  color:#111111!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(input,select,textarea,.study-filter-select,.study-filter-search) {
+  color:#111111!important;
+  background-color:rgba(255,255,255,.72)!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(.site-header .button--small,.site-header .header-actions .button) {
+  background:#356512!important;
+  background-color:#356512!important;
+  border-color:#356512!important;
+  color:#ffffff!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2)
+:is(.site-header .button--small,.site-header .header-actions .button):hover {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#ffffff!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2) :focus-visible {
+  outline-color:#356512!important;
+}
+html body:not(#arthic-brand-specificity):not(#arthic-brand-specificity-2) ::selection {
+  background:#356512!important;
+  color:#ffffff!important;
+}
+
+
+/* Final interaction and layout polish for the origami-green Arthic identity. */
+:root {
+  --arthic-footer:#96D73C;
+  --arthic-footer-leaf:#D7FA89;
+  --arthic-green:#356512;
+  --arthic-green-deep:#28520E;
+  --arthic-menu:#FFFFFF;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-header,.mobile-menu,body.content-page .nav,body.content-page .mobile-nav) {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+  border-color:rgba(22,55,14,.12)!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-header .desktop-nav a,body.content-page .nav__links a,.mobile-menu a,body.content-page .mobile-nav a) {
+  color:#28520E!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-header .desktop-nav a:hover,.site-header .desktop-nav a.is-active,.site-header .desktop-nav a[aria-current="page"],.mobile-menu a:hover,.mobile-menu a[aria-current="page"],body.content-page .nav__links a:hover,body.content-page .nav__links a[aria-current="page"]) {
+  background:rgba(150,215,60,.20)!important;
+  color:#28520E!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-header .menu-toggle {
+  background:#FFFFFF!important;
+  border-color:rgba(53,101,18,.24)!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-header .menu-toggle span:not(.sr-only) {
+  background:#28520E!important;
+}
+
+/* Filled actions all use the same logo green with white lettering. */
+html body:not(#arthic-polish):not(#arthic-polish-2)
+:is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.home-sample-check,.home-sample-next,.study-action,.career-role__link,.footer__cta,
+button[type=submit],input[type=submit],.waitlist-form button,
+.apply-form button,.subscribe-form button,.form-submit) {
+  background:#356512!important;
+  background-color:#356512!important;
+  border:1px solid #356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  box-shadow:none!important;
+  text-decoration:none!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2)
+:is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.home-sample-check,.home-sample-next,.study-action,.career-role__link,.footer__cta,
+button[type=submit],input[type=submit],.waitlist-form button,
+.apply-form button,.subscribe-form button,.form-submit):hover {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2)
+:is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,
+button[type=submit],input[type=submit]):disabled {
+  opacity:.52!important;
+  cursor:not-allowed!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.study-option.is-correct,.study-option[data-result=correct]) {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.study-option.is-incorrect,.study-option[data-result=incorrect]) {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+
+/* A single green footer, with the illustrated foliage sharing its base
+   colour and overlapping the footer content slightly. There are no rules,
+   frames, borders or pseudo-element dividers at the join. */
+html body:not(#arthic-polish):not(#arthic-polish-2)
+:is(.site-footer,.footer-frame,.footer,.site-footer .footer-inner,
+.site-footer .footer-grid,.site-footer .footer-column,.site-footer .footer-garden) {
+  background:#96D73C!important;
+  background-color:#96D73C!important;
+  background-image:none!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-footer {
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0 0 28px!important;
+  overflow:clip!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-footer .footer-garden {
+  position:relative!important;
+  z-index:2!important;
+  display:block!important;
+  width:100%!important;
+  margin:0 0 -14px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  line-height:0!important;
+  font-size:0!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-footer .footer-foliage {
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  vertical-align:top!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .site-footer .footer-inner {
+  position:relative!important;
+  z-index:1!important;
+  width:min(1260px,calc(100% - 48px))!important;
+  margin:0 auto!important;
+  padding:32px 0 22px!important;
+  border:0!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer,.footer-frame,.footer) :is(a,p,span,strong,small) {
+  color:#111111!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer,.footer-frame,.footer) :is(a:hover,a:focus-visible) {
+  color:#28520E!important;
+  text-decoration:underline!important;
+  text-underline-offset:3px!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer,.footer-frame,.footer)::before,
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer,.footer-frame,.footer)::after,
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer .footer-inner,.site-footer .footer-grid,.site-footer .footer-column)::before,
+html body:not(#arthic-polish):not(#arthic-polish-2) :is(.site-footer .footer-inner,.site-footer .footer-grid,.site-footer .footer-column)::after {
+  content:none!important;
+  display:none!important;
+}
+
+/* Inner pages share a clear reading width, consistent top offset and
+   deliberate section rhythm rather than unrelated page-by-page spacing. */
+html body.content-page #main.content-main {
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:clamp(18px,2.6vw,30px)!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:112px 0 72px!important;
+  background:#BFE7FF!important;
+}
+html body.content-page #main.content-main > section,
+html body.content-page #main.content-main > article {
+  box-sizing:border-box!important;
+  width:min(1180px,calc(100% - 56px))!important;
+  max-width:1180px!important;
+  margin-inline:auto!important;
+}
+html body.content-page #main.content-main > section:not(.content-cta):not(.oneprep-final-cta):not(.study-workspace) {
+  padding-block:clamp(28px,4vw,54px)!important;
+}
+html body.content-page #main.content-main > :is(.content-hero,.oneprep-subhero,.study-intro,.method-hero,.pricing-intro,.career-intro) {
+  padding-top:clamp(42px,5vw,66px)!important;
+  padding-bottom:clamp(30px,4vw,48px)!important;
+}
+html body.content-page #main.content-main > .method-hero {
+  width:100%!important;
+  max-width:none!important;
+  padding:clamp(60px,8vw,96px) 0!important;
+}
+html body.content-page #main.content-main > .method-hero > .content-container {
+  width:min(1120px,calc(100% - 56px))!important;
+  max-width:1120px!important;
+  margin-inline:auto!important;
+}
+html body.content-page #main.content-main > .study-workspace {
+  width:min(1360px,calc(100% - 48px))!important;
+  max-width:1360px!important;
+  margin-inline:auto!important;
+  padding-block:20px 38px!important;
+}
+html body.content-page #main.content-main > .study-preview-invite {
+  width:min(1180px,calc(100% - 56px))!important;
+  max-width:1180px!important;
+  margin-inline:auto!important;
+}
+html body.content-page :is(.content-container,.content-hero__inner,.oneprep-section-head,.method-section-head) {
+  box-sizing:border-box!important;
+}
+html body.content-page :is(.content-hero__lede,.oneprep-subhero__note,.method-hero__lede,.study-intro__lede) {
+  max-width:68ch!important;
+  line-height:1.75!important;
+}
+html body.content-page :is(.waitlist-layout,.apply-layout,.career-intro,.method-current__inner) {
+  gap:clamp(28px,4vw,56px)!important;
+  align-items:start!important;
+}
+html body.content-page :is(.waitlist-form,.apply-form) {
+  width:100%!important;
+  max-width:100%!important;
+  padding:clamp(24px,3.2vw,40px)!important;
+  border:1px solid rgba(31,77,21,.16)!important;
+  border-radius:18px!important;
+  box-shadow:0 12px 28px rgba(28,73,14,.07)!important;
+}
+html body.content-page :is(.apply-role,.waitlist-copy,.exam-prep-note,.careers-application-note) {
+  min-width:0!important;
+}
+html body.content-page :is(.pricing-plan-grid,.exam-track-grid,.oneprep-route-grid,.method-step-grid) {
+  gap:clamp(16px,2vw,24px)!important;
+}
+html body.content-page :is(.pricing-plan,.exam-track-card,.oneprep-route-card,.method-step,.career-role--detailed) {
+  min-width:0!important;
+  height:auto!important;
+}
+
+/* Policy pages get a restrained reading column, generous line length and
+   consistent headings without changing the underlying wording. */
+html body.legal-page #main > .entry {
+  width:min(960px,calc(100% - 48px))!important;
+  max-width:960px!important;
+  margin:112px auto 72px!important;
+  padding:clamp(30px,5vw,62px)!important;
+  border:1px solid rgba(31,77,21,.14)!important;
+  border-radius:18px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 12px 32px rgba(28,73,14,.06)!important;
+}
+html body.legal-page #main > .entry :is(.entry__head,.entry__body) {
+  max-width:74ch!important;
+  margin-inline:auto!important;
+}
+html body.legal-page #main > .entry .entry__body {
+  line-height:1.8!important;
+}
+html body.legal-page #main > .entry .entry__body h2 {
+  margin:2.1em 0 .7em!important;
+  color:#356512!important;
+}
+html body.not-found-document #main .not-found-card {
+  background:#FFFFFF!important;
+  color:#111111!important;
+}
+
+/* Mobile spacing remains deliberate and avoids horizontal overflow. */
+@media(max-width:760px) {
+  html body.content-page #main.content-main {
+    gap:14px!important;
+    padding:86px 0 42px!important;
+  }
+  html body.content-page #main.content-main > section,
+  html body.content-page #main.content-main > article {
+    width:calc(100% - 32px)!important;
+  }
+  html body.content-page #main.content-main > .method-hero {
+    width:100%!important;
+    padding:46px 0 38px!important;
+  }
+  html body.content-page #main.content-main > .method-hero > .content-container {
+    width:calc(100% - 32px)!important;
+  }
+  html body.content-page #main.content-main > .study-workspace {
+    width:calc(100% - 24px)!important;
+    padding-block:8px 24px!important;
+  }
+  html body.content-page :is(.waitlist-layout,.apply-layout,.career-intro,.method-current__inner) {
+    grid-template-columns:1fr!important;
+  }
+  html body.content-page :is(.waitlist-form,.apply-form) {
+    padding:22px 18px!important;
+  }
+  html body.legal-page #main > .entry {
+    width:calc(100% - 28px)!important;
+    margin:88px auto 36px!important;
+    padding:24px 18px!important;
+    border-radius:14px!important;
+  }
+  html body .site-footer .footer-inner {
+    width:calc(100% - 36px)!important;
+    padding-top:26px!important;
+  }
+}
+
+
+/* Answer choices are controls too: use strong contrast before and after
+   checking, while keeping correctness colours unmistakable. */
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option {
+  background:#356512!important;
+  background-color:#356512!important;
+  border-color:#356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option > span:first-child {
+  border-color:rgba(255,255,255,.7)!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option:hover:not(:disabled),
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option[aria-pressed=true] {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option.is-correct {
+  background:#4F8F1E!important;
+  background-color:#4F8F1E!important;
+  border-color:#4F8F1E!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .home-sample-option.is-incorrect {
+  background:#B4235A!important;
+  background-color:#B4235A!important;
+  border-color:#B4235A!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option {
+  background:#356512!important;
+  background-color:#356512!important;
+  border-color:#356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option :is(.study-option__key,.study-option__text) {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option__key {
+  border-color:rgba(255,255,255,.72)!important;
+  background:transparent!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option:hover:not(:disabled),
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option[aria-pressed=true] {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option.is-correct {
+  background:#4F8F1E!important;
+  background-color:#4F8F1E!important;
+  border-color:#4F8F1E!important;
+  color:#FFFFFF!important;
+}
+html body:not(#arthic-polish):not(#arthic-polish-2) .study-option.is-incorrect {
+  background:#B4235A!important;
+  background-color:#B4235A!important;
+  border-color:#B4235A!important;
+  color:#FFFFFF!important;
+}
+
+
+/* --------------------------------------------------------------------------
+   Screenshot-led repair: one page canvas, real inner-page spacing, and a
+   visible study workspace. This is the terminal layer; it supersedes legacy
+   per-page palette rules above without flattening nested content panels.
+   -------------------------------------------------------------------------- */
+:root {
+  --arthic-blue:#BFE7FF;
+  --arthic-green:#356512;
+  --arthic-green-deep:#28520E;
+  --arthic-grass:#96D73C;
+  --arthic-leaf:#D7FA89;
+  --arthic-ink:#111111;
+  --arthic-white:#FFFFFF;
+}
+html,
+html body,
+html body.content-page,
+html body.study-preview-page,
+html body.legal-page,
+html body.not-found-document,
+html body.home-page {
+  background:#BFE7FF!important;
+  background-color:#BFE7FF!important;
+  background-image:none!important;
+  color:#111111!important;
+}
+
+/* The white menu is one continuous white surface. The nav links themselves
+   must not leave a blue rectangle inside the pill. */
+html body .site-header {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+  border:1px solid rgba(28,65,14,.12)!important;
+  box-shadow:0 12px 32px rgba(29,65,15,.10)!important;
+}
+html body .site-header .desktop-nav {
+  background:transparent!important;
+  background-color:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body .site-header .desktop-nav a {
+  background:transparent!important;
+  color:#356512!important;
+  box-shadow:none!important;
+}
+html body .site-header .desktop-nav a:hover,
+html body .site-header .desktop-nav a.is-active,
+html body .site-header .desktop-nav a[aria-current="page"] {
+  background:#DDF1CF!important;
+  color:#28520E!important;
+}
+html body .mobile-menu {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  border:1px solid rgba(28,65,14,.12)!important;
+}
+html body .mobile-menu nav,
+html body .mobile-menu a {
+  background:transparent!important;
+}
+html body .mobile-menu a:hover,
+html body .mobile-menu a[aria-current="page"] {
+  background:#DDF1CF!important;
+}
+
+/* All real page sections are full-width sky blue, not inset rounded panels
+   sitting on a different green canvas. Inner cards are styled separately. */
+html body.content-page #main.content-main {
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:82px 0 64px!important;
+  background:#BFE7FF!important;
+  background-color:#BFE7FF!important;
+  background-image:none!important;
+  gap:0!important;
+}
+html body.content-page #main.content-main > section,
+html body.content-page #main.content-main > article {
+  display:block!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:clamp(42px,5vw,68px) max(24px,calc((100vw - 1120px)/2))!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#BFE7FF!important;
+  background-color:#BFE7FF!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+}
+html body.content-page #main.content-main > :is(.content-hero,.oneprep-subhero,.study-intro,.method-hero,.pricing-intro,.career-intro) {
+  padding-top:clamp(106px,10vw,138px)!important;
+  padding-bottom:clamp(42px,5vw,64px)!important;
+}
+html body.content-page #main.content-main > .oneprep-subhero,
+html body.content-page #main.content-main > .method-hero {
+  padding-inline:0!important;
+}
+html body.content-page #main.content-main > :is(.oneprep-subhero,.method-hero) > .content-container {
+  width:min(1120px,calc(100% - 48px))!important;
+  max-width:1120px!important;
+  margin-inline:auto!important;
+}
+html body.content-page #main.content-main > .study-intro {
+  padding-top:116px!important;
+}
+html body.content-page #main.content-main > .study-workspace {
+  display:grid!important;
+  grid-template-columns:minmax(220px,250px) minmax(0,1fr) minmax(210px,230px)!important;
+  align-items:start!important;
+  gap:20px!important;
+  width:min(1320px,calc(100% - 48px))!important;
+  max-width:1320px!important;
+  margin:0 auto!important;
+  padding:24px 0 48px!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+}
+html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-rail,
+html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-session,
+html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-sidebar {
+  position:static!important;
+  display:block!important;
+  grid-column:auto!important;
+  grid-row:auto!important;
+  align-self:start!important;
+  box-sizing:border-box!important;
+  width:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+  max-height:none!important;
+  height:auto!important;
+  margin:0!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+  overflow:visible!important;
+}
+html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-rail {
+  padding:18px!important;
+  border:1px solid rgba(53,101,18,.16)!important;
+  border-radius:14px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 8px 22px rgba(27,64,16,.06)!important;
+}
+html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-rail > div {
+  display:block!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+}
+html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-session {
+  padding:clamp(22px,2.5vw,34px)!important;
+  border:1px solid rgba(53,101,18,.16)!important;
+  border-radius:14px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 8px 22px rgba(27,64,16,.06)!important;
+}
+html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-sidebar {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  align-content:start!important;
+  gap:12px!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+}
+html body.content-page.study-preview-page .study-sidebar__section {
+  display:block!important;
+  padding:17px!important;
+  border:1px solid rgba(53,101,18,.16)!important;
+  border-radius:12px!important;
+  background:#FFFFFF!important;
+  color:#111111!important;
+}
+html body.content-page.study-preview-page .study-sidebar__stat {
+  display:flex!important;
+  align-items:baseline!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  padding:8px 0!important;
+  font-size:13px!important;
+  color:#111111!important;
+}
+html body.content-page.study-preview-page .study-sidebar__stat strong {
+  font-size:15px!important;
+  color:#356512!important;
+}
+html body.content-page.study-preview-page .study-sidebar__heading,
+html body.content-page.study-preview-page .study-session__heading {
+  color:#356512!important;
+}
+html body.content-page.study-preview-page .study-session__subhead,
+html body.content-page.study-preview-page .study-sidebar__text,
+html body.content-page.study-preview-page .study-question__instruction {
+  color:#111111!important;
+  font-size:14px!important;
+  line-height:1.65!important;
+}
+html body.content-page.study-preview-page .study-intro__layout {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 280px!important;
+  align-items:center!important;
+  gap:clamp(28px,5vw,72px)!important;
+  width:min(1200px,100%)!important;
+  margin:0 auto!important;
+}
+html body.content-page.study-preview-page .study-intro h1 {
+  max-width:13ch!important;
+  color:#356512!important;
+  font-size:clamp(44px,5.4vw,68px)!important;
+  line-height:.98!important;
+  letter-spacing:-.06em!important;
+}
+html body.content-page.study-preview-page .study-intro__lede {
+  max-width:62ch!important;
+  color:#111111!important;
+  font-size:16px!important;
+  line-height:1.75!important;
+}
+html body.content-page.study-preview-page .study-intro__aside {
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  min-height:0!important;
+  padding:22px!important;
+  border:1px solid rgba(53,101,18,.15)!important;
+  border-radius:14px!important;
+  background:#FFFFFF!important;
+  color:#111111!important;
+  box-shadow:0 8px 22px rgba(27,64,16,.06)!important;
+}
+html body.content-page.study-preview-page .study-intro__aside-label,
+html body.content-page.study-preview-page .study-intro__aside-caption,
+html body.content-page.study-preview-page .study-intro__aside-meta span {
+  color:#111111!important;
+}
+html body.content-page.study-preview-page .study-intro__aside strong {
+  margin:10px 0 4px!important;
+  color:#356512!important;
+  font-size:clamp(50px,5vw,66px)!important;
+}
+html body.content-page.study-preview-page .study-intro__aside-meta {
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  width:100%!important;
+  gap:7px!important;
+  margin-top:16px!important;
+  padding-top:13px!important;
+  border-top:1px solid rgba(53,101,18,.14)!important;
+}
+
+/* Keep the question runner fully visible and comfortably readable. */
+html body.content-page.study-preview-page .study-question {
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  margin-top:22px!important;
+}
+html body.content-page.study-preview-page .study-question__text {
+  color:#111111!important;
+  font-size:clamp(22px,2vw,28px)!important;
+  line-height:1.4!important;
+}
+html body.content-page.study-preview-page .study-options {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:9px!important;
+  margin-top:18px!important;
+}
+html body.content-page.study-preview-page .study-option {
+  display:grid!important;
+  grid-template-columns:32px minmax(0,1fr)!important;
+  align-items:center!important;
+  min-height:56px!important;
+  padding:12px 14px!important;
+  border:1px solid #356512!important;
+  border-radius:10px!important;
+  background:#356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  font-size:14px!important;
+  line-height:1.5!important;
+}
+html body.content-page.study-preview-page .study-option :is(.study-option__key,.study-option__text) {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body.content-page.study-preview-page .study-option__key {
+  border-color:rgba(255,255,255,.72)!important;
+  background:transparent!important;
+  color:#FFFFFF!important;
+}
+html body.content-page.study-preview-page .study-option.is-correct,
+html body.content-page.study-preview-page .study-option.is-correct:hover {
+  border-color:#438D24!important;
+  background:#438D24!important;
+  color:#FFFFFF!important;
+}
+html body.content-page.study-preview-page .study-option.is-incorrect,
+html body.content-page.study-preview-page .study-option.is-incorrect:hover {
+  border-color:#B4235A!important;
+  background:#B4235A!important;
+  color:#FFFFFF!important;
+}
+html body.content-page.study-preview-page .study-option.is-correct *,
+html body.content-page.study-preview-page .study-option.is-incorrect * {
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body.content-page.study-preview-page .study-preview-invite {
+  display:flex!important;
+  justify-content:space-between!important;
+  align-items:center!important;
+  gap:18px!important;
+  width:100%!important;
+  margin:0!important;
+  padding:28px max(24px,calc((100vw - 1120px)/2))!important;
+  border:0!important;
+  background:#BFE7FF!important;
+  color:#111111!important;
+}
+
+/* Pricing hero is a full-width section, not a rounded blue card on green. */
+html body.content-page.pricing-page #main.content-main > .pricing-intro {
+  display:grid!important;
+  grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr)!important;
+  align-items:center!important;
+  gap:clamp(32px,6vw,80px)!important;
+  border-radius:0!important;
+}
+html body.content-page.pricing-page .pricing-intro h1 {
+  max-width:14ch!important;
+  color:#356512!important;
+  font-size:clamp(42px,5.1vw,64px)!important;
+  line-height:1.02!important;
+}
+html body.content-page.pricing-page .pricing-intro__lede {
+  max-width:62ch!important;
+  color:#111111!important;
+  font-size:17px!important;
+  line-height:1.7!important;
+}
+html body.content-page.pricing-page .pricing-intro__aside {
+  width:100%!important;
+  max-width:360px!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:24px!important;
+  border:1px solid rgba(53,101,18,.16)!important;
+  border-radius:14px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 8px 22px rgba(27,64,16,.06)!important;
+}
+html body.content-page.pricing-page .pricing-intro__aside :is(strong,p,span) {
+  color:#111111!important;
+}
+html body.content-page.pricing-page .pricing-intro__aside strong {
+  color:#356512!important;
+}
+html body.content-page #main.content-main > section:not(.study-workspace) :is(h1,h2,h3,h4) {
+  color:#356512!important;
+}
+html body.content-page #main.content-main > section:not(.study-workspace) :is(p,li,dd,small) {
+  color:#111111!important;
+}
+html body.content-page #main.content-main :is(.pricing-plan,.exam-track-card,.oneprep-route-card,.career-role--detailed,.method-step,.apply-form,.waitlist-form) {
+  border-radius:14px!important;
+  background:#FFFFFF!important;
+}
+
+/* Legal and 404 pages keep a legible white reading card on the blue canvas. */
+html body.content-page.legal-page #main > article.entry,
+html body.legal-page #main > .entry {
+  width:min(940px,calc(100% - 48px))!important;
+  max-width:940px!important;
+  margin:112px auto 64px!important;
+  padding:clamp(26px,4.5vw,56px)!important;
+  border:1px solid rgba(53,101,18,.14)!important;
+  border-radius:14px!important;
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  box-shadow:0 8px 24px rgba(27,64,16,.05)!important;
+}
+html body.content-page.not-found-document #main > .not-found-card,
+html body.not-found-document #main .not-found-card {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  color:#111111!important;
+}
+
+/* Home sections use the exact same sky-blue page colour, with their own
+   contents centred by the original inner shells. */
+html body #main.home-page,
+html body #main.home-page > section {
+  background:#BFE7FF!important;
+  background-color:#BFE7FF!important;
+  background-image:none!important;
+  border-radius:0!important;
+}
+
+/* A single lime footer. The foliage artwork has the same base fill and
+   overlaps the footer content slightly; no seam, border or pseudo-line. */
+html body .site-footer,
+html body .site-footer .footer-garden,
+html body .site-footer .footer-inner,
+html body .site-footer .footer-grid,
+html body .site-footer .footer-column {
+  background:#96D73C!important;
+  background-color:#96D73C!important;
+  background-image:none!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+html body .site-footer {
+  position:relative!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0 0 28px!important;
+  overflow:clip!important;
+}
+html body .site-footer .footer-garden {
+  position:relative!important;
+  z-index:2!important;
+  display:block!important;
+  width:100%!important;
+  margin:0 0 -16px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  line-height:0!important;
+  font-size:0!important;
+}
+html body .site-footer .footer-foliage {
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  vertical-align:top!important;
+}
+html body .site-footer .footer-inner {
+  position:relative!important;
+  z-index:1!important;
+  width:min(1260px,calc(100% - 48px))!important;
+  margin:0 auto!important;
+  padding:30px 0 22px!important;
+}
+html body .site-footer :is(a,p,span,strong,small) {
+  color:#111111!important;
+}
+html body .site-footer .footer-column>span {
+  color:#28520E!important;
+}
+
+/* Desktop and mobile share the same responsive layout logic. */
+@media(max-width:1050px) {
+  html body.content-page.study-preview-page #main.content-main > .study-workspace {
+    grid-template-columns:minmax(200px,240px) minmax(0,1fr)!important;
+  }
+  html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-sidebar {
+    grid-column:2!important;
+    grid-row:auto!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html body.content-page.pricing-page #main.content-main > .pricing-intro {
+    grid-template-columns:minmax(0,1fr) minmax(250px,.8fr)!important;
+  }
+}
+@media(max-width:760px) {
+  html body.content-page #main.content-main {
+    padding-top:72px!important;
+    padding-bottom:40px!important;
+  }
+  html body.content-page #main.content-main > section,
+  html body.content-page #main.content-main > article {
+    padding:36px 18px!important;
+  }
+  html body.content-page #main.content-main > :is(.content-hero,.oneprep-subhero,.study-intro,.method-hero,.pricing-intro,.career-intro) {
+    padding-top:96px!important;
+    padding-bottom:36px!important;
+  }
+  html body.content-page.study-preview-page #main.content-main > .study-workspace {
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    width:calc(100% - 28px)!important;
+    gap:12px!important;
+    padding:14px 0 28px!important;
+  }
+  html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-rail,
+  html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-session,
+  html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-sidebar {
+    grid-column:1!important;
+    grid-row:auto!important;
+    width:100%!important;
+  }
+  html body.content-page.study-preview-page #main.content-main > .study-workspace > .study-sidebar {
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html body.content-page.study-preview-page .study-intro__layout {
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:18px!important;
+  }
+  html body.content-page.study-preview-page .study-intro__aside {
+    width:100%!important;
+  }
+  html body.content-page.pricing-page #main.content-main > .pricing-intro {
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:24px!important;
+  }
+  html body.content-page.pricing-page .pricing-intro__aside {
+    max-width:none!important;
+  }
+  html body.legal-page #main > .entry {
+    width:calc(100% - 28px)!important;
+    margin:86px auto 36px!important;
+    padding:22px 18px!important;
+  }
+  html body .site-footer .footer-inner {
+    width:calc(100% - 36px)!important;
+    padding-top:24px!important;
+  }
+}
+
+
+/* Final white-only canvas, with the existing green brand typography and
+   green/white actions retained. No tinted section bands or footer artwork. */
+:root {
+  --color-bg:#FFFFFF;
+  --color-bg-raised:#FFFFFF;
+  --color-bg-sunken:#FFFFFF;
+  --color-fg:#111111;
+  --color-fg-dim:#111111;
+  --color-fg-mute:#111111;
+  --color-fg-faint:rgba(17,17,17,.14);
+  --color-fg-hairline:rgba(17,17,17,.12);
+  --arthic-blue:#FFFFFF;
+  --arthic-page:#FFFFFF;
+  --arthic-sky:#FFFFFF;
+  --sky:#FFFFFF;
+  --arthic-footer:#FFFFFF;
+  --arthic-green:#356512;
+  --arthic-green-deep:#28520E;
+}
+html,body,body.home-page,body.content-page,body.study-preview-page,
+body.legal-page,body.not-found-document,#main,main,.content-main {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+  color:#111111!important;
+}
+/* Structural surfaces all stay white. Controls and buttons keep their
+   own intentional green states, while no section gets a tinted panel. */
+html body :is(header,footer,main,section,article,aside,nav,form,fieldset,
+.content-container,.home-page,.home-shell,.content-main,.site-header,
+.mobile-menu,.site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,
+.footer-column,.study-intro,.study-workspace,.study-rail,.study-session,
+.study-sidebar,.study-sidebar__section,.study-question,.study-preview-invite,
+.pricing-intro,.pricing-plan-section,.career-intro,.career-list,.waitlist-layout,
+.waitlist-copy,.waitlist-form,.apply-layout,.apply-role,.apply-form,
+.method-hero,.method-steps,.method-current,.method-planned,.exam-track-card,
+.pricing-tier,.pricing-compare,.pricing-faq,.entry,.not-found-card,
+.custom-select,.custom-select__listbox) {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+}
+html body .site-header {
+  border:0!important;
+  box-shadow:0 8px 28px rgba(17,17,17,.07)!important;
+}
+html body .site-header .desktop-nav,
+html body .site-header .desktop-nav a {
+  background:transparent!important;
+}
+html body .site-header .desktop-nav a {
+  color:#356512!important;
+}
+html body .site-header .desktop-nav a:hover,
+html body .site-header .desktop-nav a.is-active,
+html body .site-header .desktop-nav a[aria-current="page"],
+html body .mobile-menu a:hover,
+html body .mobile-menu a[aria-current="page"] {
+  background:#F0F6EA!important;
+  color:#28520E!important;
+}
+html body .mobile-menu {
+  border:0!important;
+  box-shadow:0 12px 24px rgba(17,17,17,.08)!important;
+}
+html body :is(h1,h2,h3,h4,.brand-name,.study-session__heading,
+.study-sidebar__heading,.content-hero__topline,.oneprep-eyebrow,
+.home-eyebrow,.footer-column>span,.footer__col-label) {
+  color:#356512!important;
+}
+html body :is(p,li,dd,small,figcaption,.content-hero__lede,
+.study-intro__lede,.study-sidebar__text,.study-session__subhead,
+.footer__tagline,.footer-column>a,.footer-email) {
+  color:#111111!important;
+}
+html body :is(.site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,.footer-column) {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body .footer-garden,
+html body .footer-foliage {
+  display:none!important;
+  content:none!important;
+}
+html body .site-footer {
+  margin:0!important;
+  padding:44px 0 28px!important;
+}
+html body .site-footer .footer-inner {
+  width:min(1200px,calc(100% - 48px))!important;
+  margin:0 auto!important;
+  padding:0!important;
+}
+html body .site-footer .footer-column>span {
+  color:#356512!important;
+}
+
+/* White custom dropdown, same on the homepage, practice and every form. */
+.custom-select {
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  z-index:5;
+}
+.custom-select:focus-within,
+.custom-select:has(.custom-select__trigger[aria-expanded="true"]) {
+  z-index:30;
+}
+.custom-select__native {
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  min-height:1px!important;
+  margin:-1px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+.custom-select__trigger {
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  width:100%!important;
+  min-height:46px!important;
+  padding:11px 14px!important;
+  border:1px solid rgba(17,17,17,.2)!important;
+  border-radius:10px!important;
+  background:#FFFFFF!important;
+  color:#111111!important;
+  font:500 14px/1.4 "Poppins",sans-serif!important;
+  text-align:left!important;
+  cursor:pointer!important;
+  box-shadow:none!important;
+}
+.custom-select__trigger:hover,
+.custom-select__trigger:focus-visible,
+.custom-select__trigger[aria-expanded="true"] {
+  border-color:#356512!important;
+  outline:none!important;
+  box-shadow:0 0 0 3px rgba(53,101,18,.1)!important;
+}
+.custom-select__trigger svg {
+  width:12px!important;
+  height:8px!important;
+  flex:0 0 auto!important;
+  color:#356512!important;
+  transition:transform .18s ease!important;
+}
+.custom-select__trigger[aria-expanded="true"] svg {
+  transform:rotate(180deg)!important;
+}
+.custom-select__listbox {
+  position:absolute!important;
+  top:calc(100% + 7px)!important;
+  left:0!important;
+  right:0!important;
+  z-index:1000!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:3px!important;
+  max-height:min(280px,45vh)!important;
+  overflow-y:auto!important;
+  padding:6px!important;
+  border:1px solid rgba(17,17,17,.12)!important;
+  border-radius:12px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 14px 36px rgba(17,17,17,.13)!important;
+}
+.custom-select__listbox[hidden] {
+  display:none!important;
+}
+.custom-select__option {
+  width:100%!important;
+  min-height:38px!important;
+  padding:9px 11px!important;
+  border:0!important;
+  border-radius:8px!important;
+  background:#FFFFFF!important;
+  color:#111111!important;
+  font:400 13px/1.4 "Poppins",sans-serif!important;
+  text-align:left!important;
+  cursor:pointer!important;
+}
+.custom-select__option:hover,
+.custom-select__option:focus-visible,
+.custom-select__option[aria-selected="true"] {
+  background:#F0F6EA!important;
+  color:#28520E!important;
+  outline:none!important;
+}
+.custom-select__option:disabled {
+  opacity:.45!important;
+  cursor:not-allowed!important;
+}
+
+/* Consistent page widths and comfortable vertical rhythm on all inner routes. */
+html body.content-page #main.content-main {
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:88px 0 64px!important;
+  background:#FFFFFF!important;
+}
+html body.content-page #main.content-main > section,
+html body.content-page #main.content-main > article {
+  box-sizing:border-box!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+html body.content-page #main.content-main > section.content-container {
+  width:min(1120px,calc(100% - 48px))!important;
+  max-width:1120px!important;
+  margin:0 auto!important;
+  padding:clamp(34px,5vw,58px) 0!important;
+}
+html body.content-page #main.content-main > section.content-hero.content-container,
+html body.content-page #main.content-main > section.pricing-intro {
+  width:min(1120px,calc(100% - 48px))!important;
+  max-width:1120px!important;
+  margin:0 auto!important;
+  padding:clamp(54px,7vw,86px) 0 clamp(32px,4vw,48px)!important;
+}
+html body.content-page #main.content-main > section:not(.content-container):not(.pricing-intro):not(.study-intro):not(.study-workspace) {
+  padding:clamp(34px,4.5vw,58px) max(24px,calc((100vw - 1120px)/2))!important;
+}
+html body.content-page #main.content-main :is(.content-hero__lede,.oneprep-subhero__note,
+.method-hero__lede,.study-intro__lede) {
+  max-width:68ch!important;
+  line-height:1.75!important;
+}
+html body.content-page #main.content-main :is(.content-hero h1,.oneprep-subhero h1,
+.method-hero h1,.pricing-intro h1,.career-intro h1) {
+  max-width:18ch!important;
+  line-height:1.02!important;
+  letter-spacing:-.045em!important;
+  color:#356512!important;
+}
+html body.content-page #main.content-main :is(.waitlist-layout,.apply-layout,.career-list,
+.method-current__inner) {
+  width:min(1120px,calc(100% - 48px))!important;
+  max-width:1120px!important;
+  margin-inline:auto!important;
+  gap:clamp(26px,4vw,48px)!important;
+}
+html body.content-page #main.content-main :is(.waitlist-form,.apply-role,.apply-form,
+.pricing-intro__aside,.study-intro__aside,.pricing-tier,.exam-track-card,.method-step) {
+  border:1px solid rgba(17,17,17,.12)!important;
+  border-radius:12px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 8px 22px rgba(17,17,17,.045)!important;
+}
+html body.content-page #main.content-main :is(.waitlist-form,.apply-form) {
+  padding:clamp(22px,3vw,34px)!important;
+}
+html body.content-page #main.content-main :is(input.field,textarea.field,.field) {
+  min-height:44px!important;
+  background:#FFFFFF!important;
+  color:#111111!important;
+}
+html body.legal-page #main > .entry {
+  width:min(940px,calc(100% - 48px))!important;
+  max-width:940px!important;
+  margin:104px auto 64px!important;
+  padding:clamp(26px,4.5vw,56px)!important;
+  border:1px solid rgba(17,17,17,.12)!important;
+  border-radius:12px!important;
+  background:#FFFFFF!important;
+  box-shadow:0 8px 24px rgba(17,17,17,.045)!important;
+}
+html body.not-found-document #main .not-found-card {
+  background:#FFFFFF!important;
+  border:1px solid rgba(17,17,17,.12)!important;
+  border-radius:12px!important;
+}
+
+/* Keep filled actions legible and consistent. */
+html body :is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,button[type=submit],
+input[type=submit],.waitlist-form button,.apply-form button) {
+  background:#356512!important;
+  background-color:#356512!important;
+  border:1px solid #356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  box-shadow:none!important;
+}
+html body :is(a.button,button.button,.button--small,.home-primary,.home-button,
+.oneprep-button,.study-action,.career-role__link,button[type=submit],
+input[type=submit],.waitlist-form button,.apply-form button):hover {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+
+@media(max-width:760px) {
+  html body.content-page #main.content-main {padding:76px 0 40px!important;}
+  html body.content-page #main.content-main > section.content-container,
+  html body.content-page #main.content-main > section.content-hero.content-container,
+  html body.content-page #main.content-main > section.pricing-intro {
+    width:calc(100% - 32px)!important;
+    padding:32px 0!important;
+  }
+  html body.content-page #main.content-main > section:not(.content-container):not(.pricing-intro):not(.study-intro):not(.study-workspace) {
+    padding:32px 16px!important;
+  }
+  html body.content-page #main.content-main :is(.waitlist-layout,.apply-layout,.career-list,.method-current__inner) {
+    width:calc(100% - 32px)!important;
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  html body.legal-page #main > .entry {
+    width:calc(100% - 28px)!important;
+    margin:84px auto 36px!important;
+    padding:22px 18px!important;
+  }
+}
+
+
+/* Absolute white background policy: no tinted sections, cards, footer bands,
+   menus or selected rows. Green is reserved for headings and action buttons. */
+html,html body,html body * {
+  background-image:none!important;
+}
+html body :is(header,footer,main,section,article,aside,nav,div,form,fieldset,
+figure,ul,ol,li,dl,dt,dd,blockquote,pre,.content-container,.home-page,
+.home-shell,.content-main,.site-header,.desktop-nav,.mobile-menu,
+.mobile-menu nav,.site-footer,.footer-frame,.footer,.footer-inner,.footer-grid,
+.footer-column,.study-intro,.study-workspace,.study-rail,.study-session,
+.study-sidebar,.study-sidebar__section,.study-question,.study-preview-invite,
+.pricing-intro,.pricing-plan-section,.career-intro,.career-list,.waitlist-layout,
+.waitlist-copy,.waitlist-form,.apply-layout,.apply-role,.apply-form,.method-hero,
+.method-steps,.method-current,.method-planned,.exam-track-card,.pricing-tier,
+.pricing-compare,.pricing-faq,.entry,.not-found-card,.custom-select,
+.custom-select__listbox) {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+}
+/* The nav remains a single white pill; active states use green text, not a
+   differently coloured block. */
+html body .site-header .desktop-nav a,
+html body .site-header .desktop-nav a:hover,
+html body .site-header .desktop-nav a.is-active,
+html body .site-header .desktop-nav a[aria-current="page"],
+html body .mobile-menu a,
+html body .mobile-menu a:hover,
+html body .mobile-menu a[aria-current="page"] {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+  color:#356512!important;
+}
+html body .custom-select__option,
+html body .custom-select__option:hover,
+html body .custom-select__option:focus-visible,
+html body .custom-select__option[aria-selected="true"] {
+  background:#FFFFFF!important;
+  background-color:#FFFFFF!important;
+}
+html body .custom-select__option[aria-selected="true"] {
+  color:#356512!important;
+  box-shadow:inset 3px 0 #356512!important;
+}
+html body :is(a.button,a.button--large,a.button--primary,a.button--small,
+a.home-button,a.oneprep-button,a.study-action,a.career-role__link,
+a.footer__cta) {
+  background:#356512!important;
+  background-color:#356512!important;
+  border-color:#356512!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+html body :is(a.button,a.button--large,a.button--primary,a.button--small,
+a.home-button,a.oneprep-button,a.study-action,a.career-role__link,
+a.footer__cta):hover {
+  background:#28520E!important;
+  background-color:#28520E!important;
+  border-color:#28520E!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
