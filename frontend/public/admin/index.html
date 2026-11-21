@@ -65,9 +65,9 @@
           </div>
           <form id="questionForm">
             <div class="form-grid">
-              <label>Exam<select id="qExam" required>
-                <option value="MDCAT">MDCAT</option><option value="ECAT">ECAT</option><option value="NUST_NET">NUST NET</option>
-                <option value="FAST">FAST</option><option value="LUMS_BALLB">LUMS BA-LL.B</option><option value="CSS">CSS</option><option value="PMS">PMS</option>
+              <label>Exam track<select id="qExam" required>
+                <option value="LCAT">LUMS LCAT</option><option value="NET">NUST NET</option>
+                <option value="CSS">CSS · MPT</option><option value="MDCAT">MDCAT</option>
               </select></label>
               <label>Subject code<input id="qSubject" maxlength="24" placeholder="BIO" required></label>
               <label class="form-grid__wide">Topic<input id="qTopic" maxlength="120" placeholder="Cell biology" required></label>
@@ -76,9 +76,20 @@
               <label class="form-grid__wide">Answer options <span class="field-help">One per line: A | Option text (2–6 options)</span>
                 <textarea id="qOptions" maxlength="2200" rows="5" required placeholder="A | First option&#10;B | Second option&#10;C | Third option&#10;D | Fourth option"></textarea>
               </label>
+              <label>Difficulty level<select id="qDifficulty" required>
+                <option value="EASY">Easy</option><option value="STANDARD" selected>Standard</option><option value="CHALLENGING">Challenging</option>
+              </select></label>
               <label>Correct option<select id="qAnswer" required><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></label>
-              <label>Content source<select id="qSource" required><option value="original-sample">Original Arthic</option><option value="licensed">Licensed content</option><option value="public-domain">Public domain</option></select></label>
-              <label class="form-grid__wide">Source / permission note<input id="qSourceNote" maxlength="500" placeholder="Source, licence or permission reference"></label>
+              <label>Content source<select id="qSource" required><option value="original-sample">Original Arthic</option><option value="licensed">Licensed content</option><option value="public-domain">Public domain</option><option value="past-paper">Verified past paper</option></select></label>
+              <label class="form-grid__wide">Source / permission note<input id="qSourceNote" maxlength="500" placeholder="Official archive, paper reference, licence or permission"></label>
+              <div class="paper-date-fields form-grid__wide" id="paperDateFields" hidden>
+                <p class="field-help">Only use these fields when this exact question is traceable to an official past paper.</p>
+                <div class="form-grid">
+                  <label>Paper year<input id="qExamYear" type="number" min="1950" max="2100" step="1" inputmode="numeric"></label>
+                  <label>Paper month<select id="qExamMonth"><option value="">Select month</option><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select></label>
+                  <label class="form-grid__wide">Paper session (optional)<input id="qExamSession" maxlength="80" placeholder="e.g. MPT, morning session, paper code"></label>
+                </div>
+              </div>
               <label class="form-grid__wide">Explanation<textarea id="qExplanation" maxlength="2400" rows="4" required></textarea></label>
               <label class="form-grid__wide">Key takeaway<textarea id="qTakeaway" maxlength="500" rows="2" required></textarea></label>
             </div>
