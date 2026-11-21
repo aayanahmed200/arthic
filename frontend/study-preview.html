@@ -76,9 +76,9 @@
         <p class="study-intro__lede">Choose an exam board to begin. Subject and estimated difficulty are optional filters; each session contains 10 questions.</p>
       </div>
       <div class="study-intro__count" aria-label="Question bank size">
-        <strong data-bank-total>1,000</strong>
+        <strong data-bank-total>1,060</strong>
         <span>original practice questions</span>
-        <small>250 questions in each exam track</small>
+        <small>265 questions in each exam track</small>
       </div>
     </div>
   </section>
@@ -105,14 +105,14 @@
           <option value="ALL">Any subject</option>
         </select>
 
-        <label class="study-filter-label" for="quizDifficultySelect">DIFFICULTY <span class="study-filter-optional">ESTIMATED</span></label>
+        <label class="study-filter-label" for="quizDifficultySelect">DIFFICULTY LEVEL</label>
         <select class="study-filter-select" id="quizDifficultySelect" data-quiz-difficulty data-custom-select aria-describedby="quizDifficultyNote">
           <option value="ALL">Mixed difficulty</option>
           <option value="EASY">Easy</option>
           <option value="STANDARD">Standard</option>
           <option value="CHALLENGING">Challenging</option>
         </select>
-        <p class="study-quiz-form__hint" id="quizDifficultyNote">An estimate based on question complexity, not an official exam difficulty rating.</p>
+        <p class="study-quiz-form__hint" id="quizDifficultyNote">Each question is assigned a level based on the reasoning and steps it requires. These are Arthic practice levels, not official exam ratings.</p>
 
         <button class="study-quiz-start" type="submit" data-start-quiz>Start 10-question quiz</button>
         <p class="study-quiz-form__status" data-quiz-status aria-live="polite">Choose an exam board to see matching questions.</p>
@@ -153,8 +153,9 @@
           <span data-question-topic>10 questions · one at a time</span>
         </div>
         <div class="study-question__context"><span data-current-exam>EXAM BOARD</span><span data-current-subject>SUBJECT</span></div>
-        <p class="study-question__source" data-question-source>1,000 original practice questions available</p>
-        <h3 class="study-question__text" id="question-prompt" tabindex="-1" data-question-prompt>Choose your exam board to build a short quiz.</h3>
+        <p class="study-question__meta-line" data-question-meta>EXAM BOARD · SUBJECT · DIFFICULTY</p>
+        <p class="study-question__source" data-question-source>Original Arthic practice · not an official past-paper question</p>
+        <h3 class="study-question__text" id="question-prompt" tabindex="-1" data-question-prompt>Choose an exam board to begin a practice session.</h3>
         <p class="study-question__instruction" data-question-instruction>Your selected question will be checked automatically, with an explanation after each answer.</p>
         <div class="study-options" role="group" aria-label="Answer choices" data-question-options></div>
         <div class="study-feedback" data-question-feedback role="status" aria-live="polite" hidden>
