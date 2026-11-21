@@ -4,7 +4,7 @@ import "./styles/ui-polish.css";
 import "./styles/workspace.css";
 import { initCommon } from "./lib/common-init";
 import {
-  authIsConfigured, getAccessToken, saveAccountConsent,
+  authIsConfigured, getAccessToken, saveAccountConsent, studentAccountsEnabled,
   startGoogleSignIn,
 } from "./lib/student-auth";
 
@@ -242,6 +242,11 @@ function initPage(): void {
   });
 
   const consentForm = document.querySelector<HTMLFormElement>("[data-account-consent]");
+  if (page === "dashboard" && !studentAccountsEnabled()) {
+    const submit = consentForm?.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (submit) submit.disabled = true;
+    status("Student account sign-in is not enabled yet. You can still use the public practice preview.");
+  }
   consentForm?.addEventListener("submit", (event) => {
     event.preventDefault();
     void setupAccount().catch((error) => status(error instanceof Error ? error.message : "Account setup failed.", "error"));
