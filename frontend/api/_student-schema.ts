@@ -29,6 +29,16 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
       `;
 
       await sql`
+        ALTER TABLE student_accounts ADD COLUMN IF NOT EXISTS age_declaration_confirmed BOOLEAN NOT NULL DEFAULT false;
+      `;
+      await sql`
+        ALTER TABLE student_accounts ADD COLUMN IF NOT EXISTS terms_accepted_at TIMESTAMPTZ;
+      `;
+      await sql`
+        ALTER TABLE student_accounts ADD COLUMN IF NOT EXISTS privacy_accepted_at TIMESTAMPTZ;
+      `;
+
+      await sql`
         CREATE TABLE IF NOT EXISTS student_sessions (
           id UUID PRIMARY KEY,
           student_id UUID NOT NULL REFERENCES student_accounts(id) ON DELETE CASCADE,
@@ -197,7 +207,7 @@ export function ensureStudentWorkspaceSchema(): Promise<void> {
 
       await sql`
         INSERT INTO app_schema_migrations (version, name)
-        VALUES (1, 'student-workspace-foundation'), (2, 'question-bank-authoring'), (3, 'question-editorial-metadata'), (4, 'student-preferences')
+        VALUES (1, 'student-workspace-foundation'), (2, 'question-bank-authoring'), (3, 'question-editorial-metadata'), (4, 'student-preferences'), (5, 'record-account-consent')
         ON CONFLICT (version) DO NOTHING;
       `;
     })().catch((error) => {
