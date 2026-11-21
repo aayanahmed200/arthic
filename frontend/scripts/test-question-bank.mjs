@@ -6,6 +6,59 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const server = await createServer({ root, configFile: path.join(root, "vite.config.ts"), server: { middlewareMode: true }, appType: "custom" });
 try {
   const { parseQuestionDraft, EXAM_CODES } = await server.ssrLoadModule("/api/_question-bank-validation.ts");
+  const { SAMPLE_QUESTIONS } = await server.ssrLoadModule("/api/study/_sample-content.ts");
+  const { normalizeQuestionStem } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
+  assert.equal(SAMPLE_QUESTIONS.length, 1080, "the published demo bank has 1,080 unique questions");
+  for (const examCode of ["LCAT", "NET", "CSS", "MDCAT"]) {
+    assert.equal(SAMPLE_QUESTIONS.filter((question) => question.examCode === examCode).length, 270,
+      examCode + " should have 270 questions");
+  }
+  assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => question.id)).size, SAMPLE_QUESTIONS.length,
+    "question IDs must be unique");
+  assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => normalizeQuestionStem(question.prompt))).size, SAMPLE_QUESTIONS.length,
+    "question stems must be unique after normalisation");
+
+  const v20 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v20-"));
+  assert.equal(v20.length, 20, "V20 adds five questions to each exam track");
+  for (const question of v20) {
+    assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty),
+      question.id + " needs an explicit difficulty label");
+    assert.equal(question.sourceKind, "original-sample", question.id + " should retain original provenance");
+    assert.equal(question.examYear ?? null, null, question.id + " must not be assigned an invented paper year");
+    assert.equal(question.examMonth ?? null, null, question.id + " must not be assigned an invented paper month");
+    assert.equal(question.options.length, 4, question.id + " must have four answer choices");
+    assert.equal(new Set(question.options.map((option) => option.key)).size, 4,
+      question.id + " must have four distinct option keys");
+    assert.ok(question.options.some((option) => option.key === question.answer),
+      question.id + " must have an answer key that matches one of its options");
+    assert.ok(question.explanation.trim().length > 20, question.id + " needs a worked explanation");
+    assert.ok(question.takeaway.trim().length > 8, question.id + " needs a useful takeaway");
+  }
+  console.log("Question-bank editorial checks passed: track balance, unique stems, explicit V20 difficulty, source dates and worked answers.");
+
+  const previousQuestionFeedUrl = process.env.POSTGRES_URL;
+  delete process.env.POSTGRES_URL;
+  try {
+    const questionsHandler = (await server.ssrLoadModule("/api/study/questions.ts")).default;
+    const feedRes = {
+      code: 200, headers: {}, body: null,
+      setHeader(name, value) { this.headers[name] = value; return this; },
+      status(code) { this.code = code; return this; },
+      json(value) { this.body = value; return this; },
+    };
+    await questionsHandler({ method: "GET", headers: {} }, feedRes);
+    assert.equal(feedRes.code, 200);
+    assert.equal(feedRes.body.dataVersion, "arthic-original-four-track-v20-1080");
+    assert.equal(feedRes.body.questions.length, 1080);
+    assert.ok(feedRes.body.questions.every((question) =>
+      !("answer" in question) && !("answerKey" in question) &&
+      !("explanation" in question) && !("takeaway" in question)),
+      "the public question feed must not expose answer keys or explanations");
+  } finally {
+    if (previousQuestionFeedUrl === undefined) delete process.env.POSTGRES_URL;
+    else process.env.POSTGRES_URL = previousQuestionFeedUrl;
+  }
+
   const base = {
     examCode: "MDCAT", subjectCode: "BIO", topic: "Cell biology",
     prompt: "Which organelle stores most of a eukaryotic cell's genetic material?",
