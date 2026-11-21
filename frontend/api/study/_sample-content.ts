@@ -11,6 +11,8 @@ import { V14_PRIVATE_QUESTIONS } from "./_v14-content.js";
 import { V15_PRIVATE_QUESTIONS } from "./_v15-content.js";
 import { V16_PRIVATE_QUESTIONS } from "./_v16-content.js";
 import { V17_PRIVATE_QUESTIONS } from "./_v17-content.js";
+import { V18_PRIVATE_QUESTIONS } from "./_v18-content.js";
+import { classifyPracticeDifficulty, normalizeQuestionStem } from "../../src/data/question-difficulty.js";
 
 export interface StudyOption { key: string; text: string; }
 
@@ -25,7 +27,12 @@ export interface PrivateStudyQuestion {
   answer: string;
   explanation: string;
   takeaway: string;
-  sourceKind: "original-sample";
+  sourceKind: "original-sample" | "licensed" | "public-domain" | "past-paper";
+  difficulty?: "EASY" | "STANDARD" | "CHALLENGING";
+  sourceNote?: string;
+  examYear?: number;
+  examMonth?: number;
+  examSession?: string;
 }
 
 /** Original Arthic sample bank with answer keys retained on the server. */
@@ -2916,7 +2923,7 @@ const BASE_SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
   }
 ];
 
-export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
+const QUESTION_SOURCES: PrivateStudyQuestion[] = [
   ...BASE_SAMPLE_QUESTIONS,
   ...EXPANDED_SAMPLE_QUESTIONS,
   ...MORE_SAMPLE_QUESTIONS,
@@ -2931,4 +2938,23 @@ export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = [
   ...V15_PRIVATE_QUESTIONS,
   ...V16_PRIVATE_QUESTIONS,
   ...V17_PRIVATE_QUESTIONS,
+  ...V18_PRIVATE_QUESTIONS,
 ];
+
+const seenQuestionIds = new Set<string>();
+const seenQuestionStems = new Set<string>();
+const UNIQUE_QUESTION_SOURCES: PrivateStudyQuestion[] = [];
+for (const question of QUESTION_SOURCES) {
+  const stem = normalizeQuestionStem(question.prompt);
+  if (!stem || seenQuestionIds.has(question.id) || seenQuestionStems.has(stem)) continue;
+  seenQuestionIds.add(question.id);
+  seenQuestionStems.add(stem);
+  UNIQUE_QUESTION_SOURCES.push({
+    ...question,
+    difficulty: question.difficulty ?? classifyPracticeDifficulty(question),
+    sourceNote: question.sourceNote ?? "Original Arthic practice question; not taken from an official past paper.",
+  });
+}
+
+/** De-duplicated public practice bank; answer keys remain server-only. */
+export const SAMPLE_QUESTIONS: PrivateStudyQuestion[] = UNIQUE_QUESTION_SOURCES;
