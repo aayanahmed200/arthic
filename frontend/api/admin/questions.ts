@@ -31,6 +31,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const { rows } = await sql`
         SELECT id, exam_code, subject_code, topic, prompt, instruction, options,
                answer_key, explanation, takeaway, source_kind, source_note,
+               difficulty, exam_year, exam_month, exam_session,
                version, is_published, is_archived, created_at, updated_at
         FROM question_bank
         ORDER BY updated_at DESC
@@ -52,12 +53,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         INSERT INTO question_bank (
           id, exam_code, subject_code, topic, prompt, instruction, options,
           answer_key, explanation, takeaway, source_kind, source_note,
+          difficulty, exam_year, exam_month, exam_session,
           version, is_published, is_archived, updated_at
         )
         VALUES (
           ${id}, ${q.examCode}, ${q.subjectCode}, ${q.topic}, ${q.prompt},
           ${q.instruction}, ${JSON.stringify(q.options)}::jsonb, ${q.answerKey},
           ${q.explanation}, ${q.takeaway}, ${q.sourceKind}, ${q.sourceNote},
+          ${q.difficulty}, ${q.examYear}, ${q.examMonth}, ${q.examSession},
           1, false, false, now()
         )
         RETURNING id, exam_code, subject_code, topic, prompt, instruction, options,
@@ -84,6 +87,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             options = ${JSON.stringify(q.options)}::jsonb, answer_key = ${q.answerKey},
             explanation = ${q.explanation}, takeaway = ${q.takeaway},
             source_kind = ${q.sourceKind}, source_note = ${q.sourceNote},
+            difficulty = ${q.difficulty}, exam_year = ${q.examYear},
+            exam_month = ${q.examMonth}, exam_session = ${q.examSession},
             is_published = false, version = version + 1, updated_at = now()
         WHERE id = ${id} AND version = ${expectedVersion} AND is_archived = false
         RETURNING id, exam_code, subject_code, topic, prompt, instruction, options,
