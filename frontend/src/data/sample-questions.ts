@@ -10,9 +10,14 @@ export interface StudyQuestionPrompt {
   prompt: string;
   instruction: string;
   options: StudyOption[];
-  sourceKind: "original-sample" | "licensed" | "public-domain";
-  /** Populated only when a question is sourced from an actual exam paper. */
+  sourceKind: "original-sample" | "licensed" | "public-domain" | "past-paper";
+  /** Editorial level based on the reasoning and operations required by this item. */
+  difficulty?: "EASY" | "STANDARD" | "CHALLENGING";
+  /** Source provenance shown to students. Original items are never given a paper date. */
+  sourceNote?: string;
+  /** Populated only when sourced from a verifiable past paper. */
   examYear?: number;
+  examMonth?: number;
   examSession?: string;
 }
 
