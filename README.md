@@ -46,4 +46,4 @@ The practice bank includes original sample questions. They are not official past
 
 ## License
 
-The code is MIT licensed; see [LICENSE](LICENSE). The Arthic name and wordmark are not included in that license.
+The code is licensed under the MIT License. See [LICENSE](LICENSE) for the full text. The Arthic name and wordmark are not included.
