@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#F7F2E8" />
+  <title>Settings | Arthic</title>
+  <meta name="description" content="Manage your Arthic profile, study preferences and account data requests." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icon-512.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body class="content-page workspace-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header data-nav></header>
+  <div class="mobile-menu" data-mobile-menu data-mobile-nav hidden></div>
+  <main id="main" data-workspace="settings">
+    
+  <section class="workspace-shell" data-workspace="settings">
+    <p class="workspace-kicker">Your account</p>
+    <h1 class="workspace-title">Settings.</h1>
+    <p class="workspace-lede">Update your study preferences and manage the information saved to your Arthic account.</p>
+    <section class="workspace-panel" data-settings-auth>
+      <h2>Sign in required.</h2><p>Sign in from your Dashboard first, then return here to manage your account.</p>
+      <div class="workspace-actions"><a class="workspace-button" href="/dashboard.html">Open Dashboard</a></div>
+      <p class="workspace-status" data-workspace-status role="status" aria-live="polite"></p>
+    </section>
+    <section data-settings-main hidden>
+      <div class="workspace-panel">
+        <h2>Profile</h2>
+        <p>Signed in as <strong data-settings-email>—</strong></p>
+        <form class="workspace-form" data-settings-form>
+          <label class="workspace-field">Preferred exam track
+            <select name="preferredExam">
+              <option value="">No preference</option><option value="LCAT">LCAT</option>
+              <option value="NET">NUST NET</option><option value="CSS">CSS</option><option value="MDCAT">MDCAT</option>
+            </select>
+          </label>
+          <label class="workspace-check"><input type="checkbox" name="emailUpdates" /> <span>Send me occasional Arthic product and study updates by email. This is optional and can be changed here.</span></label>
+          <button class="workspace-button" type="submit">Save settings</button>
+        </form>
+        <p class="workspace-status" data-workspace-status role="status" aria-live="polite"></p>
+      </div>
+      <div class="workspace-panel">
+        <h2>Your data</h2>
+        <p>Download a copy of your saved account and practice data, or submit a request to delete your Arthic account records. A deletion request is reviewed and is not an instant deletion of your separate Google account.</p>
+        <div class="workspace-actions">
+          <button class="workspace-button workspace-button--secondary" type="button" data-export-data>Export my data</button>
+          <button class="workspace-button workspace-button--secondary" type="button" data-request-delete>Request account deletion</button>
+          <button class="workspace-button workspace-button--secondary" type="button" data-signout>Sign out</button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  </main>
+  <footer class="site-footer" data-footer-root></footer>
+  <script type="module" src="/src/workspace.ts"></script>
+</body>
+</html>
