@@ -77,6 +77,7 @@ function looksLikeCreditsExhausted(status: number, bodyText: string): boolean {
 async function callAnthropic(apiKey: string, messages: ChatMessage[]): Promise<ProviderResult> {
   const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
+    signal: AbortSignal.timeout(15_000),
     headers: {
       "content-type": "application/json",
       "x-api-key": apiKey,
@@ -114,6 +115,7 @@ async function callGemini(apiKey: string, messages: ChatMessage[]): Promise<Prov
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
     {
       method: "POST",
+      signal: AbortSignal.timeout(15_000),
       headers: {
         "content-type": "application/json",
         "x-goog-api-key": apiKey,
@@ -172,6 +174,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const messages: ChatMessage[] = [];
   for (const raw of body.messages) {
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+      return res.status(400).json({ error: "malformed message" });
+    }
     const m = raw as { role?: unknown; content?: unknown };
     if ((m.role !== "user" && m.role !== "assistant") || typeof m.content !== "string" || !m.content.trim()) {
       return res.status(400).json({ error: "malformed message" });
