@@ -91,7 +91,6 @@ try {
       normalizeQuestionStem(question.prompt) === normalizeQuestionStem(omitted.prompt)
     ), omitted.id + " must be omitted only because the same stem already exists");
   }
-  console.log("Question-bank track counts:", Object.fromEntries(["LCAT", "NET", "CSS", "MDCAT"].map((examCode) => [examCode, feed.res.body.questions.filter((item) => item.examCode === examCode).length])));
   assert.equal(feed.res.body.questions.length, 1160);
   assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v23-1160");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
@@ -111,7 +110,7 @@ try {
     "v12-mdcat-007", "mdcat-more-009", "mdcat-next-011", "mdcat-new-008",
     "v13-mdcat-009", "mdcat-new-010", "mdcat-next-008", "mdcat-extra-005", "mdcat-plus-002",
     "mdcat-extra-031", "mdcat-new-020", "v13-mdcat-008", "v16-css-010",
-    "net-math-calculus-001", "net-phy-resistance-001", "net-more-003",
+    "net-math-calculus-001", "net-phy-resistance-001", "net-more-003", "mdcat-more-016",
   ];
   assert.deepEqual([...RETIRED_NEAR_DUPLICATE_IDS].sort(), expectedRetiredNearDuplicates.sort());
   for (const retiredId of RETIRED_NEAR_DUPLICATE_IDS) {
