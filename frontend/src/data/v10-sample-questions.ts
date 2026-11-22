@@ -63,7 +63,7 @@ export const V10_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Quadratic equations",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the larger root of x² − 7x + 12 = 0?",
     "instruction": "Choose one answer.",
     "options": [
@@ -735,7 +735,7 @@ export const V10_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Engineering stream · Logarithms",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is log₂(1/8)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -903,7 +903,7 @@ export const V10_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Applied Sciences stream · Chemical equilibrium",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the effect of adding a catalyst to a reversible reaction at equilibrium?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2023,7 +2023,7 @@ export const V10_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "LOGIC",
     "topic": "Number patterns",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the next number in the sequence 2, 5, 10, 17, 26, …?",
     "instruction": "Choose one answer.",
     "options": [
