@@ -7,6 +7,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Ratios",
+    "difficulty": "STANDARD",
     "prompt": "Two quantities are in the ratio 3:5 and their total is 64. What is the larger quantity?",
     "instruction": "Choose one answer.",
     "options": [
@@ -34,6 +35,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Averages",
+    "difficulty": "STANDARD",
     "prompt": "The mean of five numbers is 14. Four of the numbers add up to 54. What is the fifth number?",
     "instruction": "Choose one answer.",
     "options": [
@@ -61,6 +63,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Fractions",
+    "difficulty": "STANDARD",
     "prompt": "Two-thirds of a number is 48. What is the number?",
     "instruction": "Choose one answer.",
     "options": [
@@ -88,6 +91,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Linear equations",
+    "difficulty": "STANDARD",
     "prompt": "Solve 4x − 7 = 21.",
     "instruction": "Choose one answer.",
     "options": [
@@ -115,6 +119,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Simple interest",
+    "difficulty": "STANDARD",
     "prompt": "A principal of Rs. 5,000 earns simple interest at 8% per year for two years. How much interest is earned?",
     "instruction": "Choose one answer.",
     "options": [
@@ -142,6 +147,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Number patterns",
+    "difficulty": "EASY",
     "prompt": "What is the next term in the sequence 3, 7, 15, 31, …?",
     "instruction": "Choose one answer.",
     "options": [
@@ -169,6 +175,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Work rates",
+    "difficulty": "STANDARD",
     "prompt": "Five workers can complete a task in 12 days at the same constant rate. How many days would ten equally productive workers need?",
     "instruction": "Choose one answer.",
     "options": [
@@ -196,6 +203,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Perimeter",
+    "difficulty": "STANDARD",
     "prompt": "A rectangle is 12 cm long and 7 cm wide. What is its perimeter?",
     "instruction": "Choose one answer.",
     "options": [
@@ -223,6 +231,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Probability",
+    "difficulty": "STANDARD",
     "prompt": "A bag contains three red counters and two blue counters. One counter is selected at random. What is the probability that it is red?",
     "instruction": "Choose one answer.",
     "options": [
@@ -250,6 +259,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Percentage change",
+    "difficulty": "STANDARD",
     "prompt": "A library has 240 books in a section and adds 10% more. How many books are there after the increase?",
     "instruction": "Choose one answer.",
     "options": [
@@ -277,6 +287,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary in context",
+    "difficulty": "EASY",
     "prompt": "In the sentence “The new schedule may mitigate delays,” what does “mitigate” mean?",
     "instruction": "Choose one answer.",
     "options": [
@@ -304,6 +315,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Reading comprehension",
+    "difficulty": "STANDARD",
     "prompt": "A city plants shade trees along walking routes and adds benches near bus stops. Which aim is most directly supported by these actions?",
     "instruction": "Choose one answer.",
     "options": [
@@ -331,6 +343,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Subject–verb agreement",
+    "difficulty": "EASY",
     "prompt": "Choose the correct verb: “Neither of the two proposals ___ suitable for the pilot.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -358,6 +371,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Comparatives",
+    "difficulty": "EASY",
     "prompt": "Choose the grammatically correct sentence.",
     "instruction": "Choose one answer.",
     "options": [
@@ -385,6 +399,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Antonyms",
+    "difficulty": "EASY",
     "prompt": "Which word is the closest opposite of “sparse”?",
     "instruction": "Choose one answer.",
     "options": [
@@ -412,6 +427,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Analogies",
+    "difficulty": "STANDARD",
     "prompt": "Complete the relationship: “sculptor : statue :: composer : ___”.",
     "instruction": "Choose one answer.",
     "options": [
@@ -439,6 +455,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Main idea",
+    "difficulty": "STANDARD",
     "prompt": "A school replaces a single annual science fair with smaller monthly demonstrations. Students receive feedback throughout the year. What is the main educational advantage?",
     "instruction": "Choose one answer.",
     "options": [
@@ -466,6 +483,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Conditional reasoning",
+    "difficulty": "STANDARD",
     "prompt": "If a device is charging, its indicator light is on. The indicator light is off. What conclusion follows from the rule?",
     "instruction": "Choose one answer.",
     "options": [
@@ -493,6 +511,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Inference",
+    "difficulty": "STANDARD",
     "prompt": "After a campus introduced secure bicycle parking, the number of students cycling to campus increased. Which conclusion is best supported?",
     "instruction": "Choose one answer.",
     "options": [
@@ -520,6 +539,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Ordering",
+    "difficulty": "STANDARD",
     "prompt": "P must happen before Q, and Q must happen before R. Which statement must be true?",
     "instruction": "Choose one answer.",
     "options": [
@@ -547,6 +567,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Differentiation",
+    "difficulty": "STANDARD",
     "prompt": "If f(x) = x³, what is f′(2)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -574,6 +595,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Trigonometry",
+    "difficulty": "EASY",
     "prompt": "What is the exact value of sin 30°?",
     "instruction": "Choose one answer.",
     "options": [
@@ -601,6 +623,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Quadratic equations",
+    "difficulty": "STANDARD",
     "prompt": "For x² − 5x + 6 = 0, what is the sum of the two roots?",
     "instruction": "Choose one answer.",
     "options": [
@@ -628,6 +651,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Vectors",
+    "difficulty": "STANDARD",
     "prompt": "Two perpendicular vectors have magnitudes 3 units and 4 units. What is the magnitude of their resultant?",
     "instruction": "Choose one answer.",
     "options": [
@@ -655,6 +679,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Acceleration",
+    "difficulty": "STANDARD",
     "prompt": "A car's velocity changes from 20 m/s to 8 m/s in 4 seconds. What is its average acceleration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -682,6 +707,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Electric circuits",
+    "difficulty": "STANDARD",
     "prompt": "A 12 V supply is connected across a 6 Ω resistor. What current flows through the resistor?",
     "instruction": "Choose one answer.",
     "options": [
@@ -709,6 +735,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Waves",
+    "difficulty": "STANDARD",
     "prompt": "A wave has a frequency of 5 Hz and a wavelength of 2 m. What is its speed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -736,6 +763,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Gas laws",
+    "difficulty": "STANDARD",
     "prompt": "A gas is heated so that its absolute temperature doubles while pressure stays constant. What happens to its volume, assuming ideal-gas behaviour?",
     "instruction": "Choose one answer.",
     "options": [
@@ -763,6 +791,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Mole concept",
+    "difficulty": "EASY",
     "prompt": "What is the molar mass of carbon dioxide, CO₂? (C = 12, O = 16)",
     "instruction": "Choose one answer.",
     "options": [
@@ -790,6 +819,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Acids and pH",
+    "difficulty": "STANDARD",
     "prompt": "What is the pH of a 1.0 × 10⁻⁴ mol dm⁻³ strong monoprotic acid, assuming complete dissociation?",
     "instruction": "Choose one answer.",
     "options": [
@@ -817,6 +847,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Periodic trends",
+    "difficulty": "EASY",
     "prompt": "What generally happens to atomic radius from left to right across a period in the periodic table?",
     "instruction": "Choose one answer.",
     "options": [
@@ -844,6 +875,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Oxidation numbers",
+    "difficulty": "EASY",
     "prompt": "What is the oxidation number of sulfur in the sulfate ion, SO₄²⁻?",
     "instruction": "Choose one answer.",
     "options": [
@@ -871,6 +903,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Python basics",
+    "difficulty": "STANDARD",
     "prompt": "In Python, what value does len([4, 7, 9, 12]) return?",
     "instruction": "Choose one answer.",
     "options": [
@@ -898,6 +931,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Boolean logic",
+    "difficulty": "EASY",
     "prompt": "What is the result of True and False in Python?",
     "instruction": "Choose one answer.",
     "options": [
@@ -925,6 +959,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Data structures",
+    "difficulty": "STANDARD",
     "prompt": "Which data structure follows the last-in, first-out (LIFO) principle?",
     "instruction": "Choose one answer.",
     "options": [
@@ -952,6 +987,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Number systems",
+    "difficulty": "EASY",
     "prompt": "What is the decimal value of the binary number 1101₂?",
     "instruction": "Choose one answer.",
     "options": [
@@ -979,6 +1015,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Geometry",
+    "difficulty": "STANDARD",
     "prompt": "A triangle has a base of 10 cm and a perpendicular height of 6 cm. What is its area?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1006,6 +1043,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Differentiation",
+    "difficulty": "STANDARD",
     "prompt": "If y = 2x² + 3x, what is dy/dx at x = 2?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1033,6 +1071,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Energy",
+    "difficulty": "STANDARD",
     "prompt": "What is the kinetic energy of a 2 kg object moving at 5 m/s?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1060,6 +1099,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Resistive circuits",
+    "difficulty": "STANDARD",
     "prompt": "Two resistors of 6 Ω and 3 Ω are connected in parallel. What is their equivalent resistance?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1087,6 +1127,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Separation of powers",
+    "difficulty": "STANDARD",
     "prompt": "In a constitutional system, which branch is primarily responsible for making laws?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1114,6 +1155,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Federalism",
+    "difficulty": "EASY",
     "prompt": "What is the defining feature of a federal system of government?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1141,6 +1183,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Opportunity cost",
+    "difficulty": "STANDARD",
     "prompt": "A student spends an evening working on an assignment instead of attending a lecture. What is the opportunity cost of that choice?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1168,6 +1211,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Inflation",
+    "difficulty": "EASY",
     "prompt": "Which description best defines inflation?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1195,6 +1239,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Balance of payments",
+    "difficulty": "EASY",
     "prompt": "What does a country's balance of payments record?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1222,6 +1267,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Water cycle",
+    "difficulty": "EASY",
     "prompt": "Which process changes liquid water at the surface into water vapour?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1249,6 +1295,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Population studies",
+    "difficulty": "EASY",
     "prompt": "What is the main purpose of a population census?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1276,6 +1323,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "United Nations",
+    "difficulty": "EASY",
     "prompt": "What is the primary responsibility of the UN Security Council under the UN Charter?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1303,6 +1351,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "International law",
+    "difficulty": "EASY",
     "prompt": "What is a treaty in international law?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1330,6 +1379,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Constitutional framework",
+    "difficulty": "EASY",
     "prompt": "Which description best characterises Pakistan's 1973 Constitution?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1357,6 +1407,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Physical geography",
+    "difficulty": "EASY",
     "prompt": "Into which body of water does the Indus River ultimately flow?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1384,6 +1435,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Taxation",
+    "difficulty": "EASY",
     "prompt": "What is a progressive tax?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1411,6 +1463,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Public policy",
+    "difficulty": "EASY",
     "prompt": "What is the main purpose of evaluating a public policy after implementation?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1438,6 +1491,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Survey methods",
+    "difficulty": "STANDARD",
     "prompt": "Which approach is most likely to produce a representative survey of a large student population?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1465,6 +1519,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Climate adaptation",
+    "difficulty": "EASY",
     "prompt": "Which action is an example of climate adaptation?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1492,6 +1547,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Historical sources",
+    "difficulty": "EASY",
     "prompt": "Which is an example of a primary historical source?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1519,6 +1575,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Democratic governance",
+    "difficulty": "EASY",
     "prompt": "Which principle protects people who hold minority views in a democracy?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1546,6 +1603,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Accountability",
+    "difficulty": "EASY",
     "prompt": "What does public-sector accountability require?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1573,6 +1631,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Comparative advantage",
+    "difficulty": "STANDARD",
     "prompt": "A country has a comparative advantage in producing a good when it can produce it at:",
     "instruction": "Choose one answer.",
     "options": [
@@ -1600,6 +1659,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "National accounts",
+    "difficulty": "EASY",
     "prompt": "What does gross domestic product (GDP) measure?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1627,6 +1687,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "DNA replication",
+    "difficulty": "STANDARD",
     "prompt": "Why is DNA replication described as semi-conservative?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1654,6 +1715,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Blood",
+    "difficulty": "EASY",
     "prompt": "What is the principal role of haemoglobin in red blood cells?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1681,6 +1743,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Kidney function",
+    "difficulty": "EASY",
     "prompt": "What is the functional unit of the kidney?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1708,6 +1771,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Gas exchange",
+    "difficulty": "EASY",
     "prompt": "Which feature of alveoli makes them effective for gas exchange?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1735,6 +1799,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Cell division",
+    "difficulty": "STANDARD",
     "prompt": "At the end of normal mitosis followed by cytokinesis, one diploid body cell usually produces:",
     "instruction": "Choose one answer.",
     "options": [
@@ -1762,6 +1827,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Hormones",
+    "difficulty": "EASY",
     "prompt": "Which cells of the pancreas secrete insulin?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1789,6 +1855,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Enzymes",
+    "difficulty": "STANDARD",
     "prompt": "How do enzymes generally increase the rate of a biochemical reaction?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1816,6 +1883,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Natural selection",
+    "difficulty": "STANDARD",
     "prompt": "Natural selection occurs when individuals with inherited traits that improve survival or reproduction:",
     "instruction": "Choose one answer.",
     "options": [
@@ -1843,6 +1911,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Meiosis",
+    "difficulty": "EASY",
     "prompt": "What is the main chromosome-number outcome of meiosis in a diploid organism?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1870,6 +1939,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Nerve impulses",
+    "difficulty": "EASY",
     "prompt": "During the depolarisation phase of a typical neuronal action potential, which ion movement is primarily responsible?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1897,6 +1967,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Conjugate acids and bases",
+    "difficulty": "STANDARD",
     "prompt": "In the reaction NH₃ + H₂O ⇌ NH₄⁺ + OH⁻, which species is the conjugate acid of NH₃?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1924,6 +1995,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Chemical equilibrium",
+    "difficulty": "STANDARD",
     "prompt": "For a reversible reaction at equilibrium, what is the immediate effect of adding more reactant at constant temperature?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1951,6 +2023,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Chemical bonding",
+    "difficulty": "EASY",
     "prompt": "What is the main type of bonding in sodium chloride, NaCl?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1978,6 +2051,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Stoichiometry",
+    "difficulty": "STANDARD",
     "prompt": "In a reaction using two reactants, what does the limiting reagent determine?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2005,6 +2079,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Acids and bases",
+    "difficulty": "EASY",
     "prompt": "What is the pH of a neutral aqueous solution at 25°C?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2032,6 +2107,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Kinetic energy",
+    "difficulty": "STANDARD",
     "prompt": "What is the kinetic energy of a 2 kg object travelling at 3 m/s?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2059,6 +2135,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Refraction",
+    "difficulty": "STANDARD",
     "prompt": "A ray of light travels from air into water. Which way does it bend relative to the normal?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2086,6 +2163,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Electric power",
+    "difficulty": "STANDARD",
     "prompt": "A device operates at 12 V and draws a current of 2 A. What is its electrical power?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2113,6 +2191,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Alternating current",
+    "difficulty": "STANDARD",
     "prompt": "An alternating current has a frequency of 50 Hz. What is its period?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2140,6 +2219,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Density",
+    "difficulty": "STANDARD",
     "prompt": "A sample has a mass of 2 kg and a volume of 0.001 m³. What is its density?",
     "instruction": "Choose one answer.",
     "options": [
