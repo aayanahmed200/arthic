@@ -511,7 +511,7 @@ export const NEXT_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ANALYTICAL",
     "topic": "Ordering",
-    "difficulty": "CHALLENGING",
+    "difficulty": "STANDARD",
     "prompt": "Research must happen before drafting, drafting before editing, and editing before publishing. Which task is immediately before publishing?",
     "instruction": "Choose one answer.",
     "options": [
@@ -595,7 +595,7 @@ export const NEXT_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Integration",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the indefinite integral of 3x²?",
     "instruction": "Choose one answer.",
     "options": [
@@ -623,7 +623,7 @@ export const NEXT_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Determinants",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the determinant of [[2, 1], [3, 4]]?",
     "instruction": "Choose one answer.",
     "options": [
@@ -679,7 +679,7 @@ export const NEXT_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Vectors",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the magnitude of vector (3, 4)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1211,7 +1211,7 @@ export const NEXT_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GOVERNANCE",
     "topic": "Separation of powers",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the central purpose of separating legislative, executive and judicial powers?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1855,7 +1855,7 @@ export const NEXT_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Kidney function",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Which nephron structure helps establish the osmotic gradient needed to concentrate urine?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1883,7 +1883,7 @@ export const NEXT_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Cellular respiration",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the final electron acceptor in the mitochondrial electron transport chain during aerobic respiration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2163,7 +2163,7 @@ export const NEXT_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Electromagnetic waves",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Which statement about electromagnetic waves in a vacuum is correct?",
     "instruction": "Choose one answer.",
     "options": [
