@@ -267,14 +267,40 @@ function updateAvailableCount(): void {
       if (feedbackIcon) feedbackIcon.textContent = answer.isCorrect ? "✓" : "×";
       feedbackPoints!.replaceChildren();
       answer.explanation.split(/\n+/).map((part) => part.trim()).filter(Boolean).forEach((part) => {
-        const item = document.createElement("li");
-        item.textContent = part;
-        feedbackPoints!.append(item);
+        const paragraph = document.createElement("p");
+        paragraph.textContent = part;
+        feedbackPoints!.append(paragraph);
       });
       takeaway!.textContent = answer.takeaway;
       feedback!.hidden = false;
     }
 
+    function renderQuestionPrompt(question: StudyQuestionPrompt): void {
+      const value = question.prompt.trim();
+      const lines = value.split(/\r?\n/);
+      const codeLines = lines.filter((line) =>
+        /^\s*(?:for|while|if|elif|else:|print\(|return\b|def\b|class\b|import\b|from\b|(?:let|const|var)\s+|[A-Za-z_]\w*\s*(?:\+=|-=|=))/.test(line)
+      ).length;
+      const isCode = lines.length >= 3 && codeLines >= 2;
+
+      prompt!.replaceChildren();
+      prompt!.classList.toggle("is-code-prompt", isCode);
+
+      if (isCode) {
+        const pre = document.createElement("pre");
+        const code = document.createElement("code");
+        code.textContent = value;
+        pre.append(code);
+        prompt!.append(pre);
+        return;
+      }
+
+      value.split(/\n{2,}/).map((part) => part.trim()).filter(Boolean).forEach((part) => {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = part;
+        prompt!.append(paragraph);
+      });
+    }
     function renderOptions(question: StudyQuestionPrompt, savedAnswer?: StudyAnswer): void {
       optionList!.replaceChildren();
       question.options.forEach((option) => {
@@ -320,7 +346,7 @@ function updateAvailableCount(): void {
       const savedAnswer = answers.get(question.id);
       number!.textContent = "QUESTION " + (questionIndex + 1) + " / " + questions.length;
       topic!.textContent = question.topic;
-      prompt!.textContent = question.prompt;
+      renderQuestionPrompt(question);
       instruction!.textContent = savedAnswer
         ? "Answer checked. The correct choice is highlighted in green; an incorrect selection is marked red."
         : question.instruction;
