@@ -35,6 +35,7 @@ try {
   const { V19_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v19-sample-questions.ts");
   const { V20_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v20-sample-questions.ts");
   const { V21_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v21-sample-questions.ts");
+  const { V22_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v22-sample-questions.ts");
   const { normalizeQuestionStem, classifyPracticeDifficulty } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
 
   const difficultyCases = [
@@ -76,13 +77,13 @@ try {
       normalizeQuestionStem(question.prompt) === normalizeQuestionStem(omitted.prompt)
     ), omitted.id + " must be omitted only because the same stem already exists");
   }
-  assert.equal(feed.res.body.questions.length, 1120);
-  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v21-1120");
+  assert.equal(feed.res.body.questions.length, 1160);
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v21-1160");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
 
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
   for (const examCode of examCodes) {
-    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 280, examCode);
+    assert.equal(feed.res.body.questions.filter((item) => item.examCode === examCode).length, 290, examCode);
   }
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
 
@@ -111,6 +112,22 @@ try {
     assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " difficulty missing");
   }
 
+  assert.equal(V22_SAMPLE_QUESTIONS.length, 40, "V22 should add 40 original questions");
+  const v22 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v22-"));
+  assert.equal(v22.length, 40, "all V22 questions should survive de-duplication");
+  for (const examCode of examCodes) {
+    assert.equal(v22.filter((question) => question.examCode === examCode).length, 10, examCode + " V22 count");
+  }
+  for (const question of V22_SAMPLE_QUESTIONS) {
+    const bankQuestion = SAMPLE_QUESTIONS.find((sample) => sample.id === question.id);
+    assert.ok(bankQuestion, question.id + " missing from bank");
+    assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " needs an explicit difficulty");
+    assert.ok(question.topic && question.subjectCode, question.id + " needs a tailored subject and topic");
+    assert.equal(question.sourceKind, "original-sample", question.id + " must retain original provenance");
+    assert.equal(question.examYear ?? null, null, question.id + " must not have an invented paper year");
+    assert.equal(question.examMonth ?? null, null, question.id + " must not have an invented paper month");
+  }
+
   assert.equal(V20_SAMPLE_QUESTIONS.length, 20, "V20 should contain 20 original questions");
   const v20 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v20-"));
   assert.equal(v20.length, 20, "all V20 questions should survive the unique-stem pass");
@@ -135,9 +152,9 @@ try {
     assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " difficulty missing");
   }
 
-  assert.equal(SAMPLE_QUESTIONS.length, 1120);
-  assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => question.id)).size, 1120, "question IDs must be unique");
-  assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => normalizeQuestionStem(question.prompt))).size, 1120,
+  assert.equal(SAMPLE_QUESTIONS.length, 1160);
+  assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => question.id)).size, 1160, "question IDs must be unique");
+  assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => normalizeQuestionStem(question.prompt))).size, 1160,
     "duplicate question stems must be removed across all exam tracks");
 
   const difficultyValues = new Set(["EASY", "STANDARD", "CHALLENGING"]);
@@ -238,8 +255,8 @@ try {
   assert.equal(feedWrongMethod.res.code, 405);
 
   console.log("Difficulty distribution:", JSON.stringify(difficultyDistribution));
-  console.log("Study question API tests passed (1,120 unique questions; 280 per exam track):");
-  console.log("- 127 unique V18 additions, 18 V19 replacements and 20 V20 additions and 40 V21 additions are present with worked answers");
+  console.log("Study question API tests passed (1,160 unique questions; 290 per exam track):");
+  console.log("- 127 unique V18 additions, 18 V19 replacements, 20 V20 additions, 40 V21 additions and 40 V22 additions are present with worked answers");
   console.log("- 18 near-duplicate prompts are retired and hidden from the feed and answer-check API");
   console.log("- every item has a subject, topic, four distinct options, explanation and explicit difficulty");
   console.log("- question stems are unique across all four tracks");
