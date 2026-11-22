@@ -17,7 +17,7 @@ const CHALLENGING_PATTERNS = [
   /most directly test|confounding (?:factor|variable)|selection bias|alternative explanation/,
   /causal claim|caused the (?:increase|improvement|change)|correlation.{0,55}causation/,
   /conditional probability|probability.{0,70}without replacement|without replacement.{0,90}probability/,
-  /multiple constraints|more than one condition|two constraints|three conditions|must occupy|immediately before|immediately after/,
+  /multiple constraints|more than one condition|two constraints|three conditions|must occupy/,
   /successive percentage|successive (?:increase|decrease|change)|after .{0,90} then .{0,90}(?:increase|decrease|change|price|amount)/,
   /integration by parts|partial fractions|implicit differentiation|differential equation|improper integral|related rates/,
   /dihybrid|pedigree analysis|genetic linkage|two loci/,
@@ -92,7 +92,8 @@ export function classifyPracticeDifficulty(question: DifficultyInput): PracticeD
   if (EASY_PATTERNS.some((pattern) => pattern.test(text))) return "EASY";
   if (
     /^(?:which|what|where|who|during which|name|choose|identify)\b/.test(prompt) &&
-    !/conclusion|inference|assumption|evidence|argument|most reasonable|most likely|best supported|strongest|follows|immediately before|immediately after|compare|evaluate|assess/.test(text) &&
+    !/conclusion|inference|assumption|evidence|argument|most reasonable|most likely|best supported|strongest|follows|compare|evaluate|assess|calculate|determine|solve|what is the value|how many|how much/.test(text) &&
+    !/determinant|matrix|vector|function|differentiation|integration|calculus|stoichiometry|equilibrium|kinematics|circuit|resistance|capacitance|wave|force|energy|pressure|probability|ratio|percentage|mean|median|statistics|geometry|algebra|quadratic|logarithm|sequence|number pattern|work rate|simple interest|compound interest|angles/.test(topic) &&
     !/\d+\s*(?:%|cm|kg|mol|m\/s|hz|v|a)|\d+\/\d+/.test(prompt)
   ) return "EASY";
   if (STANDARD_PATTERNS.some((pattern) => pattern.test(text))) return "STANDARD";
