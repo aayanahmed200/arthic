@@ -7,6 +7,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary in context",
+    "difficulty": "EASY",
     "prompt": "In the sentence “The new timetable is intended to alleviate pressure on students,” what does “alleviate” mean?",
     "instruction": "Choose one answer.",
     "options": [
@@ -34,6 +35,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Analogies",
+    "difficulty": "STANDARD",
     "prompt": "Complete the relationship: “thermometer : temperature :: barometer : ___”.",
     "instruction": "Choose one answer.",
     "options": [
@@ -61,6 +63,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Reading comprehension",
+    "difficulty": "STANDARD",
     "prompt": "A neighbourhood opens a shared garden on an unused plot. Residents volunteer to grow vegetables and maintain the space. Which conclusion is best supported?",
     "instruction": "Choose one answer.",
     "options": [
@@ -88,6 +91,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Author’s purpose",
+    "difficulty": "STANDARD",
     "prompt": "A short article describes how a public library lends musical instruments as well as books. It gives examples of beginners who borrowed instruments. What is the article mainly doing?",
     "instruction": "Choose one answer.",
     "options": [
@@ -115,6 +119,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Linear equations",
+    "difficulty": "STANDARD",
     "prompt": "A taxi fare consists of a fixed Rs. 150 charge plus Rs. 40 per kilometre. What is the fare for a 6 km trip?",
     "instruction": "Choose one answer.",
     "options": [
@@ -142,6 +147,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Fractions",
+    "difficulty": "STANDARD",
     "prompt": "A student completes 3/5 of a 40-question practice set. How many questions has the student completed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -169,6 +175,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Simple interest",
+    "difficulty": "STANDARD",
     "prompt": "What simple interest is earned on Rs. 8,000 at 5% per year for 2 years?",
     "instruction": "Choose one answer.",
     "options": [
@@ -196,6 +203,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Coordinate geometry",
+    "difficulty": "STANDARD",
     "prompt": "A straight line passes through (2, 3) and (6, 11). What is its gradient?",
     "instruction": "Choose one answer.",
     "options": [
@@ -223,6 +231,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Logical deduction",
+    "difficulty": "STANDARD",
     "prompt": "All members of the debate team attend weekly practice. Hira is a member of the debate team. Which conclusion follows?",
     "instruction": "Choose one answer.",
     "options": [
@@ -250,6 +259,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Ordering",
+    "difficulty": "STANDARD",
     "prompt": "Mina finishes a task before Omar. Omar finishes before Zara. Who must finish first?",
     "instruction": "Choose one answer.",
     "options": [
@@ -277,6 +287,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Conditional reasoning",
+    "difficulty": "STANDARD",
     "prompt": "A rule says: “If a report is submitted, it is reviewed by the tutor.” The report has not been submitted. What can be concluded?",
     "instruction": "Choose one answer.",
     "options": [
@@ -304,6 +315,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Set reasoning",
+    "difficulty": "STANDARD",
     "prompt": "In a group of 30 students, 18 study Biology and 12 study Chemistry. If 5 study both, how many study at least one of the two subjects?",
     "instruction": "Choose one answer.",
     "options": [
@@ -331,6 +343,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Verb forms",
+    "difficulty": "EASY",
     "prompt": "Choose the correct completion: “If I ___ more time, I would review the final chapter.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -358,6 +371,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Parallel structure",
+    "difficulty": "EASY",
     "prompt": "Which sentence uses parallel structure correctly?",
     "instruction": "Choose one answer.",
     "options": [
@@ -385,6 +399,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Sentence completion",
+    "difficulty": "EASY",
     "prompt": "Choose the best connector: “___ the journey was long, the team arrived before sunset.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -412,6 +427,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Punctuation",
+    "difficulty": "EASY",
     "prompt": "Which sentence uses the semicolon correctly?",
     "instruction": "Choose one answer.",
     "options": [
@@ -439,6 +455,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Trigonometry",
+    "difficulty": "EASY",
     "prompt": "What is the value of sin 30°?",
     "instruction": "Choose one answer.",
     "options": [
@@ -466,6 +483,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Coordinate geometry",
+    "difficulty": "EASY",
     "prompt": "What is the gradient of the line joining (1, 2) and (4, 8)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -493,6 +511,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Quadratic equations",
+    "difficulty": "EASY",
     "prompt": "What are the roots of x² − 7x + 12 = 0?",
     "instruction": "Choose one answer.",
     "options": [
@@ -520,6 +539,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Sequences",
+    "difficulty": "EASY",
     "prompt": "A geometric sequence begins 3, 6, 12, 24. What is the next term?",
     "instruction": "Choose one answer.",
     "options": [
@@ -547,6 +567,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Work and energy",
+    "difficulty": "STANDARD",
     "prompt": "A 2 kg object moves at 3 m/s. What is its kinetic energy?",
     "instruction": "Choose one answer.",
     "options": [
@@ -574,6 +595,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Wave motion",
+    "difficulty": "STANDARD",
     "prompt": "A wave has frequency 50 Hz and wavelength 2 m. What is its speed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -601,6 +623,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Power",
+    "difficulty": "STANDARD",
     "prompt": "A machine transfers 120 J of energy in 4 seconds. What is its average power?",
     "instruction": "Choose one answer.",
     "options": [
@@ -628,6 +651,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Pressure",
+    "difficulty": "STANDARD",
     "prompt": "A force of 20 N acts uniformly over an area of 0.5 m². What pressure is produced?",
     "instruction": "Choose one answer.",
     "options": [
@@ -655,6 +679,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Algorithms",
+    "difficulty": "EASY",
     "prompt": "Which condition is required for standard binary search to work correctly?",
     "instruction": "Choose one answer.",
     "options": [
@@ -682,6 +707,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Programming basics",
+    "difficulty": "STANDARD",
     "prompt": "In Python, what does items[0] return for the list items = [7, 9, 12]?",
     "instruction": "Choose one answer.",
     "options": [
@@ -709,6 +735,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Boolean logic",
+    "difficulty": "EASY",
     "prompt": "What is the result of (True and False) or True?",
     "instruction": "Choose one answer.",
     "options": [
@@ -736,6 +763,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Data structures",
+    "difficulty": "STANDARD",
     "prompt": "Which data structure normally follows the first-in, first-out (FIFO) principle?",
     "instruction": "Choose one answer.",
     "options": [
@@ -763,6 +791,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Atomic structure",
+    "difficulty": "EASY",
     "prompt": "Two isotopes of the same element have different numbers of which particles?",
     "instruction": "Choose one answer.",
     "options": [
@@ -790,6 +819,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Periodic trends",
+    "difficulty": "STANDARD",
     "prompt": "Across a period from left to right, what generally happens to atomic radius?",
     "instruction": "Choose one answer.",
     "options": [
@@ -817,6 +847,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Moles",
+    "difficulty": "EASY",
     "prompt": "How many moles are present in 18 g of water (H₂O)? Use a molar mass of 18 g mol⁻¹.",
     "instruction": "Choose one answer.",
     "options": [
@@ -844,6 +875,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Concentration",
+    "difficulty": "STANDARD",
     "prompt": "What is the concentration of a solution containing 0.5 mol of solute in 0.25 dm³ of solution?",
     "instruction": "Choose one answer.",
     "options": [
@@ -871,6 +903,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Subject–verb agreement",
+    "difficulty": "EASY",
     "prompt": "Choose the correct verb: “Each of the proposals ___ a separate review.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -898,6 +931,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Active and passive voice",
+    "difficulty": "EASY",
     "prompt": "Choose the correct passive form of: “The committee approved the proposal.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -925,6 +959,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Vocabulary",
+    "difficulty": "EASY",
     "prompt": "What does “concise” mean?",
     "instruction": "Choose one answer.",
     "options": [
@@ -952,6 +987,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Sentence coherence",
+    "difficulty": "EASY",
     "prompt": "Which sentence is the most suitable topic sentence for a paragraph about public libraries?",
     "instruction": "Choose one answer.",
     "options": [
@@ -979,6 +1015,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "General science",
+    "difficulty": "STANDARD",
     "prompt": "In which layer of Earth’s atmosphere does most weather occur?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1006,6 +1043,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Human geography",
+    "difficulty": "EASY",
     "prompt": "What does population density measure?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1033,6 +1071,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Public health",
+    "difficulty": "EASY",
     "prompt": "Which action is an example of primary disease prevention?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1060,6 +1099,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Scientific method",
+    "difficulty": "STANDARD",
     "prompt": "Why is a control group used in an experiment?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1087,6 +1127,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Pakistan geography",
+    "difficulty": "EASY",
     "prompt": "Which sea lies to the south of Pakistan?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1114,6 +1155,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Physical geography",
+    "difficulty": "EASY",
     "prompt": "Which mountain range includes K2?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1141,6 +1183,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Macroeconomics",
+    "difficulty": "EASY",
     "prompt": "What does inflation generally describe?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1168,6 +1211,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Economic concepts",
+    "difficulty": "EASY",
     "prompt": "What is opportunity cost?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1195,6 +1239,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "International organisations",
+    "difficulty": "EASY",
     "prompt": "Which organisation is primarily concerned with international public health?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1222,6 +1267,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "International relations",
+    "difficulty": "EASY",
     "prompt": "What is diplomacy?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1249,6 +1295,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Evaluating evidence",
+    "difficulty": "STANDARD",
     "prompt": "A survey finds that students who sleep longer tend to report better concentration. What is the safest conclusion?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1276,6 +1323,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Research methods",
+    "difficulty": "EASY",
     "prompt": "Which sampling method gives every member of a defined population an equal chance of selection?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1303,6 +1351,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Enzymes",
+    "difficulty": "EASY",
     "prompt": "What is the main effect of an enzyme on a chemical reaction?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1330,6 +1379,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Gas exchange",
+    "difficulty": "EASY",
     "prompt": "Which feature of alveoli helps make gas exchange efficient?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1357,6 +1407,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Cell division",
+    "difficulty": "EASY",
     "prompt": "What happens to the chromosome number during meiosis?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1384,6 +1435,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Nucleic acids",
+    "difficulty": "EASY",
     "prompt": "Which nitrogenous base is found in RNA but not normally in DNA?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1411,6 +1463,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Kidney function",
+    "difficulty": "EASY",
     "prompt": "Where does ultrafiltration of blood begin in a nephron?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1438,6 +1491,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Hormones",
+    "difficulty": "EASY",
     "prompt": "What is the main effect of insulin on blood glucose concentration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1465,6 +1519,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Redox reactions",
+    "difficulty": "STANDARD",
     "prompt": "In a redox reaction, oxidation is defined as the:",
     "instruction": "Choose one answer.",
     "options": [
@@ -1492,6 +1547,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Acid–base chemistry",
+    "difficulty": "EASY",
     "prompt": "What is the main function of a buffer solution?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1519,6 +1575,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Chemical equilibrium",
+    "difficulty": "EASY",
     "prompt": "What happens when a catalyst is added to a reversible reaction at equilibrium?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1546,6 +1603,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Empirical formula",
+    "difficulty": "STANDARD",
     "prompt": "A compound contains approximately 40% carbon, 6.7% hydrogen and 53.3% oxygen by mass. What is its empirical formula?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1573,6 +1631,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Chemical bonding",
+    "difficulty": "EASY",
     "prompt": "What happens when two atoms form a typical covalent bond?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1600,6 +1659,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Molecular structure",
+    "difficulty": "EASY",
     "prompt": "Which functional group identifies an alcohol?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1627,6 +1687,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Uniform acceleration",
+    "difficulty": "STANDARD",
     "prompt": "A car’s velocity changes from 20 m/s to 5 m/s in 3 seconds. What is its average acceleration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1654,6 +1715,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Electric circuits",
+    "difficulty": "STANDARD",
     "prompt": "A 12 V battery is connected across a 4 Ω resistor. What current flows through the resistor?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1681,6 +1743,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Refraction",
+    "difficulty": "STANDARD",
     "prompt": "When a light ray travels from air into water at an angle, how does it bend?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1708,6 +1771,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Fluid pressure",
+    "difficulty": "STANDARD",
     "prompt": "In a liquid at rest, how does pressure change as depth increases?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1736,6 +1800,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Discounts and percentages",
+    "difficulty": "STANDARD",
     "prompt": "A jacket costs Rs 2,400 before a 15% discount. What is its sale price?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1763,6 +1828,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Unit rates",
+    "difficulty": "STANDARD",
     "prompt": "A printer produces 84 pages in 7 minutes at a constant rate. How many pages will it produce in 12 minutes?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1790,6 +1856,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Linear equations",
+    "difficulty": "STANDARD",
     "prompt": "If 4x − 7 = 21, what is the value of x?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1817,6 +1884,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Time and distance",
+    "difficulty": "STANDARD",
     "prompt": "A bus travels 180 km in 2.5 hours at a constant speed. What is its average speed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1844,6 +1912,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Meaning in context",
+    "difficulty": "EASY",
     "prompt": "In the sentence “The new policy may mitigate delays,” what does “mitigate” most nearly mean?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1871,6 +1940,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Supported inference",
+    "difficulty": "STANDARD",
     "prompt": "A library extended its evening hours after students requested more study time. Which conclusion is best supported?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1898,6 +1968,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Central idea",
+    "difficulty": "STANDARD",
     "prompt": "A passage explains that urban trees provide shade, absorb some rainfall and create habitats for birds. Which statement best captures its central idea?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1925,6 +1996,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Author’s purpose",
+    "difficulty": "STANDARD",
     "prompt": "An article compares three public transport options by cost, journey time and accessibility. What is its most likely purpose?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1952,6 +2024,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Set reasoning",
+    "difficulty": "STANDARD",
     "prompt": "In a group of 26 students, 15 study Biology, 13 study Chemistry and 5 study neither. How many study both subjects?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1979,6 +2052,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Syllogisms",
+    "difficulty": "STANDARD",
     "prompt": "All architects are designers. Some designers are researchers. Which conclusion must be true?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2006,6 +2080,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Contrapositive reasoning",
+    "difficulty": "STANDARD",
     "prompt": "If the laboratory is open, the lights are on. The lights are not on. What follows logically?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2033,6 +2108,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Number patterns",
+    "difficulty": "EASY",
     "prompt": "What is the next number in the sequence 4, 9, 14, 19, …?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2060,6 +2136,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Subject–verb agreement",
+    "difficulty": "EASY",
     "prompt": "Choose the sentence with correct subject–verb agreement.",
     "instruction": "Choose one answer.",
     "options": [
@@ -2087,6 +2164,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Punctuation",
+    "difficulty": "EASY",
     "prompt": "Which sentence uses punctuation correctly?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2114,6 +2192,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Pronoun reference",
+    "difficulty": "EASY",
     "prompt": "Which sentence makes the pronoun reference clearest?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2141,6 +2220,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Modifier placement",
+    "difficulty": "EASY",
     "prompt": "Which sentence correctly shows who was walking to school?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2168,6 +2248,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Probability",
+    "difficulty": "STANDARD",
     "prompt": "A fair six-sided die is rolled once. What is the probability of getting a number greater than 4?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2195,6 +2276,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Averages",
+    "difficulty": "STANDARD",
     "prompt": "The mean of 6, 8, 10 and x is 9. What is x?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2222,6 +2304,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Argument structure",
+    "difficulty": "CHALLENGING",
     "prompt": "A proposal says a school should add bicycle racks because more students will cycle if secure parking is available. Which assumption does the proposal rely on?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2249,6 +2332,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Ordering",
+    "difficulty": "STANDARD",
     "prompt": "Four presentations are scheduled in order. H is before J, J is before K, and L is after K. Which presentation must be last?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2276,6 +2360,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Differentiation",
+    "difficulty": "STANDARD",
     "prompt": "If f(x) = x² + 3x, what is f′(2)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2303,6 +2388,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Logarithms",
+    "difficulty": "STANDARD",
     "prompt": "If log₁₀(x) = 2, what is x?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2330,6 +2416,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Straight-line gradients",
+    "difficulty": "EASY",
     "prompt": "What is the gradient of the line passing through (2, 3) and (6, 11)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2357,6 +2444,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Trigonometric identities",
+    "difficulty": "STANDARD",
     "prompt": "For an angle θ, which identity is always true?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2384,6 +2472,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Matrices",
+    "difficulty": "EASY",
     "prompt": "What is the determinant of the matrix [[3, 2], [1, 4]]?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2411,6 +2500,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Probability",
+    "difficulty": "STANDARD",
     "prompt": "A bag contains 3 red and 2 blue balls. One ball is selected at random. What is the probability it is blue?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2438,6 +2528,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Conservation of momentum",
+    "difficulty": "STANDARD",
     "prompt": "A 2 kg trolley moving at 3 m/s collides with a stationary 1 kg trolley. They move together after impact. What is their shared speed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2465,6 +2556,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Gravitational potential energy",
+    "difficulty": "STANDARD",
     "prompt": "A 2 kg object is raised 5 m. Taking g = 10 m/s², how much gravitational potential energy does it gain?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2492,6 +2584,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Series circuits",
+    "difficulty": "STANDARD",
     "prompt": "Two resistors of 4 Ω and 6 Ω are connected in series. What is their equivalent resistance?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2519,6 +2612,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Specific heat capacity",
+    "difficulty": "STANDARD",
     "prompt": "How much energy is required to raise the temperature of 2 kg of a substance by 3°C if its specific heat capacity is 500 J/(kg·°C)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2546,6 +2640,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Wave properties",
+    "difficulty": "STANDARD",
     "prompt": "A wave has frequency 5 Hz and wavelength 2 m. What is its speed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2573,6 +2668,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Electric power",
+    "difficulty": "STANDARD",
     "prompt": "A device operates at 12 V and draws a current of 2 A. What is its electrical power?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2600,6 +2696,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Binary arithmetic",
+    "difficulty": "EASY",
     "prompt": "What is the binary representation of decimal 13?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2627,6 +2724,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Boolean logic",
+    "difficulty": "EASY",
     "prompt": "What is the output of a NAND gate when both inputs are 1?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2654,6 +2752,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Algorithm complexity",
+    "difficulty": "EASY",
     "prompt": "What is the time complexity of binary search on a sorted array of n elements?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2681,6 +2780,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Object-oriented programming",
+    "difficulty": "EASY",
     "prompt": "Which concept groups data and the methods that operate on that data while restricting direct access to internal state?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2708,6 +2808,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Database keys",
+    "difficulty": "EASY",
     "prompt": "What is the main purpose of a primary key in a relational database table?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2735,6 +2836,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Isotopes",
+    "difficulty": "STANDARD",
     "prompt": "Atoms of the same element that have different numbers of neutrons are called:",
     "instruction": "Choose one answer.",
     "options": [
@@ -2762,6 +2864,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Gas laws",
+    "difficulty": "STANDARD",
     "prompt": "At constant temperature, a gas occupies 4 L at a pressure of 2 atm. What volume will it occupy at 4 atm?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2789,6 +2892,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Acids and pH",
+    "difficulty": "STANDARD",
     "prompt": "At 25°C, a solution has pH 3. What is its hydrogen-ion concentration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2816,6 +2920,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Sentence correction",
+    "difficulty": "EASY",
     "prompt": "Choose the grammatically correct sentence.",
     "instruction": "Choose one answer.",
     "options": [
@@ -2843,6 +2948,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Précis writing",
+    "difficulty": "EASY",
     "prompt": "Which quality is most important in a good précis?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2870,6 +2976,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Logical connectors",
+    "difficulty": "STANDARD",
     "prompt": "Which connector best completes the sentence? “The evidence was limited; ___, the report avoided a firm conclusion.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -2897,6 +3004,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Scientific reasoning",
+    "difficulty": "STANDARD",
     "prompt": "A researcher repeats an experiment and obtains similar results. This most directly supports the experiment’s:",
     "instruction": "Choose one answer.",
     "options": [
@@ -2924,6 +3032,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Ecosystems",
+    "difficulty": "STANDARD",
     "prompt": "In a food chain, green plants are usually classified as:",
     "instruction": "Choose one answer.",
     "options": [
@@ -2951,6 +3060,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Research ethics",
+    "difficulty": "STANDARD",
     "prompt": "A researcher reports only the results that support a preferred conclusion and omits contradictory findings. Which ethical principle is most directly violated?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2978,6 +3088,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Geography",
+    "difficulty": "EASY",
     "prompt": "Which mountain range forms a major part of northern Pakistan?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3005,6 +3116,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Water resources",
+    "difficulty": "STANDARD",
     "prompt": "The Indus River system is especially important to Pakistan because it:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3032,6 +3144,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Civic concepts",
+    "difficulty": "STANDARD",
     "prompt": "In a federal system, constitutional powers are:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3059,6 +3172,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Inflation",
+    "difficulty": "STANDARD",
     "prompt": "If a household’s income remains unchanged while the general price level rises, its purchasing power will generally:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3086,6 +3200,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Opportunity cost",
+    "difficulty": "STANDARD",
     "prompt": "A student spends an evening studying instead of working a paid shift. The opportunity cost is best described as:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3113,6 +3228,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Market structures",
+    "difficulty": "STANDARD",
     "prompt": "In a perfectly competitive market, an individual firm is generally described as a:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3140,6 +3256,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "Diplomacy",
+    "difficulty": "STANDARD",
     "prompt": "A country’s embassy in another country primarily serves to:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3167,6 +3284,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "International law",
+    "difficulty": "STANDARD",
     "prompt": "The principle of state sovereignty primarily refers to a state’s:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3194,6 +3312,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Correlation and causation",
+    "difficulty": "CHALLENGING",
     "prompt": "A study finds that ice-cream sales and swimming attendance both rise in summer. Which conclusion is most reasonable?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3221,6 +3340,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Sampling bias",
+    "difficulty": "STANDARD",
     "prompt": "A survey about public transport is conducted only among people waiting at a railway station. What is the main limitation?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3248,6 +3368,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Climate systems",
+    "difficulty": "EASY",
     "prompt": "Which gas is a major contributor to human-caused global warming?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3275,6 +3396,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Public administration",
+    "difficulty": "STANDARD",
     "prompt": "In public administration, transparency most directly means:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3302,6 +3424,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Agricultural geography",
+    "difficulty": "EASY",
     "prompt": "Which crop is widely associated with the irrigated plains of Punjab and Sindh?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3329,6 +3452,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Evaluating arguments",
+    "difficulty": "CHALLENGING",
     "prompt": "An argument claims that a new library caused exam results to improve because results rose after the library opened. What additional information would most strengthen the causal claim?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3356,6 +3480,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Blood components",
+    "difficulty": "EASY",
     "prompt": "Which blood component is primarily responsible for transporting oxygen from the lungs to body tissues?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3383,6 +3508,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Nervous coordination",
+    "difficulty": "EASY",
     "prompt": "Which part of a neuron usually receives signals from other neurons?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3410,6 +3536,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Plant transport",
+    "difficulty": "EASY",
     "prompt": "Which tissue transports water and mineral ions from roots towards the leaves?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3437,6 +3564,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Cellular respiration",
+    "difficulty": "STANDARD",
     "prompt": "In aerobic respiration, the final electron acceptor in the electron transport chain is:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3464,6 +3592,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Inheritance",
+    "difficulty": "STANDARD",
     "prompt": "If two heterozygous parents (Aa × Aa) are crossed, what is the probability of an aa offspring?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3491,6 +3620,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Immune response",
+    "difficulty": "EASY",
     "prompt": "Which cells can differentiate into plasma cells that secrete antibodies?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3518,6 +3648,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Endocrine system",
+    "difficulty": "EASY",
     "prompt": "Which hormone lowers blood glucose by promoting uptake of glucose by many body cells?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3545,6 +3676,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Ecology",
+    "difficulty": "STANDARD",
     "prompt": "Organisms that break down dead organic matter and recycle nutrients are called:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3572,6 +3704,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Molar concentration",
+    "difficulty": "STANDARD",
     "prompt": "What is the molarity of a solution containing 0.5 mol of solute in 2 L of solution?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3599,6 +3732,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Organic chemistry",
+    "difficulty": "EASY",
     "prompt": "Which functional group is characteristic of alcohols?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3626,6 +3760,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Chemical equilibrium",
+    "difficulty": "STANDARD",
     "prompt": "For a reversible reaction at dynamic equilibrium, which statement is correct?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3653,6 +3788,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Periodic table",
+    "difficulty": "STANDARD",
     "prompt": "Across a period from left to right, atomic radius generally:",
     "instruction": "Choose one answer.",
     "options": [
@@ -3680,6 +3816,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Oxidation numbers",
+    "difficulty": "EASY",
     "prompt": "What is the oxidation number of oxygen in most ordinary compounds?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3707,6 +3844,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Acid–base reactions",
+    "difficulty": "EASY",
     "prompt": "What are the main products when hydrochloric acid reacts completely with sodium hydroxide?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3734,6 +3872,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Newton’s laws",
+    "difficulty": "STANDARD",
     "prompt": "A net force of 15 N acts on a 3 kg object. What is its acceleration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3761,6 +3900,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Kinetic energy",
+    "difficulty": "STANDARD",
     "prompt": "What is the kinetic energy of a 2 kg object moving at 4 m/s?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3788,6 +3928,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Electrical resistance",
+    "difficulty": "STANDARD",
     "prompt": "A current of 0.5 A flows through a resistor connected to 6 V. What is the resistance?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3815,6 +3956,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Wave frequency",
+    "difficulty": "STANDARD",
     "prompt": "A wave completes 20 cycles in 4 seconds. What is its frequency?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3842,6 +3984,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Lenses",
+    "difficulty": "STANDARD",
     "prompt": "An object is placed beyond 2F of a converging lens. Where is its image formed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -3869,6 +4012,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Density",
+    "difficulty": "STANDARD",
     "prompt": "A substance has mass 200 g and volume 50 cm³. What is its density?",
     "instruction": "Choose one answer.",
     "options": [
