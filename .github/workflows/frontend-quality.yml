@@ -68,3 +68,40 @@ jobs:
       - name: Audit production and development dependencies
         run: npm audit --audit-level=high
 
+  refresh-lockfile:
+    name: Update lockfile after Vercel SDK major upgrade
+    if: github.event_name == 'push' && github.ref == 'refs/heads/quality-pass-v21-site-wide'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Check out the working branch
+        uses: actions/checkout@v4
+        with:
+          ref: quality-pass-v21-site-wide
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Resolve the updated dependency tree without install scripts
+        run: npm install --package-lock-only --ignore-scripts
+
+      - name: Commit only the regenerated lockfile
+        working-directory: .
+        shell: bash
+        run: |
+          if git diff --quiet -- frontend/package-lock.json; then
+            echo "No lockfile changes are required."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add frontend/package-lock.json
+          git commit -m "Refresh lockfile for patched Vercel Node dependencies"
+          git push origin HEAD:quality-pass-v21-site-wide
