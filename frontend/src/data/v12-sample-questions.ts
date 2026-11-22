@@ -7,6 +7,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Ratios",
+    "difficulty": "STANDARD",
     "prompt": "Two quantities are in the ratio 4:7. Their difference is 24. What is their total?",
     "instruction": "Choose one answer.",
     "options": [
@@ -34,6 +35,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Discounts",
+    "difficulty": "STANDARD",
     "prompt": "A jacket marked at Rs. 2,500 is sold at a 12% discount. What is its sale price?",
     "instruction": "Choose one answer.",
     "options": [
@@ -61,6 +63,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Coordinate geometry",
+    "difficulty": "STANDARD",
     "prompt": "What is the slope of the line passing through (2, 5) and (6, 13)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -88,6 +91,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Arithmetic sequences",
+    "difficulty": "STANDARD",
     "prompt": "An arithmetic sequence begins 7, 11, 15, 19, … What is its 12th term?",
     "instruction": "Choose one answer.",
     "options": [
@@ -115,6 +119,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Area",
+    "difficulty": "STANDARD",
     "prompt": "A triangle has a base of 14 cm and a perpendicular height of 9 cm. What is its area?",
     "instruction": "Choose one answer.",
     "options": [
@@ -142,6 +147,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Proportions",
+    "difficulty": "STANDARD",
     "prompt": "A recipe uses 3 cups of flour for 8 servings. How much flour is needed for 20 servings at the same rate?",
     "instruction": "Choose one answer.",
     "options": [
@@ -169,6 +175,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Probability",
+    "difficulty": "STANDARD",
     "prompt": "A fair six-sided die is rolled once. What is the probability of getting a number greater than 4?",
     "instruction": "Choose one answer.",
     "options": [
@@ -196,6 +203,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Parallel structure",
+    "difficulty": "EASY",
     "prompt": "Choose the sentence with correct parallel structure.",
     "instruction": "Choose one answer.",
     "options": [
@@ -223,6 +231,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary in context",
+    "difficulty": "EASY",
     "prompt": "In the sentence “The instructions were ambiguous, so several students interpreted them differently,” what does “ambiguous” mean?",
     "instruction": "Choose one answer.",
     "options": [
@@ -250,6 +259,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Reading comprehension",
+    "difficulty": "STANDARD",
     "prompt": "A town adds shaded walking paths and benches near busy bus stops. Which purpose is most directly supported by these changes?",
     "instruction": "Choose one answer.",
     "options": [
@@ -277,6 +287,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Modifiers",
+    "difficulty": "EASY",
     "prompt": "Choose the sentence with a correctly placed introductory phrase.",
     "instruction": "Choose one answer.",
     "options": [
@@ -304,6 +315,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Main idea",
+    "difficulty": "STANDARD",
     "prompt": "A school replaces one annual science fair with short monthly demonstrations. Students receive feedback after each demonstration. What is the main advantage of this change?",
     "instruction": "Choose one answer.",
     "options": [
@@ -331,6 +343,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Verb tenses",
+    "difficulty": "EASY",
     "prompt": "Choose the correct completion: “By the time the lecture began, the students ___ for twenty minutes.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -358,6 +371,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Synonyms",
+    "difficulty": "EASY",
     "prompt": "Which word is closest in meaning to “concise”?",
     "instruction": "Choose one answer.",
     "options": [
@@ -385,6 +399,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Deductive reasoning",
+    "difficulty": "STANDARD",
     "prompt": "Every architect at a firm has completed a design course. Mina is an architect at that firm. Which statement must be true?",
     "instruction": "Choose one answer.",
     "options": [
@@ -412,6 +427,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Ordering",
+    "difficulty": "STANDARD",
     "prompt": "Four tasks must follow these rules: D occurs before A, A occurs before B, and C occurs after B. Which order satisfies all the rules?",
     "instruction": "Choose one answer.",
     "options": [
@@ -439,6 +455,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Conditional reasoning",
+    "difficulty": "STANDARD",
     "prompt": "A rule states: “If an account is verified, it becomes active.” An account is not active. What follows logically?",
     "instruction": "Choose one answer.",
     "options": [
@@ -466,6 +483,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Consecutive integers",
+    "difficulty": "STANDARD",
     "prompt": "The sum of three consecutive integers is 72. What is the middle integer?",
     "instruction": "Choose one answer.",
     "options": [
@@ -493,6 +511,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Analogies",
+    "difficulty": "STANDARD",
     "prompt": "Complete the analogy: “thermometer : temperature :: barometer : ___”.",
     "instruction": "Choose one answer.",
     "options": [
@@ -520,6 +539,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Unit rates",
+    "difficulty": "STANDARD",
     "prompt": "A car travels 180 km in 3 hours at a constant speed. How far will it travel in 2.5 hours at the same speed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -547,6 +567,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Definite integration",
+    "difficulty": "STANDARD",
     "prompt": "Evaluate the definite integral ∫₀² 3x² dx.",
     "instruction": "Choose one answer.",
     "options": [
@@ -574,6 +595,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Matrices",
+    "difficulty": "EASY",
     "prompt": "What is the determinant of the matrix [[3, 2], [1, 4]]?",
     "instruction": "Choose one answer.",
     "options": [
@@ -601,6 +623,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Logarithms",
+    "difficulty": "EASY",
     "prompt": "What is the value of log₂ 32?",
     "instruction": "Choose one answer.",
     "options": [
@@ -628,6 +651,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Probability",
+    "difficulty": "CHALLENGING",
     "prompt": "A box contains 5 red and 3 blue balls. Two balls are selected without replacement. What is the probability that both are red?",
     "instruction": "Choose one answer.",
     "options": [
@@ -655,6 +679,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Vector operations",
+    "difficulty": "STANDARD",
     "prompt": "What is the dot product of vectors (2, 1) and (3, −2)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -682,6 +707,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Capacitance",
+    "difficulty": "STANDARD",
     "prompt": "A 4 μF capacitor is connected to a 12 V supply. What charge is stored on it?",
     "instruction": "Choose one answer.",
     "options": [
@@ -709,6 +735,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Work and energy",
+    "difficulty": "STANDARD",
     "prompt": "A constant force of 15 N moves an object 4 m in the direction of the force. How much work is done?",
     "instruction": "Choose one answer.",
     "options": [
@@ -736,6 +763,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Momentum",
+    "difficulty": "STANDARD",
     "prompt": "A ball of mass 0.15 kg travels at 20 m/s. What is its momentum?",
     "instruction": "Choose one answer.",
     "options": [
@@ -763,6 +791,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Pressure",
+    "difficulty": "STANDARD",
     "prompt": "A force of 800 N acts uniformly over an area of 0.04 m². What pressure is produced?",
     "instruction": "Choose one answer.",
     "options": [
@@ -790,6 +819,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Simple harmonic motion",
+    "difficulty": "STANDARD",
     "prompt": "An oscillator completes 2 cycles per second. What is its period?",
     "instruction": "Choose one answer.",
     "options": [
@@ -817,6 +847,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Empirical formulae",
+    "difficulty": "STANDARD",
     "prompt": "A compound contains 40.0% carbon, 6.7% hydrogen and 53.3% oxygen by mass. What is its empirical formula?",
     "instruction": "Choose one answer.",
     "options": [
@@ -844,6 +875,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Catalysts",
+    "difficulty": "EASY",
     "prompt": "What effect does a catalyst have on a reversible reaction that is already at equilibrium?",
     "instruction": "Choose one answer.",
     "options": [
@@ -871,6 +903,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Molecular polarity",
+    "difficulty": "STANDARD",
     "prompt": "Why is a water molecule polar?",
     "instruction": "Choose one answer.",
     "options": [
@@ -898,6 +931,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Electrolysis",
+    "difficulty": "STANDARD",
     "prompt": "During electrolysis of molten sodium chloride, which product forms at the cathode?",
     "instruction": "Choose one answer.",
     "options": [
@@ -925,6 +959,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Organic chemistry",
+    "difficulty": "EASY",
     "prompt": "Which observation is commonly used to test for a carbon–carbon double bond in an alkene?",
     "instruction": "Choose one answer.",
     "options": [
@@ -952,6 +987,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Algorithms",
+    "difficulty": "EASY",
     "prompt": "What is the time complexity of binary search on a sorted array of n elements?",
     "instruction": "Choose one answer.",
     "options": [
@@ -979,6 +1015,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Python ranges",
+    "difficulty": "EASY",
     "prompt": "What sequence of values is produced by range(2, 8, 2) in Python?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1006,6 +1043,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Databases",
+    "difficulty": "EASY",
     "prompt": "What is the main purpose of a primary key in a relational database table?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1033,6 +1071,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Data structures",
+    "difficulty": "EASY",
     "prompt": "Which data structure processes items in the order they were added?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1060,6 +1099,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Boolean logic",
+    "difficulty": "STANDARD",
     "prompt": "If x = 7, what is the value of the Python expression not (x > 5)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1087,6 +1127,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Constitutionalism",
+    "difficulty": "EASY",
     "prompt": "What is the central idea of constitutional supremacy?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1114,6 +1155,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Rule of law",
+    "difficulty": "EASY",
     "prompt": "Which situation best reflects the rule of law?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1141,6 +1183,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Judicial independence",
+    "difficulty": "STANDARD",
     "prompt": "Why is judicial independence important in a constitutional democracy?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1168,6 +1211,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Constitutional amendments",
+    "difficulty": "STANDARD",
     "prompt": "Under Article 239 of Pakistan's 1973 Constitution, what parliamentary threshold is generally required to pass a constitutional amendment bill in each House?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1195,6 +1239,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Fiscal policy",
+    "difficulty": "EASY",
     "prompt": "Which pair of instruments is most directly associated with fiscal policy?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1222,6 +1267,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Monetary policy",
+    "difficulty": "EASY",
     "prompt": "Which action is an example of monetary policy?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1249,6 +1295,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Balance of payments",
+    "difficulty": "EASY",
     "prompt": "Which item is normally recorded in the current account of a country's balance of payments?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1276,6 +1323,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Externalities",
+    "difficulty": "STANDARD",
     "prompt": "A factory's emissions impose health costs on nearby residents that are not reflected in the product's market price. This is an example of:",
     "instruction": "Choose one answer.",
     "options": [
@@ -1303,6 +1351,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Human development",
+    "difficulty": "EASY",
     "prompt": "Which set of dimensions is central to the Human Development Index (HDI)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1330,6 +1379,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Local government",
+    "difficulty": "EASY",
     "prompt": "What is one important purpose of local government?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1357,6 +1407,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Climate policy",
+    "difficulty": "EASY",
     "prompt": "Which measure is an example of climate-change mitigation?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1384,6 +1435,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Desertification",
+    "difficulty": "EASY",
     "prompt": "Which factor can contribute to land degradation and desertification in dry areas?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1411,6 +1463,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Watershed management",
+    "difficulty": "EASY",
     "prompt": "What is the main purpose of managing a watershed as a connected system?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1438,6 +1491,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "United Nations",
+    "difficulty": "STANDARD",
     "prompt": "How does voting in the UN General Assembly generally work?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1465,6 +1519,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "International Court of Justice",
+    "difficulty": "EASY",
     "prompt": "What is the primary contentious jurisdiction of the International Court of Justice?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1492,6 +1547,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "Security Council",
+    "difficulty": "EASY",
     "prompt": "What is the effect of a negative vote by a permanent member on a substantive UN Security Council draft resolution?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1519,6 +1575,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "Regional organisations",
+    "difficulty": "EASY",
     "prompt": "Which objective is associated with the Association of Southeast Asian Nations (ASEAN)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1546,6 +1603,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "Treaty law",
+    "difficulty": "EASY",
     "prompt": "What does ratification of a treaty generally signify?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1573,6 +1631,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Sustainable development",
+    "difficulty": "STANDARD",
     "prompt": "How many Sustainable Development Goals (SDGs) were adopted by UN member states in 2015?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1600,6 +1659,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Public finance",
+    "difficulty": "STANDARD",
     "prompt": "A government runs a budget deficit when:",
     "instruction": "Choose one answer.",
     "options": [
@@ -1627,6 +1687,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Protein synthesis",
+    "difficulty": "EASY",
     "prompt": "Where does translation of an mRNA sequence into a polypeptide take place?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1654,6 +1715,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Photosynthesis",
+    "difficulty": "EASY",
     "prompt": "During the light-dependent reactions of photosynthesis, what is the role of water splitting at photosystem II?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1681,6 +1743,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Pancreatic hormones",
+    "difficulty": "EASY",
     "prompt": "Which pancreatic cells secrete glucagon?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1708,6 +1771,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Inheritance",
+    "difficulty": "STANDARD",
     "prompt": "In incomplete dominance, what is commonly observed in a heterozygous individual?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1735,6 +1799,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Genetics",
+    "difficulty": "STANDARD",
     "prompt": "In a cross between Aa and aa, assuming complete dominance, what proportion of offspring is expected to be heterozygous Aa?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1762,6 +1827,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Nervous system",
+    "difficulty": "EASY",
     "prompt": "What is the main effect of myelin on conduction along a myelinated axon?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1789,6 +1855,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Immune system",
+    "difficulty": "EASY",
     "prompt": "Which cells differentiate into plasma cells that secrete antibodies?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1816,6 +1883,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Plant transport",
+    "difficulty": "EASY",
     "prompt": "Which plant tissue transports water and dissolved mineral ions from roots toward the leaves?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1843,6 +1911,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Buffer solutions",
+    "difficulty": "EASY",
     "prompt": "What is the main function of a buffer solution?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1870,6 +1939,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Redox reactions",
+    "difficulty": "STANDARD",
     "prompt": "Oxidation is best described as:",
     "instruction": "Choose one answer.",
     "options": [
@@ -1897,6 +1967,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Mole concept",
+    "difficulty": "STANDARD",
     "prompt": "At 0°C and 1 atm, approximately what volume is occupied by one mole of an ideal gas?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1924,6 +1995,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Organic functional groups",
+    "difficulty": "EASY",
     "prompt": "Which functional group is characteristic of an ester?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1951,6 +2023,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Reaction rates",
+    "difficulty": "STANDARD",
     "prompt": "Why does powdered calcium carbonate usually react faster with dilute acid than the same mass of large marble chips?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1978,6 +2051,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "pH calculations",
+    "difficulty": "STANDARD",
     "prompt": "What is the pH of a 0.001 mol dm⁻³ sodium hydroxide solution at 25°C, assuming complete dissociation?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2005,6 +2079,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Circular motion",
+    "difficulty": "STANDARD",
     "prompt": "In uniform circular motion, in which direction does the centripetal force act?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2032,6 +2107,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Lens power",
+    "difficulty": "STANDARD",
     "prompt": "A converging lens has a focal length of 0.5 m. What is its power?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2059,6 +2135,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Fluids",
+    "difficulty": "STANDARD",
     "prompt": "According to Archimedes' principle, the buoyant force on an immersed object equals:",
     "instruction": "Choose one answer.",
     "options": [
@@ -2086,6 +2163,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Electrical resistance",
+    "difficulty": "STANDARD",
     "prompt": "Two resistors of 2 Ω and 4 Ω are connected in series. What is their equivalent resistance?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2113,6 +2191,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Sound waves",
+    "difficulty": "STANDARD",
     "prompt": "If the amplitude of a sound wave is doubled while other conditions remain the same, by what factor does its intensity change?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2140,6 +2219,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Thermal physics",
+    "difficulty": "STANDARD",
     "prompt": "How much heat is required to raise the temperature of 0.5 kg of water by 10°C? Use c = 4,200 J kg⁻¹ °C⁻¹.",
     "instruction": "Choose one answer.",
     "options": [
