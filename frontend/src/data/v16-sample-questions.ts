@@ -315,7 +315,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Trigonometry",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the value of tan 45° + cos 0°?",
     "options": [
       {
