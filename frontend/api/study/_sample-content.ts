@@ -16,7 +16,7 @@ import { V19_PRIVATE_QUESTIONS } from "./_v19-content.js";
 import { V20_PRIVATE_QUESTIONS } from "./_v20-content.js";
 import { V21_PRIVATE_QUESTIONS } from "./_v21-content.js";
 import { V22_PRIVATE_QUESTIONS } from "./_v22-content.js";
-import { classifyPracticeDifficulty, normalizeQuestionStem } from "../../src/data/question-difficulty.js";
+import { normalizeQuestionStem } from "../../src/data/question-difficulty.js";
 
 export interface StudyOption { key: string; text: string; }
 
@@ -32,7 +32,7 @@ export interface PrivateStudyQuestion {
   explanation: string;
   takeaway: string;
   sourceKind: "original-sample" | "licensed" | "public-domain" | "past-paper";
-  difficulty?: "EASY" | "STANDARD" | "CHALLENGING";
+  difficulty: "EASY" | "STANDARD" | "CHALLENGING";
   sourceNote?: string;
   examYear?: number;
   examMonth?: number;
@@ -3087,11 +3087,13 @@ for (const question of QUESTION_SOURCES) {
     seenQuestionIds.has(question.id) ||
     seenQuestionStems.has(stem)
   ) continue;
+  if (!["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty)) {
+    throw new Error("Question " + question.id + " is missing an explicit difficulty label.");
+  }
   seenQuestionIds.add(question.id);
   seenQuestionStems.add(stem);
   UNIQUE_QUESTION_SOURCES.push({
     ...question,
-    difficulty: question.difficulty ?? classifyPracticeDifficulty(question),
     sourceNote: question.sourceNote ?? "Original Arthic practice question; not taken from an official past paper.",
   });
 }
