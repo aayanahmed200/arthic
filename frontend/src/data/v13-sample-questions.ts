@@ -7,6 +7,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Simple interest",
+    "difficulty": "STANDARD",
     "prompt": "A sum of Rs. 12,000 is invested at 5% simple interest per year for 2 years. What is the interest earned?",
     "instruction": "Choose one answer.",
     "options": [
@@ -34,6 +35,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Quadratic expressions",
+    "difficulty": "STANDARD",
     "prompt": "For the quadratic expression x² − 5x + 6, what is the product of its two roots?",
     "instruction": "Choose one answer.",
     "options": [
@@ -61,6 +63,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Average speed",
+    "difficulty": "STANDARD",
     "prompt": "A driver travels 120 km at 60 km/h and then another 120 km at 40 km/h. What is the average speed for the whole journey?",
     "instruction": "Choose one answer.",
     "options": [
@@ -88,6 +91,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Subject–verb agreement",
+    "difficulty": "EASY",
     "prompt": "Choose the grammatically correct completion: “Neither of the two proposals ___ ready for approval.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -115,6 +119,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary in context",
+    "difficulty": "EASY",
     "prompt": "In the sentence “The new procedure is intended to mitigate delays,” what does “mitigate” mean?",
     "instruction": "Choose one answer.",
     "options": [
@@ -142,6 +147,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Analogy",
+    "difficulty": "STANDARD",
     "prompt": "Complete the analogy: “editor : manuscript :: curator : ___”.",
     "instruction": "Choose one answer.",
     "options": [
@@ -169,6 +175,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Critical inference",
+    "difficulty": "STANDARD",
     "prompt": "A library extends its evening hours. During the following month, evening visits increase while total weekly visits remain similar. Which conclusion is best supported?",
     "instruction": "Choose one answer.",
     "options": [
@@ -196,6 +203,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Set relationships",
+    "difficulty": "STANDARD",
     "prompt": "All members of a debate club are students. Some students are musicians. Which statement must be true?",
     "instruction": "Choose one answer.",
     "options": [
@@ -223,6 +231,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Ordering",
+    "difficulty": "STANDARD",
     "prompt": "Four presentations are scheduled. H must occur before J, J before K, and L after K. Which sequence satisfies all three rules?",
     "instruction": "Choose one answer.",
     "options": [
@@ -250,6 +259,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Sentence meaning",
+    "difficulty": "EASY",
     "prompt": "Choose the sentence that most clearly expresses contrast.",
     "instruction": "Choose one answer.",
     "options": [
@@ -277,6 +287,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Differentiation",
+    "difficulty": "STANDARD",
     "prompt": "If f(x) = x³ − 2x, what is f′(2)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -304,6 +315,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Coordinate geometry",
+    "difficulty": "EASY",
     "prompt": "What is the x-coordinate of the vertex of the parabola y = x² − 6x + 5?",
     "instruction": "Choose one answer.",
     "options": [
@@ -331,6 +343,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Acceleration",
+    "difficulty": "STANDARD",
     "prompt": "A car's velocity increases uniformly from 4 m/s to 20 m/s in 4 seconds. What is its acceleration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -358,6 +371,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Electric circuits",
+    "difficulty": "STANDARD",
     "prompt": "A 6 Ω resistor is connected across an 18 V ideal battery. What current flows through it?",
     "instruction": "Choose one answer.",
     "options": [
@@ -385,6 +399,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Wave speed",
+    "difficulty": "STANDARD",
     "prompt": "A wave has frequency 50 Hz and wavelength 0.4 m. What is its speed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -412,6 +427,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Moles",
+    "difficulty": "EASY",
     "prompt": "How many moles of water are present in 9 g of H₂O? (Molar mass = 18 g mol⁻¹)",
     "instruction": "Choose one answer.",
     "options": [
@@ -439,6 +455,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Chemical equilibrium",
+    "difficulty": "STANDARD",
     "prompt": "For an exothermic equilibrium, what happens to the equilibrium position when temperature is increased?",
     "instruction": "Choose one answer.",
     "options": [
@@ -466,6 +483,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Periodic trends",
+    "difficulty": "STANDARD",
     "prompt": "Across a period from left to right, what generally happens to the atomic radius of main-group elements?",
     "instruction": "Choose one answer.",
     "options": [
@@ -493,6 +511,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Number systems",
+    "difficulty": "EASY",
     "prompt": "What is the decimal value of the binary number 1101₂?",
     "instruction": "Choose one answer.",
     "options": [
@@ -520,6 +539,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Algorithms",
+    "difficulty": "STANDARD",
     "prompt": "In the worst case, how does the running time of a linear search grow with the number n of items?",
     "instruction": "Choose one answer.",
     "options": [
@@ -547,6 +567,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Pakistan constitutional history",
+    "difficulty": "EASY",
     "prompt": "Which constitutional amendment in Pakistan is widely associated with transferring a range of legislative powers to the provinces?",
     "instruction": "Choose one answer.",
     "options": [
@@ -574,6 +595,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Economics",
+    "difficulty": "STANDARD",
     "prompt": "When the general price level rises while nominal income remains unchanged, what happens to a person's purchasing power?",
     "instruction": "Choose one answer.",
     "options": [
@@ -601,6 +623,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "International relations",
+    "difficulty": "STANDARD",
     "prompt": "In international relations, state sovereignty most directly refers to a state's:",
     "instruction": "Choose one answer.",
     "options": [
@@ -628,6 +651,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Climate policy",
+    "difficulty": "EASY",
     "prompt": "Which policy is most directly an example of climate-change mitigation?",
     "instruction": "Choose one answer.",
     "options": [
@@ -655,6 +679,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Public administration",
+    "difficulty": "STANDARD",
     "prompt": "A recruitment system selects candidates through published criteria and assessed qualifications. Which public-administration principle does this most directly support?",
     "instruction": "Choose one answer.",
     "options": [
@@ -682,6 +707,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Critical reasoning",
+    "difficulty": "STANDARD",
     "prompt": "A city introduces a bus service and traffic congestion falls during the same month. Which additional information would best help assess whether the bus service caused the reduction?",
     "instruction": "Choose one answer.",
     "options": [
@@ -709,6 +735,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Pakistan geography",
+    "difficulty": "EASY",
     "prompt": "Which mountain range forms a major part of Pakistan's northern high-mountain region?",
     "instruction": "Choose one answer.",
     "options": [
@@ -736,6 +763,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "English usage",
+    "difficulty": "EASY",
     "prompt": "Choose the sentence with correct punctuation.",
     "instruction": "Choose one answer.",
     "options": [
@@ -763,6 +791,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Political theory",
+    "difficulty": "STANDARD",
     "prompt": "The principle of separation of powers is primarily intended to:",
     "instruction": "Choose one answer.",
     "options": [
@@ -790,6 +819,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Data interpretation",
+    "difficulty": "STANDARD",
     "prompt": "A department's budget rises from Rs. 80 million to Rs. 100 million. What is the percentage increase?",
     "instruction": "Choose one answer.",
     "options": [
@@ -817,6 +847,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Cell division",
+    "difficulty": "EASY",
     "prompt": "During which stage of mitosis do chromosomes line up at the cell's equatorial plane?",
     "instruction": "Choose one answer.",
     "options": [
@@ -844,6 +875,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Genetics",
+    "difficulty": "STANDARD",
     "prompt": "Two heterozygous parents (Aa × Aa) have a child. Assuming complete dominance and independent segregation, what is the probability of the aa genotype?",
     "instruction": "Choose one answer.",
     "options": [
@@ -871,6 +903,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Human circulation",
+    "difficulty": "EASY",
     "prompt": "Which blood vessels carry oxygenated blood from the lungs to the left atrium of the heart?",
     "instruction": "Choose one answer.",
     "options": [
@@ -898,6 +931,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Enzymes",
+    "difficulty": "STANDARD",
     "prompt": "Why can an enzyme lose activity when exposed to a temperature far above its optimum?",
     "instruction": "Choose one answer.",
     "options": [
@@ -925,6 +959,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Acids and bases",
+    "difficulty": "STANDARD",
     "prompt": "Equal volumes of 0.1 mol dm⁻³ hydrochloric acid and 0.1 mol dm⁻³ sodium hydroxide are mixed at 25°C. What is the approximate pH of the resulting solution?",
     "instruction": "Choose one answer.",
     "options": [
@@ -952,6 +987,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Periodic properties",
+    "difficulty": "STANDARD",
     "prompt": "Why does atomic radius generally decrease across Period 3 from sodium to chlorine?",
     "instruction": "Choose one answer.",
     "options": [
@@ -979,6 +1015,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Electric circuits",
+    "difficulty": "STANDARD",
     "prompt": "Two resistors of 3 Ω and 6 Ω are connected in series. What is their equivalent resistance?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1006,6 +1043,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Lens power",
+    "difficulty": "STANDARD",
     "prompt": "A converging lens has a focal length of 0.25 m. What is its power?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1033,6 +1071,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Plant transport",
+    "difficulty": "EASY",
     "prompt": "Which tissue transports water and dissolved mineral ions from plant roots towards the leaves?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1060,6 +1099,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Energy transfer",
+    "difficulty": "STANDARD",
     "prompt": "If producers store 1,000 kJ of energy and approximately 10% is transferred to primary consumers, how much energy reaches the primary consumers?",
     "instruction": "Choose one answer.",
     "options": [
