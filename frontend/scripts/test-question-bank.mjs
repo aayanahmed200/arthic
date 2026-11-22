@@ -95,7 +95,7 @@ try {
     };
     await questionsHandler({ method: "GET", headers: {} }, feedRes);
     assert.equal(feedRes.code, 200);
-    assert.equal(feedRes.body.dataVersion, "arthic-original-four-track-v22-1160");
+    assert.equal(feedRes.body.dataVersion, "arthic-original-four-track-v23-1160");
     assert.equal(feedRes.body.questions.length, 1160);
     assert.ok(feedRes.body.questions.every((question) =>
       !("answer" in question) && !("answerKey" in question) &&
