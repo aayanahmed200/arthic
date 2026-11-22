@@ -67,6 +67,8 @@ try {
   const expectedDuplicateV18 = [
     "v18-css-011",
     "v18-css-018",
+    "v18-lcat-002",
+    "v18-net-001",
     "v18-mdcat-004",
     "v18-mdcat-019",
     "v18-mdcat-021",
