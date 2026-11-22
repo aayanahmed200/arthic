@@ -106,7 +106,7 @@ export const V22_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "Which sentence correctly attaches the introductory phrase “After reviewing the draft” to the person who performed the review?",
     ["After reviewing the draft, the budget was approved by the committee.", "After reviewing the draft, the committee approved the budget.", "The budget, after reviewing the draft, was approved by the committee.", "The draft was approved after reviewing the budget by the committee."]),
   question("v22-css-008", "CSS", "ANALYTICAL", "Ordering under positional constraints", "CHALLENGING",
-    "Five speakers—J, K, L, M and N—each present once. N speaks first, L speaks last, and K speaks immediately after M. Which pair of speakers must occupy the third and fourth positions, in that order?",
+    "Five speakers—J, K, L, M and N—each present once. N speaks first, L speaks last, K speaks immediately after M, and J speaks before M. Which pair of speakers must occupy the third and fourth positions, in that order?",
     ["J then M", "K then J", "M then K", "J then K"]),
   question("v22-css-009", "CSS", "ECONOMICS", "Opportunity cost", "EASY",
     "A graduate chooses to attend a full-day training course instead of taking a paid shift. In economic terms, the wages they give up are the:",
