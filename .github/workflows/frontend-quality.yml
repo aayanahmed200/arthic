@@ -41,6 +41,9 @@ jobs:
       - name: Run the production build and all API/question-bank tests
         run: npm run build
 
+      - name: Audit question provenance, difficulty and repeated templates
+        run: npm run audit:questions
+
   dependency-audit:
     name: Dependency vulnerability audit
     runs-on: ubuntu-latest
