@@ -3072,6 +3072,7 @@ export const RETIRED_NEAR_DUPLICATE_IDS = new Set<string>([
   "net-phy-resistance-001",
   "net-more-003",
   "mdcat-more-016",
+  "v12-net-005",
 ]);
 
 const QUESTION_SOURCES: PrivateStudyQuestion[] = [
