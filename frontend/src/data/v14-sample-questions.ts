@@ -7,6 +7,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Percentages",
+    "difficulty": "STANDARD",
     "prompt": "A jacket priced at Rs. 4,000 is reduced by 15%. What is its sale price?",
     "instruction": "Choose one answer.",
     "options": [
@@ -34,6 +35,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Linear equations",
+    "difficulty": "STANDARD",
     "prompt": "If 3(2x − 1) = 21, what is the value of x?",
     "instruction": "Choose one answer.",
     "options": [
@@ -61,6 +63,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Logical deduction",
+    "difficulty": "STANDARD",
     "prompt": "All research fellows have completed a degree. Some degree holders speak French. Which conclusion must follow?",
     "instruction": "Choose one answer.",
     "options": [
@@ -88,6 +91,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Sentence completion",
+    "difficulty": "EASY",
     "prompt": "Choose the best completion: “The committee postponed the vote ___ several members requested more time to review the proposal.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -115,6 +119,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary",
+    "difficulty": "EASY",
     "prompt": "Which word is closest in meaning to “concise”?",
     "instruction": "Choose one answer.",
     "options": [
@@ -142,6 +147,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Critical reasoning",
+    "difficulty": "CHALLENGING",
     "prompt": "A college adds a weekly practice test. After two months, the average test score rises. Which additional evidence would best support the claim that the tests caused the improvement?",
     "instruction": "Choose one answer.",
     "options": [
@@ -169,6 +175,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Grammar",
+    "difficulty": "EASY",
     "prompt": "Choose the sentence with correct subject–verb agreement.",
     "instruction": "Choose one answer.",
     "options": [
@@ -196,6 +203,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Ordering",
+    "difficulty": "STANDARD",
     "prompt": "Four tasks P, Q, R and S must be completed. P is before Q, R is after Q, and S is before P. Which order is valid?",
     "instruction": "Choose one answer.",
     "options": [
@@ -223,6 +231,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Ratios",
+    "difficulty": "STANDARD",
     "prompt": "The ratio of red to blue books on a shelf is 3:5. If there are 40 books in total, how many are blue?",
     "instruction": "Choose one answer.",
     "options": [
@@ -250,6 +259,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Reading inference",
+    "difficulty": "STANDARD",
     "prompt": "A report states that public transport use rose in the city centre but fell in outer districts. Which statement is best supported?",
     "instruction": "Choose one answer.",
     "options": [
@@ -277,6 +287,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Sequences",
+    "difficulty": "STANDARD",
     "prompt": "An arithmetic sequence begins 7, 11, 15, 19, … What is its 12th term?",
     "instruction": "Choose one answer.",
     "options": [
@@ -304,6 +315,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Probability",
+    "difficulty": "STANDARD",
     "prompt": "A fair six-sided die is rolled once. What is the probability of obtaining a prime number?",
     "instruction": "Choose one answer.",
     "options": [
@@ -331,6 +343,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Momentum",
+    "difficulty": "STANDARD",
     "prompt": "A 2 kg trolley moves at 3 m/s. What is its momentum?",
     "instruction": "Choose one answer.",
     "options": [
@@ -358,6 +371,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Thermal physics",
+    "difficulty": "STANDARD",
     "prompt": "A 0.5 kg sample has a specific heat capacity of 800 J kg⁻¹ °C⁻¹. How much energy is required to raise its temperature by 10°C?",
     "instruction": "Choose one answer.",
     "options": [
@@ -385,6 +399,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Chemical bonding",
+    "difficulty": "EASY",
     "prompt": "Which type of bond forms when two atoms share a pair of electrons?",
     "instruction": "Choose one answer.",
     "options": [
@@ -412,6 +427,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Solutions",
+    "difficulty": "STANDARD",
     "prompt": "What is the concentration in mol dm⁻³ of a solution containing 0.4 mol of solute in 2 dm³ of solution?",
     "instruction": "Choose one answer.",
     "options": [
@@ -439,6 +455,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Programming logic",
+    "difficulty": "EASY",
     "prompt": "What is the value of x after these statements execute: x = 5; x = x + 3; x = 2 × x?",
     "instruction": "Choose one answer.",
     "options": [
@@ -466,6 +483,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Data representation",
+    "difficulty": "STANDARD",
     "prompt": "How many bits are required to represent 32 distinct values using a fixed-length binary code?",
     "instruction": "Choose one answer.",
     "options": [
@@ -493,6 +511,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Circular motion",
+    "difficulty": "STANDARD",
     "prompt": "An object moves in a circle of radius 2 m at a constant speed of 6 m/s. What is its centripetal acceleration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -520,6 +539,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Logarithms",
+    "difficulty": "STANDARD",
     "prompt": "If log₁₀(x) = 2.5, which expression gives x?",
     "instruction": "Choose one answer.",
     "options": [
@@ -547,6 +567,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Pakistan political system",
+    "difficulty": "STANDARD",
     "prompt": "Under Pakistan's parliamentary system, who is the head of government at the federal level?",
     "instruction": "Choose one answer.",
     "options": [
@@ -574,6 +595,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Public finance",
+    "difficulty": "STANDARD",
     "prompt": "A government budget deficit occurs when, over a given period:",
     "instruction": "Choose one answer.",
     "options": [
@@ -601,6 +623,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "International organisations",
+    "difficulty": "EASY",
     "prompt": "Which principal organ of the United Nations has primary responsibility for maintaining international peace and security?",
     "instruction": "Choose one answer.",
     "options": [
@@ -628,6 +651,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Governance",
+    "difficulty": "EASY",
     "prompt": "Which practice most directly strengthens accountability in public administration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -655,6 +679,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Environmental policy",
+    "difficulty": "EASY",
     "prompt": "Which measure is an example of adapting to the effects of climate change rather than mitigating its causes?",
     "instruction": "Choose one answer.",
     "options": [
@@ -682,6 +707,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Critical analysis",
+    "difficulty": "STANDARD",
     "prompt": "A survey finds that people who read more newspapers are more likely to vote. What is the most careful interpretation?",
     "instruction": "Choose one answer.",
     "options": [
@@ -709,6 +735,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Pakistan geography",
+    "difficulty": "EASY",
     "prompt": "Which river is the principal source of the Indus River system in Pakistan?",
     "instruction": "Choose one answer.",
     "options": [
@@ -736,6 +763,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "English comprehension",
+    "difficulty": "EASY",
     "prompt": "Choose the best summary of this statement: “A policy may be well designed, yet fail if the institutions responsible for implementing it lack resources.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -763,6 +791,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Constitutional principles",
+    "difficulty": "STANDARD",
     "prompt": "The rule of law means that:",
     "instruction": "Choose one answer.",
     "options": [
@@ -790,6 +819,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Statistics",
+    "difficulty": "STANDARD",
     "prompt": "A country's population increases from 20 million to 22 million. What is the percentage increase?",
     "instruction": "Choose one answer.",
     "options": [
@@ -817,6 +847,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Human physiology",
+    "difficulty": "EASY",
     "prompt": "Which part of the nephron is chiefly responsible for reabsorbing most of the filtered glucose, amino acids and water?",
     "instruction": "Choose one answer.",
     "options": [
@@ -844,6 +875,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Genetics",
+    "difficulty": "STANDARD",
     "prompt": "In a DNA molecule, adenine pairs with which nitrogenous base?",
     "instruction": "Choose one answer.",
     "options": [
@@ -871,6 +903,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Organic chemistry",
+    "difficulty": "EASY",
     "prompt": "Which reagent is commonly used to test for a carbon–carbon double bond in an organic compound?",
     "instruction": "Choose one answer.",
     "options": [
@@ -898,6 +931,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Chemical kinetics",
+    "difficulty": "STANDARD",
     "prompt": "For many reactions, increasing temperature increases the reaction rate mainly because:",
     "instruction": "Choose one answer.",
     "options": [
@@ -925,6 +959,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Kinematics",
+    "difficulty": "STANDARD",
     "prompt": "A ball is dropped from rest and falls freely for 2 seconds. Taking g = 10 m/s², what is its speed after 2 seconds?",
     "instruction": "Choose one answer.",
     "options": [
@@ -952,6 +987,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Electricity",
+    "difficulty": "STANDARD",
     "prompt": "A 12 V battery transfers 36 J of energy to move charge through a circuit. How much charge moves?",
     "instruction": "Choose one answer.",
     "options": [
@@ -979,6 +1015,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Human physiology",
+    "difficulty": "EASY",
     "prompt": "Which hormone lowers blood glucose concentration by promoting glucose uptake and storage?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1006,6 +1043,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Immune system",
+    "difficulty": "EASY",
     "prompt": "Which cells can differentiate into plasma cells that secrete antibodies?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1033,6 +1071,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Chemical calculations",
+    "difficulty": "STANDARD",
     "prompt": "What is the mass of 0.5 mol of carbon dioxide? (Molar mass = 44 g mol⁻¹)",
     "instruction": "Choose one answer.",
     "options": [
@@ -1060,6 +1099,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Waves",
+    "difficulty": "STANDARD",
     "prompt": "A sound wave travels at 340 m/s and has a frequency of 170 Hz. What is its wavelength?",
     "instruction": "Choose one answer.",
     "options": [
