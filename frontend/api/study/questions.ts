@@ -10,7 +10,6 @@ function normalizedSubjectCode(examCode: string, subjectCode: string): string {
     : subjectCode;
 }
 import { sql } from "../_db.js";
-import { classifyPracticeDifficulty } from "../../src/data/question-difficulty.js";
 
 function toPublicQuestion(row: Record<string, unknown>) {
   const rawOptions = typeof row.options === "string" ? JSON.parse(row.options) : row.options;
@@ -72,7 +71,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         options: question.options,
         sourceKind: question.sourceKind,
         sourceNote: question.sourceNote ?? "Original Arthic practice question; not taken from an official past paper.",
-        difficulty: question.difficulty ?? classifyPracticeDifficulty(question),
+        difficulty: question.difficulty,
         examYear: question.examYear ?? null,
         examMonth: question.examMonth ?? null,
         examSession: question.examSession ?? null,
@@ -112,7 +111,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       options: question.options,
       sourceKind: question.sourceKind,
       sourceNote: question.sourceNote ?? "Original Arthic practice question; not taken from an official past paper.",
-      difficulty: question.difficulty ?? classifyPracticeDifficulty(question),
+      difficulty: question.difficulty,
       examYear: question.examYear ?? null,
       examMonth: question.examMonth ?? null,
       examSession: question.examSession ?? null,
