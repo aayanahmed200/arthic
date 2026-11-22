@@ -141,7 +141,7 @@ const V22_ANSWERS: Record<string, { answer: string; explanation: string; takeawa
   },
   "v22-css-008": {
     answer: "C",
-    explanation: "N must be first and L must be fifth, leaving positions two through four for J and the consecutive pair M–K. The pair can occupy positions two and three, or positions three and four. In either arrangement, the third speaker is M or K, not a fixed single person. Therefore the only answer that can be guaranteed is not represented by an individual choice as worded.",
+    explanation: "N is fixed in position one and L in position five. M and K must be consecutive, with M before K. J must be before M, so J cannot be placed after the pair. The only valid order is N, J, M, K, L; therefore M and K occupy positions three and four.",
     takeaway: "Translate ordering rules into positions, then test each arrangement before making a claim about what is necessary."
   },
   "v22-css-009": {
