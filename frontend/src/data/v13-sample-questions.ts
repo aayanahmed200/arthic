@@ -259,7 +259,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Sentence meaning",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Choose the sentence that most clearly expresses contrast.",
     "instruction": "Choose one answer.",
     "options": [
@@ -315,7 +315,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Coordinate geometry",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the x-coordinate of the vertex of the parabola y = x² − 6x + 5?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1071,7 +1071,7 @@ export const V13_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Plant transport",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Which tissue transports water and dissolved mineral ions from plant roots towards the leaves?",
     "instruction": "Choose one answer.",
     "options": [
