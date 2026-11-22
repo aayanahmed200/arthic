@@ -8,11 +8,12 @@ try {
   const { parseQuestionDraft, EXAM_CODES } = await server.ssrLoadModule("/api/_question-bank-validation.ts");
   const { SAMPLE_QUESTIONS } = await server.ssrLoadModule("/api/study/_sample-content.ts");
   const { V21_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v21-sample-questions.ts");
+  const { V22_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v22-sample-questions.ts");
   const { normalizeQuestionStem } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
-  assert.equal(SAMPLE_QUESTIONS.length, 1120, "the published demo bank has 1,120 unique questions");
+  assert.equal(SAMPLE_QUESTIONS.length, 1160, "the published demo bank has 1,160 unique questions");
   for (const examCode of ["LCAT", "NET", "CSS", "MDCAT"]) {
-    assert.equal(SAMPLE_QUESTIONS.filter((question) => question.examCode === examCode).length, 280,
-      examCode + " should have 280 questions");
+    assert.equal(SAMPLE_QUESTIONS.filter((question) => question.examCode === examCode).length, 290,
+      examCode + " should have 290 questions");
   }
   assert.equal(new Set(SAMPLE_QUESTIONS.map((question) => question.id)).size, SAMPLE_QUESTIONS.length,
     "question IDs must be unique");
@@ -47,7 +48,22 @@ try {
     assert.equal(question.options.length, 4);
     assert.equal(new Set(question.options.map((option) => option.text.trim().toLowerCase())).size, 4);
   }
-  console.log("Question-bank editorial checks passed: track balance, unique stems, explicit V20/V21 difficulty, source dates and worked answers.");
+  assert.equal(V22_SAMPLE_QUESTIONS.length, 40, "V22 adds ten questions to each exam track");
+  for (const examCode of ["LCAT", "NET", "CSS", "MDCAT"]) {
+    assert.equal(V22_SAMPLE_QUESTIONS.filter((question) => question.examCode === examCode).length, 10, examCode + " V22 count");
+  }
+  for (const question of V22_SAMPLE_QUESTIONS) {
+    assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " needs an explicit difficulty");
+    assert.equal(question.sourceKind, "original-sample", question.id + " must be labelled original practice");
+    assert.equal(question.examYear ?? null, null, question.id + " must not receive an invented paper year");
+    assert.equal(question.examMonth ?? null, null, question.id + " must not receive an invented paper month");
+    assert.equal(question.options.length, 4, question.id + " must have four options");
+    assert.equal(new Set(question.options.map((option) => option.key)).size, 4, question.id + " must have unique option keys");
+    assert.equal(new Set(question.options.map((option) => option.text.trim().toLowerCase())).size, 4, question.id + " must have distinct options");
+  }
+  assert.equal(SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v22-")).length, 40,
+    "all V22 questions should survive the de-duplication pass");
+  console.log("Question-bank editorial checks passed: balanced tracks, unique stems, explicit V20/V21/V22 difficulty, provenance, dates and worked answers.");
 
   const previousQuestionFeedUrl = process.env.POSTGRES_URL;
   delete process.env.POSTGRES_URL;
@@ -61,8 +77,8 @@ try {
     };
     await questionsHandler({ method: "GET", headers: {} }, feedRes);
     assert.equal(feedRes.code, 200);
-    assert.equal(feedRes.body.dataVersion, "arthic-original-four-track-v21-1120");
-    assert.equal(feedRes.body.questions.length, 1120);
+    assert.equal(feedRes.body.dataVersion, "arthic-original-four-track-v21-1160");
+    assert.equal(feedRes.body.questions.length, 1160);
     assert.ok(feedRes.body.questions.every((question) =>
       !("answer" in question) && !("answerKey" in question) &&
       !("explanation" in question) && !("takeaway" in question)),
