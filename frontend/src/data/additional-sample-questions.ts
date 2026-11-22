@@ -567,7 +567,7 @@ export const ADDITIONAL_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Logarithms",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the value of log₂ 32?",
     "instruction": "Choose one answer.",
     "options": [
@@ -623,7 +623,7 @@ export const ADDITIONAL_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Determinants",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the determinant of the matrix [[3, 1], [2, 4]]?",
     "instruction": "Choose one answer.",
     "options": [
@@ -903,7 +903,7 @@ export const ADDITIONAL_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Electronic configuration",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the ground-state electron configuration of oxygen, which has atomic number 8?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1323,7 +1323,7 @@ export const ADDITIONAL_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Plant transport",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Which plant tissue transports water and dissolved mineral ions from the roots towards the leaves?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2163,7 +2163,7 @@ export const ADDITIONAL_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Public administration",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Which practice most directly supports transparency in public administration?",
     "instruction": "Choose one answer.",
     "options": [
