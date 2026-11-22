@@ -12,42 +12,34 @@ export interface DifficultyInput {
 }
 
 const CHALLENGING_PATTERNS = [
-  /conditional probability/,
-  /without replacement/,
-  /permutation|combination\s+(?:of|from|ways to choose|ways of selecting)/,
-  /binomial distribution/,
-  /integration by parts|partial fractions|implicit differentiation|differential equation|improper integral/,
-  /optim(?:i[sz]e|i[sz]ation)|maximum (?:value|profit|area)|minimum (?:value|cost)/,
-  /most strongly (?:supports|undermines)/,
   /which assumption (?:is|does|must|underlies)|necessary assumption|assumption underlying/,
-  /best evidence|most directly test|which additional evidence|would most strengthen|would best test/,
-  /causal claim|caused the (?:increase|improvement|change)|confounding (?:factor|variable)|alternative explanation/,
-  /compare (?:the|two|both) (?:passages|arguments|viewpoints|positions|approaches)|both authors|shared viewpoint/,
-  /two (?:independent|successive|simultaneous|consecutive) (?:events|stages|changes|conditions)/,
-  /multiple constraints|more than one condition|two constraints|three conditions/,
-  /after (?:the first|a second|two|both|the increase).{0,100}(?:then|followed by|and then)/,
-  /related rates|work energy theorem/,
-  /limiting reagent.{0,100}(?:moles?|grams?|mass|volume|amount|how many|calculate|formed)/,
+  /which additional evidence|what additional evidence|would most (?:weaken|strengthen)|best evidence to (?:test|support|assess)/,
+  /most directly test|confounding (?:factor|variable)|selection bias|alternative explanation/,
+  /causal claim|caused the (?:increase|improvement|change)|correlation.{0,55}causation/,
+  /conditional probability|probability.{0,70}without replacement|without replacement.{0,90}probability/,
+  /multiple constraints|more than one condition|two constraints|three conditions|must occupy|immediately before|immediately after/,
+  /successive percentage|successive (?:increase|decrease|change)|after .{0,90} then .{0,90}(?:increase|decrease|change|price|amount)/,
+  /integration by parts|partial fractions|implicit differentiation|differential equation|improper integral|related rates/,
   /dihybrid|pedigree analysis|genetic linkage|two loci/,
-  /sample is too small|representative sampling.{0,80}(?:bias|population|groups)/,
-  /which conclusion (?:is|follows) (?:most defensible|best supported) when/,
+  /limiting reagent.{0,100}(?:moles?|grams?|mass|volume|amount|how many|calculate|formed)/,
 ];
 
 const EASY_PATTERNS = [
   /what does .+ mean/,
   /what is (?:the )?(?:meaning|definition|name|function|role) of/,
   /define\b|definition of/,
-  /which (?:organelle|cell|phase|stage|term|element|compound|structure|gas|law|river|organ|part|process|substance|office|institution|line of longitude)/,
+  /which (?:organelle|cell|phase|stage|term|element|compound|structure|gas|river|organ|part|process|substance|office|institution|antigen|base|ion|agency|line|sea|body|enzyme|hormone|molecule|functional group)/,
   /where does .+ occur/,
   /name the|identify the (?:term|organ|organelle|process|structure)/,
   /which part of .+ (?:receives|contains|produces|secretes|binds)/,
   /during which (?:phase|stage) .+ (?:replicated|align|separate|occur)/,
   /choose the correct (?:verb|passive form|completion|transition)/,
-  /what is .{1,90}$/i,
-  /what is (?:15% of|\d+% of|the decimal value of|the next term|the median|the gradient|the period|the momentum|the power|the net force|the equivalent resistance)/,
-  /what is log(?:arithm)?[_₀-₉0-9]*(?:\([^)]*\))?\s*(?:\d+|[0-9/]+)/,
+  /which statement best describes/,
+  /what happens when .+ (?:forms|occurs|is formed)/,
+  /what is (?:15% of|\d+% of|the next term|the median|the gradient|the decimal value of|the momentum|the net force|the equivalent resistance|the area of|the perimeter of)/,
   /solve\s+\d*x\s*[+−-]\s*\d+\s*=\s*\d+/,
   /if\s+\d*x\s*[+−-]\s*\d+\s*=\s*\d+.{0,35}(?:what is x|value of x)/,
+  /what does (?:len\(|items\[\d+\]|[a-z_]\w*\[\d+\])|what value is printed by this (?:short )?code/,
   /how many (?:protons|permanent members|members|minutes|seconds|moles) (?:are|is|does|of)/,
 ];
 
@@ -58,9 +50,9 @@ const STANDARD_PATTERNS = [
   /linear equation|quadratic equation|simultaneous equation|function value|differentiation|integration/,
   /interpret|infer|predict|identify the relationship|choose the best transition/,
   /subject.?verb|punctuation|sentence revision|parallel structure|logical deduction/,
-  /apply|application|which statement best describes|which statement is most accurate/,
-  /which conclusion follows|what follows from the rule|best supported conclusion/,
+  /apply|application|which statement (?:best describes|is most accurate)|which conclusion/,
   /evaluate|compare|assess|analyse|analyze/,
+  /composite function|logarithm|determinant|vector|stoichiometry|equilibrium|work rate|weighted average/,
 ];
 
 function normalizeText(value: string): string {
@@ -73,20 +65,17 @@ function normalizeText(value: string): string {
 
 /** Stable stem key shared by the import-time de-duplicator and tests. */
 export function normalizeQuestionStem(prompt: string): string {
-  // Punctuation (including the percent sign) should not create fake stem differences.
   return normalizeText(prompt).replace(/%/g, " ").trim().replace(/\s+/g, " ");
 }
 
 /**
- * Editorial three-level rubric:
- * EASY: one fact, definition, vocabulary/grammar item or one routine step.
- * STANDARD: apply a familiar principle, interpret information or complete
- * a normal short calculation.
- * CHALLENGING: combine conditions, compare evidence, test causation,
- * optimise, or carry out a genuinely multi-stage/advanced operation.
- *
- * The wording length and number of answer choices do not affect difficulty.
- * Explicit editor-assigned levels always override these fallback heuristics.
+ * Editorial rubric:
+ * EASY is direct recall, language recognition or one routine operation.
+ * STANDARD applies a familiar rule or formula in a normal exam-style task.
+ * CHALLENGING combines evidence, conditions or stages, or uses a genuinely
+ * advanced method. Wording length and the number of answer choices do not
+ * determine the level. Authored question records should carry an explicit
+ * level; this classifier is a fallback for drafts and unlabelled imports.
  */
 export function classifyPracticeDifficulty(question: DifficultyInput): PracticeDifficulty {
   if (
@@ -101,9 +90,12 @@ export function classifyPracticeDifficulty(question: DifficultyInput): PracticeD
 
   if (CHALLENGING_PATTERNS.some((pattern) => pattern.test(text))) return "CHALLENGING";
   if (EASY_PATTERNS.some((pattern) => pattern.test(text))) return "EASY";
+  if (
+    /^(?:which|what|where|who|during which|name|choose|identify)\b/.test(prompt) &&
+    !/conclusion|inference|assumption|evidence|argument|most reasonable|most likely|best supported|strongest|follows|immediately before|immediately after|compare|evaluate|assess/.test(text) &&
+    !/\d+\s*(?:%|cm|kg|mol|m\/s|hz|v|a)|\d+\/\d+/.test(prompt)
+  ) return "EASY";
   if (STANDARD_PATTERNS.some((pattern) => pattern.test(text))) return "STANDARD";
 
-  // Unrecognised items default to standard rather than being incorrectly
-  // advertised as easy. New authored content carries an explicit level.
   return "STANDARD";
 }
