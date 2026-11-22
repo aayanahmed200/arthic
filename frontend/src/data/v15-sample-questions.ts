@@ -315,7 +315,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Trigonometry",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the value of sin 30° + cos 60°?",
     "instruction": "Choose one answer.",
     "options": [
