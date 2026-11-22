@@ -455,7 +455,7 @@ export const V14_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Programming logic",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the value of x after these statements execute: x = 5; x = x + 3; x = 2 × x?",
     "instruction": "Choose one answer.",
     "options": [
