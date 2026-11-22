@@ -36,6 +36,7 @@ try {
   const { V20_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v20-sample-questions.ts");
   const { V21_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v21-sample-questions.ts");
   const { V22_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v22-sample-questions.ts");
+  const { V23_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v23-sample-questions.ts");
   const { normalizeQuestionStem, classifyPracticeDifficulty } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
 
   const difficultyCases = [
@@ -83,7 +84,7 @@ try {
     ), omitted.id + " must be omitted only because the same stem already exists");
   }
   assert.equal(feed.res.body.questions.length, 1160);
-  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v22-1160");
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v23-1160");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
 
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
@@ -93,11 +94,14 @@ try {
   assert.deepEqual([...new Set(feed.res.body.questions.map((item) => item.examCode))].sort(), [...examCodes].sort());
 
   const expectedRetiredNearDuplicates = [
-    "v11-lcat-001", "v11-lcat-009",
+    "v11-lcat-001", "v11-lcat-009", "v11-lcat-008", "v18-lcat-002", "v10-lcat-008", "v12-lcat-003",
     "v15-net-004", "v11-net-016", "net-new-014", "v11-net-003", "v13-net-009",
+    "net-math-matrices-003", "net-extra-021", "net-new-003", "v18-net-001",
+    "net-new-017", "v15-net-008", "net-more-008", "net-new-012",
     "v11-css-002", "v10-css-014", "v15-css-005", "css-new-008",
     "v12-mdcat-007", "mdcat-more-009", "mdcat-next-011", "mdcat-new-008",
     "v13-mdcat-009", "mdcat-new-010", "mdcat-next-008", "mdcat-extra-005", "mdcat-plus-002",
+    "mdcat-extra-031", "mdcat-new-020", "v13-mdcat-008", "v16-css-010",
   ];
   assert.deepEqual([...RETIRED_NEAR_DUPLICATE_IDS].sort(), expectedRetiredNearDuplicates.sort());
   for (const retiredId of RETIRED_NEAR_DUPLICATE_IDS) {
@@ -129,6 +133,23 @@ try {
     assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " needs an explicit difficulty");
     assert.ok(question.topic && question.subjectCode, question.id + " needs a tailored subject and topic");
     assert.equal(question.sourceKind, "original-sample", question.id + " must retain original provenance");
+    assert.equal(question.examYear ?? null, null, question.id + " must not have an invented paper year");
+    assert.equal(question.examMonth ?? null, null, question.id + " must not have an invented paper month");
+  }
+
+  assert.equal(V23_SAMPLE_QUESTIONS.length, 16, "V23 should replace 16 repeated question templates");
+  const v23 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v23-"));
+  assert.equal(v23.length, 16, "all V23 replacement questions should survive");
+  const expectedV23 = { LCAT: 4, NET: 8, CSS: 1, MDCAT: 3 };
+  for (const [examCode, expectedCount] of Object.entries(expectedV23)) {
+    assert.equal(v23.filter((question) => question.examCode === examCode).length, expectedCount, examCode + " V23 count");
+  }
+  for (const question of V23_SAMPLE_QUESTIONS) {
+    const bankQuestion = SAMPLE_QUESTIONS.find((sample) => sample.id === question.id);
+    assert.ok(bankQuestion, question.id + " missing from the question bank");
+    assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " needs an explicit difficulty");
+    assert.ok(question.topic && question.subjectCode, question.id + " needs a specific topic and subject");
+    assert.equal(question.sourceKind, "original-sample", question.id + " must be original practice");
     assert.equal(question.examYear ?? null, null, question.id + " must not have an invented paper year");
     assert.equal(question.examMonth ?? null, null, question.id + " must not have an invented paper month");
   }
@@ -261,7 +282,7 @@ try {
 
   console.log("Difficulty distribution:", JSON.stringify(difficultyDistribution));
   console.log("Study question API tests passed (1,160 unique questions; 290 per exam track):");
-  console.log("- 127 unique V18 additions, 18 V19 replacements, 20 V20 additions, 40 V21 additions and 40 V22 additions are present with worked answers");
+  console.log("- 127 unique V18 additions, 18 V19 replacements, 20 V20 additions, 40 V21 additions, 40 V22 additions and 16 V23 template replacements are present with worked answers");
   console.log("- 18 near-duplicate prompts are retired and hidden from the feed and answer-check API");
   console.log("- every item has a subject, topic, four distinct options, explanation and explicit difficulty");
   console.log("- question stems are unique across all four tracks");
