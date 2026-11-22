@@ -14,7 +14,8 @@ import { classifyPracticeDifficulty } from "../../src/data/question-difficulty.j
 
 function toPublicQuestion(row: Record<string, unknown>) {
   const rawOptions = typeof row.options === "string" ? JSON.parse(row.options) : row.options;
-  if (!Array.isArray(rawOptions)) return null;
+  const difficulty = String(row.difficulty ?? "");
+  if (!Array.isArray(rawOptions) || !["EASY", "STANDARD", "CHALLENGING"].includes(difficulty)) return null;
   return {
     id: String(row.id),
     examCode: String(row.exam_code),
@@ -28,14 +29,7 @@ function toPublicQuestion(row: Record<string, unknown>) {
     }),
     sourceKind: String(row.source_kind),
     sourceNote: typeof row.source_note === "string" ? row.source_note : null,
-    difficulty: ["EASY", "STANDARD", "CHALLENGING"].includes(String(row.difficulty))
-      ? String(row.difficulty)
-      : classifyPracticeDifficulty({
-          examCode: String(row.exam_code),
-          subjectCode: String(row.subject_code),
-          topic: String(row.topic),
-          prompt: String(row.prompt),
-        }),
+    difficulty,
     examYear: Number.isInteger(Number(row.exam_year)) && row.exam_year !== null ? Number(row.exam_year) : null,
     examMonth: Number.isInteger(Number(row.exam_month)) && Number(row.exam_month) >= 1 && Number(row.exam_month) <= 12 ? Number(row.exam_month) : null,
     examSession: typeof row.exam_session === "string" ? row.exam_session : null,
