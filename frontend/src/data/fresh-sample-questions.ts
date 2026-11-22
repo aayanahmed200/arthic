@@ -119,7 +119,7 @@ export const FRESH_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Number patterns",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the next number in the sequence 3, 7, 15, 31, ...?",
     "instruction": "Choose one answer.",
     "options": [
@@ -595,7 +595,7 @@ export const FRESH_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Integration",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the indefinite integral of 2x with respect to x?",
     "instruction": "Choose one answer.",
     "options": [
@@ -623,7 +623,7 @@ export const FRESH_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Quadratic equations",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What are the roots of x² − 5x + 6 = 0?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1715,7 +1715,7 @@ export const FRESH_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Kidney function",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Where does ultrafiltration of blood begin in a nephron?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2191,7 +2191,7 @@ export const FRESH_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Sound waves",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Which property of a sound wave is most directly associated with how high or low its pitch is?",
     "instruction": "Choose one answer.",
     "options": [
