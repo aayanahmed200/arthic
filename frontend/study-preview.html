@@ -76,9 +76,9 @@
         <p class="study-intro__lede">Choose an exam board to begin. Subject and difficulty are optional filters; each session contains 10 questions.</p>
       </div>
       <div class="study-intro__count" aria-label="Question bank size">
-        <strong data-bank-total>1,120</strong>
+        <strong data-bank-total>1,160</strong>
         <span>original practice questions</span>
-        <small>280 questions in each exam track</small>
+        <small>290 questions in each exam track</small>
       </div>
     </div>
   </section>
@@ -158,12 +158,12 @@
         <div class="study-question__context"><span data-current-exam>EXAM BOARD</span><span data-current-subject>SUBJECT</span></div>
         <p class="study-question__meta-line" data-question-meta>EXAM BOARD · SUBJECT · DIFFICULTY</p>
         <p class="study-question__source" data-question-source>Original Arthic practice · not an official past-paper question</p>
-        <h3 class="study-question__text" id="question-prompt" tabindex="-1" data-question-prompt>Choose an exam board to begin a practice session.</h3>
+        <div class="study-question__text" id="question-prompt" role="heading" aria-level="3" tabindex="-1" data-question-prompt>Choose an exam board to begin a practice session.</div>
         <p class="study-question__instruction" data-question-instruction>Your selected question will be checked automatically, with an explanation after each answer.</p>
         <div class="study-options" role="group" aria-label="Answer choices" data-question-options></div>
         <div class="study-feedback" data-question-feedback role="status" aria-live="polite" hidden>
           <div class="study-feedback__result"><span class="study-feedback__icon" data-feedback-icon aria-hidden="true">…</span><div><h4 class="study-feedback__title" data-feedback-title></h4><p class="study-feedback__answer" data-feedback-answer></p></div></div>
-          <ul class="study-feedback__points" data-feedback-points></ul>
+          <div class="study-feedback__points" data-feedback-points></div>
           <p class="study-feedback__takeaway"><strong>KEY TAKEAWAY</strong><span data-feedback-takeaway></span></p>
         </div>
       </section>
@@ -184,7 +184,7 @@
           <a class="study-action study-action--secondary" href="/subjects.html">Explore another exam</a>
         </div>
       </section>
-      <p class="study-session__note" id="topic-note">Every item in this question bank is an original Arthic practice question, not copied from an official exam paper.</p>
+      <p class="study-session__note" id="topic-note">Each question is labelled by source. Original questions are marked as Arthic practice; verified past-paper questions include their paper month and year.</p>
     </section>
 
     <aside class="study-stats-rail" aria-label="Quiz statistics" data-quiz-stats hidden>
