@@ -623,7 +623,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Logarithms",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the value of log₂ 32?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1883,7 +1883,7 @@ export const V12_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Plant transport",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Which plant tissue transports water and dissolved mineral ions from roots toward the leaves?",
     "instruction": "Choose one answer.",
     "options": [
