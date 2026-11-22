@@ -91,6 +91,7 @@ try {
       normalizeQuestionStem(question.prompt) === normalizeQuestionStem(omitted.prompt)
     ), omitted.id + " must be omitted only because the same stem already exists");
   }
+  console.log("Question-bank track counts:", Object.fromEntries(["LCAT", "NET", "CSS", "MDCAT"].map((examCode) => [examCode, feed.res.body.questions.filter((item) => item.examCode === examCode).length])));
   assert.equal(feed.res.body.questions.length, 1160);
   assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v23-1160");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
