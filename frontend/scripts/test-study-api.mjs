@@ -80,7 +80,13 @@ try {
     expectedDuplicateV18.sort(),
     "only the known repeated V18 stems may be omitted",
   );
+  const intentionallyRetiredV18 = new Set(["v18-lcat-002", "v18-net-001"]);
   for (const omitted of missingV18) {
+    if (intentionallyRetiredV18.has(omitted.id)) {
+      assert.equal(RETIRED_NEAR_DUPLICATE_IDS.has(omitted.id), true,
+        omitted.id + " should be omitted only through the explicit retired-question list");
+      continue;
+    }
     assert.ok(SAMPLE_QUESTIONS.some((question) =>
       normalizeQuestionStem(question.prompt) === normalizeQuestionStem(omitted.prompt)
     ), omitted.id + " must be omitted only because the same stem already exists");
