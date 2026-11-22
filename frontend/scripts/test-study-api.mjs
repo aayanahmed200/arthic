@@ -78,7 +78,7 @@ try {
     ), omitted.id + " must be omitted only because the same stem already exists");
   }
   assert.equal(feed.res.body.questions.length, 1160);
-  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v21-1160");
+  assert.equal(feed.res.body.dataVersion, "arthic-original-four-track-v22-1160");
   assert.equal(feed.res.body.isOfficialPastPaper, false);
 
   const examCodes = ["LCAT", "NET", "CSS", "MDCAT"];
