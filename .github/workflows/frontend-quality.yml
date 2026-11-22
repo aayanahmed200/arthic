@@ -1,9 +1,6 @@
 name: Frontend quality and security
 
 on:
-  push:
-    branches:
-      - quality-pass-v21-site-wide
   pull_request:
     paths:
       - "frontend/**"

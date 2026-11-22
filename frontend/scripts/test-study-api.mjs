@@ -110,6 +110,7 @@ try {
     "v12-mdcat-007", "mdcat-more-009", "mdcat-next-011", "mdcat-new-008",
     "v13-mdcat-009", "mdcat-new-010", "mdcat-next-008", "mdcat-extra-005", "mdcat-plus-002",
     "mdcat-extra-031", "mdcat-new-020", "v13-mdcat-008", "v16-css-010",
+    "net-math-calculus-001", "net-phy-resistance-001", "net-more-003",
   ];
   assert.deepEqual([...RETIRED_NEAR_DUPLICATE_IDS].sort(), expectedRetiredNearDuplicates.sort());
   for (const retiredId of RETIRED_NEAR_DUPLICATE_IDS) {
@@ -219,8 +220,8 @@ try {
   }
 
   const v18 = SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v18-"));
-  assert.equal(v18.length, 127, "V18 additions should retain 127 unique questions after the six known repeats are omitted");
-  const expectedV18 = { LCAT: 28, NET: 41, CSS: 19, MDCAT: 39 };
+  assert.equal(v18.length, 125, "V18 additions should retain 125 unique questions after six stem duplicates and two deliberate retirements");
+  const expectedV18 = { LCAT: 27, NET: 40, CSS: 19, MDCAT: 39 };
   for (const [examCode, expectedCount] of Object.entries(expectedV18)) {
     assert.equal(v18.filter((question) => question.examCode === examCode).length, expectedCount, examCode + " V18 count");
   }
