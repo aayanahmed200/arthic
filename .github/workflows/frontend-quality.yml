@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: arthic-frontend-quality-${{ github.event.pull_request.number || github.ref }}
+  group: arthic-frontend-quality-${{ github.event_name }}-${{ github.event.pull_request.number || github.sha }}
   cancel-in-progress: true
 
 jobs:
