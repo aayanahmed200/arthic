@@ -1,9 +1,9 @@
-import { timingSafeEqual } from "node:crypto";
+import { createHash, timingSafeEqual } from "node:crypto";
 
 function safeCompare(a, b) {
-  const bufA = Buffer.from(String(a));
-  const bufB = Buffer.from(String(b));
-  if (bufA.length !== bufB.length) return false;
+  // Hash both values so timingSafeEqual always compares fixed-length buffers.
+  const bufA = createHash("sha256").update(String(a)).digest();
+  const bufB = createHash("sha256").update(String(b)).digest();
   return timingSafeEqual(bufA, bufB);
 }
 
@@ -15,7 +15,9 @@ export function requireAdmin(req, res, next) {
       .json({ error: "ADMIN_PASSWORD is not configured on the server" });
   }
 
-  const header = req.headers.authorization || "";
+  const header = typeof req.headers.authorization === "string" && req.headers.authorization.length <= 8192
+    ? req.headers.authorization
+    : "";
   const [scheme, encoded] = header.split(" ");
 
   if (scheme !== "Basic" || !encoded) {
