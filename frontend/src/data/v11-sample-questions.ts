@@ -1743,7 +1743,7 @@ export const V11_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Kidney function",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the functional unit of the kidney?",
     "instruction": "Choose one answer.",
     "options": [
