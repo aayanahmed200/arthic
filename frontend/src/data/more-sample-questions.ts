@@ -119,7 +119,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Plant transport",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Which plant tissue transports water and dissolved mineral ions from roots towards the leaves?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1155,7 +1155,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Quadratic equations",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What are the roots of x² − 5x + 6 = 0?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1239,7 +1239,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Logarithms",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is log₁₀(1000)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1519,7 +1519,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Molecular geometry",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the molecular shape of methane, CH₄?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1855,7 +1855,7 @@ export const MORE_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Renewable energy",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Which of the following is a renewable energy source?",
     "instruction": "Choose one answer.",
     "options": [
