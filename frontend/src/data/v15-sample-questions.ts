@@ -7,6 +7,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Reading inference",
+    "difficulty": "STANDARD",
     "prompt": "A school opens its library earlier during examination week. Morning attendance increases, while the total number of daily visitors changes very little. Which inference is best supported?",
     "instruction": "Choose one answer.",
     "options": [
@@ -34,6 +35,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Algebra",
+    "difficulty": "STANDARD",
     "prompt": "If 4x + 7 = 31, what is the value of x?",
     "instruction": "Choose one answer.",
     "options": [
@@ -61,6 +63,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Ratios",
+    "difficulty": "STANDARD",
     "prompt": "A drink is mixed using syrup and water in the ratio 2:7. If the mixture contains 27 litres, how much syrup is used?",
     "instruction": "Choose one answer.",
     "options": [
@@ -88,6 +91,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary",
+    "difficulty": "EASY",
     "prompt": "In the sentence “The editor asked the writer to substantiate the claim,” what does “substantiate” mean?",
     "instruction": "Choose one answer.",
     "options": [
@@ -115,6 +119,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Logical ordering",
+    "difficulty": "STANDARD",
     "prompt": "Four speakers A, B, C and D must present in order. A speaks before C, C before D, and B after D. Which order satisfies the rules?",
     "instruction": "Choose one answer.",
     "options": [
@@ -142,6 +147,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Sentence correction",
+    "difficulty": "EASY",
     "prompt": "Choose the grammatically correct sentence.",
     "instruction": "Choose one answer.",
     "options": [
@@ -169,6 +175,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Critical reasoning",
+    "difficulty": "CHALLENGING",
     "prompt": "A café introduces a student discount and later reports more student customers. Which additional information would best help determine whether the discount caused the increase?",
     "instruction": "Choose one answer.",
     "options": [
@@ -196,6 +203,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Probability",
+    "difficulty": "STANDARD",
     "prompt": "A bag contains 3 red, 2 blue and 5 green counters. What is the probability of selecting a blue counter at random?",
     "instruction": "Choose one answer.",
     "options": [
@@ -223,6 +231,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Analogy",
+    "difficulty": "STANDARD",
     "prompt": "Complete the analogy: “thermometer : temperature :: barometer : ___”.",
     "instruction": "Choose one answer.",
     "options": [
@@ -250,6 +259,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Data interpretation",
+    "difficulty": "STANDARD",
     "prompt": "A class has 18 students who travel by bus and 12 who walk. What percentage of the class travels by bus?",
     "instruction": "Choose one answer.",
     "options": [
@@ -277,6 +287,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Differentiation",
+    "difficulty": "STANDARD",
     "prompt": "If f(x) = 2x² + 3x, what is f′(3)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -304,6 +315,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Trigonometry",
+    "difficulty": "EASY",
     "prompt": "What is the value of sin 30° + cos 60°?",
     "instruction": "Choose one answer.",
     "options": [
@@ -331,6 +343,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Newton's laws",
+    "difficulty": "STANDARD",
     "prompt": "A net force of 12 N acts on a 3 kg object. What is its acceleration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -358,6 +371,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Electric power",
+    "difficulty": "STANDARD",
     "prompt": "A device operates at 12 V and draws a current of 2 A. What electrical power does it use?",
     "instruction": "Choose one answer.",
     "options": [
@@ -385,6 +399,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Chemical formulae",
+    "difficulty": "STANDARD",
     "prompt": "What is the formula of the compound formed from magnesium ions (Mg²⁺) and chloride ions (Cl⁻)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -412,6 +427,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Acid-base chemistry",
+    "difficulty": "EASY",
     "prompt": "Which pH value represents the most acidic solution?",
     "instruction": "Choose one answer.",
     "options": [
@@ -439,6 +455,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Data structures",
+    "difficulty": "STANDARD",
     "prompt": "Which data structure follows the last-in, first-out principle?",
     "instruction": "Choose one answer.",
     "options": [
@@ -466,6 +483,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Binary arithmetic",
+    "difficulty": "EASY",
     "prompt": "What is the decimal value of the binary number 10110₂?",
     "instruction": "Choose one answer.",
     "options": [
@@ -493,6 +511,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Waves",
+    "difficulty": "STANDARD",
     "prompt": "A wave completes 40 cycles in 5 seconds. What is its frequency?",
     "instruction": "Choose one answer.",
     "options": [
@@ -520,6 +539,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Coordinate geometry",
+    "difficulty": "STANDARD",
     "prompt": "What is the distance between the points (1, 2) and (4, 6)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -547,6 +567,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Constitutional structure",
+    "difficulty": "STANDARD",
     "prompt": "In Pakistan's federal system, which level of government is primarily responsible for local municipal services under provincial legal frameworks?",
     "instruction": "Choose one answer.",
     "options": [
@@ -574,6 +595,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Economics",
+    "difficulty": "STANDARD",
     "prompt": "If demand increases while supply remains unchanged, what normally happens to the equilibrium price?",
     "instruction": "Choose one answer.",
     "options": [
@@ -601,6 +623,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "International relations",
+    "difficulty": "STANDARD",
     "prompt": "The principle of non-interference in international relations most directly concerns:",
     "instruction": "Choose one answer.",
     "options": [
@@ -628,6 +651,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Public administration",
+    "difficulty": "STANDARD",
     "prompt": "A public department publishes clear service standards and reports whether it meets them. Which principle is most directly strengthened?",
     "instruction": "Choose one answer.",
     "options": [
@@ -655,6 +679,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Pakistan history",
+    "difficulty": "STANDARD",
     "prompt": "The Objectives Resolution was adopted by Pakistan's Constituent Assembly in which year?",
     "instruction": "Choose one answer.",
     "options": [
@@ -682,6 +707,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Environmental governance",
+    "difficulty": "STANDARD",
     "prompt": "An environmental impact assessment is primarily intended to:",
     "instruction": "Choose one answer.",
     "options": [
@@ -709,6 +735,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Critical reasoning",
+    "difficulty": "STANDARD",
     "prompt": "A report observes that districts with more clinics have better health outcomes. Which factor would be important to consider before concluding that clinics caused the difference?",
     "instruction": "Choose one answer.",
     "options": [
@@ -736,6 +763,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "CIVICS",
     "topic": "Governance",
+    "difficulty": "EASY",
     "prompt": "Which action best illustrates a conflict of interest in public decision-making?",
     "instruction": "Choose one answer.",
     "options": [
@@ -763,6 +791,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Statistics",
+    "difficulty": "STANDARD",
     "prompt": "The median of the values 3, 5, 8, 9 and 20 is:",
     "instruction": "Choose one answer.",
     "options": [
@@ -790,6 +819,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Pakistan geography",
+    "difficulty": "EASY",
     "prompt": "The Thar Desert is located mainly in which part of Pakistan?",
     "instruction": "Choose one answer.",
     "options": [
@@ -817,6 +847,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Cell biology",
+    "difficulty": "EASY",
     "prompt": "Which organelle modifies, sorts and packages many proteins for transport within or out of the cell?",
     "instruction": "Choose one answer.",
     "options": [
@@ -844,6 +875,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Human physiology",
+    "difficulty": "EASY",
     "prompt": "Which chamber of the heart pumps oxygenated blood into the aorta?",
     "instruction": "Choose one answer.",
     "options": [
@@ -871,6 +903,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Genetics",
+    "difficulty": "STANDARD",
     "prompt": "A DNA triplet on the coding strand is ATG. What is the corresponding mRNA codon?",
     "instruction": "Choose one answer.",
     "options": [
@@ -898,6 +931,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Enzymes",
+    "difficulty": "STANDARD",
     "prompt": "A competitive inhibitor reduces enzyme activity by:",
     "instruction": "Choose one answer.",
     "options": [
@@ -925,6 +959,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Chemical equilibrium",
+    "difficulty": "STANDARD",
     "prompt": "For the equilibrium N₂(g) + 3H₂(g) ⇌ 2NH₃(g), what happens when pressure is increased at constant temperature?",
     "instruction": "Choose one answer.",
     "options": [
@@ -952,6 +987,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Organic chemistry",
+    "difficulty": "EASY",
     "prompt": "Which functional group is present in ethanol?",
     "instruction": "Choose one answer.",
     "options": [
@@ -979,6 +1015,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Mechanics",
+    "difficulty": "STANDARD",
     "prompt": "A 2 kg object is lifted vertically through 3 m. Taking g = 10 m/s², what is the increase in gravitational potential energy?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1006,6 +1043,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Optics",
+    "difficulty": "STANDARD",
     "prompt": "An object is placed beyond 2F of a converging lens. Where is its image formed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1033,6 +1071,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Human physiology",
+    "difficulty": "EASY",
     "prompt": "Which part of the brain is primarily responsible for coordinating balance and fine movement?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1060,6 +1099,7 @@ export const V15_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Acids and bases",
+    "difficulty": "STANDARD",
     "prompt": "What is the approximate pH of a 0.001 mol dm⁻³ solution of a strong monoprotic acid, assuming complete dissociation?",
     "instruction": "Choose one answer.",
     "options": [
