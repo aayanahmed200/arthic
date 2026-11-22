@@ -7,6 +7,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Percentages",
+    "difficulty": "STANDARD",
     "prompt": "A jacket is marked at Rs. 800 and offered at a 15% discount. What is the sale price?",
     "options": [
       {
@@ -34,6 +35,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Logical ordering",
+    "difficulty": "STANDARD",
     "prompt": "Four speakers D, A, B and C must present once each. D must speak before A, A before B, and B before C. Which order satisfies all the rules?",
     "options": [
       {
@@ -61,6 +63,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Subject–verb agreement",
+    "difficulty": "EASY",
     "prompt": "Choose the grammatically correct completion: “A list of the required documents ___ on the noticeboard.”",
     "options": [
       {
@@ -88,6 +91,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary in context",
+    "difficulty": "EASY",
     "prompt": "In the sentence “The new drainage system is expected to mitigate local flooding,” what does “mitigate” mean?",
     "options": [
       {
@@ -115,6 +119,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Probability",
+    "difficulty": "STANDARD",
     "prompt": "A fair coin is tossed twice. What is the probability that both tosses land heads?",
     "options": [
       {
@@ -142,6 +147,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Evidence-based inference",
+    "difficulty": "STANDARD",
     "prompt": "After a town introduces a bus route to a university, bus use rises and the number of cars entering the campus falls. Which conclusion is best supported?",
     "options": [
       {
@@ -169,6 +175,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Number sequences",
+    "difficulty": "EASY",
     "prompt": "A sequence begins 5, 9, 13, 17. If the same pattern continues, what is the next term?",
     "options": [
       {
@@ -196,6 +203,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Deductive reasoning",
+    "difficulty": "STANDARD",
     "prompt": "All researchers working in a particular laboratory have identity cards. Mira is a researcher working in that laboratory. Which conclusion follows?",
     "options": [
       {
@@ -223,6 +231,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Analogies",
+    "difficulty": "STANDARD",
     "prompt": "Complete the analogy: “compass : direction :: thermometer : ___”.",
     "options": [
       {
@@ -250,6 +259,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Data interpretation",
+    "difficulty": "STANDARD",
     "prompt": "A class has 60 students. If 45 submitted an assignment on time, what percentage submitted it on time?",
     "options": [
       {
@@ -277,6 +287,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Differentiation",
+    "difficulty": "STANDARD",
     "prompt": "If f(x) = 3x² − 4x, what is f′(2)?",
     "options": [
       {
@@ -304,6 +315,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Trigonometry",
+    "difficulty": "EASY",
     "prompt": "What is the value of tan 45° + cos 0°?",
     "options": [
       {
@@ -331,6 +343,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Vectors",
+    "difficulty": "STANDARD",
     "prompt": "A vector has perpendicular components of 6 units and 8 units. What is its magnitude?",
     "options": [
       {
@@ -358,6 +371,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Ohm’s law",
+    "difficulty": "STANDARD",
     "prompt": "A resistor of 8 Ω is connected across a 24 V supply. What current flows through it?",
     "options": [
       {
@@ -385,6 +399,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Ionic compounds",
+    "difficulty": "STANDARD",
     "prompt": "What is the correct chemical formula for the ionic compound formed by Al³⁺ and O²⁻ ions?",
     "options": [
       {
@@ -412,6 +427,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Definite integration",
+    "difficulty": "STANDARD",
     "prompt": "Evaluate the definite integral ∫₀² 3x² dx.",
     "options": [
       {
@@ -439,6 +455,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Motion under gravity",
+    "difficulty": "STANDARD",
     "prompt": "An object is dropped from rest. Taking gravitational acceleration as 10 m/s², what is its speed after 2 seconds?",
     "options": [
       {
@@ -466,6 +483,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Independent events",
+    "difficulty": "STANDARD",
     "prompt": "Events A and B are independent, with P(A) = 0.4 and P(B) = 0.5. What is P(A and B)?",
     "options": [
       {
@@ -493,6 +511,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Binary numbers",
+    "difficulty": "EASY",
     "prompt": "What is the decimal value of the binary number 11010₂?",
     "options": [
       {
@@ -520,6 +539,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Resistors in parallel",
+    "difficulty": "STANDARD",
     "prompt": "Two resistors of 3 Ω and 6 Ω are connected in parallel. What is their equivalent resistance?",
     "options": [
       {
@@ -547,6 +567,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Constitutional development",
+    "difficulty": "EASY",
     "prompt": "Which change is associated with Pakistan’s 18th Constitutional Amendment, enacted in 2010?",
     "options": [
       {
@@ -574,6 +595,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Demand and supply",
+    "difficulty": "STANDARD",
     "prompt": "Under the law of demand, what normally happens to quantity demanded when a good’s price rises, assuming other relevant factors remain unchanged?",
     "options": [
       {
@@ -601,6 +623,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Vocabulary",
+    "difficulty": "EASY",
     "prompt": "Which word is closest in meaning to “ubiquitous”?",
     "options": [
       {
@@ -628,6 +651,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Conditional structures",
+    "difficulty": "EASY",
     "prompt": "Which sentence uses the inverted form of a past unreal conditional correctly?",
     "options": [
       {
@@ -655,6 +679,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Research methods",
+    "difficulty": "CHALLENGING",
     "prompt": "A city reports fewer traffic incidents after installing new streetlights. Which additional evidence would best help assess whether the lighting contributed to the change?",
     "options": [
       {
@@ -682,6 +707,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "International relations",
+    "difficulty": "STANDARD",
     "prompt": "In international relations, what does the concept of a balance of power generally describe?",
     "options": [
       {
@@ -709,6 +735,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Interpreting evidence",
+    "difficulty": "STANDARD",
     "prompt": "A report finds that employment and economic output both rose over three years. What is the most careful conclusion from these observations alone?",
     "options": [
       {
@@ -736,6 +763,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Federal institutions",
+    "difficulty": "EASY",
     "prompt": "Which principle is reflected in the composition of Pakistan’s Senate?",
     "options": [
       {
@@ -763,6 +791,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "GENERAL",
     "topic": "Argument analysis",
+    "difficulty": "STANDARD",
     "prompt": "A person rejects a policy proposal only because its author is young, without addressing the proposal itself. Which reasoning error is this?",
     "options": [
       {
@@ -790,6 +819,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "CSS",
     "subjectCode": "MATH",
     "topic": "Statistics",
+    "difficulty": "EASY",
     "prompt": "What is the median of the ordered values 3, 7, 8, 12 and 20?",
     "options": [
       {
@@ -817,6 +847,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Gene expression",
+    "difficulty": "EASY",
     "prompt": "During transcription in a eukaryotic cell, which enzyme synthesises an RNA strand using a DNA template?",
     "options": [
       {
@@ -844,6 +875,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Molarity",
+    "difficulty": "STANDARD",
     "prompt": "A solution contains 0.5 moles of solute in a total volume of 2.0 litres. What is its molarity?",
     "options": [
       {
@@ -871,6 +903,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Series circuits",
+    "difficulty": "STANDARD",
     "prompt": "Two resistors of 3 Ω and 6 Ω are connected in series. What is their total resistance?",
     "options": [
       {
@@ -898,6 +931,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Human circulation",
+    "difficulty": "EASY",
     "prompt": "Which blood vessel carries oxygenated blood from the left ventricle into the systemic circulation?",
     "options": [
       {
@@ -925,6 +959,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Acids and pH",
+    "difficulty": "STANDARD",
     "prompt": "Assuming complete dissociation, what is the pH of a 0.01 mol/L solution of a strong monoprotic acid?",
     "options": [
       {
@@ -952,6 +987,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Meiosis",
+    "difficulty": "EASY",
     "prompt": "During which stage of meiosis does crossing over between homologous chromosomes normally occur?",
     "options": [
       {
@@ -979,6 +1015,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Kinetic energy",
+    "difficulty": "STANDARD",
     "prompt": "What is the kinetic energy of a 2 kg object moving at 3 m/s?",
     "options": [
       {
@@ -1006,6 +1043,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Oxidation numbers",
+    "difficulty": "EASY",
     "prompt": "What is the oxidation number of sulfur in H₂SO₄?",
     "options": [
       {
@@ -1033,6 +1071,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Kidney function",
+    "difficulty": "EASY",
     "prompt": "In a nephron, which structure receives filtrate as blood is filtered across the glomerular capillaries?",
     "options": [
       {
@@ -1060,6 +1099,7 @@ export const V16_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Wave properties",
+    "difficulty": "STANDARD",
     "prompt": "A wave has a frequency of 50 Hz. What is its period?",
     "options": [
       {
