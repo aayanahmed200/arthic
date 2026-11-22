@@ -16,6 +16,7 @@ import { V19_PRIVATE_QUESTIONS } from "./_v19-content.js";
 import { V20_PRIVATE_QUESTIONS } from "./_v20-content.js";
 import { V21_PRIVATE_QUESTIONS } from "./_v21-content.js";
 import { V22_PRIVATE_QUESTIONS } from "./_v22-content.js";
+import { V23_PRIVATE_QUESTIONS } from "./_v23-content.js";
 import { normalizeQuestionStem } from "../../src/data/question-difficulty.js";
 
 export interface StudyOption { key: string; text: string; }
@@ -3050,8 +3051,23 @@ export const RETIRED_NEAR_DUPLICATE_IDS = new Set<string>([
   "mdcat-new-010",
   "mdcat-next-008",
   "mdcat-extra-005",
-  // Keep the clearer nephron-ultrafiltration item and retire its exact copy.
-  "mdcat-plus-002",
+  // Replace number-swapped drills with distinct question types while preserving track totals.
+  "net-math-matrices-003",
+  "net-extra-021",
+  "net-new-003",
+  "v18-net-001",
+  "net-new-017",
+  "v15-net-008",
+  "net-more-008",
+  "net-new-012",
+  "v11-lcat-008",
+  "v18-lcat-002",
+  "v10-lcat-008",
+  "v12-lcat-003",
+  "mdcat-extra-031",
+  "mdcat-new-020",
+  "v13-mdcat-008",
+  "v16-css-010",
 ]);
 
 const QUESTION_SOURCES: PrivateStudyQuestion[] = [
@@ -3074,6 +3090,7 @@ const QUESTION_SOURCES: PrivateStudyQuestion[] = [
   ...V20_PRIVATE_QUESTIONS,
   ...V21_PRIVATE_QUESTIONS,
   ...V22_PRIVATE_QUESTIONS,
+  ...V23_PRIVATE_QUESTIONS,
 ];
 
 const seenQuestionIds = new Set<string>();
