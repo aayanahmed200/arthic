@@ -30,7 +30,7 @@ export const NEXT_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
       }
     ],
     "answer": "C",
-    "explanation": "80 ÷ 4 × 3 = 60.",
+    "explanation": "80 ÷ 4 gives 20, which is one quarter. Multiply 20 by 3 to get three-quarters of 80: 60.",
     "takeaway": "Divide by the denominator, then multiply by the numerator.",
     "sourceKind": "original-sample"
   },
@@ -61,7 +61,7 @@ export const NEXT_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
       }
     ],
     "answer": "C",
-    "explanation": "4x = 28, so x = 7.",
+    "explanation": "Add 7 to both sides to obtain 4x = 28. Divide both sides by 4, giving x = 7.",
     "takeaway": "Use inverse operations to isolate the variable.",
     "sourceKind": "original-sample"
   },
@@ -185,7 +185,7 @@ export const NEXT_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
       }
     ],
     "answer": "C",
-    "explanation": "150 ÷ 3 = 50 km/h.",
+    "explanation": "Average speed is total distance divided by total time. Divide 150 km by 3 hours to get 50 km/h.",
     "takeaway": "Average speed is distance divided by elapsed time.",
     "sourceKind": "original-sample"
   },
@@ -619,7 +619,7 @@ export const NEXT_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
       }
     ],
     "answer": "B",
-    "explanation": "24 ÷ 3 = 8.",
+    "explanation": "One-third means splitting the total into three equal groups. Divide 24 by 3, so 8 members attend.",
     "takeaway": "One-third of a quantity is found by dividing it by three.",
     "sourceKind": "original-sample"
   },
