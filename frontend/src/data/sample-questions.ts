@@ -1010,7 +1010,7 @@ export const SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Number patterns",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the next number in the sequence 5, 9, 17, 33, …?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1964,7 +1964,7 @@ export const SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Number patterns",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the next number in the sequence 2, 6, 12, 20, 30, …?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2076,7 +2076,7 @@ export const SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Logarithms",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is log₂ 32?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2244,7 +2244,7 @@ export const SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Determinants",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the determinant of the matrix [[2, 1], [3, 4]]?",
     "instruction": "Choose one answer.",
     "options": [
