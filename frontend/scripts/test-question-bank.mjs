@@ -9,6 +9,7 @@ try {
   const { SAMPLE_QUESTIONS } = await server.ssrLoadModule("/api/study/_sample-content.ts");
   const { V21_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v21-sample-questions.ts");
   const { V22_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v22-sample-questions.ts");
+  const { V23_SAMPLE_QUESTIONS } = await server.ssrLoadModule("/src/data/v23-sample-questions.ts");
   const { normalizeQuestionStem } = await server.ssrLoadModule("/src/data/question-difficulty.ts");
   assert.equal(SAMPLE_QUESTIONS.length, 1160, "the published demo bank has 1,160 unique questions");
   for (const examCode of ["LCAT", "NET", "CSS", "MDCAT"]) {
@@ -63,7 +64,24 @@ try {
   }
   assert.equal(SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v22-")).length, 40,
     "all V22 questions should survive the de-duplication pass");
-  console.log("Question-bank editorial checks passed: balanced tracks, unique stems, explicit V20/V21/V22 difficulty, provenance, dates and worked answers.");
+  assert.equal(V23_SAMPLE_QUESTIONS.length, 16, "V23 replaces 16 repeated question templates");
+  const expectedV23 = { LCAT: 4, NET: 8, CSS: 1, MDCAT: 3 };
+  for (const [examCode, expectedCount] of Object.entries(expectedV23)) {
+    assert.equal(V23_SAMPLE_QUESTIONS.filter((question) => question.examCode === examCode).length,
+      expectedCount, examCode + " V23 replacement count");
+  }
+  for (const question of V23_SAMPLE_QUESTIONS) {
+    assert.ok(["EASY", "STANDARD", "CHALLENGING"].includes(question.difficulty), question.id + " needs an explicit difficulty");
+    assert.equal(question.sourceKind, "original-sample", question.id + " must remain original practice");
+    assert.equal(question.examYear ?? null, null, question.id + " must not have an invented year");
+    assert.equal(question.examMonth ?? null, null, question.id + " must not have an invented month");
+    assert.equal(question.options.length, 4, question.id + " must have four options");
+    assert.equal(new Set(question.options.map((option) => option.key)).size, 4, question.id + " has duplicate option keys");
+    assert.equal(new Set(question.options.map((option) => option.text.trim().toLowerCase())).size, 4, question.id + " has duplicate choices");
+  }
+  assert.equal(SAMPLE_QUESTIONS.filter((question) => question.id.startsWith("v23-")).length, 16,
+    "all V23 replacements must appear in the public bank");
+  console.log("Question-bank editorial checks passed: balanced tracks, unique stems, explicit V20/V21/V22/V23 difficulty, provenance, dates and worked answers.");
 
   const previousQuestionFeedUrl = process.env.POSTGRES_URL;
   delete process.env.POSTGRES_URL;
