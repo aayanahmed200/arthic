@@ -455,7 +455,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Trigonometry",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the value of sin 30°?",
     "instruction": "Choose one answer.",
     "options": [
@@ -511,7 +511,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Quadratic equations",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What are the roots of x² − 7x + 12 = 0?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1463,7 +1463,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Kidney function",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "Where does ultrafiltration of blood begin in a nephron?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1575,7 +1575,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Chemical equilibrium",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What happens when a catalyst is added to a reversible reaction at equilibrium?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2108,7 +2108,7 @@ export const EXPANDED_SAMPLE_QUESTIONS: StudyQuestionPrompt[] = [
     "examCode": "LCAT",
     "subjectCode": "LOGIC",
     "topic": "Number patterns",
-    "difficulty": "EASY",
+    "difficulty": "STANDARD",
     "prompt": "What is the next number in the sequence 4, 9, 14, 19, …?",
     "instruction": "Choose one answer.",
     "options": [
