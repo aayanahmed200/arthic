@@ -134,7 +134,7 @@ html body.study-preview-page .study-quiz-form__status {
 
 html body.study-preview-page .study-workspace[data-stage="practice"] {
   display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 260px) !important;
+  grid-template-columns: minmax(205px, 235px) minmax(0, 1fr) minmax(205px, 235px) !important;
   align-items: start !important;
   gap: 18px !important;
   width: min(calc(100% - 48px), 1420px) !important;
@@ -250,11 +250,11 @@ html body.study-preview-page .study-option {
 
 @media (max-width: 1120px) {
   html body.study-preview-page .study-workspace[data-stage="practice"] {
-    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-columns: minmax(190px, 220px) minmax(0, 1fr) !important;
   }
   html body.study-preview-page .study-stats-rail {
     position: static !important;
-    grid-column: auto !important;
+    grid-column: 1 / -1 !important;
     grid-template-columns: minmax(0, 1fr) !important;
     align-items: start !important;
   }
@@ -320,5 +320,77 @@ html body.study-preview-page .study-option {
   }
   html body.study-preview-page .study-session__top {
     flex-direction: column !important;
+  }
+}
+
+
+/* Keep structured question content readable and safe: all bank text is inserted
+   with textContent, never interpreted as HTML. */
+html body.study-preview-page .study-question__text {
+  width: 100% !important;
+  max-width: 76ch !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  line-height: 1.5 !important;
+}
+
+html body.study-preview-page .study-question__text > p {
+  margin: 0 0 1rem !important;
+  white-space: pre-line !important;
+}
+
+html body.study-preview-page .study-question__text > p:last-child {
+  margin-bottom: 0 !important;
+}
+
+html body.study-preview-page .study-question__text pre {
+  max-width: 100% !important;
+  margin: 1rem 0 0 !important;
+  padding: 16px 18px !important;
+  overflow-x: auto !important;
+  border: 1px solid rgba(40, 77, 49, .16) !important;
+  border-radius: 10px !important;
+  background: #f0f2e9 !important;
+  color: #243f2d !important;
+  white-space: pre !important;
+  font: 500 13px/1.75 ui-monospace, SFMono-Regular, Consolas, monospace !important;
+  letter-spacing: 0 !important;
+}
+
+html body.study-preview-page .study-question__text pre code {
+  color: inherit !important;
+  font: inherit !important;
+}
+
+html body.study-preview-page .study-feedback__points {
+  display: grid !important;
+  gap: 11px !important;
+  margin: 14px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  color: #425c46 !important;
+  font: 400 13px/1.75 "Poppins", sans-serif !important;
+}
+
+html body.study-preview-page .study-feedback__points > p {
+  margin: 0 !important;
+  white-space: pre-line !important;
+}
+
+@media (max-width: 1120px) {
+  html body.study-preview-page .study-workspace[data-stage="practice"] {
+    grid-template-columns: minmax(190px, 220px) minmax(0, 1fr) !important;
+  }
+  html body.study-preview-page .study-stats-rail {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.study-preview-page .study-workspace[data-stage="practice"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  html body.study-preview-page .study-stats-rail {
+    grid-column: 1 !important;
   }
 }
