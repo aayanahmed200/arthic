@@ -8,6 +8,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Percentage change",
+    "difficulty": "STANDARD",
     "prompt": "A book costs Rs. 320. A shop offers a 15% discount. What is the sale price?",
     "instruction": "Choose one answer.",
     "options": [
@@ -38,6 +39,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Linear equations",
+    "difficulty": "STANDARD",
     "prompt": "If x/3 + 5 = 11, what is the value of x?",
     "instruction": "Choose one answer.",
     "options": [
@@ -68,6 +70,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Ratios",
+    "difficulty": "STANDARD",
     "prompt": "The ratio of the number of fiction books to non-fiction books is 2:3. If there are 40 books in total, how many are non-fiction?",
     "instruction": "Choose one answer.",
     "options": [
@@ -98,6 +101,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Mean",
+    "difficulty": "STANDARD",
     "prompt": "A learner scores 11, 13, 14 and 18 on four quizzes. What is the mean score?",
     "instruction": "Choose one answer.",
     "options": [
@@ -128,6 +132,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Number patterns",
+    "difficulty": "STANDARD",
     "prompt": "What is the next number in the sequence 3, 7, 15, 31, ...?",
     "instruction": "Choose one answer.",
     "options": [
@@ -158,6 +163,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary in context",
+    "difficulty": "EASY",
     "prompt": "In the sentence “The new safety measures are intended to mitigate risk,” what does “mitigate” mean?",
     "instruction": "Choose one answer.",
     "options": [
@@ -188,6 +194,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary in context",
+    "difficulty": "EASY",
     "prompt": "A reviewer describes a proposal as “viable”. What does this most nearly mean?",
     "instruction": "Choose one answer.",
     "options": [
@@ -218,6 +225,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Reading inference",
+    "difficulty": "STANDARD",
     "prompt": "A library extends its opening hours during examinations. Attendance rises, but no information about grades is collected. Which conclusion is best supported?",
     "instruction": "Choose one answer.",
     "options": [
@@ -248,6 +256,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Analogies",
+    "difficulty": "STANDARD",
     "prompt": "Complete the relationship: “key : lock :: password : ___”.",
     "instruction": "Choose one answer.",
     "options": [
@@ -278,6 +287,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "ANALYTICAL",
     "topic": "Deductive reasoning",
+    "difficulty": "STANDARD",
     "prompt": "All trained archivists catalogue records. Mina is a trained archivist. What must follow?",
     "instruction": "Choose one answer.",
     "options": [
@@ -308,6 +318,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "ANALYTICAL",
     "topic": "Conditional reasoning",
+    "difficulty": "STANDARD",
     "prompt": "A policy is judged effective only if attendance rises. Attendance did not rise. What follows from these statements?",
     "instruction": "Choose one answer.",
     "options": [
@@ -338,6 +349,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "ANALYTICAL",
     "topic": "Argument evaluation",
+    "difficulty": "CHALLENGING",
     "prompt": "A school claims that a new timetable improved punctuality because fewer students arrived late in one week. Which detail would most strengthen the claim?",
     "instruction": "Choose one answer.",
     "options": [
@@ -368,6 +380,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "ANALYTICAL",
     "topic": "Sampling bias",
+    "difficulty": "STANDARD",
     "prompt": "A survey about all university students is conducted only among people in one engineering lecture. What is the main concern?",
     "instruction": "Choose one answer.",
     "options": [
@@ -398,6 +411,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Data interpretation",
+    "difficulty": "STANDARD",
     "prompt": "A club records 40 visitors in Week 1 and 45 visitors in Week 3. By what percentage did visitors increase from Week 1 to Week 3?",
     "instruction": "Choose one answer.",
     "options": [
@@ -428,6 +442,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Probability",
+    "difficulty": "STANDARD",
     "prompt": "A fair six-sided die is rolled once. What is the probability of getting an even number?",
     "instruction": "Choose one answer.",
     "options": [
@@ -458,6 +473,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Geometry",
+    "difficulty": "STANDARD",
     "prompt": "A right-angled triangle has perpendicular sides of 5 cm and 12 cm. What is its area?",
     "instruction": "Choose one answer.",
     "options": [
@@ -488,6 +504,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "MATH",
     "topic": "Simple interest",
+    "difficulty": "STANDARD",
     "prompt": "A deposit of Rs. 5,000 earns simple interest at 4% per year for two years. How much interest is earned?",
     "instruction": "Choose one answer.",
     "options": [
@@ -518,6 +535,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "VERBAL",
     "topic": "Vocabulary in context",
+    "difficulty": "STANDARD",
     "prompt": "A report is described as “concise”. Which quality does that suggest?",
     "instruction": "Choose one answer.",
     "options": [
@@ -548,6 +566,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "ENGLISH",
     "topic": "Punctuation",
+    "difficulty": "EASY",
     "prompt": "Which sentence uses punctuation correctly?",
     "instruction": "Choose one answer.",
     "options": [
@@ -578,6 +597,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "LCAT",
     "subjectCode": "ANALYTICAL",
     "topic": "Necessary conditions",
+    "difficulty": "STANDARD",
     "prompt": "A trip proceeds only if at least one booking is confirmed. The trip proceeded. What must be true?",
     "instruction": "Choose one answer.",
     "options": [
@@ -608,6 +628,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Differentiation",
+    "difficulty": "STANDARD",
     "prompt": "If f(x) = 3x², what is f′(2)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -638,6 +659,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Integration",
+    "difficulty": "STANDARD",
     "prompt": "What is the indefinite integral of 2x with respect to x?",
     "instruction": "Choose one answer.",
     "options": [
@@ -668,6 +690,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Quadratic equations",
+    "difficulty": "STANDARD",
     "prompt": "What are the roots of x² − 5x + 6 = 0?",
     "instruction": "Choose one answer.",
     "options": [
@@ -698,6 +721,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Trigonometry",
+    "difficulty": "EASY",
     "prompt": "What is the exact value of sin 30°?",
     "instruction": "Choose one answer.",
     "options": [
@@ -728,6 +752,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Arithmetic sequences",
+    "difficulty": "STANDARD",
     "prompt": "An arithmetic sequence begins 5, 9, 13, 17, ... What is its 8th term?",
     "instruction": "Choose one answer.",
     "options": [
@@ -758,6 +783,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Vectors",
+    "difficulty": "STANDARD",
     "prompt": "What is the dot product of vectors (2, 1) and (3, 4)?",
     "instruction": "Choose one answer.",
     "options": [
@@ -788,6 +814,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "MATH",
     "topic": "Probability",
+    "difficulty": "STANDARD",
     "prompt": "A box contains 2 red balls and 3 blue balls. One ball is selected at random. What is the probability that it is not red?",
     "instruction": "Choose one answer.",
     "options": [
@@ -818,6 +845,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Kinematics",
+    "difficulty": "STANDARD",
     "prompt": "A vehicle starts from rest and accelerates uniformly at 3 m/s² for 4 seconds. What is its final speed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -848,6 +876,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Newton’s laws",
+    "difficulty": "STANDARD",
     "prompt": "A net force of 15 N acts on a 5 kg object. What is its acceleration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -878,6 +907,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Ohm’s law",
+    "difficulty": "STANDARD",
     "prompt": "A 12 V potential difference is applied across a 6 Ω resistor. What current flows?",
     "instruction": "Choose one answer.",
     "options": [
@@ -908,6 +938,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Series circuits",
+    "difficulty": "STANDARD",
     "prompt": "Two resistors of 3 Ω and 6 Ω are connected in series. What is their equivalent resistance?",
     "instruction": "Choose one answer.",
     "options": [
@@ -938,6 +969,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Waves",
+    "difficulty": "STANDARD",
     "prompt": "A wave travels at 340 m/s and has a wavelength of 2 m. What is its frequency?",
     "instruction": "Choose one answer.",
     "options": [
@@ -968,6 +1000,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Geometrical optics",
+    "difficulty": "STANDARD",
     "prompt": "An object is placed at twice the focal length of a converging lens. Where is the image formed?",
     "instruction": "Choose one answer.",
     "options": [
@@ -998,6 +1031,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "PHY",
     "topic": "Electric current",
+    "difficulty": "STANDARD",
     "prompt": "A charge of 2 coulombs passes a point in a circuit in 4 seconds. What is the current?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1028,6 +1062,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Molarity",
+    "difficulty": "STANDARD",
     "prompt": "A solution contains 0.5 mol of solute in a total volume of 2 dm³. What is its molarity?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1058,6 +1093,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Atomic structure",
+    "difficulty": "EASY",
     "prompt": "What does the atomic number of an element represent?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1088,6 +1124,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Chemical bonding",
+    "difficulty": "EASY",
     "prompt": "Which statement best describes a covalent bond?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1118,6 +1155,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "CHEM",
     "topic": "Periodic trends",
+    "difficulty": "EASY",
     "prompt": "What generally happens to atomic radius as you move from left to right across a period?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1148,6 +1186,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "CS",
     "topic": "Binary numbers",
+    "difficulty": "EASY",
     "prompt": "What is the decimal value of the binary number 1010₂?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1178,6 +1217,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "NET",
     "subjectCode": "ENGLISH",
     "topic": "Passive voice",
+    "difficulty": "EASY",
     "prompt": "Choose the correct passive form of “The researchers analysed the samples.”",
     "instruction": "Choose one answer.",
     "options": [
@@ -1208,6 +1248,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Constitutional history",
+    "difficulty": "STANDARD",
     "prompt": "On which date did Pakistan’s 1973 Constitution come into force?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1238,6 +1279,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Federalism",
+    "difficulty": "EASY",
     "prompt": "Which statement best describes a federal system of government?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1268,6 +1310,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "PAKISTAN",
     "topic": "Parliament",
+    "difficulty": "EASY",
     "prompt": "Which chamber of Pakistan’s Parliament is designed to provide equal representation to the provinces?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1298,6 +1341,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "GOVERNANCE",
     "topic": "Rule of law",
+    "difficulty": "EASY",
     "prompt": "What is the central principle of the rule of law?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1328,6 +1372,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "GOVERNANCE",
     "topic": "Transparency",
+    "difficulty": "EASY",
     "prompt": "Which measure most directly improves transparency in public administration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1358,6 +1403,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Inflation",
+    "difficulty": "EASY",
     "prompt": "What does inflation describe?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1388,6 +1434,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Gross domestic product",
+    "difficulty": "EASY",
     "prompt": "Which activity is included in a country’s gross domestic product for a given period?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1418,6 +1465,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Opportunity cost",
+    "difficulty": "STANDARD",
     "prompt": "A government uses a limited budget to build a hospital instead of a road. What is the opportunity cost of that decision?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1448,6 +1496,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Externalities",
+    "difficulty": "STANDARD",
     "prompt": "A factory pollutes a river, creating cleanup costs for nearby communities that are not reflected in the product price. This is an example of:",
     "instruction": "Choose one answer.",
     "options": [
@@ -1478,6 +1527,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "ENVIRONMENT",
     "topic": "Sustainable development",
+    "difficulty": "EASY",
     "prompt": "Which description best captures sustainable development?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1508,6 +1558,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "GEOGRAPHY",
     "topic": "Latitude",
+    "difficulty": "STANDARD",
     "prompt": "Lines of latitude run in which general direction on a map?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1538,6 +1589,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "United Nations",
+    "difficulty": "EASY",
     "prompt": "Which organ of the United Nations includes all UN member states, with each member having one vote?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1568,6 +1620,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "UN Security Council",
+    "difficulty": "EASY",
     "prompt": "How many permanent members are there on the UN Security Council?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1598,6 +1651,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "INTERNATIONAL",
     "topic": "Development institutions",
+    "difficulty": "EASY",
     "prompt": "Which institution is principally associated with long-term development financing and poverty reduction?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1628,6 +1682,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Balance of trade",
+    "difficulty": "STANDARD",
     "prompt": "A country exports goods worth $80 billion and imports goods worth $95 billion. What is its merchandise trade balance?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1658,6 +1713,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "ECONOMICS",
     "topic": "Monetary policy",
+    "difficulty": "EASY",
     "prompt": "Which institution normally sets a country’s policy interest rate as part of monetary policy?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1688,6 +1744,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "GOVERNANCE",
     "topic": "Decentralisation",
+    "difficulty": "EASY",
     "prompt": "What is a common rationale for decentralising public services?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1718,6 +1775,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "ANALYTICAL",
     "topic": "Representative sampling",
+    "difficulty": "STANDARD",
     "prompt": "A researcher wants to study opinions across urban and rural households. Which sampling approach is most suitable for ensuring both groups are represented?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1748,6 +1806,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "MATH",
     "topic": "Median",
+    "difficulty": "EASY",
     "prompt": "What is the median of the ordered values 3, 4, 8, 9 and 14?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1778,6 +1837,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "CSS",
     "subjectCode": "ENGLISH",
     "topic": "Essay structure",
+    "difficulty": "STANDARD",
     "prompt": "What is the main function of a thesis statement in an argumentative essay?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1808,6 +1868,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Meiosis",
+    "difficulty": "EASY",
     "prompt": "During which stage of meiosis does crossing over normally occur?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1838,6 +1899,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Kidney function",
+    "difficulty": "STANDARD",
     "prompt": "Where does ultrafiltration of blood begin in a nephron?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1868,6 +1930,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Hormonal regulation",
+    "difficulty": "EASY",
     "prompt": "Which hormone is released by pancreatic beta cells and lowers blood glucose concentration?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1898,6 +1961,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Photosynthesis",
+    "difficulty": "EASY",
     "prompt": "Where does the Calvin cycle take place in a chloroplast?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1928,6 +1992,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Protein synthesis",
+    "difficulty": "EASY",
     "prompt": "During translation, which molecule carries an amino acid and pairs its anticodon with an mRNA codon?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1958,6 +2023,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Nervous system",
+    "difficulty": "EASY",
     "prompt": "Which substance is released from a presynaptic neuron to transmit a chemical signal across a synapse?",
     "instruction": "Choose one answer.",
     "options": [
@@ -1988,6 +2054,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Circulatory system",
+    "difficulty": "EASY",
     "prompt": "Which blood vessels carry blood away from the heart?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2018,6 +2085,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Osmosis",
+    "difficulty": "EASY",
     "prompt": "What is osmosis?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2048,6 +2116,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Water balance",
+    "difficulty": "EASY",
     "prompt": "What is a principal effect of antidiuretic hormone (ADH) on the kidneys?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2078,6 +2147,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "BIO",
     "topic": "Enzymes",
+    "difficulty": "STANDARD",
     "prompt": "An enzyme is heated well above its optimum temperature. Why does its activity usually decrease sharply?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2108,6 +2178,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Molar mass",
+    "difficulty": "EASY",
     "prompt": "What is the approximate molar mass of calcium carbonate, CaCO₃? (Ca = 40, C = 12, O = 16)",
     "instruction": "Choose one answer.",
     "options": [
@@ -2138,6 +2209,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Balancing equations",
+    "difficulty": "EASY",
     "prompt": "Which equation correctly represents the balanced reaction between hydrogen and oxygen to form water?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2168,6 +2240,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Gas laws",
+    "difficulty": "STANDARD",
     "prompt": "For a fixed amount of ideal gas at constant temperature, what happens to pressure if volume is halved?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2198,6 +2271,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Catalysts",
+    "difficulty": "STANDARD",
     "prompt": "How does a catalyst increase the rate of a chemical reaction?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2228,6 +2302,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "CHEM",
     "topic": "Organic chemistry",
+    "difficulty": "EASY",
     "prompt": "Which functional group is characteristic of an ester?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2258,6 +2333,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Work and energy",
+    "difficulty": "STANDARD",
     "prompt": "A constant force of 10 N moves an object 4 m in the direction of the force. How much work is done?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2288,6 +2364,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Electric circuits",
+    "difficulty": "STANDARD",
     "prompt": "A 4 Ω resistor is connected across a 12 V battery. What is the current through it?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2318,6 +2395,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Momentum",
+    "difficulty": "STANDARD",
     "prompt": "A 2 kg trolley moves at 5 m/s. What is its momentum?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2348,6 +2426,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Sound waves",
+    "difficulty": "STANDARD",
     "prompt": "Which property of a sound wave is most directly associated with how high or low its pitch is?",
     "instruction": "Choose one answer.",
     "options": [
@@ -2378,6 +2457,7 @@ export const FRESH_PRIVATE_QUESTIONS: PrivateStudyQuestion[] = [
     "examCode": "MDCAT",
     "subjectCode": "PHY",
     "topic": "Mirrors",
+    "difficulty": "EASY",
     "prompt": "What type of image does a convex mirror form for a real object placed in front of it?",
     "instruction": "Choose one answer.",
     "options": [
