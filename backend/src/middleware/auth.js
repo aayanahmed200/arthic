@@ -18,7 +18,7 @@ export function requireAdmin(req, res, next) {
   const header = typeof req.headers.authorization === "string" && req.headers.authorization.length <= 8192
     ? req.headers.authorization
     : "";
-  const match = /^Basic\\s+([A-Za-z0-9+/]+={0,2})$/i.exec(header.trim());
+  const match = /^Basic\s+([A-Za-z0-9+/]+={0,2})$/i.exec(header.trim());
   if (!match || match[1].length % 4 !== 0) {
     res.set("WWW-Authenticate", 'Basic realm="arthic admin"');
     return res.status(401).json({ error: "admin authentication required" });
