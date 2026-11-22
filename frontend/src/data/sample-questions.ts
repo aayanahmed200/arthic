@@ -12,7 +12,7 @@ export interface StudyQuestionPrompt {
   options: StudyOption[];
   sourceKind: "original-sample" | "licensed" | "public-domain" | "past-paper";
   /** Editorial level based on the reasoning and operations required by this item. */
-  difficulty?: "EASY" | "STANDARD" | "CHALLENGING";
+  difficulty: "EASY" | "STANDARD" | "CHALLENGING";
   /** Source provenance shown to students. Original items are never given a paper date. */
   sourceNote?: string;
   /** Populated only when sourced from a verifiable past paper. */
