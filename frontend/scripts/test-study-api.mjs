@@ -44,9 +44,14 @@ try {
     [{ topic: "Specific heat capacity", prompt: "How much heat is needed to raise the temperature of 0.5 kg of water by 10°C?" }, "STANDARD"],
     [{ topic: "Probability without replacement", prompt: "A bag contains 3 red counters and 2 blue counters. Two counters are selected without replacement. What is the probability that both are red?" }, "CHALLENGING"],
     [{ topic: "Evaluating evidence", prompt: "Which additional evidence would best test whether the workshops caused the increase in scores?" }, "CHALLENGING"],
-    [{ topic: "Constitutional structure", prompt: "Which combination makes up the Parliament under Pakistan's parliamentary system?" }, "STANDARD"],
+    [{ topic: "Constitutional structure", prompt: "Which combination makes up the Parliament under Pakistan's parliamentary system?" }, "EASY"],
     [{ topic: "Stoichiometry", prompt: "What does the limiting reagent determine in a chemical reaction?" }, "STANDARD"],
     [{ topic: "Basic biology", prompt: "What is osmosis?" }, "EASY"],
+    [{ topic: "World geography", prompt: "Which sea does the Indus River flow into?" }, "EASY"],
+    [{ topic: "Determinants", prompt: "What is the determinant of the matrix [[2, 1], [3, 4]]?" }, "STANDARD"],
+    [{ topic: "Successive percentages", prompt: "A price rises by 20% and then falls by 20% of the new price. What is the final price?" }, "CHALLENGING"],
+    [{ topic: "Ordering", prompt: "Research must happen before drafting, drafting before editing, and editing before publishing. Which task is immediately before publishing?" }, "STANDARD"],
+    [{ topic: "Evaluating a causal claim", prompt: "A school reports higher scores after a new workshop. Which comparison would best test whether the workshop caused the improvement?" }, "CHALLENGING"],
   ];
   for (const [question, expected] of difficultyCases) {
     assert.equal(classifyPracticeDifficulty(question), expected,
