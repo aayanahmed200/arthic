@@ -2,6 +2,8 @@
 
 [![TypeScript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Vite](https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/) [![Vercel](https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/) [![PostgreSQL](https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/) [![Node.js](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/) [![Express](https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 
+**Live product:** [arthic.tech](https://arthic.tech)
+
 Arthic is an exam-preparation platform for Pakistani entrance tests, bringing study resources and planning tools into one place.
 
 ## Overview
@@ -17,6 +19,12 @@ The platform is organised around topic-based past papers, personalised study pla
 ## Technology
 
 TypeScript, Vite, hand-written CSS, Vercel serverless functions, PostgreSQL, and an optional Express/SQLite backend.
+
+## Repository contents
+
+- `frontend/` - the Vite application that is deployed: pages, components, styles and copy.
+- `backend/` - the optional standalone Express and SQLite API, documented in `backend/README.md`.
+- `DEPLOYMENT.md` - how the deployed frontend and either backend are set up.
 
 ## Run locally
 
