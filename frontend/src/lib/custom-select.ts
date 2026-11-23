@@ -54,7 +54,7 @@ function enhanceSelect(select: HTMLSelectElement): void {
   listbox.className = "custom-select__listbox";
   listbox.id = `${trigger.id}-listbox`;
   listbox.setAttribute("role", "listbox");
-  listbox.setAttribute("aria-label", select.getAttribute("aria-label") || "Choose an option");
+  listbox.setAttribute("aria-labelledby", trigger.id);
   listbox.hidden = true;
   trigger.setAttribute("aria-controls", listbox.id);
 
