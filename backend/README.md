@@ -1,21 +1,38 @@
 # Arthic Backend
 
-An optional self-hosted Express API using Node.js and SQLite. It is separate from the deployed Vercel/Postgres API; choose one backend for a deployment.
+> An optional self-hosted Express and SQLite API for Arthic, used instead of the deployed Vercel/PostgreSQL API.
+
+[![Node.js](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/) [![Express](https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/) [![SQLite](https://img.shields.io/badge/sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://sqlite.org/)
 
 ## Overview
 
-The backend provides journal and subscription endpoints for a self-hosted Arthic deployment. Data is stored in a local SQLite database, separately from the deployed Vercel/Postgres API. The `/admin` panel manages journal entries and subscribers using the same Basic-auth credentials as the API.
+The backend provides journal and subscription endpoints for a self-hosted Arthic deployment, storing data in a local SQLite file separately from the deployed Vercel/PostgreSQL API. The `/admin` panel manages journal entries and subscribers using the same Basic-auth credentials as the API.
 
-## Highlights
+It is independent of the frontend's serverless API, so a deployment uses one backend architecture or the other, never both.
+
+## Key features
 
 - JSON API for journal entries and subscriptions.
 - Basic-auth protection for admin endpoints.
-- Starter journal data can be seeded from the command line.
-- SQLite database files are kept out of version control.
+- Starter journal data that can be seeded from the command line.
+- Health endpoint for uptime checks.
+- CORS origin restricted to one configured frontend.
+- SQLite database files kept out of version control.
 
-## Technology
+## Implementation
 
-Node.js 22.5 or later, Express, and SQLite (`node:sqlite`).
+A small Express server on Node.js, using the built-in `node:sqlite` module rather than an external driver, so it needs Node.js 22.5 or later and no database server to install. The schema and starter rows are created on first run, routes are split by resource, and Basic-auth middleware guards the admin ones. `render.yaml` describes the optional hosted deployment.
+
+## Repository structure
+
+- `src/server.js` — the Express app and its middleware.
+- `src/routes/` — the journal and subscription routes.
+- `src/db.js` — the SQLite connection and schema.
+- `src/seed.js` — the starter journal entries.
+- `src/middleware/` — shared request middleware.
+- `src/lib/` — helper modules.
+- `src/public/` — the `/admin` panel.
+- `render.yaml` — the optional hosted deployment description.
 
 ## Run locally
 
@@ -26,32 +43,12 @@ npm run seed
 npm start
 ```
 
-Set `ADMIN_PASSWORD` before using any admin route. There is no default password.
+Set `ADMIN_PASSWORD` in `.env` before using any admin route; there is no default password. `.env.example` lists the remaining settings: `PORT` (defaults to `3001`), `ALLOWED_ORIGIN`, `ADMIN_USER` (defaults to `admin`) and `DATABASE_PATH` (defaults to `./data/arthic.db`). Use `ALLOWED_ORIGIN=*` only for local development.
 
-## Configuration
+## Status and limitations
 
-See `.env.example` for all settings:
-
-- `PORT` — server port; defaults to `3001`.
-- `ALLOWED_ORIGIN` — allowed frontend origin. Use `*` only for local development.
-- `ADMIN_USER` — admin username; defaults to `admin`.
-- `ADMIN_PASSWORD` — required admin password.
-- `DATABASE_PATH` — SQLite file path; defaults to `./data/arthic.db`.
-
-## API
-
-All responses are JSON. Admin-only endpoints use HTTP Basic authentication.
-
-- `GET /api/health` — health check.
-- `GET /api/journal` — list journal entries.
-- `GET /api/journal/:slug` — fetch one entry.
-- `POST /api/journal` — create an entry; requires title, excerpt, and publication date.
-- `PUT /api/journal/:slug` — update an entry.
-- `DELETE /api/journal/:slug` — delete an entry.
-- `POST /api/subscribe` — subscribe an email address.
-- `GET /api/subscribers` — list subscribers; admin only.
-
+Admin endpoints refuse to work until an admin password is configured, and a wildcard CORS origin should never be left in place outside local development. The journal and subscription routes here are simpler than the deployed API: there is no question bank, student workspace or practice scoring, and the SQLite file is local to the machine running the server. This backend is optional and is not the one serving arthic.tech.
 
 ## License
 
-The code is MIT licensed; see `../LICENSE`. The Arthic name and wordmark are not included.
+The code is MIT licensed; see [`../LICENSE`](../LICENSE). The Arthic name and wordmark are not included.

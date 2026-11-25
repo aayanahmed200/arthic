@@ -1,33 +1,40 @@
 # Arthic Frontend
 
-The Vite and TypeScript marketing site, with the deployed Vercel serverless API in `api/`.
+> The Vite and TypeScript marketing site for Arthic, together with the Vercel serverless API it calls.
+
+[![TypeScript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Vite](https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/) [![Vercel](https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/) [![PostgreSQL](https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
 ## Overview
 
-The frontend is a multi-page site for Arthic's Pakistani entrance-test preparation product. It can run with the same-origin Vercel API or be connected to the optional standalone Express backend.
+The frontend is the public Arthic site: informational pages for Pakistani entrance and competitive exams, waitlist and job-application forms, and an interactive practice-session preview built around original sample questions.
 
-## Highlights
+It runs against the same-origin Vercel API in `api/`, and can alternatively be pointed at the optional standalone Express backend. The deployed site is static apart from those serverless routes.
+
+## Key features
 
 - Multi-page Vite site with shared navigation and styles.
-- Waitlist and job-application forms backed by serverless endpoints.
+- Subject, study-method, pricing, career, waitlist, application, privacy, terms and cookie pages, plus a custom 404.
+- Waitlist and job-application forms backed by server-side endpoints.
 - Responsive pages with progressive enhancement and reduced-motion support.
-- The `/study-preview.html` route contains an interactive practice preview using original sample questions. Answer keys stay server-side and are checked by `api/study/check.ts`; the preview still has no student sign-in, licensed live question bank, AI mentor connection, or saved progress.
-- Preview features are labelled as previews rather than presented as finished functionality.
-- The AI mentor is in development and the current product is English-only.
-- `api/study/questions.ts` serves the same versioned original sample set used by the preview. It is not an official past-paper feed.
-- `api/admin/student-schema.ts` prepares the additive PostgreSQL schema for student accounts, sessions, question content, study sessions, answers and data requests. It is admin-protected and does not open student accounts.
-- `api/student/me.ts` verifies a Supabase access token against the Auth service and requires `email_confirmed_at`; it never trusts client-supplied profile data. It does not create a local profile or open the workspace.
-- Set `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` only in server environment settings to enable the verification check. Do not add a Supabase secret key to frontend variables.
-- Student sign-in remains unavailable until sign-up UI, verified email and recovery, age-appropriate consent, privacy terms and deletion/support procedures are ready.
-- `api/study/questions.ts` returns published question prompts without answer keys; `api/study/check.ts` scores a submitted option and returns the explanation only after submission. The original demo set remains the fallback until the database has published content.
-- `api/admin/questions.ts` is protected by the existing admin credentials. The `/admin` question-bank tab supports creating, editing, previewing, publishing, unpublishing and archiving. Editing a published item returns it to draft for review.
-- The admin schema setup adds authoring fields and seeds the three original sample questions as drafts. It never overwrites later edits.
-- `npm run build` type-checks the frontend and Vercel API files, runs identity, practice and question-bank validation/access tests, and then builds the site.
-- Run `npm run test:api` alone to test identity verification, server-side question scoring and question-bank validation without contacting a live Supabase project or writing to the database.
+- Interactive, browser-only study preview; answer keys stay server-side and are checked after submission.
+- Admin-protected question bank supporting creating, editing, previewing, publishing, unpublishing and archiving; editing a published item returns it to draft for review.
 
-## Technology
+## Implementation
 
-TypeScript, Vite, CSS, Vercel Functions, and PostgreSQL.
+The pages are hand-written HTML with one stylesheet, built by Vite without a framework, so navigation stays shared and the site ships as static files. The practice preview is the only JavaScript-heavy page and asks the API for its questions.
+
+The API in `api/` is a set of Vercel serverless functions written in TypeScript against PostgreSQL through `pg`. The waitlist and application endpoints create their own tables on first use. The student schema is prepared by an admin-protected endpoint that never opens sign-up by itself, and identity checks verify a Supabase access token against the Auth service instead of trusting client-supplied profile data. Question-bank items stay drafts until each has an answer, an explanation and a takeaway.
+
+## Repository structure
+
+- `index.html`, `subjects.html`, `method.html`, `pricing.html`, `careers.html`, `waitlist.html`, `apply.html` — the marketing pages.
+- `privacy.html`, `terms.html`, `cookies.html`, `404.html` — policy and fallback pages.
+- `study-preview.html` — the interactive practice preview.
+- `src/` — shared styles and page scripts.
+- `api/study/` — the versioned sample question sets, the question feed and the answer check.
+- `api/student/` — Supabase token verification, the current-student route and workspace status.
+- `api/admin/` — the admin-only question bank and student-schema endpoints.
+- `scripts/` — the validation and access tests run as part of the build.
 
 ## Run locally
 
@@ -45,16 +52,12 @@ npm install
 npm run dev
 ```
 
-The Vite server uses `http://localhost:5173`. The standalone Express backend can be reached at `http://localhost:3001` when configured. For Vercel deployment, set the Root Directory to `frontend`, add the server environment variables, and use `vercel.json` for build and output settings.
+`npm run build` type-checks the frontend and API files, runs the identity, practice and question-bank checks, then builds the site. `npm run test:api` runs those checks alone without contacting a live Supabase project or writing to the database.
 
-## Configuration
+## Status and limitations
 
-See `.env.example` for all settings:
+Student sign-in is not open: it stays unavailable until sign-up UI, verified email and recovery, age-appropriate consent, privacy terms and deletion procedures are ready. The practice preview is illustrative — progress exists only for the current page view, nothing is saved or sent, and its questions are not official past-paper content; `api/study/questions.ts` serves the same versioned original sample set and remains the fallback until the database has published content. Supabase settings belong only in server environment variables, never in frontend variables. Without a database connection the site still loads and routes that need storage return a clear not-configured response. The AI mentor and synced learner progress are still in development, and the product is English-only.
 
-- `VITE_API_BASE` — leave empty for the normal same-origin Vercel API. Set it only when using the standalone Express backend.
-- `POSTGRES_URL` — Postgres connection string for the deployed API.
-- `ADMIN_USER` — admin username; defaults to `admin`.
-- `ADMIN_PASSWORD` — required for admin endpoints.
+## License
 
-Without `POSTGRES_URL`, the site still loads; routes that need storage return a clear not-configured response.
-
+The code is MIT licensed; see [`../LICENSE`](../LICENSE). The Arthic name and wordmark are not covered by that license.
