@@ -35,29 +35,9 @@ The optional `backend/` directory is an independent Express and SQLite service i
 - `DEPLOYMENT.md` — current Vercel/PostgreSQL deployment setup and the alternative self-hosting path.
 - `LICENSE` — code license; the Arthic name and wordmark are excluded.
 
-## Run locally
-
-To run the active frontend and Vercel API together:
-
-```bash
-cd frontend
-npm install
-npx vercel dev
-```
-
-To run only the Vite frontend:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Run the project checks and production build with `npm run build` from `frontend/`. See [DEPLOYMENT.md](DEPLOYMENT.md) for database variables, admin setup, domain configuration, and the optional Express backend.
-
 ## Status and limitations
 
-Arthic is still in early access. Student accounts, verified sign-in, saved learner progress, the AI mentor, and several planned learning features are not yet available as a complete student-facing experience. The public practice preview is illustrative and uses original sample questions, not an official past-paper feed; progress is not saved. The current product is English-only. The student database schema is preparatory and does not by itself open registration.
+Arthic is still in early access. Student accounts, verified sign-in, saved learner progress, the AI mentor, and several planned learning features are not yet available as a complete student-facing experience. The public practice preview is illustrative and uses original sample questions, not an official past-paper feed; progress is not saved. The current product is English-only. The student database schema is preparatory and does not by itself open registration. The database variables, admin credentials and domain configuration are described in [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## License
 
