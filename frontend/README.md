@@ -25,6 +25,8 @@ The pages are hand-written HTML with one stylesheet, built by Vite without a fra
 
 The API in `api/` is a set of Vercel serverless functions written in TypeScript against PostgreSQL through `pg`. The waitlist and application endpoints create their own tables on first use. The student schema is prepared by an admin-protected endpoint that never opens sign-up by itself, and identity checks verify a Supabase access token against the Auth service instead of trusting client-supplied profile data. Question-bank items stay drafts until each has an answer, an explanation and a takeaway.
 
+The build is what keeps the two halves honest: it type-checks the frontend and the API files, runs the identity, practice and question-bank validation and access checks, and then builds the static site. Those checks are also kept as a separate script that runs without contacting a live Supabase project or writing to the database.
+
 ## Repository structure
 
 - `index.html`, `subjects.html`, `method.html`, `pricing.html`, `careers.html`, `waitlist.html`, `apply.html` — the marketing pages.
@@ -36,27 +38,11 @@ The API in `api/` is a set of Vercel serverless functions written in TypeScript 
 - `api/admin/` — the admin-only question bank and student-schema endpoints.
 - `scripts/` — the validation and access tests run as part of the build.
 
-## Run locally
-
-To run the site with its Vercel API:
-
-```bash
-npm install
-npx vercel dev
-```
-
-For the frontend alone:
-
-```bash
-npm install
-npm run dev
-```
-
-`npm run build` type-checks the frontend and API files, runs the identity, practice and question-bank checks, then builds the site. `npm run test:api` runs those checks alone without contacting a live Supabase project or writing to the database.
-
 ## Status and limitations
 
-Student sign-in is not open: it stays unavailable until sign-up UI, verified email and recovery, age-appropriate consent, privacy terms and deletion procedures are ready. The practice preview is illustrative — progress exists only for the current page view, nothing is saved or sent, and its questions are not official past-paper content; `api/study/questions.ts` serves the same versioned original sample set and remains the fallback until the database has published content. Supabase settings belong only in server environment variables, never in frontend variables. Without a database connection the site still loads and routes that need storage return a clear not-configured response. The AI mentor and synced learner progress are still in development, and the product is English-only.
+Student sign-in is not open: it stays unavailable until sign-up UI, verified email and recovery, age-appropriate consent, privacy terms and deletion procedures are ready. The practice preview is illustrative — progress exists only for the current page view, nothing is saved or sent, and its questions are not official past-paper content; `api/study/questions.ts` serves the same versioned original sample set and remains the fallback until the database has published content.
+
+The API needs a PostgreSQL connection string and the admin credentials from `.env.example` in its server environment, and Supabase settings belong only there, never in frontend variables. Without a database connection the site still loads and routes that need storage return a clear not-configured response. `VITE_API_BASE` exists solely for pointing the site at the standalone Express backend. The AI mentor and synced learner progress are still in development, and the product is English-only.
 
 ## License
 

@@ -21,7 +21,7 @@ It is independent of the frontend's serverless API, so a deployment uses one bac
 
 ## Implementation
 
-A small Express server on Node.js, using the built-in `node:sqlite` module rather than an external driver, so it needs Node.js 22.5 or later and no database server to install. The schema and starter rows are created on first run, routes are split by resource, and Basic-auth middleware guards the admin ones. `render.yaml` describes the optional hosted deployment.
+A small Express server on Node.js, using the built-in `node:sqlite` module rather than an external driver, so it needs Node.js 22.5 or later and no database server to install. The schema and starter rows are created on first run, with a seed script for the initial journal entries; routes are split by resource, and Basic-auth middleware guards the admin ones. `render.yaml` describes the optional hosted deployment.
 
 ## Repository structure
 
@@ -34,20 +34,11 @@ A small Express server on Node.js, using the built-in `node:sqlite` module rathe
 - `src/public/` — the `/admin` panel.
 - `render.yaml` — the optional hosted deployment description.
 
-## Run locally
-
-```bash
-npm install
-cp .env.example .env
-npm run seed
-npm start
-```
-
-Set `ADMIN_PASSWORD` in `.env` before using any admin route; there is no default password. `.env.example` lists the remaining settings: `PORT` (defaults to `3001`), `ALLOWED_ORIGIN`, `ADMIN_USER` (defaults to `admin`) and `DATABASE_PATH` (defaults to `./data/arthic.db`). Use `ALLOWED_ORIGIN=*` only for local development.
-
 ## Status and limitations
 
-Admin endpoints refuse to work until an admin password is configured, and a wildcard CORS origin should never be left in place outside local development. The journal and subscription routes here are simpler than the deployed API: there is no question bank, student workspace or practice scoring, and the SQLite file is local to the machine running the server. This backend is optional and is not the one serving arthic.tech.
+There is no default admin password, and the admin endpoints refuse to work until one is configured — so the basic-auth routes are only as safe as the password set for them. The allowed origin should name one frontend and only be widened for local development. The port defaults to `3001`, the SQLite file to `./data/arthic.db`, and the admin username to `admin`; `.env.example` lists every setting.
+
+This backend is narrower than the deployed API: there is no question bank, student workspace or practice scoring, and its database is a file local to the machine running the server. It is optional, and it is not what serves arthic.tech.
 
 ## License
 
