@@ -10,7 +10,7 @@ The backend provides journal and subscription endpoints for a self-hosted Arthic
 
 It is independent of the frontend's serverless API, so a deployment uses one backend architecture or the other, never both.
 
-## Key features
+## Highlights
 
 - JSON API for journal entries and subscriptions.
 - Basic-auth protection for admin endpoints.

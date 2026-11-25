@@ -12,7 +12,7 @@ Arthic brings exam information, study resources, and planning tools together for
 
 The active Vercel deployment uses the Vite/TypeScript frontend and serverless API backed by PostgreSQL. The repository also contains an optional, separate Express/SQLite backend for self-hosting; it is not the backend used by the current Vercel deployment.
 
-## Key features
+## Highlights
 
 - Information for MDCAT, ECAT, NUST NET, FAST, LUMS BA-LL.B admission, CSS, and PMS.
 - Subject, study-method, pricing, career, privacy, and terms pages.

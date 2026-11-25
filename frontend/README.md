@@ -10,7 +10,7 @@ The frontend is the public Arthic site: informational pages for Pakistani entran
 
 It runs against the same-origin Vercel API in `api/`, and can alternatively be pointed at the optional standalone Express backend. The deployed site is static apart from those serverless routes.
 
-## Key features
+## Highlights
 
 - Multi-page Vite site with shared navigation and styles.
 - Subject, study-method, pricing, career, waitlist, application, privacy, terms and cookie pages, plus a custom 404.
